@@ -1,0 +1,2 @@
+# gbt-7714-2015
+GB/T 7714-2015 BibTeX Style
