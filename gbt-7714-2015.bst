@@ -49,6 +49,7 @@ ENTRY
     author
     booktitle
     chapter
+    citedate
     doi
     eid
     edition
@@ -68,6 +69,7 @@ ENTRY
     school
     series
     title
+    translator
     type
     url
     volume
@@ -268,6 +270,18 @@ FUNCTION {format.editors}
   if$
 }
 
+FUNCTION {format.translators}
+{ translator empty$
+    { "" }
+    { translator format.names
+      translator num.names$ #1 >
+        { ", translators" * }
+        { ", translator" * }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
@@ -285,7 +299,7 @@ FUNCTION {format.issn}
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { new.block "URL \url{" url * "}" * }
+    { new.block "\url{" url * "}" * }
   if$
 }
 
@@ -429,8 +443,15 @@ FUNCTION {format.date}
   extra.label *
 }
 
+FUNCTION {format.citedate}
+{ citedate empty$
+    { "" }
+    { "[" citedate * "]" * }
+  if$
+}
+
 FUNCTION {format.btitle}
-{ title emphasize
+{ title
 }
 
 FUNCTION {tie.or.space.connect}
@@ -518,8 +539,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-        { "pages" pages n.dashify tie.or.space.connect }
-        { "page" pages tie.or.space.connect }
+        { "" pages n.dashify tie.or.space.connect }
+        { "" pages tie.or.space.connect }
       if$
     }
   if$
@@ -704,11 +725,14 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
-      eid empty$
-        { format.vol.num.pages output }
-        { format.vol.num.eid output }
-      if$
+    { format.editors output
+      new.block
+      journal "journal" output.check
+      new.block
+      format.edition output
+      new.block
+      address output
+      publisher "publisher" output.check
       format.date "year" output.check
     }
     { format.article.crossref output.nonnull
@@ -718,6 +742,8 @@ FUNCTION {article}
       if$
     }
   if$
+  format.pages output
+  format.citedate output
   format.issn output
   format.doi output
   format.url output
@@ -745,21 +771,23 @@ FUNCTION {book}
     { format.bvolume output
       new.block
       format.number.series output
+      new.block
+      format.translators output
+      new.block
+      format.edition output
       new.sentence
-      publisher "publisher" output.check
       address output
+      publisher "publisher" output.check
     }
     { new.block
       format.book.crossref output.nonnull
     }
   if$
-  format.edition output
   format.date "year" output.check
-  format.isbn output
-  format.doi output
+  format.pages output
+  format.citedate output
   format.url output
-  new.block
-  note output
+  format.doi output
   fin.entry
 }
 
