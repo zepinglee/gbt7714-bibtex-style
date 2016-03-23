@@ -729,26 +729,22 @@ FUNCTION {article}
       new.block
       journal "journal" output.check
       new.block
+      format.bvolume output
+      new.block
+      format.number.series output
+      new.block
       format.edition output
       new.block
       address output
       publisher "publisher" output.check
       format.date "year" output.check
     }
-    { format.article.crossref output.nonnull
-      eid empty$
-        { format.pages output }
-        { format.eid output }
-      if$
-    }
+    { format.article.crossref output.nonnull }
   if$
   format.pages output
   format.citedate output
-  format.issn output
-  format.doi output
   format.url output
-  new.block
-  note output
+  format.doi output
   fin.entry
 }
 
