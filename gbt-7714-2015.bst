@@ -117,6 +117,44 @@ FUNCTION {output}
   if$
 }
 
+FUNCTION {output.after}
+{ 't :=
+  duplicate$ empty$
+    'pop$
+    { 's :=
+      output.state mid.sentence =
+        { t * write$ }
+        { output.state after.block =
+            { t * write$
+              newline$
+              "\newblock " write$
+            }
+            { output.state before.all =
+                'write$
+                { t * write$ }
+              if$
+            }
+          if$
+          mid.sentence 'output.state :=
+        }
+      if$
+      s
+    }
+  if$
+}
+
+FUNCTION {punct.colon}
+{ ": "
+}
+
+FUNCTION {punct.slash}
+{ "//"
+}
+
+FUNCTION {punct.space}
+{ " "
+}
+
 FUNCTION {output.check}
 { 't :=
   duplicate$ empty$
@@ -725,24 +763,24 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { format.editors output
+    { format.editors punct.slash output.after
       new.block
       journal "journal" output.check
       new.block
-      format.bvolume output
+      format.bvolume punct.colon output.after
       new.block
       format.number.series output
       new.block
       format.edition output
       new.block
       address output
-      publisher "publisher" output.check
+      publisher punct.colon output.after
       format.date "year" output.check
     }
     { format.article.crossref output.nonnull }
   if$
-  format.pages output
-  format.citedate output
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
   format.url output
   format.doi output
   fin.entry
@@ -764,7 +802,7 @@ FUNCTION {book}
   new.block
   format.btitle "title" output.check
   crossref missing$
-    { format.bvolume output
+    { format.bvolume punct.colon output.after
       new.block
       format.number.series output
       new.block
@@ -773,15 +811,15 @@ FUNCTION {book}
       format.edition output
       new.sentence
       address output
-      publisher "publisher" output.check
+      publisher punct.colon output.after
     }
     { new.block
       format.book.crossref output.nonnull
     }
   if$
   format.date "year" output.check
-  format.pages output
-  format.citedate output
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
   format.url output
   format.doi output
   fin.entry
