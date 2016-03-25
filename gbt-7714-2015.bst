@@ -60,6 +60,7 @@ ENTRY
     issn
     journal
     key
+    mark
     month
     note
     number
@@ -353,6 +354,19 @@ FUNCTION {format.title}
     { "" }
     { title "t" change.case$ }
   if$
+}
+
+FUNCTION {format.mark}
+{ mark empty$
+    'skip$
+    { pop$ mark }
+  if$
+  " [" swap$ *
+  url empty$
+    'skip$
+    { "/OL" * }
+  if$
+  "]" *
 }
 
 FUNCTION {format.full.names}
@@ -761,6 +775,7 @@ FUNCTION {article}
   author format.key output
   new.block
   format.title "title" output.check
+  "J" format.mark "" output.after
   new.block
   crossref missing$
     { format.editors punct.slash output.after
@@ -803,6 +818,7 @@ FUNCTION {book}
   format.btitle "title" output.check
   crossref missing$
     { format.bvolume punct.colon output.after
+      "M" format.mark "" output.after
       new.block
       format.number.series output
       new.block
