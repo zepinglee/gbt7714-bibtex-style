@@ -60,6 +60,7 @@ ENTRY
     issn
     journal
     key
+    language
     mark
     month
     note
@@ -252,6 +253,20 @@ FUNCTION {emphasize}
   if$
 }
 
+FUNCTION {format.et.al}
+{ language "zh" =
+    { "等"}
+    { "et~al." }
+  if$
+}
+
+FUNCTION {format.anonymous}
+{ language "zh" =
+    { "佚名"}
+    { "Anon, " year * }
+  if$
+}
+
 INTEGERS { nameptr namesleft numnames }
 
 FUNCTION {format.names}
@@ -259,20 +274,20 @@ FUNCTION {format.names}
   #1 'nameptr :=
   s num.names$ 'numnames :=
   numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
+    { namesleft #0 > nameptr #4 < and }
+    { s nameptr "{vv~}{ll}{ f{ }}{ jj}" format.name$ 't :=
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
-            { numnames #2 >
-                { "," * }
-                'skip$
-              if$
-              t "others" =
-                { " et~al." * }
-                { " and " * t * }
+            { t "others" =
+                { ", " * format.et.al * }
+                { ", " * t * }
               if$
             }
+          if$
+          nameptr #3 =
+            { ", " format.et.al * }
+            'skip$
           if$
         }
         't
