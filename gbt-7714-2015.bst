@@ -91,6 +91,22 @@ FUNCTION {init.state.consts}
 
 STRINGS { s t }
 
+FUNCTION {debug}
+{ 's :=
+  duplicate$
+  "DEBUG: " s * " -> `" *
+  swap$ * "'" *
+  top$
+}
+
+FUNCTION {debug.int}
+{ 's :=
+  duplicate$ int.to.str$
+  "DEBUG: " s * " == " *
+  swap$ *
+  top$
+}
+
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
@@ -253,15 +269,26 @@ FUNCTION {emphasize}
   if$
 }
 
+FUNCTION {is.in.chinese}
+{ language empty$
+    { #0 }
+    { language "zh" =
+        { #1 }
+        { #0 }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.et.al}
-{ language "zh" =
+{ is.in.chinese
     { "等"}
     { "et~al." }
   if$
 }
 
 FUNCTION {format.anonymous}
-{ language "zh" =
+{ is.in.chinese
     { "佚名"}
     { "Anon, " year * }
   if$
@@ -569,12 +596,75 @@ FUNCTION {format.number.series}
   if$
 }
 
+FUNCTION {is.digit}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { chr.to.int$
+      duplicate$ "0" chr.to.int$ <
+      { pop$ #0 }
+      { "9" chr.to.int$ >
+          { #0 }
+          { #1 }
+        if$
+      }
+    if$
+    }
+  if$
+}
+
+INTEGERS { charptr }
+FUNCTION {is.number}
+{ 's :=
+  s empty$
+    { #0 }
+    { s text.length$ 'charptr :=
+        { charptr #0 >
+          s charptr #1 substring$ is.digit
+          and
+        }
+        { charptr #1 - 'charptr := }
+      while$
+      charptr not
+    }
+  if$
+}
+
+FUNCTION {num.to.ordinal}
+{ duplicate$ text.length$ 'charptr :=
+  duplicate$ charptr #1 substring$ 's :=
+  s "1" =
+    { "st" *}
+    { s "2" =
+        { "nd" *}
+        { s "3" =
+            { "rd" * }
+            { "th" * }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.edition}
 { edition empty$
     { "" }
-    { output.state mid.sentence =
-        { edition "l" change.case$ " edition" * }
-        { edition "t" change.case$ " edition" * }
+    { edition is.number
+        { is.in.chinese
+            { edition "版" * }
+            { edition num.to.ordinal " ed." * }
+          if$
+        }
+        { edition "t" change.case$
+          edition "Revised" =
+            { "Rev. ed." }
+            { edition "Revised edition" =
+                { "Rev. ed." }
+                'skip$
+              if$
+            }
+          if$
+         }
       if$
     }
   if$
