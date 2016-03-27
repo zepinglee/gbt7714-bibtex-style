@@ -670,6 +670,21 @@ FUNCTION {format.edition}
   if$
 }
 
+FUNCTION {format.address}
+{ address empty$
+    { url empty$
+        { is.in.chinese
+            { "[出版地不详]" }
+            { "[S.l.]" }
+          if$
+        }
+        { "" }
+      if$
+    }
+    { address }
+  if$
+}
+
 INTEGERS { multiresult }
 
 FUNCTION {multi.page.check}
@@ -893,7 +908,7 @@ FUNCTION {article}
       new.block
       format.edition output
       new.block
-      address output
+      format.address output
       publisher punct.colon output.after
       format.date "year" output.check
     }
@@ -931,7 +946,7 @@ FUNCTION {book}
       new.block
       format.edition output
       new.sentence
-      address output
+      format.address output
       publisher punct.colon output.after
     }
     { new.block
@@ -954,7 +969,7 @@ FUNCTION {booklet}
   format.title "title" output.check
   howpublished address new.block.checkb
   howpublished output
-  address output
+  format.address output
   format.date output
   format.isbn output
   format.doi output
@@ -986,7 +1001,7 @@ FUNCTION {inbook}
       format.number.series output
       new.sentence
       publisher "publisher" output.check
-      address output
+      format.address output
     }
     { format.chapter.pages "chapter and pages" output.check
       new.block
@@ -1017,7 +1032,7 @@ FUNCTION {incollection}
       format.chapter.pages output
       new.sentence
       publisher "publisher" output.check
-      address output
+      format.address output
       format.edition output
       format.date "year" output.check
     }
@@ -1051,7 +1066,7 @@ FUNCTION {inproceedings}
           publisher output
           format.date "year" output.check
         }
-        { address output.nonnull
+        { format.address output.nonnull
           format.date "year" output.check
           new.sentence
           organization output
@@ -1081,7 +1096,7 @@ FUNCTION {manual}
   format.btitle "title" output.check
   organization address new.block.checkb
   organization output
-  address output
+  format.address output
   format.edition output
   format.date output
   format.url output
@@ -1099,7 +1114,7 @@ FUNCTION {mastersthesis}
   new.block
   "Master's thesis" format.thesis.type output.nonnull
   school "school" output.check
-  address output
+  format.address output
   format.date "year" output.check
   format.url output
   new.block
@@ -1133,7 +1148,7 @@ FUNCTION {phdthesis}
   new.block
   "PhD thesis" format.thesis.type output.nonnull
   school "school" output.check
-  address output
+  format.address output
   format.date "year" output.check
   format.url output
   new.block
@@ -1149,7 +1164,7 @@ FUNCTION {proceedings}
   format.btitle "title" output.check
   format.bvolume output
   format.number.series output
-  address output
+  format.address output
   format.date "year" output.check
   new.sentence
   organization output
@@ -1171,7 +1186,7 @@ FUNCTION {techreport}
   new.block
   format.tr.number output.nonnull
   institution "institution" output.check
-  address output
+  format.address output
   format.date "year" output.check
   format.url output
   new.block

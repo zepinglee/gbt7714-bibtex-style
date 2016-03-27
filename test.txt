@@ -1,3 +1,16 @@
+@inproceedings{perez2003poisson,
+  title={Poisson image editing},
+  author={P{\'e}rez, Patrick and Gangnet, Michel and Blake, Andrew},
+  booktitle={ACM Transactions on Graphics (TOG)},
+  volume={22},
+  number={3},
+  pages={313--318},
+  year={2003},
+  organization={ACM}
+}
+
+Pérez P, Gangnet M, Blake A. Poisson image editing[C]//ACM Transactions on Graphics (TOG). ACM, 2003, 22(3): 313-318.
+
 A．专著著录格式
 
 主要责任者. 题名：其他题名信息[文献类型标识/文献载体标识]. 其他责任者. 版本项. 出版地：出版者，出版年：引文页码[引用日期]. 获取和访问路径. 数字对象唯一标识符.
