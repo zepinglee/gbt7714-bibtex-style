@@ -685,6 +685,21 @@ FUNCTION {format.address}
   if$
 }
 
+FUNCTION {format.publisher}
+{ publisher empty$
+    { url empty$
+        { is.in.chinese
+            { "[出版者不详]" }
+            { "[s.n.]" }
+          if$
+        }
+        { "" }
+      if$
+    }
+    { publisher }
+  if$
+}
+
 INTEGERS { multiresult }
 
 FUNCTION {multi.page.check}
@@ -909,7 +924,7 @@ FUNCTION {article}
       format.edition output
       new.block
       format.address output
-      publisher punct.colon output.after
+      format.publisher punct.colon output.after
       format.date "year" output.check
     }
     { format.article.crossref output.nonnull }
@@ -947,7 +962,7 @@ FUNCTION {book}
       format.edition output
       new.sentence
       format.address output
-      publisher punct.colon output.after
+      format.publisher punct.colon output.after
     }
     { new.block
       format.book.crossref output.nonnull
