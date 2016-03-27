@@ -725,11 +725,7 @@ FUNCTION {multi.page.check}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages multi.page.check
-        { "" pages n.dashify tie.or.space.connect }
-        { "" pages tie.or.space.connect }
-      if$
-    }
+    { pages }
   if$
 }
 
