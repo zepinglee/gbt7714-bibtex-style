@@ -2,8 +2,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{url}
 \usepackage{natbib}
-\setcitestyle{square}
 \bibliographystyle{gbt-7714-2015}
+% \bibliographystyle{plainnat}
+% \bibliographystyle{unsrtnat}
 
 \begin{document}
 
@@ -11,9 +12,12 @@
 \date{}
 \maketitle
 
-\section{Basic Commands}
+\section{著者-出版年制标注法}
+\setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}
+
 \begin{quote}
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\cite{sommers}| & \cite{sommers}\\
   \verb|\citet{sommers}| & \citet{sommers}\\
   \verb|\citet[chap.~2]{sommers}| & \citet[chap.~2]{sommers}\\[0.5ex]
   \verb|\citep{sommers}| & \citep{sommers}\\
@@ -22,6 +26,37 @@
   \verb|\citep[see][chap.~2]{sommers}| & \citep[see][chap.~2]{sommers}\\[0.5ex]
   \verb|\citet*{sommers}| & \citet*{sommers}\\
   \verb|\citep*{sommers}| & \citep*{sommers}
+\end{tabular}
+\end{quote}
+\begin{quote}
+\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\cite{sommers,cdy}| & \cite{sommers,cdy}\\
+  \verb|\citet{sommers,cdy}| & \citet{sommers,cdy}\\
+  \verb|\citep{sommers,cdy}| & \citep{sommers,cdy}
+\end{tabular}
+\end{quote}
+
+\section{顺序编码制标注法}
+\setcitestyle{super,square,comma,sort&compress}
+
+\begin{quote}
+\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\cite{sommers}| & \cite{sommers}\\
+  \verb|\citet{sommers}| & \citet{sommers}\\
+  \verb|\citet[chap.~2]{sommers}| & \citet[chap.~2]{sommers}\\[0.5ex]
+  \verb|\citep{sommers}| & \citep{sommers}\\
+  \verb|\citep[chap.~2]{sommers}| & \citep[chap.~2]{sommers}\\
+  \verb|\citep[see][]{sommers}| & \citep[see][]{sommers}\\
+  \verb|\citep[see][chap.~2]{sommers}| & \citep[see][chap.~2]{sommers}\\[0.5ex]
+  \verb|\citet*{sommers}| & \citet*{sommers}\\
+  \verb|\citep*{sommers}| & \citep*{sommers}
+\end{tabular}
+\end{quote}
+\begin{quote}
+\begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+  \verb|\cite{sommers,cdy}| & \cite{sommers,cdy}\\
+  \verb|\citet{sommers,cdy}| & \citet{sommers,cdy}\\
+  \verb|\citep{sommers,cdy}| & \citep{sommers,cdy}
 \end{tabular}
 \end{quote}
 
