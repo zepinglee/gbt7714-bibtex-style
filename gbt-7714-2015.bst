@@ -343,10 +343,6 @@ FUNCTION {format.editors}
 { editor empty$
     { "" }
     { editor format.names
-      editor num.names$ #1 >
-        { ", editors" * }
-        { ", editor" * }
-      if$
     }
   if$
 }
@@ -355,9 +351,9 @@ FUNCTION {format.translators}
 { translator empty$
     { "" }
     { translator format.names
-      translator num.names$ #1 >
-        { ", translators" * }
-        { ", translator" * }
+      is.in.chinese
+        { ",译" * }
+        'skip$
       if$
     }
   if$
