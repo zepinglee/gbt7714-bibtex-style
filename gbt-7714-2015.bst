@@ -1172,6 +1172,21 @@ FUNCTION {newspaper}
   fin.entry
 }
 
+FUNCTION {patent}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  new.block
+  format.title "title" output.check
+  "P" format.mark "" output.after
+  new.block
+  format.date "year" output.check
+  format.citedate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
 FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}

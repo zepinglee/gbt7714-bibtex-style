@@ -23,7 +23,7 @@
 - [x] 学位论文：`masterthesis` 或 `phdthesis`
 - [x] 报告：`techreport`
 - [x] 标准：`standard`*
-- [ ] 专利：`patent`*
+- [x] 专利：`patent`*
 - [ ] 数据库：`database`*
 - [ ] 计算机程序：`program`*
 - [ ] 电子公告：
