@@ -399,7 +399,7 @@ FUNCTION {format.mark}
     'skip$
     { pop$ mark }
   if$
-  " [" swap$ *
+  "[" swap$ *
   url empty$
     'skip$
     { "/OL" * }
@@ -540,10 +540,6 @@ FUNCTION {format.citedate}
   if$
 }
 
-FUNCTION {format.btitle}
-{ title
-}
-
 FUNCTION {tie.or.space.connect}
 { duplicate$ text.length$ #3 <
     { "~" }
@@ -556,39 +552,6 @@ FUNCTION {either.or.check}
 { empty$
     'pop$
     { "can't use both " swap$ * " fields in " * cite$ * warning$ }
-  if$
-}
-
-FUNCTION {format.bvolume}
-{ volume empty$
-    { "" }
-    { "volume" volume tie.or.space.connect
-      series empty$
-        'skip$
-        { " of " * series emphasize * }
-      if$
-      "volume and number" number either.or.check
-    }
-  if$
-}
-
-FUNCTION {format.number.series}
-{ volume empty$
-    { number empty$
-        { series field.or.null }
-        { output.state mid.sentence =
-            { "number" }
-            { "Number" }
-          if$
-          number tie.or.space.connect
-          series empty$
-            { "there's a number but no series in " cite$ * warning$ }
-            { " in " * series * }
-          if$
-        }
-      if$
-    }
-    { "" }
   if$
 }
 
@@ -621,6 +584,74 @@ FUNCTION {is.number}
         { charptr #1 - 'charptr := }
       while$
       charptr not
+    }
+  if$
+}
+
+FUNCTION {format.bvolume}
+{ volume empty$
+    { "" }
+    { ": "
+      volume is.number
+        { is.in.chinese
+            { "第" volume * "卷" * }
+            { "volume" volume tie.or.space.connect }
+          if$
+        }
+        { volume }
+      if$ *
+    }
+  if$
+}
+
+FUNCTION {format.number}
+{ number empty$
+    { "" }
+    { ": "
+      number is.number
+        { is.in.chinese
+            { "第" volume * "册" * }
+            { "number" number tie.or.space.connect }
+          if$
+        }
+        { number }
+      if$ *
+    }
+  if$
+}
+
+FUNCTION {format.number.series}
+{ volume empty$
+    { number empty$
+        { series field.or.null }
+        { output.state mid.sentence =
+            { "number" }
+            { "Number" }
+          if$
+          number tie.or.space.connect
+          series empty$
+            { "there's a number but no series in " cite$ * warning$ }
+            { " in " * series * }
+          if$
+        }
+      if$
+    }
+    { "" }
+  if$
+}
+
+
+FUNCTION {format.btitle}
+{ series empty$
+    { title
+      format.bvolume *
+    }
+    { series
+      volume empty$
+        { format.number * }
+        { format.bvolume * }
+      if$
+      "\hspace{1em}" * title *
     }
   if$
 }
@@ -944,10 +975,7 @@ FUNCTION {book}
   new.block
   format.btitle "title" output.check
   crossref missing$
-    { format.bvolume punct.colon output.after
-      "M" format.mark "" output.after
-      new.block
-      format.number.series output
+    { "M" format.mark "" output.after
       new.block
       format.translators output
       new.block
