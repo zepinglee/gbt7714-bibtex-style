@@ -54,6 +54,7 @@ ENTRY
     eid
     edition
     editor
+    editdate
     howpublished
     institution
     isbn
@@ -533,6 +534,13 @@ FUNCTION {format.date}
   extra.label *
 }
 
+FUNCTION {format.editdate}
+{ editdate empty$
+    { "" }
+    { "(" citedate * ")" * }
+  if$
+}
+
 FUNCTION {format.citedate}
 { citedate empty$
     { "" }
@@ -966,7 +974,7 @@ FUNCTION {article}
       format.vol.num.pages output
     }
   if$
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -997,7 +1005,7 @@ FUNCTION {book}
   format.publisher punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1046,15 +1054,13 @@ FUNCTION {collection}
   format.publisher punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
 }
 
-FUNCTION {inbook}
-{ book
-}
+FUNCTION {inbook} { book }
 
 FUNCTION {inproceedings}
 { output.bibitem
@@ -1084,7 +1090,7 @@ FUNCTION {inproceedings}
   if$ punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1125,7 +1131,7 @@ FUNCTION {mastersthesis}
   format.publisher punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1160,7 +1166,7 @@ FUNCTION {newspaper}
   new.block
   format.date "year" output.check
   format.vol.num.pages output
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1187,7 +1193,7 @@ FUNCTION {proceedings}
   if$ punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
-  format.citedate punct.space output.after
+  format.citedate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1195,18 +1201,24 @@ FUNCTION {proceedings}
 
 FUNCTION {techreport}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   new.block
-  format.title "title" output.check
+  format.series.volume.title "title" output.check
+  "R" format.mark "" output.after
   new.block
-  format.tr.number output.nonnull
-  institution "institution" output.check
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
   format.address output
+  format.publisher punct.colon output.after
   format.date "year" output.check
+  format.pages punct.colon output.after
+  format.editdate "" output.after
+  format.citedate "" output.after
   format.url output
-  new.block
-  note output
+  format.doi output
   fin.entry
 }
 

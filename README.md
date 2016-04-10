@@ -21,7 +21,7 @@
 - [x] 报纸：`newspaper`*
 - [x] 期刊（的析出文献）：`article`
 - [x] 学位论文：`masterthesis` 或 `phdthesis`
-- [ ] 报告：`techreport`
+- [x] 报告：`techreport`
 - [ ] 标准：`standard`*
 - [ ] 专利：`patent`*
 - [ ] 数据库：`database`*
@@ -50,6 +50,7 @@
 数字对象唯一标识符 | doi
 版本 | edition
 编辑 | editor
+修改日期 | editdate
 机构（用于techreport） | institution
 期刊题名 | journal
 排序的关键词 | key
