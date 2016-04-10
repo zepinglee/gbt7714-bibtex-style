@@ -591,15 +591,14 @@ FUNCTION {is.number}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { ": "
-      volume is.number
+    { volume is.number
         { is.in.chinese
             { "第" volume * "卷" * }
             { "volume" volume tie.or.space.connect }
           if$
         }
         { volume }
-      if$ *
+      if$
     }
   if$
 }
@@ -607,15 +606,14 @@ FUNCTION {format.bvolume}
 FUNCTION {format.number}
 { number empty$
     { "" }
-    { ": "
-      number is.number
+    { number is.number
         { is.in.chinese
             { "第" volume * "册" * }
             { "number" number tie.or.space.connect }
           if$
         }
         { number }
-      if$ *
+      if$
     }
   if$
 }
@@ -640,16 +638,25 @@ FUNCTION {format.number.series}
   if$
 }
 
-
 FUNCTION {format.btitle}
 { series empty$
     { title
-      format.bvolume *
+      volume empty$
+        'skip$
+        { ": " * format.bvolume * }
+      if$
     }
     { series
       volume empty$
-        { format.number * }
-        { format.bvolume * }
+        { number empty$
+          'skip$
+          { ": " * format.number * }
+        if$ }
+        { volume empty$
+          'skip$
+          { ": " * format.bvolume * }
+        if$
+        }
       if$
       "\hspace{1em}" * title *
     }
@@ -933,26 +940,30 @@ FUNCTION {article}
   author format.key output
   new.block
   format.title "title" output.check
-  "J" format.mark "" output.after
-  new.block
-  crossref missing$
-    { format.editors punct.slash output.after
+  journal empty$
+    { "M" format.mark "" output.after
       new.block
-      journal "journal" output.check
+      format.editors punct.slash output.after
+      new.block
+      booktitle "booktitle" output.check
       new.block
       format.bvolume punct.colon output.after
-      new.block
-      format.number.series output
       new.block
       format.edition output
       new.block
       format.address output
       format.publisher punct.colon output.after
       format.date "year" output.check
+      format.pages punct.colon output.after
     }
-    { format.article.crossref output.nonnull }
+    { "J" format.mark "" output.after
+      new.block
+      journal "journal" output.check
+      new.block
+      format.date "year" output.check
+      format.vol.num.pages output
+    }
   if$
-  format.pages punct.colon output.after
   format.citedate punct.space output.after
   format.url output
   format.doi output

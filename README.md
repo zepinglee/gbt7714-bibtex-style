@@ -14,7 +14,7 @@
 文献类型 | entry type
 
 - [x] 普通图书：`book` 或 `inbook`
-- [ ] 图书（的析出文献）：`article`
+- [x] 图书（的析出文献）：`article`
 - [ ] 会议录：`proceedings`
 - [ ] 会议录（的析出文献）：`inproceedings` 或 `conference`
 - [ ] 汇编（的析出文献）：`incollection`
@@ -34,7 +34,7 @@
 - [ ] 其他：`misc`
 
 注：
-1. `inbook` 是指书的章节或若干页。
+1. `ariticle` 会根据 journal 域判断是图书还是期刊的析出文献
 2. `proceedings` 按照“专著”处理，`inproceedings` 按照“专著中的析出文献”处理。
 3. 带 “*” 的类型不是 BibTeX 原生支持的。
 4. 不支持的 BibTeX 的原生类型有：`booklet`, `manual`, `unpublished`。
