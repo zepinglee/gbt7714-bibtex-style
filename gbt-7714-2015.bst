@@ -1111,18 +1111,23 @@ FUNCTION {manual}
 
 FUNCTION {mastersthesis}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   new.block
-  format.title "title" output.check
+  format.series.volume.title "title" output.check
+  "D" format.mark "" output.after
   new.block
-  "Master's thesis" format.thesis.type output.nonnull
-  school "school" output.check
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
   format.address output
+  format.publisher punct.colon output.after
   format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
   format.url output
-  new.block
-  note output
+  format.doi output
   fin.entry
 }
 
@@ -1161,22 +1166,7 @@ FUNCTION {newspaper}
   fin.entry
 }
 
-FUNCTION {phdthesis}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  new.block
-  format.series.volume.title "title" output.check
-  new.block
-  "PhD thesis" format.thesis.type output.nonnull
-  school "school" output.check
-  format.address output
-  format.date "year" output.check
-  format.url output
-  new.block
-  note output
-  fin.entry
-}
+FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}
 { output.bibitem

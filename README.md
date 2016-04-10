@@ -19,9 +19,8 @@
 - [x] 会议录（的析出文献）：`inproceedings` 或 `conference`
 - [x] 汇编：`collection`*
 - [x] 报纸：`newspaper`*
-- [ ] 期刊：`journal`*
-- [ ] 期刊（的析出文献）：`article`
-- [ ] 学位论文：`masterthesis` 或 `phdthesis`
+- [x] 期刊（的析出文献）：`article`
+- [x] 学位论文：`masterthesis` 或 `phdthesis`
 - [ ] 报告：`techreport`
 - [ ] 标准：`standard`*
 - [ ] 专利：`patent`*
