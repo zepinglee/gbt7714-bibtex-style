@@ -17,7 +17,7 @@
 - [x] 图书（的析出文献）：`article`
 - [x] 会议录：`proceedings`
 - [x] 会议录（的析出文献）：`inproceedings` 或 `conference`
-- [ ] 汇编（的析出文献）：`incollection`
+- [x] 汇编：`collection`
 - [ ] 报纸：`newspaper`*
 - [ ] 期刊：`journal`*
 - [ ] 期刊（的析出文献）：`article`

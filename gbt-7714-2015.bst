@@ -1021,38 +1021,39 @@ FUNCTION {booklet}
   fin.entry
 }
 
-FUNCTION {inbook}
-{ book
-}
-
-FUNCTION {incollection}
+FUNCTION {collection}
 { output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  new.block
-  format.title "title" output.check
-  new.block
-  crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.chapter.pages output
-      new.sentence
-      publisher "publisher" output.check
-      format.address output
-      format.edition output
-      format.date "year" output.check
+  author empty$
+    { format.editors "author and editor" output.check
+      editor format.key output
     }
-    { format.incoll.inproc.crossref output.nonnull
-      format.chapter.pages output
+    { format.authors output.nonnull
+      crossref missing$
+        { "author and editor" editor either.or.check }
+        'skip$
+      if$
     }
   if$
-  format.isbn output
-  format.doi output
-  format.url output
   new.block
-  note output
+  format.series.volume.title "title" output.check
+  "G" format.mark "" output.after
+  new.block
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  format.publisher punct.colon output.after
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
+  format.url output
+  format.doi output
   fin.entry
+}
+
+FUNCTION {inbook}
+{ book
 }
 
 FUNCTION {inproceedings}
