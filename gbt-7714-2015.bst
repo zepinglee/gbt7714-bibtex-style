@@ -974,20 +974,14 @@ FUNCTION {book}
   if$
   new.block
   format.btitle "title" output.check
-  crossref missing$
-    { "M" format.mark "" output.after
-      new.block
-      format.translators output
-      new.block
-      format.edition output
-      new.sentence
-      format.address output
-      format.publisher punct.colon output.after
-    }
-    { new.block
-      format.book.crossref output.nonnull
-    }
-  if$
+  "M" format.mark "" output.after
+  new.block
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  format.publisher punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate punct.space output.after
@@ -1015,42 +1009,7 @@ FUNCTION {booklet}
 }
 
 FUNCTION {inbook}
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check
-      editor format.key output
-    }
-    { format.authors output.nonnull
-      crossref missing$
-        { "author and editor" editor either.or.check }
-        'skip$
-      if$
-    }
-  if$
-  new.block
-  format.btitle "title" output.check
-  crossref missing$
-    { format.bvolume output
-      format.chapter.pages "chapter and pages" output.check
-      new.block
-      format.number.series output
-      new.sentence
-      publisher "publisher" output.check
-      format.address output
-    }
-    { format.chapter.pages "chapter and pages" output.check
-      new.block
-      format.book.crossref output.nonnull
-    }
-  if$
-  format.edition output
-  format.date "year" output.check
-  format.isbn output
-  format.doi output
-  format.url output
-  new.block
-  note output
-  fin.entry
+{ book
 }
 
 FUNCTION {incollection}
