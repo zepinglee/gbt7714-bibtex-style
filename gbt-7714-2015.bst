@@ -1143,6 +1143,24 @@ FUNCTION {misc}
   empty.misc.check
 }
 
+FUNCTION {newspaper}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  "N" format.mark "" output.after
+  new.block
+  journal "journal" output.check
+  new.block
+  format.date "year" output.check
+  format.vol.num.pages output
+  format.citedate punct.space output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
 FUNCTION {phdthesis}
 { output.bibitem
   format.authors "author" output.check

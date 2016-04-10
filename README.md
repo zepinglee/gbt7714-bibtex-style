@@ -5,7 +5,7 @@
 - [ ] 检查全角／半角
 - [ ] 检查空白距离
 - [x] 文献类型标识
-- [ ] 著录项目和格式（中英文）
+- [x] 著录项目和格式（中英文）
 - [ ] 其他类型文献的支持
 - [ ] author-year 式 (主要是排序)
 
@@ -17,8 +17,8 @@
 - [x] 图书（的析出文献）：`article`
 - [x] 会议录：`proceedings`
 - [x] 会议录（的析出文献）：`inproceedings` 或 `conference`
-- [x] 汇编：`collection`
-- [ ] 报纸：`newspaper`*
+- [x] 汇编：`collection`*
+- [x] 报纸：`newspaper`*
 - [ ] 期刊：`journal`*
 - [ ] 期刊（的析出文献）：`article`
 - [ ] 学位论文：`masterthesis` 或 `phdthesis`
