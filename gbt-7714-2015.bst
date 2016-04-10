@@ -943,6 +943,8 @@ FUNCTION {article}
   journal empty$
     { "M" format.mark "" output.after
       new.block
+      format.translators output
+      new.block
       format.editors punct.slash output.after
       new.block
       booktitle "booktitle" output.check
@@ -1059,35 +1061,31 @@ FUNCTION {inproceedings}
   author format.key output
   new.block
   format.title "title" output.check
+  "C" format.mark "" output.after
   new.block
-  crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.pages output
-      address empty$
-        { organization publisher new.sentence.checkb
-          organization output
-          publisher output
-          format.date "year" output.check
-        }
-        { format.address output.nonnull
-          format.date "year" output.check
-          new.sentence
-          organization output
-          publisher output
-        }
-      if$
-    }
-    { format.incoll.inproc.crossref output.nonnull
-      format.pages output
-    }
-  if$
-  format.isbn output
-  format.doi output
+  format.translators output
+  new.block
+  editor empty$
+    { organization }
+    { format.editors }
+  if$ punct.slash output.after
+  new.block
+  booktitle "booktitle" output.check
+  new.block
+  format.bvolume punct.colon output.after
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  publisher empty$
+    { organization }
+    { format.publisher }
+  if$ punct.colon output.after
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
   format.url output
-  new.block
-  note output
+  format.doi output
   fin.entry
 }
 
@@ -1170,6 +1168,8 @@ FUNCTION {proceedings}
   "C" format.mark "" output.after
   new.block
   format.translators output
+  new.block
+  format.edition output
   new.sentence
   format.address output
   publisher empty$
