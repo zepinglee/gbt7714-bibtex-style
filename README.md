@@ -4,35 +4,38 @@
 
 - [ ] 检查全角／半角
 - [ ] 检查空白距离
+- [ ] url 断行
 - [x] 文献类型标识
 - [x] 著录项目和格式（中英文）
 - [x] 其他类型文献的支持
+- [ ] 交叉引用
 - [ ] author-year 式 (主要是排序)
 
 ## 当前支持的文献类型
 
 文献类型 | entry type
-
-- [x] 普通图书：`book` 或 `inbook`
-- [x] 图书（的析出文献）：`article`
-- [x] 会议录：`proceedings`
-- [x] 会议录（的析出文献）：`inproceedings` 或 `conference`
-- [x] 汇编：`collection`*
-- [x] 报纸：`newspaper`*
-- [x] 期刊（的析出文献）：`article`
-- [x] 学位论文：`masterthesis` 或 `phdthesis`
-- [x] 报告：`techreport`
-- [x] 标准：`standard`*
-- [x] 专利：`patent`*
-- [x] 数据库：`database`*
-- [x] 计算机程序：`program`*
-- [x] 电子公告：`online`*
-- [x] 档案：`archive`*
-- [x] 舆图：`map`*
-- [x] 数据集：`dataset`*
-- [x] 其他：`misc`
+---|---
+普通图书 | `book` 或 `inbook` 或 `incollection`
+图书（的析出文献） | `article`
+会议录 | `proceedings`
+会议录（的析出文献） | `inproceedings` 或 `conference`
+汇编 | `collection`*
+报纸 | `newspaper`*
+期刊（的析出文献） | `article`
+学位论文 | `masterthesis` 或 `phdthesis`
+报告 | `techreport`
+标准 | `standard`*
+专利 | `patent`*
+数据库 | `database`*
+计算机程序 | `program`*
+电子公告 | `online`*
+档案 | `archive`*
+舆图 | `map`*
+数据集 | `dataset`*
+其他 | `misc`
 
 注：
+
 1. `ariticle` 会根据 journal 域判断是图书还是期刊的析出文献
 2. `proceedings` 按照“专著”处理，`inproceedings` 按照“专著中的析出文献”处理。
 3. 带 “*” 的类型不是 BibTeX 原生支持的。
@@ -42,31 +45,30 @@
 
 著录项目 | Entry field
 ---|---
-出版地 | address
-主要责任者 | author
-图书题名 | booktitle
-引用日期 | citedate
-交叉引用 | crossref
-数字对象唯一标识符 | doi
-版本 | edition
-编辑 | editor
-修改日期 | editdate
-机构（用于techreport） | institution
-期刊题名 | journal
-排序的关键词 | key
-语言 | language
-文献类型标识 | mark
-期 | number
-组织（用于会议） | organization
-引文页码 | pages
-出版者 | publisher
-学校 | school
-系列 | series
-析出文献题名 | title
-翻译者 | translator
-获取和访问路径 | url
-卷 | volume
-出版年 | year
+出版地 | `address`
+主要责任者 | `author`
+图书题名 | `booktitle`
+引用日期 | `citedate`
+交叉引用 | `crossref`
+数字对象唯一标识符 | `doi`
+版本 | `edition`
+编辑 | `editor`
+修改日期 | `editdate`
+机构（用于techreport） | `institution`
+期刊题名 | `journal`
+排序的关键词 | `key`
+语言 | `language`
+文献类型标识 | `mark`
+期 | `number`
+组织（用于会议） | `organization`
+引文页码 | `pages`
+出版者 | `publisher`
+系列 | `series`
+题名 | `title`
+翻译者 | `translator`
+获取和访问路径 | `url`
+卷 | `volume`
+出版年 | `year`
 
 
 ## 参考文献著录标准

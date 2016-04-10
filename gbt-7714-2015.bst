@@ -1033,24 +1033,6 @@ FUNCTION {book}
   fin.entry
 }
 
-FUNCTION {booklet}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  new.block
-  format.title "title" output.check
-  howpublished address new.block.checkb
-  howpublished output
-  format.address output
-  format.date output
-  format.isbn output
-  format.doi output
-  format.url output
-  new.block
-  note output
-  fin.entry
-}
-
 FUNCTION {collection}
 { output.bibitem
   author empty$
@@ -1122,6 +1104,8 @@ FUNCTION {dataset}
 }
 
 FUNCTION {inbook} { book }
+
+FUNCTION {incollection} { book }
 
 FUNCTION {inproceedings}
 { output.bibitem
@@ -1342,8 +1326,14 @@ FUNCTION {standard}
 
 FUNCTION {techreport}
 { output.bibitem
-  format.authors output
-  author format.key output
+  author empty$
+    { format.authors output
+      author format.key output
+    }
+    { institution output
+      institution format.key output
+    }
+  if$
   new.block
   format.series.volume.title "title" output.check
   "R" format.mark "" output.after
