@@ -638,7 +638,7 @@ FUNCTION {format.number.series}
   if$
 }
 
-FUNCTION {format.btitle}
+FUNCTION {format.series.volume.title}
 { series empty$
     { title
       volume empty$
@@ -984,7 +984,7 @@ FUNCTION {book}
     }
   if$
   new.block
-  format.btitle "title" output.check
+  format.series.volume.title "title" output.check
   "M" format.mark "" output.after
   new.block
   format.translators output
@@ -1098,7 +1098,7 @@ FUNCTION {manual}
   format.authors output
   author format.key output
   new.block
-  format.btitle "title" output.check
+  format.series.volume.title "title" output.check
   organization address new.block.checkb
   organization output
   format.address output
@@ -1149,7 +1149,7 @@ FUNCTION {phdthesis}
   format.authors "author" output.check
   author format.key output
   new.block
-  format.btitle "title" output.check
+  format.series.volume.title "title" output.check
   new.block
   "PhD thesis" format.thesis.type output.nonnull
   school "school" output.check
@@ -1166,19 +1166,21 @@ FUNCTION {proceedings}
   format.editors output
   editor format.key output
   new.block
-  format.btitle "title" output.check
-  format.bvolume output
-  format.number.series output
-  format.address output
-  format.date "year" output.check
-  new.sentence
-  organization output
-  publisher output
-  format.isbn output
-  format.doi output
-  format.url output
+  format.series.volume.title "title" output.check
+  "C" format.mark "" output.after
   new.block
-  note output
+  format.translators output
+  new.sentence
+  format.address output
+  publisher empty$
+    { organization }
+    { format.publisher }
+  if$ punct.colon output.after
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate punct.space output.after
+  format.url output
+  format.doi output
   fin.entry
 }
 

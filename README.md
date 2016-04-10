@@ -15,7 +15,7 @@
 
 - [x] 普通图书：`book` 或 `inbook`
 - [x] 图书（的析出文献）：`article`
-- [ ] 会议录：`proceedings`
+- [x] 会议录：`proceedings`
 - [ ] 会议录（的析出文献）：`inproceedings` 或 `conference`
 - [ ] 汇编（的析出文献）：`incollection`
 - [ ] 报纸：`newspaper`*
