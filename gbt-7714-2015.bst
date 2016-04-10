@@ -63,6 +63,7 @@ ENTRY
     key
     language
     mark
+    media
     month
     note
     number
@@ -401,9 +402,13 @@ FUNCTION {format.mark}
     { pop$ mark }
   if$
   "[" swap$ *
-  url empty$
-    'skip$
-    { "/OL" * }
+  media empty$
+    { url empty$
+        'skip$
+        { "/OL" * }
+      if$
+    }
+    { "/" * media * }
   if$
   "]" *
 }

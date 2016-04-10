@@ -59,6 +59,7 @@
 排序的关键词 | `key`
 语言 | `language`
 文献类型标识 | `mark`
+载体类型标识 | `media`
 期 | `number`
 组织（用于会议） | `organization`
 引文页码 | `pages`
