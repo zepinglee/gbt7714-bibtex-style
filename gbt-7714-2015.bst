@@ -1199,6 +1199,28 @@ FUNCTION {proceedings}
   fin.entry
 }
 
+FUNCTION {standard}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  new.block
+  format.series.volume.title "title" output.check
+  "S" format.mark "" output.after
+  new.block
+  format.translators output
+  new.block
+  format.edition output
+  new.sentence
+  format.address output
+  format.publisher punct.colon output.after
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.citedate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
 FUNCTION {techreport}
 { output.bibitem
   format.authors output
