@@ -1463,18 +1463,9 @@ FUNCTION {chop.word}
 FUNCTION {format.lab.names}
 { 's :=
   s #1 "{vv~}{ll}" format.name$
-  s num.names$ duplicate$
-  #2 >
-    { pop$ " et~al." * }
-    { #2 <
-        'skip$
-        { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-            { " et~al." * }
-            { " and " * s #2 "{vv~}{ll}" format.name$ * }
-          if$
-        }
-      if$
-    }
+  s num.names$ #1 >
+    { ", " * format.et.al * }
+    'skip$
   if$
 }
 
