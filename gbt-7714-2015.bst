@@ -314,8 +314,8 @@ FUNCTION {format.names}
               if$
             }
           if$
-          nameptr #3 =
-            { ", " format.et.al * }
+          nameptr #3 = namesleft #1 > and
+            { ", " * format.et.al * }
             'skip$
           if$
         }
