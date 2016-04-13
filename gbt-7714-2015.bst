@@ -79,16 +79,22 @@ ENTRY
     volume
     year
   }
-  {}
+  { lang }
   { label extra.label sort.label short.list }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
 
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
+  #4 'lang.zh :=
+  #5 'lang.ja :=
+  #1 'lang.en :=
+  #3 'lang.ru :=
+  #0 'lang.default :=
 }
 
 STRINGS { s t }
@@ -272,14 +278,7 @@ FUNCTION {emphasize}
 }
 
 FUNCTION {is.in.chinese}
-{ language empty$
-    { #0 }
-    { language "zh" =
-        { #1 }
-        { #0 }
-      if$
-    }
-  if$
+{ lang lang.zh =
 }
 
 FUNCTION {format.et.al}
@@ -585,6 +584,7 @@ FUNCTION {is.digit}
 }
 
 INTEGERS { charptr }
+
 FUNCTION {is.number}
 { 's :=
   s empty$
@@ -680,9 +680,9 @@ FUNCTION {num.to.ordinal}
 { duplicate$ text.length$ 'charptr :=
   duplicate$ charptr #1 substring$ 's :=
   s "1" =
-    { "st" *}
+    { "st" * }
     { s "2" =
-        { "nd" *}
+        { "nd" * }
         { s "3" =
             { "rd" * }
             { "th" * }
@@ -1444,6 +1444,61 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 READ
 
+EXECUTE {init.state.consts}
+
+INTEGERS { ascii }
+
+FUNCTION {char.lang}
+{ chr.to.int$ 'ascii :=
+  ascii #31 > ascii #128 < and
+    { lang.en }
+    { ascii #227 > ascii #234 < and
+        { lang.zh }
+        { ascii #227 =
+            { lang.ja }
+            { lang.default }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {set.language}
+{ language empty$
+    { lang.default 'lang :=
+      author field.or.null title field.or.null * 's :=
+      s empty$
+        'skip$
+        { s text.length$ 'charptr :=
+            { charptr #0 > }
+            { s charptr #1 substring$ char.lang duplicate$ lang >
+                { 'lang := }
+                'pop$
+              if$
+              charptr #1 - 'charptr :=
+            }
+          while$
+        }
+      if$
+    }
+    { language "en" =
+        { lang.en }
+        { language "zh" =
+            { lang.zh }
+            { language "ja" =
+                { lang.ja }
+                { lang.default }
+              if$
+            }
+          if$
+        }
+      if$
+      'lang :=
+    }
+  if$
+}
+
 FUNCTION {sortify}
 { purify$
   "l" change.case$
@@ -1571,7 +1626,8 @@ FUNCTION {int.to.fix}
 
 
 FUNCTION {presort}
-{ calc.label
+{ set.language
+  calc.label
   label sortify
   "    "
   *
@@ -1662,8 +1718,6 @@ FUNCTION {begin.bib}
 }
 
 EXECUTE {begin.bib}
-
-EXECUTE {init.state.consts}
 
 ITERATE {call.type$}
 
