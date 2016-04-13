@@ -583,7 +583,7 @@ FUNCTION {is.digit}
   if$
 }
 
-INTEGERS { charptr }
+INTEGERS { charptr stringlength }
 
 FUNCTION {is.number}
 { 's :=
@@ -1470,13 +1470,19 @@ FUNCTION {set.language}
       author field.or.null title field.or.null * 's :=
       s empty$
         'skip$
-        { s text.length$ 'charptr :=
-            { charptr #0 > }
-            { s charptr #1 substring$ char.lang duplicate$ lang >
+        { #1 'charptr :=
+          s text.length$ #1 + 'stringlength :=
+            { charptr stringlength < }
+            { s charptr #1 substring$ char.lang
+              duplicate$ #3 >
+                { charptr #2 + 'charptr := }
+                'skip$
+              if$
+              duplicate$ lang >
                 { 'lang := }
                 'pop$
               if$
-              charptr #1 - 'charptr :=
+              charptr #1 + 'charptr :=
             }
           while$
         }
