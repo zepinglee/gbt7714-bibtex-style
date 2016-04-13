@@ -2,22 +2,30 @@
 
 ## 新特性
 
-1. 兼容 natbib
-2. 自动识别语言
+* 兼容 natbib
+
+* 自动识别语言
 
 ## 注意事项
 
-中文文献使用 author-year 式参考文献表时（UTF-8编码），应填写 `pinyin` 域，否则排序可能不符合要求。
+1. bib 数据库应使用 UTF-8 编码
+
+2. 中文文献使用 author-year 式参考文献表时，应填写 `pinyin` 域，否则排序结果可能不符合要求。
+
+3. 默认可以自动处理 `language`, `mark`, `media`，用户也可以指定，比如：
+```
+language = {ja},
+mark = {M},
+media = {OL},
+```
 
 ## 开发进度
 
-- [ ] 检查全角／半角
-- [ ] 检查空白距离
-- [ ] url 断行
+- [ ] 检查全角／半角、空白距离
+- [ ] 交叉引用
 - [x] 文献类型标识
 - [x] 著录项目和格式（中英文）
 - [x] 其他类型文献的支持
-- [ ] 交叉引用
 - [x] author-year 式 (主要是排序)
 
 ## 当前支持的文献类型
@@ -46,13 +54,16 @@
 注：
 
 1. `ariticle` 会根据 journal 域判断是图书还是期刊的析出文献
+
 2. `proceedings` 按照“专著”处理，`inproceedings` 按照“专著中的析出文献”处理。
+
 3. 带 “*” 的类型不是 BibTeX 原生支持的。
+
 4. 不支持的 BibTeX 的原生类型有：`booklet`, `manual`, `unpublished`。
 
 ## 支持的著录项目
 
-著录项目 | Entry field
+著录项目（域） | Entry field
 ---|---
 出版地 | `address`
 主要责任者 | `author`
@@ -62,25 +73,28 @@
 数字对象唯一标识符 | `doi`
 版本 | `edition`
 编辑 | `editor`
-修改日期 | `editdate`
+修改日期 | `editdate`*
 机构（用于techreport） | `institution`
 期刊题名 | `journal`
 排序的关键词 | `key`
-语言 | `language`
-文献类型标识 | `mark`
-载体类型标识 | `media`
+语言 | `language`*
+文献类型标识 | `mark`*
+载体类型标识 | `media`*
 期 | `number`
 组织（用于会议） | `organization`
 引文页码 | `pages`
-拼音（用于排序） | `pinyin`
+拼音（用于排序） | `pinyin`*
 出版者 | `publisher`
 系列 | `series`
 题名 | `title`
-翻译者 | `translator`
+翻译者 | `translator`*
 获取和访问路径 | `url`
 卷 | `volume`
 出版年 | `year`
 
+注:
+
+1. 带 “*” 的类型不是 natbib 原生支持的。
 
 ## 参考文献著录标准
 

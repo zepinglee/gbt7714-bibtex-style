@@ -1,49 +1,19 @@
-%% File: `unsrtnat.bst'
-%% A modification of `unsrt.bst' for use with natbib package
 %%
-%% Copyright 1993-2007 Patrick W Daly
-%% Max-Planck-Institut f\"ur Sonnensystemforschung
-%% Max-Planck-Str. 2
-%% D-37191 Katlenburg-Lindau
-%% Germany
-%% E-mail: daly@mps.mpg.de
+%% This is file `gbt-7714-2015-author-year.bst', derived from `plainnat.bst',
+%% for use with the `natbib.sty' package by Patrick W Daly.
 %%
-%% This program can be redistributed and/or modified under the terms
-%% of the LaTeX Project Public License Distributed from CTAN
-%% archives in directory macros/latex/base/lppl.txt; either
-%% version 1 of the License, or any later version.
+%% Copyright (C) 2015-2016 by Zeping Lee <zepinglee AT gmail.com>
 %%
- % Version and source file information:
- % \ProvidesFile{natbst.mbs}[2007/11/26 1.93 (PWD)]
- %
- % BibTeX `plainnat' family
- %   version 0.99b for BibTeX versions 0.99a or later,
- %   for LaTeX versions 2.09 and 2e.
- %
- % For use with the `natbib.sty' package; emulates the corresponding
- %   member of the `plain' family, but with author-year citations.
- %
- % With version 6.0 of `natbib.sty', it may also be used for numerical
- %   citations, while retaining the commands \citeauthor, \citefullauthor,
- %   and \citeyear to print the corresponding information.
- %
- % For version 7.0 of `natbib.sty', the KEY field replaces missing
- %   authors/editors, and the date is left blank in \bibitem.
- %
- % Includes field EID for the sequence/citation number of electronic journals
- %  which is used instead of page numbers.
- %
- % Includes fields ISBN and ISSN.
- %
- % Includes field URL for Internet addresses.
- %
- % Includes field DOI for Digital Object Idenfifiers.
- %
- % Works best with the url.sty package of Donald Arseneau.
- %
- % Works with identical authors and year are further sorted by
- %    title text, as in the standard plain.bst etc.
- %
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either
+%% version 1.2 of this license or (at your option) any later
+%% version. The latest version of this license is in:
+%%
+%%     http://www.latex-project.org/lppl.txt
+%%
+%% and version 1.2 or later is part of all distributions of
+%% LaTeX version 1999/12/01 or later.
+%%
 ENTRY
   { address
     author
