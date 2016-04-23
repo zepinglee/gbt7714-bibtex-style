@@ -1,19 +1,26 @@
 %%
-%% This is file `gbt-7714-2015-numerical.bst', derived from `unsrtnat.bst',
-%% for use with the `natbib.sty' package by Patrick W Daly.
+%% This is file `gbt-7714-2015-numerical.bst',
+%% generated with the docstrip utility.
 %%
-%% Copyright (C) 2015-2016 by Zeping Lee <zepinglee AT gmail.com>
+%% The original source files were:
 %%
+%% gbt-7714-2015.dtx  (with options: `numerical')
+%% 
+%% Copyright (C) 2016-2016 by Zeping Lee <zepinglee AT gmail.com>
+%% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either
 %% version 1.2 of this license or (at your option) any later
 %% version. The latest version of this license is in:
-%%
+%% 
 %%     http://www.latex-project.org/lppl.txt
-%%
+%% 
 %% and version 1.2 or later is part of all distributions of
 %% LaTeX version 1999/12/01 or later.
-%%
+%% 
+%% This BibTeX style file is derived from `plainnat.bst' by Patrick W Daly,
+%% which was designed for use with the `natbib.sty' package.
+%% 
 ENTRY
   { address
     author
@@ -468,6 +475,7 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
+
 FUNCTION {n.dashify}
 { 't :=
   ""
@@ -520,6 +528,10 @@ FUNCTION {format.citedate}
     { "" }
     { "[" citedate * "]" * }
   if$
+}
+
+FUNCTION {format.btitle}
+{ title emphasize
 }
 
 FUNCTION {tie.or.space.connect}
@@ -1343,7 +1355,6 @@ FUNCTION {unpublished}
 
 FUNCTION {default.type} { misc }
 
-
 MACRO {jan} {"January"}
 
 MACRO {feb} {"February"}
@@ -1367,8 +1378,6 @@ MACRO {oct} {"October"}
 MACRO {nov} {"November"}
 
 MACRO {dec} {"December"}
-
-
 
 MACRO {acmcs} {"ACM Computing Surveys"}
 
@@ -1410,7 +1419,6 @@ MACRO {toois} {"ACM Transactions on Office Information Systems"}
 MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
-
 
 READ
 
@@ -1599,7 +1607,6 @@ FUNCTION {int.to.fix}
 { "000000000" swap$ int.to.str$ *
   #-1 #10 substring$
 }
-
 
 FUNCTION {presort}
 { set.language
