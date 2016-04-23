@@ -1182,7 +1182,10 @@ FUNCTION {mastersthesis}
   format.edition output
   new.sentence
   format.address output
-  format.publisher punct.colon output.after
+  school empty$
+    { format.publisher }
+    { school }
+  if$ punct.colon output.after
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1694,9 +1697,9 @@ FUNCTION {begin.bib}
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
-  "  \providecommand{\doi}[1]{doi: #1}\else"
+  "  \providecommand{\doi}[1]{DOI: #1}\else"
   write$ newline$
-  "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
+  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
 }
 

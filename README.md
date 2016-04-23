@@ -85,6 +85,7 @@ media = {OL},
 引文页码 | `pages`
 拼音（用于排序） | `pinyin`*
 出版者 | `publisher`
+学校（用于phdthesis） | `school`
 系列 | `series`
 题名 | `title`
 翻译者 | `translator`*
@@ -104,3 +105,5 @@ media = {OL},
 ## 相关项目
 
 [Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
+
+[吴凯 GBT7714-2005.bst](http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591)
