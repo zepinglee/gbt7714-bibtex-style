@@ -1957,6 +1957,8 @@ FUNCTION {map}
 %       Required: author, title, school, year
 %       Optional: type, address, month, note
 %
+% \changes{v0.9.1}{2016/04/23}{Add school field}
+%
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
 { output.bibitem
@@ -2134,15 +2136,17 @@ FUNCTION {standard}
 %       Required: author, title, institution, year
 %       Optional: type, number, address, month, note
 %
+% \changes{v0.9.1}{2016/04/24}{Fix empty author bug}
+%
 %    \begin{macrocode}
 FUNCTION {techreport}
 { output.bibitem
   author empty$
-    { format.authors output
-      author format.key output
-    }
     { institution output
       institution format.key output
+    }
+    { format.authors output
+      author format.key output
     }
   if$
   new.block
@@ -2772,6 +2776,8 @@ SORT
 % where the `...' is the longest label.
 %
 % We also call init.state.consts, for use by the output routines.
+%
+% \changes{v0.9.1}{2016/04/23}{Make doi uppercase}
 %
 %    \begin{macrocode}
 FUNCTION {begin.bib}

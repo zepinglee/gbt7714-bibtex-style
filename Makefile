@@ -4,7 +4,7 @@ NAME = gbt-7714-2015
 UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 
-main : FORCE_MAKE
+main : bst FORCE_MAKE
 	latexmk -xelatex -shell-escape -use-make
 
 all : main doc
