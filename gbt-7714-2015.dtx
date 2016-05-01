@@ -57,15 +57,17 @@ which was designed for use with the `natbib.sty' package.
 \fi
 %</internal>
 %<*driver>
-\ProvidesFile{gbt-7714-2015.dtx}[2016/04/13 v0.9 GB/T 7714-2015 BibTeX style]
+\ProvidesFile{gbt-7714-2015.dtx}[2016/04/24 v0.9.1 GB/T 7714-2015 BibTeX style]
 \documentclass{ltxdoc}
 \RequirePackage[paper=a4paper,margin=1in]{geometry}
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
 \usepackage[UTF8,scheme=plain]{ctex}
-\setmainfont{Times}
-\setsansfont{Helvetica}[Scale=MatchLowercase]
-\setmonofont{Menlo}[Scale=MatchLowercase]
+\IfFileExists{/System/Library/Fonts/Times.dfont }{
+  \setmainfont{Times}
+  \setsansfont{Helvetica}[Scale=MatchLowercase]
+  \setmonofont{Menlo}[Scale=MatchLowercase]
+}{\relax}
 \usepackage{listings}
 \lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
 \EnableCrossrefs
