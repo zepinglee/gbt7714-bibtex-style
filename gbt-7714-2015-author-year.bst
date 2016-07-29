@@ -60,7 +60,8 @@ ENTRY
   { lang }
   { label extra.label sort.label short.list }
 
-INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
+
 INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
 
 FUNCTION {init.state.consts}
@@ -68,6 +69,7 @@ FUNCTION {init.state.consts}
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
+  #4 'after.slash :=
   #4 'lang.zh :=
   #5 'lang.ja :=
   #1 'lang.en :=
@@ -93,6 +95,18 @@ FUNCTION {debug.int}
   top$
 }
 
+FUNCTION {punct.colon}
+{ ": "
+}
+
+FUNCTION {punct.slash}
+{ "//"
+}
+
+FUNCTION {punct.space}
+{ " "
+}
+
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
@@ -104,7 +118,11 @@ FUNCTION {output.nonnull}
         }
         { output.state before.all =
             'write$
-            { add.period$ " " * write$ }
+            { output.state after.slash =
+                { punct.slash * write$ }
+                { add.period$ " " * write$ }
+              if$
+            }
           if$
         }
       if$
@@ -147,18 +165,6 @@ FUNCTION {output.after}
   if$
 }
 
-FUNCTION {punct.colon}
-{ ": "
-}
-
-FUNCTION {punct.slash}
-{ "//"
-}
-
-FUNCTION {punct.space}
-{ " "
-}
-
 FUNCTION {output.check}
 { 't :=
   duplicate$ empty$
@@ -176,7 +182,11 @@ FUNCTION {fin.entry}
 FUNCTION {new.block}
 { output.state before.all =
     'skip$
-    { after.block 'output.state := }
+    { output.state after.slash =
+        'skip$
+        { after.block 'output.state := }
+      if$
+    }
   if$
 }
 
@@ -185,9 +195,20 @@ FUNCTION {new.sentence}
     'skip$
     { output.state before.all =
         'skip$
-        { after.sentence 'output.state := }
+        { output.state after.slash =
+            'skip$
+            { after.sentence 'output.state := }
+          if$
+        }
       if$
     }
+  if$
+}
+
+FUNCTION {new.slash}
+{ output.state before.all =
+    'skip$
+    { after.slash 'output.state := }
   if$
 }
 
@@ -935,8 +956,8 @@ FUNCTION {article}
     { "M" format.mark "" output.after
       new.block
       format.translators output
-      new.block
-      format.editors punct.slash output.after
+      new.slash
+      format.editors output
       new.block
       booktitle "booktitle" output.check
       new.block
@@ -1077,13 +1098,11 @@ FUNCTION {inproceedings}
   "C" format.mark "" output.after
   new.block
   format.translators output
-  new.block
+  new.slash
   editor empty$
     { organization }
     { format.editors }
-  if$
-  punct.slash output.after
-  new.block
+  if$ output
   booktitle "booktitle" output.check
   new.block
   format.bvolume punct.colon output.after
