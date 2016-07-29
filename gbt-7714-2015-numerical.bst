@@ -767,45 +767,16 @@ FUNCTION {format.eid}
   if$
 }
 
-FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ":\penalty0 " * pages n.dashify * }
-      if$
-    }
-  if$
-}
 
-FUNCTION {format.vol.num.eid}
-{ volume field.or.null
+FUNCTION {format.year.vol.num}
+{ format.date field.or.null
+  volume empty$
+    'skip$
+    { ", " volume * * }
+  if$
   number empty$
     'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  eid empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.eid }
-        { ":\penalty0 " * eid * }
-      if$
-    }
+    { " (" number * ")" * * }
   if$
 }
 
@@ -981,8 +952,8 @@ FUNCTION {article}
       new.block
       journal "journal" output.check
       new.block
-      format.date "year" output.check
-      format.vol.num.pages output
+      format.year.vol.num output
+      format.pages punct.colon output.after
     }
   if$
   format.citedate "" output.after
@@ -1109,7 +1080,8 @@ FUNCTION {inproceedings}
   editor empty$
     { organization }
     { format.editors }
-  if$ punct.slash output.after
+  if$
+  punct.slash output.after
   new.block
   booktitle "booktitle" output.check
   new.block
@@ -1228,8 +1200,8 @@ FUNCTION {newspaper}
   new.block
   journal "journal" output.check
   new.block
-  format.date "year" output.check
-  format.vol.num.pages output
+  format.year.vol.num output
+  format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
   format.doi output
