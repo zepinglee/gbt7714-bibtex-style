@@ -10,7 +10,7 @@
 
 1. bib 数据库应使用 UTF-8 编码
 
-2. 中文文献使用 author-year 式参考文献表时，应填写 `pinyin` 域，否则排序结果可能不符合要求。
+2. 中文文献使用 author-year 式参考文献表时，应在 `pinyin` 域填写作者姓名的拼音，才能使得文献列表按照拼音排序。
 
 3. 默认可以自动处理 `language`, `mark`, `media`，用户也可以指定，比如：
 ```
@@ -59,7 +59,7 @@ media = {OL},
 
 3. 带 “*” 的类型不是 BibTeX 原生支持的。
 
-4. 不支持的 BibTeX 的原生类型有：`booklet`, `manual`, `unpublished`。
+4. 不支持的 BibTeX 原生类型有：`booklet`, `manual`, `unpublished`。
 
 ## 支持的著录项目
 
