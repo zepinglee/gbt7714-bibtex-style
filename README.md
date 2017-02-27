@@ -19,15 +19,6 @@ mark = {M},
 media = {OL},
 ```
 
-## 开发进度
-
-- [ ] 检查全角／半角、空白距离
-- [ ] 交叉引用
-- [x] 文献类型标识
-- [x] 著录项目和格式（中英文）
-- [x] 其他类型文献的支持
-- [x] author-year 式 (主要是排序)
-
 ## 当前支持的文献类型
 
 文献类型 | entry type
@@ -106,8 +97,12 @@ media = {OL},
 
 ## 相关项目
 
+[hushidong/biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)
+
 [szsdk/biblatex-gbt77142005](https://github.com/szsdk/biblatex-gbt77142005)
 
 [Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
 
 [吴凯 GBT7714-2005.bst](http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591)
+
+[CasperVector/biblatex-caspervector](https://github.com/CasperVector/biblatex-caspervector)
