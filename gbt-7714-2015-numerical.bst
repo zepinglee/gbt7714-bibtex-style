@@ -724,7 +724,7 @@ FUNCTION {format.edition}
 
 FUNCTION {format.address}
 { address empty$
-    { url empty$
+    { url empty$ doi empty$ and
         { is.in.chinese
             { "[出版地不详]" }
             { "[S.l.]" }
@@ -738,17 +738,31 @@ FUNCTION {format.address}
 }
 
 FUNCTION {format.publisher}
-{ publisher empty$
-    { url empty$
-        { is.in.chinese
-            { "[出版者不详]" }
-            { "[s.n.]" }
+{ publisher empty$ not
+    { publisher }
+    { school empty$ not
+        { school }
+        { organization empty$ not
+            { organization }
+            { url empty$ doi empty$ and
+                { is.in.chinese
+                    { "[出版者不详]" }
+                    { "[s.n.]" }
+                  if$
+                }
+              if$
+            }
           if$
         }
-        { "" }
       if$
     }
-    { publisher }
+  if$
+}
+
+FUNCTION {format.address.publisher}
+{ address empty$ publisher empty$ and organization empty$ and school empty$ and
+    { "" }
+    { format.address punct.colon * format.publisher * }
   if$
 }
 
@@ -935,8 +949,7 @@ FUNCTION {archive}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -981,8 +994,7 @@ FUNCTION {article.in.book}
   new.block
   format.edition output
   new.block
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1003,8 +1015,7 @@ FUNCTION {online}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1025,8 +1036,7 @@ FUNCTION {article.as.monograph}
   new.block
   format.edition output
   new.block
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1071,8 +1081,7 @@ FUNCTION {book}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1102,8 +1111,7 @@ FUNCTION {collection}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1140,8 +1148,7 @@ FUNCTION {dataset}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.editdate "" output.after
@@ -1175,11 +1182,7 @@ FUNCTION {inproceedings}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  publisher empty$
-    { organization }
-    { format.publisher }
-  if$ punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1219,8 +1222,7 @@ FUNCTION {map}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1241,11 +1243,7 @@ FUNCTION {mastersthesis}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  school empty$
-    { format.publisher }
-    { school }
-  if$ punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1305,11 +1303,7 @@ FUNCTION {proceedings}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  publisher empty$
-    { organization }
-    { format.publisher }
-  if$ punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1346,8 +1340,7 @@ FUNCTION {standard}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
@@ -1374,8 +1367,7 @@ FUNCTION {techreport}
   new.block
   format.edition output
   new.sentence
-  format.address output
-  format.publisher punct.colon output.after
+  format.address.publisher output
   format.date "year" output.check
   format.pages punct.colon output.after
   format.editdate "" output.after
