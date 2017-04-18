@@ -1492,7 +1492,11 @@ FUNCTION {char.lang}
         { lang.zh }
         { ascii #227 =
             { lang.ja }
-            { lang.default }
+            { ascii #207 > ascii #212 < and
+                { lang.ru }
+                { lang.default }
+              if$
+            }
           if$
         }
       if$
@@ -1530,7 +1534,11 @@ FUNCTION {set.language}
             { lang.zh }
             { language "ja" =
                 { lang.ja }
-                { lang.default }
+                { language "ru" =
+                    { lang.ru }
+                    { lang.default }
+                  if$
+                }
               if$
             }
           if$
