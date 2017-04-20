@@ -803,16 +803,19 @@ FUNCTION {format.eid}
   if$
 }
 
-
-FUNCTION {format.year.vol.num}
-{ format.date field.or.null
-  volume empty$
-    'skip$
-    { ", " volume * * }
-  if$
+FUNCTION {format.vol.num.pages}
+{ volume field.or.null
   number empty$
     'skip$
-    { " (" number * ")" * * }
+    { "\penalty0 (" number * ")" * * }
+  if$
+  pages empty$
+    'skip$
+    { duplicate$ empty$
+        { pop$ format.pages }
+        { ": " * pages n.dashify * }
+      if$
+    }
   if$
 }
 
@@ -942,6 +945,7 @@ FUNCTION {archive}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "A" format.mark "" output.after
@@ -951,7 +955,6 @@ FUNCTION {archive}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -963,14 +966,14 @@ FUNCTION {article.in.journal}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
  "J" format.mark "" output.after
   new.block
   journal "journal" output.check
   new.block
-  format.year.vol.num output
-  format.pages punct.colon output.after
+  format.vol.num.pages output
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -981,6 +984,7 @@ FUNCTION {article.in.book}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "M" format.mark "" output.after
@@ -996,7 +1000,6 @@ FUNCTION {article.in.book}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1008,6 +1011,7 @@ FUNCTION {online}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "EB" format.mark "" output.after
@@ -1017,7 +1021,6 @@ FUNCTION {online}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1029,6 +1032,7 @@ FUNCTION {article.as.monograph}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "M" format.mark "" output.after
@@ -1038,7 +1042,6 @@ FUNCTION {article.as.monograph}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1074,6 +1077,7 @@ FUNCTION {book}
       if$
     }
   if$
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "M" format.mark "" output.after
@@ -1083,7 +1087,6 @@ FUNCTION {book}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1104,6 +1107,7 @@ FUNCTION {collection}
       if$
     }
   if$
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "G" format.mark "" output.after
@@ -1113,7 +1117,6 @@ FUNCTION {collection}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1125,6 +1128,7 @@ FUNCTION {database}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "DB" format.mark "" output.after
@@ -1141,6 +1145,7 @@ FUNCTION {dataset}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "DS" format.mark "" output.after
@@ -1150,7 +1155,6 @@ FUNCTION {dataset}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.editdate "" output.after
   format.citedate "" output.after
@@ -1167,6 +1171,7 @@ FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "C" format.mark "" output.after
@@ -1184,7 +1189,6 @@ FUNCTION {inproceedings}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1198,13 +1202,13 @@ FUNCTION {manual}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   organization address new.block.checkb
   organization output
   format.address output
   format.edition output
-  format.date output
   format.url output
   new.block
   note output
@@ -1215,6 +1219,7 @@ FUNCTION {map}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "CM" format.mark "" output.after
@@ -1224,7 +1229,6 @@ FUNCTION {map}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1236,6 +1240,7 @@ FUNCTION {mastersthesis}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "D" format.mark "" output.after
@@ -1245,7 +1250,6 @@ FUNCTION {mastersthesis}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1261,14 +1265,14 @@ FUNCTION {newspaper}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "N" format.mark "" output.after
   new.block
   journal "journal" output.check
   new.block
-  format.year.vol.num output
-  format.pages punct.colon output.after
+  format.vol.num.pages output
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1279,6 +1283,7 @@ FUNCTION {patent}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   "P" format.mark "" output.after
@@ -1305,7 +1310,6 @@ FUNCTION {proceedings}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1317,6 +1321,7 @@ FUNCTION {program}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "CP" format.mark "" output.after
@@ -1333,6 +1338,7 @@ FUNCTION {standard}
 { output.bibitem
   format.authors output
   author format.key output
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "S" format.mark "" output.after
@@ -1342,7 +1348,6 @@ FUNCTION {standard}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
@@ -1360,6 +1365,7 @@ FUNCTION {techreport}
       author format.key output
     }
   if$
+  format.date "year" output.check
   new.block
   format.series.volume.title "title" output.check
   "R" format.mark "" output.after
@@ -1369,7 +1375,6 @@ FUNCTION {techreport}
   format.edition output
   new.sentence
   format.address.publisher output
-  format.date "year" output.check
   format.pages punct.colon output.after
   format.editdate "" output.after
   format.citedate "" output.after
@@ -1382,6 +1387,7 @@ FUNCTION {unpublished}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
+  format.date "year" output.check
   new.block
   format.title "title" output.check
   new.block

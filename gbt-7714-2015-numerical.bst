@@ -802,16 +802,35 @@ FUNCTION {format.eid}
   if$
 }
 
+FUNCTION {format.vol.num.pages}
+{ volume field.or.null
+  number empty$
+    'skip$
+    { "\penalty0 (" number * ")" * * }
+  if$
+  pages empty$
+    'skip$
+    { duplicate$ empty$
+        { pop$ format.pages }
+        { ": " * pages n.dashify * }
+      if$
+    }
+  if$
+}
 
-FUNCTION {format.year.vol.num}
+FUNCTION {format.year.vol.num.pages}
 { format.date field.or.null
   volume empty$
     'skip$
-    { ", " volume * * }
+    { ", " * volume * }
   if$
   number empty$
     'skip$
-    { " (" number * ")" * * }
+    { "\penalty0 (" * number * ")" * }
+  if$
+  pages empty$
+    'skip$
+    { ": " * pages n.dashify * }
   if$
 }
 
@@ -968,8 +987,7 @@ FUNCTION {article.in.journal}
   new.block
   journal "journal" output.check
   new.block
-  format.year.vol.num output
-  format.pages punct.colon output.after
+  format.year.vol.num.pages output
   format.citedate "" output.after
   format.url output
   format.doi output
@@ -1266,8 +1284,7 @@ FUNCTION {newspaper}
   new.block
   journal "journal" output.check
   new.block
-  format.year.vol.num output
-  format.pages punct.colon output.after
+  format.year.vol.num.pages output
   format.citedate "" output.after
   format.url output
   format.doi output
