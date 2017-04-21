@@ -21,6 +21,7 @@
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
+!standard.bbl
 *.bcf
 *.blg
 *-blx.aux

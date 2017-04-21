@@ -1,13 +1,17 @@
-.PHONY : main bst doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test diff bst doc clean all inst install distclean zip FORCE_MAKE
 
 NAME = gbt-7714-2015
+TEST_DIR = test
 UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 
-main : bst FORCE_MAKE
-	latexmk -xelatex -shell-escape -use-make
+test : bst FORCE_MAKE
+	make -C $(TESTDIR) test
 
-all : main doc
+diff : FORCE_MAKE
+	diff test/standard.bbl test/tmp.bbl
+
+all : test doc
 
 bst : $(NAME).dtx
 	xetex $<
@@ -18,12 +22,12 @@ $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	latexmk -xelatex $<
 
 clean :
-	latexmk -c
 	latexmk -c $(NAME).dtx
+	$(MAKE) -C $(TEST_DIR) distclean
 
 distclean :
-	latexmk -C
 	latexmk -C $(NAME).dtx
+	$(MAKE) -C $(TEST_DIR) distclean
 
 inst : bst doc
 	mkdir -p $(UTREE)/{tex,source,doc}/latex/$(NAME)

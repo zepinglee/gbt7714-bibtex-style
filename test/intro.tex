@@ -1,19 +1,8 @@
-\documentclass[UTF8,a4paper,zihao=5]{ctexart}
-\usepackage[margin=1in]{geometry}
-\usepackage{url}
-\usepackage{natbib}
-\bibliographystyle{gbt-7714-2015-author-year}
-% \bibliographystyle{plainnat}
-% \bibliographystyle{unsrtnat}
-
-\begin{document}
-
-\title{GB/T 7714-2015 参考文献著录规则测试文档}
-\date{}
-\maketitle
+\chapter{简介}
 
 \section{顺序编码制标注法}
-\setcitestyle{super,square,comma,sort&compress}
+
+\setcitestyle{super,square,comma}
 
 \begin{quote}
 \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
@@ -36,7 +25,10 @@
 \end{tabular}
 \end{quote}
 
+
+
 \section{著者-出版年制标注法}
+
 \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}
 
 \begin{quote}
@@ -60,8 +52,10 @@
 \end{tabular}
 \end{quote}
 
-\nocite{*}
+
+
+\numerical
+
+\nocite{test1, test2}
 
 \bibliography{test}
-
-\end{document}

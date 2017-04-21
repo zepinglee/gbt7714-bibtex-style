@@ -1,0 +1,57 @@
+\documentclass[UTF8,a4paper,zihao=5]{ctexrep}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2}
+\usepackage{url}
+\usepackage[sectionbib,sort&compress]{natbib}
+\makeatletter
+\renewcommand\NAT@cite%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+  \if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+   \else #1\fi\endgroup}\makeatother
+\usepackage[sectionbib]{chapterbib}
+
+\newcommand\numerical{
+  \setcitestyle{super,square,comma}
+  \bibliographystyle{../gbt-7714-2015-numerical}}
+\newcommand\authoryear{
+  \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}
+  \bibliographystyle{../gbt-7714-2015-author-year}}
+
+\begin{document}
+
+\title{GB/T 7714-2015 参考文献著录规则测试文档}
+\author{Zeping Lee}
+% \date{}
+\maketitle
+
+\tableofcontents
+
+\include{intro}
+\include{1.1}
+\include{1.2}
+\include{1.3}
+\include{1.4}
+\include{1.5}
+\include{1.6}
+\include{2.1}
+\include{2.2}
+\include{3.1}
+\include{3.2}
+
+\appendix
+\include{a.1}
+\include{a.2}
+\include{a.3}
+\include{a.4}
+\include{a.5}
+\include{a.6}
+\include{a.7}
+\include{a.8}
+\include{a.9}
+\include{a.10}
+
+\end{document}
