@@ -1383,40 +1383,16 @@ FUNCTION {format.eid}
 % \changes{v0.9.0}{2017/04/20}{Add format.vol.num.pages back, but allows empty
 % volume or number}
 %    \begin{macrocode}
-FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * * }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ": " * pages n.dashify * }
-      if$
-    }
+FUNCTION {format.volume}
+{ volume }
+
+FUNCTION {format.journal.number}
+{ number empty$ not
+    { "\penalty0 (" number * ")" * }
+    { "" }
   if$
 }
 
-%<*numerical>
-FUNCTION {format.year.vol.num.pages}
-{ format.date field.or.null
-  volume empty$
-    'skip$
-    { ", " * volume * }
-  if$
-  number empty$
-    'skip$
-    { "\penalty0 (" * number * ")" * }
-  if$
-  pages empty$
-    'skip$
-    { ": " * pages n.dashify * }
-  if$
-}
-
-%</numerical>
 %    \end{macrocode}
 %
 % The format.chapter.pages, if the chapter is present, puts whatever is in the
@@ -1723,11 +1699,11 @@ FUNCTION {article.in.journal}
   new.block
   journal "journal" output.check
 %<*numerical>
-  format.year.vol.num.pages output
+  format.date "year" output.check
 %</numerical>
-%<*authoryear>
-  format.vol.num.pages output
-%</authoryear>
+  format.volume output
+  format.journal.number "" output.after
+  format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
   format.doi output

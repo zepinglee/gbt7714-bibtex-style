@@ -808,19 +808,13 @@ FUNCTION {format.eid}
   if$
 }
 
-FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * * }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ": " * pages n.dashify * }
-      if$
-    }
+FUNCTION {format.volume}
+{ volume }
+
+FUNCTION {format.journal.number}
+{ number empty$ not
+    { "\penalty0 (" number * ")" * }
+    { "" }
   if$
 }
 
@@ -957,7 +951,9 @@ FUNCTION {article.in.journal}
   format.mark "" output.after
   new.block
   journal "journal" output.check
-  format.vol.num.pages output
+  format.volume output
+  format.journal.number "" output.after
+  format.pages punct.colon output.after
   format.citedate "" output.after
   format.url output
   format.doi output
