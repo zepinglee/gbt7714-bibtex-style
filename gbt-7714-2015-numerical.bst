@@ -727,18 +727,20 @@ FUNCTION {format.edition}
   if$
 }
 
+FUNCTION {format.sine.loco}
+{ is.in.chinese
+    { "[出版地不详]" }
+    { "[S.l.]" }
+  if$
+}
+
 FUNCTION {format.address}
-{ address empty$
-    { url empty$ doi empty$ and
-        { is.in.chinese
-            { "[出版地不详]" }
-            { "[S.l.]" }
-          if$
-        }
-        { "" }
-      if$
-    }
-    { address }
+{ address }
+
+FUNCTION {format.sine.nomine}
+{ is.in.chinese
+    { "[出版地不详]" }
+    { "[s.n.]" }
   if$
 }
 
@@ -749,12 +751,9 @@ FUNCTION {format.publisher}
         { school }
         { organization empty$ not
             { organization }
-            { url empty$ doi empty$ and
-                { is.in.chinese
-                    { "[出版者不详]" }
-                    { "[s.n.]" }
-                  if$
-                }
+            { institution empty$ not
+                { institution }
+                { "" }
               if$
             }
           if$
@@ -764,10 +763,38 @@ FUNCTION {format.publisher}
   if$
 }
 
+FUNCTION {format.sine.loco.sine.nomine}
+{ is.in.chinese
+    { "[出版地不详: 出版者不详]" }
+    { "[S.l.: s.n.]" }
+  if$
+}
+
 FUNCTION {format.address.publisher}
-{ address empty$ publisher empty$ and organization empty$ and school empty$ and
-    { "" }
-    { format.address punct.colon * format.publisher * }
+{ address empty$ not
+    { address
+      format.publisher empty$ not
+        { ": " * format.publisher * }
+        { url empty$ doi empty$ and
+            { ": " * format.sine.nomine * }
+            'skip$
+          if$
+        }
+      if$
+    }
+    { url empty$ doi empty$ and
+        { format.publisher empty$ not
+            { format.sine.loco ": " * format.publisher * }
+            { format.sine.loco.sine.nomine }
+          if$
+        }
+        { format.publisher empty$ not
+            { format.publisher }
+            { "" }
+          if$
+        }
+      if$
+    }
   if$
 }
 
