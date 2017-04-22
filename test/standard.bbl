@@ -61,7 +61,7 @@ ONE A, TWO A, THREE A.
 
 \bibitem[全国信息与文献标准化技术委员会(2010)]{qgxxywxbzhjswyh}
 全国信息与文献标准化技术委员会.
-\newblock 信息与文献 都柏林核心元数据元素集：GB/T
+\newblock 信息与文献 都柏林核心元数据元素集：{GB/T}
   25100—2010[S].
 \newblock 北京: 中国标准出版社, 2010: 2--3.
 
@@ -744,13 +744,13 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 
 \bibitem[全国信息与文献标准化技术委员会(2010)]{qgxxywxbzhjswyh2}
 全国信息与文献标准化技术委员会.
-\newblock 文献著录: 第4部分 非书资料: GB/T 3792.7—2009[S].
+\newblock 文献著录: 第4部分 非书资料: {GB/T} 3792.7—2009[S].
 \newblock 北京: 中国标准出版社, 2010: 3.
 
 \bibitem[全国广播电视标准化技术委员会(2007)]{qggbdsbzhjswyh}
 全国广播电视标准化技术委员会.
-\newblock 广播电视音像资料编目规范: 第2部分 广播资料: GY/T
-  202.2—2007[S].
+\newblock 广播电视音像资料编目规范: 第2部分 广播资料: {GY/T
+  202.2—2007}[S].
 \newblock 北京: 国家广播电影电视总局广播电视规划院, 2007: 1.
 
 \bibitem[国家环境保护局科技标准司(1996)]{gjhjbhjkjbzs}
@@ -793,7 +793,9 @@ Information and documentation-the Dublin cord metadata element set: ISO 15836:
 
 \bibitem[国家标准局信息分类编码研究所(1988)]{gjbzjxxflbmyjs}
 国家标准局信息分类编码研究所.
-\newblock 世界各国和地区名称代码: GB/T 2659—1986[S].
+\newblock 世界各国和地区名称代码: {GB/T}
+  2659—1986[S]//全国文献工作标准化委员会.
+\newblock 文献工作国家标准汇编: 3.
 \newblock 北京: 中国标准出版社, 1988: 59--92.
 
 \bibitem[ss(1977)]{ss}

@@ -57,7 +57,7 @@ ENTRY
     year
   }
   { lang }
-  { label extra.label sort.label short.list }
+  { mark_ label extra.label sort.label short.list }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -395,22 +395,27 @@ FUNCTION {format.title}
   if$
 }
 
-FUNCTION {format.mark}
-{ mark empty$
-    'skip$
-    { pop$ mark }
-  if$
-  "[" swap$ *
-  media empty$ not
-    { "/" * media * }
-    { url empty$ not doi empty$ not or
-        { "/OL" * }
-        'skip$
+FUNCTION {set.mark}
+{ mark_ empty$ not
+    'pop$
+    { mark empty$ not
+        { pop$ mark 'mark_ := }
+        { 'mark_ := }
+      if$
+      media empty$ not
+        { mark_ "/" * media * 'mark_ := }
+        { url empty$ not
+            { mark_ "/OL" * 'mark_ := }
+            'skip$
+          if$
+        }
       if$
     }
   if$
-  "]" *
 }
+
+FUNCTION {format.mark}
+{ "[" mark_ * "]" * }
 
 FUNCTION {format.full.names}
 {'s :=
@@ -962,7 +967,8 @@ FUNCTION {archive}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "A" format.mark "" output.after
+  "A" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -983,7 +989,8 @@ FUNCTION {article.in.journal}
   author format.key output
   new.block
   format.title "title" output.check
- "J" format.mark "" output.after
+  "J" set.mark
+  format.mark "" output.after
   new.block
   journal "journal" output.check
   new.block
@@ -1000,7 +1007,8 @@ FUNCTION {article.in.book}
   author format.key output
   new.block
   format.title "title" output.check
-  "M" format.mark "" output.after
+  "M" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.slash
@@ -1027,7 +1035,8 @@ FUNCTION {online}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "EB" format.mark "" output.after
+  "EB" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1048,7 +1057,8 @@ FUNCTION {article.as.monograph}
   author format.key output
   new.block
   format.title "title" output.check
-  "M" format.mark "" output.after
+  "M" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1093,7 +1103,8 @@ FUNCTION {book}
   if$
   new.block
   format.series.volume.title "title" output.check
-  "M" format.mark "" output.after
+  "M" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1123,7 +1134,8 @@ FUNCTION {collection}
   if$
   new.block
   format.series.volume.title "title" output.check
-  "G" format.mark "" output.after
+  "G" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1144,7 +1156,8 @@ FUNCTION {database}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "DB" format.mark "" output.after
+  "DB" set.mark
+  format.mark "" output.after
   new.block
   format.date "year" output.check
   format.editdate "" output.after
@@ -1160,7 +1173,8 @@ FUNCTION {dataset}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "DS" format.mark "" output.after
+  "DS" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1186,7 +1200,8 @@ FUNCTION {inproceedings}
   author format.key output
   new.block
   format.title "title" output.check
-  "C" format.mark "" output.after
+  "C" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.slash
@@ -1234,7 +1249,8 @@ FUNCTION {map}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "CM" format.mark "" output.after
+  "CM" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1255,7 +1271,8 @@ FUNCTION {mastersthesis}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "D" format.mark "" output.after
+  "D" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1280,7 +1297,8 @@ FUNCTION {newspaper}
   author format.key output
   new.block
   format.title "title" output.check
-  "N" format.mark "" output.after
+  "N" set.mark
+  format.mark "" output.after
   new.block
   journal "journal" output.check
   new.block
@@ -1301,7 +1319,8 @@ FUNCTION {patent}
     { number punct.colon output.after }
     'skip$
   if$
-  "P" format.mark "" output.after
+  "P" set.mark
+  format.mark "" output.after
   new.block
   format.date "year" output.check
   format.citedate "" output.after
@@ -1318,7 +1337,8 @@ FUNCTION {proceedings}
   editor format.key output
   new.block
   format.series.volume.title "title" output.check
-  "C" format.mark "" output.after
+  "C" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
@@ -1339,7 +1359,8 @@ FUNCTION {program}
   author format.key output
   new.block
   format.series.volume.title "title" output.check
-  "CP" format.mark "" output.after
+  "CP" set.mark
+  format.mark "" output.after
   new.block
   format.date "year" output.check
   format.editdate "" output.after
@@ -1350,24 +1371,8 @@ FUNCTION {program}
 }
 
 FUNCTION {standard}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  new.block
-  format.series.volume.title "title" output.check
-  "S" format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "S" set.mark
+  article
 }
 
 FUNCTION {techreport}
@@ -1382,7 +1387,8 @@ FUNCTION {techreport}
   if$
   new.block
   format.series.volume.title "title" output.check
-  "R" format.mark "" output.after
+  "R" set.mark
+  format.mark "" output.after
   new.block
   format.translators output
   new.block
