@@ -1980,6 +1980,9 @@ FUNCTION {dataset}
 %
 %       Optional: volume or number, series, type, address, edition, month, note
 %
+% inbook 类是不含 booktitle 域的，所以不应该适用于“专著中的析出文献”，而应该是专
+% 著，即 book 类。
+%
 %    \begin{macrocode}
 FUNCTION {inbook} { book }
 
@@ -1993,7 +1996,7 @@ FUNCTION {inbook} { book }
 %                       address, edition, month, note
 %
 %    \begin{macrocode}
-FUNCTION {incollection} { book }
+FUNCTION {incollection} { article.in.book }
 
 %    \end{macrocode}
 %

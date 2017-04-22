@@ -1165,7 +1165,7 @@ FUNCTION {dataset}
 
 FUNCTION {inbook} { book }
 
-FUNCTION {incollection} { book }
+FUNCTION {incollection} { article.in.book }
 
 FUNCTION {inproceedings}
 { output.bibitem

@@ -23,8 +23,8 @@ media = {OL},
 
 文献类型 | entry type
 ---|---
-普通图书 | `book` 或 `inbook` 或 `incollection`
-图书（的析出文献） | `article`
+普通图书 | `book` 或 `inbook`
+图书（的析出文献） | `article` 或 `incollection`
 会议录 | `proceedings`
 会议录（的析出文献） | `inproceedings` 或 `conference`
 汇编 | `collection`*
