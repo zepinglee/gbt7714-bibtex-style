@@ -20,7 +20,7 @@ LEE Z, ZEPING L.
 \bibitem[One~et~al.(Year)One, Two, and Three]{test1}
 ONE A, TWO A, THREE A.
 \newblock Title[J/OL].
-\newblock Journal Title, Year, 2\penalty0 (3): Pages.
+\newblock Journal Title, Year, 2\penalty0 (3): Pages[URL Date].
 \newblock \url{url}.
 \newblock \doi{doi}.
 
@@ -92,27 +92,27 @@ ONE A, TWO A, THREE A.
 \bibitem[杨保军(2012)]{ybj}
 杨保军.
 \newblock 新闻道德论[D/OL].
-\newblock 北京: 中国人民大学出版社, 2012.
+\newblock 北京: 中国人民大学出版社, 2012[2012-11-01].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20101104-BPO-889-1023&cult=CN}.
 
 \bibitem[赵学功(2001)]{zxg}
 赵学功.
 \newblock 当代美国外交[M/OL].
-\newblock 北京: 社会科学文献出版社, 2001.
+\newblock 北京: 社会科学文献出版社, 2001[2014-06-11].
 \newblock \url{http://www.cadal.zju.edu.cn/book/trySinglePage/33023884/1}.
 
 \bibitem[同济大学土木工程防灾国家重点实验室(2011)]{tjdxtmgcfzgjzdsys}
 同济大学土木工程防灾国家重点实验室.
 \newblock 汶川地震灾害研究[M/OL].
-\newblock 上海: 同济大学出版社, 2011: 5--6.
+\newblock 上海: 同济大学出版社, 2011: 5--6[2013-05-09].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20120406-YPT-889-0010}.
 
 \bibitem[中国造纸学会(2003)]{zgzzxh}
 中国造纸学会.
 \newblock 中国造纸年鉴：2003[M/OL].
-\newblock 北京: 中国轻工业出版社, 2003.
+\newblock 北京: 中国轻工业出版社, 2003[2014-04-25].
 \newblock \url{http://www.cadal.zju.edu.cn/book/view/25010080}.
 
 \bibitem[Peebles(2001)]{peebles}
@@ -130,13 +130,13 @@ YUFIN S A.
 \bibitem[Baldock(2011)]{baldock}
 BALDOCK P.
 \newblock Developing early childhood services: past, present and future[M/OL].
-\newblock Rotterdam: Open University Press, 2011: 105.
+\newblock Rotterdam: Open University Press, 2011: 105[2012-11-27].
 \newblock \url{http://lib.myilibrary.com/Open.aspx?id=312377}.
 
 \bibitem[Fan~et~al.(2013)Fan and Sommers]{sommers}
 FAN X, SOMMERS C H.
 \newblock Food irradiation research and technology[M/OL].
-\newblock 2nd ed. Ames, Iowa: Blackwell Publishing, 2013: 25--26.
+\newblock 2nd ed. Ames, Iowa: Blackwell Publishing, 2013: 25--26[2014-06-26].
 \newblock
   \url{http://onlinelibrary.wiley.com/doi/10.1002/9781118422557.ch2/summary}.
 
@@ -195,7 +195,7 @@ ROBERSON J A, BURNESON E G.
   Water Works Association}.
 \newblock Water quality \& treatment: a handbook on drinking water.
 \newblock 6th ed.
-\newblock New York: McGraw-Hill, 2011: 1.1--1.36.
+\newblock New York: McGraw-Hill, 2011: 1.1--1.36[2012-12-10].
 \newblock \url{http://lib.myilibrary.com/Open.aspx?id=291430}.
 
 \end{thebibliography}
@@ -312,7 +312,7 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 \bibitem[中国互联网络信息中心()]{zghlwlxxzx}
 中国互联网络信息中心.
 \newblock 第29次中国互联网络发展现状统计报告[R/OL]
-\newblock (2013-03-26)[2013-03-26].
+\newblock (2012-01-16)[2013-03-26].
 \newblock
   \url{http://www.cnnic.net.cn/hlwfzyj/hlwxzbg/201201/P020120709345264469680}.
 
@@ -321,13 +321,13 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 \newblock
   关于转发北京市企业投资项目核准暂行实施办法的通知:
   京政办发[2005]37号[A/OL]
-\newblock [2011-07-12].
+\newblock (2005-07-12)[2011-07-12].
 \newblock \url{http://china.findlaw.cn/fagui/p_1/39934.html}.
 
 \bibitem[Bawden()]{bawden}
 BAWDEN D.
 \newblock Origins and concepts of digital literacy[EB/OL]
-\newblock [2013-03-08].
+\newblock (2008-05-04)[2013-03-08].
 \newblock
   \url{http://www.soi.city.ac.uk/~dbawden/digital%20literacy%20chapter.pdf}.
 
@@ -340,7 +340,7 @@ BAWDEN D.
 \bibitem[Hopkinson()]{hopkinson}
 HOPKINSON A.
 \newblock {UNIMARC} and metadata: Dublin core[EB/OL]
-\newblock [2013-03-27].
+\newblock (2009-04-22)[2013-03-27].
 \newblock \url{http://archive.ifla.org/IV/ifla64/138-161e.htm}.
 
 \end{thebibliography}
@@ -635,14 +635,14 @@ Proceedings of the Second International Conference on Soft Computing for
 \bibitem[中华人民共和国国务院新闻办公室()]{zhrmghggwyxwbgs}
 中华人民共和国国务院新闻办公室.
 \newblock 国防白皮书: 中国武装力量的多样化运用[R/OL]
-\newblock (2014-06-11)[2014-06-11].
+\newblock (2013-04-16)[2014-06-11].
 \newblock \url{http://www.mod.gov.cn/affair/2013-04/16/content_4442839}.
 
 \bibitem[汤万金~等()汤万金, 杨跃翔, 刘文, et~al.]{twj}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告:
   7178999X-2006BAK04A10/10.2013[R/OL]
-\newblock (2014-06-24)[2014-06-24].
+\newblock (2013-09-30)[2014-06-24].
 \newblock \url{http://www.nstrs.org.cn/xiangxiBG.aspx?id=41707}.
 
 \bibitem[Calkin~et~al.(2011)Calkin, Ager, and Thompson]{calkin}
@@ -926,13 +926,13 @@ PARK J R, TOSAKA Y.
 \bibitem[萧钰()]{xy}
 萧钰.
 \newblock 出版业信息化迈入快车道[EB/OL]
-\newblock [2002-04-15].
+\newblock (2001-12-19)[2002-04-15].
 \newblock \url{http://www.creader.com/news/20011219/200112190019.html}.
 
 \bibitem[李强()]{lq}
 李强.
 \newblock 化解医患矛盾需釜底抽薪[EB/OL]
-\newblock [2013-03-25].
+\newblock (2012-05-03)[2013-03-25].
 \newblock \url{http://wenku.baidu.com/view/47e4f206b52acfc789ebc92f.html}.
 
 \bibitem[{Commonwealth Libraries Bureau of Library Development. Pennsylvania
@@ -945,7 +945,7 @@ PARK J R, TOSAKA Y.
 
 \bibitem[dcm()]{dcmes}
 Dublin core metadata element set: version 1.1[EB/OL]
-\newblock [2014-06-11].
+\newblock (2012-06-14)[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
 
 \end{thebibliography}

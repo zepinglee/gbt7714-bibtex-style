@@ -122,12 +122,11 @@ ENTRY
     author
     booktitle
     chapter
-    citedate
     doi
     eid
     edition
-    editor
     editdate
+    editor
     howpublished
     institution
     isbn
@@ -150,6 +149,7 @@ ENTRY
     translator
     type
     url
+    urldate
     volume
     year
   }
@@ -1009,22 +1009,27 @@ FUNCTION {format.date}
 FUNCTION {format.editdate}
 { editdate empty$
     { "" }
-    { "(" citedate * ")" * }
-  if$
-}
-
-FUNCTION {format.citedate}
-{ citedate empty$
-    { "" }
-    { "[" citedate * "]" * }
+    { "(" editdate * ")" * }
   if$
 }
 
 %    \end{macrocode}
 %
-% The format.date function is for the month and year, but we give a warning if
-% there's an empty year but the month is there, and we return the empty string
-% if they're both empty.
+% 《著录规则》中的“引用日期”都是与 URL 同时出现的，所以其实为 urldate，这个虽然
+% 不是 \BibTeX{} 标准的域，但是实际中很常见。
+%
+%    \begin{macrocode}
+FUNCTION {format.urldate}
+{ urldate empty$
+    { "" }
+    { "[" urldate * "]" * }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.btitle is for formatting the title field when it is a book-like
+% entry---the style used here keeps it in uppers-and-lowers and emphasizes it.
 %
 %    \begin{macrocode}
 FUNCTION {format.btitle}
@@ -1704,7 +1709,7 @@ FUNCTION {article.in.journal}
   format.volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1737,7 +1742,7 @@ FUNCTION {article.in.book}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1764,7 +1769,8 @@ FUNCTION {online}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.editdate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1791,7 +1797,7 @@ FUNCTION {article.as.monograph}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1848,7 +1854,7 @@ FUNCTION {book}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1884,7 +1890,7 @@ FUNCTION {collection}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -2002,7 +2008,7 @@ FUNCTION {patent}
   format.mark "" output.after
   new.block
   format.date "year" output.check
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -2046,7 +2052,7 @@ FUNCTION {proceedings}
   format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -2099,7 +2105,7 @@ FUNCTION {techreport}
 %</numerical>
   format.pages punct.colon output.after
   format.editdate "" output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry

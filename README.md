@@ -56,33 +56,32 @@ media = {OL},
 
 著录项目（域） | Entry field
 ---|---
-出版地 | `address`
 主要责任者 | `author`
-图书题名 | `booktitle`
-引用日期 | `citedate`
-交叉引用 | `crossref`
-数字对象唯一标识符 | `doi`
-版本 | `edition`
-编辑 | `editor`
-修改日期 | `editdate`*
-机构（用于techreport） | `institution`
-期刊题名 | `journal`
-排序的关键词 | `key`
-语言 | `language`*
+题名 | `title`
 文献类型标识 | `mark`*
 载体类型标识 | `media`*
-期 | `number`
+翻译者 | `translator`*
+编辑 | `editor`
 组织（用于会议） | `organization`
-引文页码 | `pages`
-拼音（用于排序） | `pinyin`*
+图书题名 | `booktitle`
+系列 | `series`
+期刊题名 | `journal`
+版本 | `edition`
+出版地 | `address`
 出版者 | `publisher`
 学校（用于phdthesis） | `school`
-系列 | `series`
-题名 | `title`
-翻译者 | `translator`*
-获取和访问路径 | `url`
-卷 | `volume`
+机构（用于techreport） | `institution`
 出版年 | `year`
+卷 | `volume`
+期 | `number`
+引文页码 | `pages`
+更新或修改日期 | `edidate`*
+引用日期 | `urldate`*
+获取和访问路径 | `url`
+数字对象唯一标识符 | `doi`
+排序的关键词 | `key`
+语言 | `language`*
+拼音（用于排序） | `pinyin`*
 
 注:
 

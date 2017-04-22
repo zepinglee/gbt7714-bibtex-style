@@ -26,12 +26,11 @@ ENTRY
     author
     booktitle
     chapter
-    citedate
     doi
     eid
     edition
-    editor
     editdate
+    editor
     howpublished
     institution
     isbn
@@ -54,6 +53,7 @@ ENTRY
     translator
     type
     url
+    urldate
     volume
     year
   }
@@ -548,14 +548,14 @@ FUNCTION {format.date}
 FUNCTION {format.editdate}
 { editdate empty$
     { "" }
-    { "(" citedate * ")" * }
+    { "(" editdate * ")" * }
   if$
 }
 
-FUNCTION {format.citedate}
-{ citedate empty$
+FUNCTION {format.urldate}
+{ urldate empty$
     { "" }
-    { "[" citedate * "]" * }
+    { "[" urldate * "]" * }
   if$
 }
 
@@ -954,7 +954,7 @@ FUNCTION {article.in.journal}
   format.volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -982,7 +982,7 @@ FUNCTION {article.in.book}
   new.block
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1004,7 +1004,8 @@ FUNCTION {online}
   new.sentence
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.editdate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1026,7 +1027,7 @@ FUNCTION {article.as.monograph}
   new.block
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1077,7 +1078,7 @@ FUNCTION {book}
   new.sentence
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1108,7 +1109,7 @@ FUNCTION {collection}
   new.sentence
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1169,7 +1170,7 @@ FUNCTION {patent}
   format.mark "" output.after
   new.block
   format.date "year" output.check
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1192,7 +1193,7 @@ FUNCTION {proceedings}
   new.sentence
   format.address.publisher output
   format.pages punct.colon output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
@@ -1231,7 +1232,7 @@ FUNCTION {techreport}
   format.address.publisher output
   format.pages punct.colon output.after
   format.editdate "" output.after
-  format.citedate "" output.after
+  format.urldate "" output.after
   format.url output
   format.doi output
   fin.entry
