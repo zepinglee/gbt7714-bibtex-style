@@ -1297,6 +1297,10 @@ FUNCTION {patent}
   author format.key output
   new.block
   format.title "title" output.check
+  number empty$ not
+    { number punct.colon output.after }
+    'skip$
+  if$
   "P" format.mark "" output.after
   new.block
   format.date "year" output.check
