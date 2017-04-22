@@ -946,28 +946,6 @@ FUNCTION {format.incoll.inproc.crossref}
   " \citet{" * crossref * "}" *
 }
 
-FUNCTION {archive}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "A" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.pages punct.colon output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
 FUNCTION {article.in.journal}
 { output.bibitem
   format.authors "author" output.check
@@ -1074,6 +1052,11 @@ FUNCTION {article}
   if$
 }
 
+FUNCTION {archive}
+{ "A" set.mark
+  article
+}
+
 FUNCTION {book}
 { output.bibitem
   author empty$
@@ -1137,44 +1120,13 @@ FUNCTION {collection}
 }
 
 FUNCTION {database}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "DB" set.mark
-  format.mark "" output.after
-  new.block
-  format.date "year" output.check
-  format.editdate "" output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "DB" set.mark
+  article
 }
 
 FUNCTION {dataset}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "DS" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.pages punct.colon output.after
-  format.editdate "" output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "DS" set.mark
+  article
 }
 
 FUNCTION {inbook} { book }
@@ -1182,96 +1134,20 @@ FUNCTION {inbook} { book }
 FUNCTION {incollection} { article.in.book }
 
 FUNCTION {inproceedings}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.title "title" output.check
-  "C" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.slash
-  editor empty$
-    { organization }
-    { format.editors }
-  if$ output
-  booktitle "booktitle" output.check
-  new.block
-  format.bvolume punct.colon output.after
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.pages punct.colon output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "C" set.mark
+  article.in.book
 }
 
 FUNCTION {conference} { inproceedings }
 
-FUNCTION {manual}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  organization address new.block.checkb
-  organization output
-  format.address output
-  format.edition output
-  format.url output
-  new.block
-  note output
-  fin.entry
-}
-
 FUNCTION {map}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "CM" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.pages punct.colon output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "CM" set.mark
+  article
 }
 
 FUNCTION {mastersthesis}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "D" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.pages punct.colon output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "D" set.mark
+  article
 }
 
 FUNCTION {misc}
@@ -1279,22 +1155,8 @@ FUNCTION {misc}
 }
 
 FUNCTION {newspaper}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.title "title" output.check
-  "N" set.mark
-  format.mark "" output.after
-  new.block
-  journal "journal" output.check
-  new.block
-  format.vol.num.pages output
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "N" set.mark
+  article.in.journal
 }
 
 FUNCTION {patent}
@@ -1342,21 +1204,8 @@ FUNCTION {proceedings}
 }
 
 FUNCTION {program}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.series.volume.title "title" output.check
-  "CP" set.mark
-  format.mark "" output.after
-  new.block
-  format.date "year" output.check
-  format.editdate "" output.after
-  format.citedate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "CP" set.mark
+  article
 }
 
 FUNCTION {standard}
@@ -1390,20 +1239,6 @@ FUNCTION {techreport}
   format.citedate "" output.after
   format.url output
   format.doi output
-  fin.entry
-}
-
-FUNCTION {unpublished}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  format.date "year" output.check
-  new.block
-  format.title "title" output.check
-  new.block
-  note "note" output.check
-  format.date output
-  format.url output
   fin.entry
 }
 

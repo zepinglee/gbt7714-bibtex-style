@@ -180,8 +180,8 @@ FAN X, SOMMERS C H.
 \bibitem[贾东琴~等(2011)贾东琴 and 柯平]{jdq}
 贾东琴, 柯平.
 \newblock
-  面向数字素养的高校图书馆数字服务体系研究[C]//中国图书馆学会,
-  中国图书馆学会年会论文集：2011年卷.
+  面向数字素养的高校图书馆数字服务体系研究[C]//中国图书馆学会.
+\newblock 中国图书馆学会年会论文集：2011年卷.
 \newblock 北京: 国家图书馆出版社, 2011: 45--52.
 
 \bibitem[Weinstein~et~al.(1974)Weinstein and Swertz]{weinstein}
@@ -392,7 +392,7 @@ DOWLER L.
 \newblock The research university’s dilemma: resource sharing and research in
   a transinstitutional environment[J].
 \newblock Journal of library administration.
-\newblock 1995, 21\penalty0 (1/2): 2--26.
+\newblock 1995, 21\penalty0 (1/2): 5--26.
 
 \end{thebibliography}
 \begin{thebibliography}{6}
@@ -434,7 +434,7 @@ DOWLER L, 1995.
 \newblock The research university’s dilemma: resource sharing and research in
   a transinstitutional environment[J].
 \newblock Journal of library administration.
-\newblock 21\penalty0 (1/2): 2--26.
+\newblock 21\penalty0 (1/2): 5--26.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
@@ -486,14 +486,15 @@ MORRI I.
 \bibitem[裴丽生(1981)]{pls}
 裴丽生, 1981.
 \newblock
-  在中国科协学术期刊编辑工作经验交流会上的讲话[C]//中国科学技术协会,
-  中国科协学术期刊编辑工作经验交流会资料选.
+  在中国科协学术期刊编辑工作经验交流会上的讲话[C]//中国科学技术协会.
+\newblock 中国科协学术期刊编辑工作经验交流会资料选.
 \newblock 北京: 中国科学技术协会学会工作部: 2--10.
 
 \bibitem[张忠智(1997)]{zzz}
 张忠智, 1997.
 \newblock
-  科技书刊的总编(主编)的角色要求[C]//中国科学技术期刊编辑学会,
+  科技书刊的总编(主编)的角色要求[C]//中国科学技术期刊编辑学会.
+\newblock
   中国科学技术期刊编辑学会建会十周年学术研讨会论文汇编.
 \newblock 北京: 中国科学技术期刊编辑学会学术委员会: 33--34.
 
@@ -616,8 +617,10 @@ PRAETZELLIS A.
 \newblock 职工教育研究论文集[G].
 \newblock 北京: 人民教育出版社, 1985.
 
-\bibitem[zgs(2012)]{zgshkxytwsyjzx}
-台湾光复六十五周年暨抗战史实学术研讨会论文集[C].
+\bibitem[中国社会科学院台湾史研究中心(2012)]{zgshkxytwsyjzx}
+中国社会科学院台湾史研究中心.
+\newblock
+  台湾光复六十五周年暨抗战史实学术研讨会论文集[C].
 \newblock 北京: 九州出版社, 2012.
 
 \bibitem[lgc(2012)]{lgc}
@@ -787,7 +790,8 @@ Information and documentation-the Dublin cord metadata element set: ISO 15836:
 \bibitem[汪学军(2002)]{wxj}
 汪学军.
 \newblock
-  中国农业转基因生物研究进展与安全管理[C]//国家环境保护总局生物安全管理办公室,
+  中国农业转基因生物研究进展与安全管理[C]//国家环境保护总局生物安全管理办公室.
+\newblock
   中国国家生物安全框架实施国际合作项目研讨会论文集.
 \newblock 北京: 中国环境科学出版社, 2002: 22--25.
 
