@@ -971,7 +971,6 @@ FUNCTION {article.in.journal}
   format.mark "" output.after
   new.block
   journal "journal" output.check
-  new.block
   format.year.vol.num.pages output
   format.citedate "" output.after
   format.url output
