@@ -99,7 +99,7 @@ FUNCTION {punct.colon}
 }
 
 FUNCTION {punct.slash}
-{ "//"
+{ "//\allowbreak{}"
 }
 
 FUNCTION {punct.space}
@@ -415,7 +415,7 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "\null[" mark_ * "]" * }
+{ "\allowbreak[" mark_ * "]" * }
 
 FUNCTION {format.full.names}
 {'s :=
@@ -547,14 +547,14 @@ FUNCTION {format.date}
 FUNCTION {format.editdate}
 { editdate empty$
     { "" }
-    { "(" editdate * ")" * }
+    { "\allowbreak(" editdate * ")" * }
   if$
 }
 
 FUNCTION {format.urldate}
 { urldate empty$
     { "" }
-    { "[" urldate * "]" * }
+    { "\allowbreak[" urldate * "]" * }
   if$
 }
 
