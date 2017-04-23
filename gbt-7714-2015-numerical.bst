@@ -146,7 +146,7 @@ FUNCTION {output.after}
       output.state mid.sentence =
         { t * write$ }
         { output.state after.block =
-            { t * write$
+            { add.period$ write$
               newline$
               "\newblock " write$
             }
@@ -1000,7 +1000,6 @@ FUNCTION {article.in.book}
   format.editors output
   new.block
   booktitle "booktitle" output.check
-  new.block
   format.bvolume punct.colon output.after
   new.block
   format.edition output
