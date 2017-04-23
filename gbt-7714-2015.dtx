@@ -1774,6 +1774,119 @@ FUNCTION {article.in.book}
   fin.entry
 }
 
+FUNCTION {extract.start}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.end}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr stringlength <
+          s charptr #1 substring$ "-" =
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.dash}
+{ 's :=
+    { s empty$ not
+      s #1 #1 substring$ "-" = not
+      and
+    }
+    { s #2 global.max$ substring$ 's := }
+  while$
+  s empty$ not
+}
+
+FUNCTION {format.periodical.year.volume.number}
+{ year empty$ not
+    { year extract.start }
+    { "No year in periodical " cite$ * warning$ }
+  if$
+  volume empty$ not
+    { ", " * volume extract.start * }
+    'skip$
+  if$
+  number empty$ not
+    { "\penalty0 (" * number extract.start * ")" * }
+    'skip$
+  if$
+  year contains.dash
+    { "--" *
+      year extract.end empty$
+      volume extract.end empty$ and
+      number extract.end empty$ and not
+        { year extract.end empty$ not
+            { year extract.end * }
+            { year extract.start * }
+          if$
+          volume empty$ not
+            { ", " * volume extract.end * }
+            'skip$
+          if$
+          number empty$ not
+            { "\penalty0 (" * number extract.end * ")" * }
+            'skip$
+          if$
+        }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+}
+
+FUNCTION {periodical}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+%<*authoryear>
+  format.date "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  "J" set.mark
+  format.mark "" output.after
+  new.block
+  format.periodical.year.volume.number output
+  new.block
+  format.address.publisher output
+%<*numerical>
+  format.date "year" output.check
+%</numerical>
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
 FUNCTION {online}
 { output.bibitem
   format.authors output
