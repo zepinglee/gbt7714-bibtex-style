@@ -415,7 +415,7 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "[" mark_ * "]" * }
+{ "\null[" mark_ * "]" * }
 
 FUNCTION {format.full.names}
 {'s :=
