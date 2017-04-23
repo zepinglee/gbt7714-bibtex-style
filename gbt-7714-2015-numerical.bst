@@ -802,39 +802,10 @@ FUNCTION {format.address.publisher}
   if$
 }
 
-INTEGERS { multiresult }
-
-FUNCTION {multi.page.check}
-{ 't :=
-  #0 'multiresult :=
-    { multiresult not
-      t empty$ not
-      and
-    }
-    { t #1 #1 substring$
-      duplicate$ "-" =
-      swap$ duplicate$ "," =
-      swap$ "+" =
-      or or
-        { #1 'multiresult := }
-        { t #2 global.max$ substring$ 't := }
-      if$
-    }
-  while$
-  multiresult
-}
-
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages }
-  if$
-}
-
-FUNCTION {format.eid}
-{ eid empty$
-    { "" }
-    { "art." eid tie.or.space.connect }
+    { pages n.dashify }
   if$
 }
 

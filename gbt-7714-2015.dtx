@@ -1272,30 +1272,7 @@ FUNCTION {format.edition}
 
 %    \end{macrocode}
 %
-% The format.pages function is used for formatting a page range in a book
-% (and in rare circumstances, an article).
-%
-% The multi.page.check function examines the page field for a "-" or "," or "+"
-% so that format.pages can use "page" instead of "pages" if none exists.
-% Note: |global.max$| here means "take the rest of the string"
-%
-% \begin{lstlisting}
-% VAR: multiresult: INTEGER     (actually, a boolean)
-%
-% multi.page.check(s) ==
-%  BEGIN
-%       t := s
-%       multiresult := false
-%       while ((not multiresult) and (not empty$(t)))
-%         do
-%           if (first character of t = "-" or "," or "+")
-%             then multiresult := true
-%             else t := t with the first character removed
-%           fi
-%         od
-%       return multiresult
-%  END
-% \end{lstlisting}
+% 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
 %
 %    \begin{macrocode}
 FUNCTION {format.sine.loco}
@@ -1369,28 +1346,6 @@ FUNCTION {format.address.publisher}
   if$
 }
 
-INTEGERS { multiresult }
-
-FUNCTION {multi.page.check}
-{ 't :=
-  #0 'multiresult :=
-    { multiresult not
-      t empty$ not
-      and
-    }
-    { t #1 #1 substring$
-      duplicate$ "-" =
-      swap$ duplicate$ "," =
-      swap$ "+" =
-      or or
-        { #1 'multiresult := }
-        { t #2 global.max$ substring$ 't := }
-      if$
-    }
-  while$
-  multiresult
-}
-
 %    \end{macrocode}
 %
 % This function doesn't begin a sentence so "pages" isn't capitalized.
@@ -1400,14 +1355,7 @@ FUNCTION {multi.page.check}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages }
-  if$
-}
-
-FUNCTION {format.eid}
-{ eid empty$
-    { "" }
-    { "art." eid tie.or.space.connect }
+    { pages n.dashify }
   if$
 }
 
