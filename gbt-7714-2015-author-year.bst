@@ -153,7 +153,11 @@ FUNCTION {output.after}
             }
             { output.state before.all =
                 'write$
-                { t * write$ }
+                { output.state after.slash =
+                    { punct.slash * write$ }
+                    { add.period$ " " * write$ }
+                  if$
+                }
               if$
             }
           if$

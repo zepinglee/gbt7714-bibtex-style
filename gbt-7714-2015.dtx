@@ -208,6 +208,9 @@ ENTRY
 % separator.  The ordering of the tests is decreasing frequency of
 % occurrence.
 %
+% 由于专著中的析出文献需要用到很特殊的“//”，所以我又加了一个 after.slash。
+% 其他需要在特定符号后面输出，所以写了一个 output.after。
+%
 % \begin{lstlisting}
 % output.nonnull(s) ==
 %  BEGIN
@@ -418,7 +421,11 @@ FUNCTION {output.after}
             }
             { output.state before.all =
                 'write$
-                { t * write$ }
+                { output.state after.slash =
+                    { punct.slash * write$ }
+                    { add.period$ " " * write$ }
+                  if$
+                }
               if$
             }
           if$
