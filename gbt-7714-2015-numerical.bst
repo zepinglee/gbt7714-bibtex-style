@@ -356,7 +356,11 @@ FUNCTION {format.translators}
     { "" }
     { translator format.names
       is.in.chinese
-        { ",译" * }
+        { translator num.names$ #3 >
+            { "译" * }
+            { ", 译" * }
+          if$
+        }
         'skip$
       if$
     }
