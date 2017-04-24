@@ -347,8 +347,7 @@ FUNCTION {format.authors}
 FUNCTION {format.editors}
 { editor empty$
     { "" }
-    { editor format.names
-    }
+    { editor format.names }
   if$
 }
 
@@ -361,20 +360,6 @@ FUNCTION {format.translators}
         'skip$
       if$
     }
-  if$
-}
-
-FUNCTION {format.isbn}
-{ isbn empty$
-    { "" }
-    { new.block "ISBN " isbn * }
-  if$
-}
-
-FUNCTION {format.issn}
-{ issn empty$
-    { "" }
-    { new.block "ISSN " issn * }
   if$
 }
 
@@ -538,12 +523,6 @@ FUNCTION {format.date}
     { "empty year in " cite$ * warning$
        pop$ "" }
     'skip$
-  if$
-  month empty$
-    'skip$
-    { month
-      " " * swap$ *
-    }
   if$
   extra.label *
 }
@@ -819,22 +798,6 @@ FUNCTION {format.journal.number}
   if$
 }
 
-FUNCTION {format.chapter.pages}
-{ chapter empty$
-    'format.pages
-    { type empty$
-        { "chapter" }
-        { type "l" change.case$ }
-      if$
-      chapter tie.or.space.connect
-      pages empty$
-        'skip$
-        { ", " * format.pages * }
-      if$
-    }
-  if$
-}
-
 FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
@@ -853,26 +816,6 @@ FUNCTION {empty.misc.check}
   key empty$ not and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
-  if$
-}
-
-FUNCTION {format.thesis.type}
-{ type empty$
-    'skip$
-    { pop$
-      type "t" change.case$
-    }
-  if$
-}
-
-FUNCTION {format.tr.number}
-{ type empty$
-    { "Technical Report" }
-    'type
-  if$
-  number empty$
-    { "t" change.case$ }
-    { number tie.or.space.connect }
   if$
 }
 
