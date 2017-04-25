@@ -81,7 +81,8 @@ ONE A, TWO A, THREE A.
 \newblock 金陵: 湘乡曾国荃, 1865（清同治四年）.
 
 \bibitem[牛志明~等(2012)牛志明, 斯温兰德, and 雷光春]{nzm}
-综合湿地管理国际研讨会论文集\allowbreak[C].
+牛志明, 斯温兰德, 雷光春.
+\newblock 综合湿地管理国际研讨会论文集\allowbreak[C].
 \newblock 北京: 海洋出版社, 2012.
 
 \bibitem[中国第一历史档案馆~等(2001)中国第一历史档案馆 and
@@ -124,9 +125,11 @@ PEEBLES P Z, Jr.
 \newblock New York: McGraw-Hill, 2001.
 
 \bibitem[Yufin(2000)]{yufin}
-Geoecology and computers: proceedings of the {Third International Conference on
-  Advances of Computer Methods in Geotechnical and Geoenvironmental
-  Engineering, Moscow, Russia, February 1-4, 2000}\allowbreak[C].
+YUFIN S A.
+\newblock Geoecology and computers: proceedings of the {Third International
+  Conference on Advances of Computer Methods in Geotechnical and
+  Geoenvironmental Engineering, Moscow, Russia, February 1-4,
+  2000}\allowbreak[C].
 \newblock Rotterdam: A. A. Balkema, 2000.
 
 \bibitem[Baldock(2011)]{baldock}
@@ -637,28 +640,35 @@ PRAETZELLIS A.
   \providecommand{\doi}[1]{DOI: #1}\else
   \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[zgz(1985)]{zgzgjyyjh}
-职工教育研究论文集\allowbreak[G].
+\bibitem[中国职工教育研究会(1985)]{zgzgjyyjh}
+中国职工教育研究会.
+\newblock 职工教育研究论文集\allowbreak[G].
 \newblock 北京: 人民教育出版社, 1985.
 
 \bibitem[中国社会科学院台湾史研究中心(2012)]{zgshkxytwsyjzx}
-台湾光复六十五周年暨抗战史实学术研讨会论文集\allowbreak[C].
+中国社会科学院台湾史研究中心.
+\newblock
+  台湾光复六十五周年暨抗战史实学术研讨会论文集\allowbreak[C].
 \newblock 北京: 九州出版社, 2012.
 
 \bibitem[雷光春(2012)]{lgc}
-综合湿地管理：综合湿地管理国际研讨会论文集\allowbreak[C].
+雷光春.
+\newblock
+  综合湿地管理：综合湿地管理国际研讨会论文集\allowbreak[C].
 \newblock 北京: 海洋出版社, 2012.
 
 \bibitem[陈志勇(2011)]{czy}
-中国财税文化价值研究:
+陈志勇.
+\newblock 中国财税文化价值研究:
   “中国财税文化国际学术研讨会”论文集\allowbreak[C/OL].
 \newblock 北京: 经济科学出版社, 2011\allowbreak[2013-10-14].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.201106228-BPO-889-0135&cult=CN}.
 
 \bibitem[Babu~et~al.(2014)Babu, Nagar, Deep, et~al.]{babu}
-Proceedings of the second international conference on soft computing for
-  problem solving, december 28--30, 2012\allowbreak[C].
+BABU B V, NAGAR A K, DEEP K, et~al.
+\newblock Proceedings of the second international conference on soft computing
+  for problem solving, december 28--30, 2012\allowbreak[C].
 \newblock New Delhi: Springer, 2014.
 
 \end{thebibliography}

@@ -980,8 +980,14 @@ FUNCTION {format.incoll.inproc.crossref}
 
 FUNCTION {monograph}
 { output.bibitem
-  format.authors "author" output.check
-  author format.key output
+  author empty$ not
+    { format.authors output }
+    { editor empty$ not
+        { format.editors output }
+        { organization output }
+      if$
+    }
+  if$
   format.date "year" output.check
   new.block
   format.title "title" output.check
@@ -1419,14 +1425,16 @@ FUNCTION {calc.short.authors}
 { type$ "book" =
   type$ "inbook" =
   or
+  type$ "collection" =
+  or
     'author.editor.key.label
     { type$ "proceedings" =
-        'editor.key.organization.label
-        { type$ "manual" =
+        { editor empty$ not
+            'editor.key.organization.label
             'author.key.organization.label
-            'author.key.label
           if$
         }
+        'author.key.label
       if$
     }
   if$
