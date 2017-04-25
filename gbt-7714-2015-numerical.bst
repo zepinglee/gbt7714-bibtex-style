@@ -802,139 +802,6 @@ FUNCTION {format.journal.number}
   if$
 }
 
-FUNCTION {format.in.ed.booktitle}
-{ booktitle empty$
-    { "" }
-    { editor empty$
-        { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
-      if$
-    }
-  if$
-}
-
-FUNCTION {empty.misc.check}
-{ author empty$ title empty$ howpublished empty$
-  month empty$ year empty$ note empty$
-  and and and and and
-  key empty$ not and
-    { "all relevant fields are empty in " cite$ * warning$ }
-    'skip$
-  if$
-}
-
-FUNCTION {format.article.crossref}
-{ key empty$
-    { journal empty$
-        { "need key or journal for " cite$ * " to crossref " * crossref *
-          warning$
-          ""
-        }
-        { "In \emph{" journal * "}" * }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-FUNCTION {format.book.crossref}
-{ volume empty$
-    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-      "In "
-    }
-    { "Volume" volume tie.or.space.connect
-      " of " *
-    }
-  if$
-  editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { series empty$
-            { "need editor, key, or series for " cite$ * " to crossref " *
-              crossref * warning$
-              "" *
-            }
-            { "\emph{" * series * "}" * }
-          if$
-        }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-FUNCTION {format.incoll.inproc.crossref}
-{ editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { booktitle empty$
-            { "need editor, key, or booktitle for " cite$ * " to crossref " *
-              crossref * warning$
-              ""
-            }
-            { "In \emph{" booktitle * "}" * }
-          if$
-        }
-        { "In " }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-FUNCTION {article.in.journal}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  new.block
-  format.title "title" output.check
-  "J" set.mark
-  format.mark "" output.after
-  new.block
-  journal "journal" output.check
-  format.date "year" output.check
-  format.volume output
-  format.journal.number "" output.after
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
-FUNCTION {article.in.book}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  new.block
-  format.title "title" output.check
-  "M" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.slash
-  format.editors output
-  new.block
-  booktitle "booktitle" output.check
-  format.bvolume punct.colon output.after
-  new.block
-  format.edition output
-  new.block
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
 FUNCTION {extract.start}
 { duplicate$ empty$
     { pop$ "" }
@@ -1024,6 +891,141 @@ FUNCTION {format.periodical.year.volume.number}
   if$
 }
 
+FUNCTION {format.in.ed.booktitle}
+{ booktitle empty$
+    { "" }
+    { editor empty$
+        { "In " booktitle emphasize * }
+        { "In " format.editors * ", " * booktitle emphasize * }
+      if$
+    }
+  if$
+}
+
+FUNCTION {empty.misc.check}
+{ author empty$ title empty$ howpublished empty$
+  month empty$ year empty$ note empty$
+  and and and and and
+  key empty$ not and
+    { "all relevant fields are empty in " cite$ * warning$ }
+    'skip$
+  if$
+}
+
+FUNCTION {format.article.crossref}
+{ key empty$
+    { journal empty$
+        { "need key or journal for " cite$ * " to crossref " * crossref *
+          warning$
+          ""
+        }
+        { "In \emph{" journal * "}" * }
+      if$
+    }
+    { "In " }
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+FUNCTION {format.book.crossref}
+{ volume empty$
+    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
+      "In "
+    }
+    { "Volume" volume tie.or.space.connect
+      " of " *
+    }
+  if$
+  editor empty$
+  editor field.or.null author field.or.null =
+  or
+    { key empty$
+        { series empty$
+            { "need editor, key, or series for " cite$ * " to crossref " *
+              crossref * warning$
+              "" *
+            }
+            { "\emph{" * series * "}" * }
+          if$
+        }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+FUNCTION {format.incoll.inproc.crossref}
+{ editor empty$
+  editor field.or.null author field.or.null =
+  or
+    { key empty$
+        { booktitle empty$
+            { "need editor, key, or booktitle for " cite$ * " to crossref " *
+              crossref * warning$
+              ""
+            }
+            { "In \emph{" booktitle * "}" * }
+          if$
+        }
+        { "In " }
+      if$
+    }
+    { "In " }
+  if$
+  " \citet{" * crossref * "}" *
+}
+
+FUNCTION {monograph}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  "M" set.mark
+  format.mark "" output.after
+  new.block
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  format.address.publisher output
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+FUNCTION {incollection}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  "M" set.mark
+  format.mark "" output.after
+  new.block
+  format.translators output
+  new.slash
+  format.editors output
+  new.block
+  booktitle "booktitle" output.check
+  format.bvolume punct.colon output.after
+  new.block
+  format.edition output
+  new.block
+  format.address.publisher output
+  format.date "year" output.check
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
 FUNCTION {periodical}
 { output.bibitem
   format.authors "author" output.check
@@ -1036,6 +1038,46 @@ FUNCTION {periodical}
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
+  format.date "year" output.check
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+FUNCTION {article.in.journal}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  new.block
+  format.title "title" output.check
+  "J" set.mark
+  format.mark "" output.after
+  new.block
+  journal "journal" output.check
+  format.date "year" output.check
+  format.volume output
+  format.journal.number "" output.after
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+FUNCTION {patent}
+{ output.bibitem
+  format.authors output
+  author format.key output
+  new.block
+  format.title "title" output.check
+  number empty$ not
+    { number punct.colon output.after }
+    'skip$
+  if$
+  "P" set.mark
+  format.mark "" output.after
+  new.block
   format.date "year" output.check
   format.urldate "" output.after
   format.url output
@@ -1066,36 +1108,14 @@ FUNCTION {online}
   fin.entry
 }
 
-FUNCTION {article.as.monograph}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-  new.block
-  format.title "title" output.check
-  "M" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.block
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
-FUNCTION {article}
+FUNCTION {misc}
 { journal empty$ not
     { article.in.journal }
     { booktitle empty$ not
-        { article.in.book }
+        { incollection }
         { url empty$ not
             { online }
-            { article.as.monograph }
+            { monograph }
           if$
         }
       if$
@@ -1105,104 +1125,46 @@ FUNCTION {article}
 
 FUNCTION {archive}
 { "A" set.mark
-  article
+  misc
 }
+
+FUNCTION {article}
+{ misc }
 
 FUNCTION {book}
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check
-      editor format.key output
-    }
-    { format.authors output.nonnull
-      crossref missing$
-        { "author and editor" editor either.or.check }
-        'skip$
-      if$
-    }
-  if$
-  new.block
-  format.series.volume.title "title" output.check
-  "M" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
+{ monograph }
 
 FUNCTION {collection}
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check
-      editor format.key output
-    }
-    { format.authors output.nonnull
-      crossref missing$
-        { "author and editor" editor either.or.check }
-        'skip$
-      if$
-    }
-  if$
-  new.block
-  format.series.volume.title "title" output.check
-  "G" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
+{ "G" set.mark
+  monograph }
 
 FUNCTION {database}
 { "DB" set.mark
-  article
+  misc
 }
 
 FUNCTION {dataset}
 { "DS" set.mark
-  article
+  misc
 }
 
 FUNCTION {inbook} { book }
 
-FUNCTION {incollection} { article.in.book }
-
 FUNCTION {inproceedings}
 { "C" set.mark
-  article.in.book
+  incollection
 }
 
 FUNCTION {conference} { inproceedings }
 
 FUNCTION {map}
 { "CM" set.mark
-  article
+  misc
 }
 
 FUNCTION {mastersthesis}
 { "D" set.mark
-  article
-}
-
-FUNCTION {misc}
-{ article
+  misc
 }
 
 FUNCTION {newspaper}
@@ -1210,87 +1172,26 @@ FUNCTION {newspaper}
   article.in.journal
 }
 
-FUNCTION {patent}
-{ output.bibitem
-  format.authors output
-  author format.key output
-  new.block
-  format.title "title" output.check
-  number empty$ not
-    { number punct.colon output.after }
-    'skip$
-  if$
-  "P" set.mark
-  format.mark "" output.after
-  new.block
-  format.date "year" output.check
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
 FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}
-{ output.bibitem
-  format.editors output
-  editor format.key output
-  new.block
-  format.series.volume.title "title" output.check
-  "C" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "C" set.mark
+  monograph
 }
 
 FUNCTION {program}
 { "CP" set.mark
-  article
+  misc
 }
 
 FUNCTION {standard}
 { "S" set.mark
-  article
+  misc
 }
 
 FUNCTION {techreport}
-{ output.bibitem
-  author empty$
-    { institution output
-      institution format.key output
-    }
-    { format.authors output
-      author format.key output
-    }
-  if$
-  new.block
-  format.series.volume.title "title" output.check
-  "R" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-  format.date "year" output.check
-  format.pages punct.colon output.after
-  format.editdate "" output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "R" set.mark
+  misc
 }
 
 FUNCTION {default.type} { misc }

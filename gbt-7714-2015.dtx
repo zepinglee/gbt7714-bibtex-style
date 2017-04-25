@@ -1348,15 +1348,6 @@ FUNCTION {format.pages}
   if$
 }
 
-%    \end{macrocode}
-%
-% The format.vol.num.pages function is for the volume, number, and page range
-% of a journal article.  We use the format:  vol(number):pages, with some
-% variations for empty fields.  This doesn't begin a sentence.
-%
-% 在author-year模式下，如果volume为空，则number与journal连在一起，所以volume,
-% number, pages必须分开处理
-%    \begin{macrocode}
 FUNCTION {format.volume}
 { volume }
 
@@ -1364,6 +1355,99 @@ FUNCTION {format.journal.number}
 { number empty$ not
     { "\penalty0 (" number * ")" * }
     { "" }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 连续出版物的年卷期有起止范围，需要特殊处理
+%    \begin{macrocode}
+FUNCTION {extract.start}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.end}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr stringlength <
+          s charptr #1 substring$ "-" =
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.dash}
+{ 's :=
+    { s empty$ not
+      s #1 #1 substring$ "-" = not
+      and
+    }
+    { s #2 global.max$ substring$ 's := }
+  while$
+  s empty$ not
+}
+
+FUNCTION {format.periodical.year.volume.number}
+{ year empty$ not
+    { year extract.start }
+    { "No year in periodical " cite$ * warning$ }
+  if$
+  volume empty$ not
+    { ", " * volume extract.start * }
+    'skip$
+  if$
+  number empty$ not
+    { "\penalty0 (" * number extract.start * ")" * }
+    'skip$
+  if$
+  year contains.dash
+    { "--" *
+      year extract.end empty$
+      volume extract.end empty$ and
+      number extract.end empty$ and not
+        { year extract.end empty$ not
+            { year extract.end * }
+            { year extract.start * }
+          if$
+          volume empty$ not
+            { ", " * volume extract.end * }
+            'skip$
+          if$
+          number empty$ not
+            { "\penalty0 (" * number extract.end * ")" * }
+            'skip$
+          if$
+        }
+        'skip$
+      if$
+    }
+    'skip$
   if$
 }
 
@@ -1600,8 +1684,10 @@ FUNCTION {format.incoll.inproc.crossref}
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
 %
+% \subsection{专著}
+%
 %    \begin{macrocode}
-FUNCTION {article.in.journal}
+FUNCTION {monograph}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
@@ -1610,15 +1696,17 @@ FUNCTION {article.in.journal}
 %</authoryear>
   new.block
   format.title "title" output.check
-  "J" set.mark
+  "M" set.mark
   format.mark "" output.after
   new.block
-  journal "journal" output.check
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  format.address.publisher output
 %<*numerical>
   format.date "year" output.check
 %</numerical>
-  format.volume output
-  format.journal.number "" output.after
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1626,7 +1714,19 @@ FUNCTION {article.in.journal}
   fin.entry
 }
 
-FUNCTION {article.in.book}
+%    \end{macrocode}
+%
+% \subsection{专著中的析出文献}
+%
+% An incollection is like inbook, but where there is a separate title
+% for the referenced thing (and perhaps an editor for the whole).
+% An incollection may CROSSREF a book.
+%       Required: author, title, booktitle, publisher, year
+%       Optional: editor, volume or number, series, type, chapter, pages,
+%                       address, edition, month, note
+%
+%    \begin{macrocode}
+FUNCTION {incollection}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
@@ -1658,95 +1758,11 @@ FUNCTION {article.in.book}
   fin.entry
 }
 
-FUNCTION {extract.start}
-{ duplicate$ empty$
-    { pop$ "" }
-    { 's :=
-      #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
-          s charptr #1 substring$ "-" = not
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-      s #1 charptr #1 - substring$
-    }
-  if$
-}
-
-FUNCTION {extract.end}
-{ duplicate$ empty$
-    { pop$ "" }
-    { 's :=
-      #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
-          s charptr #1 substring$ "-" = not
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-        { charptr stringlength <
-          s charptr #1 substring$ "-" =
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-      s charptr global.max$ substring$
-    }
-  if$
-}
-
-FUNCTION {contains.dash}
-{ 's :=
-    { s empty$ not
-      s #1 #1 substring$ "-" = not
-      and
-    }
-    { s #2 global.max$ substring$ 's := }
-  while$
-  s empty$ not
-}
-
-FUNCTION {format.periodical.year.volume.number}
-{ year empty$ not
-    { year extract.start }
-    { "No year in periodical " cite$ * warning$ }
-  if$
-  volume empty$ not
-    { ", " * volume extract.start * }
-    'skip$
-  if$
-  number empty$ not
-    { "\penalty0 (" * number extract.start * ")" * }
-    'skip$
-  if$
-  year contains.dash
-    { "--" *
-      year extract.end empty$
-      volume extract.end empty$ and
-      number extract.end empty$ and not
-        { year extract.end empty$ not
-            { year extract.end * }
-            { year extract.start * }
-          if$
-          volume empty$ not
-            { ", " * volume extract.end * }
-            'skip$
-          if$
-          number empty$ not
-            { "\penalty0 (" * number extract.end * ")" * }
-            'skip$
-          if$
-        }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-}
-
+%    \end{macrocode}
+%
+% \subsection{连续出版物}
+%
+%    \begin{macrocode}
 FUNCTION {periodical}
 { output.bibitem
   format.authors "author" output.check
@@ -1771,6 +1787,71 @@ FUNCTION {periodical}
   fin.entry
 }
 
+%    \end{macrocode}
+%
+% \subsection{连续出版物中的析出文献}
+%
+%    \begin{macrocode}
+FUNCTION {article.in.journal}
+{ output.bibitem
+  format.authors "author" output.check
+  author format.key output
+%<*authoryear>
+  format.date "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  "J" set.mark
+  format.mark "" output.after
+  new.block
+  journal "journal" output.check
+%<*numerical>
+  format.date "year" output.check
+%</numerical>
+  format.volume output
+  format.journal.number "" output.after
+  format.pages punct.colon output.after
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{专利文献}
+%
+% number 域也可以用来表示专利号。
+%
+%    \begin{macrocode}
+FUNCTION {patent}
+{ output.bibitem
+  format.authors output
+  author format.key output
+%<*authoryear>
+  format.date "year" output.check
+%</authoryear>
+  new.block
+  format.title "title" output.check
+  number empty$ not
+    { number punct.colon output.after }
+    'skip$
+  if$
+  "P" set.mark
+  format.mark "" output.after
+  new.block
+  format.date "year" output.check
+  format.urldate "" output.after
+  format.url output
+  format.doi output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% \subsection{电子资源}
+%
+%    \begin{macrocode}
 FUNCTION {online}
 { output.bibitem
   format.authors output
@@ -1799,41 +1880,22 @@ FUNCTION {online}
   fin.entry
 }
 
-FUNCTION {article.as.monograph}
-{ output.bibitem
-  format.authors "author" output.check
-  author format.key output
-%<*authoryear>
-  format.date "year" output.check
-%</authoryear>
-  new.block
-  format.title "title" output.check
-  "M" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.block
-  format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
-
-FUNCTION {article}
+%    \end{macrocode}
+%
+% A misc is something that doesn't fit elsewhere.
+%       Required: at least one of the `optional' fields
+%       Optional: author, title, howpublished, month, year, note
+%
+% Misc 用来自动判断类型。
+%    \begin{macrocode}
+FUNCTION {misc}
 { journal empty$ not
     { article.in.journal }
     { booktitle empty$ not
-        { article.in.book }
+        { incollection }
         { url empty$ not
             { online }
-            { article.as.monograph }
+            { monograph }
           if$
         }
       if$
@@ -1843,90 +1905,27 @@ FUNCTION {article}
 
 FUNCTION {archive}
 { "A" set.mark
-  article
+  misc
 }
 
+FUNCTION {article}
+{ misc }
 
 FUNCTION {book}
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check
-      editor format.key output
-    }
-    { format.authors output.nonnull
-      crossref missing$
-        { "author and editor" editor either.or.check }
-        'skip$
-      if$
-    }
-  if$
-%<*authoryear>
-  format.date "year" output.check
-%</authoryear>
-  new.block
-  format.series.volume.title "title" output.check
-  "M" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
+{ monograph }
 
 FUNCTION {collection}
-{ output.bibitem
-  author empty$
-    { format.editors "author and editor" output.check
-      editor format.key output
-    }
-    { format.authors output.nonnull
-      crossref missing$
-        { "author and editor" editor either.or.check }
-        'skip$
-      if$
-    }
-  if$
-%<*authoryear>
-  format.date "year" output.check
-%</authoryear>
-  new.block
-  format.series.volume.title "title" output.check
-  "G" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
-}
+{ "G" set.mark
+  monograph }
 
 FUNCTION {database}
 { "DB" set.mark
-  article
+  misc
 }
 
 FUNCTION {dataset}
 { "DS" set.mark
-  article
+  misc
 }
 
 %    \end{macrocode}
@@ -1947,18 +1946,6 @@ FUNCTION {inbook} { book }
 
 %    \end{macrocode}
 %
-% An incollection is like inbook, but where there is a separate title
-% for the referenced thing (and perhaps an editor for the whole).
-% An incollection may CROSSREF a book.
-%       Required: author, title, booktitle, publisher, year
-%       Optional: editor, volume or number, series, type, chapter, pages,
-%                       address, edition, month, note
-%
-%    \begin{macrocode}
-FUNCTION {incollection} { article.in.book }
-
-%    \end{macrocode}
-%
 % An inproceedings is an article in a conference proceedings, and it may
 % CROSSREF a proceedings.  If there's no address field, the month (\& year)
 % will appear just before note.
@@ -1969,7 +1956,7 @@ FUNCTION {incollection} { article.in.book }
 %    \begin{macrocode}
 FUNCTION {inproceedings}
 { "C" set.mark
-  article.in.book
+  incollection
 }
 
 %    \end{macrocode}
@@ -1981,7 +1968,7 @@ FUNCTION {conference} { inproceedings }
 
 FUNCTION {map}
 { "CM" set.mark
-  article
+  misc
 }
 
 %    \end{macrocode}
@@ -1995,46 +1982,12 @@ FUNCTION {map}
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
 { "D" set.mark
-  article
-}
-
-%    \end{macrocode}
-%
-% A misc is something that doesn't fit elsewhere.
-%       Required: at least one of the `optional' fields
-%       Optional: author, title, howpublished, month, year, note
-%
-%    \begin{macrocode}
-FUNCTION {misc}
-{ article
+  misc
 }
 
 FUNCTION {newspaper}
 { "N" set.mark
   article.in.journal
-}
-
-FUNCTION {patent}
-{ output.bibitem
-  format.authors output
-  author format.key output
-%<*authoryear>
-  format.date "year" output.check
-%</authoryear>
-  new.block
-  format.title "title" output.check
-  number empty$ not
-    { number punct.colon output.after }
-    'skip$
-  if$
-  "P" set.mark
-  format.mark "" output.after
-  new.block
-  format.date "year" output.check
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
 }
 
 %    \end{macrocode}
@@ -2058,37 +2011,18 @@ FUNCTION {phdthesis} { mastersthesis }
 %
 %    \begin{macrocode}
 FUNCTION {proceedings}
-{ output.bibitem
-  format.editors output
-  editor format.key output
-  new.block
-  format.series.volume.title "title" output.check
-  "C" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
-  format.pages punct.colon output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "C" set.mark
+  monograph
 }
 
 FUNCTION {program}
 { "CP" set.mark
-  article
+  misc
 }
 
 FUNCTION {standard}
 { "S" set.mark
-  article
+  misc
 }
 
 %    \end{macrocode}
@@ -2101,37 +2035,8 @@ FUNCTION {standard}
 %
 %    \begin{macrocode}
 FUNCTION {techreport}
-{ output.bibitem
-  author empty$
-    { institution output
-      institution format.key output
-    }
-    { format.authors output
-      author format.key output
-    }
-  if$
-%<*authoryear>
-  format.date "year" output.check
-%</authoryear>
-  new.block
-  format.series.volume.title "title" output.check
-  "R" set.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.block
-  format.edition output
-  new.sentence
-  format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
-  format.pages punct.colon output.after
-  format.editdate "" output.after
-  format.urldate "" output.after
-  format.url output
-  format.doi output
-  fin.entry
+{ "R" set.mark
+  misc
 }
 
 %    \end{macrocode}
