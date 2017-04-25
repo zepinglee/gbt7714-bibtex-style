@@ -1446,8 +1446,17 @@ FUNCTION {calc.label}
   *
   year duplicate$ empty$
   short.list key field.or.null = or
-     { pop$ "" }
-     'skip$
+     { pop$
+       editdate empty$ not
+         { editdate extract.start }
+         { urldate empty$ not
+             { urldate extract.start }
+             { "" }
+           if$
+         }
+       if$
+     }
+     'extract.start
   if$
   *
   'label :=
