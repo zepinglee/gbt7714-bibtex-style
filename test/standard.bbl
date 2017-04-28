@@ -7,13 +7,13 @@
 
 \bibitem[Lee\ et~al.(2017)Lee and Zeping]{lzp1}
 LEE Z, ZEPING L.
-\newblock {GB/T} 7714-2015 BibTeX Style\allowbreak[EB/OL].
+\newblock {GB/T} 7714-2015 {BibTeX} style\allowbreak[EB/OL].
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
 \bibitem[李泽平\ 等(2017)李泽平, 平泽李, 泽平李, and 笨蛋]{lzp2}
 李泽平, 平泽李, 泽平李, 等.
-\newblock {GB/T} 7714-2015 BibTeX Style\allowbreak[EB/OL].
+\newblock {GB/T} 7714-2015 {BibTeX} style\allowbreak[EB/OL].
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
@@ -253,7 +253,7 @@ ROBERSON J A, BURNESON E G.
 余建斌.
 \newblock 我们的科技一直在追赶:
   访中国工程院院长周济\allowbreak[N/OL].
-\newblock 人民日报, 2013-01-12\penalty0 (2)\allowbreak[2013-03-20].
+\newblock 人民日报, 2013\penalty0 (2)\allowbreak[2013-03-20].
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_5-02.htm}.
 
@@ -690,7 +690,7 @@ BABU B V, NAGAR A K, DEEP K, et~al.
 \bibitem[汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, et~al.]{twj}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告:
-  7178999X-2006BAK04A10/10.2013\allowbreak[R/OL].
+  {7178999X-2006BAK04A10/10.2013}\allowbreak[R/OL].
 \newblock \allowbreak(2013-09-30)\allowbreak[2014-06-24].
 \newblock \url{http://www.nstrs.org.cn/xiangxiBG.aspx?id=41707}.
 
@@ -794,13 +794,13 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 
 \bibitem[国家环境保护局科技标准司(1996)]{gjhjbhjkjbzs}
 国家环境保护局科技标准司.
-\newblock 土壤环境质量标准: GB 15616—1995\allowbreak[S/OL].
+\newblock 土壤环境质量标准: {GB 15616—1995}\allowbreak[S/OL].
 \newblock 北京: 中国标准出版社, 1996: 2--3\allowbreak[2013-10-14].
 \newblock \url{http://wenku.baidu.com/view/b950a34b767f5acfa1c7cd49.html}.
 
 \bibitem[iso(2013)]{iso}
-Information and documentation-the Dublin cord metadata element set: ISO 15836:
-  2009\allowbreak[S/OL].
+Information and documentation-the {Dublin} cord metadata element set: {ISO
+  15836: 2009}\allowbreak[S/OL].
 \newblock \allowbreak[2013-03-24].
 \newblock
   \url{http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=52142}.
@@ -947,24 +947,24 @@ PARK J R, TOSAKA Y.
 \bibitem[丁文详(2000)]{dwx}
 丁文详.
 \newblock 数字革命与竞争国际化\allowbreak[N].
-\newblock 中国青年报, 2000-11-20\penalty0 (15).
+\newblock 中国青年报, 2000\penalty0 (15).
 
 \bibitem[张田勤(2000)]{ztq}
 张田勤.
 \newblock 罪犯dna库与生命伦理学计划\allowbreak[N].
-\newblock 大众科技报, 2000-11-12\penalty0 (7).
+\newblock 大众科技报, 2000\penalty0 (7).
 
 \bibitem[傅刚\ 等(2000)傅刚, 赵承, and 李佳路]{fg}
 傅刚, 赵承, 李佳路.
 \newblock 大风沙过后的思考\allowbreak[N/OL].
-\newblock 北京青年报, 2000-01-12\allowbreak[2005-09-28].
+\newblock 北京青年报, 2000\allowbreak[2005-09-28].
 \newblock
   \url{http://www.bjyouth.com.cn/Bqb/20000412/GB/4216%5ED0412B1401.htm}.
 
 \bibitem[刘裕国\ 等(2013)刘裕国, 杨柳, 张洋, et~al.]{lyg}
 刘裕国, 杨柳, 张洋, 等.
 \newblock 雾霾来袭, 如何突围\allowbreak[N/OL].
-\newblock 人民日报, 2013-01-12\allowbreak[2013-11-06].
+\newblock 人民日报, 2013\allowbreak[2013-11-06].
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_2-04.htm}.
 

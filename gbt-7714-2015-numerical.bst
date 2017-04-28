@@ -29,7 +29,6 @@ ENTRY
     doi
     eid
     edition
-    editdate
     editor
     howpublished
     institution
@@ -62,6 +61,8 @@ ENTRY
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
 INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
+
+INTEGERS { charptr stringlength }
 
 FUNCTION {init.state.consts}
 { #0 'before.all :=
@@ -531,10 +532,76 @@ FUNCTION {format.date}
   extra.label *
 }
 
+FUNCTION {extract.start}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.end}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'stringlength :=
+        { charptr stringlength <
+          s charptr #1 substring$ "-" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr stringlength <
+          s charptr #1 substring$ "-" =
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.dash}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { 's :=
+        { s empty$ not
+          s #1 #1 substring$ "-" = not
+          and
+        }
+        { s #2 global.max$ substring$ 's := }
+      while$
+      s empty$ not
+    }
+  if$
+}
+
+FUNCTION {format.year}
+{ year empty$ not
+    { year }
+    { "empty year in " cite$ * warning$
+      ""
+    }
+  if$
+  extract.start
+  extra.label *
+}
+
 FUNCTION {format.editdate}
-{ editdate empty$
+{ year contains.dash
+    { "\allowbreak(" year * ")" * }
     { "" }
-    { "\allowbreak(" editdate * ")" * }
   if$
 }
 
@@ -579,8 +646,6 @@ FUNCTION {is.digit}
     }
   if$
 }
-
-INTEGERS { charptr stringlength }
 
 FUNCTION {is.number}
 { 's :=
@@ -802,57 +867,6 @@ FUNCTION {format.journal.number}
   if$
 }
 
-FUNCTION {extract.start}
-{ duplicate$ empty$
-    { pop$ "" }
-    { 's :=
-      #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
-          s charptr #1 substring$ "-" = not
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-      s #1 charptr #1 - substring$
-    }
-  if$
-}
-
-FUNCTION {extract.end}
-{ duplicate$ empty$
-    { pop$ "" }
-    { 's :=
-      #1 'charptr :=
-      s text.length$ #1 + 'stringlength :=
-        { charptr stringlength <
-          s charptr #1 substring$ "-" = not
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-        { charptr stringlength <
-          s charptr #1 substring$ "-" =
-          and
-        }
-        { charptr #1 + 'charptr := }
-      while$
-      s charptr global.max$ substring$
-    }
-  if$
-}
-
-FUNCTION {contains.dash}
-{ 's :=
-    { s empty$ not
-      s #1 #1 substring$ "-" = not
-      and
-    }
-    { s #2 global.max$ substring$ 's := }
-  while$
-  s empty$ not
-}
-
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
     { year extract.start }
@@ -997,7 +1011,7 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
+  format.year "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1024,7 +1038,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  format.date "year" output.check
+  format.year "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1061,7 +1075,7 @@ FUNCTION {article.in.journal}
   format.mark "" output.after
   new.block
   journal "journal" output.check
-  format.date "year" output.check
+  format.year "year" output.check
   format.volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
@@ -1096,16 +1110,19 @@ FUNCTION {online}
   format.authors output
   author format.key output
   new.block
-  format.series.volume.title "title" output.check
+  format.title "title" output.check
   "EB" set.mark
   format.mark "" output.after
   new.block
   format.translators output
-  new.block
-  format.edition output
   new.sentence
+  format.edition output
+  new.block
   format.address.publisher output
-  format.date "year" output.check
+  year contains.dash
+    'skip$
+    { format.year output }
+  if$
   format.pages punct.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
@@ -1134,11 +1151,9 @@ FUNCTION {archive}
   misc
 }
 
-FUNCTION {article}
-{ misc }
+FUNCTION {article} { misc }
 
-FUNCTION {book}
-{ monograph }
+FUNCTION {book} { monograph }
 
 FUNCTION {collection}
 { "G" set.mark
@@ -1170,7 +1185,7 @@ FUNCTION {map}
 
 FUNCTION {mastersthesis}
 { "D" set.mark
-  misc
+  monograph
 }
 
 FUNCTION {newspaper}
@@ -1447,13 +1462,9 @@ FUNCTION {calc.label}
   year duplicate$ empty$
   short.list key field.or.null = or
      { pop$
-       editdate empty$ not
-         { editdate extract.start }
-         { urldate empty$ not
-             { urldate extract.start }
-             { "" }
-           if$
-         }
+       urldate empty$ not
+         { urldate extract.start }
+         { "" }
        if$
      }
      'extract.start

@@ -71,15 +71,13 @@ media = {OL},
 出版者 | `publisher`
 学校（用于phdthesis） | `school`
 机构（用于techreport） | `institution`
-出版年 | `year`
+出版年（或电子文献的更新日期） | `year`
 卷 | `volume`
-期 | `number`
+期（或者专利号） | `number`
 引文页码 | `pages`
-更新或修改日期 | `edidate`*
 引用日期 | `urldate`*
 获取和访问路径 | `url`
 数字对象唯一标识符 | `doi`
-排序的关键词 | `key`
 语言 | `language`*
 拼音（用于排序） | `pinyin`*
 
