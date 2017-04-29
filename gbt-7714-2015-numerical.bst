@@ -663,7 +663,7 @@ FUNCTION {is.number}
   if$
 }
 
-FUNCTION {format.bvolume}
+FUNCTION {format.volume}
 { volume empty$
     { "" }
     { volume is.number
@@ -693,47 +693,61 @@ FUNCTION {format.number}
   if$
 }
 
-FUNCTION {format.number.series}
-{ volume empty$
-    { number empty$
-        { series field.or.null }
-        { output.state mid.sentence =
-            { "number" }
-            { "Number" }
-          if$
-          number tie.or.space.connect
-          series empty$
-            { "there's a number but no series in " cite$ * warning$ }
-            { " in " * series * }
-          if$
-        }
-      if$
-    }
-    { "" }
+FUNCTION {format.volume.number}
+{ volume empty$ not
+    { format.volume }
+    { format.number }
   if$
 }
 
-FUNCTION {format.series.volume.title}
-{ series empty$
-    { title
-      volume empty$
+FUNCTION {format.series.vol.num.title}
+{ type$ "report" = type$ "standard" = or
+    { format.title
+      number empty$ not
+        { ": " * number }
         'skip$
-        { ": " * format.bvolume * }
       if$
     }
-    { series
-      volume empty$
-        { number empty$
-          'skip$
-          { ": " * format.number * }
-        if$ }
-        { volume empty$
-          'skip$
-          { ": " * format.bvolume * }
-        if$
+    { format.volume.number 's :=
+      series empty$ not
+        { series ": " *
+          s empty$ not
+            { s * "\quad " * }
+            'skip$
+          if$
+          title field.or.null *
+        }
+        { title field.or.null
+          s empty$ not
+            { ": " * s * }
+            'skip$
+          if$
         }
       if$
-      "\hspace{1em}" * title *
+      "t" change.case$
+    }
+  if$
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ type$ "report" = type$ "standard" = or
+    { format.volume.number }
+    { format.volume }
+  if$
+  's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle field.or.null *
+    }
+    { booktitle field.or.null
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
     }
   if$
 }
@@ -764,14 +778,10 @@ FUNCTION {format.edition}
             { edition num.to.ordinal " ed." * }
           if$
         }
-        { edition "t" change.case$
-          edition "Revised" =
+        { edition "t" change.case$ 's :=
+          s "Revised" = s "Revised edition" = or
             { "Rev. ed." }
-            { edition "Revised edition" =
-                { "Rev. ed." }
-                'skip$
-              if$
-            }
+            { s }
           if$
          }
       if$
@@ -857,7 +867,7 @@ FUNCTION {format.pages}
   if$
 }
 
-FUNCTION {format.volume}
+FUNCTION {format.journal.volume}
 { volume }
 
 FUNCTION {format.journal.number}
@@ -1002,7 +1012,7 @@ FUNCTION {monograph}
     }
   if$
   new.block
-  format.title "title" output.check
+  format.series.vol.num.title "title" output.check
   "M" set.mark
   format.mark "" output.after
   new.block
@@ -1032,8 +1042,7 @@ FUNCTION {incollection}
   new.slash
   format.editors output
   new.block
-  booktitle "booktitle" output.check
-  format.bvolume punct.colon output.after
+  format.series.vol.num.booktitle "booktitle" output.check
   new.block
   format.edition output
   new.block
@@ -1076,7 +1085,7 @@ FUNCTION {article.in.journal}
   new.block
   journal "journal" output.check
   format.year "year" output.check
-  format.volume output
+  volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
   format.urldate "" output.after
@@ -1090,11 +1099,12 @@ FUNCTION {patent}
   format.authors output
   author format.key output
   new.block
-  format.title "title" output.check
+  format.title
   number empty$ not
-    { number punct.colon output.after }
+    { punct.colon * number * }
     'skip$
   if$
+  "title" output.check
   "P" set.mark
   format.mark "" output.after
   new.block
@@ -1110,7 +1120,7 @@ FUNCTION {online}
   format.authors output
   author format.key output
   new.block
-  format.title "title" output.check
+  format.series.vol.num.title "title" output.check
   "EB" set.mark
   format.mark "" output.after
   new.block
