@@ -294,7 +294,7 @@ FUNCTION {format.et.al}
 FUNCTION {format.anonymous}
 { is.in.chinese
     { "佚名"}
-    { "Anon, " year * }
+    { "Anon, " year field.or.null * }
   if$
 }
 
