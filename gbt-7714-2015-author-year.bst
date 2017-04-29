@@ -533,7 +533,7 @@ FUNCTION {format.date}
   extra.label *
 }
 
-FUNCTION {extract.start}
+FUNCTION {extract.before.dash}
 { duplicate$ empty$
     { pop$ "" }
     { 's :=
@@ -550,7 +550,7 @@ FUNCTION {extract.start}
   if$
 }
 
-FUNCTION {extract.end}
+FUNCTION {extract.after.dash}
 { duplicate$ empty$
     { pop$ "" }
     { 's :=
@@ -595,7 +595,7 @@ FUNCTION {format.year}
       ""
     }
   if$
-  extract.start
+  extract.before.dash
   extra.label *
 }
 
@@ -880,32 +880,32 @@ FUNCTION {format.journal.number}
 
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
-    { year extract.start }
+    { year extract.before.dash }
     { "No year in periodical " cite$ * warning$ }
   if$
   volume empty$ not
-    { ", " * volume extract.start * }
+    { ", " * volume extract.before.dash * }
     'skip$
   if$
   number empty$ not
-    { "\penalty0 (" * number extract.start * ")" * }
+    { "\penalty0 (" * number extract.before.dash * ")" * }
     'skip$
   if$
   year contains.dash
     { "--" *
-      year extract.end empty$
-      volume extract.end empty$ and
-      number extract.end empty$ and not
-        { year extract.end empty$ not
-            { year extract.end * }
-            { year extract.start * }
+      year extract.after.dash empty$
+      volume extract.after.dash empty$ and
+      number extract.after.dash empty$ and not
+        { year extract.after.dash empty$ not
+            { year extract.after.dash * }
+            { year extract.before.dash * }
           if$
           volume empty$ not
-            { ", " * volume extract.end * }
+            { ", " * volume extract.after.dash * }
             'skip$
           if$
           number empty$ not
-            { "\penalty0 (" * number extract.end * ")" * }
+            { "\penalty0 (" * number extract.after.dash * ")" * }
             'skip$
           if$
         }
@@ -1060,7 +1060,7 @@ FUNCTION {periodical}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
-  format.date "year" output.check
+  format.year "year" output.check
   new.block
   format.title "title" output.check
   "J" set.mark
@@ -1126,10 +1126,6 @@ FUNCTION {online}
   format.series.vol.num.title "title" output.check
   "EB" set.mark
   format.mark "" output.after
-  new.block
-  format.translators output
-  new.sentence
-  format.edition output
   new.block
   format.address.publisher output
   format.pages punct.colon output.after
@@ -1472,11 +1468,11 @@ FUNCTION {calc.label}
   short.list key field.or.null = or
      { pop$
        urldate empty$ not
-         { urldate extract.start }
+         { urldate extract.before.dash }
          { "" }
        if$
      }
-     'extract.start
+     'extract.before.dash
   if$
   *
   'label :=
