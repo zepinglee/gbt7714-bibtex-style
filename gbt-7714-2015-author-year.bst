@@ -294,8 +294,8 @@ FUNCTION {format.et.al}
 
 FUNCTION {format.anonymous}
 { is.in.chinese
-    { "佚名"}
-    { "Anon, " year field.or.null * }
+    { "佚名" }
+    { "Anon" }
   if$
 }
 
@@ -1005,13 +1005,14 @@ FUNCTION {format.incoll.inproc.crossref}
 FUNCTION {monograph}
 { output.bibitem
   author empty$ not
-    { format.authors output }
+    { format.authors }
     { editor empty$ not
-        { format.editors output }
-        { organization output }
+        { format.editors }
+        { format.anonymous }
       if$
     }
   if$
+  output
   format.year "year" output.check
   new.block
   format.series.vol.num.title "title" output.check

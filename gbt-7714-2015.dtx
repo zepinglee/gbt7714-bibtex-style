@@ -63,7 +63,7 @@ which was designed for use with the `natbib.sty' package.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt-7714-2015}
 %<*package>
-    [2017/04/29 v1.0 GB/T 7714-2015 BibTeX Style]
+    [2017/05/01 v1.0 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -978,8 +978,8 @@ FUNCTION {format.et.al}
 
 FUNCTION {format.anonymous}
 { is.in.chinese
-    { "佚名"}
-    { "Anon, " year field.or.null * }
+    { "佚名" }
+    { "Anon" }
   if$
 }
 
@@ -1991,13 +1991,19 @@ FUNCTION {format.incoll.inproc.crossref}
 FUNCTION {monograph}
 { output.bibitem
   author empty$ not
-    { format.authors output }
+    { format.authors }
     { editor empty$ not
-        { format.editors output }
-        { organization output }
+        { format.editors }
+%<*authoryear>
+        { format.anonymous }
+%</authoryear>
+%<*numerical>
+        { "" }
+%</numerical>
       if$
     }
   if$
+  output
 %<*authoryear>
   format.year "year" output.check
 %</authoryear>
