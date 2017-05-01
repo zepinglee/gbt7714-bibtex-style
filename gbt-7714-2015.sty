@@ -42,33 +42,22 @@
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
 \RequirePackage[sort&compress]{natbib}
+\newcommand{\bibstyle@numerical}{\bibpunct{[}{]}{,}{s}{,}{,}}
+\newcommand{\bibstyle@authoryear}{\bibpunct{(}{)}{;}{a}{,}{,}}
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
-\newcommand\gbtcitestyle[1]{%
-  \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical%
-    \setcitestyle{super,square,comma}%
-  \else%
-    \ifx\tmp@gbt\tmp@authoryear%
-      \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}%
-    \else%
-      \PackageError{\jobname}{Unknown argument #1.}
-      {It should be `numerical' or `author'.}
-    \fi%
-  \fi%
-}
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \setcitestyle{super,square,comma}%
+    \citestyle{numerical}
     \bibliographystyle{gbt-7714-2015-numerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}%
+      \citestyle{authoryear}
       \bibliographystyle{gbt-7714-2015-author-year}%
     \else%
-      \PackageError{\jobname}{Unknown argument #1.}
-      {It should be `numerical' or `author'.}
+      \PackageError{gbt-7714-2015}{Unknown argument #1.}
+      {It should be `numerical' or `authoryear'.}
     \fi%
   \fi%
 }

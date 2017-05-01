@@ -164,43 +164,31 @@ which was designed for use with the `natbib.sty' package.
 \RequirePackage[sort&compress]{natbib}
 %    \end{macrocode}
 %
-% \begin{macro}{\gbtcitestyle}
-% 定义接口切换引用文献的标注法，可选 \opt{authoryear} 和 \opt{numerical}。
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
+% 或 \opt{authoryear}，参见 \pkg{natbib}。
 %    \begin{macrocode}
-\def\tmp@numerical{numerical}
-\def\tmp@authoryear{authoryear}
-\newcommand\gbtcitestyle[1]{%
-  \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical%
-    \setcitestyle{super,square,comma}%
-  \else%
-    \ifx\tmp@gbt\tmp@authoryear%
-      \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}%
-    \else%
-      \PackageError{\jobname}{Unknown argument #1.}
-      {It should be `numerical' or `author'.}
-    \fi%
-  \fi%
-}
+\newcommand{\bibstyle@numerical}{\bibpunct{[}{]}{,}{s}{,}{,}}
+\newcommand{\bibstyle@authoryear}{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
-% \end{macro}
 %
 % \begin{macro}{\gbtbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
 % 这个仅用于\pkg{chapterbib}。
 %    \begin{macrocode}
+\def\tmp@numerical{numerical}
+\def\tmp@authoryear{authoryear}
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \setcitestyle{super,square,comma}%
+    \citestyle{numerical}
     \bibliographystyle{gbt-7714-2015-numerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \setcitestyle{authoryear,round,comma,aysep={,},yysep={;}}%
+      \citestyle{authoryear}
       \bibliographystyle{gbt-7714-2015-author-year}%
     \else%
-      \PackageError{\jobname}{Unknown argument #1.}
-      {It should be `numerical' or `author'.}
+      \PackageError{gbt-7714-2015}{Unknown argument #1.}
+      {It should be `numerical' or `authoryear'.}
     \fi%
   \fi%
 }
@@ -216,7 +204,7 @@ which was designed for use with the `natbib.sty' package.
 \fi
 %    \end{macrocode}
 %
-% 下面修改 \pkg{natbib} 的引用格式。
+% 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 %    \begin{macrocode}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
@@ -2968,6 +2956,13 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
+  write$ newline$
+%<*numerical>
+  "\bibpunct{[}{]}{,}{s}{,}{,}"
+%</numerical>
+%<*authoryear>
+  "\bibpunct{(}{)}{;}{a}{,}{,}"
+%</authoryear>
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$

@@ -1,26 +1,25 @@
-.PHONY : test diff bst doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test bst doc clean all inst install distclean zip FORCE_MAKE
 
+LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
+UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 NAME = gbt-7714-2015
 TEST_DIR = test
 SHELL = bash
-PWD   = $(shell pwd)
-LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
-UTREE = $(shell kpsewhich --var-value TEXMFHOME)
+PACKAGES = $(NAME).sty $(NAME)-numerical.bst $(NAME)-authoryear.bst
 
-test : bst FORCE_MAKE
+test : inst FORCE_MAKE
 	make -C $(TESTDIR) test
-
-diff : FORCE_MAKE
-	diff test/standard.bbl test/tmp.bbl
 
 all : test doc
 
-bst : $(NAME).dtx
-	xetex $<
+bst : $(PACKAGES)
 
 doc : $(NAME).pdf
 
-$(NAME).pdf : $(NAME).dtx FORCE_MAKE
+$(PACKAGES) : $(NAME).dtx
+	xetex $<
+
+$(NAME).pdf : $(NAME).dtx
 	latexmk -xelatex $<
 
 clean :
@@ -32,9 +31,8 @@ distclean :
 	$(MAKE) -C $(TEST_DIR) distclean
 
 inst : bst
-	mkdir -p $(UTREE)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(UTREE)/tex/latex/$(NAME)
 	mkdir -p $(UTREE)/bibtex/bst/$(NAME)
-	cp $(NAME).dtx $(UTREE)/source/latex/$(NAME)
 	cp $(NAME).sty $(UTREE)/tex/latex/$(NAME)
 	cp *.bst $(UTREE)/bibtex/bst/$(NAME)
 

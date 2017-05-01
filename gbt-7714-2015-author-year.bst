@@ -1706,6 +1706,8 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
+  "\bibpunct{(}{)}{;}{a}{,}{,}"
+  write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
   "\providecommand{\url}[1]{\texttt{#1}}"

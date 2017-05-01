@@ -1,4 +1,5 @@
 \begin{thebibliography}{4}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -34,6 +35,7 @@ ONE A, TWO A, THREE A.
 
 \end{thebibliography}
 \begin{thebibliography}{17}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -151,6 +153,7 @@ FAN X, SOMMERS C H.
 
 \end{thebibliography}
 \begin{thebibliography}{7}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -210,6 +213,7 @@ ROBERSON J A, BURNESON E G.
 
 \end{thebibliography}
 \begin{thebibliography}{3}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -237,6 +241,7 @@ ROBERSON J A, BURNESON E G.
 
 \end{thebibliography}
 \begin{thebibliography}{9}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -308,6 +313,7 @@ MYBURG A A, GRATTAPAGLIA D, TUSKAN G A, et~al.
 
 \end{thebibliography}
 \begin{thebibliography}{3}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -336,6 +342,7 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 
 \end{thebibliography}
 \begin{thebibliography}{5}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -378,6 +385,7 @@ HOPKINSON A.
 
 \end{thebibliography}
 \begin{thebibliography}{6}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -419,6 +427,7 @@ DOWLER L.
 
 \end{thebibliography}
 \begin{thebibliography}{6}
+\bibpunct{(}{)}{;}{a}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -460,6 +469,7 @@ DOWLER L, 1995.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -492,6 +502,7 @@ MORRI I.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
+\bibpunct{(}{)}{;}{a}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -526,6 +537,7 @@ MORRI I.
 
 \end{thebibliography}
 \begin{thebibliography}{16}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -635,6 +647,7 @@ PRAETZELLIS A.
 
 \end{thebibliography}
 \begin{thebibliography}{5}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -674,6 +687,7 @@ BABU B V, NAGAR A K, DEEP K, et~al.
 
 \end{thebibliography}
 \begin{thebibliography}{5}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -716,6 +730,7 @@ CALKIN D, AGER A, THOMPSON M.
 
 \end{thebibliography}
 \begin{thebibliography}{3}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -745,6 +760,7 @@ CALMS R B.
 
 \end{thebibliography}
 \begin{thebibliography}{3}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -774,6 +790,7 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -807,6 +824,7 @@ Information and documentation-the {Dublin} cord metadata element set: {ISO
 
 \end{thebibliography}
 \begin{thebibliography}{8}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -867,6 +885,7 @@ FOURNEY M E.
 
 \end{thebibliography}
 \begin{thebibliography}{9}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -938,6 +957,7 @@ PARK J R, TOSAKA Y.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -970,6 +990,7 @@ PARK J R, TOSAKA Y.
 
 \end{thebibliography}
 \begin{thebibliography}{4}
+\bibpunct{[}{]}{,}{s}{,}{,}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
