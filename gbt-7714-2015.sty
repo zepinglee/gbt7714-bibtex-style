@@ -42,8 +42,8 @@
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
 \RequirePackage[sort&compress]{natbib}
-\newcommand{\bibstyle@numerical}{\bibpunct{[}{]}{,}{s}{,}{,}}
-\newcommand{\bibstyle@authoryear}{\bibpunct{(}{)}{;}{a}{,}{,}}
+\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
 \newcommand\gbtbibstyle[1]{%

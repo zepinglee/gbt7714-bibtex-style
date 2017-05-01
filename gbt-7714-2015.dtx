@@ -167,8 +167,8 @@ which was designed for use with the `natbib.sty' package.
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
 %    \begin{macrocode}
-\newcommand{\bibstyle@numerical}{\bibpunct{[}{]}{,}{s}{,}{,}}
-\newcommand{\bibstyle@authoryear}{\bibpunct{(}{)}{;}{a}{,}{,}}
+\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
 %
 % \begin{macro}{\gbtbibstyle}
@@ -205,6 +205,7 @@ which was designed for use with the `natbib.sty' package.
 %    \end{macrocode}
 %
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
+% Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
@@ -287,10 +288,18 @@ which was designed for use with the `natbib.sty' package.
       \fi
   }{#1}{#2}%
 }%
+%    \end{macrocode}
+%
+% Numerical 模式的 \cs{citep} 的页码：
+%    \begin{macrocode}
 \renewcommand\NAT@citesuper[3]{\ifNAT@swa
   \if*#2*\else#2\NAT@spacechar\fi
 \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
    \else #1\fi\endgroup}
+%    \end{macrocode}
+%
+% Author-year 模式的 \cs{citet} 的页码：
+%    \begin{macrocode}
 \def\NAT@citex%
   [#1][#2]#3{%
   \NAT@reset@parser
@@ -381,6 +390,10 @@ which was designed for use with the `natbib.sty' package.
      }}\ifNAT@swa\else
      \if\relax\NAT@date\relax\else\NAT@@close\fi
      \if*#2*\else\textsuperscript{#2}\fi\fi}{#1}{#2}}
+%    \end{macrocode}
+%
+% Author-year 模式的 \cs{citep} 的页码：
+%    \begin{macrocode}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
