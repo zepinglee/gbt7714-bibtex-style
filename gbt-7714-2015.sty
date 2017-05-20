@@ -24,11 +24,13 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt-7714-2015}
     [2017/05/01 v1.0 GB/T 7714-2015 BibTeX Style]
-\newif\ifGBT@numerical
-\GBT@numericaltrue
-\DeclareOption{numerical}{\GBT@numericaltrue}
-\DeclareOption{authoryear}{\GBT@numericalfalse}
+\newif\if@gbt@numerical
+\newif\if@gbt@super
+\DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
+\DeclareOption{numerical}{\@gbt@numericaltrue\@gbt@superfalse}
+\DeclareOption{authoryear}{\@gbt@numericalfalse}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
+\ExecuteOptions{super}
 \ProcessOptions\relax
 \RequirePackage{url}
 \urlstyle{same}
@@ -42,18 +44,29 @@
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
 \RequirePackage[sort&compress]{natbib}
-\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\if@gbt@numerical
+  \if@gbt@super
+    \citestyle{super}
+    \bibliographystyle{gbt-7714-2015-numerical}%
+  \else
+    \citestyle{numbers}
+    \bibliographystyle{gbt-7714-2015-numerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \bibliographystyle{gbt-7714-2015-author-year}%
+\fi
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \citestyle{numerical}
     \bibliographystyle{gbt-7714-2015-numerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \citestyle{authoryear}
       \bibliographystyle{gbt-7714-2015-author-year}%
     \else%
       \PackageError{gbt-7714-2015}{Unknown argument #1.}
@@ -61,11 +74,6 @@
     \fi%
   \fi%
 }
-\ifGBT@numerical
-  \gbtbibstyle{numerical}
-\else
-  \gbtbibstyle{authoryear}
-\fi
 \RequirePackage{etoolbox}
 \patchcmd\NAT@citexnum{%
   \@ifnum{\NAT@ctype=\z@}{%

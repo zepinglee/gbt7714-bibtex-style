@@ -129,14 +129,16 @@ which was designed for use with the `natbib.sty' package.
 %
 % \section{Package}
 %
-% 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numerical}。
+% 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numbers}。
 %    \begin{macrocode}
 %<*package>
-\newif\ifGBT@numerical
-\GBT@numericaltrue
-\DeclareOption{numerical}{\GBT@numericaltrue}
-\DeclareOption{authoryear}{\GBT@numericalfalse}
+\newif\if@gbt@numerical
+\newif\if@gbt@super
+\DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
+\DeclareOption{numerical}{\@gbt@numericaltrue\@gbt@superfalse}
+\DeclareOption{authoryear}{\@gbt@numericalfalse}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
+\ExecuteOptions{super}
 \ProcessOptions\relax
 %    \end{macrocode}
 %
@@ -167,8 +169,25 @@ which was designed for use with the `natbib.sty' package.
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
 %    \begin{macrocode}
-\newcommand\bibstyle@numerical{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
+\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+%    \end{macrocode}
+%
+% 处理宏包选项。
+%    \begin{macrocode}
+\if@gbt@numerical
+  \if@gbt@super
+    \citestyle{super}
+    \bibliographystyle{gbt-7714-2015-numerical}%
+  \else
+    \citestyle{numbers}
+    \bibliographystyle{gbt-7714-2015-numerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \bibliographystyle{gbt-7714-2015-author-year}%
+\fi
 %    \end{macrocode}
 %
 % \begin{macro}{\gbtbibstyle}
@@ -180,11 +199,9 @@ which was designed for use with the `natbib.sty' package.
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \citestyle{numerical}
     \bibliographystyle{gbt-7714-2015-numerical}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \citestyle{authoryear}
       \bibliographystyle{gbt-7714-2015-author-year}%
     \else%
       \PackageError{gbt-7714-2015}{Unknown argument #1.}
@@ -194,15 +211,6 @@ which was designed for use with the `natbib.sty' package.
 }
 %    \end{macrocode}
 % \end{macro}
-%
-% 处理宏包选项。
-%    \begin{macrocode}
-\ifGBT@numerical
-  \gbtbibstyle{numerical}
-\else
-  \gbtbibstyle{authoryear}
-\fi
-%    \end{macrocode}
 %
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
@@ -2819,13 +2827,6 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
-  write$ newline$
-%<*numerical>
-  "\bibpunct{[}{]}{,}{s}{,}{,}"
-%</numerical>
-%<*authoryear>
-  "\bibpunct{(}{)}{;}{a}{,}{,}"
-%</authoryear>
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
