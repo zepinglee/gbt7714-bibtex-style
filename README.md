@@ -44,7 +44,7 @@ media = {OL},
 
 注：
 
-1. `ariticle` 会根据 journal 域判断是图书还是期刊的析出文献
+1. `article` 会根据 journal 域判断是图书还是期刊的析出文献
 
 2. `proceedings` 按照“专著”处理，`inproceedings` 按照“专著中的析出文献”处理。
 
