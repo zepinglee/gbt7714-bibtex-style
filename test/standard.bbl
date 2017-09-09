@@ -61,8 +61,8 @@ ONE A, TWO A, THREE A.
 
 \bibitem[全国信息与文献标准化技术委员会(2010)]{qgxxywxbzhjswyh}
 全国信息与文献标准化技术委员会.
-\newblock 信息与文献 都柏林核心元数据元素集：{GB/T}
-  25100—2010\allowbreak[S].
+\newblock 信息与文献\quad 都柏林核心元数据元素集: {GB/T
+  25100—2010}\allowbreak[S].
 \newblock 北京: 中国标准出版社, 2010: 2--3.
 
 \bibitem[徐光宪\ 等(2010)徐光宪 and 王祥云]{xgx}
@@ -269,14 +269,14 @@ ROBERSON J A, BURNESON E G.
 \newblock 循证医学研究方法: 附视频\allowbreak[J/OL].
 \newblock 中华移植杂志(电子版), 2010, 4\penalty0 (3):
   225--228\allowbreak[2014-06-09].
-\newblock \url{http://www.cqvip.com/Read/Read.aspx? id=36658332}.
+\newblock \url{http://www.cqvip.com/Read/Read.aspx?id=36658332}.
 
 \bibitem[武丽丽\ 等(2008)武丽丽, 华一新, 张亚军, et~al.]{wll}
 武丽丽, 华一新, 张亚军, 等.
 \newblock “北斗一号”监控管理网设计与实现\allowbreak[J/OL].
 \newblock 测绘科学, 2008, 33\penalty0 (5): 8--9\allowbreak[2009-10-25].
-\newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail.}
-\newblock \doi{10.3771/j.issn.1009-2307.2008.05.002.}
+\newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
+\newblock \doi{10.3771/j.issn.1009-2307.2008.05.002}.
 
 \bibitem[Kanamori(1998)]{kanamori}
 KANAMORI H.
@@ -294,17 +294,16 @@ FRESE K S, KATUS H A, MEDER B.
 \newblock Next-generation sequencing: from understanding biology to
   personalized medicine\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1): 378--398\allowbreak[2013-03-19].
-\newblock \url{http://www. mdpi.com/ 2079-7737/2/1/378.}
-\newblock \doi{10.3390/biology2010378.}
+\newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
+\newblock \doi{10.3390/biology2010378}.
 
 \bibitem[Myburg\ et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.]{myburg}
 MYBURG A A, GRATTAPAGLIA D, TUSKAN G A, et~al.
 \newblock The genome of eucalyptus grandis\allowbreak[J/OL].
-\newblock Nature, 2014, 510: 356-362\penalty0
-  (2014-06-19)\allowbreak[2014-06-25].
-\newblock \url{http://www.nature.com/
-  nature/journal/v510/n7505/pdf/nature13308.pdf.}
-\newblock \doi{10.1038/nature13308.}
+\newblock Nature, 2014, 510: 356--362\allowbreak[2014-06-25].
+\newblock
+  \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
+\newblock \doi{10.1038/nature13308}.
 
 \end{thebibliography}
 \begin{thebibliography}{3}
@@ -594,8 +593,7 @@ MORRI I.
   高分子材料分析、选择与改性\allowbreak[M/OL].
 \newblock 北京: 化学工业出版社, 2010: 119\allowbreak[2012-11-27].
 \newblock
-  \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.2011
-  1114-HGS-889-0228}.
+  \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20111114-HGS-889-0228}.
 
 \bibitem[Crawfprd\ et~al.(1995)Crawfprd and Gorman]{crawfprd}
 CRAWFPRD W, GORMAN M.
@@ -833,8 +831,8 @@ Information and documentation---the {Dublin} cord metadata element set: {ISO
 
 \bibitem[国家标准局信息分类编码研究所(1988)]{gjbzjxxflbmyjs}
 国家标准局信息分类编码研究所.
-\newblock 世界各国和地区名称代码: {GB/T}
-  2659—1986\allowbreak[S]//\allowbreak{}全国文献工作标准化委员会.
+\newblock 世界各国和地区名称代码: {GB/T
+  2659—1986}\allowbreak[S]//\allowbreak{}全国文献工作标准化委员会.
 \newblock 文献工作国家标准汇编: 3.
 \newblock 北京: 中国标准出版社, 1988: 59--92.
 
@@ -895,7 +893,7 @@ FOURNEY M E.
 \newblock 从数字地球到智慧地球\allowbreak[J/OL].
 \newblock 国图资源导刊, 20l0, 7\penalty0 (10): 93\allowbreak[2013-03-20].
 \newblock \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.
-\newblock \doi{10.3969/j.issn.1672-5603.2010.10.038.}
+\newblock \doi{10.3969/j.issn.1672-5603.2010.10.038}.
 
 \bibitem[Des~Marais\ et~al.(1992)Des~Marais, Strauss, Summons,
   et~al.]{desmarais}
@@ -917,15 +915,15 @@ WALLS S C, BARICHIVICH W J, BROWN M E.
 \newblock Drought, deluge and declines: the impact of precipitation extremes on
   amphibians in a changing climate\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1): 399--418\allowbreak[2013-11-04].
-\newblock \url{http://www.mdpi.com/ 2079-7737/2/1/399}.
-\newblock \doi{10.3390/ biology2010399.}
+\newblock \url{http://www.mdpi.com/2079-7737/2/1/399}.
+\newblock \doi{10.3390/biology2010399}.
 
 \bibitem[Franz\ et~al.(2013)Franz, Danielewicz, Wong, et~al.]{franz}
 FRANZ A K, DANIELEWICZ M A, WONG D M, et~al.
 \newblock Phenotypic screening with oleaginous microalgae reveals modulators of
   lipid productivity\allowbreak[J/OL].
 \newblock ACS Chemical biology, 2013, 8: 1053--1062\allowbreak[2014-06-26].
-\newblock \url{http://pubs.acs.org/ doi/ipdf/10.1021/cb300573r}.
+\newblock \url{http://pubs.acs.org/doi/ipdf/10.1021/cb300573r}.
 
 \bibitem[Park\ et~al.(2010)Park and Tosaka]{park}
 PARK J R, TOSAKA Y.
@@ -994,7 +992,7 @@ PARK J R, TOSAKA Y.
   of Education Office}.
 \newblock Pennsylvania library laws\allowbreak[EB/OL].
 \newblock \allowbreak[2013-03-24].
-\newblock \url{http://www.racc.edu/yocum/pdf/PALibrary Laws.pdf}.
+\newblock \url{http://www.racc.edu/yocum/pdf/PALibraryLaws.pdf}.
 
 \bibitem[dcm(2012)]{dcmes}
 Dublin core metadata element set: version 1.1\allowbreak[EB/OL].

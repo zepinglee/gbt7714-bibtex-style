@@ -1,25 +1,28 @@
 .PHONY : test bst doc clean all inst install distclean zip FORCE_MAKE
 
-LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
-UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 NAME = gbt-7714-2015
+PKGFILES = $(NAME).sty
+BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 TEST_DIR = test
 SHELL = bash
-PACKAGES = $(NAME).sty $(NAME)-numerical.bst $(NAME)-authoryear.bst
+VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
+	  | egrep -o "v\S+")
+LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
+UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 
 test : inst FORCE_MAKE
 	make -C $(TESTDIR) test
 
 all : test doc
 
-bst : $(PACKAGES)
+bst : $(PKGFILES)
 
 doc : $(NAME).pdf
 
-$(PACKAGES) : $(NAME).dtx
+$(PKGFILES) : $(NAME).dtx
 	xetex $<
 
-$(NAME).pdf : $(NAME).dtx
+$(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	latexmk -xelatex $<
 
 clean :
@@ -31,17 +34,19 @@ distclean :
 	$(MAKE) -C $(TEST_DIR) distclean
 
 inst : bst
-	mkdir -p $(UTREE)/tex/latex/$(NAME)
+	mkdir -p $(UTREE)/{doc,source,tex}/latex/$(NAME)
 	mkdir -p $(UTREE)/bibtex/bst/$(NAME)
-	cp $(NAME).sty $(UTREE)/tex/latex/$(NAME)
-	cp *.bst $(UTREE)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(UTREE)/bibtex/bst/$(NAME)
+	cp $(NAME).dtx $(UTREE)/source/latex/$(NAME)
+	cp $(PKGFILES) $(UTREE)/tex/latex/$(NAME)
 
 install : bst doc
-	sudo mkdir -p $(LOCAL)/{tex,source,doc}/latex/$(NAME)
-	sudo cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
-	sudo cp $(NAME).cls $(LOCAL)/tex/latex/$(NAME)
-	sudo cp $(NAME).sty $(LOCAL)/tex/latex/$(NAME)
-	sudo cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
+	mkdir -p $(LOCAL)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(LOCAL)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(LOCAL)/bibtex/bst/$(NAME)
+	cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
+	cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
+	cp $(PKGFILES) $(LOCAL)/tex/latex/$(NAME)
 
 zip : bst doc
 	ln -sf . $(NAME)
