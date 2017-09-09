@@ -382,10 +382,21 @@ FUNCTION {format.doi}
   if$
 }
 
+FUNCTION {add.link}
+{ doi empty$
+    { url empty$
+        'skip$
+        { "\href{" url * "}{" * swap$ * "}" * }
+      if$
+    }
+    { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+  if$
+}
+
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title "t" change.case$ add.link }
   if$
 }
 
@@ -1578,13 +1589,15 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
+  "\providecommand{\url}[1]{#1}"
   write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax"
+  "\providecommand{\href}[2]{#2}"
   write$ newline$
-  "  \providecommand{\doi}[1]{DOI: #1}\else"
+  "\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}"
   write$ newline$
-  "  \providecommand{\doi}{DOI: \begingroup \urlstyle{rm}\Url}\fi"
+  "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
+  write$ newline$
+  "  \urlstyle{same}\fi"
   write$ newline$
 }
 
