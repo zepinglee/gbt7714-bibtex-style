@@ -12,6 +12,8 @@ UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 
 test : inst FORCE_MAKE
 	make -C $(TESTDIR) test
+	rm -rf $(UTREE)/bibtex/bst/$(NAME)
+	rm -rf $(UTREE)/tex/latex/$(NAME)
 
 all : test doc
 
@@ -23,7 +25,7 @@ $(PKGFILES) : $(NAME).dtx
 	xetex $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
-	latexmk -xelatex $<
+	latexmk -xelatex -halt-on-error -interaction=nonstopmode $<
 
 clean :
 	latexmk -c $(NAME).dtx
@@ -34,10 +36,9 @@ distclean :
 	$(MAKE) -C $(TEST_DIR) distclean
 
 inst : bst
-	mkdir -p $(UTREE)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(UTREE)/tex/latex/$(NAME)
 	mkdir -p $(UTREE)/bibtex/bst/$(NAME)
 	cp $(BSTFILES) $(UTREE)/bibtex/bst/$(NAME)
-	cp $(NAME).dtx $(UTREE)/source/latex/$(NAME)
 	cp $(PKGFILES) $(UTREE)/tex/latex/$(NAME)
 
 install : bst doc
