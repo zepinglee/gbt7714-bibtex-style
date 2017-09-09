@@ -22,14 +22,14 @@ LEE Z, ZEPING L.
 
 \bibitem[One\ et~al.(Year)One, Two, and Three]{test1}
 ONE A, TWO A, THREE A.
-\newblock \href{http://dx.doi.org/doi}{Title}\allowbreak[J/OL].
+\newblock \href{url}{Title}\allowbreak[J/OL].
 \newblock Journal Title, Year, 2\penalty0 (3): Pages\allowbreak[URL Date].
 \newblock \url{url}.
 \newblock \doi{doi}.
 
 \bibitem[作者1\ 等(出版年)作者1, 作者2, and 作者3]{test2}
 作者1, 作者2, 作者3.
-\newblock \href{http://dx.doi.org/doi}{题名}\allowbreak[J/OL].
+\newblock \href{url}{题名}\allowbreak[J/OL].
 \newblock 期刊, 出版年, 2\penalty0 (3):
   引文页码\allowbreak[引用日期].
 \newblock \url{url}.
@@ -292,7 +292,7 @@ ROBERSON J A, BURNESON E G.
 \bibitem[武丽丽\ 等(2008)武丽丽, 华一新, 张亚军, et~al.]{wll}
 武丽丽, 华一新, 张亚军, 等.
 \newblock
-  \href{http://dx.doi.org/10.3771/j.issn.1009-2307.2008.05.002}{“北斗一号”监控管理网设计与实现}\allowbreak[J/OL].
+  \href{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}{“北斗一号”监控管理网设计与实现}\allowbreak[J/OL].
 \newblock 测绘科学, 2008, 33\penalty0 (5): 8--9\allowbreak[2009-10-25].
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
 \newblock \doi{10.3771/j.issn.1009-2307.2008.05.002}.
@@ -310,7 +310,7 @@ CAPLAN P.
 
 \bibitem[Frese\ et~al.(2013)Frese, Katus, and Meder]{frese}
 FRESE K S, KATUS H A, MEDER B.
-\newblock \href{http://dx.doi.org/10.3390/biology2010378}{Next-generation
+\newblock \href{http://www.mdpi.com/2079-7737/2/1/378}{Next-generation
   sequencing: from understanding biology to personalized
   medicine}\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1): 378--398\allowbreak[2013-03-19].
@@ -319,8 +319,9 @@ FRESE K S, KATUS H A, MEDER B.
 
 \bibitem[Myburg\ et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.]{myburg}
 MYBURG A A, GRATTAPAGLIA D, TUSKAN G A, et~al.
-\newblock \href{http://dx.doi.org/10.1038/nature13308}{The genome of eucalyptus
-  grandis}\allowbreak[J/OL].
+\newblock
+  \href{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}{The
+  genome of eucalyptus grandis}\allowbreak[J/OL].
 \newblock Nature, 2014, 510: 356--362\allowbreak[2014-06-25].
 \newblock
   \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
@@ -945,7 +946,7 @@ FOURNEY M E.
 \bibitem[陈建军(20l0)]{cjj}
 陈建军.
 \newblock
-  \href{http://dx.doi.org/10.3969/j.issn.1672-5603.2010.10.038}{从数字地球到智慧地球}\allowbreak[J/OL].
+  \href{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}{从数字地球到智慧地球}\allowbreak[J/OL].
 \newblock 国图资源导刊, 20l0, 7\penalty0 (10): 93\allowbreak[2013-03-20].
 \newblock \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.
 \newblock \doi{10.3969/j.issn.1672-5603.2010.10.038}.
@@ -967,7 +968,7 @@ SAITO M, MIYAZAKI K.
 
 \bibitem[Walls\ et~al.(2013)Walls, Barichivich, and Brown]{walls}
 WALLS S C, BARICHIVICH W J, BROWN M E.
-\newblock \href{http://dx.doi.org/10.3390/biology2010399}{Drought, deluge and
+\newblock \href{http://www.mdpi.com/2079-7737/2/1/399}{Drought, deluge and
   declines: the impact of precipitation extremes on amphibians in a changing
   climate}\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1): 399--418\allowbreak[2013-11-04].

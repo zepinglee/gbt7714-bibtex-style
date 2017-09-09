@@ -375,21 +375,41 @@ FUNCTION {format.url}
   if$
 }
 
+FUNCTION {is.doi.in.url}
+{ url empty$
+    { #0 }
+    { doi text.length$ 'stringlength :=
+      url text.length$ 'charptr :=
+        { url charptr stringlength substring$ doi = not
+          charptr #0 >
+          and
+        }
+        { charptr #1 - 'charptr := }
+      while$
+      charptr
+    }
+  if$
+}
+
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { new.block "\doi{" doi * "}" * }
+    { is.doi.in.url
+        { "" }
+        { new.block "\doi{" doi * "}" * }
+      if$
+    }
   if$
 }
 
 FUNCTION {add.link}
-{ doi empty$
-    { url empty$
+{ url empty$ not
+    { "\href{" url * "}{" * swap$ * "}" * }
+    { doi empty$ not
+        { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
         'skip$
-        { "\href{" url * "}{" * swap$ * "}" * }
       if$
     }
-    { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
   if$
 }
 
