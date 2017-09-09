@@ -694,7 +694,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" volume * "册" * }
+            { "第" number * "册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -712,49 +712,36 @@ FUNCTION {format.volume.number}
 }
 
 FUNCTION {format.series.vol.num.title}
-{ type$ "report" = type$ "standard" = or
-    { format.title
-      number empty$ not
-        { ": " * number }
-        'skip$
-      if$
-    }
-    { format.volume.number 's :=
-      series empty$ not
-        { series ": " *
-          s empty$ not
-            { s * "\quad " * }
-            'skip$
-          if$
-          title field.or.null *
-        }
-        { title field.or.null
-          s empty$ not
-            { ": " * s * }
-            'skip$
-          if$
-        }
-      if$
-      "t" change.case$
-    }
-  if$
-}
-
-FUNCTION {format.series.vol.num.booktitle}
-{ type$ "report" = type$ "standard" = or
-    { format.volume.number }
-    { format.volume }
-  if$
-  's :=
+{ format.volume.number 's :=
   series empty$ not
     { series ": " *
       s empty$ not
         { s * "\quad " * }
         'skip$
       if$
-      booktitle field.or.null *
+      title *
     }
-    { booktitle field.or.null
+    { title
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+  "t" change.case$ add.link
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ format.volume.number 's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle *
+    }
+    { booktitle
       s empty$ not
         { ": " * s * }
         'skip$

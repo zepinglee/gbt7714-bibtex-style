@@ -173,22 +173,6 @@ which was designed for use with the `natbib.sty' package.
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
 %
-% 处理宏包选项。
-%    \begin{macrocode}
-\if@gbt@numerical
-  \if@gbt@super
-    \citestyle{super}
-    \bibliographystyle{gbt-7714-2015-numerical}%
-  \else
-    \citestyle{numbers}
-    \bibliographystyle{gbt-7714-2015-numerical}%
-  \fi
-\else
-  \citestyle{authoryear}
-  \bibliographystyle{gbt-7714-2015-author-year}%
-\fi
-%    \end{macrocode}
-%
 % \begin{macro}{\gbtbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
 % 这个仅用于\pkg{chapterbib}。
@@ -210,6 +194,22 @@ which was designed for use with the `natbib.sty' package.
 }
 %    \end{macrocode}
 % \end{macro}
+%
+% 处理宏包选项。
+%    \begin{macrocode}
+\if@gbt@numerical
+  \if@gbt@super
+    \citestyle{super}%
+    \gbtbibstyle{numerical}%
+  \else
+    \citestyle{numbers}
+    \gbtbibstyle{numerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \gbtbibstyle{authoryear}%
+\fi
+%    \end{macrocode}
 %
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
@@ -1309,6 +1309,16 @@ FUNCTION {either.or.check}
 % work (the title field should be the title of the thing being referred to),
 % and we add an "of <series>".  This function is called in mid-sentence.
 %
+% The format.number.series function is for formatting the series name
+% and perhaps number of a work in a series.  This function is similar to
+% format.bvolume, although for this one the series must exist (and the
+% volume must not exist).  If the number field is empty we output either
+% the series field unchanged if it exists or else the null string.
+% If both the number and series fields are there we assume the series field
+% gives the name of the whole series (the title field should be the title
+% of the work being one referred to), and we add an "in <series>".
+% We capitilize Number when this function is used at the beginning of a block.
+%
 %    \begin{macrocode}
 FUNCTION {is.digit}
 { duplicate$ empty$
@@ -1362,7 +1372,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" volume * "册" * }
+            { "第" number * "册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -1381,61 +1391,38 @@ FUNCTION {format.volume.number}
 
 %    \end{macrocode}
 %
-% The format.number.series function is for formatting the series name
-% and perhaps number of a work in a series.  This function is similar to
-% format.bvolume, although for this one the series must exist (and the
-% volume must not exist).  If the number field is empty we output either
-% the series field unchanged if it exists or else the null string.
-% If both the number and series fields are there we assume the series field
-% gives the name of the whole series (the title field should be the title
-% of the work being one referred to), and we add an "in <series>".
-% We capitilize Number when this function is used at the beginning of a block.
-%
 %    \begin{macrocode}
 FUNCTION {format.series.vol.num.title}
-{ type$ "report" = type$ "standard" = or
-    { format.title
-      number empty$ not
-        { ": " * number }
-        'skip$
-      if$
-    }
-    { format.volume.number 's :=
-      series empty$ not
-        { series ": " *
-          s empty$ not
-            { s * "\quad " * }
-            'skip$
-          if$
-          title field.or.null *
-        }
-        { title field.or.null
-          s empty$ not
-            { ": " * s * }
-            'skip$
-          if$
-        }
-      if$
-      "t" change.case$
-    }
-  if$
-}
-
-FUNCTION {format.series.vol.num.booktitle}
-{ type$ "report" = type$ "standard" = or
-    { format.volume.number }
-    { format.volume }
-  if$
-  's :=
+{ format.volume.number 's :=
   series empty$ not
     { series ": " *
       s empty$ not
         { s * "\quad " * }
         'skip$
       if$
-      booktitle field.or.null *
+      title *
     }
-    { booktitle field.or.null
+    { title
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+  "t" change.case$ add.link
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ format.volume.number 's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle *
+    }
+    { booktitle
       s empty$ not
         { ": " * s * }
         'skip$

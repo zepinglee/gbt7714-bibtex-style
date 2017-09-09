@@ -46,18 +46,6 @@
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\if@gbt@numerical
-  \if@gbt@super
-    \citestyle{super}
-    \bibliographystyle{gbt-7714-2015-numerical}%
-  \else
-    \citestyle{numbers}
-    \bibliographystyle{gbt-7714-2015-numerical}%
-  \fi
-\else
-  \citestyle{authoryear}
-  \bibliographystyle{gbt-7714-2015-author-year}%
-\fi
 \def\tmp@numerical{numerical}
 \def\tmp@authoryear{authoryear}
 \newcommand\gbtbibstyle[1]{%
@@ -73,6 +61,18 @@
     \fi%
   \fi%
 }
+\if@gbt@numerical
+  \if@gbt@super
+    \citestyle{super}%
+    \gbtbibstyle{numerical}%
+  \else
+    \citestyle{numbers}
+    \gbtbibstyle{numerical}%
+  \fi
+\else
+  \citestyle{authoryear}
+  \gbtbibstyle{authoryear}%
+\fi
 \RequirePackage{etoolbox}
 \patchcmd\NAT@citexnum{%
   \@ifnum{\NAT@ctype=\z@}{%
