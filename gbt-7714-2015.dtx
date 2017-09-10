@@ -267,6 +267,7 @@ ENTRY
     author
     booktitle
     chapter
+    date
     doi
     eid
     edition
@@ -1172,14 +1173,22 @@ FUNCTION {n.dashify}
 % there's an empty year but the month is there, and we return the empty string
 % if they're both empty.
 %
+% Newspaer 和 paptent 要显示完整的日期，同时不再显示修改日期。
+% 但是在 author-year 模式下，需要单独设置 format.year。
+%
 %    \begin{macrocode}
 FUNCTION {format.date}
-{ year duplicate$ empty$
-    { "empty year in " cite$ * warning$
-       pop$ "" }
-    'skip$
+{ type$ "patent" = type$ "newspaper" = or
+  date empty$ not and
+    { date }
+    { year duplicate$ empty$
+        { "empty year in " cite$ * warning$
+           pop$ "" }
+        'skip$
+      if$
+      extra.label *
+    }
   if$
-  extra.label *
 }
 
 FUNCTION {extract.before.dash}
@@ -1240,17 +1249,22 @@ FUNCTION {contains.dash}
 FUNCTION {format.year}
 { year empty$ not
     { year }
-    { "empty year in " cite$ * warning$
-      ""
+    { date empty$ not
+        { date extract.before.dash }
+        { "empty year in " cite$ * warning$
+          "" }
+      if$
     }
   if$
-  extract.before.dash
   extra.label *
 }
 
 FUNCTION {format.editdate}
-{ year contains.dash
-    { "\allowbreak(" year * ")" * }
+{ date empty$ not
+  type$ "newspaper" = not and
+  url empty$ not doi empty$ not or
+  and
+    { "\allowbreak(" date * ")" * }
     { "" }
   if$
 }
@@ -1262,9 +1276,9 @@ FUNCTION {format.editdate}
 %
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$
-    { "" }
+{ urldate empty$ not
     { "\allowbreak[" urldate * "]" * }
+    { "" }
   if$
 }
 
@@ -1911,7 +1925,7 @@ FUNCTION {monograph}
   new.block
   format.address.publisher output
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
   format.urldate "" output.after
@@ -1954,7 +1968,7 @@ FUNCTION {incollection}
   new.block
   format.address.publisher output
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   format.pages punct.colon output.after
   format.urldate "" output.after
@@ -2011,11 +2025,12 @@ FUNCTION {article.in.journal}
   new.block
   journal "journal" output.check
 %<*numerical>
-  format.year "year" output.check
+  format.date "year" output.check
 %</numerical>
   volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
+  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -2072,9 +2087,9 @@ FUNCTION {online}
   new.block
   format.address.publisher output
 %<*numerical>
-  year contains.dash
+  date empty$
+    { format.date output }
     'skip$
-    { format.year output }
   if$
 %</numerical>
   format.pages punct.colon output.after

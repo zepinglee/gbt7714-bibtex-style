@@ -26,6 +26,7 @@ ENTRY
     author
     booktitle
     chapter
+    date
     doi
     eid
     edition
@@ -555,12 +556,17 @@ FUNCTION {n.dashify}
 }
 
 FUNCTION {format.date}
-{ year duplicate$ empty$
-    { "empty year in " cite$ * warning$
-       pop$ "" }
-    'skip$
+{ type$ "patent" = type$ "newspaper" = or
+  date empty$ not and
+    { date }
+    { year duplicate$ empty$
+        { "empty year in " cite$ * warning$
+           pop$ "" }
+        'skip$
+      if$
+      extra.label *
+    }
   if$
-  extra.label *
 }
 
 FUNCTION {extract.before.dash}
@@ -621,25 +627,30 @@ FUNCTION {contains.dash}
 FUNCTION {format.year}
 { year empty$ not
     { year }
-    { "empty year in " cite$ * warning$
-      ""
+    { date empty$ not
+        { date extract.before.dash }
+        { "empty year in " cite$ * warning$
+          "" }
+      if$
     }
   if$
-  extract.before.dash
   extra.label *
 }
 
 FUNCTION {format.editdate}
-{ year contains.dash
-    { "\allowbreak(" year * ")" * }
+{ date empty$ not
+  type$ "newspaper" = not and
+  url empty$ not doi empty$ not or
+  and
+    { "\allowbreak(" date * ")" * }
     { "" }
   if$
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$
-    { "" }
+{ urldate empty$ not
     { "\allowbreak[" urldate * "]" * }
+    { "" }
   if$
 }
 
@@ -1044,7 +1055,7 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  format.year "year" output.check
+  format.date "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1070,7 +1081,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  format.year "year" output.check
+  format.date "year" output.check
   format.pages punct.colon output.after
   format.urldate "" output.after
   format.url output
@@ -1107,10 +1118,11 @@ FUNCTION {article.in.journal}
   format.mark "" output.after
   new.block
   journal "journal" output.check
-  format.year "year" output.check
+  format.date "year" output.check
   volume output
   format.journal.number "" output.after
   format.pages punct.colon output.after
+  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -1148,9 +1160,9 @@ FUNCTION {online}
   format.mark "" output.after
   new.block
   format.address.publisher output
-  year contains.dash
+  date empty$
+    { format.date output }
     'skip$
-    { format.year output }
   if$
   format.pages punct.colon output.after
   format.editdate "" output.after
