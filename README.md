@@ -75,6 +75,7 @@ media = {OL},
 卷 | `volume`
 期（或者专利号） | `number`
 引文页码 | `pages`
+更新或修改日期 | `date`*
 引用日期 | `urldate`*
 获取和访问路径 | `url`
 数字对象唯一标识符 | `doi`
@@ -94,12 +95,14 @@ media = {OL},
 
 ## 相关项目
 
-[hushidong/biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)
+胡振震 [hushidong/biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)
 
-[szsdk/biblatex-gbt77142005](https://github.com/szsdk/biblatex-gbt77142005)
+沈周 [szsdk/biblatex-gbt77142005](https://github.com/szsdk/biblatex-gbt77142005)
 
-[Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
+胡海星 [Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
 
-[吴凯 GBT7714-2005.bst](http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591)
+李志奇 [基于biblatex的符合GBT7714-2005的中文文献生成工具](http://bbs.ctex.org/forum.php?mod=viewthread&tid=74474)
 
-[CasperVector/biblatex-caspervector](https://github.com/CasperVector/biblatex-caspervector)
+Casper Ti. Vector [CasperVector/biblatex-caspervector](https://github.com/CasperVector/biblatex-caspervector)
+
+吴凯 [发布GBT7714-2005.bst version1 Beta版](http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591)
