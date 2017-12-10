@@ -57,12 +57,12 @@ ENTRY
     volume
     year
   }
-  { lang }
+  { entry.lang }
   { mark_ label extra.label sort.label short.list }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
-INTEGERS { lang.zh lang.ja lang.en lang.ru lang.default }
+INTEGERS { lang.zh lang.ja lang.en lang.ru }
 
 INTEGERS { charptr stringlength }
 
@@ -72,11 +72,10 @@ FUNCTION {init.state.consts}
   #2 'after.sentence :=
   #3 'after.block :=
   #4 'after.slash :=
-  #4 'lang.zh :=
-  #5 'lang.ja :=
-  #1 'lang.en :=
-  #3 'lang.ru :=
-  #0 'lang.default :=
+  #2 'lang.zh :=
+  #3 'lang.ja :=
+  #0 'lang.en :=
+  #1 'lang.ru :=
 }
 
 STRINGS { s t }
@@ -282,8 +281,59 @@ FUNCTION {emphasize}
   if$
 }
 
+INTEGERS { ascii }
+
+FUNCTION {get.char.lang}
+{ chr.to.int$ 'ascii :=
+  ascii #227 > ascii #234 < and
+    { lang.zh }
+    { ascii #227 =
+        { lang.ja }
+        { ascii #207 > ascii #212 < and
+            { lang.ru }
+            { lang.en }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+INTEGERS { char.lang lang }
+
+STRINGS { tmp.str }
+
+FUNCTION {get.str.lang}
+{ 'tmp.str :=
+  lang.en 'lang :=
+  tmp.str empty$
+    { "Empty string!" warning$ }
+    { #1 'charptr :=
+      tmp.str text.length$ #1 + 'stringlength :=
+        { charptr stringlength < }
+        { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
+          char.lang lang >
+            { char.lang 'lang := }
+            'skip$
+          if$
+
+          char.lang lang.zh = char.lang lang.ja = or
+            { charptr #3 + 'charptr := }
+            { char.lang lang.ru =
+                { charptr #2 + 'charptr := }
+                { charptr #1 + 'charptr := }
+              if$
+            }
+          if$
+        }
+      while$
+    }
+  if$
+  lang
+}
+
 FUNCTION {is.in.chinese}
-{ lang lang.zh =
+{ entry.lang lang.zh =
 }
 
 FUNCTION {format.et.al}
@@ -300,7 +350,7 @@ FUNCTION {format.anonymous}
   if$
 }
 
-INTEGERS { nameptr namesleft numnames }
+INTEGERS { nameptr namesleft numnames name.lang}
 
 FUNCTION {format.names}
 { 's :=
@@ -308,13 +358,19 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > nameptr #4 < and }
-    { s nameptr "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
-      s nameptr "{, jj}" format.name$ *
-      't :=
+    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+      t get.str.lang 'name.lang :=
+      name.lang lang.en =
+        { t #1 "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
+          t #1 "{, jj}" format.name$ *
+          't :=
+        }
+        { t #1 "{ll}{ff}" format.name$ 't := }
+      if$
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
-            { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ "others" =
+            { t "others" =
                 { ", " * format.et.al * }
                 { ", " * t * }
               if$
@@ -439,8 +495,12 @@ FUNCTION {format.full.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr
-      "{vv~}{ll}" format.name$ 't :=
+    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+      t get.str.lang 'name.lang :=
+      name.lang lang.en =
+        { t #1 "{vv~}{ll}" format.name$ 't := }
+        { t #1 "{ll}{ff}" format.name$ 't := }
+      if$
       nameptr #1 >
         {
           namesleft #1 >
@@ -797,7 +857,7 @@ FUNCTION {format.edition}
             { edition num.to.ordinal " ed." * }
           if$
         }
-        { lang lang.en =
+        { entry.lang lang.en =
             { edition "t" change.case$ 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
@@ -1315,52 +1375,9 @@ READ
 
 EXECUTE {init.state.consts}
 
-INTEGERS { ascii }
-
-FUNCTION {char.lang}
-{ chr.to.int$ 'ascii :=
-  ascii #31 > ascii #128 < and
-    { lang.en }
-    { ascii #227 > ascii #234 < and
-        { lang.zh }
-        { ascii #227 =
-            { lang.ja }
-            { ascii #207 > ascii #212 < and
-                { lang.ru }
-                { lang.default }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {set.language}
+FUNCTION {set.entry.lang}
 { language empty$
-    { lang.default 'lang :=
-      author field.or.null title field.or.null * 's :=
-      s empty$
-        'skip$
-        { #1 'charptr :=
-          s text.length$ #1 + 'stringlength :=
-            { charptr stringlength < }
-            { s charptr #1 substring$ char.lang
-              duplicate$ #3 >
-                { charptr #2 + 'charptr := }
-                'skip$
-              if$
-              duplicate$ lang >
-                { 'lang := }
-                'pop$
-              if$
-              charptr #1 + 'charptr :=
-            }
-          while$
-        }
-      if$
-    }
+    { author field.or.null title field.or.null * get.str.lang }
     { language "en" =
         { lang.en }
         { language "zh" =
@@ -1369,7 +1386,7 @@ FUNCTION {set.language}
                 { lang.ja }
                 { language "ru" =
                     { lang.ru }
-                    { lang.default }
+                    { lang.en }
                   if$
                 }
               if$
@@ -1377,9 +1394,9 @@ FUNCTION {set.language}
           if$
         }
       if$
-      'lang :=
     }
   if$
+  'entry.lang :=
 }
 
 FUNCTION {sortify}
@@ -1400,7 +1417,12 @@ FUNCTION {chop.word}
 
 FUNCTION {format.lab.names}
 { 's :=
-  s #1 "{vv~}{ll}" format.name$
+  s #1 "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+  t get.str.lang 'name.lang :=
+  name.lang lang.en =
+    { t #1 "{vv~}{ll}" format.name$}
+    { t #1 "{ll}{ff}" format.name$}
+  if$
   s num.names$ #1 >
     { "\ " * format.et.al * }
     'skip$
@@ -1630,7 +1652,7 @@ FUNCTION {editor.organization.sort}
 }
 
 FUNCTION {presort}
-{ set.language
+{ set.entry.lang
   calc.label
   label sortify
   "    "
