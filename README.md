@@ -30,7 +30,7 @@ media = {OL},
 汇编 | `collection`*
 报纸 | `newspaper`*
 期刊（的析出文献） | `article`
-学位论文 | `masterthesis` 或 `phdthesis`
+学位论文 | `mastersthesis` 或 `phdthesis`
 报告 | `techreport`
 标准 | `standard`*
 专利 | `patent`*
