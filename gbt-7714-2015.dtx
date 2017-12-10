@@ -911,7 +911,7 @@ FUNCTION {format.names}
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
       t get.str.lang 'name.lang :=
       name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{ }}" format.name$ "u" change.case$
+        { t #1 "{vv~}{ll}{ f{~}}" format.name$ "u" change.case$
           t #1 "{, jj}" format.name$ *
           't :=
         }
