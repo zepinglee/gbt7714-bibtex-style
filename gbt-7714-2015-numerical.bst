@@ -403,21 +403,10 @@ FUNCTION {format.doi}
   if$
 }
 
-FUNCTION {add.link}
-{ url empty$ not
-    { "\href{" url * "}{" * swap$ * "}" * }
-    { doi empty$ not
-        { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
-        'skip$
-      if$
-    }
-  if$
-}
-
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ add.link }
+    { title "t" change.case$}
   if$
 }
 
@@ -759,7 +748,7 @@ FUNCTION {format.series.vol.num.title}
       if$
     }
   if$
-  "t" change.case$ add.link
+  "t" change.case$
 }
 
 FUNCTION {format.series.vol.num.booktitle}
@@ -1610,7 +1599,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\url}[1]{#1}"
   write$ newline$
-  "\providecommand{\href}[2]{#2}"
+  "\providecommand{\href}[2]{\url{#2}}"
   write$ newline$
   "\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}"
   write$ newline$
