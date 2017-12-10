@@ -1378,13 +1378,13 @@ EXECUTE {init.state.consts}
 FUNCTION {set.entry.lang}
 { language empty$
     { author field.or.null title field.or.null * get.str.lang }
-    { language "en" =
+    { language "english" =
         { lang.en }
-        { language "zh" =
+        { language "chinese" =
             { lang.zh }
-            { language "ja" =
+            { language "japanese" =
                 { lang.ja }
-                { language "ru" =
+                { language "russian" =
                     { lang.ru }
                     { lang.en }
                   if$

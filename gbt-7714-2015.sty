@@ -23,11 +23,11 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt-7714-2015}
-    [2017/05/01 v1.0 GB/T 7714-2015 BibTeX Style]
+    [2018/01/01 v1.0 GB/T 7714-2015 BibTeX Style]
 \newif\if@gbt@numerical
 \newif\if@gbt@super
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
-\DeclareOption{numerical}{\@gbt@numericaltrue\@gbt@superfalse}
+\DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
 \DeclareOption{authoryear}{\@gbt@numericalfalse}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ExecuteOptions{super}

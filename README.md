@@ -14,7 +14,7 @@
 
 3. 默认可以自动处理 `language`, `mark`, `media`，用户也可以指定，比如：
 ```
-language = {ja},
+language = {japanese},
 mark = {M},
 media = {OL},
 ```
@@ -58,7 +58,6 @@ media = {OL},
 ---|---
 主要责任者 | `author`
 题名 | `title`
-文献类型标识 | `mark`*
 载体类型标识 | `media`*
 翻译者 | `translator`*
 编辑 | `editor`
@@ -71,7 +70,7 @@ media = {OL},
 出版者 | `publisher`
 学校（用于phdthesis） | `school`
 机构（用于techreport） | `institution`
-出版年（或电子文献的更新日期） | `year`
+出版年 | `year`
 卷 | `volume`
 期（或者专利号） | `number`
 引文页码 | `pages`

@@ -63,7 +63,7 @@ which was designed for use with the `natbib.sty' package.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt-7714-2015}
 %<*package>
-    [2017/05/01 v1.0 GB/T 7714-2015 BibTeX Style]
+    [2018/01/01 v1.0 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -76,6 +76,7 @@ which was designed for use with the `natbib.sty' package.
   \setsansfont{Helvetica}[Scale=MatchLowercase]
   \setmonofont{Menlo}[Scale=MatchLowercase]
 }{\relax}
+\usepackage{booktabs}
 \usepackage{listings}
 \lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
 \DeclareRobustCommand\file{\nolinkurl}
@@ -89,6 +90,7 @@ which was designed for use with the `natbib.sty' package.
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\OnlyDescription
 
 \begin{document}
     \DocInput{gbt-7714-2015.dtx}
@@ -123,7 +125,162 @@ which was designed for use with the `natbib.sty' package.
 % \date{\filedate\qquad\fileversion}
 % \maketitle
 %
-% \changes{v1.0}{2017/05/01}{Initial release.}
+% \changes{v1.0}{2018/01/01}{Initial release.}
+%
+% \section{简介}
+%
+% 《GB/T 7714-2015 信息与文献\ 参考文献著录规则》（以下简称《规则》）是我国关于
+% 参考文献的推荐标准。
+% 本宏包是《规则》的 \BibTeX{} 实现，具有以下特性：
+% \begin{itemize}
+%   \item 兼容 \pkg{natbib} ，更方便更改著录风格
+%   \item 实现了顺序编码制和著者-出版年制两种风格
+%   \item 自动识别语言并进行相应处理
+% \end{itemize}
+%
+% 使用时需要注意以下两点：
+% \begin{itemize}
+%   \item 使用的 bib 数据库应使用 UTF-8 编码。
+%   \item 使用 author-year 式参考文献表时，中文文献需要在 pinyin 域填写作者姓名
+%         的拼音，才能使得文献列表按照拼音排序。
+% \end{itemize}
+% \section{使用宏包}
+%
+% 首先应在导言区调用宏包 \pkg{gbt-7714-2015} ，可以选择的参数如
+% 表~\ref{tab:options}。
+%
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%       参数           & 参考文献列表  & 引用标注    \\
+%     \midrule
+%       super （默认） & 顺序编码      & 角标数字    \\
+%       numbers        & 顺序编码      & 数字        \\
+%       authoryear     & 著者-出版年   & 著者-出版年 \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{参考文献风格的参数}
+%   \label{tab:options}
+% \end{table}
+%
+% 举个例子：
+% \begin{lstlisting}
+% \usepackage[authoryear]{gbt-7714-2015}
+% \end{lstlisting}
+% 之后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献风格。
+%
+% 在文中的著录方式参考 \pkg{natbib} 宏包的使用说明。
+%
+% \section{文献类型}
+%
+% 《规则》中列举了 16 种文献类型，其对应的 \file{bib} 数据库中的文献类型如
+% 图~\ref{tab:entry-types}。，而是本宏包新增定义的，所以切换到其他的参考文献风格时可能出错。
+%
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%     文献类型             & entry type \\
+%     \midrule
+%     普通图书             & book 或 inbook \\
+%     图书（的析出文献）   & article 或 incollection \\
+%     会议录               & proceedings \\
+%     会议录（的析出文献） & inproceedings 或 conference \\
+%     汇编                 & collection* \\
+%     报纸                 & newspaper* \\
+%     期刊（的析出文献）   & article \\
+%     学位论文             & masterthesis 或 phdthesis \\
+%     报告                 & techreport \\
+%     标准                 & standard* \\
+%     专利                 & patent* \\
+%     数据库               & database* \\
+%     计算机程序           & program* \\
+%     电子公告             & online* \\
+%     档案                 & archive* \\
+%     舆图                 & map* \\
+%     数据集               & dataset* \\
+%     其他                 & misc \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{全部文献类型，其中带星号的不是 \BibTeX{} 原生支持}
+%   \label{tab:entry-types}
+% \end{table}
+%
+% 注意到 article 可以是图书的析出文献或者期刊的析出文献，这是自动判断的。
+% 如果该条文献的 journal 域为空就判断为图书，否则为期刊。
+%
+% \section{著录项目}
+% 本宏包支持的全部著录项目如表~\ref{tab:fields}。
+%
+% \begin{table}[htbp]
+%   \centering
+%   \begin{tabular}{ll}
+%     \toprule
+%     著录项目（域）         & Entry field \\
+%     \midrule
+%     主要责任者             & author \\
+%     题名                   & title \\
+%     载体类型标识           & media* \\
+%     译者                   & translator* \\
+%     编辑                   & editor \\
+%     组织（用于会议）       & organization \\
+%     图书题名               & booktitle \\
+%     系列                   & series \\
+%     期刊题名               & journal \\
+%     版本                   & edition \\
+%     出版地                 & address \\
+%     出版者                 & publisher \\
+%     学校（用于phdthesis）  & school \\
+%     机构（用于techreport） & institution \\
+%     出版年                 & year \\
+%     卷                     & volume \\
+%     期（或者专利号）       & number \\
+%     引文页码               & pages \\
+%     更新或修改日期         & date* \\
+%     引用日期               & urldate* \\
+%     获取和访问路径         & url \\
+%     数字对象唯一标识符     & doi \\
+%     语言                   & language* \\
+%     拼音（用于排序）       & pinyin* \\
+%     \bottomrule
+%   \end{tabular}
+%   \caption{全部著录项目，其中带星号的不是 \BibTeX{} 原生支持}
+%   \label{tab:fields}
+% \end{table}
+%
+% 由于《规则》中要的著录项目比 \BibTeX{} 支持的要多，新增的项目尽可能同
+% BibLaTeX 一致，如 date 和 urldate。
+%
+% 电子资源的载体类型如果是在线资源时可以自动处理，即自动加上“/OL”；但是其他类型
+% 需要用户在 media 域手动指定，如：
+% \begin{lstlisting}
+% @article{key,
+%   media = {CD},
+%   ...
+% \end{lstlisting}
+%
+% 本宏包可以自动识别语言并处理，但是在某些情况下可能会判断错误，这时需要用户在
+% language 域手动指定，如：
+% \begin{lstlisting}
+% @article{key,
+%   language = {chinese},
+%   ...
+% \end{lstlisting}
+% 可选的语言有 english（默认）, chinese, japanese, russian，但是目前对日语和俄语的支持较为有限。
+%
+% \section{参考文献列表的排序}
+%
+% 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，然而 Unicode
+% 中汉字是根据康熙字典排序的，而且由于 \BibTeX{} 功能的局限性，我们无法根据著
+% 者姓名读取拼音，所以只能手动处理：在 pinyin 域手动添加著者姓名拼音，
+% 如：
+% \begin{lstlisting}
+% @book{capital,
+%   author = {马克思}
+%   pinyin = {ma ke si}
+%   ...
+% \end{lstlisting}
 %
 % \StopEventually{}
 %
@@ -135,7 +292,7 @@ which was designed for use with the `natbib.sty' package.
 \newif\if@gbt@numerical
 \newif\if@gbt@super
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
-\DeclareOption{numerical}{\@gbt@numericaltrue\@gbt@superfalse}
+\DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
 \DeclareOption{authoryear}{\@gbt@numericalfalse}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ExecuteOptions{super}
@@ -2408,13 +2565,13 @@ EXECUTE {init.state.consts}
 FUNCTION {set.entry.lang}
 { language empty$
     { author field.or.null title field.or.null * get.str.lang }
-    { language "en" =
+    { language "english" =
         { lang.en }
-        { language "zh" =
+        { language "chinese" =
             { lang.zh }
-            { language "ja" =
+            { language "japanese" =
                 { lang.ja }
-                { language "ru" =
+                { language "russian" =
                     { lang.ru }
                     { lang.en }
                   if$
@@ -2915,3 +3072,5 @@ EXECUTE {end.bib}
 %
 % \Finale
 \endinput
+%   \caption{参考文献列表和引用标注风格}
+% 由于 \BibTeX{} 功能的局限性，在处理中文参考文献的排序时
