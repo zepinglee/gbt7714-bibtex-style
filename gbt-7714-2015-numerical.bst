@@ -57,7 +57,7 @@ ENTRY
     year
   }
   { entry.lang }
-  { mark_ label extra.label sort.label short.list }
+  { label extra.label sort.label short.list entry.mark }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -462,21 +462,21 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$}
+    { title "t" change.case$ }
   if$
 }
 
 FUNCTION {set.mark}
-{ mark_ empty$ not
+{ entry.mark empty$ not
     'pop$
     { mark empty$ not
-        { pop$ mark 'mark_ := }
-        { 'mark_ := }
+        { pop$ mark 'entry.mark := }
+        { 'entry.mark := }
       if$
       media empty$ not
-        { mark_ "/" * media * 'mark_ := }
+        { entry.mark "/" * media * 'entry.mark := }
         { url empty$ not
-            { mark_ "/OL" * 'mark_ := }
+            { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
         }
@@ -486,7 +486,7 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "\allowbreak[" mark_ * "]" * }
+{ "\allowbreak[" entry.mark * "]" * }
 
 FUNCTION {format.full.names}
 {'s :=

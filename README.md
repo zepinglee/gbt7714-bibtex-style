@@ -1,5 +1,10 @@
 # GB/T 7714-2015 BibTeX Style
 
+[![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
+[![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
+[![Github downloads](https://img.shields.io/github/downloads/zepinglee/gbt7714-bibtex-style/total.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases)
+[![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/v1.0-beta.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
+
 ## 新特性
 
 * 兼容 natbib

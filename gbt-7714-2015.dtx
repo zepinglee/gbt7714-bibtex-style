@@ -412,13 +412,12 @@ which was designed for use with the `natbib.sty' package.
 %</package>
 %    \end{macrocode}
 %
-% \section{Fields and entry strings}
+% \section{BibTeX style implementation}
+%
+% \subsection{Fields and entry strings}
 %
 %    \begin{macrocode}
 %<*authoryear|numerical>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
 ENTRY
   { address
     author
@@ -464,11 +463,11 @@ ENTRY
 % In a storage pinch, sort.label can be easily computed on the fly.
 %
 %    \begin{macrocode}
-  { mark_ label extra.label sort.label short.list }
+  { label extra.label sort.label short.list entry.mark }
 
 %    \end{macrocode}
 %
-% \section{Entry functions}
+% \subsection{Entry functions}
 % Each entry function starts by calling output.bibitem, to write the
 % |\bibitem| and its arguments to the .BBL file.  Then the various fields
 % are formatted and printed by output or output.check.  Those functions
@@ -864,7 +863,7 @@ FUNCTION {new.sentence.checkb}
 
 %    \end{macrocode}
 %
-% \section{Formatting chunks}
+% \subsection{Formatting chunks}
 % Here are some functions for formatting chunks of an entry.
 % By convention they either produce a string that can be followed by
 % a comma or period (using |add.period$|, so it is OK to end in a period),
@@ -1189,21 +1188,21 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$}
+    { title "t" change.case$ }
   if$
 }
 
 FUNCTION {set.mark}
-{ mark_ empty$ not
+{ entry.mark empty$ not
     'pop$
     { mark empty$ not
-        { pop$ mark 'mark_ := }
-        { 'mark_ := }
+        { pop$ mark 'entry.mark := }
+        { 'entry.mark := }
       if$
       media empty$ not
-        { mark_ "/" * media * 'mark_ := }
+        { entry.mark "/" * media * 'entry.mark := }
         { url empty$ not
-            { mark_ "/OL" * 'mark_ := }
+            { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
         }
@@ -1213,7 +1212,7 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "\allowbreak[" mark_ * "]" * }
+{ "\allowbreak[" entry.mark * "]" * }
 
 FUNCTION {format.full.names}
 {'s :=
@@ -1634,9 +1633,6 @@ FUNCTION {format.volume.number}
   if$
 }
 
-%    \end{macrocode}
-%
-%    \begin{macrocode}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
@@ -2023,7 +2019,7 @@ FUNCTION {format.incoll.inproc.crossref}
 
 %    \end{macrocode}
 %
-% \section{Functions for all entry types}
+% \subsection{Functions for all entry types}
 %
 % Now we define the type functions for all entry types that may appear
 % in the .BIB file---e.g., functions like `article' and `book'.  These
@@ -2468,7 +2464,7 @@ FUNCTION {default.type} { misc }
 
 %    \end{macrocode}
 %
-% \section{Common macros}
+% \subsection{Common macros}
 %
 % Here are macros for common things that may vary from style to style.
 % Users are encouraged to use these macros.
@@ -2553,7 +2549,7 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 %    \end{macrocode}
 %
-% \section{Read bib entries and execute}
+% \subsection{Read bib entries and execute}
 %
 % Now we read in the .BIB entries.
 %
@@ -3072,5 +3068,3 @@ EXECUTE {end.bib}
 %
 % \Finale
 \endinput
-%   \caption{参考文献列表和引用标注风格}
-% 由于 \BibTeX{} 功能的局限性，在处理中文参考文献的排序时
