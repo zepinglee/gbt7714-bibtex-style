@@ -4,35 +4,35 @@ NAME = gbt-7714-2015
 PKGFILES = $(NAME).sty
 BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 TEST_DIR = test
+
 SHELL = bash
+LATEXMK = latexmk -xelatex -halt-on-error -interaction=nonstopmode
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
 LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 UTREE = $(shell kpsewhich --var-value TEXMFHOME)
 
 test : inst FORCE_MAKE
-	make -C $(TESTDIR) test
-	rm -rf $(UTREE)/bibtex/bst/$(NAME)
-	rm -rf $(UTREE)/tex/latex/$(NAME)
+	$(MAKE) -C $(TESTDIR) test
 
 all : test doc
 
-bst : $(PKGFILES)
+bst : $(PKGFILES) $(BSTFILES)
 
 doc : $(NAME).pdf
 
-$(PKGFILES) : $(NAME).dtx
+$(PKGFILES) $(BSTFILES) : $(NAME).dtx
 	xetex $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
-	latexmk -xelatex -halt-on-error -interaction=nonstopmode $<
+	$(LATEXMK) -xelatex -halt-on-error -interaction=nonstopmode $<
 
 clean :
-	latexmk -c $(NAME).dtx
-	$(MAKE) -C $(TEST_DIR) distclean
+	$(LATEXMK) -c $(NAME).dtx
+	$(MAKE) -C $(TEST_DIR) clean
 
 distclean :
-	latexmk -C $(NAME).dtx
+	$(LATEXMK) -C $(NAME).dtx
 	$(MAKE) -C $(TEST_DIR) distclean
 
 inst : bst

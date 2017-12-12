@@ -605,20 +605,6 @@ FUNCTION {n.dashify}
   while$
 }
 
-FUNCTION {format.date}
-{ type$ "patent" = type$ "newspaper" = or
-  date empty$ not and
-    { date }
-    { year duplicate$ empty$
-        { "empty year in " cite$ * warning$
-           pop$ "" }
-        'skip$
-      if$
-      extra.label *
-    }
-  if$
-}
-
 FUNCTION {extract.before.dash}
 { duplicate$ empty$
     { pop$ "" }
@@ -685,6 +671,15 @@ FUNCTION {format.year}
     }
   if$
   extra.label *
+}
+
+FUNCTION {format.date}
+{ type$ "patent" = type$ "newspaper" = or
+  date empty$ not and
+    { date }
+    { format.year
+    }
+  if$
 }
 
 FUNCTION {format.editdate}
@@ -1510,7 +1505,7 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  year duplicate$ empty$
+  format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$
        urldate empty$ not
