@@ -662,11 +662,12 @@ FUNCTION {contains.dash}
 
 FUNCTION {format.year}
 { year empty$ not
-    { year }
+    { year extract.before.dash }
     { date empty$ not
         { date extract.before.dash }
         { "empty year in " cite$ * warning$
-          "" }
+          ""
+        }
       if$
     }
   if$
@@ -677,8 +678,7 @@ FUNCTION {format.date}
 { type$ "patent" = type$ "newspaper" = or
   date empty$ not and
     { date }
-    { format.year
-    }
+    { year }
   if$
 }
 
@@ -1505,15 +1505,10 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  format.year duplicate$ empty$
+  format.year extract.before.dash duplicate$ empty$
   short.list key field.or.null = or
-     { pop$
-       urldate empty$ not
-         { urldate extract.before.dash }
-         { "" }
-       if$
-     }
-     'extract.before.dash
+     { pop$ "" }
+     'skip$
   if$
   *
   'label :=
