@@ -45,7 +45,7 @@ ENTRY
     number
     organization
     pages
-    pinyin
+    sortname
     publisher
     school
     series
@@ -1522,9 +1522,9 @@ FUNCTION {calc.label}
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
     { "a zh "
-      pinyin empty$
+      sortname empty$
         'skip$
-        { pinyin * "   " * }
+        { sortname * "   " * }
       if$
     }
     { entry.lang lang.ja =

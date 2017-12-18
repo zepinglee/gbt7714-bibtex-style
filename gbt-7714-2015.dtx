@@ -141,7 +141,7 @@ which was designed for use with the `natbib.sty' package.
 % 使用时需要注意以下两点：
 % \begin{itemize}
 %   \item 使用的 bib 数据库应使用 UTF-8 编码。
-%   \item 使用 author-year 式参考文献表时，中文文献需要在 pinyin 域填写作者姓名
+%   \item 使用 author-year 式参考文献表时，中文文献需要在 sortname 域填写作者姓名
 %         的拼音，才能使得文献列表按照拼音排序。
 % \end{itemize}
 % \section{使用宏包}
@@ -242,7 +242,7 @@ which was designed for use with the `natbib.sty' package.
 %     获取和访问路径         & url \\
 %     数字对象唯一标识符     & doi \\
 %     语言                   & language* \\
-%     拼音（用于排序）       & pinyin* \\
+%     拼音（用于排序）       & sortname* \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{全部著录项目，其中带星号的不是 \BibTeX{} 原生支持}
@@ -273,12 +273,12 @@ which was designed for use with the `natbib.sty' package.
 %
 % 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，然而 Unicode
 % 中汉字是根据康熙字典排序的，而且由于 \BibTeX{} 功能的局限性，我们无法根据著
-% 者姓名读取拼音，所以只能手动处理：在 pinyin 域手动添加著者姓名拼音，
+% 者姓名读取拼音，所以只能手动处理：在 sortname 域手动添加著者姓名拼音，
 % 如：
 % \begin{lstlisting}
 % @book{capital,
 %   author = {马克思}
-%   pinyin = {ma ke si}
+%   sortname = {ma3 ke4 si1}
 %   ...
 % \end{lstlisting}
 %
@@ -443,7 +443,7 @@ ENTRY
     organization
     pages
 %<*authoryear>
-    pinyin
+    sortname
 %</authoryear>
     publisher
     school
@@ -2721,9 +2721,9 @@ FUNCTION {calc.label}
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
     { "a zh "
-      pinyin empty$
+      sortname empty$
         'skip$
-        { pinyin * "   " * }
+        { sortname * "   " * }
       if$
     }
     { entry.lang lang.ja =
