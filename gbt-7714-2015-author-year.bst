@@ -62,7 +62,7 @@ ENTRY
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
-INTEGERS { lang.zh lang.ja lang.en lang.ru }
+INTEGERS { lang.zh lang.ja lang.en lang.ru lang.other }
 
 INTEGERS { charptr stringlength }
 
@@ -72,10 +72,11 @@ FUNCTION {init.state.consts}
   #2 'after.sentence :=
   #3 'after.block :=
   #4 'after.slash :=
-  #2 'lang.zh :=
-  #3 'lang.ja :=
-  #0 'lang.en :=
-  #1 'lang.ru :=
+  #3 'lang.zh :=
+  #4 'lang.ja :=
+  #1 'lang.en :=
+  #2 'lang.ru :=
+  #0 'lang.other :=
 }
 
 STRINGS { s t }
@@ -285,13 +286,17 @@ INTEGERS { ascii }
 
 FUNCTION {get.char.lang}
 { chr.to.int$ 'ascii :=
-  ascii #227 > ascii #234 < and
-    { lang.zh }
-    { ascii #227 =
-        { lang.ja }
-        { ascii #207 > ascii #212 < and
-            { lang.ru }
-            { lang.en }
+  ascii #64 > ascii #91 < and ascii #96 > ascii #123 < and or
+    { lang.en }
+    { ascii #227 > ascii #234 < and
+        { lang.zh }
+        { ascii #227 =
+            { lang.ja }
+            { ascii #207 > ascii #212 < and
+                { lang.ru }
+                { lang.en }
+              if$
+            }
           if$
         }
       if$
@@ -299,21 +304,21 @@ FUNCTION {get.char.lang}
   if$
 }
 
-INTEGERS { char.lang lang }
+INTEGERS { char.lang tmp.lang }
 
 STRINGS { tmp.str }
 
 FUNCTION {get.str.lang}
 { 'tmp.str :=
-  lang.en 'lang :=
+  lang.other 'tmp.lang :=
   tmp.str empty$
     { "Empty string!" warning$ }
     { #1 'charptr :=
       tmp.str text.length$ #1 + 'stringlength :=
         { charptr stringlength < }
         { tmp.str charptr #1 substring$ get.char.lang 'char.lang :=
-          char.lang lang >
-            { char.lang 'lang := }
+          char.lang tmp.lang >
+            { char.lang 'tmp.lang := }
             'skip$
           if$
 
@@ -329,7 +334,7 @@ FUNCTION {get.str.lang}
       while$
     }
   if$
-  lang
+  tmp.lang
 }
 
 FUNCTION {is.in.chinese}
@@ -1373,7 +1378,7 @@ EXECUTE {init.state.consts}
 FUNCTION {set.entry.lang}
 { language empty$
     { author field.or.null title field.or.null * get.str.lang }
-    { language "english" =
+    { language "english" = language "american" = or language "british" = or
         { lang.en }
         { language "chinese" =
             { lang.zh }
@@ -1381,7 +1386,7 @@ FUNCTION {set.entry.lang}
                 { lang.ja }
                 { language "russian" =
                     { lang.ru }
-                    { lang.en }
+                    { lang.other }
                   if$
                 }
               if$
@@ -1515,20 +1520,20 @@ FUNCTION {calc.label}
 }
 
 FUNCTION {sort.language.label}
-{ lang lang.zh =
-    { "a   "
+{ entry.lang lang.zh =
+    { "a zh "
       pinyin empty$
         'skip$
         { pinyin * "   " * }
       if$
     }
-    { lang lang.ja =
-        { "b   " }
-        { lang lang.en =
-            { "c   " }
-            { lang lang.ru =
-                { "d   " }
-                { "e   " }
+    { entry.lang lang.ja =
+        { "b ja " }
+        { entry.lang lang.en =
+            { "c en " }
+            { entry.lang lang.ru =
+                { "d ru " }
+                { "e other " }
               if$
             }
           if$
