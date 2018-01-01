@@ -141,7 +141,7 @@ which was designed for use with the `natbib.sty' package.
 % 使用时需要注意以下两点：
 % \begin{itemize}
 %   \item 使用的 bib 数据库应使用 UTF-8 编码。
-%   \item 使用 author-year 式参考文献表时，中文文献需要在 sortname 域填写作者姓名
+%   \item 使用 author-year 式参考文献表时，中文文献需要在 key 域填写作者姓名
 %         的拼音，才能使得文献列表按照拼音排序。
 % \end{itemize}
 % \section{使用宏包}
@@ -242,7 +242,7 @@ which was designed for use with the `natbib.sty' package.
 %     获取和访问路径         & url \\
 %     数字对象唯一标识符     & doi \\
 %     语言                   & language* \\
-%     拼音（用于排序）       & sortname* \\
+%     拼音（用于排序）       & key* \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{全部著录项目，其中带星号的不是 \BibTeX{} 原生支持}
@@ -273,12 +273,12 @@ which was designed for use with the `natbib.sty' package.
 %
 % 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，然而 Unicode
 % 中汉字是根据康熙字典排序的，而且由于 \BibTeX{} 功能的局限性，我们无法根据著
-% 者姓名读取拼音，所以只能手动处理：在 sortname 域手动添加著者姓名拼音，
+% 者姓名读取拼音，所以只能手动处理：在 key 域手动添加著者姓名拼音，
 % 如：
 % \begin{lstlisting}
 % @book{capital,
-%   author = {马克思}
-%   sortname = {ma3 ke4 si1}
+%   author = {马克思 and 恩格斯}
+%   key    = {ma3 ke4 si1   en1 ge2 si1}
 %   ...
 % \end{lstlisting}
 %
@@ -442,9 +442,6 @@ ENTRY
     number
     organization
     pages
-%<*authoryear>
-    sortname
-%</authoryear>
     publisher
     school
     series
@@ -1285,7 +1282,9 @@ FUNCTION {make.full.names}
   type$ "inbook" =
   or
     'author.editor.full
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.full
         'author.full
       if$
@@ -2687,10 +2686,10 @@ FUNCTION {calc.short.authors}
 { type$ "book" =
   type$ "inbook" =
   or
-  type$ "collection" =
-  or
     'author.editor.key.label
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         { editor empty$ not
             'editor.key.organization.label
             'author.key.organization.label
@@ -2708,38 +2707,13 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  format.year extract.before.dash duplicate$ empty$
+  format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$ "" }
      'skip$
   if$
   *
   'label :=
-}
-
-%<*authoryear>
-FUNCTION {sort.language.label}
-{ entry.lang lang.zh =
-    { "a zh "
-      sortname empty$
-        'skip$
-        { sortname * "   " * }
-      if$
-    }
-    { entry.lang lang.ja =
-        { "b ja " }
-        { entry.lang lang.en =
-            { "c en " }
-            { entry.lang lang.ru =
-                { "d ru " }
-                { "e other " }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
 }
 
 %    \end{macrocode}
@@ -2767,10 +2741,29 @@ FUNCTION {sort.language.label}
 % as format.names.
 %
 %    \begin{macrocode}
+%<*authoryear>
+FUNCTION {sort.language.label}
+{ entry.lang lang.zh =
+    { "a zh " }
+    { entry.lang lang.ja =
+        { "b ja " }
+        { entry.lang lang.en =
+            { "c en " }
+            { entry.lang lang.ru =
+                { "d ru " }
+                { "e other " }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
 FUNCTION {sort.format.names}
 { 's :=
   #1 'nameptr :=
-  sort.language.label
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
@@ -2789,7 +2782,7 @@ FUNCTION {sort.format.names}
             }
           if$
         }
-        { t sortify * }
+        { t sortify }
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -2823,65 +2816,66 @@ FUNCTION {sort.format.title}
 % purposes, we still remove a leading "The " from the organization field.
 %
 %    \begin{macrocode}
+FUNCTION {anonymous.sort}
+{ is.in.chinese
+    { "yi4 ming2" }
+    { "anon" }
+  if$
+}
+
 FUNCTION {author.sort}
-{ author empty$
-    { key empty$
-        { format.anonymous }
-        { key sortify }
+{ key empty$
+    { author empty$
+        { anonymous.sort }
+        { author sort.format.names }
       if$
     }
-    { author sort.format.names }
+    { key sortify }
   if$
 }
 
 FUNCTION {author.editor.sort}
-{ author empty$
+{ key empty$
+    { author empty$
+        { editor empty$
+            { anonymous.sort }
+            { editor sort.format.names }
+          if$
+        }
+        { author sort.format.names }
+      if$
+    }
+    { key sortify }
+  if$
+}
+
+FUNCTION {author.organization.sort}
+{ key empty$
+    { author empty$
+        { organization empty$
+            { anonymous.sort }
+            { "The " #4 organization chop.word sortify }
+          if$
+        }
+        { author sort.format.names }
+      if$
+    }
+    { key sortify }
+  if$
+}
+
+FUNCTION {editor.organization.sort}
+{ key empty$
     { editor empty$
-        { key empty$
-            { "to sort, need author, editor, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
+        { organization empty$
+            { anonymous.sort }
+            { "The " #4 organization chop.word sortify }
           if$
         }
         { editor sort.format.names }
       if$
     }
-    { author sort.format.names }
-  if$
-}
-
-FUNCTION {author.organization.sort}
-{ author empty$
-    { organization empty$
-        { key empty$
-            { "to sort, need author, organization, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
-          if$
-        }
-        { "The " #4 organization chop.word sortify }
-      if$
-    }
-    { author sort.format.names }
-  if$
-}
-
-FUNCTION {editor.organization.sort}
-{ editor empty$
-    { organization empty$
-        { key empty$
-            { "to sort, need editor, organization, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
-          if$
-        }
-        { "The " #4 organization chop.word sortify }
-      if$
-    }
-    { editor sort.format.names }
+    { key sortify }
   if$
 }
 
@@ -2894,8 +2888,10 @@ FUNCTION {init.seq}
 
 EXECUTE {init.seq}
 
-FUNCTION {int.to.fix}{ "000000000" swap$ int.to.str$ *
-  #-1 #10 substring$}
+FUNCTION {int.to.fix}
+{ "000000000" swap$ int.to.str$ *
+  #-1 #10 substring$
+}
 
 %</numerical>
 %    \end{macrocode}
@@ -2913,20 +2909,20 @@ FUNCTION {presort}
   "    "
   *
 %<*authoryear>
+  sort.language.label
   type$ "book" =
   type$ "inbook" =
   or
     'author.editor.sort
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.organization.sort
-        { type$ "manual" =
-            'author.organization.sort
-            'author.sort
-          if$
-        }
+        'author.sort
       if$
     }
   if$
+  *
   "    "
   *
   year field.or.null sortify
@@ -2938,7 +2934,8 @@ FUNCTION {presort}
   #1 entry.max$ substring$
 %</authoryear>
 %<*numerical>
-  seq.num #1 + 'seq.num :=  seq.num  int.to.fix
+  seq.num #1 + 'seq.num :=
+  seq.num  int.to.fix
 %</numerical>
   'sort.label :=
   sort.label *
@@ -2948,8 +2945,63 @@ FUNCTION {presort}
 
 ITERATE {presort}
 
+%    \end{macrocode}
+%
+% And now we can sort
+%
+%    \begin{macrocode}
 SORT
 
+%    \end{macrocode}
+%
+% Now comes the final computation for alphabetic labels, putting in the 'a's
+% and 'b's and so forth if required.  This involves two passes: a forward
+% pass to put in the 'b's, 'c's and so on, and a backwards pass
+% to put in the 'a's (we don't want to put in 'a's unless we know there
+% are 'b's).
+% We have to keep track of the longest (in width$ terms) label, for use
+% by the "thebibliography" environment.
+%
+% \begin{lstlisting}
+% VAR: longest.label, last.sort.label, next.extra: string
+%      longest.label.width, last.extra.num: integer
+%
+% initialize.longest.label ==
+%  BEGIN
+%       longest.label := ""
+%       last.sort.label := int.to.chr$(0)
+%       next.extra := ""
+%       longest.label.width := 0
+%       last.extra.num := 0
+%  END
+%
+% forward.pass ==
+%  BEGIN
+%       if last.sort.label = sort.label then
+%           last.extra.num := last.extra.num + 1
+%           extra.label := int.to.chr$(last.extra.num)
+%       else
+%           last.extra.num := chr.to.int$("a")
+%           extra.label := ""
+%           last.sort.label := sort.label
+%       fi
+%  END
+%
+% reverse.pass ==
+%  BEGIN
+%       if next.extra = "b" then
+%           extra.label := "a"
+%       fi
+%       label := label * extra.label
+%       if width$(label) > longest.label.width then
+%           longest.label := label
+%           longest.label.width := width$(label)
+%       fi
+%       next.extra := extra.label
+%  END
+% \end{lstlisting}
+%
+%    \begin{macrocode}
 STRINGS { longest.label last.label next.extra }
 
 INTEGERS { longest.label.width last.extra.num number.label }

@@ -6,7 +6,7 @@
 %%
 %% gbt-7714-2015.dtx  (with options: `authoryear')
 %% 
-%% Copyright (C) 2016-2017 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either
@@ -45,7 +45,6 @@ ENTRY
     number
     organization
     pages
-    sortname
     publisher
     school
     series
@@ -560,7 +559,9 @@ FUNCTION {make.full.names}
   type$ "inbook" =
   or
     'author.editor.full
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.full
         'author.full
       if$
@@ -1489,10 +1490,10 @@ FUNCTION {calc.short.authors}
 { type$ "book" =
   type$ "inbook" =
   or
-  type$ "collection" =
-  or
     'author.editor.key.label
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         { editor empty$ not
             'editor.key.organization.label
             'author.key.organization.label
@@ -1510,7 +1511,7 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  format.year extract.before.dash duplicate$ empty$
+  format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$ "" }
      'skip$
@@ -1521,12 +1522,7 @@ FUNCTION {calc.label}
 
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
-    { "a zh "
-      sortname empty$
-        'skip$
-        { sortname * "   " * }
-      if$
-    }
+    { "a zh " }
     { entry.lang lang.ja =
         { "b ja " }
         { entry.lang lang.en =
@@ -1546,7 +1542,6 @@ FUNCTION {sort.language.label}
 FUNCTION {sort.format.names}
 { 's :=
   #1 'nameptr :=
-  sort.language.label
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
@@ -1565,7 +1560,7 @@ FUNCTION {sort.format.names}
             }
           if$
         }
-        { t sortify * }
+        { t sortify }
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -1584,65 +1579,66 @@ FUNCTION {sort.format.title}
   #1 global.max$ substring$
 }
 
+FUNCTION {anonymous.sort}
+{ is.in.chinese
+    { "yi4 ming2" }
+    { "anon" }
+  if$
+}
+
 FUNCTION {author.sort}
-{ author empty$
-    { key empty$
-        { format.anonymous }
-        { key sortify }
+{ key empty$
+    { author empty$
+        { anonymous.sort }
+        { author sort.format.names }
       if$
     }
-    { author sort.format.names }
+    { key sortify }
   if$
 }
 
 FUNCTION {author.editor.sort}
-{ author empty$
+{ key empty$
+    { author empty$
+        { editor empty$
+            { anonymous.sort }
+            { editor sort.format.names }
+          if$
+        }
+        { author sort.format.names }
+      if$
+    }
+    { key sortify }
+  if$
+}
+
+FUNCTION {author.organization.sort}
+{ key empty$
+    { author empty$
+        { organization empty$
+            { anonymous.sort }
+            { "The " #4 organization chop.word sortify }
+          if$
+        }
+        { author sort.format.names }
+      if$
+    }
+    { key sortify }
+  if$
+}
+
+FUNCTION {editor.organization.sort}
+{ key empty$
     { editor empty$
-        { key empty$
-            { "to sort, need author, editor, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
+        { organization empty$
+            { anonymous.sort }
+            { "The " #4 organization chop.word sortify }
           if$
         }
         { editor sort.format.names }
       if$
     }
-    { author sort.format.names }
-  if$
-}
-
-FUNCTION {author.organization.sort}
-{ author empty$
-    { organization empty$
-        { key empty$
-            { "to sort, need author, organization, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
-          if$
-        }
-        { "The " #4 organization chop.word sortify }
-      if$
-    }
-    { author sort.format.names }
-  if$
-}
-
-FUNCTION {editor.organization.sort}
-{ editor empty$
-    { organization empty$
-        { key empty$
-            { "to sort, need editor, organization, or key in " cite$ * warning$
-              ""
-            }
-            { key sortify }
-          if$
-        }
-        { "The " #4 organization chop.word sortify }
-      if$
-    }
-    { editor sort.format.names }
+    { key sortify }
   if$
 }
 
@@ -1652,20 +1648,20 @@ FUNCTION {presort}
   label sortify
   "    "
   *
+  sort.language.label
   type$ "book" =
   type$ "inbook" =
   or
     'author.editor.sort
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.organization.sort
-        { type$ "manual" =
-            'author.organization.sort
-            'author.sort
-          if$
-        }
+        'author.sort
       if$
     }
   if$
+  *
   "    "
   *
   year field.or.null sortify

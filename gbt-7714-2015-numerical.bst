@@ -6,7 +6,7 @@
 %%
 %% gbt-7714-2015.dtx  (with options: `numerical')
 %% 
-%% Copyright (C) 2016-2017 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either
@@ -559,7 +559,9 @@ FUNCTION {make.full.names}
   type$ "inbook" =
   or
     'author.editor.full
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         'editor.full
         'author.full
       if$
@@ -1490,10 +1492,10 @@ FUNCTION {calc.short.authors}
 { type$ "book" =
   type$ "inbook" =
   or
-  type$ "collection" =
-  or
     'author.editor.key.label
-    { type$ "proceedings" =
+    { type$ "collection" =
+      type$ "proceedings" =
+      or
         { editor empty$ not
             'editor.key.organization.label
             'author.key.organization.label
@@ -1511,7 +1513,7 @@ FUNCTION {calc.label}
   short.list
   "("
   *
-  format.year extract.before.dash duplicate$ empty$
+  format.year duplicate$ empty$
   short.list key field.or.null = or
      { pop$ "" }
      'skip$
