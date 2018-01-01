@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt-7714-2015-numerical.bst',
+%% This is file `gbt7714-unsrt.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt-7714-2015.dtx  (with options: `numerical')
+%% gbt7714.dtx  (with options: `numerical')
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -25,23 +25,16 @@ ENTRY
   { address
     author
     booktitle
-    chapter
     date
     doi
-    eid
     edition
     editor
-    howpublished
     institution
-    isbn
-    issn
     journal
     key
     language
     mark
-    media
-    month
-    note
+    medium
     number
     organization
     pages
@@ -50,7 +43,6 @@ ENTRY
     series
     title
     translator
-    type
     url
     urldate
     volume
@@ -478,8 +470,8 @@ FUNCTION {set.mark}
         { pop$ mark 'entry.mark := }
         { 'entry.mark := }
       if$
-      media empty$ not
-        { entry.mark "/" * media * 'entry.mark := }
+      medium empty$ not
+        { entry.mark "/" * medium * 'entry.mark := }
         { url empty$ not
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
@@ -1011,9 +1003,9 @@ FUNCTION {format.in.ed.booktitle}
 }
 
 FUNCTION {empty.misc.check}
-{ author empty$ title empty$ howpublished empty$
-  month empty$ year empty$ note empty$
-  and and and and and
+{ author empty$ title empty$
+  year empty$
+  and and
   key empty$ not and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
@@ -1225,17 +1217,20 @@ FUNCTION {online}
 
 FUNCTION {misc}
 { journal empty$ not
-    { article.in.journal }
+    'article.in.journal
     { booktitle empty$ not
-        { incollection }
+        'incollection
         { url empty$ not
-            { online }
-            { monograph }
+            'online
+            { "Z" set.mark
+              monograph
+            }
           if$
         }
       if$
     }
   if$
+  empty.misc.check
 }
 
 FUNCTION {archive}
@@ -1249,7 +1244,8 @@ FUNCTION {book} { monograph }
 
 FUNCTION {collection}
 { "G" set.mark
-  monograph }
+  monograph
+}
 
 FUNCTION {database}
 { "DB" set.mark
@@ -1292,7 +1288,7 @@ FUNCTION {proceedings}
   monograph
 }
 
-FUNCTION {program}
+FUNCTION {software}
 { "CP" set.mark
   misc
 }

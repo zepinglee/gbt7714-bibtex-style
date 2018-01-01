@@ -1,8 +1,8 @@
 .PHONY : test bst doc clean all inst install distclean zip FORCE_MAKE
 
-NAME = gbt-7714-2015
+NAME = gbt7714
 PKGFILES = $(NAME).sty
-BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
+BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
 TEST_DIR = test
 
 SHELL = bash

@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2016 by Zeping Lee <zepinglee AT gmail.com>
+% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %
 % This file may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
@@ -47,9 +47,9 @@ which was designed for use with the `natbib.sty' package.
 \askforoverwritefalse
 \nopostamble
 \generate{
-    \file{gbt-7714-2015.sty}{\from{\jobname.dtx}{package}}
-    \file{gbt-7714-2015-author-year.bst}{\from{\jobname.dtx}{authoryear}}
-    \file{gbt-7714-2015-numerical.bst}{\from{\jobname.dtx}{numerical}}
+    \file{gbt7714.sty}{\from{\jobname.dtx}{package}}
+    \file{gbt7714-plain.bst}{\from{\jobname.dtx}{authoryear}}
+    \file{gbt7714-unsrt.bst}{\from{\jobname.dtx}{numerical}}
 }
 \Msg{* Happy TeXing!}
 \endbatchfile
@@ -58,10 +58,10 @@ which was designed for use with the `natbib.sty' package.
 \fi
 %</internal>
 %<*driver>
-\ProvidesFile{gbt-7714-2015.dtx}
+\ProvidesFile{gbt7714.dtx}
 %</driver>
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<package>\ProvidesPackage{gbt-7714-2015}
+%<package>\ProvidesPackage{gbt7714}
 %<*package>
     [2018/01/01 v1.0 GB/T 7714-2015 BibTeX Style]
 %</package>
@@ -93,7 +93,7 @@ which was designed for use with the `natbib.sty' package.
 \OnlyDescription
 
 \begin{document}
-    \DocInput{gbt-7714-2015.dtx}
+    \DocInput{gbt7714.dtx}
     \PrintChanges
     \PrintIndex
 \end{document}
@@ -118,7 +118,7 @@ which was designed for use with the `natbib.sty' package.
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-% \GetFileInfo{gbt-7714-2015.dtx}
+% \GetFileInfo{gbt7714.dtx}
 %
 % \title{GB/T 7714-2015 \BibTeX{} style}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com}}
@@ -146,7 +146,7 @@ which was designed for use with the `natbib.sty' package.
 % \end{itemize}
 % \section{使用宏包}
 %
-% 首先应在导言区调用宏包 \pkg{gbt-7714-2015} ，可以选择的参数如
+% 首先应在导言区调用宏包 \pkg{gbt7714} ，可以选择的参数如
 % 表~\ref{tab:options}。
 %
 % \begin{table}[htbp]
@@ -166,7 +166,7 @@ which was designed for use with the `natbib.sty' package.
 %
 % 举个例子：
 % \begin{lstlisting}
-% \usepackage[authoryear]{gbt-7714-2015}
+% \usepackage[authoryear]{gbt7714}
 % \end{lstlisting}
 % 之后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献风格。
 %
@@ -195,7 +195,7 @@ which was designed for use with the `natbib.sty' package.
 %     标准                 & standard* \\
 %     专利                 & patent* \\
 %     数据库               & database* \\
-%     计算机程序           & program* \\
+%     计算机程序           & software* \\
 %     电子公告             & online* \\
 %     档案                 & archive* \\
 %     舆图                 & map* \\
@@ -221,7 +221,8 @@ which was designed for use with the `natbib.sty' package.
 %     \midrule
 %     主要责任者             & author \\
 %     题名                   & title \\
-%     载体类型标识           & media* \\
+%     文献类型标识           & mark* \\
+%     载体类型标识           & medium* \\
 %     译者                   & translator* \\
 %     编辑                   & editor \\
 %     组织（用于会议）       & organization \\
@@ -241,8 +242,9 @@ which was designed for use with the `natbib.sty' package.
 %     引用日期               & urldate* \\
 %     获取和访问路径         & url \\
 %     数字对象唯一标识符     & doi \\
+%     拼音（用于排序）       & key \\
 %     语言                   & language* \\
-%     拼音（用于排序）       & key* \\
+%     语言                   & language* \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{全部著录项目，其中带星号的不是 \BibTeX{} 原生支持}
@@ -253,10 +255,10 @@ which was designed for use with the `natbib.sty' package.
 % BibLaTeX 一致，如 date 和 urldate。
 %
 % 电子资源的载体类型如果是在线资源时可以自动处理，即自动加上“/OL”；但是其他类型
-% 需要用户在 media 域手动指定，如：
+% 需要用户在 medium 域手动指定，如：
 % \begin{lstlisting}
 % @article{key,
-%   media = {CD},
+%   medium = {CD},
 %   ...
 % \end{lstlisting}
 %
@@ -277,8 +279,8 @@ which was designed for use with the `natbib.sty' package.
 % 如：
 % \begin{lstlisting}
 % @book{capital,
-%   author = {马克思 and 恩格斯}
-%   key    = {ma3 ke4 si1   en1 ge2 si1}
+%   author = {马克思 and 恩格斯},
+%   key    = {ma3 ke4 si1   en1 ge2 si1},
 %   ...
 % \end{lstlisting}
 %
@@ -339,12 +341,12 @@ which was designed for use with the `natbib.sty' package.
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \bibliographystyle{gbt-7714-2015-numerical}%
+    \bibliographystyle{gbt7714-unsrt}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \bibliographystyle{gbt-7714-2015-author-year}%
+      \bibliographystyle{gbt7714-plain}%
     \else%
-      \PackageError{gbt-7714-2015}{Unknown argument #1.}
+      \PackageError{gbt7714}{Unknown argument #1.}
       {It should be `numerical' or `authoryear'.}
     \fi%
   \fi%
@@ -422,23 +424,16 @@ ENTRY
   { address
     author
     booktitle
-    chapter
     date
     doi
-    eid
     edition
     editor
-    howpublished
     institution
-    isbn
-    issn
     journal
     key
     language
     mark
-    media
-    month
-    note
+    medium
     number
     organization
     pages
@@ -447,7 +442,6 @@ ENTRY
     series
     title
     translator
-    type
     url
     urldate
     volume
@@ -1201,8 +1195,8 @@ FUNCTION {set.mark}
         { pop$ mark 'entry.mark := }
         { 'entry.mark := }
       if$
-      media empty$ not
-        { entry.mark "/" * media * 'entry.mark := }
+      medium empty$ not
+        { entry.mark "/" * medium * 'entry.mark := }
         { url empty$ not
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
@@ -1885,9 +1879,9 @@ FUNCTION {format.in.ed.booktitle}
 %
 %    \begin{macrocode}
 FUNCTION {empty.misc.check}
-{ author empty$ title empty$ howpublished empty$
-  month empty$ year empty$ note empty$
-  and and and and and
+{ author empty$ title empty$
+  year empty$
+  and and
   key empty$ not and
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
@@ -2311,17 +2305,20 @@ FUNCTION {online}
 %    \begin{macrocode}
 FUNCTION {misc}
 { journal empty$ not
-    { article.in.journal }
+    'article.in.journal
     { booktitle empty$ not
-        { incollection }
+        'incollection
         { url empty$ not
-            { online }
-            { monograph }
+            'online
+            { "Z" set.mark
+              monograph
+            }
           if$
         }
       if$
     }
   if$
+  empty.misc.check
 }
 
 FUNCTION {archive}
@@ -2335,7 +2332,8 @@ FUNCTION {book} { monograph }
 
 FUNCTION {collection}
 { "G" set.mark
-  monograph }
+  monograph
+}
 
 FUNCTION {database}
 { "DB" set.mark
@@ -2432,7 +2430,7 @@ FUNCTION {proceedings}
   monograph
 }
 
-FUNCTION {program}
+FUNCTION {software}
 { "CP" set.mark
   misc
 }

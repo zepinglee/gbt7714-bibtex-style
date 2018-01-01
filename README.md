@@ -15,13 +15,20 @@
 
 1. bib 数据库应使用 UTF-8 编码
 
-2. 中文文献使用 author-year 式参考文献表时，应在 `sortname` 域填写作者姓名的拼音，才能使得文献列表按照拼音排序。
+2. 中文文献使用 author-year 式参考文献表时，必须在 `key` 域填写作者姓名的拼音，
+才能使得文献列表按照拼音排序，比如：
+```
+@book{capital,
+  author = {马克思 and 恩格斯},
+  key = {ma3 ke4 si1   en1 ge2 si1},
 
-3. 默认可以自动处理 `language`, `mark`, `media`，用户也可以指定，比如：
+```
+
+3. 默认可以自动处理 `language`, `mark`, `medium`，用户也可以指定，比如：
 ```
 language = {japanese},
 mark = {M},
-media = {OL},
+medium = {OL},
 ```
 
 ## 当前支持的文献类型
@@ -40,7 +47,7 @@ media = {OL},
 标准 | `standard`*
 专利 | `patent`*
 数据库 | `database`*
-计算机程序 | `program`*
+计算机程序 | `software`*
 电子公告 | `online`*
 档案 | `archive`*
 舆图 | `map`*
@@ -63,7 +70,8 @@ media = {OL},
 ---|---
 主要责任者 | `author`
 题名 | `title`
-载体类型标识 | `media`*
+文献类型标识 | `mark`*
+载体类型标识 | `medium`*
 翻译者 | `translator`*
 编辑 | `editor`
 组织（用于会议） | `organization`
@@ -84,7 +92,7 @@ media = {OL},
 获取和访问路径 | `url`
 数字对象唯一标识符 | `doi`
 语言 | `language`*
-拼音（用于排序） | `sortname`*
+拼音（用于排序） | `key`
 
 注:
 

@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt-7714-2015.sty',
+%% This is file `gbt7714.sty',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt-7714-2015.dtx  (with options: `package')
+%% gbt7714.dtx  (with options: `package')
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -22,7 +22,7 @@
 %% which was designed for use with the `natbib.sty' package.
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{gbt-7714-2015}
+\ProvidesPackage{gbt7714}
     [2018/01/01 v1.0 GB/T 7714-2015 BibTeX Style]
 \newif\if@gbt@numerical
 \newif\if@gbt@super
@@ -51,12 +51,12 @@
 \newcommand\gbtbibstyle[1]{%
   \def\tmp@gbt{#1}%
   \ifx\tmp@gbt\tmp@numerical%
-    \bibliographystyle{gbt-7714-2015-numerical}%
+    \bibliographystyle{gbt7714-unsrt}%
   \else%
     \ifx\tmp@gbt\tmp@authoryear%
-      \bibliographystyle{gbt-7714-2015-author-year}%
+      \bibliographystyle{gbt7714-plain}%
     \else%
-      \PackageError{gbt-7714-2015}{Unknown argument #1.}
+      \PackageError{gbt7714}{Unknown argument #1.}
       {It should be `numerical' or `authoryear'.}
     \fi%
   \fi%
