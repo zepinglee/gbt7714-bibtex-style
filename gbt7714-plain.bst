@@ -577,7 +577,6 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-
 FUNCTION {n.dashify}
 { 't :=
   ""
@@ -1538,6 +1537,7 @@ FUNCTION {sort.language.label}
 FUNCTION {sort.format.names}
 { 's :=
   #1 'nameptr :=
+  ""
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
@@ -1556,7 +1556,7 @@ FUNCTION {sort.format.names}
             }
           if$
         }
-        { t sortify }
+        { t sortify * }
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=

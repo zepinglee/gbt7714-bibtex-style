@@ -20,15 +20,15 @@
 ```
 @book{capital,
   author = {马克思 and 恩格斯},
-  key = {ma3 ke4 si1   en1 ge2 si1},
-
+  key    = {ma3 ke4 si1   en1 ge2 si1},
+  ...
 ```
 
 3. 默认可以自动处理 `language`, `mark`, `medium`，用户也可以指定，比如：
 ```
 language = {japanese},
 mark = {M},
-medium = {OL},
+medium = {CD},
 ```
 
 ## 当前支持的文献类型

@@ -577,7 +577,6 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-
 FUNCTION {n.dashify}
 { 't :=
   ""

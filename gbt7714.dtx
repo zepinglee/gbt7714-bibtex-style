@@ -47,9 +47,9 @@ which was designed for use with the `natbib.sty' package.
 \askforoverwritefalse
 \nopostamble
 \generate{
-    \file{gbt7714.sty}{\from{\jobname.dtx}{package}}
-    \file{gbt7714-plain.bst}{\from{\jobname.dtx}{authoryear}}
-    \file{gbt7714-unsrt.bst}{\from{\jobname.dtx}{numerical}}
+    \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+    \file{\jobname-plain.bst}{\from{\jobname.dtx}{authoryear}}
+    \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{numerical}}
 }
 \Msg{* Happy TeXing!}
 \endbatchfile
@@ -243,7 +243,6 @@ which was designed for use with the `natbib.sty' package.
 %     获取和访问路径         & url \\
 %     数字对象唯一标识符     & doi \\
 %     拼音（用于排序）       & key \\
-%     语言                   & language* \\
 %     语言                   & language* \\
 %     \bottomrule
 %   \end{tabular}
@@ -1309,7 +1308,7 @@ FUNCTION {output.bibitem}
 % Analogously, BibTeX sets the global integer variable |entry.max$| to
 % |ent_str_size|, the maximum length of an entry string variable.
 % The style designer may change these if necessary (but this is unlikely)
-
+%
 % The n.dashify function makes each single |`-'| in a string a double |`--'|
 % if it's not already
 %
@@ -2762,6 +2761,7 @@ FUNCTION {sort.language.label}
 FUNCTION {sort.format.names}
 { 's :=
   #1 'nameptr :=
+  ""
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
@@ -2780,7 +2780,7 @@ FUNCTION {sort.format.names}
             }
           if$
         }
-        { t sortify }
+        { t sortify * }
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
