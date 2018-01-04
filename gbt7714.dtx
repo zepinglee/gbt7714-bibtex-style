@@ -68,17 +68,29 @@ which was designed for use with the `natbib.sty' package.
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
+\usepackage[paper=a4paper,margin=1in]{geometry}
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
-\usepackage[UTF8,scheme=plain]{ctex}
-\IfFileExists{/System/Library/Fonts/Times.dfont}{
+\usepackage[UTF8]{ctex}
+\IfFileExists{/System/Library/Fonts/Times.ttc}{%
   \setmainfont{Times}
-  \setsansfont{Helvetica}[Scale=MatchLowercase]
-  \setmonofont{Menlo}[Scale=MatchLowercase]
+  \setsansfont[Scale=MatchLowercase]{Helvetica}
+  \setmonofont[Scale=MatchLowercase]{Menlo}
 }{\relax}
 \usepackage{booktabs}
 \usepackage{listings}
-\lstset{gobble=2,basicstyle=\ttfamily,frame=single,language=bash}
+\lstnewenvironment{latex}{%
+  \lstset{%
+    basicstyle = \small\ttfamily,
+    language = [LaTeX]TeX,
+    gobble = 2,
+    frame = single,}}{}
+\lstnewenvironment{pseudocode}{%
+  \lstset{%
+    basicstyle=\ttfamily,
+    language=bash,
+    gobble=2,
+    frame=single,}}{}
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
@@ -93,9 +105,9 @@ which was designed for use with the `natbib.sty' package.
 \OnlyDescription
 
 \begin{document}
-    \DocInput{gbt7714.dtx}
-    \PrintChanges
-    \PrintIndex
+  \DocInput{gbt7714.dtx}
+  \PrintChanges
+  \PrintIndex
 \end{document}
 %</driver>
 % \fi
@@ -117,6 +129,18 @@ which was designed for use with the `natbib.sty' package.
 %   Right bracket \]     Circumflex    \^     Underscore    \_
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
+%
+% \DoNotIndex{%
+%   \a,\b,\c,\d,\e,\f,\g,\h,\i,\j,%
+%   \k,\l,\m,\n,\o,\p,\q,\r,\s,\t,%
+%   \u,\v,\w,\x,\y,\z,%
+%   \A,\B,\C,\D,\E,\F,\G,\H,\I,\J,%
+%   \K,\L,\M,\N,\O,\P,\Q,\R,\S,\T,%
+%   \U,\V,\W,\X,\Y,\Z,%
+%   \1,\2,\3,\4,\5,\6,\7,\8,\9,\0,%
+% }
+%
+%
 %
 % \GetFileInfo{gbt7714.dtx}
 %
@@ -153,11 +177,11 @@ which was designed for use with the `natbib.sty' package.
 %   \centering
 %   \begin{tabular}{lll}
 %     \toprule
-%       参数           & 参考文献列表  & 引用标注    \\
+%       参数                 & 参考文献列表  & 引用标注    \\
 %     \midrule
-%       super （默认） & 顺序编码      & 角标数字    \\
-%       numbers        & 顺序编码      & 数字        \\
-%       authoryear     & 著者-出版年   & 著者-出版年 \\
+%       \opt{super} （默认） & 顺序编码      & 角标数字    \\
+%       \opt{numbers}        & 顺序编码      & 数字        \\
+%       \opt{authoryear}     & 著者-出版年   & 著者-出版年 \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{参考文献风格的参数}
@@ -165,9 +189,9 @@ which was designed for use with the `natbib.sty' package.
 % \end{table}
 %
 % 举个例子：
-% \begin{lstlisting}
+% \begin{latex}
 % \usepackage[authoryear]{gbt7714}
-% \end{lstlisting}
+% \end{latex}
 % 之后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献风格。
 %
 % 在文中的著录方式参考 \pkg{natbib} 宏包的使用说明。
@@ -253,22 +277,17 @@ which was designed for use with the `natbib.sty' package.
 % 由于《规则》中要的著录项目比 \BibTeX{} 支持的要多，新增的项目尽可能同
 % BibLaTeX 一致，如 date 和 urldate。
 %
-% 电子资源的载体类型如果是在线资源时可以自动处理，即自动加上“/OL”；但是其他类型
-% 需要用户在 medium 域手动指定，如：
-% \begin{lstlisting}
-% @article{key,
-%   medium = {CD},
+% 本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
+% 但是在少数情况下需要用户手动指定，如：
+% \begin{latex}
+% @article{citekey,
+%   language = {japanese},
+%   mark     = {M},
+%   medium   = {CD},
 %   ...
-% \end{lstlisting}
-%
-% 本宏包可以自动识别语言并处理，但是在某些情况下可能会判断错误，这时需要用户在
-% language 域手动指定，如：
-% \begin{lstlisting}
-% @article{key,
-%   language = {chinese},
-%   ...
-% \end{lstlisting}
-% 可选的语言有 english（默认）, chinese, japanese, russian，但是目前对日语和俄语的支持较为有限。
+% \end{latex}
+% 可选的语言有 english, chinese, japanese, russian，
+% 目前对日语和俄语的支持较为有限。
 %
 % \section{参考文献列表的排序}
 %
@@ -276,12 +295,12 @@ which was designed for use with the `natbib.sty' package.
 % 中汉字是根据康熙字典排序的，而且由于 \BibTeX{} 功能的局限性，我们无法根据著
 % 者姓名读取拼音，所以只能手动处理：在 key 域手动添加著者姓名拼音，
 % 如：
-% \begin{lstlisting}
+% \begin{latex}
 % @book{capital,
 %   author = {马克思 and 恩格斯},
 %   key    = {ma3 ke4 si1   en1 ge2 si1},
 %   ...
-% \end{lstlisting}
+% \end{latex}
 %
 % \StopEventually{}
 %
@@ -504,7 +523,7 @@ ENTRY
 % 由于专著中的析出文献需要用到很特殊的“//”，所以我又加了一个 after.slash。
 % 其他需要在特定符号后面输出，所以写了一个 output.after。
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % output.nonnull(s) ==
 %  BEGIN
 %       s := argument on stack
@@ -527,18 +546,18 @@ ENTRY
 %       fi
 %       push s on stack
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The output function calls output.nonnull if its argument is non-empty;
 % its argument may be a missing field (thus, not necessarily a string)
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % output(s) ==
 %  BEGIN
 %       if not empty$(s) then output.nonnull(s)
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The output.check function is the same as the output function except that, if
 % necessary, output.check warns the user that the t field shouldn't be empty
@@ -546,7 +565,7 @@ ENTRY
 % the entry functions try to make the formatting look reasonable even when
 % such fields are empty).
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % output.check(s,t) ==
 %  BEGIN
 %       if empty$(s) then
@@ -554,14 +573,14 @@ ENTRY
 %       else output.nonnull(s)
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The output.bibitem function writes the |\bibitem| for the current entry
 % (the label should already have been set up), and sets up the separator
 % state for the output functions.  And, it leaves a string on the stack
 % as per the output convention.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % output.bibitem ==
 %  BEGIN
 %       newline$
@@ -574,7 +593,7 @@ ENTRY
 %       push "" on stack
 %       output.state := before.all
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The fin.entry function finishes off an entry by adding a period to the
 % string remaining on the stack.  If the state is still before.all
@@ -582,27 +601,27 @@ ENTRY
 % but the user deserves it. (We don't omit the whole entry because the
 % entry was cited, and a bibitem is needed to define the citation label.)
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % fin.entry ==
 %  BEGIN
 %       write$(add.period$(pop()))
 %       newline$
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The new.block function prepares for a new block to be output, and
 % new.sentence prepares for a new sentence.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % new.block ==
 %  BEGIN
 %       if output.state <> before.all then
 %           output.state := after.block
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % new.sentence ==
 %  BEGIN
 %       if output.state <> after.block then
@@ -611,7 +630,7 @@ ENTRY
 %           fi
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 %    \begin{macrocode}
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -868,25 +887,25 @@ FUNCTION {new.sentence.checkb}
 % Its main (but not only) purpose is to guarantee that what's left on the
 % stack is a string rather than a missing field.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % field.or.null(s) ==
 %  BEGIN
 %       if empty$(s) then return ""
 %       else return s
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % Another helper function is emphasize, which returns the argument emphazised,
 % if that is non-empty, otherwise it returns the null string.  Italic
 % corrections aren't used, so this function should be used when punctation
 % will follow the result.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % emphasize(s) ==
 %  BEGIN
 %       if empty$(s) then return ""
 %       else return "{\em " * s * "}"
-% \begin{lstlisting}
+% \begin{pseudocode}
 %
 % The format.names function formats the argument (which should be in
 % BibTeX name format) into "First Von Last, Junior", separated by commas
@@ -897,7 +916,7 @@ FUNCTION {new.sentence.checkb}
 % VAR: nameptr, namesleft, numnames: INTEGER
 % pseudoVAR: nameresult: STRING         (it's what's accumulated on the stack)
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % format.names(s) ==
 %  BEGIN
 %       nameptr := 1
@@ -926,24 +945,24 @@ FUNCTION {new.sentence.checkb}
 %         od
 %       return nameresult
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The format.authors function returns the result of format.names(author)
 % if the author is present, or else it returns the null string
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % format.authors ==
 %  BEGIN
 %       if empty$(author) then return ""
 %       else return format.names(author)
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % Format.editors is like format.authors, but it uses the editor field,
 % and appends ", editor" or ", editors"
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % format.editors ==
 %  BEGIN
 %       if empty$(editor) then return ""
@@ -955,7 +974,7 @@ FUNCTION {new.sentence.checkb}
 %           fi
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % Other formatting functions are similar, so no "comment version" will be
 % given for them.
@@ -1312,7 +1331,7 @@ FUNCTION {output.bibitem}
 % The n.dashify function makes each single |`-'| in a string a double |`--'|
 % if it's not already
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % pseudoVAR: pageresult: STRING         (it's what's accumulated on the stack)
 %
 % n.dashify(s) ==
@@ -1341,7 +1360,7 @@ FUNCTION {output.bibitem}
 %         od
 %       return pageresult
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 %    \begin{macrocode}
 FUNCTION {n.dashify}
@@ -1497,14 +1516,14 @@ FUNCTION {format.btitle}
 % strings on top of the stack, along with either a tie or space between
 % them, and puts this concatenation back onto the stack:
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % tie.or.space.connect(str1,str2) ==
 %    BEGIN
 %       if text.length$(str2) < 3
 %         then return the concatenation of str1, "~", and str2
 %         else return the concatenation of str1, " ", and str2
 %    END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 %    \begin{macrocode}
 FUNCTION {tie.or.space.connect}
@@ -1520,14 +1539,14 @@ FUNCTION {tie.or.space.connect}
 % The either.or.check function complains if both fields or an either-or pair
 % are nonempty.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % either.or.check(t,s) ==
 %  BEGIN
 %       if empty$(s) then
 %           warning$(can't use both " * t * " fields in " * cite$)
 %       fi
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 %    \begin{macrocode}
 FUNCTION {either.or.check}
@@ -2026,7 +2045,7 @@ FUNCTION {format.incoll.inproc.crossref}
 %       Required fields: author, title, journal, year
 %       Optional fields: volume, number, pages, month, note
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % article ==
 %  BEGIN
 %       output.bibitem
@@ -2046,14 +2065,14 @@ FUNCTION {format.incoll.inproc.crossref}
 %       output(note)
 %       fin.entry
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The book function is for a whole book.  A book may CROSSREF another book.
 %       Required fields: author or editor, title, publisher, year
 %       Optional fields: volume or number, series, address, edition, month,
 %                       note
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % book ==
 %  BEGIN
 %       if empty$(author) then output.check(format.editors,"author and editor")
@@ -2081,7 +2100,7 @@ FUNCTION {format.incoll.inproc.crossref}
 %       output(note)
 %       fin.entry
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
@@ -2957,10 +2976,10 @@ SORT
 % pass to put in the 'b's, 'c's and so on, and a backwards pass
 % to put in the 'a's (we don't want to put in 'a's unless we know there
 % are 'b's).
-% We have to keep track of the longest (in width$ terms) label, for use
+% We have to keep track of the longest (in |width$| terms) label, for use
 % by the "thebibliography" environment.
 %
-% \begin{lstlisting}
+% \begin{pseudocode}
 % VAR: longest.label, last.sort.label, next.extra: string
 %      longest.label.width, last.extra.num: integer
 %
@@ -2997,7 +3016,7 @@ SORT
 %       fi
 %       next.extra := extra.label
 %  END
-% \end{lstlisting}
+% \end{pseudocode}
 %
 %    \begin{macrocode}
 STRINGS { longest.label last.label next.extra }
