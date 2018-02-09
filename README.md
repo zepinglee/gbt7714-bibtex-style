@@ -11,6 +11,14 @@
 
 * 自动识别语言
 
+## 使用方法
+
+1. 将 bst 文件和 sty 文件复制到工作目录。
+
+2. 调用宏包 `\usepackage[authoryear]{gbt7714}`
+
+3. 不在
+
 ## 注意事项
 
 1. bib 数据库应使用 UTF-8 编码
@@ -36,7 +44,7 @@ medium = {CD},
 文献类型 | entry type
 ---|---
 普通图书 | `book` 或 `inbook`
-图书（的析出文献） | `article` 或 `incollection`
+图书（的析出文献） | `incollection`
 会议录 | `proceedings`
 会议录（的析出文献） | `inproceedings` 或 `conference`
 汇编 | `collection`*
