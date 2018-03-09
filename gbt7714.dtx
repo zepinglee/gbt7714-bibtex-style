@@ -63,7 +63,7 @@ which was designed for use with the `natbib.sty' package.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-    [2018/01/01 v1.0 GB/T 7714-2015 BibTeX Style]
+    [2018/03/09 v1.0.1 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -337,9 +337,13 @@ which was designed for use with the `natbib.sty' package.
 }
 %    \end{macrocode}
 %
-% 需要 \pkg{natbib} 的 \opt{sort\&compress}。
+% \changes{v1.0.1}{2018/03/09}{在 author-year 模式下不再对引用排序。}
+% 只在顺序编码时使用 \opt{sort\&compress}。
 %    \begin{macrocode}
-\RequirePackage[sort&compress]{natbib}
+\if@gbt@numerical
+  \PassOptionsToPackage{sort&compress}{natbib}
+\fi
+\RequirePackage{natbib}
 %    \end{macrocode}
 %
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}

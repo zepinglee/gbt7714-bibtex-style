@@ -42,7 +42,10 @@
   \do\U\do\V\do\W\do\X\do\Y\do\Z%
   \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
 }
-\RequirePackage[sort&compress]{natbib}
+\if@gbt@numerical
+  \PassOptionsToPackage{sort&compress}{natbib}
+\fi
+\RequirePackage{natbib}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
