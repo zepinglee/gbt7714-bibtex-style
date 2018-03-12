@@ -41,12 +41,12 @@ inst : bst
 	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
 
 install : bst doc
-	mkdir -p $(LOCAL)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(LOCAL)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(LOCAL)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(LOCAL)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(LOCAL)/source/latex/$(NAME)
-	cp $(PKGFILES) $(LOCAL)/tex/latex/$(NAME)
+	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
+	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
+	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
 
 zip : bst doc
 	ln -sf . $(NAME)
