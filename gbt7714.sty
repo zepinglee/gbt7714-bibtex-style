@@ -23,7 +23,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
-    [2018/03/16 v1.0.2 GB/T 7714-2015 BibTeX Style]
+    [2018/03/16 v1.0.3 GB/T 7714-2015 BibTeX Style]
 \newif\if@gbt@numerical
 \newif\if@gbt@super
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
@@ -77,7 +77,7 @@
   \gbtbibstyle{authoryear}%
 \fi
 \RequirePackage{etoolbox}
-\patchcmd\NAT@citexnum{%
+\patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -102,3 +102,12 @@
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+\patchcmd{\NAT@citexnum}{%
+  \ifx\NAT@last@yr\relax
+    \def@NAT@last@yr{\@citea}%
+  \else
+    \def@NAT@last@yr{--\NAT@penalty}%
+  \fi
+}{%
+  \def@NAT@last@yr{--\NAT@penalty}%
+}{}{}

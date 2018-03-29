@@ -63,7 +63,7 @@ which was designed for use with the `natbib.sty' package.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-    [2018/03/16 v1.0.2 GB/T 7714-2015 BibTeX Style]
+    [2018/03/16 v1.0.3 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -396,7 +396,7 @@ which was designed for use with the `natbib.sty' package.
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
 \RequirePackage{etoolbox}
-\patchcmd\NAT@citexnum{%
+\patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
   }{}%
@@ -433,6 +433,19 @@ which was designed for use with the `natbib.sty' package.
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+%    \end{macrocode}
+%
+% \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
+%    \begin{macrocode}
+\patchcmd{\NAT@citexnum}{%
+  \ifx\NAT@last@yr\relax
+    \def@NAT@last@yr{\@citea}%
+  \else
+    \def@NAT@last@yr{--\NAT@penalty}%
+  \fi
+}{%
+  \def@NAT@last@yr{--\NAT@penalty}%
+}{}{}
 %</package>
 %    \end{macrocode}
 %
