@@ -99,6 +99,23 @@ which was designed for use with the `natbib.sty' package.
 \renewcommand\glossaryname{版本历史}
 \GlossaryPrologue{\section*{\glossaryname}}
 \renewcommand\indexname{命令索引}
+\makeatletter
+\renewcommand*{\changes@}[3]{%
+ \protected@edef\@tempa{%
+  \noexpand\glossary{#1 (#2)\levelchar
+   \ifx\saved@macroname\@empty
+    \space\actualchar\generalname
+   \else
+    \expandafter\@gobble\saved@macroname
+    \actualchar
+    \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
+   \fi
+   :\levelchar #3}}%
+ \@tempa
+ \endgroup
+ \@esphack
+}
+\makeatother
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -150,6 +167,10 @@ which was designed for use with the `natbib.sty' package.
 % \maketitle
 %
 % \changes{v1.0}{2018/01/01}{Initial release.}
+% \changes{v1.0.1}{2018/03/09}{著者出版年制的文献引用不再排序}
+% \changes{v1.0.2}{2017/03/16}{正确识别姓名中的“others”}
+% \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
+%
 %
 % \section{简介}
 %
@@ -157,18 +178,13 @@ which was designed for use with the `natbib.sty' package.
 % 参考文献的推荐标准。
 % 本宏包是《规则》的 \BibTeX{} 实现，具有以下特性：
 % \begin{itemize}
-%   \item 兼容 \pkg{natbib} ，更方便更改著录风格
-%   \item 实现了顺序编码制和著者-出版年制两种风格
+%   \item 兼容 \pkg{natbib}
+%   \item 支持了顺序编码制和著者-出版年制两种风格
 %   \item 自动识别语言并进行相应处理
 % \end{itemize}
 %
-% 使用时需要注意以下两点：
-% \begin{itemize}
-%   \item 使用的 bib 数据库应使用 UTF-8 编码。
-%   \item 使用 author-year 式参考文献表时，中文文献需要在 key 域填写作者姓名
-%         的拼音，才能使得文献列表按照拼音排序。
-% \end{itemize}
-% \section{使用宏包}
+%
+% \section{使用方法}
 %
 % 首先应在导言区调用宏包 \pkg{gbt7714} ，可以选择的参数如
 % 表~\ref{tab:options}。
@@ -177,11 +193,11 @@ which was designed for use with the `natbib.sty' package.
 %   \centering
 %   \begin{tabular}{lll}
 %     \toprule
-%       参数                 & 参考文献列表  & 引用标注    \\
+%       参数                 & 参考文献列表 & 引用标注    \\
 %     \midrule
-%       \opt{super} （默认） & 顺序编码      & 角标数字    \\
-%       \opt{numbers}        & 顺序编码      & 数字        \\
-%       \opt{authoryear}     & 著者-出版年   & 著者-出版年 \\
+%       \opt{super} （默认） & 顺序编码     & 角标数字    \\
+%       \opt{numbers}        & 顺序编码     & 数字        \\
+%       \opt{authoryear}     & 著者-出版年  & 著者-出版年 \\
 %     \bottomrule
 %   \end{tabular}
 %   \caption{参考文献风格的参数}
@@ -192,56 +208,64 @@ which was designed for use with the `natbib.sty' package.
 % \begin{latex}
 % \usepackage[authoryear]{gbt7714}
 % \end{latex}
-% 之后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献风格。
+% 然后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献列表风格。
 %
-% 在文中的著录方式参考 \pkg{natbib} 宏包的使用说明。
+% 使用时需要注意以下两点：
+% \begin{itemize}
+%   \item 使用的 bib 数据库应使用 UTF-8 编码。
+%   \item 使用著者-出版年制参考文献表时，中文文献需要在 key 域填写作者姓名
+%         的拼音，才能使得文献列表按照拼音排序。
+% \end{itemize}
+%
 %
 % \section{文献类型}
 %
-% 《规则》中列举了 16 种文献类型，其对应的 \file{bib} 数据库中的文献类型如
-% 图~\ref{tab:entry-types}。，而是本宏包新增定义的，所以切换到其他的参考文献风格时可能出错。
+% 《规则》中列举了 16 种参考文献类型，
+% 表~\ref{tab:entry-types} 列举了 \file{bib} 数据库中对应的文献类型。
+% 这些都尽可能地兼容 \BibTeX{} 的标准类型，但是新增了若干文献类型（带星号的）。
 %
 % \begin{table}[htbp]
 %   \centering
-%   \begin{tabular}{ll}
+%   \begin{tabular}{lcl}
 %     \toprule
-%     文献类型             & entry type \\
+%     文献类型         & 标识代码 & Entry Type \\
 %     \midrule
-%     普通图书             & book 或 inbook \\
-%     图书（的析出文献）   & incollection \\
-%     会议录               & proceedings \\
-%     会议录（的析出文献） & inproceedings 或 conference \\
-%     汇编                 & collection* \\
-%     报纸                 & newspaper* \\
-%     期刊（的析出文献）   & article \\
-%     学位论文             & mastersthesis 或 phdthesis \\
-%     报告                 & techreport \\
-%     标准                 & standard* \\
-%     专利                 & patent* \\
-%     数据库               & database* \\
-%     计算机程序           & software* \\
-%     电子公告             & online* \\
-%     档案                 & archive* \\
-%     舆图                 & map* \\
-%     数据集               & dataset* \\
-%     其他                 & misc \\
+%     普通图书         & M        & book 或 inbook \\
+%     图书的析出文献   & M        & incollection \\
+%     会议录           & C        & proceedings \\
+%     会议录的析出文献 & C        & inproceedings 或 conference \\
+%     汇编             & G        & collection* \\
+%     报纸             & N        & newspaper* \\
+%     期刊的析出文献   & J        & article \\
+%     学位论文         & D        & mastersthesis 或 phdthesis \\
+%     报告             & R        & techreport \\
+%     标准             & S        & standard* \\
+%     专利             & P        & patent* \\
+%     数据库           & DB       & database* \\
+%     计算机程序       & CP       & software* \\
+%     电子公告         & EB       & online* \\
+%     档案             & A        & archive* \\
+%     舆图             & CM       & map* \\
+%     数据集           & DS       & dataset* \\
+%     其他             & Z        & misc \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{全部文献类型，其中带星号的不是 \BibTeX{} 原生支持}
+%   \caption{全部文献类型，其中带星号的不是 \BibTeX{} 标准类型}
 %   \label{tab:entry-types}
 % \end{table}
 %
-% 注意到 article 可以是图书的析出文献或者期刊的析出文献，这是自动判断的。
-% 如果该条文献的 journal 域为空就判断为图书，否则为期刊。
+% 注意，不支持的 \BibTeX{} 标准类型有 booklet, manual, unpublished。
+%
 %
 % \section{著录项目}
-% 本宏包支持的全部著录项目如表~\ref{tab:fields}。
+%
+% 表~\ref{tab:fields} 列出了本宏包支持的全部著录项目。
 %
 % \begin{table}[htbp]
 %   \centering
 %   \begin{tabular}{ll}
 %     \toprule
-%     著录项目（域）         & Entry field \\
+%     著录项目（域）         & Field \\
 %     \midrule
 %     主要责任者             & author \\
 %     题名                   & title \\
@@ -266,16 +290,18 @@ which was designed for use with the `natbib.sty' package.
 %     引用日期               & urldate* \\
 %     获取和访问路径         & url \\
 %     数字对象唯一标识符     & doi \\
-%     拼音（用于排序）       & key \\
 %     语言                   & language* \\
+%     拼音（用于排序）       & key \\
 %     \bottomrule
 %   \end{tabular}
-%   \caption{全部著录项目，其中带星号的不是 \BibTeX{} 原生支持}
+%   \caption{全部著录项目，其中带星号的不是 \BibTeX{}/natbib 的标准著录项目。
+%     不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref,
+%     howpublished, month, note, type。}
 %   \label{tab:fields}
 % \end{table}
 %
-% 由于《规则》中要的著录项目比 \BibTeX{} 支持的要多，新增的项目尽可能同
-% BibLaTeX 一致，如 date 和 urldate。
+% 由于《规则》中要求的著录项目比 \BibTeX{} 支持的要多，必须新增一些著录项目，
+% 这些新增的类型在设计时参考了 BibLaTeX，如 date 和 urldate。
 %
 % 本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
 % 但是在少数情况下需要用户手动指定，如：
@@ -289,6 +315,7 @@ which was designed for use with the `natbib.sty' package.
 % 可选的语言有 english, chinese, japanese, russian，
 % 目前对日语和俄语的支持较为有限。
 %
+%
 % \section{参考文献列表的排序}
 %
 % 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，然而 Unicode
@@ -301,6 +328,8 @@ which was designed for use with the `natbib.sty' package.
 %   key    = {ma3 ke4 si1   en1 ge2 si1},
 %   ...
 % \end{latex}
+%
+%
 %
 % \StopEventually{}
 %
@@ -337,7 +366,6 @@ which was designed for use with the `natbib.sty' package.
 }
 %    \end{macrocode}
 %
-% \changes{v1.0.1}{2018/03/09}{在 author-year 模式下不再对引用排序。}
 % 只在顺序编码时使用 \opt{sort\&compress}。
 %    \begin{macrocode}
 \if@gbt@numerical
@@ -435,7 +463,6 @@ which was designed for use with the `natbib.sty' package.
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
 %
-% \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -448,6 +475,7 @@ which was designed for use with the `natbib.sty' package.
 }{}{}
 %</package>
 %    \end{macrocode}
+%
 %
 % \section{BibTeX style implementation}
 %
@@ -1091,7 +1119,6 @@ INTEGERS { nameptr namesleft numnames name.lang }
 
 %    \end{macrocode}
 %
-% \changes{v1.0.2}{2017/03/16}{修正参考文献姓名的“others”}
 %
 %    \begin{macrocode}
 FUNCTION {format.names}

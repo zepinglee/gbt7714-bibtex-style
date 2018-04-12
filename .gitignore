@@ -10,6 +10,7 @@
 *.fot
 *.cb
 *.cb2
+.*.lb
 
 ## Intermediate documents:
 *.dvi
@@ -109,8 +110,19 @@ acs-*.bib
 *.gaux
 *.gtex
 
+# htlatex
+*.4ct
+*.4tc
+*.idv
+*.lg
+*.trc
+*.xref
+
 # hyperref
 *.brf
+
+# hypdoc
+*.hd
 
 # knitr
 *-concordance.tex
@@ -144,7 +156,9 @@ _minted*
 *.mw
 
 # nomencl
+*.nlg
 *.nlo
+*.nls
 
 # pax
 *.pax

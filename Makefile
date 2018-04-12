@@ -6,12 +6,12 @@ BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
 TEST_DIR = test
 
 SHELL = bash
-LATEXMK = latexmk -xelatex -halt-on-error -interaction=nonstopmode
+LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
-TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
+TEXMFHOME = $(shell kpsewhich --var-value TEXMFHOME)
 
-test : inst FORCE_MAKE
+test : bst FORCE_MAKE
 	$(MAKE) -C $(TESTDIR) test
 
 all : test doc
@@ -34,22 +34,15 @@ distclean :
 	$(LATEXMK) -C $(NAME).dtx
 	$(MAKE) -C $(TEST_DIR) distclean
 
-inst : bst
-	mkdir -p $(TEXMF)/tex/latex/$(NAME)
-	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
-
 install : bst doc
-	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
-	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
+	mkdir -p $(TEXMFHOME)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(TEXMFHOME)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(TEXMFHOME)/bibtex/bst/$(NAME)
+	cp $(NAME).pdf $(TEXMFHOME)/doc/latex/$(NAME)
+	cp $(NAME).dtx $(TEXMFHOME)/source/latex/$(NAME)
+	cp $(PKGFILES) $(TEXMFHOME)/tex/latex/$(NAME)
 
 zip : bst doc
 	ln -sf . $(NAME)
-	zip -rq ../$(NAME).zip $(NAME)/{$(NAME).{dtx,pdf} ustc*.bst README.md \
-	main.tex ustcextra.sty bib chapters figures .latexmkrc Makefile}
+	zip ../$(NAME).zip $(NAME)/{README.md,$(NAME){.dtx,.pdf,.sty,-plain.bst,-unsrt.bst}}
 	rm $(NAME)
