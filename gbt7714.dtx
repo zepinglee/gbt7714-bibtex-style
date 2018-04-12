@@ -63,7 +63,7 @@ which was designed for use with the `natbib.sty' package.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-    [2018/03/16 v1.0.3 GB/T 7714-2015 BibTeX Style]
+    [2018/04/12 v1.0.4 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -170,6 +170,7 @@ which was designed for use with the `natbib.sty' package.
 % \changes{v1.0.1}{2018/03/09}{著者出版年制的文献引用不再排序}
 % \changes{v1.0.2}{2017/03/16}{正确识别姓名中的“others”}
 % \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
+% \changes{v1.0.4}{2018/04/12}{页码的连接号由 en dash 改为 hyphen}
 %
 %
 % \section{简介}
@@ -463,6 +464,7 @@ which was designed for use with the `natbib.sty' package.
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
 %
+% 顺序编码制连续两个文献引用之间使用连接号
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -471,7 +473,7 @@ which was designed for use with the `natbib.sty' package.
     \def@NAT@last@yr{--\NAT@penalty}%
   \fi
 }{%
-  \def@NAT@last@yr{--\NAT@penalty}%
+  \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
 %</package>
 %    \end{macrocode}
@@ -1408,23 +1410,18 @@ FUNCTION {output.bibitem}
 %  END
 % \end{pseudocode}
 %
+% 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
+%
 %    \begin{macrocode}
-FUNCTION {n.dashify}
+FUNCTION {hyphenize}
 { 't :=
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { t #1 #2 substring$ "--" = not
-            { "--" *
-              t #2 global.max$ substring$ 't :=
-            }
-            {   { t #1 #1 substring$ "-" = }
-                { "-" *
-                  t #2 global.max$ substring$ 't :=
-                }
-              while$
-            }
-          if$
+        { "-" *
+            { t #1 #1 substring$ "-" = }
+            { t #2 global.max$ substring$ 't := }
+          while$
         }
         { t #1 #1 substring$ *
           t #2 global.max$ substring$ 't :=
@@ -1862,7 +1859,7 @@ FUNCTION {format.address.publisher}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages n.dashify }
+    { pages hyphenize }
   if$
 }
 

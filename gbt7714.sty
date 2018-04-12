@@ -23,7 +23,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
-    [2018/03/16 v1.0.3 GB/T 7714-2015 BibTeX Style]
+    [2018/04/12 v1.0.4 GB/T 7714-2015 BibTeX Style]
 \newif\if@gbt@numerical
 \newif\if@gbt@super
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
@@ -109,5 +109,5 @@
     \def@NAT@last@yr{--\NAT@penalty}%
   \fi
 }{%
-  \def@NAT@last@yr{--\NAT@penalty}%
+  \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
