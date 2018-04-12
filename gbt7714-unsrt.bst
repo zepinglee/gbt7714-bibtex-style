@@ -574,7 +574,7 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-FUNCTION {hyphenize}
+FUNCTION {hyphenate}
 { 't :=
   ""
     { t empty$ not }
@@ -928,7 +928,7 @@ FUNCTION {format.address.publisher}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages hyphenize }
+    { pages hyphenate }
   if$
 }
 

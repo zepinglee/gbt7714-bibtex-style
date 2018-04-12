@@ -464,7 +464,8 @@ which was designed for use with the `natbib.sty' package.
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
 %
-% 顺序编码制连续两个文献引用之间使用连接号
+% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+% 这里修改为允许两个引用使用连接号。
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -1413,7 +1414,7 @@ FUNCTION {output.bibitem}
 % 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
 %
 %    \begin{macrocode}
-FUNCTION {hyphenize}
+FUNCTION {hyphenate}
 { 't :=
   ""
     { t empty$ not }
@@ -1859,7 +1860,7 @@ FUNCTION {format.address.publisher}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages hyphenize }
+    { pages hyphenate }
   if$
 }
 
