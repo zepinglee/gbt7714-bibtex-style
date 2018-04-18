@@ -2,7 +2,7 @@
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -38,7 +38,7 @@ ONE A, TWO A, THREE A.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -155,7 +155,7 @@ FAN X, SOMMERS C~H.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -215,7 +215,7 @@ ROBERSON J~A, BURNESON E~G.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -243,7 +243,7 @@ ROBERSON J~A, BURNESON E~G.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -315,7 +315,7 @@ MYBURG A~A, GRATTAPAGLIA D, TUSKAN G~A, et~al.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -344,7 +344,7 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -387,7 +387,7 @@ HOPKINSON A.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -412,7 +412,7 @@ DEVERELL W, IGLER D.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -454,7 +454,7 @@ DOWLER L.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -496,7 +496,7 @@ DOWLER L, 1995.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -529,7 +529,7 @@ MORRI I.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -564,7 +564,7 @@ MORRI I.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -672,7 +672,7 @@ PRAETZELLIS A.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -712,7 +712,7 @@ BABU B~V, NAGAR A~K, DEEP K, et~al.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -755,7 +755,7 @@ CALKIN D, AGER A, THOMPSON M.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -785,7 +785,7 @@ CALMS R~B.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -815,7 +815,7 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -849,7 +849,7 @@ Information and documentation---the {Dublin} cord metadata element set: {ISO
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -910,7 +910,7 @@ FOURNEY M~E.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -983,7 +983,7 @@ PARK J~R, TOSAKA Y.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
@@ -1016,7 +1016,7 @@ PARK J~R, TOSAKA Y.
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{DOI: \href{http://dx.doi.org/#1}{#1}}
+\providecommand{\doi}[1]{DOI: \href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
 
