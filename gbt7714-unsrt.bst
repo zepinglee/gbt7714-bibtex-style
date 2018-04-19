@@ -428,17 +428,21 @@ FUNCTION {format.url}
 
 FUNCTION {is.doi.in.url}
 { 's :=
-  url empty$
-    { #0 }
-    { s text.length$ 'len :=
-      url text.length$ 'charptr :=
-        { url charptr len substring$ s = not
-          charptr #0 >
-          and
+  s empty$
+    { #1 }
+    { url empty$
+        { #0 }
+        { s text.length$ 'len :=
+          url text.length$ 'charptr :=
+            { url charptr len substring$ s = not
+              charptr #0 >
+              and
+            }
+            { charptr #1 - 'charptr := }
+          while$
+          charptr
         }
-        { charptr #1 - 'charptr := }
-      while$
-      charptr
+      if$
     }
   if$
 }
@@ -453,7 +457,8 @@ FUNCTION {format.doi}
         { t empty$ not}
         { t #1 #1 substring$ 'tmp.str :=
           tmp.str "," = tmp.str " " = or
-            { s is.doi.in.url not
+            { s empty$ s is.doi.in.url or
+                'skip$
                 { numnames #1 + 'numnames :=
                   numnames #1 >
                     { ", " * }
@@ -461,7 +466,6 @@ FUNCTION {format.doi}
                   if$
                   "\doi{" s * "}" * *
                 }
-                'skip$
               if$
               "" 's :=
             }
