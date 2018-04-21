@@ -2,8 +2,7 @@
 
 [![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
 [![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
-[![Github downloads](https://img.shields.io/github/downloads/zepinglee/gbt7714-bibtex-style/total.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases)
-[![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/v1.0.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
+[![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/latest.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
 
 
 ## 新特性
@@ -99,7 +98,7 @@ medium = {CD},
 
 注:
 - 其中带星号的不是 BibTeX/natbib 的标准著录项目。
-- 不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref, howpublished,
+- 不支持的 BibTeX 标准著录项目有 annote, chapter, crossref, howpublished,
 month, note, type。
 
 ## 参考文献著录标准
