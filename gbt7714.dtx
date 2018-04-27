@@ -37,9 +37,9 @@ version 2005/12/01 or later.
 \askforoverwritefalse
 \nopostamble
 \generate{
-    \file{\jobname.sty}{\from{\jobname.dtx}{package}}
-    \file{\jobname-plain.bst}{\from{\jobname.dtx}{authoryear}}
-    \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{numerical}}
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+  \file{\jobname-plain.bst}{\from{\jobname.dtx}{authoryear}}
+  \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{numerical}}
 }
 \endbatchfile
 %</install>
@@ -52,7 +52,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-    [2018/04/18 v1.0.5 GB/T 7714-2015 BibTeX Style]
+  [2018/04/18 v1.0.5 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -90,19 +90,19 @@ version 2005/12/01 or later.
 \renewcommand\indexname{命令索引}
 \makeatletter
 \renewcommand*{\changes@}[3]{%
- \protected@edef\@tempa{%
-  \noexpand\glossary{#1 (#2)\levelchar
-   \ifx\saved@macroname\@empty
-    \space\actualchar\generalname
-   \else
-    \expandafter\@gobble\saved@macroname
-    \actualchar
-    \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
-   \fi
-   :\levelchar #3}}%
- \@tempa
- \endgroup
- \@esphack
+  \protected@edef\@tempa{%
+    \noexpand\glossary{#1 (#2)\levelchar
+      \ifx\saved@macroname\@empty
+        \space\actualchar\generalname
+      \else
+        \expandafter\@gobble\saved@macroname
+        \actualchar
+        \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
+      \fi
+      :\levelchar #3}}%
+  \@tempa
+  \endgroup
+  \@esphack
 }
 \makeatother
 \EnableCrossrefs
@@ -1802,9 +1802,6 @@ FUNCTION {format.sine.loco}
     { "[S.l.]" }
   if$
 }
-
-FUNCTION {format.address}
-{ address }
 
 FUNCTION {format.sine.nomine}
 { is.in.chinese

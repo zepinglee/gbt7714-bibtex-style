@@ -896,9 +896,6 @@ FUNCTION {format.sine.loco}
   if$
 }
 
-FUNCTION {format.address}
-{ address }
-
 FUNCTION {format.sine.nomine}
 { is.in.chinese
     { "[出版者不详]" }

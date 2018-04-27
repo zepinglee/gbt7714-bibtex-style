@@ -9,10 +9,10 @@ test : $(MAIN).pdf
 
 $(MAIN).pdf : $(MAIN).tex FORCE_MAKE
 	$(LATEXMK) $<
-	cat intro.bbl > standard.bbl
-	for i in {1..6}; do cat 4.$${i}.bbl >> standard.bbl; done;
-	for i in {8,9.1,9.2,10.1,10.2}; do cat $${i}.bbl >> standard.bbl; done;
-	for i in {1..10}; do cat a.$${i}.bbl >> standard.bbl; done;
+	cat intro.bbl > standard.txt
+	for i in {1..6}; do cat 4.$${i}.bbl >> standard.txt; done;
+	for i in {8,9.1,9.2,10.1,10.2}; do cat $${i}.bbl >> standard.txt; done;
+	for i in {1..10}; do cat a.$${i}.bbl >> standard.txt; done;
 
 clean :
 	latexmk -c
