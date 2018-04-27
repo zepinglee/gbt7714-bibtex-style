@@ -777,7 +777,7 @@ FUNCTION {format.volume}
     { "" }
     { volume is.number
         { is.in.chinese
-            { "第" volume * "卷" * }
+            { "第 " volume * " 卷" * }
             { "volume" volume tie.or.space.connect }
           if$
         }
@@ -792,7 +792,7 @@ FUNCTION {format.number}
     { "" }
     { number is.number
         { is.in.chinese
-            { "第" number * "册" * }
+            { "第 " number * " 册" * }
             { "number" number tie.or.space.connect }
           if$
         }
@@ -870,7 +870,7 @@ FUNCTION {format.edition}
     { "" }
     { edition is.number
         { is.in.chinese
-            { edition "版" * }
+            { edition " 版" * }
             { edition num.to.ordinal " ed." * }
           if$
         }

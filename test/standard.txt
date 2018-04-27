@@ -44,7 +44,7 @@ ONE A, TWO A, THREE A.
 
 \bibitem[陈登原(2000)]{cdy}
 陈登原.
-\newblock 国史旧闻：第1卷\allowbreak[M].
+\newblock 国史旧闻：第 1 卷\allowbreak[M].
 \newblock 北京: 中华书局, 2000: 29.
 
 \bibitem[哈里森·沃尔德伦(2012)]{hlswedl}
@@ -160,8 +160,8 @@ FAN X, SOMMERS C~H.
   \urlstyle{same}\fi
 
 \bibitem[wfz(2011)]{wfz2}
-周易外传：卷5\allowbreak[M]//\allowbreak{}王夫之.
-\newblock 船山全书：第6册.
+周易外传：卷 5\allowbreak[M]//\allowbreak{}王夫之.
+\newblock 船山全书：第 6 册.
 \newblock 长沙: 岳麓书社, 2011: 1109.
 
 \bibitem[程根伟(1999)]{cgw}
@@ -184,7 +184,7 @@ FAN X, SOMMERS C~H.
 马克思.
 \newblock 政治经济学批判\allowbreak[M]//\allowbreak{}马克思,
   恩格斯.
-\newblock 马克思恩格斯全集：第35卷.
+\newblock 马克思恩格斯全集：第 35 卷.
 \newblock 北京: 人民出版社, 2013: 302.
 
 \bibitem[贾东琴\ 等(2011)贾东琴 and 柯平]{jdq}
@@ -350,7 +350,8 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 
 \bibitem[中国互联网络信息中心(2012)]{zghlwlxxzx}
 中国互联网络信息中心.
-\newblock 第29次中国互联网络发展现状统计报告\allowbreak[R/OL].
+\newblock 第 29
+  次中国互联网络发展现状统计报告\allowbreak[R/OL].
 \newblock \allowbreak(2012-01-16)\allowbreak[2013-03-26].
 \newblock
   \url{http://www.cnnic.net.cn/hlwfzyj/hlwxzbg/201201/P020120709345264469680}.
@@ -521,7 +522,7 @@ MORRI I.
 
 \bibitem[陈登原(2000)]{cdy}
 陈登原.
-\newblock 国史旧闻：第1卷\allowbreak[M].
+\newblock 国史旧闻：第 1 卷\allowbreak[M].
 \newblock 北京: 中华书局, 2000: 29.
 
 \end{thebibliography}
@@ -574,7 +575,7 @@ MORRI I.
 \newblock 南京: 江苏古籍出版社, 2002: 288.
 
 \bibitem[sft(2009)]{sftrj}
-师伏堂日记: 第4册\allowbreak[M].
+师伏堂日记: 第 4 册\allowbreak[M].
 \newblock 北京: 北京图书馆出版社, 2009: 155.
 
 \bibitem[胡承正\ 等(2010)胡承正, 周详, and 缪灵]{bcz}
@@ -620,8 +621,8 @@ MORRI I.
 
 \bibitem[库恩(2012)]{ke}
 库恩.
-\newblock 科学革命的结构: 第4版\allowbreak[M].
-\newblock 金吾伦, 胡新和, 译. 2版.
+\newblock 科学革命的结构: 第 4 版\allowbreak[M].
+\newblock 金吾伦, 胡新和, 译. 2 版.
 \newblock 北京: 北京大学出版社, 2012.
 
 \bibitem[侯文顺(2010)]{hws}
@@ -821,13 +822,13 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 
 \bibitem[全国信息与文献标准化技术委员会(2010)]{qgxxywxbzhjswyh2}
 全国信息与文献标准化技术委员会.
-\newblock 文献著录: 第4部分\quad 非书资料: {GB/T}
+\newblock 文献著录: 第 4 部分\quad 非书资料: {GB/T}
   3792.7—2009\allowbreak[S].
 \newblock 北京: 中国标准出版社, 2010: 3.
 
 \bibitem[全国广播电视标准化技术委员会(2007)]{qggbdsbzhjswyh}
 全国广播电视标准化技术委员会.
-\newblock 广播电视音像资料编目规范: 第2部分\quad 广播资料:
+\newblock 广播电视音像资料编目规范: 第 2 部分\quad 广播资料:
   {GY/T 202.2—2007}\allowbreak[S].
 \newblock 北京: 国家广播电影电视总局广播电视规划院, 2007: 1.
 
@@ -879,7 +880,7 @@ Information and documentation---the {Dublin} cord metadata element set: {ISO
 \newblock 北京: 中国标准出版社, 1988: 59-92.
 
 \bibitem[ss(1977)]{ss}
-宋史卷三: 本纪第三\allowbreak[M]//\allowbreak{}宋史: 第1册.
+宋史卷三: 本纪第三\allowbreak[M]//\allowbreak{}宋史: 第 1 册.
 \newblock 北京: 中华书局, 1977: 49.
 
 \bibitem[楼梦鳞\ 等(2011)楼梦鳞 and 杨燕]{lml}
