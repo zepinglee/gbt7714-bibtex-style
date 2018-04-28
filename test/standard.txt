@@ -129,15 +129,15 @@ PEEBLES P~Z, Jr.
 
 \bibitem[Yufin(2000)]{yufin}
 YUFIN S~A.
-\newblock Geoecology and computers: proceedings of the {Third International
+\newblock Geoecology and computers: Proceedings of the {Third International
   Conference on Advances of Computer Methods in Geotechnical and
-  Geoenvironmental Engineering, Moscow, Russia, February 1-4,
+  Geoenvironmental Engineering, Moscow, Russia, February 1--4,
   2000}\allowbreak[C].
 \newblock Rotterdam: A. A. Balkema, 2000.
 
 \bibitem[Baldock(2011)]{baldock}
 BALDOCK P.
-\newblock Developing early childhood services: past, present and
+\newblock Developing early childhood services: Past, present and
   future\allowbreak[M/OL].
 \newblock Rotterdam: Open University Press, 2011: 105\allowbreak[2012-11-27].
 \newblock \url{http://lib.myilibrary.com/Open.aspx?id=312377}.
@@ -166,8 +166,8 @@ FAN X, SOMMERS C~H.
 
 \bibitem[程根伟(1999)]{cgw}
 程根伟.
-\newblock
-  1998年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak{}许厚泽,
+\newblock 1998
+  年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak{}许厚泽,
   赵其国.
 \newblock 长江流域洪涝灾害与科技对策.
 \newblock 北京: 科学出版社, 1999: 32-36.
@@ -373,7 +373,7 @@ BAWDEN D.
 
 \bibitem[{Online Computer Library Center, Inc}()]{oclc}
 {Online Computer Library Center, Inc}.
-\newblock About {OCLC}: history of cooperation\allowbreak[EB/OL].
+\newblock About {OCLC}: History of cooperation\allowbreak[EB/OL].
 \newblock \allowbreak[2012-03-27].
 \newblock \url{http://www.oclc.org/about/cooperation.en.html}.
 
@@ -446,7 +446,7 @@ CHERNIK B~E.
 
 \bibitem[Dowler(1995)]{dowler}
 DOWLER L.
-\newblock The research university’s dilemma: resource sharing and research in
+\newblock The research university’s dilemma: Resource sharing and research in
   a transinstitutional environment\allowbreak[J].
 \newblock Journal of library administration, 1995, 21\penalty0 (1/2): 5-26.
 
@@ -488,7 +488,7 @@ CHERNIK B~E, 1982.
 
 \bibitem[Dowler(1995)]{dowler}
 DOWLER L, 1995.
-\newblock The research university’s dilemma: resource sharing and research in
+\newblock The research university’s dilemma: Resource sharing and research in
   a transinstitutional environment\allowbreak[J].
 \newblock Journal of library administration, 21\penalty0 (1/2): 5-26.
 
@@ -635,13 +635,13 @@ MORRI I.
 
 \bibitem[Crawfprd\ et~al.(1995)Crawfprd and Gorman]{crawfprd}
 CRAWFPRD W, GORMAN M.
-\newblock Future libraries: dreams, madness, \& reality\allowbreak[M].
+\newblock Future libraries: Dreams, madness, \& reality\allowbreak[M].
 \newblock Chicago: American Library Association, 1995.
 
 \bibitem[{International Federation of Library Association and
   Institutions}(1977)]{ifola}
 {International Federation of Library Association and Institutions}.
-\newblock Names of persons: national usages for entry in
+\newblock Names of persons: National usages for entry in
   catalogues\allowbreak[M].
 \newblock 3rd ed.
 \newblock London: IFLA International Office for UBC, 1977.
@@ -747,7 +747,7 @@ CALKIN D, AGER A, THOMPSON M.
 
 \bibitem[{World Health Organization}(1970)]{who}
 {World Health Organization}.
-\newblock Factors regulating the immune response: report of {WHO Scientific
+\newblock Factors regulating the immune response: Report of {WHO Scientific
   Group}\allowbreak[R].
 \newblock Geneva: WHO, 1970.
 
@@ -973,7 +973,7 @@ FRANZ A~K, DANIELEWICZ M~A, WONG D~M, et~al.
 \bibitem[Park\ et~al.(2010)Park and Tosaka]{park}
 PARK J~R, TOSAKA Y.
 \newblock Metadata quality control in digital repositories and collections:
-  criteria, semantics, and mechanisms\allowbreak[J/OL].
+  Criteria, semantics, and mechanisms\allowbreak[J/OL].
 \newblock Cataloging \& classification quarterly, 2010, 48\penalty0 (8):
   696-715\allowbreak[2013-09-05].
 \newblock
@@ -995,7 +995,7 @@ PARK J~R, TOSAKA Y.
 
 \bibitem[张田勤(2000)]{ztq}
 张田勤.
-\newblock 罪犯dna库与生命伦理学计划\allowbreak[N].
+\newblock 罪犯 DNA 库与生命伦理学计划\allowbreak[N].
 \newblock 大众科技报, 2000-11-12\penalty0 (7).
 
 \bibitem[傅刚\ 等(2000)傅刚, 赵承, and 李佳路]{fg}

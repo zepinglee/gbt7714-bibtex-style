@@ -491,7 +491,12 @@ FUNCTION {format.doi}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title
+      entry.lang lang.en =
+        { "t" change.case$ }
+        'skip$
+      if$
+    }
   if$
 }
 
