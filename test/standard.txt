@@ -14,7 +14,7 @@ LEE Z, ZEPING L.
 
 \bibitem[李泽平\ 等(2017)李泽平, 平泽李, 泽平李, and 笨蛋]{lzp2}
 李泽平, 平泽李, 泽平李, 等.
-\newblock {GB/T} 7714-2015 {BibTeX} style\allowbreak[EB/OL].
+\newblock {GB/T} 7714-2015 {BibTeX} Style\allowbreak[EB/OL].
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
