@@ -20,7 +20,7 @@ bst : $(PKGFILES) $(BSTFILES)
 
 doc : $(NAME).pdf
 
-$(PKGFILES) $(BSTFILES) : $(NAME).dtx
+%.sty %-plain.bst %-unsrt.bst : %.dtx
 	xetex $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE

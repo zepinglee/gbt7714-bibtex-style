@@ -1,3 +1,6 @@
+test/*.sty
+test/*.bst
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
