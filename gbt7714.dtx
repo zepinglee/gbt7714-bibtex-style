@@ -47,12 +47,12 @@ version 2005/12/01 or later.
 \fi
 %</internal>
 %<*driver>
-\ProvidesFile{gbt7714.dtx}
+\ProvidesFile{\jobname.dtx}
 %</driver>
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-  [2018/04/18 v1.0.5 GB/T 7714-2015 BibTeX Style]
+  [2018/04/18 v1.0.6 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -111,7 +111,7 @@ version 2005/12/01 or later.
 \OnlyDescription
 
 \begin{document}
-  \DocInput{gbt7714.dtx}
+  \DocInput{\jobname.dtx}
   \PrintChanges
   \PrintIndex
 \end{document}
@@ -138,7 +138,7 @@ version 2005/12/01 or later.
 %
 %
 %
-% \GetFileInfo{gbt7714.dtx}
+% \GetFileInfo{\jobname.dtx}
 %
 % \title{GB/T 7714-2015 \BibTeX{} style}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com}}
@@ -151,7 +151,8 @@ version 2005/12/01 or later.
 % \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
 % \changes{v1.0.4}{2018/04/12}{页码的连接号由 en dash 改为 hyphen}
 % \changes{v1.0.5}{2018/04/18}{允许著录多个 DOI}
-% \changes{v1.0.6}{2018/04/28}{不再处理中文标题的英文单词的大小写}
+% \changes{v1.0.6}{2018/05/09}{不再处理中文标题的英文单词的大小写}
+% \changes{v1.0.6}{2018/05/09}{文献列表的数字标签左对齐}
 %
 %
 % \section{简介}
@@ -330,24 +331,6 @@ version 2005/12/01 or later.
 \ProcessOptions\relax
 %    \end{macrocode}
 %
-% 需要 \pkg{url} 宏包。
-%    \begin{macrocode}
-\RequirePackage{url}
-%    \end{macrocode}
-%
-% 增加 URL 可断行的位置。
-%    \begin{macrocode}
-\g@addto@macro\UrlBreaks{%
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
-  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
-  \do\u\do\v\do\w\do\x\do\y\do\z%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
-  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
-  \do\U\do\V\do\W\do\X\do\Y\do\Z%
-  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
-}
-%    \end{macrocode}
-%
 % 只在顺序编码时使用 \opt{sort\&compress}。
 %    \begin{macrocode}
 \if@gbt@numerical
@@ -457,6 +440,29 @@ version 2005/12/01 or later.
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
+%    \end{macrocode}
+%
+% 参考文献列表的标签左对齐
+%    \begin{macrocode}
+\renewcommand\@biblabel[1]{[#1]\hfill}
+%    \end{macrocode}
+%
+% 需要 \pkg{url} 宏包显示 URL。
+%    \begin{macrocode}
+\RequirePackage{url}
+%    \end{macrocode}
+%
+% 增加 URL 可断行的位置。
+%    \begin{macrocode}
+\g@addto@macro\UrlBreaks{%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J%
+  \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T%
+  \do\U\do\V\do\W\do\X\do\Y\do\Z%
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0%
+}
 %</package>
 %    \end{macrocode}
 %

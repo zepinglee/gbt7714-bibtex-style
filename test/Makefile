@@ -26,8 +26,8 @@ $(MAIN).pdf : $(MAIN).tex $(STYFILES) $(BSTFILES) FORCE_MAKE
 
 clean :
 	latexmk -c
-	rm -f *.sty *.bst *.aux *.log *.bbl *.blg
+	rm -f *.sty *.bst *.aux *.log *.bbl *.blg *.fls
 
 distclean :
 	latexmk -C
-	rm -f *.sty *.bst *.aux *.log *.bbl *.blg
+	rm -f *.sty *.bst *.aux *.log *.bbl *.blg *.fls
