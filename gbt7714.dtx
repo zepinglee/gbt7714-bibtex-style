@@ -52,7 +52,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-  [2018/04/18 v1.0.6 GB/T 7714-2015 BibTeX Style]
+  [2018/05/10 v1.0.6 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -151,8 +151,8 @@ version 2005/12/01 or later.
 % \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
 % \changes{v1.0.4}{2018/04/12}{页码的连接号由 en dash 改为 hyphen}
 % \changes{v1.0.5}{2018/04/18}{允许著录多个 DOI}
-% \changes{v1.0.6}{2018/05/09}{不再处理中文标题的英文单词的大小写}
-% \changes{v1.0.6}{2018/05/09}{文献列表的数字标签左对齐}
+% \changes{v1.0.6}{2018/05/10}{不再处理中文标题的英文单词的大小写}
+% \changes{v1.0.6}{2018/05/10}{文献列表的数字标签左对齐}
 %
 %
 % \section{简介}
@@ -1226,7 +1226,11 @@ FUNCTION {format.doi}
         { t empty$ not}
         { t #1 #1 substring$ 'tmp.str :=
           tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
-            { s empty$ s is.doi.in.url or
+            { t #2 #1 substring$ empty$
+                { s tmp.str * 's := }
+                'skip$
+              if$
+              s empty$ s is.doi.in.url or
                 'skip$
                 { numnames #1 + 'numnames :=
                   numnames #1 >
