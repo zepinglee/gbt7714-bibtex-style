@@ -16,3 +16,5 @@ tlmgr install booktabs cite cjk ctex environ etoolbox fontspec l3kernel \
 l3packages listings ms thumbpdf trimspaces ulem xecjk zhnumber
 
 tlmgr install fandol symbol zapfding
+
+tlmgr update --self --all −−no−auto−install

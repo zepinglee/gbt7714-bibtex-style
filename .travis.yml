@@ -9,7 +9,6 @@ cache:
 install:
   - export PATH="/tmp/texlive/bin/x86_64-linux:$PATH"
   - bash ./support/texlive.sh
-  - tlmgr update --self --all −−no−auto−install
 
 script:
   - make test
