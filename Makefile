@@ -44,5 +44,5 @@ install : bst doc
 
 zip : bst doc
 	ln -sf . $(NAME)
-	zip ../$(NAME).zip $(NAME)/{README.md,LICENSE,$(NAME){.dtx,.pdf,.sty,-plain.bst,-unsrt.bst}}
+	zip ../$(NAME).zip $(NAME)/{$(NAME){.dtx,.pdf,.sty,-plain.bst,-unsrt.bst}}
 	rm $(NAME)

@@ -15,15 +15,26 @@
 ## 使用方法
 
 1. 将 bst 文件和 sty 文件复制到工作目录。
-2. 调用宏包 `\usepackage[authoryear]{gbt7714}`。
+
+2. 在导言区调用宏包 gbt7714，可选的参数如下表。
+   默认的参数是 super，额外的参数会传递给 natbib 宏包。
+
+可选参数 | 引用标注 | 参考文献列表
+--- | --- | ---
+super(默认) | 角标数字 | 顺序编码
+numbers | 数字 | 顺序编码
+authoryear | 著者-出版年 | 著者-出版年
+
+比如： `\usepackage[authoryear]{gbt7714}`
+
 3. **不再**需要调用 `\bibliographystyle` 命令。
 
 
 ## 注意事项
 
 1. bib 数据库应使用 UTF-8 编码。
-2. 中文文献使用 author-year 式参考文献表时，必须在 `key` 域填写作者姓名的拼音，
-才能使得文献列表按照拼音排序，比如：
+2. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
+作者姓名的拼音，才能按照拼音排序，比如：
 ```
 @book{capital,
   author = {马克思 and 恩格斯},
@@ -66,7 +77,7 @@ medium = {CD},
 - 不支持的 BibTeX 标准类型有：`booklet`, `manual`, `unpublished`。
 
 
-## 支持的著录项目
+## 著录项目
 
 著录项目（域）         | Entry Field
 ---                    | ---
