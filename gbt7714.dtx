@@ -1926,13 +1926,26 @@ FUNCTION {format.pages}
   if$
 }
 
-FUNCTION {format.journal.volume}
-{ volume }
-
+%    \end{macrocode}
+%
+% The |format.vol.num.pages| function is for the volume, number, and page range
+% of a journal article.  We use the format:  vol(number):pages, with some
+% variations for empty fields.  This doesn't begin a sentence.
+%
+% 报纸在卷号缺失时，期号与前面的日期直接相连，所以必须拆开输出。
+%
+%    \begin{macrocode}
 FUNCTION {format.journal.number}
 { number empty$ not
     { "\penalty0 (" number * ")" * }
     { "" }
+  if$
+}
+
+FUNCTION {format.journal.pages}
+{ pages empty$
+    { "" }
+    { ":\penalty0 " pages hyphenate * }
   if$
 }
 
@@ -2348,7 +2361,7 @@ FUNCTION {article}
 %</numerical>
   volume output
   format.journal.number "" output.after
-  format.pages punct.colon output.after
+  format.journal.pages "" output.after
   format.editdate "" output.after
   format.urldate "" output.after
   format.url output

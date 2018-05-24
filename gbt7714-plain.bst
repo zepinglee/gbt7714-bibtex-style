@@ -984,13 +984,17 @@ FUNCTION {format.pages}
   if$
 }
 
-FUNCTION {format.journal.volume}
-{ volume }
-
 FUNCTION {format.journal.number}
 { number empty$ not
     { "\penalty0 (" number * ")" * }
     { "" }
+  if$
+}
+
+FUNCTION {format.journal.pages}
+{ pages empty$
+    { "" }
+    { ":\penalty0 " pages hyphenate * }
   if$
 }
 
@@ -1205,7 +1209,7 @@ FUNCTION {article}
   journal "journal" output.check
   volume output
   format.journal.number "" output.after
-  format.pages punct.colon output.after
+  format.journal.pages "" output.after
   format.editdate "" output.after
   format.urldate "" output.after
   format.url output
