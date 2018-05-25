@@ -238,8 +238,6 @@ version 2005/12/01 or later.
 %   \label{tab:entry-types}
 % \end{table}
 %
-% 注意，不支持的 \BibTeX{} 标准类型有 booklet, manual, unpublished。
-%
 %
 % \section{著录项目}
 %
@@ -281,7 +279,7 @@ version 2005/12/01 or later.
 %   \caption{全部著录项目，其中带星号的不是 \BibTeX{}/\pkg{natbib} 的标准著录
 %     项目。
 %     不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref,
-%     howpublished, month, note, type。}
+%     month, type。}
 %   \label{tab:fields}
 % \end{table}
 %
@@ -2196,65 +2194,10 @@ FUNCTION {format.incoll.inproc.crossref}
 %
 % The article function is for an article in a journal.  An article may
 % CROSSREF another article.
+%
 %       Required fields: author, title, journal, year
+%
 %       Optional fields: volume, number, pages, month, note
-%
-% \begin{pseudocode}
-% article ==
-%  BEGIN
-%       output.bibitem
-%       output.check(format.authors,"author")
-%       new.block
-%       output.check(format.title,"title")
-%       new.block
-%       if missing$(crossref) then
-%           output.check(emphasize(journal),"journal")
-%           output(format.vol.num.pages)
-%           output.check(format.date,"year")
-%       else
-%           output.nonnull(format.article.crossref)
-%           output(format.pages)
-%       fi
-%       new.block
-%       output(note)
-%       fin.entry
-%  END
-% \end{pseudocode}
-%
-% The book function is for a whole book.  A book may CROSSREF another book.
-%       Required fields: author or editor, title, publisher, year
-%       Optional fields: volume or number, series, address, edition, month,
-%                       note
-%
-% \begin{pseudocode}
-% book ==
-%  BEGIN
-%       if empty$(author) then output.check(format.editors,"author and editor")
-%       else    output.check(format.authors,"author")
-%               if missing$(crossref) then
-%                   either.or.check("author and editor",editor)
-%               fi
-%       fi
-%       new.block
-%       output.check(format.btitle,"title")
-%       if missing$(crossref) then
-%           output(format.bvolume)
-%           new.block
-%           output(format.number.series)
-%           new.sentence
-%           output.check(publisher,"publisher")
-%           output(address)
-%       else
-%           new.block
-%           output.nonnull(format.book.crossref)
-%       fi
-%       output(format.edition)
-%       output.check(format.date,"year")
-%       new.block
-%       output(note)
-%       fin.entry
-%  END
-% \end{pseudocode}
 %
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
@@ -2310,7 +2253,9 @@ FUNCTION {monograph}
 % An incollection is like inbook, but where there is a separate title
 % for the referenced thing (and perhaps an editor for the whole).
 % An incollection may CROSSREF a book.
+%
 %       Required: author, title, booktitle, publisher, year
+%
 %       Optional: editor, volume or number, series, type, chapter, pages,
 %                       address, edition, month, note
 %
@@ -2450,8 +2395,9 @@ FUNCTION {patent}
 % \subsection{电子资源}
 %
 %    \begin{macrocode}
-FUNCTION {online}
-{ output.bibitem
+FUNCTION {electronic}
+{ #1 'is.digital :=
+  output.bibitem
   format.authors output
   author format.key output
 %<*authoryear>
@@ -2482,7 +2428,9 @@ FUNCTION {online}
 %    \end{macrocode}
 %
 % A misc is something that doesn't fit elsewhere.
+%
 %       Required: at least one of the `optional' fields
+%
 %       Optional: author, title, howpublished, month, year, note
 %
 % Misc 用来自动判断类型。
@@ -2493,7 +2441,7 @@ FUNCTION {misc}
     { booktitle empty$ not
         'incollection
         { url empty$ not
-            'online
+            'electronic
             { "Z" set.mark
               monograph
             }
@@ -2510,7 +2458,28 @@ FUNCTION {archive}
   misc
 }
 
+%    \end{macrocode}
+%
+% The book function is for a whole book.  A book may CROSSREF another book.
+%
+%       Required fields: author or editor, title, publisher, year
+%
+%       Optional fields: volume or number, series, address, edition, month,
+%                       note
+%
+%    \begin{macrocode}
 FUNCTION {book} { monograph }
+
+%    \end{macrocode}
+%
+% A booklet is a bound thing without a publisher or sponsoring institution.
+%
+%       Required: title
+%
+%       Optional: author, howpublished, address, month, year, note
+%
+%    \begin{macrocode}
+FUNCTION {booklet} { book }
 
 FUNCTION {collection}
 { "G" set.mark
@@ -2519,12 +2488,12 @@ FUNCTION {collection}
 
 FUNCTION {database}
 { "DB" set.mark
-  misc
+  electronic
 }
 
 FUNCTION {dataset}
 { "DS" set.mark
-  misc
+  electronic
 }
 
 %    \end{macrocode}
@@ -2548,7 +2517,9 @@ FUNCTION {inbook} { book }
 % An inproceedings is an article in a conference proceedings, and it may
 % CROSSREF a proceedings.  If there's no address field, the month (\& year)
 % will appear just before note.
+%
 %       Required: author, title, booktitle, year
+%
 %       Optional: editor, volume or number, series, pages, address, month,
 %                       organization, publisher, note
 %
@@ -2572,8 +2543,21 @@ FUNCTION {map}
 
 %    \end{macrocode}
 %
+% A manual is technical documentation.
+%
+%       Required: title
+%
+%       Optional: author, organization, address, edition, month, year, note
+%
+%    \begin{macrocode}
+FUNCTION {manual} { monograph }
+
+%    \end{macrocode}
+%
 % A mastersthesis is a Master's thesis.
+%
 %       Required: author, title, school, year
+%
 %       Optional: type, address, month, note
 %
 %    \begin{macrocode}
@@ -2587,10 +2571,17 @@ FUNCTION {newspaper}
   article
 }
 
+FUNCTION {online}
+{ "EB" set.mark
+  electronic
+}
+
 %    \end{macrocode}
 %
 % A phdthesis is like a mastersthesis.
+%
 %       Required: author, title, school, year
+%
 %       Optional: type, address, month, note
 %
 %    \begin{macrocode}
@@ -2602,7 +2593,9 @@ FUNCTION {phdthesis} { mastersthesis }
 % If there is an organization but no editor field, the organization will
 % appear as the first optional field (we try to make the first block nonempty);
 % if there's no address field, the month (\& year) will appear just before note.
+%
 %       Required: title, year
+%
 %       Optional: editor, volume or number, series, address, month,
 %                       organization, publisher, note
 %
@@ -2614,7 +2607,7 @@ FUNCTION {proceedings}
 
 FUNCTION {software}
 { "CP" set.mark
-  misc
+  electronic
 }
 
 FUNCTION {standard}
@@ -2625,12 +2618,28 @@ FUNCTION {standard}
 %    \end{macrocode}
 %
 % A techreport is a technical report.
+%
 %       Required: author, title, institution, year
+%
 %       Optional: type, number, address, month, note
 %
 %    \begin{macrocode}
 FUNCTION {techreport}
 { "R" set.mark
+  misc
+}
+
+%    \end{macrocode}
+%
+% An unpublished is something that hasn't been published.
+%
+%       Required: author, title, note
+%
+%       Optional: month, year
+%
+%    \begin{macrocode}
+FUNCTION {unpublished}
+{ "Z" set.mark
   misc
 }
 

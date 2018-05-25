@@ -1278,8 +1278,9 @@ FUNCTION {patent}
   fin.entry
 }
 
-FUNCTION {online}
-{ output.bibitem
+FUNCTION {electronic}
+{ #1 'is.digital :=
+  output.bibitem
   format.authors output
   author format.key output
   new.block
@@ -1308,7 +1309,7 @@ FUNCTION {misc}
     { booktitle empty$ not
         'incollection
         { url empty$ not
-            'online
+            'electronic
             { "Z" set.mark
               monograph
             }
@@ -1327,6 +1328,8 @@ FUNCTION {archive}
 
 FUNCTION {book} { monograph }
 
+FUNCTION {booklet} { book }
+
 FUNCTION {collection}
 { "G" set.mark
   monograph
@@ -1334,12 +1337,12 @@ FUNCTION {collection}
 
 FUNCTION {database}
 { "DB" set.mark
-  misc
+  electronic
 }
 
 FUNCTION {dataset}
 { "DS" set.mark
-  misc
+  electronic
 }
 
 FUNCTION {inbook} { book }
@@ -1356,6 +1359,8 @@ FUNCTION {map}
   misc
 }
 
+FUNCTION {manual} { monograph }
+
 FUNCTION {mastersthesis}
 { "D" set.mark
   monograph
@@ -1364,6 +1369,11 @@ FUNCTION {mastersthesis}
 FUNCTION {newspaper}
 { "N" set.mark
   article
+}
+
+FUNCTION {online}
+{ "EB" set.mark
+  electronic
 }
 
 FUNCTION {phdthesis} { mastersthesis }
@@ -1375,7 +1385,7 @@ FUNCTION {proceedings}
 
 FUNCTION {software}
 { "CP" set.mark
-  misc
+  electronic
 }
 
 FUNCTION {standard}
@@ -1385,6 +1395,11 @@ FUNCTION {standard}
 
 FUNCTION {techreport}
 { "R" set.mark
+  misc
+}
+
+FUNCTION {unpublished}
+{ "Z" set.mark
   misc
 }
 
