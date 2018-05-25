@@ -24,12 +24,14 @@ ENTRY
     doi
     edition
     editor
+    howpublished
     institution
     journal
     key
     language
     mark
     medium
+    note
     number
     organization
     pages
@@ -43,8 +45,8 @@ ENTRY
     volume
     year
   }
-  { entry.lang }
-  { label extra.label sort.label short.list entry.mark }
+  { entry.lang is.digital }
+  { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -433,9 +435,9 @@ FUNCTION {format.translators}
 }
 
 FUNCTION {format.url}
-{ url empty$
+{ entry.url empty$
     { "" }
-    { new.block "\url{" url * "}" * }
+    { new.block entry.url }
   if$
 }
 
@@ -443,11 +445,11 @@ FUNCTION {is.doi.in.url}
 { 's :=
   s empty$
     { #1 }
-    { url empty$
+    { entry.url empty$
         { #0 }
         { s text.length$ 'len :=
-          url text.length$ 'charptr :=
-            { url charptr len substring$ s = not
+          entry.url text.length$ 'charptr :=
+            { entry.url charptr len substring$ s = not
               charptr #0 >
               and
             }
@@ -521,7 +523,7 @@ FUNCTION {set.mark}
       if$
       medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
-        { url empty$ not
+        { is.digital
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
@@ -724,8 +726,7 @@ FUNCTION {format.date}
 FUNCTION {format.editdate}
 { date empty$ not
   type$ "newspaper" = not and
-  url empty$ not doi empty$ not or
-  and
+  is.digital and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
@@ -954,22 +955,22 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { ": " * format.publisher * }
-        { url empty$ doi empty$ and
-            { ": " * format.sine.nomine * }
+        { is.digital
             'skip$
+            { ": " * format.sine.nomine * }
           if$
         }
       if$
     }
-    { url empty$ doi empty$ and
-        { format.publisher empty$ not
-            { format.sine.loco ": " * format.publisher * }
-            { format.sine.loco.sine.nomine }
-          if$
-        }
+    { is.digital
         { format.publisher empty$ not
             { format.publisher }
             { "" }
+          if$
+        }
+        { format.publisher empty$ not
+            { format.sine.loco ": " * format.publisher * }
+            { format.sine.loco.sine.nomine }
           if$
         }
       if$
@@ -1441,6 +1442,49 @@ FUNCTION {set.entry.lang}
   'entry.lang :=
 }
 
+FUNCTION {set.entry.url}
+{ "" 'entry.url :=
+  #0 'is.digital :=
+  url empty$ not
+    { "\url{" url * "}" * 'entry.url :=
+      #1 'is.digital :=
+    }
+    { howpublished empty$ not
+        { howpublished #1 #5 substring$ "\url{" =
+            { howpublished 'entry.url :=
+              #1 'is.digital :=
+            }
+            'skip$
+          if$
+        }
+        { note empty$ not
+            { note #1 #5 substring$ "\url{" =
+                { note 'entry.url :=
+                  #1 'is.digital :=
+                }
+                'skip$
+              if$
+            }
+            'skip$
+          if$
+        }
+      if$
+    }
+  if$
+  doi empty$ not
+    { #1 'is.digital := }
+    'skip$
+  if$
+  medium empty$ not
+    { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
+        { #1 'is.digital := }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+}
+
 FUNCTION {sortify}
 { purify$
   "l" change.case$
@@ -1573,6 +1617,7 @@ FUNCTION {int.to.fix}
 
 FUNCTION {presort}
 { set.entry.lang
+  set.entry.url
   calc.label
   label sortify
   "    "
