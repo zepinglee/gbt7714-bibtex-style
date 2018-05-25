@@ -16,6 +16,24 @@
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
 %% 
+INTEGERS {
+  uppercase.name
+  sentence.case.title
+  print.missing.address.publisher
+  print.url
+  print.doi
+  print.note
+}
+
+FUNCTION {init.options}
+{ #1 'uppercase.name :=
+  #1 'sentence.case.title :=
+  #1 'print.missing.address.publisher :=
+  #1 'print.url :=
+  #1 'print.doi :=
+  #0 'print.note :=
+}
+
 ENTRY
   { address
     author
@@ -378,7 +396,11 @@ FUNCTION {format.names}
             { format.et.al }
             { t get.str.lang 'name.lang :=
               name.lang lang.en =
-                { t #1 "{vv~}{ll}{ f{~}}" format.name$ "u" change.case$
+                { t #1 "{vv~}{ll}{ f{~}}" format.name$
+                  uppercase.name
+                    { "u" change.case$ }
+                    'skip$
+                  if$
                   t #1 "{, jj}" format.name$ *
                 }
                 { t #1 "{ll}{ff}" format.name$ }
@@ -435,9 +457,9 @@ FUNCTION {format.translators}
 }
 
 FUNCTION {format.url}
-{ entry.url empty$
-    { "" }
+{ entry.url empty$ not print.url and
     { new.block entry.url }
+    { "" }
   if$
 }
 
@@ -445,7 +467,7 @@ FUNCTION {is.doi.in.url}
 { 's :=
   s empty$
     { #1 }
-    { entry.url empty$
+    { entry.url empty$ print.url not or
         { #0 }
         { s text.length$ 'len :=
           entry.url text.length$ 'charptr :=
@@ -464,8 +486,7 @@ FUNCTION {is.doi.in.url}
 
 FUNCTION {format.doi}
 { ""
-  doi empty$
-    'skip$
+  doi empty$ not print.doi and
     { "" 's :=
       doi 't :=
       #0 'numnames :=
@@ -499,6 +520,14 @@ FUNCTION {format.doi}
         { "" }
       if$
     }
+    'skip$
+  if$
+}
+
+FUNCTION {format.note}
+{ note empty$ not print.note and
+    { note }
+    { "" }
   if$
 }
 
@@ -506,7 +535,7 @@ FUNCTION {format.title}
 { title empty$
     { "" }
     { title
-      entry.lang lang.en =
+      entry.lang lang.en = sentence.case.title and
         { "t" change.case$ }
         'skip$
       if$
@@ -844,7 +873,7 @@ FUNCTION {format.series.vol.num.title}
       if$
     }
   if$
-  entry.lang lang.en =
+  entry.lang lang.en = sentence.case.title and
     { "t" change.case$ }
     'skip$
   if$
@@ -955,22 +984,22 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { ": " * format.publisher * }
-        { is.digital
-            'skip$
+        { is.digital not print.missing.address.publisher and
             { ": " * format.sine.nomine * }
+            'skip$
           if$
         }
       if$
     }
-    { is.digital
-        { format.publisher empty$ not
-            { format.publisher }
-            { "" }
-          if$
-        }
+    { is.digital not print.missing.address.publisher and
         { format.publisher empty$ not
             { format.sine.loco ": " * format.publisher * }
             { format.sine.loco.sine.nomine }
+          if$
+        }
+        { format.publisher empty$ not
+            { format.publisher }
+            { "" }
           if$
         }
       if$
@@ -1149,6 +1178,8 @@ FUNCTION {monograph}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1175,6 +1206,8 @@ FUNCTION {incollection}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1194,6 +1227,8 @@ FUNCTION {periodical}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1215,6 +1250,8 @@ FUNCTION {article}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1237,6 +1274,8 @@ FUNCTION {patent}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1256,6 +1295,8 @@ FUNCTION {online}
   format.urldate "" output.after
   format.url output
   format.doi output
+  new.block
+  format.note output
   fin.entry
 }
 
@@ -1413,6 +1454,8 @@ MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 MACRO {tcs} {"Theoretical Computer Science"}
 
 READ
+
+EXECUTE {init.options}
 
 EXECUTE {init.state.consts}
 
@@ -1828,16 +1871,24 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\url}[1]{#1}"
-  write$ newline$
-  "\providecommand{\href}[2]{\url{#2}}"
-  write$ newline$
-  "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
-  write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
-  write$ newline$
-  "  \urlstyle{same}\fi"
-  write$ newline$
+  print.url print.doi or
+    { "\providecommand{\url}[1]{#1}"
+      write$ newline$
+      "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
+      write$ newline$
+      "  \urlstyle{same}\fi"
+      write$ newline$
+    }
+    'skip$
+  if$
+  print.doi
+    { "\providecommand{\href}[2]{\url{#2}}"
+      write$ newline$
+      "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
+      write$ newline$
+    }
+    'skip$
+  if$
 }
 
 EXECUTE {begin.bib}

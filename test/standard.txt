@@ -1,10 +1,10 @@
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[Lee\ et~al.(2017)Lee and Zeping]{lzp1}
 LEE Z, ZEPING L.
@@ -38,10 +38,10 @@ ONE A, TWO A, THREE A.
 \begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[陈登原(2000)]{cdy}
 陈登原.
@@ -155,10 +155,10 @@ FAN X, SOMMERS C~H.
 \begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[wfz(2011)]{wfz2}
 周易外传：卷 5\allowbreak[M]//\allowbreak{}王夫之.
@@ -215,10 +215,10 @@ ROBERSON J~A, BURNESON E~G.
 \begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[中华医学会湖北分会(1984)]{zhyxhhbfh}
 中华医学会湖北分会.
@@ -243,10 +243,10 @@ ROBERSON J~A, BURNESON E~G.
 \begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[袁训来\ 等(2012)袁训来, 陈哲, 肖书海, et~al.]{yxl}
 袁训来, 陈哲, 肖书海, 等.
@@ -317,10 +317,10 @@ MYBURG A~A, GRATTAPAGLIA D, TUSKAN G~A, et~al.
 \begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[邓一刚(2006)]{dyg}
 邓一刚.
@@ -346,10 +346,10 @@ TACHIBANA R, SHIMIZU S, KOBAYSHI S, et~al.
 \begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[中国互联网络信息中心(2012)]{zghlwlxxzx}
 中国互联网络信息中心.
@@ -390,10 +390,10 @@ HOPKINSON A.
 \begin{thebibliography}{2}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[刘乃安(2000)]{lna}
 刘乃安.
@@ -415,10 +415,10 @@ DEVERELL W, IGLER D.
 \begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[Baker\ et~al.(1995)Baker and Jackson]{baker}
 BAKER S~K, JACKSON M~E.
@@ -458,10 +458,10 @@ DOWLER L.
 \begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[尼葛洛庞帝(1996)]{nglpd}
 尼葛洛庞帝, 1996.
@@ -500,10 +500,10 @@ DOWLER L, 1995.
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[Sunstein(1996)]{sunstein}
 SUNSTEIN C~R.
@@ -533,10 +533,10 @@ MORRI I.
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[刘彻东(1998)]{lcd}
 刘彻东, 1998.
@@ -568,10 +568,10 @@ MORRI I.
 \begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[张伯伟(2002)]{zbw}
 张伯伟.
@@ -676,10 +676,10 @@ PRAETZELLIS A.
 \begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[中国职工教育研究会(1985)]{zgzgjyyjh}
 中国职工教育研究会.
@@ -716,10 +716,10 @@ BABU B~V, NAGAR A~K, DEEP K, et~al.
 \begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[中华人民共和国国务院新闻办公室(2013)]{zhrmghggwyxwbgs}
 中华人民共和国国务院新闻办公室.
@@ -759,10 +759,10 @@ CALKIN D, AGER A, THOMPSON M.
 \begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[马欢(2011)]{mh}
 马欢.
@@ -789,10 +789,10 @@ CALMS R~B.
 \begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[张凯军(2012)]{zkj}
 张凯军.
@@ -819,10 +819,10 @@ KOSEKI A, MOMOSE H, KAWAHITO M, et~al.
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[全国信息与文献标准化技术委员会(2010)]{qgxxywxbzhjswyh2}
 全国信息与文献标准化技术委员会.
@@ -853,10 +853,10 @@ Information and documentation---the {Dublin} cord metadata element set: {ISO
 \begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[swg(1988)]{swgwj}
 卷39 乞致仕第一\allowbreak[M]//\allowbreak{}苏魏公文集: 下册.
@@ -914,10 +914,10 @@ FOURNEY M~E.
 \begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[杨洪升(2013)]{yhs}
 杨洪升.
@@ -990,10 +990,10 @@ PARK J~R, TOSAKA Y.
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[丁文详(2000)]{dwx}
 丁文详.
@@ -1023,10 +1023,10 @@ PARK J~R, TOSAKA Y.
 \begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[萧钰(2001)]{xy}
 萧钰.
