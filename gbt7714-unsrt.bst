@@ -5,6 +5,7 @@
 %% The original source files were:
 %%
 %% gbt7714.dtx  (with options: `numerical')
+%% Version: 2018/05/26 v1.1
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -29,7 +30,8 @@ INTEGERS {
 }
 
 FUNCTION {init.options}
-{ #1 'uppercase.name :=
+{
+  #1 'uppercase.name :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
   #1 'print.mark :=

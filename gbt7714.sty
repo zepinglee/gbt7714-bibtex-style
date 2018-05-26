@@ -5,6 +5,7 @@
 %% The original source files were:
 %%
 %% gbt7714.dtx  (with options: `package')
+%% Version: 2018/05/26 v1.1
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -18,7 +19,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
-  [2018/05/12 v1.0.7 GB/T 7714-2015 BibTeX Style]
+  [2018/05/26 v1.1 GB/T 7714-2015 BibTeX Style]
 \newif\if@gbt@numerical
 \newif\if@gbt@super
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
@@ -31,6 +32,8 @@
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
+\RequirePackage{etoolbox}
+\RequirePackage{url}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
@@ -61,7 +64,6 @@
   \citestyle{authoryear}
   \gbtbibstyle{authoryear}%
 \fi
-\RequirePackage{etoolbox}
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -97,7 +99,6 @@
   \def@NAT@last@yr{-\NAT@penalty}%
 }{}{}
 \renewcommand\@biblabel[1]{[#1]\hfill}
-\RequirePackage{url}
 \g@addto@macro\UrlBreaks{%
   \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
   \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%

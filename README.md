@@ -53,7 +53,7 @@ medium = {CD},
 
 文献类型         | 标识代码 | Entry Type
 ---              | :---:    | ---
-普通图书         | M        | `book` 或 `inbook`
+普通图书         | M        | `book`
 图书的析出文献   | M        | `incollection`
 会议录           | C        | `proceedings`
 会议录的析出文献 | C        | `inproceedings` 或 `conference`

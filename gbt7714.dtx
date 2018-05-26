@@ -21,6 +21,7 @@
 %<*install>
 \input docstrip.tex
 \preamble
+Version: 2018/05/26 v1.1
 
 Copyright (C) 2016-\the\year by Zeping Lee <zepinglee AT gmail.com>
 
@@ -52,7 +53,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-  [2018/05/12 v1.0.7 GB/T 7714-2015 BibTeX Style]
+  [2018/05/26 v1.1 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -162,9 +163,10 @@ version 2005/12/01 or later.
 % 参考文献的推荐标准。
 % 本宏包是《规则》的 \BibTeX{} 实现，具有以下特性：
 % \begin{itemize}
-%   \item 兼容 \pkg{natbib}
-%   \item 支持了顺序编码制和著者-出版年制两种风格
-%   \item 自动识别语言并进行相应处理
+%   \item 兼容 \pkg{natbib} 宏包，可以方便地更改引用的风格；
+%   \item 提供顺序编码制和著者-出版年制两种风格
+%   \item 自动识别语言并进行相应处理，用户无需手动录入文献的语言
+%   \item 提供了简单的接口供用户修改样式
 % \end{itemize}
 %
 %
@@ -197,7 +199,7 @@ version 2005/12/01 or later.
 % 使用时需要注意以下两点：
 % \begin{itemize}
 %   \item bib 数据库应使用 UTF-8 编码。
-%   \item 使用著者-出版年制参考文献表时，中文的文献 \emph{必须}
+%   \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
 %         在 key 域填写作者姓名的拼音，才能按照拼音排序。
 % \end{itemize}
 %
@@ -214,7 +216,7 @@ version 2005/12/01 or later.
 %     \toprule
 %     文献类型         & 标识代码 & Entry Type \\
 %     \midrule
-%     普通图书         & M        & book 或 inbook \\
+%     普通图书         & M        & book \\
 %     图书的析出文献   & M        & incollection \\
 %     会议录           & C        & proceedings \\
 %     会议录的析出文献 & C        & inproceedings 或 conference \\
@@ -299,11 +301,11 @@ version 2005/12/01 or later.
 % 目前对日语和俄语的支持较为有限。
 %
 %
-% \section{参考文献列表的排序}
+% \section{文献列表的排序}
 %
 % 在使用著者-出版年制时，需要将中文参考文献按照拼音或者笔画排序，然而 Unicode
 % 中汉字是根据康熙字典排序的，而且由于 \BibTeX{} 功能的局限性，我们无法根据著
-% 者姓名读取拼音，所以只能在 bib 数据库中的 key 域手动著录作者姓名的拼音，如：
+% 者姓名读取拼音，所以只能在 bib 数据库中的 key 域手动录入作者姓名的拼音，如：
 % \begin{latex}
 % @book{capital,
 %   author = {马克思 and 恩格斯},
@@ -312,8 +314,23 @@ version 2005/12/01 or later.
 % \end{latex}
 %
 %
+% \section{自定义样式}
 %
-% \section{Package}
+% \BibTeX{} 对自定义样式的支持比较有限，
+% 所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
+% 本宏包提供了一些接口供用户更方便地修改。
+%
+% 在 \file{bst} 文件开始处的 |init.options| 函数
+% 设置了一组变量用来控制多个项目的样式，
+% 比如 \opt{uppercase.names} 控制是否将英文姓名转为全大写，
+% 具体见 \ref{sec:options}。
+% 若变量被设为 |#1| 则表示启用，设为 |#0| 则不启用。
+% 默认的值是严格遵循《规则》的配置。
+%
+% 若用户需要修改其他项目，可以联系作者新增更多接口。
+%
+%
+% \section{宏包的代码实现}
 %
 % 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numbers}。
 %    \begin{macrocode}
@@ -334,6 +351,8 @@ version 2005/12/01 or later.
   \PassOptionsToPackage{sort&compress}{natbib}
 \fi
 \RequirePackage{natbib}
+\RequirePackage{etoolbox}
+\RequirePackage{url}
 %    \end{macrocode}
 %
 % \begin{macro}{\citestyle}
@@ -387,7 +406,6 @@ version 2005/12/01 or later.
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
-\RequirePackage{etoolbox}
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -446,11 +464,6 @@ version 2005/12/01 or later.
 \renewcommand\@biblabel[1]{[#1]\hfill}
 %    \end{macrocode}
 %
-% 需要 \pkg{url} 宏包显示 URL。
-%    \begin{macrocode}
-\RequirePackage{url}
-%    \end{macrocode}
-%
 % 增加 URL 可断行的位置。
 %    \begin{macrocode}
 \g@addto@macro\UrlBreaks{%
@@ -466,73 +479,79 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 %
-% \section{BibTeX style implementation}
+% \section{BibTeX 样式的代码实现}
 %
-% \subsection{Customizing options}
+% \subsection{自定义选项}
+% \label{sec:options}
+% \changes{v1.1}{2018/05/26}{新增一些接口供用户自定义样式}
 %
 % 这里定义了一些选项用于定制样式，
-% 可以在下面的 |init.options| 函数中选择是否启用，
-% 默认的值是严格按照《规则》的要求。
-%
+% 可以在下面的 |init.options| 函数中选择是否启用。
 %    \begin{macrocode}
 %<*authoryear|numerical>
 INTEGERS {
-%    \end{macrocode}
-%
-% 英文姓名全大写
-%    \begin{macrocode}
   uppercase.name
-%    \end{macrocode}
-%
-% 英文姓名全大写
-%    \begin{macrocode}
   period.between.author.year
-%    \end{macrocode}
-%
-% 英文标题转为 sentence case （句首字母大写，其余小写）
-%    \begin{macrocode}
   sentence.case.title
-%    \end{macrocode}
-%
-% 著录文献类型标识（[C/OL]）
-%    \begin{macrocode}
   print.mark
-%    \end{macrocode}
-%
-% 期刊名使用斜体
-%    \begin{macrocode}
   italic.jounal
-%    \end{macrocode}
-%
-% 出版地不详时著录“出版地不详”或“S.l.”
-%    \begin{macrocode}
   print.missing.address.publisher
-%    \end{macrocode}
-%
-% 是否著录 URL
-%    \begin{macrocode}
   print.url
-%    \end{macrocode}
-%
-% 是否著录 DOI
-%    \begin{macrocode}
   print.doi
-%    \end{macrocode}
-%
-% 将 note 域的内容著录在最后
-%    \begin{macrocode}
   print.note
 }
 
+%    \end{macrocode}
+%
+% 下面每个变量若被设为 |#1| 则启用该项，若被设为 |#0| 则不启用。
+% 默认的值是严格遵循《规则》的配置。
+%    \begin{macrocode}
 FUNCTION {init.options}
-{ #1 'uppercase.name :=
+{
+%    \end{macrocode}
+%
+% 英文姓名转为全大写：
+%    \begin{macrocode}
+  #1 'uppercase.name :=
+%    \end{macrocode}
+%
+% 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
+%    \begin{macrocode}
   #0 'period.between.author.year :=
+%    \end{macrocode}
+%
+% 英文标题转为 sentence case （句首字母大写，其余小写）：
+%    \begin{macrocode}
   #1 'sentence.case.title :=
+%    \end{macrocode}
+%
+% 著录文献类型标识（比如“[M/OL]“）：
+%    \begin{macrocode}
   #1 'print.mark :=
+%    \end{macrocode}
+%
+% 期刊名使用斜体：
+%    \begin{macrocode}
   #0 'italic.jounal :=
+%    \end{macrocode}
+%
+% 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
+%    \begin{macrocode}
   #1 'print.missing.address.publisher :=
+%    \end{macrocode}
+%
+% 是否著录 URL：
+%    \begin{macrocode}
   #1 'print.url :=
+%    \end{macrocode}
+%
+% 是否著录 DOI：
+%    \begin{macrocode}
   #1 'print.doi :=
+%    \end{macrocode}
+%
+% 在每一条文献最后输出注释（note）的内容：
+%    \begin{macrocode}
   #0 'print.note :=
 }
 
@@ -575,7 +594,6 @@ ENTRY
 %
 % These string entry variables are used to form the citation label.
 % In a storage pinch, sort.label can be easily computed on the fly.
-%
 %    \begin{macrocode}
   { label extra.label sort.label short.list entry.mark entry.url }
 
@@ -736,7 +754,6 @@ ENTRY
 %       fi
 %  END
 % \end{pseudocode}
-%
 %    \begin{macrocode}
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -865,7 +882,6 @@ FUNCTION {output.check}
 %    \end{macrocode}
 %
 % This function finishes all entries.
-%
 %    \begin{macrocode}
 FUNCTION {fin.entry}
 { add.period$
@@ -912,7 +928,6 @@ FUNCTION {new.slash}
 % and push a single one, either 0 or 1.
 % The |'skip$| in the `and' and `or' functions are used because
 % the corresponding |if$| would be idempotent
-%
 %    \begin{macrocode}
 FUNCTION {not}
 {   { #0 }
@@ -937,7 +952,6 @@ FUNCTION {or}
 % Sometimes we begin a new block only if the block will be big enough.  The
 % new.block.checka function issues a new.block if its argument is nonempty;
 % new.block.checkb does the same if either of its TWO arguments is nonempty.
-%
 %    \begin{macrocode}
 FUNCTION {new.block.checka}
 { empty$
@@ -958,7 +972,6 @@ FUNCTION {new.block.checkb}
 %    \end{macrocode}
 %
 % The new.sentence.check functions are analogous.
-%
 %    \begin{macrocode}
 FUNCTION {new.sentence.checka}
 { empty$
@@ -1086,7 +1099,6 @@ FUNCTION {new.sentence.checkb}
 %
 % The `pop\$' in this function gets rid of the duplicate `empty' value and
 % the `skip\$' returns the duplicate field value
-%
 %    \begin{macrocode}
 FUNCTION {field.or.null}
 { duplicate$ empty$
@@ -1125,6 +1137,7 @@ FUNCTION {get.str.lang}
         { tmp.str charptr #1 + #1 substring$ chr.to.int$ 'second.byte :=
           byte #224 <
 %    \end{macrocode}
+%
 % 俄文西里尔字母：U+0400 到 U+052F，对应 UTF-8 从 D0 80 到 D4 AF。
 %    \begin{macrocode}
             { charptr #2 + 'charptr :=
@@ -1136,18 +1149,21 @@ FUNCTION {get.str.lang}
             }
             { byte #240 <
 %    \end{macrocode}
+%
 % CJK Unified Ideographs: U+4E00--U+9FFF; UTF-8: E4 B8 80--E9 BF BF.
 %    \begin{macrocode}
                 { charptr #3 + 'charptr :=
                   byte #227 > byte #234 < and
                     { lang.zh 'char.lang := }
 %    \end{macrocode}
+%
 % CJK Unified Ideographs Extension A: U+3400--U+4DBF; UTF-8: E3 90 80--E4 B6 BF.
 %    \begin{macrocode}
                     { byte #227 =
                         { second.byte #143 >
                             { lang.zh 'char.lang := }
 %    \end{macrocode}
+%
 % 日语假名：U+3040--U+30FF, UTF-8: E3 81 80--E3 83 BF.
 %    \begin{macrocode}
                             { second.byte #128 > second.byte #132 < and
@@ -1158,6 +1174,7 @@ FUNCTION {get.str.lang}
                           if$
                         }
 %    \end{macrocode}
+%
 % CJK Compatibility Ideographs: U+F900--U+FAFF, UTF-8: EF A4 80--EF AB BF.
 %    \begin{macrocode}
                         { byte #239 =
@@ -1171,6 +1188,7 @@ FUNCTION {get.str.lang}
                   if$
                 }
 %    \end{macrocode}
+%
 % CJK Unified Ideographs Extension B--F: U+20000--U+2EBEF,
 % UTF-8: F0 A0 80 80--F0 AE AF AF.
 % CJK Compatibility Ideographs Supplement: U+2F800--U+2FA1F,
@@ -1314,7 +1332,6 @@ FUNCTION {format.url}
 %    \end{macrocode}
 %
 % 需要检测 DOI 是否已经包含在 URL 中。
-%
 %    \begin{macrocode}
 FUNCTION {is.doi.in.url}
 { 's :=
@@ -1391,7 +1408,6 @@ FUNCTION {format.note}
 % and except for the first one after a colon (followed by whitespace)),
 % and hope the user has brace-surrounded words that need to stay capitilized;
 % for some styles, however, we leave it as it is in the database.
-%
 %    \begin{macrocode}
 FUNCTION {format.title}
 { title empty$
@@ -1566,7 +1582,6 @@ FUNCTION {output.bibitem}
 % \end{pseudocode}
 %
 % 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
-%
 %    \begin{macrocode}
 FUNCTION {hyphenate}
 { 't :=
@@ -1594,7 +1609,6 @@ FUNCTION {hyphenate}
 %
 % Newspaer 和 paptent 要显示完整的日期，同时不再显示修改日期。
 % 但是在 author-year 模式下，需要单独设置 format.year。
-%
 %    \begin{macrocode}
 FUNCTION {extract.before.dash}
 { duplicate$ empty$
@@ -1684,9 +1698,8 @@ FUNCTION {format.editdate}
 
 %    \end{macrocode}
 %
-% 《著录规则》中的“引用日期”都是与 URL 同时出现的，所以其实为 urldate，这个虽然
+% 《规则》中的“引用日期”都是与 URL 同时出现的，所以其实为 urldate，这个虽然
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
-%
 %    \begin{macrocode}
 FUNCTION {format.urldate}
 { urldate empty$ not
@@ -1719,7 +1732,6 @@ FUNCTION {format.journal}
 %         else return the concatenation of str1, " ", and str2
 %    END
 % \end{pseudocode}
-%
 %    \begin{macrocode}
 FUNCTION {tie.or.space.connect}
 { duplicate$ text.length$ #3 <
@@ -1742,7 +1754,6 @@ FUNCTION {tie.or.space.connect}
 %       fi
 %  END
 % \end{pseudocode}
-%
 %    \begin{macrocode}
 FUNCTION {either.or.check}
 { empty$
@@ -1768,7 +1779,6 @@ FUNCTION {either.or.check}
 % gives the name of the whole series (the title field should be the title
 % of the work being one referred to), and we add an "in <series>".
 % We capitilize Number when this function is used at the beginning of a block.
-%
 %    \begin{macrocode}
 FUNCTION {is.digit}
 { duplicate$ empty$
@@ -1886,7 +1896,6 @@ FUNCTION {format.series.vol.num.booktitle}
 % The format.edition function appends " edition" to the edition, if present.
 % We lowercase the edition (it should be something like "Third"), because
 % this doesn't start a sentence.
-%
 %    \begin{macrocode}
 FUNCTION {num.to.ordinal}
 { duplicate$ text.length$ 'charptr :=
@@ -1932,7 +1941,6 @@ FUNCTION {format.edition}
 %    \end{macrocode}
 %
 % 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
-%
 %    \begin{macrocode}
 FUNCTION {format.sine.loco}
 { is.in.chinese
@@ -2006,7 +2014,6 @@ FUNCTION {format.address.publisher}
 %
 % This function doesn't begin a sentence so "pages" isn't capitalized.
 % Other functions that use this should keep that in mind.
-%
 %    \begin{macrocode}
 FUNCTION {format.pages}
 { pages empty$
@@ -2022,7 +2029,6 @@ FUNCTION {format.pages}
 % variations for empty fields.  This doesn't begin a sentence.
 %
 % 报纸在卷号缺失时，期号与前面的日期直接相连，所以必须拆开输出。
-%
 %    \begin{macrocode}
 FUNCTION {format.journal.number}
 { number empty$ not
@@ -2084,7 +2090,6 @@ FUNCTION {format.periodical.year.volume.number}
 %
 % The function empty.misc.check complains if all six fields are empty, and
 % if there's been no sorting or alphabetic-label complaint.
-%
 %    \begin{macrocode}
 FUNCTION {empty.misc.check}
 { author empty$ title empty$
@@ -2168,7 +2173,6 @@ FUNCTION {monograph}
 %
 %       Optional: editor, volume or number, series, type, chapter, pages,
 %                       address, edition, month, note
-%
 %    \begin{macrocode}
 FUNCTION {incollection}
 { output.bibitem
@@ -2255,7 +2259,6 @@ FUNCTION {periodical}
 %
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
-%
 %    \begin{macrocode}
 FUNCTION {article}
 { output.bibitem
@@ -2294,7 +2297,6 @@ FUNCTION {article}
 % \subsubsection{专利文献}
 %
 % number 域也可以用来表示专利号。
-%
 %    \begin{macrocode}
 FUNCTION {patent}
 { output.bibitem
@@ -2329,7 +2331,6 @@ FUNCTION {patent}
 %    \end{macrocode}
 %
 % \subsubsection{电子资源}
-%
 %    \begin{macrocode}
 FUNCTION {electronic}
 { #1 'is.digital :=
@@ -2408,7 +2409,6 @@ FUNCTION {archive}
 %
 %       Optional fields: volume or number, series, address, edition, month,
 %                       note
-%
 %    \begin{macrocode}
 FUNCTION {book} { monograph }
 
@@ -2419,7 +2419,6 @@ FUNCTION {book} { monograph }
 %       Required: title
 %
 %       Optional: author, howpublished, address, month, year, note
-%
 %    \begin{macrocode}
 FUNCTION {booklet} { book }
 
@@ -2450,7 +2449,6 @@ FUNCTION {dataset}
 %
 % inbook 类是不含 booktitle 域的，所以不应该适用于“专著中的析出文献”，而应该是专
 % 著，即 book 类。
-%
 %    \begin{macrocode}
 FUNCTION {inbook} { book }
 
@@ -2464,7 +2462,6 @@ FUNCTION {inbook} { book }
 %
 %       Optional: editor, volume or number, series, pages, address, month,
 %                       organization, publisher, note
-%
 %    \begin{macrocode}
 FUNCTION {inproceedings}
 { "C" set.mark
@@ -2474,7 +2471,6 @@ FUNCTION {inproceedings}
 %    \end{macrocode}
 %
 % The conference function is included for Scribe compatibility.
-%
 %    \begin{macrocode}
 FUNCTION {conference} { inproceedings }
 
@@ -2490,7 +2486,6 @@ FUNCTION {map}
 %       Required: title
 %
 %       Optional: author, organization, address, edition, month, year, note
-%
 %    \begin{macrocode}
 FUNCTION {manual} { monograph }
 
@@ -2501,7 +2496,6 @@ FUNCTION {manual} { monograph }
 %       Required: author, title, school, year
 %
 %       Optional: type, address, month, note
-%
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
 { "D" set.mark
@@ -2525,7 +2519,6 @@ FUNCTION {online}
 %       Required: author, title, school, year
 %
 %       Optional: type, address, month, note
-%
 %    \begin{macrocode}
 FUNCTION {phdthesis} { mastersthesis }
 
@@ -2540,7 +2533,6 @@ FUNCTION {phdthesis} { mastersthesis }
 %
 %       Optional: editor, volume or number, series, address, month,
 %                       organization, publisher, note
-%
 %    \begin{macrocode}
 FUNCTION {proceedings}
 { "C" set.mark
@@ -2564,7 +2556,6 @@ FUNCTION {standard}
 %       Required: author, title, institution, year
 %
 %       Optional: type, number, address, month, note
-%
 %    \begin{macrocode}
 FUNCTION {techreport}
 { "R" set.mark
@@ -2578,7 +2569,6 @@ FUNCTION {techreport}
 %       Required: author, title, note
 %
 %       Optional: month, year
-%
 %    \begin{macrocode}
 FUNCTION {unpublished}
 { "Z" set.mark
@@ -2588,7 +2578,6 @@ FUNCTION {unpublished}
 %    \end{macrocode}
 %
 % We use entry type `misc' for an unknown type; BibTeX gives a warning.
-%
 %    \begin{macrocode}
 FUNCTION {default.type} { misc }
 
@@ -2600,7 +2589,6 @@ FUNCTION {default.type} { misc }
 % Users are encouraged to use these macros.
 %
 % Months are either written out in full or abbreviated
-%
 %    \begin{macrocode}
 MACRO {jan} {"January"}
 
@@ -2634,7 +2622,6 @@ MACRO {dec} {"December"}
 % To get a completely different set of abbreviations, it may be best to make
 % a separate .bib file with nothing but those abbreviations; users could then
 % include that file name as the first argument to the \bibliography command
-%
 %    \begin{macrocode}
 MACRO {acmcs} {"ACM Computing Surveys"}
 
@@ -2682,7 +2669,6 @@ MACRO {tcs} {"Theoretical Computer Science"}
 % \subsection{Read bib entries and execute}
 %
 % Now we read in the .BIB entries.
-%
 %    \begin{macrocode}
 READ
 
@@ -2765,7 +2751,6 @@ FUNCTION {set.entry.url}
 % The chop.word(w,len,s) function returns either s or, if the first len
 % letters of s equals w (this comparison is done in the third line of the
 % function's definition), it returns that part of s after w.
-%
 %    \begin{macrocode}
 FUNCTION {sortify}
 { purify$
@@ -2775,7 +2760,6 @@ FUNCTION {sortify}
 %    \end{macrocode}
 %
 % We need the chop.word stuff for the dubious unsorted-list-with-labels case.
-%
 %    \begin{macrocode}
 FUNCTION {chop.word}
 { 's :=
@@ -2913,7 +2897,6 @@ FUNCTION {calc.label}
 % BibTeX name format, and returns a string containing "   "-separated
 % names in the format described above.  The function is almost the same
 % as format.names.
-%
 %    \begin{macrocode}
 %<*authoryear>
 FUNCTION {sort.language.label}
@@ -2970,7 +2953,6 @@ FUNCTION {sort.format.names}
 % The sort.format.title function returns the argument,
 % but first any leading "A "'s, "An "'s, or "The "'s are removed.
 % The chop.word function uses s, so we need another string variable, t
-%
 %    \begin{macrocode}
 FUNCTION {sort.format.title}
 { 't :=
@@ -2989,7 +2971,6 @@ FUNCTION {sort.format.title}
 % the ones for calc.label; the same comments apply, except that the
 % organization field takes precedence here over the key field.  For sorting
 % purposes, we still remove a leading "The " from the organization field.
-%
 %    \begin{macrocode}
 FUNCTION {anonymous.sort}
 { is.in.chinese
@@ -3075,7 +3056,6 @@ FUNCTION {int.to.fix}
 % (which is what its sort.key$ is), so we take at most that many characters
 % of the constructed key, and hope there aren't many references that match
 % to that many characters!
-%
 %    \begin{macrocode}
 FUNCTION {presort}
 { set.entry.lang
@@ -3124,7 +3104,6 @@ ITERATE {presort}
 %    \end{macrocode}
 %
 % And now we can sort
-%
 %    \begin{macrocode}
 SORT
 
@@ -3176,7 +3155,6 @@ SORT
 %       next.extra := extra.label
 %  END
 % \end{pseudocode}
-%
 %    \begin{macrocode}
 STRINGS { longest.label last.label next.extra }
 
@@ -3243,7 +3221,6 @@ SORT
 % where the `...' is the longest label.
 %
 % We also call init.state.consts, for use by the output routines.
-%
 %    \begin{macrocode}
 FUNCTION {begin.bib}
 {   preamble$ empty$
@@ -3279,14 +3256,12 @@ EXECUTE {begin.bib}
 %    \end{macrocode}
 %
 % Now we produce the output for all the entries
-%
 %    \begin{macrocode}
 ITERATE {call.type$}
 
 %    \end{macrocode}
 %
 % Finally, we finish up by writing the `|\end{thebibliography}|' command.
-%
 %    \begin{macrocode}
 FUNCTION {end.bib}
 { newline$
@@ -3299,3 +3274,5 @@ EXECUTE {end.bib}
 %
 % \Finale
 \endinput
+% 所以用户只能通过修改 bst
+% 文件来定制样式
