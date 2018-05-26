@@ -313,8 +313,6 @@ version 2005/12/01 or later.
 %
 %
 %
-% \StopEventually{}
-%
 % \section{Package}
 %
 % 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numbers}。
@@ -338,6 +336,7 @@ version 2005/12/01 or later.
 \RequirePackage{natbib}
 %    \end{macrocode}
 %
+% \begin{macro}{\citestyle}
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
 %    \begin{macrocode}
@@ -345,6 +344,7 @@ version 2005/12/01 or later.
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 %    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\gbtbibstyle}
 % 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
@@ -468,22 +468,68 @@ version 2005/12/01 or later.
 %
 % \section{BibTeX style implementation}
 %
-% \subsection{Declare options}
+% \subsection{Customizing options}
+%
+% 这里定义了一些选项用于定制样式，
+% 可以在下面的 |init.options| 函数中选择是否启用，
+% 默认的值是严格按照《规则》的要求。
 %
 %    \begin{macrocode}
 %<*authoryear|numerical>
 INTEGERS {
+%    \end{macrocode}
+%
+% 英文姓名全大写
+%    \begin{macrocode}
   uppercase.name
+%    \end{macrocode}
+%
+% 英文姓名全大写
+%    \begin{macrocode}
+  period.between.author.year
+%    \end{macrocode}
+%
+% 英文标题转为 sentence case （句首字母大写，其余小写）
+%    \begin{macrocode}
   sentence.case.title
+%    \end{macrocode}
+%
+% 著录文献类型标识（[C/OL]）
+%    \begin{macrocode}
+  print.mark
+%    \end{macrocode}
+%
+% 期刊名使用斜体
+%    \begin{macrocode}
+  italic.jounal
+%    \end{macrocode}
+%
+% 出版地不详时著录“出版地不详”或“S.l.”
+%    \begin{macrocode}
   print.missing.address.publisher
+%    \end{macrocode}
+%
+% 是否著录 URL
+%    \begin{macrocode}
   print.url
+%    \end{macrocode}
+%
+% 是否著录 DOI
+%    \begin{macrocode}
   print.doi
+%    \end{macrocode}
+%
+% 将 note 域的内容著录在最后
+%    \begin{macrocode}
   print.note
 }
 
 FUNCTION {init.options}
 { #1 'uppercase.name :=
+  #0 'period.between.author.year :=
   #1 'sentence.case.title :=
+  #1 'print.mark :=
+  #0 'italic.jounal :=
   #1 'print.missing.address.publisher :=
   #1 'print.url :=
   #1 'print.doi :=
@@ -1049,10 +1095,10 @@ FUNCTION {field.or.null}
   if$
 }
 
-FUNCTION {emphasize}
+FUNCTION {italicize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\emph{" swap$ * "}" * }
+    { "\textit{" swap$ * "}" * }
   if$
 }
 
@@ -1157,7 +1203,15 @@ FUNCTION {is.in.chinese}
 FUNCTION {format.et.al}
 { is.in.chinese
     { "等"}
-    { "et~al." }
+    { lang.ja entry.lang =
+        { "他"}
+        { lang.ru entry.lang =
+            { "идр" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
@@ -1371,7 +1425,11 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "\allowbreak[" entry.mark * "]" * }
+{ print.mark
+    { "\allowbreak[" entry.mark * "]" * }
+    { "" }
+  if$
+}
 
 FUNCTION {format.full.names}
 {'s :=
@@ -1637,14 +1695,12 @@ FUNCTION {format.urldate}
   if$
 }
 
-%    \end{macrocode}
-%
-% The format.btitle is for formatting the title field when it is a book-like
-% entry---the style used here keeps it in uppers-and-lowers and emphasizes it.
-%
-%    \begin{macrocode}
-FUNCTION {format.btitle}
-{ title emphasize
+FUNCTION {format.journal}
+{ journal
+  italic.jounal
+    'italicize
+    'skip$
+  if$
 }
 
 %    \end{macrocode}
@@ -2026,24 +2082,6 @@ FUNCTION {format.periodical.year.volume.number}
 
 %    \end{macrocode}
 %
-% The format.in.ed.booktitle function is used for starting out a sentence
-% that begins "In <booktitle>", putting an editor before the title if one
-% exists.
-%
-%    \begin{macrocode}
-FUNCTION {format.in.ed.booktitle}
-{ booktitle empty$
-    { "" }
-    { editor empty$
-        { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
-      if$
-    }
-  if$
-}
-
-%    \end{macrocode}
-%
 % The function empty.misc.check complains if all six fields are empty, and
 % if there's been no sorting or alphabetic-label complaint.
 %
@@ -2060,128 +2098,6 @@ FUNCTION {empty.misc.check}
 
 %    \end{macrocode}
 %
-% Now come the cross-referencing functions (these are invoked because
-% one entry in the database file(s) cross-references another, by giving
-% the other entry's database key in a `crossref' field).  This feature
-% allows one or more titled things that are part of a larger titled
-% thing to cross-reference the larger thing.  These styles allow for
-% five posibilities: (1) an ARTICLE may cross-reference an ARTICLE;
-% (2) a BOOK, (3) INBOOK, or (4) INCOLLECTION may cross-reference a BOOK;
-% or (5) an INPROCEEDINGS may cross-reference a PROCEEDINGS.
-% Each of these is explained in more detail later.
-%
-% An ARTICLE entry type may cross reference another ARTICLE (this is
-% intended for when an entire journal is devoted to a single topic---
-% but since there is no JOURNAL entry type, the journal, too, should be
-% classified as an ARTICLE but without the author and title fields).
-% This will result in two warning messages for the journal's entry
-% if it's included in the reference list, but such is life.
-%
-% format.article.crossref ==
-%  BEGIN
-%       if empty$(key) then
-%           if empty$(journal) then
-%               warning$("need key or journal for " * cite$ *
-%                                               " to crossref " * crossref)
-%               return(" \cite{" * crossref * "}")
-%           else
-%               return("In " * emphazise.correct (journal) *
-%                                               " \cite{" * crossref * "}")
-%               fi
-%       else
-%           return("In " * key * " \cite{" * crossref * "}")
-%       fi
-%  END
-%
-% The other cross-referencing functions are similar, so no "comment version"
-% will be given for them.
-%
-%    \begin{macrocode}
-FUNCTION {format.article.crossref}
-{ key empty$
-    { journal empty$
-        { "need key or journal for " cite$ * " to crossref " * crossref *
-          warning$
-          ""
-        }
-        { "In \emph{" journal * "}" * }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-%    \end{macrocode}
-%
-% A BOOK (or INBOOK) entry type (assumed to be for a single volume in a
-% multivolume work) may cross reference another BOOK (the entire multivolume).
-% Usually there will be an editor, in which case we use that to construct the
-% cross reference; otherwise we use a nonempty key field or else the series
-% field (since the series gives the title of the multivolume work).
-%
-%    \begin{macrocode}
-FUNCTION {format.book.crossref}
-{ volume empty$
-    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-      "In "
-    }
-    { "Volume" volume tie.or.space.connect
-      " of " *
-    }
-  if$
-  editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { series empty$
-            { "need editor, key, or series for " cite$ * " to crossref " *
-              crossref * warning$
-              "" *
-            }
-            { "\emph{" * series * "}" * }
-          if$
-        }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-%    \end{macrocode}
-%
-% An INCOLLECTION entry type may cross reference a BOOK (assumed to be the
-% collection), or an INPROCEEDINGS may cross reference a PROCEEDINGS.
-% Often there will be an editor, in which case we use that to construct
-% the cross reference; otherwise we use a nonempty key field or else
-% the booktitle field (which gives the cross-referenced work's title).
-%
-%    \begin{macrocode}
-FUNCTION {format.incoll.inproc.crossref}
-{ editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { booktitle empty$
-            { "need editor, key, or booktitle for " cite$ * " to crossref " *
-              crossref * warning$
-              ""
-            }
-            { "In \emph{" booktitle * "}" * }
-          if$
-        }
-        { "In " }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-%    \end{macrocode}
-%
 % \subsection{Functions for all entry types}
 %
 % Now we define the type functions for all entry types that may appear
@@ -2192,17 +2108,7 @@ FUNCTION {format.incoll.inproc.crossref}
 % Note: The fields (within each list) are listed in order of appearance,
 % except as described for an `inbook' or a `proceedings'.
 %
-% The article function is for an article in a journal.  An article may
-% CROSSREF another article.
-%
-%       Required fields: author, title, journal, year
-%
-%       Optional fields: volume, number, pages, month, note
-%
-% The other entry functions are all quite similar, so no "comment version"
-% will be given for them.
-%
-% \subsection{专著}
+% \subsubsection{专著}
 %
 %    \begin{macrocode}
 FUNCTION {monograph}
@@ -2222,6 +2128,10 @@ FUNCTION {monograph}
   if$
   output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2248,7 +2158,7 @@ FUNCTION {monograph}
 
 %    \end{macrocode}
 %
-% \subsection{专著中的析出文献}
+% \subsubsection{专著中的析出文献}
 %
 % An incollection is like inbook, but where there is a separate title
 % for the referenced thing (and perhaps an editor for the whole).
@@ -2265,6 +2175,10 @@ FUNCTION {incollection}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2295,7 +2209,7 @@ FUNCTION {incollection}
 
 %    \end{macrocode}
 %
-% \subsection{连续出版物}
+% \subsubsection{连续出版物}
 %
 %    \begin{macrocode}
 FUNCTION {periodical}
@@ -2303,6 +2217,10 @@ FUNCTION {periodical}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2326,7 +2244,17 @@ FUNCTION {periodical}
 
 %    \end{macrocode}
 %
-% \subsection{连续出版物中的析出文献}
+% \subsubsection{连续出版物中的析出文献}
+%
+% The article function is for an article in a journal.  An article may
+% CROSSREF another article.
+%
+%       Required fields: author, title, journal, year
+%
+%       Optional fields: volume, number, pages, month, note
+%
+% The other entry functions are all quite similar, so no "comment version"
+% will be given for them.
 %
 %    \begin{macrocode}
 FUNCTION {article}
@@ -2334,6 +2262,10 @@ FUNCTION {article}
   format.authors "author" output.check
   author format.key output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2341,7 +2273,7 @@ FUNCTION {article}
   "J" set.mark
   format.mark "" output.after
   new.block
-  journal "journal" output.check
+  format.journal "journal" output.check
 %<*numerical>
   format.date "year" output.check
 %</numerical>
@@ -2359,7 +2291,7 @@ FUNCTION {article}
 
 %    \end{macrocode}
 %
-% \subsection{专利文献}
+% \subsubsection{专利文献}
 %
 % number 域也可以用来表示专利号。
 %
@@ -2369,6 +2301,10 @@ FUNCTION {patent}
   format.authors output
   author format.key output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2392,7 +2328,7 @@ FUNCTION {patent}
 
 %    \end{macrocode}
 %
-% \subsection{电子资源}
+% \subsubsection{电子资源}
 %
 %    \begin{macrocode}
 FUNCTION {electronic}
@@ -2401,6 +2337,10 @@ FUNCTION {electronic}
   format.authors output
   author format.key output
 %<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
   format.year "year" output.check
 %</authoryear>
   new.block
@@ -2426,6 +2366,8 @@ FUNCTION {electronic}
 }
 
 %    \end{macrocode}
+%
+% \subsubsection{其他文献类型}
 %
 % A misc is something that doesn't fit elsewhere.
 %

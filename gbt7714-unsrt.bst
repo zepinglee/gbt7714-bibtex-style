@@ -18,7 +18,10 @@
 %% 
 INTEGERS {
   uppercase.name
+  period.between.author.year
   sentence.case.title
+  print.mark
+  italic.jounal
   print.missing.address.publisher
   print.url
   print.doi
@@ -27,7 +30,10 @@ INTEGERS {
 
 FUNCTION {init.options}
 { #1 'uppercase.name :=
+  #0 'period.between.author.year :=
   #1 'sentence.case.title :=
+  #1 'print.mark :=
+  #0 'italic.jounal :=
   #1 'print.missing.address.publisher :=
   #1 'print.url :=
   #1 'print.doi :=
@@ -281,10 +287,10 @@ FUNCTION {field.or.null}
   if$
 }
 
-FUNCTION {emphasize}
+FUNCTION {italicize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\emph{" swap$ * "}" * }
+    { "\textit{" swap$ * "}" * }
   if$
 }
 
@@ -368,7 +374,15 @@ FUNCTION {is.in.chinese}
 FUNCTION {format.et.al}
 { is.in.chinese
     { "等"}
-    { "et~al." }
+    { lang.ja entry.lang =
+        { "他"}
+        { lang.ru entry.lang =
+            { "идр" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
@@ -563,7 +577,11 @@ FUNCTION {set.mark}
 }
 
 FUNCTION {format.mark}
-{ "\allowbreak[" entry.mark * "]" * }
+{ print.mark
+    { "\allowbreak[" entry.mark * "]" * }
+    { "" }
+  if$
+}
 
 FUNCTION {format.full.names}
 {'s :=
@@ -768,8 +786,12 @@ FUNCTION {format.urldate}
   if$
 }
 
-FUNCTION {format.btitle}
-{ title emphasize
+FUNCTION {format.journal}
+{ journal
+  italic.jounal
+    'italicize
+    'skip$
+  if$
 }
 
 FUNCTION {tie.or.space.connect}
@@ -1066,17 +1088,6 @@ FUNCTION {format.periodical.year.volume.number}
   if$
 }
 
-FUNCTION {format.in.ed.booktitle}
-{ booktitle empty$
-    { "" }
-    { editor empty$
-        { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
-      if$
-    }
-  if$
-}
-
 FUNCTION {empty.misc.check}
 { author empty$ title empty$
   year empty$
@@ -1085,71 +1096,6 @@ FUNCTION {empty.misc.check}
     { "all relevant fields are empty in " cite$ * warning$ }
     'skip$
   if$
-}
-
-FUNCTION {format.article.crossref}
-{ key empty$
-    { journal empty$
-        { "need key or journal for " cite$ * " to crossref " * crossref *
-          warning$
-          ""
-        }
-        { "In \emph{" journal * "}" * }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-FUNCTION {format.book.crossref}
-{ volume empty$
-    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
-      "In "
-    }
-    { "Volume" volume tie.or.space.connect
-      " of " *
-    }
-  if$
-  editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { series empty$
-            { "need editor, key, or series for " cite$ * " to crossref " *
-              crossref * warning$
-              "" *
-            }
-            { "\emph{" * series * "}" * }
-          if$
-        }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-  " \citet{" * crossref * "}" *
-}
-
-FUNCTION {format.incoll.inproc.crossref}
-{ editor empty$
-  editor field.or.null author field.or.null =
-  or
-    { key empty$
-        { booktitle empty$
-            { "need editor, key, or booktitle for " cite$ * " to crossref " *
-              crossref * warning$
-              ""
-            }
-            { "In \emph{" booktitle * "}" * }
-          if$
-        }
-        { "In " }
-      if$
-    }
-    { "In " }
-  if$
-  " \citet{" * crossref * "}" *
 }
 
 FUNCTION {monograph}
@@ -1241,7 +1187,7 @@ FUNCTION {article}
   "J" set.mark
   format.mark "" output.after
   new.block
-  journal "journal" output.check
+  format.journal "journal" output.check
   format.date "year" output.check
   volume output
   format.journal.number "" output.after
