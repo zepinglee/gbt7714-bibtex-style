@@ -2677,9 +2677,15 @@ READ
 
 EXECUTE {init.state.consts}
 
+FUNCTION {check.entry.lang}
+{ author field.or.null
+  title field.or.null *
+  get.str.lang
+}
+
 FUNCTION {set.entry.lang}
 { language empty$
-    { author field.or.null title field.or.null * get.str.lang }
+    { check.entry.lang }
     { language "english" = language "american" = or language "british" = or
         { lang.en }
         { language "chinese" =
@@ -2688,7 +2694,7 @@ FUNCTION {set.entry.lang}
                 { lang.ja }
                 { language "russian" =
                     { lang.ru }
-                    { lang.other }
+                    { check.entry.lang }
                   if$
                 }
               if$
