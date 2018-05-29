@@ -479,6 +479,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 %
+%
 % \section{BibTeX 样式的代码实现}
 %
 % \subsection{自定义选项}
@@ -557,8 +558,14 @@ FUNCTION {init.options}
 
 %    \end{macrocode}
 %
-% \subsection{Fields and entry strings}
 %
+% \subsection{The ENTRY declaration}
+%
+%   Like Scribe's (according to pages 231-2 of the April '84 edition),
+%   but no fullauthor or editors fields because BibTeX does name handling.
+%   The annote field is commented out here because this family doesn't
+%   include an annotated bibliography style.  And in addition to the fields
+%   listed here, BibTeX has a built-in crossref field, explained later.
 %    \begin{macrocode}
 ENTRY
   { address
@@ -599,7 +606,9 @@ ENTRY
 
 %    \end{macrocode}
 %
+%
 % \subsection{Entry functions}
+%
 % Each entry function starts by calling output.bibitem, to write the
 % |\bibitem| and its arguments to the .BBL file.  Then the various fields
 % are formatted and printed by output or output.check.  Those functions
@@ -776,38 +785,87 @@ FUNCTION {init.state.consts}
 
 %    \end{macrocode}
 %
-% the variables s and t are temporary string holders
+% 下面是一些常量的定义
+%    \begin{macrocode}
+FUNCTION {bbl.colon} { ": " }
+
+FUNCTION {bbl.slash} { "//\allowbreak{}" }
+
+FUNCTION {bbl.space} { "\ " }
+
+FUNCTION {bbl.et.al}
+{ lang.zh entry.lang =
+    { "等"}
+    { lang.ja entry.lang =
+        { "他"}
+        { lang.ru entry.lang =
+            { "идр" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {bbl.anonymous}
+{ lang.zh entry.lang =
+    { "佚名" }
+    { "Anon" }
+  if$
+}
+
+FUNCTION {bbl.sine.loco}
+{ lang.zh entry.lang =
+    { "[出版地不详]" }
+    { "[S.l.]" }
+  if$
+}
+
+FUNCTION {bbl.sine.nomine}
+{ lang.zh entry.lang =
+    { "[出版者不详]" }
+    { "[s.n.]" }
+  if$
+}
+
+FUNCTION {bbl.sine.loco.sine.nomine}
+{ lang.zh entry.lang =
+    { "[出版地不详: 出版者不详]" }
+    { "[S.l.: s.n.]" }
+  if$
+}
+
+%    \end{macrocode}
 %
+% These three functions pop one or two (integer) arguments from the stack
+% and push a single one, either 0 or 1.
+% The |'skip$| in the `and' and `or' functions are used because
+% the corresponding |if$| would be idempotent
+%    \begin{macrocode}
+FUNCTION {not}
+{   { #0 }
+    { #1 }
+  if$
+}
+
+FUNCTION {and}
+{   'skip$
+    { pop$ #0 }
+  if$
+}
+
+FUNCTION {or}
+{   { pop$ #1 }
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% the variables s and t are temporary string holders
 %    \begin{macrocode}
 STRINGS { s t }
-
-FUNCTION {debug}
-{ 's :=
-  duplicate$
-  "DEBUG: " s * " -> `" *
-  swap$ * "'" *
-  top$
-}
-
-FUNCTION {debug.int}
-{ 's :=
-  duplicate$ int.to.str$
-  "DEBUG: " s * " == " *
-  swap$ *
-  top$
-}
-
-FUNCTION {punct.colon}
-{ ": "
-}
-
-FUNCTION {punct.slash}
-{ "//\allowbreak{}"
-}
-
-FUNCTION {punct.space}
-{ " "
-}
 
 FUNCTION {output.nonnull}
 { 's :=
@@ -821,7 +879,7 @@ FUNCTION {output.nonnull}
         { output.state before.all =
             'write$
             { output.state after.slash =
-                { punct.slash * write$ }
+                { bbl.slash * write$ }
                 { add.period$ " " * write$ }
               if$
             }
@@ -856,7 +914,7 @@ FUNCTION {output.after}
             { output.state before.all =
                 'write$
                 { output.state after.slash =
-                    { punct.slash * write$ }
+                    { bbl.slash * write$ }
                     { add.period$ " " * write$ }
                   if$
                 }
@@ -924,31 +982,6 @@ FUNCTION {new.slash}
 
 %    \end{macrocode}
 %
-% These three functions pop one or two (integer) arguments from the stack
-% and push a single one, either 0 or 1.
-% The |'skip$| in the `and' and `or' functions are used because
-% the corresponding |if$| would be idempotent
-%    \begin{macrocode}
-FUNCTION {not}
-{   { #0 }
-    { #1 }
-  if$
-}
-
-FUNCTION {and}
-{   'skip$
-    { pop$ #0 }
-  if$
-}
-
-FUNCTION {or}
-{   { pop$ #1 }
-    'skip$
-  if$
-}
-
-%    \end{macrocode}
-%
 % Sometimes we begin a new block only if the block will be big enough.  The
 % new.block.checka function issues a new.block if its argument is nonempty;
 % new.block.checkb does the same if either of its TWO arguments is nonempty.
@@ -991,7 +1024,9 @@ FUNCTION {new.sentence.checkb}
 
 %    \end{macrocode}
 %
+%
 % \subsection{Formatting chunks}
+%
 % Here are some functions for formatting chunks of an entry.
 % By convention they either produce a string that can be followed by
 % a comma or period (using |add.period$|, so it is OK to end in a period),
@@ -1023,7 +1058,150 @@ FUNCTION {new.sentence.checkb}
 %  BEGIN
 %       if empty$(s) then return ""
 %       else return "{\em " * s * "}"
-% \begin{pseudocode}
+% \end{pseudocode}
+%
+% The `pop\$' in this function gets rid of the duplicate `empty' value and
+% the `skip\$' returns the duplicate field value
+%    \begin{macrocode}
+FUNCTION {field.or.null}
+{ duplicate$ empty$
+    { pop$ "" }
+    'skip$
+  if$
+}
+
+FUNCTION {italicize}
+{ duplicate$ empty$
+    { pop$ "" }
+    { "\textit{" swap$ * "}" * }
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Detect Language}
+%    \begin{macrocode}
+INTEGERS { byte second.byte }
+
+INTEGERS { char.lang tmp.lang }
+
+STRINGS { tmp.str }
+
+FUNCTION {get.str.lang}
+{ 'tmp.str :=
+  lang.other 'tmp.lang :=
+  #1 'charptr :=
+  tmp.str text.length$ #1 + 'len :=
+    { charptr len < }
+    { tmp.str charptr #1 substring$ chr.to.int$ 'byte :=
+      byte #128 <
+        { charptr #1 + 'charptr :=
+          byte #64 > byte #91 < and byte #96 > byte #123 < and or
+            { lang.en 'char.lang := }
+            { lang.other 'char.lang := }
+          if$
+        }
+        { tmp.str charptr #1 + #1 substring$ chr.to.int$ 'second.byte :=
+          byte #224 <
+%    \end{macrocode}
+% 俄文西里尔字母：U+0400 到 U+052F，对应 UTF-8 从 D0 80 到 D4 AF。
+%    \begin{macrocode}
+            { charptr #2 + 'charptr :=
+              byte #207 > byte #212 < and
+              byte #212 = second.byte #176 < and or
+                { lang.ru 'char.lang := }
+                { lang.other 'char.lang := }
+              if$
+            }
+            { byte #240 <
+%    \end{macrocode}
+% CJK Unified Ideographs: U+4E00--U+9FFF; UTF-8: E4 B8 80--E9 BF BF.
+%    \begin{macrocode}
+                { charptr #3 + 'charptr :=
+                  byte #227 > byte #234 < and
+                    { lang.zh 'char.lang := }
+%    \end{macrocode}
+% CJK Unified Ideographs Extension A: U+3400--U+4DBF; UTF-8: E3 90 80--E4 B6 BF.
+%    \begin{macrocode}
+                    { byte #227 =
+                        { second.byte #143 >
+                            { lang.zh 'char.lang := }
+%    \end{macrocode}
+% 日语假名：U+3040--U+30FF, UTF-8: E3 81 80--E3 83 BF.
+%    \begin{macrocode}
+                            { second.byte #128 > second.byte #132 < and
+                                { lang.ja 'char.lang := }
+                                { lang.other 'char.lang := }
+                              if$
+                            }
+                          if$
+                        }
+%    \end{macrocode}
+% CJK Compatibility Ideographs: U+F900--U+FAFF, UTF-8: EF A4 80--EF AB BF.
+%    \begin{macrocode}
+                        { byte #239 =
+                          second.byte #163 > second.byte #172 < and and
+                            { lang.zh 'char.lang := }
+                            { lang.other 'char.lang := }
+                          if$
+                        }
+                      if$
+                    }
+                  if$
+                }
+%    \end{macrocode}
+% CJK Unified Ideographs Extension B--F: U+20000--U+2EBEF,
+% UTF-8: F0 A0 80 80--F0 AE AF AF.
+% CJK Compatibility Ideographs Supplement: U+2F800--U+2FA1F,
+% UTF-8: F0 AF A0 80--F0 AF A8 9F.
+%    \begin{macrocode}
+                { charptr #4 + 'charptr :=
+                  byte #240 = second.byte #159 > and
+                    { lang.zh 'char.lang := }
+                    { lang.other 'char.lang := }
+                  if$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+      char.lang tmp.lang >
+        { char.lang 'tmp.lang := }
+        'skip$
+      if$
+    }
+  while$
+  tmp.lang
+}
+
+FUNCTION {set.entry.lang}
+{ language empty$
+    { author field.or.null title field.or.null * get.str.lang }
+    { language "english" = language "american" = or language "british" = or
+        { lang.en }
+        { language "chinese" =
+            { lang.zh }
+            { language "japanese" =
+                { lang.ja }
+                { language "russian" =
+                    { lang.ru }
+                    { lang.other }
+                  if$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+  'entry.lang :=
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Format names}
 %
 % The format.names function formats the argument (which should be in
 % BibTeX name format) into "First Von Last, Junior", separated by commas
@@ -1031,10 +1209,10 @@ FUNCTION {new.sentence.checkb}
 % of multiple authors is "others").  This function's argument should always
 % contain at least one name.
 %
+% \begin{pseudocode}
 % VAR: nameptr, namesleft, numnames: INTEGER
 % pseudoVAR: nameresult: STRING         (it's what's accumulated on the stack)
 %
-% \begin{pseudocode}
 % format.names(s) ==
 %  BEGIN
 %       nameptr := 1
@@ -1097,149 +1275,7 @@ FUNCTION {new.sentence.checkb}
 % Other formatting functions are similar, so no "comment version" will be
 % given for them.
 %
-% The `pop\$' in this function gets rid of the duplicate `empty' value and
-% the `skip\$' returns the duplicate field value
 %    \begin{macrocode}
-FUNCTION {field.or.null}
-{ duplicate$ empty$
-    { pop$ "" }
-    'skip$
-  if$
-}
-
-FUNCTION {italicize}
-{ duplicate$ empty$
-    { pop$ "" }
-    { "\textit{" swap$ * "}" * }
-  if$
-}
-
-INTEGERS { byte second.byte }
-
-INTEGERS { char.lang tmp.lang }
-
-STRINGS { tmp.str }
-
-FUNCTION {get.str.lang}
-{ 'tmp.str :=
-  lang.other 'tmp.lang :=
-  #1 'charptr :=
-  tmp.str text.length$ #1 + 'len :=
-    { charptr len < }
-    { tmp.str charptr #1 substring$ chr.to.int$ 'byte :=
-      byte #128 <
-        { charptr #1 + 'charptr :=
-          byte #64 > byte #91 < and byte #96 > byte #123 < and or
-            { lang.en 'char.lang := }
-            { lang.other 'char.lang := }
-          if$
-        }
-        { tmp.str charptr #1 + #1 substring$ chr.to.int$ 'second.byte :=
-          byte #224 <
-%    \end{macrocode}
-%
-% 俄文西里尔字母：U+0400 到 U+052F，对应 UTF-8 从 D0 80 到 D4 AF。
-%    \begin{macrocode}
-            { charptr #2 + 'charptr :=
-              byte #207 > byte #212 < and
-              byte #212 = second.byte #176 < and or
-                { lang.ru 'char.lang := }
-                { lang.other 'char.lang := }
-              if$
-            }
-            { byte #240 <
-%    \end{macrocode}
-%
-% CJK Unified Ideographs: U+4E00--U+9FFF; UTF-8: E4 B8 80--E9 BF BF.
-%    \begin{macrocode}
-                { charptr #3 + 'charptr :=
-                  byte #227 > byte #234 < and
-                    { lang.zh 'char.lang := }
-%    \end{macrocode}
-%
-% CJK Unified Ideographs Extension A: U+3400--U+4DBF; UTF-8: E3 90 80--E4 B6 BF.
-%    \begin{macrocode}
-                    { byte #227 =
-                        { second.byte #143 >
-                            { lang.zh 'char.lang := }
-%    \end{macrocode}
-%
-% 日语假名：U+3040--U+30FF, UTF-8: E3 81 80--E3 83 BF.
-%    \begin{macrocode}
-                            { second.byte #128 > second.byte #132 < and
-                                { lang.ja 'char.lang := }
-                                { lang.other 'char.lang := }
-                              if$
-                            }
-                          if$
-                        }
-%    \end{macrocode}
-%
-% CJK Compatibility Ideographs: U+F900--U+FAFF, UTF-8: EF A4 80--EF AB BF.
-%    \begin{macrocode}
-                        { byte #239 =
-                          second.byte #163 > second.byte #172 < and and
-                            { lang.zh 'char.lang := }
-                            { lang.other 'char.lang := }
-                          if$
-                        }
-                      if$
-                    }
-                  if$
-                }
-%    \end{macrocode}
-%
-% CJK Unified Ideographs Extension B--F: U+20000--U+2EBEF,
-% UTF-8: F0 A0 80 80--F0 AE AF AF.
-% CJK Compatibility Ideographs Supplement: U+2F800--U+2FA1F,
-% UTF-8: F0 AF A0 80--F0 AF A8 9F.
-%    \begin{macrocode}
-                { charptr #4 + 'charptr :=
-                  byte #240 = second.byte #159 > and
-                    { lang.zh 'char.lang := }
-                    { lang.other 'char.lang := }
-                  if$
-                }
-              if$
-            }
-          if$
-        }
-      if$
-      char.lang tmp.lang >
-        { char.lang 'tmp.lang := }
-        'skip$
-      if$
-    }
-  while$
-  tmp.lang
-}
-
-FUNCTION {is.in.chinese}
-{ entry.lang lang.zh =
-}
-
-FUNCTION {format.et.al}
-{ is.in.chinese
-    { "等"}
-    { lang.ja entry.lang =
-        { "他"}
-        { lang.ru entry.lang =
-            { "идр" }
-            { "et~al." }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.anonymous}
-{ is.in.chinese
-    { "佚名" }
-    { "Anon" }
-  if$
-}
-
 INTEGERS { nameptr namesleft numnames name.lang }
 
 FUNCTION {format.names}
@@ -1250,11 +1286,11 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
       nameptr #4 =
-        { format.et.al
+        { bbl.et.al
           #1 'namesleft :=
         }
         { t "others" =
-            { format.et.al }
+            { bbl.et.al }
             { t get.str.lang 'name.lang :=
               name.lang lang.en =
                 { t #1 "{vv~}{ll}{ f{~}}" format.name$
@@ -1290,7 +1326,7 @@ FUNCTION {format.key}
 FUNCTION {format.authors}
 { author empty$
 %<*authoryear>
-    { format.anonymous }
+    { bbl.anonymous }
 %</authoryear>
 %<*numerical>
     { "" }
@@ -1310,7 +1346,7 @@ FUNCTION {format.translators}
 { translator empty$
     { "" }
     { translator format.names
-      is.in.chinese
+      lang.zh entry.lang =
         { translator num.names$ #3 >
             { "译" * }
             { ", 译" * }
@@ -1319,131 +1355,6 @@ FUNCTION {format.translators}
         'skip$
       if$
     }
-  if$
-}
-
-FUNCTION {format.url}
-{ entry.url empty$ not print.url and
-    { new.block entry.url }
-    { "" }
-  if$
-}
-
-%    \end{macrocode}
-%
-% 需要检测 DOI 是否已经包含在 URL 中。
-%    \begin{macrocode}
-FUNCTION {is.doi.in.url}
-{ 's :=
-  s empty$
-    { #1 }
-    { entry.url empty$ print.url not or
-        { #0 }
-        { s text.length$ 'len :=
-          entry.url text.length$ 'charptr :=
-            { entry.url charptr len substring$ s = not
-              charptr #0 >
-              and
-            }
-            { charptr #1 - 'charptr := }
-          while$
-          charptr
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.doi}
-{ ""
-  doi empty$ not print.doi and
-    { "" 's :=
-      doi 't :=
-      #0 'numnames :=
-        { t empty$ not}
-        { t #1 #1 substring$ 'tmp.str :=
-          tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
-            { t #2 #1 substring$ empty$
-                { s tmp.str * 's := }
-                'skip$
-              if$
-              s empty$ s is.doi.in.url or
-                'skip$
-                { numnames #1 + 'numnames :=
-                  numnames #1 >
-                    { ", " * }
-                    { "DOI: " * }
-                  if$
-                  "\doi{" s * "}" * *
-                }
-              if$
-              "" 's :=
-            }
-            { s tmp.str * 's := }
-          if$
-          t #2 global.max$ substring$ 't :=
-        }
-      while$
-      's :=
-      s empty$ not
-        { new.block s }
-        { "" }
-      if$
-    }
-    'skip$
-  if$
-}
-
-FUNCTION {format.note}
-{ note empty$ not print.note and
-    { note }
-    { "" }
-  if$
-}
-
-%    \end{macrocode}
-%
-% The format.title function is used for non-book-like titles.
-% For most styles we convert to lowercase (except for the very first letter,
-% and except for the first one after a colon (followed by whitespace)),
-% and hope the user has brace-surrounded words that need to stay capitilized;
-% for some styles, however, we leave it as it is in the database.
-%    \begin{macrocode}
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title
-      entry.lang lang.en = sentence.case.title and
-        { "t" change.case$ }
-        'skip$
-      if$
-    }
-  if$
-}
-
-FUNCTION {set.mark}
-{ entry.mark empty$ not
-    'pop$
-    { mark empty$ not
-        { pop$ mark 'entry.mark := }
-        { 'entry.mark := }
-      if$
-      medium empty$ not
-        { entry.mark "/" * medium * 'entry.mark := }
-        { is.digital
-            { entry.mark "/OL" * 'entry.mark := }
-            'skip$
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.mark}
-{ print.mark
-    { "\allowbreak[" entry.mark * "]" * }
-    { "" }
   if$
 }
 
@@ -1541,67 +1452,337 @@ FUNCTION {output.bibitem}
 
 %    \end{macrocode}
 %
-% By default, BibTeX sets the global integer variable |global.max$| to the BibTeX
-% constant |glob_str_size|, the maximum length of a global string variable.
-% Analogously, BibTeX sets the global integer variable |entry.max$| to
-% |ent_str_size|, the maximum length of an entry string variable.
-% The style designer may change these if necessary (but this is unlikely)
+% \subsubsection{Format title}
 %
-% The n.dashify function makes each single |`-'| in a string a double |`--'|
-% if it's not already
-%
-% \begin{pseudocode}
-% pseudoVAR: pageresult: STRING         (it's what's accumulated on the stack)
-%
-% n.dashify(s) ==
-%  BEGIN
-%       t := s
-%       pageresult := ""
-%       while (not empty$(t))
-%         do
-%           if (first character of t = "-")
-%             then
-%               if (next character isn't)
-%                 then
-%                   pageresult := pageresult * "--"
-%                   t := t with the "-" removed
-%                 else
-%                   while (first character of t = "-")
-%                     do
-%                       pageresult := pageresult * "-"
-%                       t := t with the "-" removed
-%                     od
-%               fi
-%             else
-%               pageresult := pageresult * the first character
-%               t := t with the first character removed
-%           fi
-%         od
-%       return pageresult
-%  END
-% \end{pseudocode}
-%
-% 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
+% The |format.title| function is used for non-book-like titles.
+% For most styles we convert to lowercase (except for the very first letter,
+% and except for the first one after a colon (followed by whitespace)),
+% and hope the user has brace-surrounded words that need to stay capitilized;
+% for some styles, however, we leave it as it is in the database.
 %    \begin{macrocode}
-FUNCTION {hyphenate}
-{ 't :=
-  ""
-    { t empty$ not }
-    { t #1 #1 substring$ "-" =
-        { "-" *
-            { t #1 #1 substring$ "-" = }
-            { t #2 global.max$ substring$ 't := }
-          while$
-        }
-        { t #1 #1 substring$ *
-          t #2 global.max$ substring$ 't :=
-        }
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title
+      entry.lang lang.en = sentence.case.title and
+        { "t" change.case$ }
+        'skip$
       if$
     }
-  while$
+  if$
 }
 
 %    \end{macrocode}
+%
+% For several functions we'll need to connect two strings with a
+% tie (|~|) if the second one isn't very long (fewer than 3 characters).
+% The tie.or.space.connect function does that.  It concatenates the two
+% strings on top of the stack, along with either a tie or space between
+% them, and puts this concatenation back onto the stack:
+%
+% \begin{pseudocode}
+% tie.or.space.connect(str1,str2) ==
+%    BEGIN
+%       if text.length$(str2) < 3
+%         then return the concatenation of str1, "~", and str2
+%         else return the concatenation of str1, " ", and str2
+%    END
+% \end{pseudocode}
+%    \begin{macrocode}
+FUNCTION {tie.or.space.connect}
+{ duplicate$ text.length$ #3 <
+    { "~" }
+    { " " }
+  if$
+  swap$ * *
+}
+
+%    \end{macrocode}
+%
+% The either.or.check function complains if both fields or an either-or pair
+% are nonempty.
+%
+% \begin{pseudocode}
+% either.or.check(t,s) ==
+%  BEGIN
+%       if empty$(s) then
+%           warning$(can't use both " * t * " fields in " * cite$)
+%       fi
+%  END
+% \end{pseudocode}
+%    \begin{macrocode}
+FUNCTION {either.or.check}
+{ empty$
+    'pop$
+    { "can't use both " swap$ * " fields in " * cite$ * warning$ }
+  if$
+}
+
+%    \end{macrocode}
+%
+% The format.bvolume function is for formatting the volume and perhaps
+% series name of a multivolume work.  If both a volume and a series field
+% are there, we assume the series field is the title of the whole multivolume
+% work (the title field should be the title of the thing being referred to),
+% and we add an "of <series>".  This function is called in mid-sentence.
+%
+% The format.number.series function is for formatting the series name
+% and perhaps number of a work in a series.  This function is similar to
+% format.bvolume, although for this one the series must exist (and the
+% volume must not exist).  If the number field is empty we output either
+% the series field unchanged if it exists or else the null string.
+% If both the number and series fields are there we assume the series field
+% gives the name of the whole series (the title field should be the title
+% of the work being one referred to), and we add an "in <series>".
+% We capitilize Number when this function is used at the beginning of a block.
+%    \begin{macrocode}
+FUNCTION {is.digit}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { chr.to.int$
+      duplicate$ "0" chr.to.int$ <
+      { pop$ #0 }
+      { "9" chr.to.int$ >
+          { #0 }
+          { #1 }
+        if$
+      }
+    if$
+    }
+  if$
+}
+
+FUNCTION {is.number}
+{ 's :=
+  s empty$
+    { #0 }
+    { s text.length$ 'charptr :=
+        { charptr #0 >
+          s charptr #1 substring$ is.digit
+          and
+        }
+        { charptr #1 - 'charptr := }
+      while$
+      charptr not
+    }
+  if$
+}
+
+FUNCTION {format.volume}
+{ volume empty$
+    { "" }
+    { lang.zh entry.lang =
+        { "第 " volume * " 卷" * }
+        { "volume" volume tie.or.space.connect }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.number}
+{ number empty$
+    { "" }
+    { lang.zh entry.lang =
+        { "第 " number * " 册" * }
+        { "number" number tie.or.space.connect }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.volume.number}
+{ volume empty$ not
+    { format.volume }
+    { format.number }
+  if$
+}
+
+FUNCTION {format.series.vol.num.title}
+{ format.volume.number 's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      title *
+    }
+    { title
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+  entry.lang lang.en = sentence.case.title and
+    { "t" change.case$ }
+    'skip$
+  if$
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ format.volume.number 's :=
+  series empty$ not
+    { series ": " *
+      s empty$ not
+        { s * "\quad " * }
+        'skip$
+      if$
+      booktitle *
+    }
+    { booktitle
+      s empty$ not
+        { ": " * s * }
+        'skip$
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.journal}
+{ journal
+  italic.jounal
+    'italicize
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Format entry type mark}
+%
+%    \begin{macrocode}
+FUNCTION {set.mark}
+{ entry.mark empty$ not
+    'pop$
+    { mark empty$ not
+        { pop$ mark 'entry.mark := }
+        { 'entry.mark := }
+      if$
+      medium empty$ not
+        { entry.mark "/" * medium * 'entry.mark := }
+        { is.digital
+            { entry.mark "/OL" * 'entry.mark := }
+            'skip$
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.mark}
+{ print.mark
+    { "\allowbreak[" entry.mark * "]" * }
+    { "" }
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Format edition}
+%
+% The format.edition function appends " edition" to the edition, if present.
+% We lowercase the edition (it should be something like "Third"), because
+% this doesn't start a sentence.
+%    \begin{macrocode}
+FUNCTION {num.to.ordinal}
+{ duplicate$ text.length$ 'charptr :=
+  duplicate$ charptr #1 substring$ 's :=
+  s "1" =
+    { "st" * }
+    { s "2" =
+        { "nd" * }
+        { s "3" =
+            { "rd" * }
+            { "th" * }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.edition}
+{ edition empty$
+    { "" }
+    { edition is.number
+        { lang.zh entry.lang =
+            { edition " 版" * }
+            { edition num.to.ordinal " ed." * }
+          if$
+        }
+        { entry.lang lang.en =
+            { edition "t" change.case$ 's :=
+              s "Revised" = s "Revised edition" = or
+                { "Rev. ed." }
+                { s " ed." *}
+              if$
+            }
+            { edition }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Format publishing items}
+%
+% 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
+%    \begin{macrocode}
+FUNCTION {format.publisher}
+{ publisher empty$ not
+    { publisher }
+    { school empty$ not
+        { school }
+        { organization empty$ not
+            { organization }
+            { institution empty$ not
+                { institution }
+                { "" }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.address.publisher}
+{ address empty$ not
+    { address
+      format.publisher empty$ not
+        { ": " * format.publisher * }
+        { is.digital not print.missing.address.publisher and
+            { ": " * bbl.sine.nomine * }
+            'skip$
+          if$
+        }
+      if$
+    }
+    { is.digital not print.missing.address.publisher and
+        { format.publisher empty$ not
+            { bbl.sine.loco ": " * format.publisher * }
+            { bbl.sine.loco.sine.nomine }
+          if$
+        }
+        { format.publisher empty$ not
+            { format.publisher }
+            { "" }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{Format date}
 %
 % The format.date function is for the month and year, but we give a warning if
 % there's an empty year but the month is there, and we return the empty string
@@ -1708,306 +1889,68 @@ FUNCTION {format.urldate}
   if$
 }
 
-FUNCTION {format.journal}
-{ journal
-  italic.jounal
-    'italicize
-    'skip$
-  if$
-}
-
 %    \end{macrocode}
 %
-% For several functions we'll need to connect two strings with a
-% tie (~) if the second one isn't very long (fewer than 3 characters).
-% The tie.or.space.connect function does that.  It concatenates the two
-% strings on top of the stack, along with either a tie or space between
-% them, and puts this concatenation back onto the stack:
+% \subsubsection{Format pages}
+%
+% By default, BibTeX sets the global integer variable |global.max$| to the BibTeX
+% constant |glob_str_size|, the maximum length of a global string variable.
+% Analogously, BibTeX sets the global integer variable |entry.max$| to
+% |ent_str_size|, the maximum length of an entry string variable.
+% The style designer may change these if necessary (but this is unlikely)
+%
+% The n.dashify function makes each single |`-'| in a string a double |`--'|
+% if it's not already
 %
 % \begin{pseudocode}
-% tie.or.space.connect(str1,str2) ==
-%    BEGIN
-%       if text.length$(str2) < 3
-%         then return the concatenation of str1, "~", and str2
-%         else return the concatenation of str1, " ", and str2
-%    END
-% \end{pseudocode}
-%    \begin{macrocode}
-FUNCTION {tie.or.space.connect}
-{ duplicate$ text.length$ #3 <
-    { "~" }
-    { " " }
-  if$
-  swap$ * *
-}
-
-%    \end{macrocode}
+% pseudoVAR: pageresult: STRING         (it's what's accumulated on the stack)
 %
-% The either.or.check function complains if both fields or an either-or pair
-% are nonempty.
-%
-% \begin{pseudocode}
-% either.or.check(t,s) ==
+% n.dashify(s) ==
 %  BEGIN
-%       if empty$(s) then
-%           warning$(can't use both " * t * " fields in " * cite$)
-%       fi
+%       t := s
+%       pageresult := ""
+%       while (not empty$(t))
+%         do
+%           if (first character of t = "-")
+%             then
+%               if (next character isn't)
+%                 then
+%                   pageresult := pageresult * "--"
+%                   t := t with the "-" removed
+%                 else
+%                   while (first character of t = "-")
+%                     do
+%                       pageresult := pageresult * "-"
+%                       t := t with the "-" removed
+%                     od
+%               fi
+%             else
+%               pageresult := pageresult * the first character
+%               t := t with the first character removed
+%           fi
+%         od
+%       return pageresult
 %  END
 % \end{pseudocode}
-%    \begin{macrocode}
-FUNCTION {either.or.check}
-{ empty$
-    'pop$
-    { "can't use both " swap$ * " fields in " * cite$ * warning$ }
-  if$
-}
-
-%    \end{macrocode}
 %
-% The format.bvolume function is for formatting the volume and perhaps
-% series name of a multivolume work.  If both a volume and a series field
-% are there, we assume the series field is the title of the whole multivolume
-% work (the title field should be the title of the thing being referred to),
-% and we add an "of <series>".  This function is called in mid-sentence.
-%
-% The format.number.series function is for formatting the series name
-% and perhaps number of a work in a series.  This function is similar to
-% format.bvolume, although for this one the series must exist (and the
-% volume must not exist).  If the number field is empty we output either
-% the series field unchanged if it exists or else the null string.
-% If both the number and series fields are there we assume the series field
-% gives the name of the whole series (the title field should be the title
-% of the work being one referred to), and we add an "in <series>".
-% We capitilize Number when this function is used at the beginning of a block.
+% 《规则》里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
 %    \begin{macrocode}
-FUNCTION {is.digit}
-{ duplicate$ empty$
-    { pop$ #0 }
-    { chr.to.int$
-      duplicate$ "0" chr.to.int$ <
-      { pop$ #0 }
-      { "9" chr.to.int$ >
-          { #0 }
-          { #1 }
-        if$
-      }
-    if$
-    }
-  if$
-}
-
-FUNCTION {is.number}
-{ 's :=
-  s empty$
-    { #0 }
-    { s text.length$ 'charptr :=
-        { charptr #0 >
-          s charptr #1 substring$ is.digit
-          and
+FUNCTION {hyphenate}
+{ 't :=
+  ""
+    { t empty$ not }
+    { t #1 #1 substring$ "-" =
+        { "-" *
+            { t #1 #1 substring$ "-" = }
+            { t #2 global.max$ substring$ 't := }
+          while$
         }
-        { charptr #1 - 'charptr := }
-      while$
-      charptr not
-    }
-  if$
-}
-
-FUNCTION {format.volume}
-{ volume empty$
-    { "" }
-    { volume is.number
-        { is.in.chinese
-            { "第 " volume * " 卷" * }
-            { "volume" volume tie.or.space.connect }
-          if$
-        }
-        { volume }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.number}
-{ number empty$
-    { "" }
-    { number is.number
-        { is.in.chinese
-            { "第 " number * " 册" * }
-            { "number" number tie.or.space.connect }
-          if$
-        }
-        { number }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.volume.number}
-{ volume empty$ not
-    { format.volume }
-    { format.number }
-  if$
-}
-
-FUNCTION {format.series.vol.num.title}
-{ format.volume.number 's :=
-  series empty$ not
-    { series ": " *
-      s empty$ not
-        { s * "\quad " * }
-        'skip$
-      if$
-      title *
-    }
-    { title
-      s empty$ not
-        { ": " * s * }
-        'skip$
-      if$
-    }
-  if$
-  entry.lang lang.en = sentence.case.title and
-    { "t" change.case$ }
-    'skip$
-  if$
-}
-
-FUNCTION {format.series.vol.num.booktitle}
-{ format.volume.number 's :=
-  series empty$ not
-    { series ": " *
-      s empty$ not
-        { s * "\quad " * }
-        'skip$
-      if$
-      booktitle *
-    }
-    { booktitle
-      s empty$ not
-        { ": " * s * }
-        'skip$
-      if$
-    }
-  if$
-}
-
-%    \end{macrocode}
-%
-% The format.edition function appends " edition" to the edition, if present.
-% We lowercase the edition (it should be something like "Third"), because
-% this doesn't start a sentence.
-%    \begin{macrocode}
-FUNCTION {num.to.ordinal}
-{ duplicate$ text.length$ 'charptr :=
-  duplicate$ charptr #1 substring$ 's :=
-  s "1" =
-    { "st" * }
-    { s "2" =
-        { "nd" * }
-        { s "3" =
-            { "rd" * }
-            { "th" * }
-          if$
+        { t #1 #1 substring$ *
+          t #2 global.max$ substring$ 't :=
         }
       if$
     }
-  if$
-}
-
-FUNCTION {format.edition}
-{ edition empty$
-    { "" }
-    { edition is.number
-        { is.in.chinese
-            { edition " 版" * }
-            { edition num.to.ordinal " ed." * }
-          if$
-        }
-        { entry.lang lang.en =
-            { edition "t" change.case$ 's :=
-              s "Revised" = s "Revised edition" = or
-                { "Rev. ed." }
-                { s " ed." *}
-              if$
-            }
-            { edition }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-%    \end{macrocode}
-%
-% 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
-%    \begin{macrocode}
-FUNCTION {format.sine.loco}
-{ is.in.chinese
-    { "[出版地不详]" }
-    { "[S.l.]" }
-  if$
-}
-
-FUNCTION {format.sine.nomine}
-{ is.in.chinese
-    { "[出版者不详]" }
-    { "[s.n.]" }
-  if$
-}
-
-FUNCTION {format.publisher}
-{ publisher empty$ not
-    { publisher }
-    { school empty$ not
-        { school }
-        { organization empty$ not
-            { organization }
-            { institution empty$ not
-                { institution }
-                { "" }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.sine.loco.sine.nomine}
-{ is.in.chinese
-    { "[出版地不详: 出版者不详]" }
-    { "[S.l.: s.n.]" }
-  if$
-}
-
-FUNCTION {format.address.publisher}
-{ address empty$ not
-    { address
-      format.publisher empty$ not
-        { ": " * format.publisher * }
-        { is.digital not print.missing.address.publisher and
-            { ": " * format.sine.nomine * }
-            'skip$
-          if$
-        }
-      if$
-    }
-    { is.digital not print.missing.address.publisher and
-        { format.publisher empty$ not
-            { format.sine.loco ": " * format.publisher * }
-            { format.sine.loco.sine.nomine }
-          if$
-        }
-        { format.publisher empty$ not
-            { format.publisher }
-            { "" }
-          if$
-        }
-      if$
-    }
-  if$
+  while$
 }
 
 %    \end{macrocode}
@@ -2088,6 +2031,132 @@ FUNCTION {format.periodical.year.volume.number}
 
 %    \end{macrocode}
 %
+% \subsubsection{Format url and doi}
+%    \begin{macrocode}
+FUNCTION {format.url}
+{ entry.url empty$ not print.url and
+    { new.block entry.url }
+    { "" }
+  if$
+}
+
+FUNCTION {set.entry.url}
+{ "" 'entry.url :=
+  #0 'is.digital :=
+  url empty$ not
+    { "\url{" url * "}" * 'entry.url :=
+      #1 'is.digital :=
+    }
+    { howpublished empty$ not
+        { howpublished #1 #5 substring$ "\url{" =
+            { howpublished 'entry.url :=
+              #1 'is.digital :=
+            }
+            'skip$
+          if$
+        }
+        { note empty$ not
+            { note #1 #5 substring$ "\url{" =
+                { note 'entry.url :=
+                  #1 'is.digital :=
+                }
+                'skip$
+              if$
+            }
+            'skip$
+          if$
+        }
+      if$
+    }
+  if$
+  doi empty$ not
+    { #1 'is.digital := }
+    'skip$
+  if$
+  medium empty$ not
+    { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
+        { #1 'is.digital := }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+}
+
+%    \end{macrocode}
+%
+% 需要检测 DOI 是否已经包含在 URL 中。
+%    \begin{macrocode}
+FUNCTION {is.doi.in.url}
+{ 's :=
+  s empty$
+    { #1 }
+    { entry.url empty$ print.url not or
+        { #0 }
+        { s text.length$ 'len :=
+          entry.url text.length$ 'charptr :=
+            { entry.url charptr len substring$ s = not
+              charptr #0 >
+              and
+            }
+            { charptr #1 - 'charptr := }
+          while$
+          charptr
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.doi}
+{ ""
+  doi empty$ not print.doi and
+    { "" 's :=
+      doi 't :=
+      #0 'numnames :=
+        { t empty$ not}
+        { t #1 #1 substring$ 'tmp.str :=
+          tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
+            { t #2 #1 substring$ empty$
+                { s tmp.str * 's := }
+                'skip$
+              if$
+              s empty$ s is.doi.in.url or
+                'skip$
+                { numnames #1 + 'numnames :=
+                  numnames #1 >
+                    { ", " * }
+                    { "DOI: " * }
+                  if$
+                  "\doi{" s * "}" * *
+                }
+              if$
+              "" 's :=
+            }
+            { s tmp.str * 's := }
+          if$
+          t #2 global.max$ substring$ 't :=
+        }
+      while$
+      's :=
+      s empty$ not
+        { new.block s }
+        { "" }
+      if$
+    }
+    'skip$
+  if$
+}
+
+FUNCTION {format.note}
+{ note empty$ not print.note and
+    { note }
+    { "" }
+  if$
+}
+
+%    \end{macrocode}
+%
 % The function empty.misc.check complains if all six fields are empty, and
 % if there's been no sorting or alphabetic-label complaint.
 %    \begin{macrocode}
@@ -2102,6 +2171,7 @@ FUNCTION {empty.misc.check}
 }
 
 %    \end{macrocode}
+%
 %
 % \subsection{Functions for all entry types}
 %
@@ -2123,7 +2193,7 @@ FUNCTION {monograph}
     { editor empty$ not
         { format.editors }
 %<*authoryear>
-        { format.anonymous }
+        { bbl.anonymous }
 %</authoryear>
 %<*numerical>
         { "" }
@@ -2152,7 +2222,7 @@ FUNCTION {monograph}
 %<*numerical>
   format.year "year" output.check
 %</numerical>
-  format.pages punct.colon output.after
+  format.pages bbl.colon output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -2202,7 +2272,7 @@ FUNCTION {incollection}
 %<*numerical>
   format.year "year" output.check
 %</numerical>
-  format.pages punct.colon output.after
+  format.pages bbl.colon output.after
   format.urldate "" output.after
   format.url output
   format.doi output
@@ -2312,7 +2382,7 @@ FUNCTION {patent}
   new.block
   format.title
   number empty$ not
-    { punct.colon * number * }
+    { bbl.colon * number * }
     'skip$
   if$
   "title" output.check
@@ -2356,7 +2426,7 @@ FUNCTION {electronic}
     'skip$
   if$
 %</numerical>
-  format.pages punct.colon output.after
+  format.pages bbl.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
   format.url output
@@ -2583,6 +2653,7 @@ FUNCTION {default.type} { misc }
 
 %    \end{macrocode}
 %
+%
 % \subsection{Common macros}
 %
 % Here are macros for common things that may vary from style to style.
@@ -2666,82 +2737,16 @@ MACRO {tcs} {"Theoretical Computer Science"}
 
 %    \end{macrocode}
 %
-% \subsection{Read bib entries and execute}
+%
+% \subsection{Format labels}
 %
 % Now we read in the .BIB entries.
 %    \begin{macrocode}
 READ
 
-EXECUTE {init.options}
-
 EXECUTE {init.state.consts}
 
-FUNCTION {set.entry.lang}
-{ language empty$
-    { author field.or.null title field.or.null * get.str.lang }
-    { language "english" = language "american" = or language "british" = or
-        { lang.en }
-        { language "chinese" =
-            { lang.zh }
-            { language "japanese" =
-                { lang.ja }
-                { language "russian" =
-                    { lang.ru }
-                    { lang.other }
-                  if$
-                }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-  'entry.lang :=
-}
-
-FUNCTION {set.entry.url}
-{ "" 'entry.url :=
-  #0 'is.digital :=
-  url empty$ not
-    { "\url{" url * "}" * 'entry.url :=
-      #1 'is.digital :=
-    }
-    { howpublished empty$ not
-        { howpublished #1 #5 substring$ "\url{" =
-            { howpublished 'entry.url :=
-              #1 'is.digital :=
-            }
-            'skip$
-          if$
-        }
-        { note empty$ not
-            { note #1 #5 substring$ "\url{" =
-                { note 'entry.url :=
-                  #1 'is.digital :=
-                }
-                'skip$
-              if$
-            }
-            'skip$
-          if$
-        }
-      if$
-    }
-  if$
-  doi empty$ not
-    { #1 'is.digital := }
-    'skip$
-  if$
-  medium empty$ not
-    { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'is.digital := }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-}
+EXECUTE {init.options}
 
 %    \end{macrocode}
 %
@@ -2770,6 +2775,102 @@ FUNCTION {chop.word}
   if$
 }
 
+%    \end{macrocode}
+%
+% The |format.lab.names| function makes a short label by using the initials of
+% the von and Last parts of the names (but if there are more than four names,
+% (i.e., people) it truncates after three and adds a superscripted "+";
+% it also adds such a "+" if the last of multiple authors is "others").
+% If there is only one name, and its von and Last parts combined have just
+% a single name-token ("Knuth" has a single token, "Brinch Hansen" has two),
+% we take the first three letters of the last name.  The boolean
+% et.al.char.used tells whether we've used a superscripted "+", so that we
+% know whether to include a LaTeX macro for it.
+%
+% \begin{pseudocode}
+% format.lab.names(s) ==
+%  BEGIN
+%       numnames := num.names$(s)
+%       if numnames > 1 then
+%           if numnames > 4 then
+%               namesleft := 3
+%           else
+%               namesleft := numnames
+%           nameptr := 1
+%           nameresult := ""
+%           while namesleft > 0
+%             do
+%               if (name_ptr = numnames) and
+%                    format.name$(s, nameptr, "{ff }{vv }{ll}{ jj}") = "others"
+%                  then nameresult := nameresult * "{\etalchar{+}}"
+%                       et.al.char.used := true
+%                  else nameresult := nameresult *
+%                               format.name$(s, nameptr, "{v{}}{l{}}")
+%               nameptr := nameptr + 1
+%               namesleft := namesleft - 1
+%             od
+%           if numnames > 4 then
+%               nameresult := nameresult * "{\etalchar{+}}"
+%               et.al.char.used := true
+%       else
+%           t := format.name$(s, 1, "{v{}}{l{}}")
+%           if text.length$(t) < 2 then % there's just one name-token
+%               nameresult := text.prefix$(format.name$(s,1,"{ll}"),3)
+%           else
+%               nameresult := t
+%           fi
+%       fi
+%       return nameresult
+%  END
+% \end{pseudocode}
+%
+% Exactly what fields we look at in constructing the primary part of the label
+% depends on the entry type; this selectivity (as opposed to, say, always
+% looking at author, then editor, then key) helps ensure that "ignored" fields,
+% as described in the LaTeX book, really are ignored.  Note that MISC is part
+% of the deepest `else' clause in the nested part of calc.label; thus, any
+% unrecognized entry type in the database is handled correctly.
+%
+% There is one auxiliary function for each of the four different sequences of
+% fields we use.  The first of these functions looks at the author field, and
+% then, if necessary, the key field.  The other three functions, which might
+% look at two fields and the key field, are similar, except that the key field
+% takes precedence over the organization field (for labels---not for sorting).
+%
+% The calc.label function calculates the preliminary label of an entry, which
+% is formed by taking three letters of information from the author or editor or
+% key or organization field (depending on the entry type and on what's empty,
+% but ignoring a leading "The " in the organization), and appending the last
+% two characters (digits) of the year. It is an error if the appropriate fields
+% among author, editor, organization, and key are missing, and we use
+% the first three letters of the |cite$| in desperation when this happens.
+% The resulting label has the year part, but not the name part, |purify$|ed
+% (|purify$|ing the year allows some sorting shenanigans by the user).
+%
+% This function also calculates the version of the label to be used in sorting.
+%
+% The final label may need a trailing 'a', 'b', etc., to distinguish it from
+% otherwise identical labels, but we can't calculated those "extra.label"s
+% until after sorting.
+%
+% \begin{pseudocode}
+% calc.label ==
+%  BEGIN
+%       if type$ = "book" or "inbook" then
+%           author.editor.key.label
+%       else if type$ = "proceedings" then
+%           editor.key.organization.label
+%       else if type$ = "manual" then
+%           author.key.organization.label
+%       else
+%           author.key.label
+%       fi fi fi
+%       label := label * substring$(purify$(field.or.null(year)), -1, 2)
+%               % assuming we will also sort, we calculate a sort.label
+%       sort.label := sortify(label), but use the last four, not two, digits
+%  END
+% \end{pseudocode}
+%    \begin{macrocode}
 FUNCTION {format.lab.names}
 { 's :=
   s #1 "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
@@ -2779,7 +2880,7 @@ FUNCTION {format.lab.names}
     { t #1 "{ll}{ff}" format.name$}
   if$
   s num.names$ #1 >
-    { "\ " * format.et.al * }
+    { bbl.space * bbl.et.al * }
     'skip$
   if$
 }
@@ -2876,13 +2977,15 @@ FUNCTION {calc.label}
 
 %    \end{macrocode}
 %
+% \subsection{Sorting}
+%
 % When sorting, we compute the sortkey by executing "presort" on each entry.
 % The presort key contains a number of "sortify"ed strings, concatenated
 % with multiple blanks between them.  This makes things like "brinch  per"
 % come before "brinch hansen  per".
 %
 % The fields used here are: the sort.label for alphabetic labels (as set by
-% calc.label), followed by the author names (or editor names or organization
+% |calc.label|), followed by the author names (or editor names or organization
 % (with a leading "The " removed) or key field, depending on entry type and on
 % what's empty), followed by year, followed by the first bit of the title
 % (chopping off a leading "The ", "A ", or "An ").
@@ -2893,7 +2996,7 @@ FUNCTION {calc.label}
 % four will separate the names from year (and from label, if alphabetic),
 % and four will separate year from title.
 %
-% The sort.format.names function takes an argument that should be in
+% The |sort.format.names| function takes an argument that should be in
 % BibTeX name format, and returns a string containing "   "-separated
 % names in the format described above.  The function is almost the same
 % as format.names.
@@ -2973,7 +3076,7 @@ FUNCTION {sort.format.title}
 % purposes, we still remove a leading "The " from the organization field.
 %    \begin{macrocode}
 FUNCTION {anonymous.sort}
-{ is.in.chinese
+{ lang.zh entry.lang =
     { "yi4 ming2" }
     { "anon" }
   if$
@@ -3036,6 +3139,10 @@ FUNCTION {editor.organization.sort}
 }
 
 %</authoryear>
+%    \end{macrocode}
+%
+% 顺序编码制的排序要简单得多
+%    \begin{macrocode}
 %<*numerical>
 INTEGERS { seq.num }
 
@@ -3052,8 +3159,8 @@ FUNCTION {int.to.fix}
 %</numerical>
 %    \end{macrocode}
 %
-% There is a limit, entry.max$, on the length of an entry string variable
-% (which is what its sort.key$ is), so we take at most that many characters
+% There is a limit, |entry.max$|, on the length of an entry string variable
+% (which is what its |sort.key$| is), so we take at most that many characters
 % of the constructed key, and hope there aren't many references that match
 % to that many characters!
 %    \begin{macrocode}
@@ -3212,6 +3319,8 @@ ITERATE {bib.sort.order}
 SORT
 
 %    \end{macrocode}
+%
+% \subsection{Write bbl file}
 %
 % Now we're ready to start writing the .BBL file.
 % We begin, if necessary, with a LaTeX macro for unnamed names in an alphabetic
