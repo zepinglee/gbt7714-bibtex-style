@@ -1299,7 +1299,7 @@ FUNCTION {format.names}
             { bbl.et.al }
             { t get.str.lang 'name.lang :=
               name.lang lang.en =
-                { t #1 "{vv~}{ll}{ f{~}}" format.name$
+                { t #1 "{vv~}{ll}{~f{~}}" format.name$
                   uppercase.name
                     { "u" change.case$ }
                     'skip$
