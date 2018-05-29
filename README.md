@@ -53,7 +53,7 @@ medium = {CD},
 
 文献类型         | 标识代码 | Entry Type
 ---              | :---:    | ---
-普通图书         | M        | `book` 或 `inbook`
+普通图书         | M        | `book`
 图书的析出文献   | M        | `incollection`
 会议录           | C        | `proceedings`
 会议录的析出文献 | C        | `inproceedings` 或 `conference`
@@ -74,7 +74,6 @@ medium = {CD},
 
 注：
 - 带 “\*” 的类型不是 BibTeX 的标准文献类型。
-- 不支持的 BibTeX 标准类型有：`booklet`, `manual`, `unpublished`。
 
 
 ## 著录项目
@@ -109,8 +108,7 @@ medium = {CD},
 
 注:
 - 其中带星号的不是 BibTeX/natbib 的标准著录项目。
-- 不支持的 BibTeX 标准著录项目有 annote, chapter, crossref, howpublished,
-month, note, type。
+- 不支持的 BibTeX 标准著录项目有 annote, chapter, crossref, month, type。
 
 ## 参考文献著录标准
 
