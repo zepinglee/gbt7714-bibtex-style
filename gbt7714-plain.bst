@@ -95,11 +95,13 @@ FUNCTION {init.state.consts}
   #0 'lang.other :=
 }
 
+FUNCTION {bbl.space} { "\ " }
+
+FUNCTION {bbl.wide.space} { "\quad " }
+
 FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.slash} { "//\allowbreak{}" }
-
-FUNCTION {bbl.space} { "\ " }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -682,16 +684,16 @@ FUNCTION {format.volume.number}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       title *
     }
     { title
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -705,16 +707,16 @@ FUNCTION {format.series.vol.num.title}
 FUNCTION {format.series.vol.num.booktitle}
 { format.volume.number 's :=
   series empty$ not
-    { series ": " *
+    { series bbl.colon *
       s empty$ not
-        { s * "\quad " * }
+        { s * bbl.wide.space * }
         'skip$
       if$
       booktitle *
     }
     { booktitle
       s empty$ not
-        { ": " * s * }
+        { bbl.colon * s * }
         'skip$
       if$
     }
@@ -820,9 +822,9 @@ FUNCTION {format.address.publisher}
 { address empty$ not
     { address
       format.publisher empty$ not
-        { ": " * format.publisher * }
+        { bbl.colon * format.publisher * }
         { is.electronic not print.missing.address.publisher and
-            { ": " * bbl.sine.nomine * }
+            { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
@@ -830,7 +832,7 @@ FUNCTION {format.address.publisher}
     }
     { is.electronic not print.missing.address.publisher and
         { format.publisher empty$ not
-            { bbl.sine.loco ": " * format.publisher * }
+            { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
           if$
         }
