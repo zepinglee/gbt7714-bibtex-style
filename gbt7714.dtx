@@ -495,6 +495,7 @@ version 2005/12/01 or later.
 %<*authoryear|numerical>
 INTEGERS {
   uppercase.name
+  max.num.authors
   period.between.author.year
   sentence.case.title
   print.mark
@@ -517,6 +518,11 @@ FUNCTION {init.options}
 % 英文姓名转为全大写：
 %    \begin{macrocode}
   #1 'uppercase.name :=
+%    \end{macrocode}
+%
+% 最多显示的作者数量：
+%    \begin{macrocode}
+  #3 'max.num.authors :=
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
@@ -1294,7 +1300,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr #4 =
+      nameptr max.num.authors #1 + =
         { bbl.et.al
           #1 'namesleft :=
         }

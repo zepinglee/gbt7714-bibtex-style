@@ -19,6 +19,7 @@
 %% 
 INTEGERS {
   uppercase.name
+  max.num.authors
   period.between.author.year
   sentence.case.title
   print.mark
@@ -32,6 +33,7 @@ INTEGERS {
 FUNCTION {init.options}
 {
   #1 'uppercase.name :=
+  #3 'max.num.authors :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
   #1 'print.mark :=
@@ -429,7 +431,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr #4 =
+      nameptr max.num.authors #1 + =
         { bbl.et.al
           #1 'namesleft :=
         }
