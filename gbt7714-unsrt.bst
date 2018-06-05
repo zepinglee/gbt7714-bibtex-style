@@ -1308,9 +1308,9 @@ FUNCTION {misc}
     'article
     { booktitle empty$ not
         'incollection
-        { address empty$ not publisher empty$ not and
+        { publisher empty$ not
             'monograph
-            { url empty$ not
+            { url empty$ not doi empty$ not or
                 'electronic
                 { "Z" set.entry.mark
                   monograph

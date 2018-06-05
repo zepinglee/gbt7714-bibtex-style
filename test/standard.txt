@@ -192,7 +192,7 @@ FAN~X, SOMMERS~C~H.
 贾东琴, 柯平.
 \newblock
   面向数字素养的高校图书馆数字服务体系研究\allowbreak[C]//\allowbreak{}中国图书馆学会.
-\newblock 中国图书馆学会年会论文集：2011年卷.
+\newblock 中国图书馆学会年会论文集：2011 年卷.
 \newblock 北京: 国家图书馆出版社, 2011: 45-52.
 
 \bibitem[Weinstein\ et~al.(1974)Weinstein and Swertz]{weinstein}
@@ -858,7 +858,7 @@ Information and documentation---the {Dublin} cord metadata element set: {ISO
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[swg(1988)]{swgwj}
-卷39 乞致仕第一\allowbreak[M]//\allowbreak{}苏魏公文集: 下册.
+卷 39 乞致仕第一\allowbreak[M]//\allowbreak{}苏魏公文集: 下册.
 \newblock 北京: 中华书局, 1988: 590.
 
 \bibitem[白书农(1998)]{bsn}
