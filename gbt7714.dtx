@@ -1862,6 +1862,10 @@ FUNCTION {contains.dash}
   if$
 }
 
+%    \end{macrocode}
+%
+% 著者-出版年制必须提取出年份
+%    \begin{macrocode}
 FUNCTION {format.year}
 { year empty$ not
     { year extract.before.dash }
@@ -1876,6 +1880,10 @@ FUNCTION {format.year}
   extra.label *
 }
 
+%    \end{macrocode}
+%
+% 专利和报纸都是使用日期而不是年
+%    \begin{macrocode}
 FUNCTION {format.date}
 { type$ "patent" = type$ "newspaper" = or
   date empty$ not and
@@ -1884,10 +1892,12 @@ FUNCTION {format.date}
   if$
 }
 
+%    \end{macrocode}
+%
+% 更新、修改日期只用于电子资源 elctronic
+%    \begin{macrocode}
 FUNCTION {format.editdate}
 { date empty$ not
-  type$ "newspaper" = not and
-  is.electronic and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
@@ -1899,7 +1909,7 @@ FUNCTION {format.editdate}
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$ not
+{ urldate empty$ not is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -2381,7 +2391,6 @@ FUNCTION {article}
   volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
-  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output

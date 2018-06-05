@@ -923,15 +923,13 @@ FUNCTION {format.date}
 
 FUNCTION {format.editdate}
 { date empty$ not
-  type$ "newspaper" = not and
-  is.electronic and
     { "\allowbreak(" date * ")" * }
     { "" }
   if$
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not
+{ urldate empty$ not is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -1264,7 +1262,6 @@ FUNCTION {article}
   volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
-  format.editdate "" output.after
   format.urldate "" output.after
   format.url output
   format.doi output

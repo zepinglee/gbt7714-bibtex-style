@@ -307,8 +307,7 @@ FRESE~K~S, KATUS~H~A, MEDER~B.
 \bibitem[Myburg\ et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.]{myburg}
 MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
 \newblock The genome of eucalyptus grandis\allowbreak[J/OL].
-\newblock Nature, 2014, 510:\penalty0
-  356-362\allowbreak(2014-06-19)\allowbreak[2014-06-25].
+\newblock Nature, 2014, 510:\penalty0 356-362\allowbreak[2014-06-25].
 \newblock
   \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
 \newblock DOI: \doi{10.1038/nature13308}.
@@ -726,7 +725,7 @@ BABU~B~V, NAGAR~A~K, DEEP~K, et~al.
 \newblock 国防白皮书:
   中国武装力量的多样化运用\allowbreak[R/OL].
 \newblock \allowbreak(2013-04-16)\allowbreak[2014-06-11].
-\newblock \url{http://www.mod.gov.cn/affair/2013-04/16/content_4442839}.
+\newblock \url{http://www.mod.gov.cn/affair/2013-04/16/content_4442839.htm}.
 
 \bibitem[汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, et~al.]{twj}
 汤万金, 杨跃翔, 刘文, 等.
