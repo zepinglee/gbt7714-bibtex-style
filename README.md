@@ -47,6 +47,7 @@ language = {japanese},
 mark = {M},
 medium = {CD},
 ```
+4. 要生成“[1-3]”这样连起来的引用，应该在正文中使用 `\cite{aaa,bbb,ccc}`。
 
 
 ## 文献类型
