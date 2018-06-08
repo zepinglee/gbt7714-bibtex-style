@@ -1,0 +1,34 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\bibitem[萧钰(2001)]{xy}
+萧钰.
+\newblock 出版业信息化迈入快车道\allowbreak[EB/OL].
+\newblock \allowbreak(2001-12-19)\allowbreak[2002-04-15].
+\newblock \url{http://www.creader.com/news/20011219/200112190019.html}.
+
+\bibitem[李强(2012)]{lq}
+李强.
+\newblock 化解医患矛盾需釜底抽薪\allowbreak[EB/OL].
+\newblock \allowbreak(2012-05-03)\allowbreak[2013-03-25].
+\newblock \url{http://wenku.baidu.com/view/47e4f206b52acfc789ebc92f.html}.
+
+\bibitem[{Commonwealth Libraries Bureau of Library Development. Pennsylvania
+  Department of Education Office}()]{clbld}
+{Commonwealth Libraries Bureau of Library Development. Pennsylvania Department
+  of Education Office}.
+\newblock Pennsylvania library laws\allowbreak[EB/OL].
+\newblock \allowbreak[2013-03-24].
+\newblock \url{http://www.racc.edu/yocum/pdf/PALibraryLaws.pdf}.
+
+\bibitem[dcm(2012)]{dcmes}
+Dublin core metadata element set: version 1.1\allowbreak[EB/OL].
+\newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
+\newblock \url{http://dublincore.org/documents/dces/}.
+
+\end{thebibliography}

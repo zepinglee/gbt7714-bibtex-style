@@ -1,0 +1,42 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\bibitem[尼葛洛庞帝(1996)]{nglpd}
+尼葛洛庞帝, 1996.
+\newblock 数字化生存\allowbreak[M].
+\newblock 胡泳, 范海燕, 译.
+\newblock 海口: 海南出版社.
+
+\bibitem[汪冰(1997)]{wb}
+汪冰, 1997.
+\newblock 电子图书馆理论与实践研究\allowbreak[M].
+\newblock 北京: 北京图书馆出版社: 16.
+
+\bibitem[杨宗英(1996)]{yzy}
+杨宗英, 1996.
+\newblock 电子图书馆的现实模型\allowbreak[J].
+\newblock 中国图书馆学报\penalty0 (2):\penalty0 24-29.
+
+\bibitem[Baker\ et~al.(1995)Baker and Jackson]{baker}
+BAKER~S~K, JACKSON~M~E, 1995.
+\newblock The future of resource sharing\allowbreak[M].
+\newblock New York: The Haworth Press.
+
+\bibitem[Chernik(1982)]{chernik}
+CHERNIK~B~E, 1982.
+\newblock Introduction to library services for library
+  technicians\allowbreak[M].
+\newblock Littleton, Colo.: Libraries Unlimited, Inc.
+
+\bibitem[Dowler(1995)]{dowler}
+DOWLER~L, 1995.
+\newblock The research university’s dilemma: Resource sharing and research in
+  a transinstitutional environment\allowbreak[J].
+\newblock Journal of library administration, 21\penalty0 (1/2):\penalty0 5-26.
+
+\end{thebibliography}

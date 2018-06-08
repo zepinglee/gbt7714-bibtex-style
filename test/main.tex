@@ -2,6 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \hypersetup{bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2}
+\ctexset{chapter={name={},number=\arabic{chapter}}}
 \usepackage[numbers,sectionbib]{gbt7714}
 \usepackage[sectionbib]{chapterbib}
 
@@ -16,31 +17,30 @@
 
 \include{intro}
 
-\include{4.1}
-\include{4.2}
-\include{4.3}
-\include{4.4}
-\include{4.5}
-\include{4.6}
+\include{entry-monograph}
+\include{entry-incollection}
+\include{entry-periodical}
+\include{entry-article}
+\include{entry-patent}
+\include{entry-electronic}
 
-\include{8}
+\include{fields}
 
-\include{9.1}
-\include{9.2}
-
-\include{10.1}
-\include{10.2}
+\include{bib-numerical}
+\include{bib-authoryear}
+\include{citation-numerical}
+\include{citation-authoryear}
 
 \appendix
-\include{a.1}
-\include{a.2}
-\include{a.3}
-\include{a.4}
-\include{a.5}
-\include{a.6}
-\include{a.7}
-\include{a.8}
-\include{a.9}
-\include{a.10}
+\include{sample-book}
+\include{sample-proceedings}
+\include{sample-techreport}
+\include{sample-thesis}
+\include{sample-patent}
+\include{sample-standard}
+\include{sample-incollection}
+\include{sample-article}
+\include{sample-newspaper}
+\include{sample-electronic}
 
 \end{document}

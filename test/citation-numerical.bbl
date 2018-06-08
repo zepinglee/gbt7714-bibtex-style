@@ -1,0 +1,33 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\bibitem[Sunstein(1996)]{sunstein}
+SUNSTEIN~C~R.
+\newblock Social norms and social roles\allowbreak[J/OL].
+\newblock Columbia law review, 1996, 96:\penalty0 903\allowbreak[2012-01-26].
+\newblock
+  \url{http://www.heinonline.org/HOL/Page?handle=hein.journals/clr96&id=913&collection=journals&index=journals/clr}.
+
+\bibitem[Morri(2010)]{morri}
+MORRI~I.
+\newblock Why the west rules for now: the patterns of history, and what they
+  reveal about the future\allowbreak[M].
+\newblock New York: Farrar, Straus and Giroux, 2010.
+
+\bibitem[罗杰斯(2011)]{ljs}
+罗杰斯.
+\newblock 西方文明史: 问题与源头\allowbreak[M].
+\newblock 潘惠霞, 魏婧, 杨艳, 等译.
+\newblock 大连: 东北财经大学出版社, 2011: 15-16.
+
+\bibitem[陈登原(2000)]{cdy}
+陈登原.
+\newblock 国史旧闻：第 1 卷\allowbreak[M].
+\newblock 北京: 中华书局, 2000: 29.
+
+\end{thebibliography}

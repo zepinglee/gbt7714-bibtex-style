@@ -1,0 +1,44 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\bibitem[中国互联网络信息中心(2012)]{zghlwlxxzx}
+中国互联网络信息中心.
+\newblock 第 29
+  次中国互联网络发展现状统计报告\allowbreak[R/OL].
+\newblock \allowbreak(2012-01-16)\allowbreak[2013-03-26].
+\newblock
+  \url{http://www.cnnic.net.cn/hlwfzyj/hlwxzbg/201201/P020120709345264469680}.
+
+\bibitem[北京市人民政府办公厅(2005)]{bjsrmzfbgt}
+北京市人民政府办公厅.
+\newblock
+  关于转发北京市企业投资项目核准暂行实施办法的通知:
+  京政办发[2005]37号\allowbreak[A/OL].
+\newblock \allowbreak(2005-07-12)\allowbreak[2011-07-12].
+\newblock \url{http://china.findlaw.cn/fagui/p_1/39934.html}.
+
+\bibitem[Bawden(2008)]{bawden}
+BAWDEN~D.
+\newblock Origins and concepts of digital literacy\allowbreak[EB/OL].
+\newblock \allowbreak(2008-05-04)\allowbreak[2013-03-08].
+\newblock
+  \url{http://www.soi.city.ac.uk/~dbawden/digital%20literacy%20chapter.pdf}.
+
+\bibitem[{Online Computer Library Center, Inc}()]{oclc}
+{Online Computer Library Center, Inc}.
+\newblock About {OCLC}: History of cooperation\allowbreak[EB/OL].
+\newblock \allowbreak[2012-03-27].
+\newblock \url{http://www.oclc.org/about/cooperation.en.html}.
+
+\bibitem[Hopkinson(2009)]{hopkinson}
+HOPKINSON~A.
+\newblock {UNIMARC} and metadata: Dublin core\allowbreak[EB/OL].
+\newblock \allowbreak(2009-04-22)\allowbreak[2013-03-27].
+\newblock \url{http://archive.ifla.org/IV/ifla64/138-161e.htm}.
+
+\end{thebibliography}
