@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `numerical')
+%% gbt7714.dtx  (with options: `2015,numerical')
 %% Version: 2018/05/26 v1.1
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>

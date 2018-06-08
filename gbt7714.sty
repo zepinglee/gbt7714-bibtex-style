@@ -20,13 +20,16 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
   [2018/05/26 v1.1 GB/T 7714-2015 BibTeX Style]
+\newif\if@gbt@mmxv
 \newif\if@gbt@numerical
 \newif\if@gbt@super
+\DeclareOption{2015}{\@gbt@mmxvtrue}
+\DeclareOption{2005}{\@gbt@mmxvfalse}
 \DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
 \DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
 \DeclareOption{authoryear}{\@gbt@numericalfalse}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ExecuteOptions{super}
+\ExecuteOptions{2015,super}
 \ProcessOptions\relax
 \if@gbt@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
@@ -37,20 +40,25 @@
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\def\tmp@numerical{numerical}
-\def\tmp@authoryear{authoryear}
 \newcommand\gbtbibstyle[1]{%
-  \def\tmp@gbt{#1}%
-  \ifx\tmp@gbt\tmp@numerical%
-    \bibliographystyle{gbt7714-unsrt}%
-  \else%
-    \ifx\tmp@gbt\tmp@authoryear%
-      \bibliographystyle{gbt7714-plain}%
-    \else%
-      \PackageError{gbt7714}{Unknown argument #1.}
-      {It should be `numerical' or `authoryear'.}
-    \fi%
-  \fi%
+  \ifstrequal{#1}{numerical}{%
+    \if@gbt@mmxv
+      \bibliographystyle{gbt7714-unsrt}%
+    \else
+      \bibliographystyle{gbt7714-2005-unsrt}%
+    \fi
+  }{%
+    \ifstrequal{#1}{authoryear}{%
+      \if@gbt@mmxv
+        \bibliographystyle{gbt7714-plain}%
+      \else
+        \bibliographystyle{gbt7714-2005-plain}%
+      \fi
+    }{%
+      \PackageError{gbt7714}{Unknown argument #1.}%
+      {It should be `numerical' or `authoryear'.}%
+    }%
+  }%
 }
 \if@gbt@numerical
   \if@gbt@super

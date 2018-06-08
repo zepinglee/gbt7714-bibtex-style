@@ -3,27 +3,17 @@
 MAIN = main
 
 SHELL = bash
-LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
-
-STYFILES = gbt7714.sty
-
-BSTFILES = gbt7714-plain.bst gbt7714-unsrt.bst
+LATEXMK =  latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
 
 test : $(MAIN).pdf
 
-%.bst : ../%.bst
-	cp -f $< .
-
-%.sty : ../%.sty
-	cp -f $< .
-
-$(MAIN).pdf : $(MAIN).tex $(STYFILES) $(BSTFILES) FORCE_MAKE
-	$(LATEXMK) $<
+$(MAIN).pdf : $(MAIN).tex FORCE_MAKE
+	TEXINPUTS="..:$${TEXINPUTS}" BSTINPUTS="..:$${BSTINPUTS}" $(LATEXMK) $<
 
 clean :
 	latexmk -c
-	rm -f *.sty *.bst *.aux *.log *.blg *.fls
+	rm -f *.aux *.blg *.fls *.log
 
 distclean :
 	latexmk -C
-	rm -f *.sty *.bst *.aux *.log *.blg *.fls
+	rm -f *.aux *.blg *.fls *.log

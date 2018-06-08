@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt7714-plain.bst',
+%% This is file `gbt7714-2005-plain.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,authoryear')
+%% gbt7714.dtx  (with options: `2005,authoryear')
 %% Version: 2018/05/26 v1.1
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
@@ -40,7 +40,7 @@ FUNCTION {init.options}
   #0 'italic.jounal :=
   #1 'print.missing.address.publisher :=
   #1 'print.url :=
-  #1 'print.doi :=
+  #0 'print.doi :=
   #0 'print.note :=
 }
 
@@ -97,7 +97,7 @@ FUNCTION {init.state.consts}
 
 FUNCTION {bbl.space} { "\ " }
 
-FUNCTION {bbl.wide.space} { "\quad " }
+FUNCTION {bbl.wide.space} { "\ " }
 
 FUNCTION {bbl.colon} { ": " }
 
