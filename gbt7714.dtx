@@ -816,18 +816,14 @@ FUNCTION {init.state.consts}
 %
 % 下面是一些常量的定义
 %    \begin{macrocode}
+FUNCTION {bbl.anonymous}
+{ lang.zh entry.lang =
+    { "佚名" }
+    { "Anon" }
+  if$
+}
+
 FUNCTION {bbl.space} { "\ " }
-
-%<*2015>
-FUNCTION {bbl.wide.space} { "\quad " }
-%</2015>
-%<*2005>
-FUNCTION {bbl.wide.space} { "\ " }
-%</2005>
-
-FUNCTION {bbl.colon} { ": " }
-
-FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -844,12 +840,16 @@ FUNCTION {bbl.et.al}
   if$
 }
 
-FUNCTION {bbl.anonymous}
-{ lang.zh entry.lang =
-    { "佚名" }
-    { "Anon" }
-  if$
-}
+FUNCTION {bbl.colon} { ": " }
+
+%<*2015>
+FUNCTION {bbl.wide.space} { "\quad " }
+%</2015>
+%<*2005>
+FUNCTION {bbl.wide.space} { "\ " }
+%</2005>
+
+FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.sine.loco}
 { lang.zh entry.lang =

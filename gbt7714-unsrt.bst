@@ -95,13 +95,14 @@ FUNCTION {init.state.consts}
   #0 'lang.other :=
 }
 
+FUNCTION {bbl.anonymous}
+{ lang.zh entry.lang =
+    { "佚名" }
+    { "Anon" }
+  if$
+}
+
 FUNCTION {bbl.space} { "\ " }
-
-FUNCTION {bbl.wide.space} { "\quad " }
-
-FUNCTION {bbl.colon} { ": " }
-
-FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
@@ -118,12 +119,11 @@ FUNCTION {bbl.et.al}
   if$
 }
 
-FUNCTION {bbl.anonymous}
-{ lang.zh entry.lang =
-    { "佚名" }
-    { "Anon" }
-  if$
-}
+FUNCTION {bbl.colon} { ": " }
+
+FUNCTION {bbl.wide.space} { "\quad " }
+
+FUNCTION {bbl.slash} { "//\allowbreak{}" }
 
 FUNCTION {bbl.sine.loco}
 { lang.zh entry.lang =

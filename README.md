@@ -24,6 +24,8 @@
 super(默认) | 角标数字 | 顺序编码
 numbers | 数字 | 顺序编码
 authoryear | 著者-出版年 | 著者-出版年
+2015（默认） | - | GB/T 7714-2015 版
+2005 | - | GB/T 7714-2005 版
 
 比如： `\usepackage[authoryear]{gbt7714}`
 
