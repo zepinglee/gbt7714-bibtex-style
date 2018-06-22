@@ -1328,7 +1328,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr max.num.authors #1 + =
+      nameptr max.num.authors >
         { bbl.et.al
           #1 'namesleft :=
         }
