@@ -21,7 +21,7 @@
 %<*install>
 \input docstrip.tex
 \preamble
-Version: 2018/05/26 v1.1
+Version: 2018/06/23 v1.0.8
 
 Copyright (C) 2016-\the\year by Zeping Lee <zepinglee AT gmail.com>
 
@@ -55,7 +55,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-  [2018/05/26 v1.1 GB/T 7714-2015 BibTeX Style]
+  [2018/06/23 v1.0.8 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>
@@ -64,11 +64,6 @@ version 2005/12/01 or later.
 \usepackage{hypdoc}
 \hypersetup{allcolors=blue}
 \usepackage[UTF8]{ctex}
-\IfFileExists{/System/Library/Fonts/Times.ttc}{%
-  \setmainfont{Times}
-  \setsansfont[Scale=MatchLowercase]{Helvetica}
-  \setmonofont[Scale=MatchLowercase]{Menlo}
-}{\relax}
 \usepackage{booktabs}
 \usepackage{listings}
 \lstnewenvironment{latex}{%
@@ -151,6 +146,15 @@ version 2005/12/01 or later.
 % \changes{v1.0}{2018/01/01}{Initial release.}
 %
 %
+% \begin{abstract}
+% The \pkg{gbt7714} package provides a BibTEX implementation for the China's
+% bibliography style standard GB/T 7714-2015.
+% It consists of two bst files for numerical and authoryear styles as well as a
+% \LaTeX{} package which provides the citation style defined in the standard.
+% It is compatible with \pkg{natbib} and supports language detection (Chinese
+% and English) for each biblilography entry.
+% \end{abstract}
+
 % \section{简介}
 %
 % 《GB/T 7714-2015 信息与文献\ 参考文献著录规则》（以下简称《规则》）是我国关于
@@ -322,7 +326,7 @@ version 2005/12/01 or later.
 % 若变量被设为 |#1| 则表示启用，设为 |#0| 则不启用。
 % 默认的值是严格遵循《规则》的配置。
 %
-% 若用户需要修改其他项目，可以联系作者新增更多接口。
+% 若用户需要定制更多内容，可以联系作者新增接口。
 %
 %
 % \StopEventually{}
@@ -479,7 +483,7 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\url}
 % 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-% \changes{v1.1}{2018/06/07}{使用 \pkg{xurl} 的方法改进 URL 断行}
+% \changes{v1.0.8}{2018/06/23}{使用 \pkg{xurl} 的方法改进 URL 断行}
 %    \begin{macrocode}
 \def\UrlBreaks{%
   \do\/%
@@ -503,9 +507,9 @@ version 2005/12/01 or later.
 % \label{sec:options}
 %
 % \begin{environment}{bst}
-% 这里定义了一些选项用于定制样式，
+% 这里定义了一些变量用于定制样式，
 % 可以在下面的 |init.options| 函数中选择是否启用。
-% \changes{v1.1}{2018/06/07}{新增一些接口供用户自定义样式}
+% \changes{v1.0.8}{2018/06/23}{新增接口供用户自定义样式}
 %    \begin{macrocode}
 %<*authoryear|numerical>
 INTEGERS {
@@ -1318,6 +1322,7 @@ FUNCTION {set.entry.lang}
 % Other formatting functions are similar, so no "comment version" will be
 % given for them.
 % \changes{v1.0.2}{2017/03/16}{正确识别姓名中的“others”}
+% \changes{v1.0.8}{2018/06/23}{使用“\textasciitilde”连接英文姓名}
 %    \begin{macrocode}
 INTEGERS { nameptr namesleft numnames name.lang }
 
@@ -2087,6 +2092,9 @@ FUNCTION {format.periodical.year.volume.number}
 %    \end{macrocode}
 %
 % \subsubsection{Format url and doi}
+%
+% 传统的 \BibTeX{} 习惯使用 howpublished 著录 url，这里提供支持。
+% \changes{v1.0.8}{2018/06/23}{支持 howpublished 中的 url}
 %    \begin{macrocode}
 FUNCTION {check.url}
 { url empty$ not

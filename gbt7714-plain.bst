@@ -5,7 +5,7 @@
 %% The original source files were:
 %%
 %% gbt7714.dtx  (with options: `2015,authoryear')
-%% Version: 2018/05/26 v1.1
+%% Version: 2018/06/23 v1.0.8
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -17,6 +17,7 @@
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
 %% 
+
 INTEGERS {
   uppercase.name
   max.num.authors
