@@ -1,8 +1,10 @@
 # GB/T 7714-2015 BibTeX Style
 
-[![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
+
+[![CTAN](https://img.shields.io/ctan/v/gbt7714.svg)](https://ctan.org/pkg/gbt7714)
 [![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/latest.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
+[![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
 
 
 ## 新特性
