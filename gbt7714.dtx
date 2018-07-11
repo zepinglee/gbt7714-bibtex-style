@@ -417,6 +417,11 @@ version 2005/12/01 or later.
 % 下面修改 \pkg{natbib} 的引用格式，主要是将页码写在上标位置。
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
+\newcommand\gbt@patchfailure[1]{%
+  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
+    Please contact the template author.%
+  }{}%
+}
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -427,7 +432,7 @@ version 2005/12/01 or later.
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
 %
 % Numerical 模式的 \cs{citep} 的页码：
@@ -446,7 +451,7 @@ version 2005/12/01 or later.
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citex}}
 %    \end{macrocode}
 %
 % Author-year 模式的 \cs{citep} 的页码：
@@ -469,7 +474,7 @@ version 2005/12/01 or later.
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citexnum}}
 %    \end{macrocode}
 % \end{macro}
 %

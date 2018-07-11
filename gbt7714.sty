@@ -73,6 +73,11 @@
   \citestyle{authoryear}
   \gbtbibstyle{authoryear}%
 \fi
+\newcommand\gbt@patchfailure[1]{%
+  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
+    Please contact the template author.%
+  }{}%
+}
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\NAT@cmt#2\fi
@@ -83,7 +88,7 @@
   \@ifnum{\NAT@ctype=\z@}{%
     \if*#2*\else\textsuperscript{#2}\fi
   }{}%
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citexnum}}
 \renewcommand\NAT@citesuper[3]{\ifNAT@swa
   \if*#2*\else#2\NAT@spacechar\fi
 \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
@@ -94,7 +99,7 @@
 }{%
   \if\relax\NAT@date\relax\else\NAT@@close\fi
   \if*#2*\else\textsuperscript{#2}\fi
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citex}}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
@@ -106,7 +111,7 @@
   \fi
 }{%
   \def@NAT@last@yr{-\NAT@penalty}%
-}{}{}
+}{}{\gbt@patchfailure{\NAT@citexnum}}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 \def\UrlBreaks{%
   \do\/%
