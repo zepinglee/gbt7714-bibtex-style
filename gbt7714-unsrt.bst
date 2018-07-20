@@ -594,12 +594,19 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
+FUNCTION {change.sentence.case}
+{ entry.lang lang.en =
+    { "t" change.case$ }
+    'skip$
+  if$
+}
+
 FUNCTION {format.title}
 { title empty$
     { "" }
     { title
-      entry.lang lang.en = sentence.case.title and
-        { "t" change.case$ }
+      sentence.case.title
+        'change.sentence.case
         'skip$
       if$
     }
@@ -685,23 +692,33 @@ FUNCTION {format.volume.number}
 FUNCTION {format.series.vol.num.title}
 { format.volume.number 's :=
   series empty$ not
-    { series bbl.colon *
+    { series
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
+      bbl.colon *
       s empty$ not
         { s * bbl.wide.space * }
         'skip$
       if$
-      title *
+      title
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
+      *
     }
     { title
+      sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
       s empty$ not
         { bbl.colon * s * }
         'skip$
       if$
     }
-  if$
-  entry.lang lang.en = sentence.case.title and
-    { "t" change.case$ }
-    'skip$
   if$
 }
 
@@ -786,7 +803,7 @@ FUNCTION {format.edition}
           if$
         }
         { entry.lang lang.en =
-            { edition "t" change.case$ 's :=
+            { edition change.sentence.case 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
                 { s " ed." *}
