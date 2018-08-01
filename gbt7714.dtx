@@ -560,6 +560,11 @@ FUNCTION {init.options}
   #1 'sentence.case.title :=
 %    \end{macrocode}
 %
+% 在标题添加超链接：
+%    \begin{macrocode}
+  #0 'link.title :=
+%    \end{macrocode}
+%
 % 著录文献类型标识（比如“[M/OL]“）：
 %    \begin{macrocode}
   #1 'show.mark :=
@@ -1523,12 +1528,27 @@ FUNCTION {change.sentence.case}
   if$
 }
 
+FUNCTION {add.link}
+ { url empty$ not
+     { "\href{" url * "}{" * swap$ * "}" * }
+     { doi empty$ not
+         { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+         'skip$
+       if$
+     }
+   if$
+ }
+
 FUNCTION {format.title}
 { title empty$
     { "" }
     { title
       sentence.case.title
         'change.sentence.case
+        'skip$
+      if$
+      link.title
+        'add.link
         'skip$
       if$
     }
@@ -1690,6 +1710,10 @@ FUNCTION {format.series.vol.num.title}
         'skip$
       if$
     }
+  if$
+  link.title
+    'add.link
+    'skip$
   if$
 }
 

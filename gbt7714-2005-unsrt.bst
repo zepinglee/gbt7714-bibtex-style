@@ -38,6 +38,7 @@ FUNCTION {init.options}
   #3 'max.num.authors :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
+  #0 'link.title :=
   #1 'show.mark :=
   #0 'italic.jounal :=
   #1 'show.missing.address.publisher :=
@@ -602,12 +603,27 @@ FUNCTION {change.sentence.case}
   if$
 }
 
+FUNCTION {add.link}
+ { url empty$ not
+     { "\href{" url * "}{" * swap$ * "}" * }
+     { doi empty$ not
+         { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+         'skip$
+       if$
+     }
+   if$
+ }
+
 FUNCTION {format.title}
 { title empty$
     { "" }
     { title
       sentence.case.title
         'change.sentence.case
+        'skip$
+      if$
+      link.title
+        'add.link
         'skip$
       if$
     }
@@ -720,6 +736,10 @@ FUNCTION {format.series.vol.num.title}
         'skip$
       if$
     }
+  if$
+  link.title
+    'add.link
+    'skip$
   if$
 }
 
