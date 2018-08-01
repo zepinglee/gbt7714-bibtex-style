@@ -23,12 +23,13 @@ INTEGERS {
   max.num.authors
   period.between.author.year
   sentence.case.title
-  print.mark
+  link.title
+  show.mark
   italic.jounal
-  print.missing.address.publisher
-  print.url
-  print.doi
-  print.note
+  show.missing.address.publisher
+  show.url
+  show.doi
+  show.note
 }
 
 FUNCTION {init.options}
@@ -37,12 +38,12 @@ FUNCTION {init.options}
   #3 'max.num.authors :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
-  #1 'print.mark :=
+  #1 'show.mark :=
   #0 'italic.jounal :=
-  #1 'print.missing.address.publisher :=
-  #1 'print.url :=
-  #1 'print.doi :=
-  #0 'print.note :=
+  #1 'show.missing.address.publisher :=
+  #1 'show.url :=
+  #1 'show.doi :=
+  #0 'show.note :=
 }
 
 ENTRY
@@ -761,7 +762,7 @@ FUNCTION {set.entry.mark}
 }
 
 FUNCTION {format.mark}
-{ print.mark
+{ show.mark
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
         { is.electronic
@@ -841,14 +842,14 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { bbl.colon * format.publisher * }
-        { is.electronic not print.missing.address.publisher and
+        { is.electronic not show.missing.address.publisher and
             { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
       if$
     }
-    { is.electronic not print.missing.address.publisher and
+    { is.electronic not show.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
@@ -1098,7 +1099,7 @@ FUNCTION {is.in.url}
 
 FUNCTION {format.doi}
 { ""
-  doi empty$ not print.doi and
+  doi empty$ not show.doi and
     { "" 's :=
       doi 't :=
       #0 'numnames :=
@@ -1156,7 +1157,7 @@ FUNCTION {check.electronic}
 }
 
 FUNCTION {format.note}
-{ note empty$ not print.note and
+{ note empty$ not show.note and
     { note }
     { "" }
   if$
@@ -1765,7 +1766,7 @@ FUNCTION {editor.organization.sort}
 
 FUNCTION {presort}
 { set.entry.lang
-  print.url print.doi check.electronic
+  show.url show.doi check.electronic
   calc.label
   label sortify
   "    "
@@ -1867,7 +1868,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  print.url print.doi or
+  show.url show.doi or
     { "\providecommand{\url}[1]{#1}"
       write$ newline$
       "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
@@ -1877,7 +1878,7 @@ FUNCTION {begin.bib}
     }
     'skip$
   if$
-  print.doi
+  show.doi
     { "\providecommand{\href}[2]{\url{#2}}"
       write$ newline$
       "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
