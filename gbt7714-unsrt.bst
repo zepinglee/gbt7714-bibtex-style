@@ -32,7 +32,7 @@ INTEGERS {
   show.note
 }
 
-FUNCTION {init.options}
+FUNCTION {load.config}
 {
   #1 'uppercase.name :=
   #3 'max.num.authors :=
@@ -76,7 +76,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang is.electronic }
+  { entry.lang entry.is.electronic }
   { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -785,7 +785,7 @@ FUNCTION {format.mark}
 { show.mark
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
-        { is.electronic
+        { entry.is.electronic
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
@@ -862,14 +862,14 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { bbl.colon * format.publisher * }
-        { is.electronic not show.missing.address.publisher and
+        { entry.is.electronic not show.missing.address.publisher and
             { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
       if$
     }
-    { is.electronic not show.missing.address.publisher and
+    { entry.is.electronic not show.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
@@ -970,7 +970,7 @@ FUNCTION {format.editdate}
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not is.electronic and
+{ urldate empty$ not entry.is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -1056,12 +1056,12 @@ FUNCTION {format.periodical.year.volume.number}
 FUNCTION {check.url}
 { url empty$ not
     { "\url{" url * "}" * 'entry.url :=
-      #1 'is.electronic :=
+      #1 'entry.is.electronic :=
     }
     { howpublished empty$ not
         { howpublished #1 #5 substring$ "\url{" =
             { howpublished 'entry.url :=
-              #1 'is.electronic :=
+              #1 'entry.is.electronic :=
             }
             'skip$
           if$
@@ -1069,7 +1069,7 @@ FUNCTION {check.url}
         { note empty$ not
             { note #1 #5 substring$ "\url{" =
                 { note 'entry.url :=
-                  #1 'is.electronic :=
+                  #1 'entry.is.electronic :=
                 }
                 'skip$
               if$
@@ -1091,7 +1091,7 @@ FUNCTION {format.url}
 
 FUNCTION {check.doi}
 { doi empty$ not
-    { #1 'is.electronic := }
+    { #1 'entry.is.electronic := }
     'skip$
   if$
 }
@@ -1159,7 +1159,7 @@ FUNCTION {format.doi}
 
 FUNCTION {check.electronic}
 { "" 'entry.url :=
-  #0 'is.electronic :=
+  #0 'entry.is.electronic :=
     'check.doi
     'skip$
   if$
@@ -1168,7 +1168,7 @@ FUNCTION {check.electronic}
   if$
   medium empty$ not
     { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'is.electronic := }
+        { #1 'entry.is.electronic := }
         'skip$
       if$
     }
@@ -1320,7 +1320,7 @@ FUNCTION {patent}
 
 FUNCTION {electronic}
 { #1 #1 check.electronic
-  #1 'is.electronic :=
+  #1 'entry.is.electronic :=
   output.bibitem
   format.authors output
   author format.key output
@@ -1351,7 +1351,7 @@ FUNCTION {misc}
         'incollection
         { publisher empty$ not
             'monograph
-            { url empty$ not doi empty$ not or
+            { entry.is.electronic
                 'electronic
                 { "Z" set.entry.mark
                   monograph
@@ -1519,7 +1519,7 @@ READ
 
 EXECUTE {init.state.consts}
 
-EXECUTE {init.options}
+EXECUTE {load.config}
 
 FUNCTION {sortify}
 { purify$

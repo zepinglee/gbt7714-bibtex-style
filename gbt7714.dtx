@@ -319,7 +319,7 @@ version 2005/12/01 or later.
 % 所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
 % 本宏包提供了一些接口供用户更方便地修改。
 %
-% 在 \file{bst} 文件开始处的 |init.options| 函数
+% 在 \file{bst} 文件开始处的 |load.config| 函数
 % 设置了一组变量用来控制多个项目的样式，
 % 比如 \opt{uppercase.names} 控制是否将英文姓名转为全大写，
 % 具体见 \ref{sec:options}。
@@ -513,7 +513,7 @@ version 2005/12/01 or later.
 %
 % \begin{environment}{bst}
 % 这里定义了一些变量用于定制样式，
-% 可以在下面的 |init.options| 函数中选择是否启用。
+% 可以在下面的 |load.config| 函数中选择是否启用。
 % \changes{v1.0.8}{2018/06/23}{新增接口供用户自定义样式}
 %    \begin{macrocode}
 %<*authoryear|numerical>
@@ -536,7 +536,7 @@ INTEGERS {
 % 下面每个变量若被设为 |#1| 则启用该项，若被设为 |#0| 则不启用。
 % 默认的值是严格遵循《规则》的配置。
 %    \begin{macrocode}
-FUNCTION {init.options}
+FUNCTION {load.config}
 {
 %    \end{macrocode}
 %
@@ -640,7 +640,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang is.electronic }
+  { entry.lang entry.is.electronic }
 %    \end{macrocode}
 %
 % These string entry variables are used to form the citation label.
@@ -1764,7 +1764,7 @@ FUNCTION {format.mark}
 { show.mark
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
-        { is.electronic
+        { entry.is.electronic
             { entry.mark "/OL" * 'entry.mark := }
             'skip$
           if$
@@ -1855,14 +1855,14 @@ FUNCTION {format.address.publisher}
     { address
       format.publisher empty$ not
         { bbl.colon * format.publisher * }
-        { is.electronic not show.missing.address.publisher and
+        { entry.is.electronic not show.missing.address.publisher and
             { bbl.colon * bbl.sine.nomine * }
             'skip$
           if$
         }
       if$
     }
-    { is.electronic not show.missing.address.publisher and
+    { entry.is.electronic not show.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
@@ -1991,7 +1991,7 @@ FUNCTION {format.editdate}
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$ not is.electronic and
+{ urldate empty$ not entry.is.electronic and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -2147,12 +2147,12 @@ FUNCTION {format.periodical.year.volume.number}
 FUNCTION {check.url}
 { url empty$ not
     { "\url{" url * "}" * 'entry.url :=
-      #1 'is.electronic :=
+      #1 'entry.is.electronic :=
     }
     { howpublished empty$ not
         { howpublished #1 #5 substring$ "\url{" =
             { howpublished 'entry.url :=
-              #1 'is.electronic :=
+              #1 'entry.is.electronic :=
             }
             'skip$
           if$
@@ -2160,7 +2160,7 @@ FUNCTION {check.url}
         { note empty$ not
             { note #1 #5 substring$ "\url{" =
                 { note 'entry.url :=
-                  #1 'is.electronic :=
+                  #1 'entry.is.electronic :=
                 }
                 'skip$
               if$
@@ -2187,7 +2187,7 @@ FUNCTION {format.url}
 %    \begin{macrocode}
 FUNCTION {check.doi}
 { doi empty$ not
-    { #1 'is.electronic := }
+    { #1 'entry.is.electronic := }
     'skip$
   if$
 }
@@ -2255,7 +2255,7 @@ FUNCTION {format.doi}
 
 FUNCTION {check.electronic}
 { "" 'entry.url :=
-  #0 'is.electronic :=
+  #0 'entry.is.electronic :=
     'check.doi
     'skip$
   if$
@@ -2264,7 +2264,7 @@ FUNCTION {check.electronic}
   if$
   medium empty$ not
     { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'is.electronic := }
+        { #1 'entry.is.electronic := }
         'skip$
       if$
     }
@@ -2527,7 +2527,7 @@ FUNCTION {patent}
 %    \begin{macrocode}
 FUNCTION {electronic}
 { #1 #1 check.electronic
-  #1 'is.electronic :=
+  #1 'entry.is.electronic :=
   output.bibitem
   format.authors output
   author format.key output
@@ -2579,7 +2579,7 @@ FUNCTION {misc}
         'incollection
         { publisher empty$ not
             'monograph
-            { url empty$ not doi empty$ not or
+            { entry.is.electronic
                 'electronic
                 { "Z" set.entry.mark
                   monograph
@@ -2874,7 +2874,7 @@ READ
 
 EXECUTE {init.state.consts}
 
-EXECUTE {init.options}
+EXECUTE {load.config}
 
 %    \end{macrocode}
 %
