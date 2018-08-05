@@ -10,11 +10,13 @@ if ! command -v tlmgr > /dev/null; then
     $INSTALL/install-tl -profile ./support/texlive.profile
 fi
 
-tlmgr install latexmk xetex
+tlmgr install latexmk \
+    etoolbox \
+    fandol \
+    fontname fontspec l3kernel l3packages xetex \
+    cjk ctex environ ms trimspaces ulem xecjk zhnumber \
+    booktabs caption listings thumbpdf zapfding \
+    cite
 
-tlmgr install booktabs cite cjk ctex environ etoolbox fontspec l3kernel \
-l3packages listings ms thumbpdf trimspaces ulem xecjk zhnumber
-
-tlmgr install fandol symbol zapfding
 
 tlmgr update --self --all −−no−auto−install

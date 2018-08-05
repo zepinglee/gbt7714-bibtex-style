@@ -7,51 +7,82 @@
 [![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
 
 
+## Introduction
+
+The `gbt7714` package provides a BibTeX implementation for the China's
+bibliography style standard GB/T 7714-2015.
+It consists of two `bst` files for numerical and authoryear styles as well as a
+LaTeX package which provides the citation style defined in the standard.
+It is compatible with `natbib` and supports language detection (Chinese
+and English) for each biblilography entry.
+
+- Homepage: https://github.com/zepinglee/gbt7714-bibtex-style
+- Maintainer: Zeping Lee
+- Email: zeinglee AT gmail DOT com
+- License: LaTeX Project Public License 1.3c or later
+
 ## 新特性
 
-- 兼容 natbib
+- 兼容 `natbib`
 - 支持顺序编码制和著者-出版年制两种风格
-- 自动识别语言
+- 自动识别语言并进行相应处理
+- 提供了简单的接口供用户修改样式
 
 
 ## 使用方法
 
-1. 将 bst 文件和 sty 文件复制到工作目录。
+1. 将 `bst` 文件和 `sty` 文件复制到工作目录。
 
-2. 在导言区调用宏包 gbt7714，可选的参数如下表。
-   默认的参数是 super，额外的参数会传递给 natbib 宏包。
+2. 在导言区调用宏包 `gbt7714`，可选的参数如下表。
+   默认的参数是 `super`，额外的参数会传递给 `natbib` 宏包。
 
 可选参数 | 引用标注 | 参考文献列表
 --- | --- | ---
-super(默认) | 角标数字 | 顺序编码
-numbers | 数字 | 顺序编码
-authoryear | 著者-出版年 | 著者-出版年
-2015（默认） | - | GB/T 7714-2015 版
-2005 | - | GB/T 7714-2005 版
+`super`(默认) | 角标数字 | 顺序编码
+`numbers` | 数字 | 顺序编码
+`authoryear` | 著者-出版年 | 著者-出版年
+`2015`（默认） | - | GB/T 7714-2015 版
+`2005` | - | GB/T 7714-2005 版
 
 比如： `\usepackage[authoryear]{gbt7714}`
 
-3. **不再**需要调用 `\bibliographystyle` 命令。
+3. 在正文中 `\cite` 文献。
+
+4. 使用 `\bibliography` 命令生成参考文献表。
 
 
 ## 注意事项
 
-1. bib 数据库应使用 UTF-8 编码。
-2. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
-作者姓名的拼音，才能按照拼音排序，比如：
+2. **不再**需要调用 `\bibliographystyle` 命令。
+1. `bib` 数据库应使用 UTF-8 编码。
+3. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
+著者姓名的拼音，才能按照拼音排序，比如：
 ```
 @book{capital,
   author = {马克思 and 恩格斯},
   key    = {ma3 ke4 si1   en1 ge2 si1},
   ...
 ```
-3. 默认可以自动处理 `language`, `mark`, `medium`，用户也可以指定，比如：
+
+同一处引用多篇文献时，应将各篇文献的 key 一同写在 `\cite` 命令中，
+如 `\cite{knuth84,lamport94,mittelbach04}`。
+如遇连续编号，可以自动转为起讫序号并用短横线连接。
+它可以自动排序并用处理连续编号。
+
+若需要标出引文的页码，可以标在 `\cite` 的可选参数中，如 `\cite[42]{knuth84}`。
+
+更多的引用标注方法可以参考 `natbib` 宏包的使用说明。
+
+本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
+但是在少数情况下需要用户手动指定，如：
 ```
-language = {japanese},
-mark = {M},
-medium = {CD},
+@misc{citekey,
+  language = {japanese},
+  mark     = {Z},
+  medium   = {DK},
+  ...
 ```
-4. 要生成“[1-3]”这样连起来的引用，应该在正文中使用 `\cite{aaa,bbb,ccc}`。
+可选的语言有 `english`, `chinese`, `japanese`, `russian`。
 
 
 ## 文献类型
@@ -113,7 +144,8 @@ medium = {CD},
 
 注:
 - 其中带星号的不是 BibTeX/natbib 的标准著录项目。
-- 不支持的 BibTeX 标准著录项目有 annote, chapter, crossref, month, type。
+- 不支持的 BibTeX 标准著录项目有 `annote`, `chapter`, `crossref`, `month`,
+`type`。
 
 ## 参考文献著录标准
 

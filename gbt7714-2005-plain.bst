@@ -5,7 +5,7 @@
 %% The original source files were:
 %%
 %% gbt7714.dtx  (with options: `2005,authoryear')
-%% Version: 2018/06/23 v1.0.8
+%% Version: 2018/08/05 v1.0.9
 %% 
 %% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
 %% 
@@ -109,9 +109,9 @@ FUNCTION {bbl.space} { "\ " }
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =
-    { "等"}
+    { "等" }
     { lang.ja entry.lang =
-        { "他"}
+        { "他" }
         { lang.ru entry.lang =
             { "идр" }
             { "et~al." }
@@ -1018,7 +1018,7 @@ FUNCTION {format.journal.pages}
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
     { year extract.before.dash }
-    { "No year in periodical " cite$ * warning$ }
+    { "empty year in periodical " cite$ * warning$ }
   if$
   volume empty$ not
     { ", " * volume extract.before.dash * }
@@ -1537,12 +1537,6 @@ MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 
 MACRO {tcs} {"Theoretical Computer Science"}
 
-READ
-
-EXECUTE {init.state.consts}
-
-EXECUTE {load.config}
-
 FUNCTION {sortify}
 { purify$
   "l" change.case$
@@ -1730,7 +1724,11 @@ FUNCTION {anonymous.sort}
 
 FUNCTION {author.sort}
 { key empty$
-    { author empty$
+    { entry.lang lang.zh =
+        { "empty key in " cite$ * warning$  }
+        'skip$
+      if$
+      author empty$
         { anonymous.sort }
         { author sort.format.names }
       if$
@@ -1820,10 +1818,6 @@ FUNCTION {presort}
   'sort.key$ :=
 }
 
-ITERATE {presort}
-
-SORT
-
 STRINGS { longest.label last.label next.extra }
 
 INTEGERS { longest.label.width last.extra.num number.label }
@@ -1865,19 +1859,9 @@ FUNCTION {reverse.pass}
   label extra.label * 'label :=
 }
 
-EXECUTE {initialize.longest.label}
-
-ITERATE {forward.pass}
-
-REVERSE {reverse.pass}
-
 FUNCTION {bib.sort.order}
 { sort.label  'sort.key$ :=
 }
-
-ITERATE {bib.sort.order}
-
-SORT
 
 FUNCTION {begin.bib}
 {   preamble$ empty$
@@ -1908,13 +1892,33 @@ FUNCTION {begin.bib}
   if$
 }
 
-EXECUTE {begin.bib}
-
-ITERATE {call.type$}
-
 FUNCTION {end.bib}
 { newline$
   "\end{thebibliography}" write$ newline$
 }
+
+READ
+
+EXECUTE {init.state.consts}
+
+EXECUTE {load.config}
+
+ITERATE {presort}
+
+SORT
+
+EXECUTE {initialize.longest.label}
+
+ITERATE {forward.pass}
+
+REVERSE {reverse.pass}
+
+ITERATE {bib.sort.order}
+
+SORT
+
+EXECUTE {begin.bib}
+
+ITERATE {call.type$}
 
 EXECUTE {end.bib}

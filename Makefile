@@ -9,7 +9,7 @@ SHELL = bash
 LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
 VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
-TEXMFHOME = $(shell kpsewhich --var-value TEXMFHOME)
+TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
 test : bst FORCE_MAKE
 	$(MAKE) -C $(TESTDIR) test
@@ -35,14 +35,15 @@ distclean :
 	$(MAKE) -C $(TEST_DIR) distclean
 
 install : bst doc
-	mkdir -p $(TEXMFHOME)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(TEXMFHOME)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(TEXMFHOME)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(TEXMFHOME)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(TEXMFHOME)/source/latex/$(NAME)
-	cp $(PKGFILES) $(TEXMFHOME)/tex/latex/$(NAME)
+	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
+	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
+	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
+	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
+	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
 
-zip : bst doc
+ctan : bst doc
 	ln -sf . $(NAME)
-	zip -r ../$(NAME).zip $(NAME)/$(NAME){.dtx,.pdf,.sty,-plain.bst,-unsrt.bst}
+	zip -r ../$(NAME).zip $(NAME)/{README.md,LICENSE,$(NAME).dtx,\
+	$(NAME).pdf,$(NAME).sty,$(NAME)-plain.bst,$(NAME)-unsrt.bst}
 	rm $(NAME)

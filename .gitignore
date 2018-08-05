@@ -1,5 +1,6 @@
-test/*.sty
-test/*.bst
+build
+gbt7714.bbl
+gbt7714.bib
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
