@@ -683,7 +683,12 @@ FUNCTION {load.config}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
+%<*2015>
   #0 'period.between.author.year :=
+%</2015>
+%<*2005>
+  #1 'period.between.author.year :=
+%</2005>
 %    \end{macrocode}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
