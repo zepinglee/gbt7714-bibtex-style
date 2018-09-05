@@ -53,8 +53,8 @@ and English) for each biblilography entry.
 
 ## 注意事项
 
-2. **不再**需要调用 `\bibliographystyle` 命令。
-1. `bib` 数据库应使用 UTF-8 编码。
+1. **不再**需要调用 `\bibliographystyle` 命令。
+2. `bib` 数据库应使用 UTF-8 编码。
 3. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
 著者姓名的拼音，才能按照拼音排序，比如：
 ```
