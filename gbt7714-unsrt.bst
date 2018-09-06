@@ -25,6 +25,8 @@ INTEGERS {
   sentence.case.title
   link.title
   show.mark
+  slash.for.extraction
+  in.booktitle
   italic.jounal
   show.missing.address.publisher
   show.url
@@ -40,6 +42,8 @@ FUNCTION {load.config}
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'show.mark :=
+  #1 'slash.for.extraction :=
+  #0 'in.booktitle :=
   #0 'italic.jounal :=
   #1 'show.missing.address.publisher :=
   #1 'show.url :=
@@ -131,7 +135,7 @@ FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.wide.space} { "\quad " }
 
-FUNCTION {bbl.slash} { "//\allowbreak{}" }
+FUNCTION {bbl.slash} { "//\allowbreak " }
 
 FUNCTION {bbl.sine.loco}
 { lang.zh entry.lang =
@@ -186,7 +190,9 @@ FUNCTION {output.nonnull}
         { output.state before.all =
             'write$
             { output.state after.slash =
-                { bbl.slash * write$ }
+                { bbl.slash * write$
+                  newline$
+                }
                 { add.period$ " " * write$ }
               if$
             }
@@ -279,7 +285,11 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { after.slash 'output.state := }
+    { slash.for.extraction
+        { after.slash 'output.state := }
+        { after.block 'output.state := }
+      if$
+    }
   if$
 }
 
@@ -764,6 +774,14 @@ FUNCTION {format.series.vol.num.booktitle}
         'skip$
       if$
     }
+  if$
+  in.booktitle
+    { duplicate$ empty$ not entry.lang lang.en = and
+        { "In: " swap$ * }
+        'skip$
+      if$
+    }
+    'skip$
   if$
 }
 
