@@ -6,19 +6,19 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[swg(1988)]{swgwj}
+\bibitem[{swg(1988)}]{swgwj}
 卷 39 乞致仕第一\allowbreak[M]//\allowbreak
 苏魏公文集: 下册.
 \newblock 北京: 中华书局, 1988: 590.
 
-\bibitem[白书农(1998)]{bsn}
+\bibitem[{白书农(1998)}]{bsn}
 白书农.
 \newblock 植物开花研究\allowbreak[M]//\allowbreak
 李承森.
 \newblock 植物科学进展.
 \newblock 北京: 高等教育出版社, 1998: 146-163.
 
-\bibitem[汪学军(2002)]{wxj}
+\bibitem[{汪学军(2002)}]{wxj}
 汪学军.
 \newblock
   中国农业转基因生物研究进展与安全管理\allowbreak[C]//\allowbreak
@@ -27,7 +27,7 @@
   中国国家生物安全框架实施国际合作项目研讨会论文集.
 \newblock 北京: 中国环境科学出版社, 2002: 22-25.
 
-\bibitem[国家标准局信息分类编码研究所(1988)]{gjbzjxxflbmyjs}
+\bibitem[{国家标准局信息分类编码研究所(1988)}]{gjbzjxxflbmyjs}
 国家标准局信息分类编码研究所.
 \newblock 世界各国和地区名称代码: {GB/T
   2659—1986}\allowbreak[S]//\allowbreak
@@ -35,12 +35,12 @@
 \newblock 文献工作国家标准汇编: 3.
 \newblock 北京: 中国标准出版社, 1988: 59-92.
 
-\bibitem[ss(1977)]{ss}
+\bibitem[{ss(1977)}]{ss}
 宋史卷三: 本纪第三\allowbreak[M]//\allowbreak
 宋史: 第 1 册.
 \newblock 北京: 中华书局, 1977: 49.
 
-\bibitem[楼梦鳞\ 等(2011)楼梦鳞 and 杨燕]{lml}
+\bibitem[{楼梦鳞\ 等(2011)楼梦鳞 and 杨燕}]{lml}
 楼梦鳞, 杨燕.
 \newblock 汶川地震基岩地震动特征分析\allowbreak[M/OL]//\allowbreak
 同济大学土木工程防灾国家重点实验室.
@@ -49,13 +49,13 @@
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20120406-YPT-889-0010}.
 
-\bibitem[Buseck et~al.(c1980)Buseck, Nord, and Veblen]{buseck}
+\bibitem[{Buseck et~al.(c1980)Buseck, Nord, and Veblen}]{buseck}
 BUSECK~P~R, NORD~G~L, Jr, VEBLEN~D~R.
 \newblock Subsolidus phenomena in pyroxenes\allowbreak[M]//\allowbreak
 Pyroxense.
 \newblock Washington, D.C.: Mineralogical Society of America, c1980: 117-211.
 
-\bibitem[Fourney(c1971)]{fourney}
+\bibitem[{Fourney(c1971)}]{fourney}
 FOURNEY~M~E.
 \newblock Advances in holographic photoelasticity\allowbreak[C]//\allowbreak
 Symposium on Applications of Holography in Mechanics, August 23-25, 1971,

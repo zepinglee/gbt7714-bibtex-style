@@ -6,19 +6,20 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[Lee et~al.(2017)Lee and Zeping]{lzp1}
+\bibitem[{Lee et~al.(2017)Lee and Zeping}]{lzp1}
 LEE~Z, ZEPING~L.
 \newblock {GB/T} 7714-2015 {BibTeX} style\allowbreak[EB/OL].
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
-\bibitem[李泽平\ 等(2017)李泽平, 平泽李, 泽平李, and 笨蛋]{lzp2}
+\bibitem[{李泽平\ 等(2017)李泽平, 平泽李, 泽平李, and
+  笨蛋}]{lzp2}
 李泽平, 平泽李, 泽平李, 等.
 \newblock {GB/T} 7714-2015 {BibTeX} Style\allowbreak[EB/OL].
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
-\bibitem[One et~al.(Year)One, Two, and Three]{test1}
+\bibitem[{One et~al.(Year)One, Two, and Three}]{test1}
 ONE~A, TWO~A, THREE~A.
 \newblock Title\allowbreak[J/OL].
 \newblock Journal Title, Year, 2\penalty0 (3):\penalty0 Pages\allowbreak[URL
@@ -26,7 +27,7 @@ ONE~A, TWO~A, THREE~A.
 \newblock \url{url}.
 \newblock DOI: \doi{doi}.
 
-\bibitem[作者1\ 等(出版年)作者1, 作者2, and 作者3]{test2}
+\bibitem[{作者1\ 等(出版年)作者1, 作者2, and 作者3}]{test2}
 作者1, 作者2, 作者3.
 \newblock 题名\allowbreak[J/OL].
 \newblock 期刊, 出版年, 2\penalty0 (3):\penalty0

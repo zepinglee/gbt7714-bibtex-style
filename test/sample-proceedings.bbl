@@ -6,24 +6,24 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[中国职工教育研究会(1985)]{zgzgjyyjh}
+\bibitem[{中国职工教育研究会(1985)}]{zgzgjyyjh}
 中国职工教育研究会.
 \newblock 职工教育研究论文集\allowbreak[G].
 \newblock 北京: 人民教育出版社, 1985.
 
-\bibitem[中国社会科学院台湾史研究中心(2012)]{zgshkxytwsyjzx}
+\bibitem[{中国社会科学院台湾史研究中心(2012)}]{zgshkxytwsyjzx}
 中国社会科学院台湾史研究中心.
 \newblock
   台湾光复六十五周年暨抗战史实学术研讨会论文集\allowbreak[C].
 \newblock 北京: 九州出版社, 2012.
 
-\bibitem[雷光春(2012)]{lgc}
+\bibitem[{雷光春(2012)}]{lgc}
 雷光春.
 \newblock
   综合湿地管理：综合湿地管理国际研讨会论文集\allowbreak[C].
 \newblock 北京: 海洋出版社, 2012.
 
-\bibitem[陈志勇(2011)]{czy}
+\bibitem[{陈志勇(2011)}]{czy}
 陈志勇.
 \newblock 中国财税文化价值研究:
   “中国财税文化国际学术研讨会”论文集\allowbreak[C/OL].
@@ -31,7 +31,7 @@
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.201106228-BPO-889-0135&cult=CN}.
 
-\bibitem[Babu et~al.(2014)Babu, Nagar, Deep, et~al.]{babu}
+\bibitem[{Babu et~al.(2014)Babu, Nagar, Deep, et~al.}]{babu}
 BABU~B~V, NAGAR~A~K, DEEP~K, et~al.
 \newblock Proceedings of the second international conference on soft computing
   for problem solving, december 28--30, 2012\allowbreak[C].

@@ -597,13 +597,13 @@ FUNCTION {make.full.names}
 
 FUNCTION {output.bibitem}
 { newline$
-  "\bibitem[" write$
+  "\bibitem[{" write$
   label write$
   ")" make.full.names duplicate$ short.list =
      { pop$ }
      { * }
    if$
-  "]{" * write$
+   "}]{" * write$
   cite$ write$
   "}" write$
   newline$
@@ -969,7 +969,10 @@ FUNCTION {format.year}
     { date empty$ not
         { date extract.before.dash }
         { "empty year in " cite$ * warning$
-          ""
+          urldate empty$ not
+            { "[" urldate extract.before.dash * "]" * }
+            { "" }
+          if$
         }
       if$
     }
