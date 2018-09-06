@@ -103,25 +103,25 @@ FUNCTION {init.state.consts}
 }
 
 FUNCTION {bbl.anonymous}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "佚名" }
     { "Anon" }
   if$
 }
 
 FUNCTION {bbl.space}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "\ " }
     { " " }
   if$
 }
 
 FUNCTION {bbl.et.al}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "等" }
-    { lang.ja entry.lang =
+    { entry.lang lang.ja =
         { "他" }
-        { lang.ru entry.lang =
+        { entry.lang lang.ru =
             { "идр" }
             { "et~al." }
           if$
@@ -138,21 +138,21 @@ FUNCTION {bbl.wide.space} { "\ " }
 FUNCTION {bbl.slash} { "//\allowbreak " }
 
 FUNCTION {bbl.sine.loco}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "[出版地不详]" }
     { "[S.l.]" }
   if$
 }
 
 FUNCTION {bbl.sine.nomine}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "[出版者不详]" }
     { "[s.n.]" }
   if$
 }
 
 FUNCTION {bbl.sine.loco.sine.nomine}
-{ lang.zh entry.lang =
+{ entry.lang lang.zh =
     { "[出版地不详: 出版者不详]" }
     { "[S.l.: s.n.]" }
   if$
@@ -507,7 +507,7 @@ FUNCTION {format.translators}
 { translator empty$
     { "" }
     { translator format.names
-      lang.zh entry.lang =
+      entry.lang lang.zh =
         { translator num.names$ #3 >
             { "译" * }
             { ", 译" * }
@@ -695,7 +695,7 @@ FUNCTION {is.number}
 FUNCTION {format.volume}
 { volume empty$
     { "" }
-    { lang.zh entry.lang =
+    { entry.lang lang.zh =
         { "第 " volume * " 卷" * }
         { "volume" volume tie.or.space.connect }
       if$
@@ -706,7 +706,7 @@ FUNCTION {format.volume}
 FUNCTION {format.number}
 { number empty$
     { "" }
-    { lang.zh entry.lang =
+    { entry.lang lang.zh =
         { "第 " number * " 册" * }
         { "number" number tie.or.space.connect }
       if$
@@ -841,7 +841,7 @@ FUNCTION {format.edition}
 { edition empty$
     { "" }
     { edition is.number
-        { lang.zh entry.lang =
+        { entry.lang lang.zh =
             { edition " 版" * }
             { edition num.to.ordinal " ed." * }
           if$
