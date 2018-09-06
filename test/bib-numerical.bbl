@@ -6,7 +6,7 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[Baker\ et~al.(1995)Baker and Jackson]{baker}
+\bibitem[Baker et~al.(1995)Baker and Jackson]{baker}
 BAKER~S~K, JACKSON~M~E.
 \newblock The future of resource sharing\allowbreak[M].
 \newblock New York: The Haworth Press, 1995.

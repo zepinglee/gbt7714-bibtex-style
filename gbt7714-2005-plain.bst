@@ -105,7 +105,12 @@ FUNCTION {bbl.anonymous}
   if$
 }
 
-FUNCTION {bbl.space} { "\ " }
+FUNCTION {bbl.space}
+{ lang.zh entry.lang =
+    { "\ " }
+    { " " }
+  if$
+}
 
 FUNCTION {bbl.et.al}
 { lang.zh entry.lang =

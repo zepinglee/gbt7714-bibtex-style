@@ -6,7 +6,7 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[Lee\ et~al.(2017)Lee and Zeping]{lzp1}
+\bibitem[Lee et~al.(2017)Lee and Zeping]{lzp1}
 LEE~Z, ZEPING~L.
 \newblock {GB/T} 7714-2015 {BibTeX} style\allowbreak[EB/OL].
 \newblock 2017.
@@ -18,7 +18,7 @@ LEE~Z, ZEPING~L.
 \newblock 2017.
 \newblock \url{https://github.com/zepinglee/gbt-7714-2015}.
 
-\bibitem[One\ et~al.(Year)One, Two, and Three]{test1}
+\bibitem[One et~al.(Year)One, Two, and Three]{test1}
 ONE~A, TWO~A, THREE~A.
 \newblock Title\allowbreak[J/OL].
 \newblock Journal Title, Year, 2\penalty0 (3):\penalty0 Pages\allowbreak[URL
