@@ -490,9 +490,11 @@ FUNCTION {format.key}
 }
 
 FUNCTION {format.authors}
-{ author empty$
-    { "" }
+{ author empty$ not
     { author format.names }
+    { "empty author in " cite$ * warning$
+      ""
+    }
   if$
 }
 
@@ -1225,7 +1227,9 @@ FUNCTION {monograph}
     { format.authors }
     { editor empty$ not
         { format.editors }
-        { "" }
+        { "empty author and editor in " cite$ * warning$
+          ""
+        }
       if$
     }
   if$
@@ -1252,7 +1256,7 @@ FUNCTION {monograph}
 
 FUNCTION {incollection}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   new.block
   format.title "title" output.check
@@ -1280,7 +1284,7 @@ FUNCTION {incollection}
 
 FUNCTION {periodical}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   new.block
   format.title "title" output.check
@@ -1301,7 +1305,7 @@ FUNCTION {periodical}
 
 FUNCTION {article}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   new.block
   format.title "title" output.check

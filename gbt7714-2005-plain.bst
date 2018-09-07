@@ -490,9 +490,11 @@ FUNCTION {format.key}
 }
 
 FUNCTION {format.authors}
-{ author empty$
-    { bbl.anonymous }
+{ author empty$ not
     { author format.names }
+    { "empty author in " cite$ * warning$
+      bbl.anonymous
+    }
   if$
 }
 
@@ -1225,7 +1227,9 @@ FUNCTION {monograph}
     { format.authors }
     { editor empty$ not
         { format.editors }
-        { bbl.anonymous }
+        { "empty author and editor in " cite$ * warning$
+          bbl.anonymous
+        }
       if$
     }
   if$
@@ -1256,7 +1260,7 @@ FUNCTION {monograph}
 
 FUNCTION {incollection}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   period.between.author.year
     'new.sentence
@@ -1288,7 +1292,7 @@ FUNCTION {incollection}
 
 FUNCTION {periodical}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   period.between.author.year
     'new.sentence
@@ -1313,7 +1317,7 @@ FUNCTION {periodical}
 
 FUNCTION {article}
 { output.bibitem
-  format.authors "author" output.check
+  format.authors output
   author format.key output
   period.between.author.year
     'new.sentence
@@ -1748,12 +1752,16 @@ FUNCTION {anonymous.sort}
   if$
 }
 
+FUNCTION {warn.empty.key}
+{ entry.lang lang.zh =
+    { "empty key in " cite$ * warning$ }
+    'skip$
+  if$
+}
+
 FUNCTION {author.sort}
 { key empty$
-    { entry.lang lang.zh =
-        { "empty key in " cite$ * warning$  }
-        'skip$
-      if$
+    { warn.empty.key
       author empty$
         { anonymous.sort }
         { author sort.format.names }
@@ -1765,7 +1773,8 @@ FUNCTION {author.sort}
 
 FUNCTION {author.editor.sort}
 { key empty$
-    { author empty$
+    { warn.empty.key
+      author empty$
         { editor empty$
             { anonymous.sort }
             { editor sort.format.names }
@@ -1780,7 +1789,8 @@ FUNCTION {author.editor.sort}
 
 FUNCTION {author.organization.sort}
 { key empty$
-    { author empty$
+    { warn.empty.key
+      author empty$
         { organization empty$
             { anonymous.sort }
             { "The " #4 organization chop.word sortify }
@@ -1795,7 +1805,8 @@ FUNCTION {author.organization.sort}
 
 FUNCTION {editor.organization.sort}
 { key empty$
-    { editor empty$
+    { warn.empty.key
+      editor empty$
         { organization empty$
             { anonymous.sort }
             { "The " #4 organization chop.word sortify }
