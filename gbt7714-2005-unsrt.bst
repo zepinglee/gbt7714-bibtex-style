@@ -80,7 +80,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang entry.is.electronic }
+  { entry.lang entry.is.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
@@ -442,6 +442,15 @@ FUNCTION {set.entry.lang}
   'entry.lang :=
 }
 
+FUNCTION {set.entry.numbered}
+{ type$ "patent" =
+  type$ "standard" = or
+  type$ "techreport" = or
+    { #1 'entry.numbered := }
+    { #0 'entry.numbered := }
+  if$
+}
+
 INTEGERS { nameptr namesleft numnames name.lang }
 
 FUNCTION {format.names}
@@ -621,15 +630,15 @@ FUNCTION {change.sentence.case}
 }
 
 FUNCTION {add.link}
- { url empty$ not
-     { "\href{" url * "}{" * swap$ * "}" * }
-     { doi empty$ not
-         { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
-         'skip$
-       if$
-     }
-   if$
- }
+{ url empty$ not
+    { "\href{" url * "}{" * swap$ * "}" * }
+    { doi empty$ not
+        { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+        'skip$
+      if$
+    }
+  if$
+}
 
 FUNCTION {format.title}
 { title empty$
@@ -637,6 +646,10 @@ FUNCTION {format.title}
     { title
       sentence.case.title
         'change.sentence.case
+        'skip$
+      if$
+      entry.numbered number empty$ not and
+        { bbl.colon * number * }
         'skip$
       if$
       link.title
@@ -695,31 +708,60 @@ FUNCTION {is.number}
 }
 
 FUNCTION {format.volume}
-{ volume empty$
-    { "" }
-    { entry.lang lang.zh =
-        { "第 " volume * " 卷" * }
-        { "volume" volume tie.or.space.connect }
+{ volume empty$ not
+    { volume is.number
+        { entry.lang lang.zh =
+            { "第 " volume * " 卷" * }
+            { "volume" volume tie.or.space.connect }
+          if$
+        }
+        { volume }
       if$
     }
+    { "" }
   if$
 }
 
 FUNCTION {format.number}
-{ number empty$
-    { "" }
-    { entry.lang lang.zh =
-        { "第 " number * " 册" * }
-        { "number" number tie.or.space.connect }
+{ number empty$ not
+    { number is.number
+        { entry.lang lang.zh =
+            { "第 " number * " 册" * }
+            { "number" number tie.or.space.connect }
+          if$
+        }
+        { number }
       if$
     }
+    { "" }
   if$
 }
 
 FUNCTION {format.volume.number}
 { volume empty$ not
-    { format.volume }
-    { format.number }
+   { format.volume }
+   { format.number }
+ if$
+}
+
+FUNCTION {format.title.vol.num}
+{ title
+  sentence.case.title
+    'change.sentence.case
+    'skip$
+  if$
+  entry.numbered
+    { number empty$ not
+        { bbl.colon * number * }
+        'skip$
+      if$
+    }
+    { format.volume.number 's :=
+      s empty$ not
+        { bbl.colon * s * }
+        'skip$
+      if$
+    }
   if$
 }
 
@@ -731,28 +773,26 @@ FUNCTION {format.series.vol.num.title}
         'change.sentence.case
         'skip$
       if$
-      bbl.colon *
-      s empty$ not
-        { s * bbl.wide.space * }
-        'skip$
+      entry.numbered
+        { bbl.wide.space * }
+        { bbl.colon *
+          s empty$ not
+            { s * bbl.wide.space * }
+            'skip$
+          if$
+        }
       if$
-      title
+      title *
       sentence.case.title
         'change.sentence.case
         'skip$
       if$
-      *
-    }
-    { title
-      sentence.case.title
-        'change.sentence.case
-        'skip$
-      if$
-      s empty$ not
-        { bbl.colon * s * }
+      entry.numbered number empty$ not and
+        { bbl.colon * number * }
         'skip$
       if$
     }
+    { format.title.vol.num }
   if$
   link.title
     'add.link
@@ -760,22 +800,33 @@ FUNCTION {format.series.vol.num.title}
   if$
 }
 
-FUNCTION {format.series.vol.num.booktitle}
-{ format.volume.number 's :=
-  series empty$ not
-    { series bbl.colon *
-      s empty$ not
-        { s * bbl.wide.space * }
-        'skip$
-      if$
-      booktitle *
-    }
-    { booktitle
+FUNCTION {format.booktitle.vol.num}
+{ booktitle
+  entry.numbered
+    'skip$
+    { format.volume.number 's :=
       s empty$ not
         { bbl.colon * s * }
         'skip$
       if$
     }
+  if$
+}
+
+FUNCTION {format.series.vol.num.booktitle}
+{ format.volume.number 's :=
+  series empty$ not
+    { series bbl.colon *
+      entry.numbered
+        { bbl.colon * }
+        { s empty$ not and
+            { s * bbl.wide.space * }
+            { bbl.colon * }
+          if$
+        }
+      booktitle *
+    }
+    { format.booktitle.vol.num }
   if$
   in.booktitle
     { duplicate$ empty$ not entry.lang lang.en = and
@@ -1330,12 +1381,7 @@ FUNCTION {patent}
   format.authors output
   author format.key output
   new.block
-  format.title
-  number empty$ not
-    { bbl.colon * number * }
-    'skip$
-  if$
-  "title" output.check
+  format.title "title" output.check
   "P" set.entry.mark
   format.mark "" output.after
   new.block
@@ -1675,6 +1721,7 @@ FUNCTION {int.to.fix}
 
 FUNCTION {presort}
 { set.entry.lang
+  set.entry.numbered
   show.url show.doi check.electronic
   calc.label
   label sortify
