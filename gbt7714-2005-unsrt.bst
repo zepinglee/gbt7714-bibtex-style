@@ -28,6 +28,7 @@ INTEGERS {
   slash.for.extraction
   in.booktitle
   italic.jounal
+  bold.journal.volume
   show.missing.address.publisher
   show.url
   show.doi
@@ -45,6 +46,7 @@ FUNCTION {load.config}
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
   #0 'italic.jounal :=
+  #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
   #1 'show.url :=
   #0 'show.doi :=
@@ -1080,6 +1082,17 @@ FUNCTION {format.pages}
   if$
 }
 
+FUNCTION {format.journal.volume}
+{ volume empty$ not
+    { bold.journal.volume
+        { "\textbf{" volume * "}" * }
+        { volume }
+      if$
+    }
+    { "" }
+  if$
+}
+
 FUNCTION {format.journal.number}
 { number empty$ not
     { "\penalty0 (" number * ")" * }
@@ -1365,7 +1378,7 @@ FUNCTION {article}
   new.block
   format.journal "journal" output.check
   format.date "year" output.check
-  volume output
+  format.journal.volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
   format.urldate "" output.after

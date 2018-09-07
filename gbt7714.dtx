@@ -658,6 +658,7 @@ INTEGERS {
   slash.for.extraction
   in.booktitle
   italic.jounal
+  bold.journal.volume
   show.missing.address.publisher
   show.url
   show.doi
@@ -721,6 +722,11 @@ FUNCTION {load.config}
 % 期刊名使用斜体：
 %    \begin{macrocode}
   #0 'italic.jounal :=
+%    \end{macrocode}
+%
+% 期刊的卷使用粗体：
+%    \begin{macrocode}
+  #0 'bold.journal.volume :=
 %    \end{macrocode}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
@@ -2305,6 +2311,17 @@ FUNCTION {format.pages}
 %
 % 报纸在卷号缺失时，期号与前面的日期直接相连，所以必须拆开输出。
 %    \begin{macrocode}
+FUNCTION {format.journal.volume}
+{ volume empty$ not
+    { bold.journal.volume
+        { "\textbf{" volume * "}" * }
+        { volume }
+      if$
+    }
+    { "" }
+  if$
+}
+
 FUNCTION {format.journal.number}
 { number empty$ not
     { "\penalty0 (" number * ")" * }
@@ -2700,7 +2717,7 @@ FUNCTION {article}
 %<*numerical>
   format.date "year" output.check
 %</numerical>
-  volume output
+  format.journal.volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
   format.urldate "" output.after
