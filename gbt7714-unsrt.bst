@@ -1802,16 +1802,12 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  show.url show.doi or
-    { "\providecommand{\url}[1]{#1}"
-      write$ newline$
-      "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
-      write$ newline$
-      "  \urlstyle{same}\fi"
-      write$ newline$
-    }
-    'skip$
-  if$
+  "\providecommand{\url}[1]{#1}"
+  write$ newline$
+  "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
+  write$ newline$
+  "  \urlstyle{same}\fi"
+  write$ newline$
   show.doi
     { "\providecommand{\href}[2]{\url{#2}}"
       write$ newline$
