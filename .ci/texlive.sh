@@ -8,8 +8,10 @@ if ! command -v tlmgr > /dev/null; then
     mkdir -p $INSTALL;
     curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xzv -C $INSTALL \
         --strip-components=1;
-    $INSTALL/install-tl -profile ./support/texlive.profile;
+    $INSTALL/install-tl -profile ./.ci/texlive.profile;
 fi
+
+tlmgr update --self --all --reinstall-forcibly-removed;
 
 tlmgr install latexmk \
     etoolbox \
@@ -18,6 +20,3 @@ tlmgr install latexmk \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
     booktabs caption listings thumbpdf zapfding \
     cite;
-
-
-tlmgr update --self --all −−no−auto−install;

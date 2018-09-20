@@ -3,7 +3,7 @@
 MAIN = main
 
 SHELL = bash
-LATEXMK =  latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -synctex=1
+LATEXMK = latexmk -xelatex
 
 test : $(MAIN).pdf
 
@@ -11,9 +11,9 @@ $(MAIN).pdf : $(MAIN).tex FORCE_MAKE
 	TEXINPUTS="..:$${TEXINPUTS}" BSTINPUTS="..:$${BSTINPUTS}" $(LATEXMK) $<
 
 clean :
-	latexmk -c
+	$(LATEXMK) -c $(MAIN).tex
 	rm -f *.aux *.blg *.fls *.log
 
 distclean :
-	latexmk -C
+	$(LATEXMK) -C $(MAIN).tex
 	rm -f *.aux *.blg *.fls *.log
