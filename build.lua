@@ -2,12 +2,23 @@
 
 module = "gbt7714"
 
-installfiles = {"gbt7714.sty", "gbt7714-plain.bst", "gbt7714-unsrt.bst"}
+installfiles = {"*.sty", "*.bst"}
 textfiles = {"README.md", "LICENSE"}
-unpackfiles = {"*.dtx"}
+
+checkengines = {"xetex"}
+stdengine = "xetex"
 
 typesetexe = "xelatex"
 unpackexe = "xetex"
+
+checkruns = 3
+
+checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
+typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
+
+function runtest_tasks(name)
+    return "bibtex -terse " .. name
+end
 
 kpse.set_program_name("kpsewhich")
 dofile(kpse.lookup("l3build.lua"))

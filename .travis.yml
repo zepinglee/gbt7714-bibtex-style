@@ -8,6 +8,5 @@ install:
   - source ./.ci/texlive.sh
 
 script:
-  - make test
-  - make standard
+  - make testall
   - make doc

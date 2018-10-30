@@ -1,0 +1,14 @@
+\input{regression-test.tex}
+\documentclass[UTF8,fontset=fandol]{ctexart}
+\pagestyle{empty}
+\usepackage[authoryear]{gbt7714}
+\begin{document}
+\START
+\showoutput
+
+\input{citations.tex}
+
+\clearpage
+\OMIT
+\bibliography{refs}
+\end{document}

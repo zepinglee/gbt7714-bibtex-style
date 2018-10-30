@@ -13,7 +13,7 @@ fi
 
 tlmgr update --self --all --reinstall-forcibly-removed;
 
-tlmgr install latexmk \
+tlmgr install latexmk l3build \
     etoolbox \
     fandol \
     fontname fontspec l3kernel l3packages xetex \

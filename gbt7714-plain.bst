@@ -857,7 +857,7 @@ FUNCTION {format.series.vol.num.booktitle}
 
 FUNCTION {format.journal}
 { journal
-  italic.jounal
+  italic.jounal entry.lang lang.en = and
     'italicize
     'skip$
   if$

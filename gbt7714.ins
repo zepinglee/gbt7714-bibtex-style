@@ -1,0 +1,11 @@
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\nopreamble
+\nopostamble
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+  \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
+  \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
+}
+\endbatchfile

@@ -16,7 +16,7 @@
 \iffalse
 \fi
 \begingroup
-    \def\nameoflatex{LaTeX2e}
+  \def\nameoflatex{LaTeX2e}
 \expandafter\endgroup\ifx\nameoflatex\fmtname\else
 \csname fi\endcsname
 %</internal>
@@ -46,8 +46,12 @@ version 2005/12/01 or later.
   \file{\jobname.sty}{\from{\jobname.dtx}{package}}
   \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
   \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
-  \file{\jobname-2005-plain.bst}{\from{\jobname.dtx}{2005,authoryear}}
-  \file{\jobname-2005-unsrt.bst}{\from{\jobname.dtx}{2005,numerical}}
+  \file{versions/2005/\jobname-2005-plain.bst}{
+    \from{\jobname.dtx}{2005,authoryear}
+  }
+  \file{versions/2005/\jobname-2005-unsrt.bst}{
+    \from{\jobname.dtx}{2005,numerical}
+  }
 }
 \endbatchfile
 %</install>
@@ -680,6 +684,9 @@ FUNCTION {load.config}
 % 英文姓名转为全大写：
 %    \begin{macrocode}
   #1 'uppercase.name :=
+%<*nouppercase>
+  #0 'uppercase.name :=
+%</nouppercase>
 %    \end{macrocode}
 %
 % 最多显示的作者数量：
@@ -689,32 +696,42 @@ FUNCTION {load.config}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
-%<*2015>
   #0 'period.between.author.year :=
-%</2015>
-%<*2005>
+%<*period|2005>
   #1 'period.between.author.year :=
-%</2005>
+%</period|2005>
 %    \end{macrocode}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
 %    \begin{macrocode}
   #1 'sentence.case.title :=
+%<*nosentencecase>
+  #0 'sentence.case.title :=
+%</nosentencecase>
 %    \end{macrocode}
 %
 % 在标题添加超链接：
 %    \begin{macrocode}
   #0 'link.title :=
+%<*linktitle>
+  #1 'link.title :=
+%</linktitle>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
 %    \begin{macrocode}
   #1 'show.mark :=
+%<*nomark>
+  #0 'show.mark :=
+%</nomark>
 %    \end{macrocode}
 %
 % 使用“//”表示析出文献
 %    \begin{macrocode}
   #1 'slash.for.extraction :=
+%<*noslash>
+  #0 'slash.for.extraction :=
+%</noslash>
 %    \end{macrocode}
 %
 % 使用“In:”表示析出文献
@@ -725,6 +742,9 @@ FUNCTION {load.config}
 % 期刊名使用斜体：
 %    \begin{macrocode}
   #0 'italic.jounal :=
+%<*italicjournal>
+  #1 'italic.jounal :=
+%</italicjournal>
 %    \end{macrocode}
 %
 % 期刊的卷使用粗体：
@@ -735,21 +755,25 @@ FUNCTION {load.config}
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
   #1 'show.missing.address.publisher :=
+%<*noslsn>
+  #0 'show.missing.address.publisher :=
+%</noslsn>
 %    \end{macrocode}
 %
 % 是否著录 URL：
 %    \begin{macrocode}
   #1 'show.url :=
+%<*nourl>
+  #0 'show.url :=
+%</nourl>
 %    \end{macrocode}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
-%<*2015>
   #1 'show.doi :=
-%</2015>
-%<*2005>
+%<*nodoi|2005>
   #0 'show.doi :=
-%</2005>
+%</nodoi|2005>
 %    \end{macrocode}
 %
 % 在每一条文献最后输出注释（note）的内容：
@@ -1986,7 +2010,7 @@ FUNCTION {format.series.vol.num.booktitle}
 
 FUNCTION {format.journal}
 { journal
-  italic.jounal
+  italic.jounal entry.lang lang.en = and
     'italicize
     'skip$
   if$
@@ -3787,4 +3811,3 @@ EXECUTE {end.bib}
 %
 % \Finale
 \endinput
-所以只能在 bib 数据库中的 key 域手动录入作者姓名的拼音，如：

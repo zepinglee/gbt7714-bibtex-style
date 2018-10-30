@@ -1,4 +1,4 @@
-.PHONY : test standard bst doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test testall save bst doc clean all inst install distclean zip FORCE_MAKE
 
 NAME = gbt7714
 PKGFILES = $(NAME).sty
@@ -11,13 +11,19 @@ VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
 	  | egrep -o "v\S+")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
-test : bst FORCE_MAKE
-	$(MAKE) -C $(TESTDIR) test
+test : bst
+	bash check.sh
 
-standard : bst FORCE_MAKE
-	$(MAKE) -C $(TESTDIR) standard
+testall : test
+	texlua build.lua check
 
-all : test standard doc
+save :
+	bash check.sh
+	texlua build.lua save --quiet super
+	texlua build.lua save --quiet numbers
+	texlua build.lua save --quiet authoryear
+
+all : test doc
 
 bst : $(PKGFILES) $(BSTFILES)
 
