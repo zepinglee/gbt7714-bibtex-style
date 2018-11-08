@@ -553,9 +553,7 @@ version 2005/12/01 or later.
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
 \newcommand\gbt@patchfailure[1]{%
-  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
-    Please contact the template author.%
-  }{}%
+  \PackageError{gbt7714}{Failed to patch command \protect#1}{}%
 }
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%

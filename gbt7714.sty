@@ -77,9 +77,7 @@
   \gbtbibstyle{authoryear}%
 \fi
 \newcommand\gbt@patchfailure[1]{%
-  \ClassError{ustcthesis}{Failed to patch command \protect#1.\MessageBreak
-    Please contact the template author.%
-  }{}%
+  \PackageError{gbt7714}{Failed to patch command \protect#1}{}%
 }
 \patchcmd{\NAT@citexnum}{%
   \@ifnum{\NAT@ctype=\z@}{%
