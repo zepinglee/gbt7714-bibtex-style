@@ -1,19 +1,20 @@
-.PHONY : test FORCE_MAKE
+.PHONY : test standard FORCE_MAKE
 
-MAIN = main
+STANDARD = standard
+TEST = test
 
 SHELL = bash
 LATEXMK = latexmk -xelatex
 
-test : $(MAIN).pdf
+test : $(TEST).pdf
 
-$(MAIN).pdf : $(MAIN).tex FORCE_MAKE
+standard : $(STANDARD).pdf
+
+%.pdf : %.tex FORCE_MAKE
 	TEXINPUTS="..:$${TEXINPUTS}" BSTINPUTS="..:$${BSTINPUTS}" $(LATEXMK) $<
 
 clean :
-	$(LATEXMK) -c $(MAIN).tex
-	rm -f *.aux *.blg *.fls *.log
+	$(LATEXMK) -c
 
 distclean :
-	$(LATEXMK) -C $(MAIN).tex
-	rm -f *.aux *.blg *.fls *.log
+	$(LATEXMK) -C

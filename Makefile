@@ -1,9 +1,9 @@
-.PHONY : test bst doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test standard bst doc clean all inst install distclean zip FORCE_MAKE
 
 NAME = gbt7714
 PKGFILES = $(NAME).sty
 BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
-TEST_DIR = test
+TESTDIR = test
 
 SHELL = bash
 LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
@@ -14,7 +14,10 @@ TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 test : bst FORCE_MAKE
 	$(MAKE) -C $(TESTDIR) test
 
-all : test doc
+standard : bst FORCE_MAKE
+	$(MAKE) -C $(TESTDIR) standard
+
+all : test standard doc
 
 bst : $(PKGFILES) $(BSTFILES)
 
