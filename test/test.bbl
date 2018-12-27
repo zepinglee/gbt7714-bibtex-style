@@ -6,7 +6,8 @@
 
 \bibitem[{Author(2014)}]{Gu2014Weighted}
 AUTHOR.
-\newblock Title
-Address: Publisher, 2014: 2862-2869.
+\newblock Title\allowbreak[C]//\allowbreak
+Series: Booktitle.
+\newblock Address: Publisher, 2014: 2862-2869.
 
 \end{thebibliography}

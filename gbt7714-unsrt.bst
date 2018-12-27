@@ -822,13 +822,10 @@ FUNCTION {format.series.vol.num.booktitle}
 { format.volume.number 's :=
   series empty$ not
     { series bbl.colon *
-      entry.numbered
-        { bbl.colon * }
-        { s empty$ not and
-            { s * bbl.wide.space * }
-            { bbl.colon * }
-          if$
-        }
+      entry.numbered not s empty$ not and
+        { s * bbl.wide.space * }
+        'skip$
+      if$
       booktitle *
     }
     { format.booktitle.vol.num }
