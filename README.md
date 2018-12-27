@@ -2,9 +2,9 @@
 
 
 [![CTAN](https://img.shields.io/ctan/v/gbt7714.svg)](https://ctan.org/pkg/gbt7714)
-[![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
-[![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/latest.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
-[![Travis build](https://travis-ci.org/zepinglee/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/zepinglee/gbt7714-bibtex-style)
+[![GitHub release](https://img.shields.io/github/release/CTeX-org/gbt7714-bibtex-style/all.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/releases/latest)
+[![GitHub commits](https://img.shields.io/github/commits-since/CTeX-org/gbt7714-bibtex-style/latest.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/commits/master)
+[![Travis build](https://travis-ci.org/CTeX-org/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/CTeX-org/gbt7714-bibtex-style)
 
 
 ## Introduction
@@ -16,7 +16,7 @@ LaTeX package which provides the citation style defined in the standard.
 It is compatible with `natbib` and supports language detection (Chinese
 and English) for each biblilography entry.
 
-- Homepage: https://github.com/zepinglee/gbt7714-bibtex-style
+- Homepage: https://github.com/CTeX-org/gbt7714-bibtex-style
 - Maintainer: Zeping Lee
 - Email: zeinglee AT gmail DOT com
 - License: LaTeX Project Public License 1.3c or later
