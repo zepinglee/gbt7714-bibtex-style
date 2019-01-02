@@ -3,6 +3,8 @@
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{Author(2014)}]{Gu2014Weighted}
 AUTHOR.

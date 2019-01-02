@@ -7,10 +7,10 @@
 %% gbt7714.dtx  (with options: `2005,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
-%% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2018/08/05 v1.0.9
+%% https://github.com/CTeX-org/gbt7714-bibtex-style
+%% Version: 2019/01/02 v1.1
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016-2018 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2019 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -135,6 +135,9 @@ FUNCTION {bbl.et.al}
     }
   if$
 }
+
+FUNCTION {citation.et.al}
+{ bbl.et.al }
 
 FUNCTION {bbl.colon} { ": " }
 
@@ -1649,7 +1652,7 @@ FUNCTION {format.lab.names}
     { t #1 "{ll}{ff}" format.name$}
   if$
   s num.names$ #1 >
-    { bbl.space * bbl.et.al * }
+    { bbl.space * citation.et.al * }
     'skip$
   if$
 }
