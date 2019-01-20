@@ -6,7 +6,7 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[{马欢(2011)}]{mh}
+\bibitem[马欢(2011)]{mh}
 马欢.
 \newblock
   人类活动影响下海河流域典型区水循环变化分析\allowbreak[D/OL].
@@ -14,7 +14,7 @@
 \newblock
   \url{http://www.cnki.net/kcms/detail/detail.aspx?dbcode=CDFD&QueryID=.0&CurRec=11&dbname=CDFDLAST2013&filename=1012035905.nh&uid=WEEvREcwSlJHSldTTGJhYIJRaEhGUXFQWVB6SGZXeisxdmVhV3ZyZkpoUnozeDE1b0paM0NmMjZiQ3p4TUdmcw=}.
 
-\bibitem[{吴云芳(2003)}]{wyf}
+\bibitem[吴云芳(2003)]{wyf}
 吴云芳.
 \newblock
   面向中文信息处理的现代汉语并列结构研究\allowbreak[D/OL].
@@ -22,7 +22,7 @@
 \newblock
   \url{http://thesis.lib.pku.edu.cn/dlib/List.asp?lang=gb&type=Reader&DocGroupID=4&DocID=6328}.
 
-\bibitem[{Calms(1965)}]{calms}
+\bibitem[Calms(1965)]{calms}
 CALMS~R~B.
 \newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
 \newblock Berkeley: Univ. of California, 1965.

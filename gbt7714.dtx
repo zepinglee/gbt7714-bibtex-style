@@ -159,7 +159,7 @@ version 2005/12/01 or later.
 % It is compatible with \pkg{natbib} and supports language detection (Chinese
 % and English) for each biblilography entry.
 % \end{abstract}
-
+%
 % \section{简介}
 %
 % GB/T 7714-2015 《信息与文献\quad 参考文献著录规则》\cite{gbt77142015}
@@ -1678,13 +1678,26 @@ FUNCTION {make.full.names}
 
 FUNCTION {output.bibitem}
 { newline$
-  "\bibitem[{" write$
+  "\bibitem[" write$
   label write$
   ")" make.full.names duplicate$ short.list =
      { pop$ }
      { * }
-   if$
-   "}]{" * write$
+  if$
+  's :=
+  s text.length$ 'charptr :=
+    { charptr #0 > }
+    { s charptr #1 substring$ "]" =
+        { #0 'charptr := }
+        { charptr #1 - 'charptr := }
+      if$
+    }
+  while$
+  charptr #0 >
+    { "{" s * "}" * }
+    { s }
+  if$
+  "]{" * write$
   cite$ write$
   "}" write$
   newline$
@@ -1871,9 +1884,9 @@ FUNCTION {format.number}
 
 FUNCTION {format.volume.number}
 { volume empty$ not
-   { format.volume }
-   { format.number }
- if$
+    { format.volume }
+    { format.number }
+  if$
 }
 
 FUNCTION {format.title.vol.num}

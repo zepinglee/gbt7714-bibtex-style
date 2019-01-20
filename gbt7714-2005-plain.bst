@@ -20,7 +20,6 @@
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
 %% -------------------------------------------------------------------
-
 INTEGERS {
   uppercase.name
   max.num.authors
@@ -616,13 +615,26 @@ FUNCTION {make.full.names}
 
 FUNCTION {output.bibitem}
 { newline$
-  "\bibitem[{" write$
+  "\bibitem[" write$
   label write$
   ")" make.full.names duplicate$ short.list =
      { pop$ }
      { * }
-   if$
-   "}]{" * write$
+  if$
+  's :=
+  s text.length$ 'charptr :=
+    { charptr #0 > }
+    { s charptr #1 substring$ "]" =
+        { #0 'charptr := }
+        { charptr #1 - 'charptr := }
+      if$
+    }
+  while$
+  charptr #0 >
+    { "{" s * "}" * }
+    { s }
+  if$
+  "]{" * write$
   cite$ write$
   "}" write$
   newline$
@@ -747,9 +759,9 @@ FUNCTION {format.number}
 
 FUNCTION {format.volume.number}
 { volume empty$ not
-   { format.volume }
-   { format.number }
- if$
+    { format.volume }
+    { format.number }
+  if$
 }
 
 FUNCTION {format.title.vol.num}

@@ -6,35 +6,35 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[{中华人民共和国国务院新闻办公室(2013)}]{zhrmghggwyxwbgs}
+\bibitem[中华人民共和国国务院新闻办公室(2013)]{zhrmghggwyxwbgs}
 中华人民共和国国务院新闻办公室.
 \newblock 国防白皮书:
   中国武装力量的多样化运用\allowbreak[R/OL].
 \newblock \allowbreak(2013-04-16)\allowbreak[2014-06-11].
 \newblock \url{http://www.mod.gov.cn/affair/2013-04/16/content_4442839.htm}.
 
-\bibitem[{汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, et~al.}]{twj}
+\bibitem[汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, et~al.]{twj}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告:
   7178999X-2006BAK04A10/10.2013\allowbreak[R/OL].
 \newblock \allowbreak(2013-09-30)\allowbreak[2014-06-24].
 \newblock \url{http://www.nstrs.org.cn/xiangxiBG.aspx?id=41707}.
 
-\bibitem[{Calkin et~al.(2011)Calkin, Ager, and Thompson}]{calkin}
+\bibitem[Calkin et~al.(2011)Calkin, Ager, and Thompson]{calkin}
 CALKIN~D, AGER~A, THOMPSON~M.
 \newblock A comparative risk assessment framework for wildland fire management:
   the 2010 cohesive strategy science report: RMRS-GTR-262\allowbreak[R].
 \newblock [S.l.: s.n.], 2011: 8-9.
 
-\bibitem[{{U.S. Department of Transportation Federal Highway
-  Administration}(1990)}]{udtfha}
+\bibitem[{U.S. Department of Transportation Federal Highway
+  Administration}(1990)]{udtfha}
 {U.S. Department of Transportation Federal Highway Administration}.
 \newblock Guidelines for handling excavated acid-producing material: {PB
   91-194001}\allowbreak[R].
 \newblock Springfield: U.S. Department of Commerce National Information
   Service, 1990.
 
-\bibitem[{{World Health Organization}(1970)}]{who}
+\bibitem[{World Health Organization}(1970)]{who}
 {World Health Organization}.
 \newblock Factors regulating the immune response: Report of {WHO Scientific
   Group}\allowbreak[R].

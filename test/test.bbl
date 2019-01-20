@@ -6,7 +6,7 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[{Author(2014)}]{Gu2014Weighted}
+\bibitem[Author(2014)]{Gu2014Weighted}
 AUTHOR.
 \newblock Title\allowbreak[C]//\allowbreak
 Series: Booktitle.

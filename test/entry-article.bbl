@@ -6,13 +6,13 @@
 \providecommand{\href}[2]{\url{#2}}
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
-\bibitem[{袁训来\ 等(2012)袁训来, 陈哲, 肖书海, et~al.}]{yxl}
+\bibitem[袁训来\ 等(2012)袁训来, 陈哲, 肖书海, et~al.]{yxl}
 袁训来, 陈哲, 肖书海, 等.
 \newblock 蓝田生物群:
   一个认识多细胞生物起源和早期演化的新窗口\allowbreak[J].
 \newblock 科学通报, 2012, 55\penalty0 (34):\penalty0 3219.
 
-\bibitem[{余建斌(2013)}]{yjb}
+\bibitem[余建斌(2013)]{yjb}
 余建斌.
 \newblock 我们的科技一直在追赶:
   访中国工程院院长周济\allowbreak[N/OL].
@@ -20,21 +20,21 @@
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_5-02.htm}.
 
-\bibitem[{李炳穆(2008)}]{lbm}
+\bibitem[李炳穆(2008)]{lbm}
 李炳穆.
 \newblock 韩国图书馆法\allowbreak[J/OL].
 \newblock 图书情报工作, 2008, 52\penalty0 (6):\penalty0
   6-12\allowbreak[2013-10-25].
 \newblock \url{http://www.docin.com/p-400265742.html}.
 
-\bibitem[{李幼平\ 等(2010)李幼平 and 王莉}]{lyp}
+\bibitem[李幼平\ 等(2010)李幼平 and 王莉]{lyp}
 李幼平, 王莉.
 \newblock 循证医学研究方法: 附视频\allowbreak[J/OL].
 \newblock 中华移植杂志(电子版), 2010, 4\penalty0 (3):\penalty0
   225-228\allowbreak[2014-06-09].
 \newblock \url{http://www.cqvip.com/Read/Read.aspx?id=36658332}.
 
-\bibitem[{武丽丽\ 等(2008)武丽丽, 华一新, 张亚军, et~al.}]{wll}
+\bibitem[武丽丽\ 等(2008)武丽丽, 华一新, 张亚军, et~al.]{wll}
 武丽丽, 华一新, 张亚军, 等.
 \newblock “北斗一号”监控管理网设计与实现\allowbreak[J/OL].
 \newblock 测绘科学, 2008, 33\penalty0 (5):\penalty0
@@ -42,18 +42,18 @@
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
 \newblock DOI: \doi{10.3771/j.issn.1009-2307.2008.05.002}.
 
-\bibitem[{Kanamori(1998)}]{kanamori}
+\bibitem[Kanamori(1998)]{kanamori}
 KANAMORI~H.
 \newblock Shaking without quaking\allowbreak[J].
 \newblock Science, 1998, 279\penalty0 (5359):\penalty0 2063.
 
-\bibitem[{Caplan(1993)}]{caplan}
+\bibitem[Caplan(1993)]{caplan}
 CAPLAN~P.
 \newblock Cataloging internet resources\allowbreak[J].
 \newblock The public access computer systems review, 1993, 4\penalty0
   (2):\penalty0 61-66.
 
-\bibitem[{Frese et~al.(2013)Frese, Katus, and Meder}]{frese}
+\bibitem[Frese et~al.(2013)Frese, Katus, and Meder]{frese}
 FRESE~K~S, KATUS~H~A, MEDER~B.
 \newblock Next-generation sequencing: from understanding biology to
   personalized medicine\allowbreak[J/OL].
@@ -62,7 +62,7 @@ FRESE~K~S, KATUS~H~A, MEDER~B.
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
 \newblock DOI: \doi{10.3390/biology2010378}.
 
-\bibitem[{Myburg et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.}]{myburg}
+\bibitem[Myburg et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.]{myburg}
 MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
 \newblock The genome of eucalyptus grandis\allowbreak[J/OL].
 \newblock Nature, 2014, 510:\penalty0 356-362\allowbreak[2014-06-25].
