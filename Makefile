@@ -1,4 +1,4 @@
-.PHONY : test testall save bst doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test testall save bst versions doc clean all inst install distclean zip FORCE_MAKE
 
 NAME = gbt7714
 PKGFILES = $(NAME).sty

@@ -52,6 +52,12 @@ version 2005/12/01 or later.
   \file{versions/2005/\jobname-2005-unsrt.bst}{
     \from{\jobname.dtx}{2005,numerical}
   }
+  \file{versions/thu/thuthesis-author-year.bst}{
+    \from{\jobname.dtx}{thu,2005,authoryear}}
+  \file{versions/thu/thuthesis-numeric.bst}{
+    \from{\jobname.dtx}{thu,2005,numerical}}
+  \file{versions/thu/thuthesis-bachelor.bst}{
+    \from{\jobname.dtx}{2015,numerical}}
 }
 \endbatchfile
 %</install>
@@ -684,9 +690,9 @@ FUNCTION {load.config}
 % 英文姓名转为全大写：
 %    \begin{macrocode}
   #1 'uppercase.name :=
-%<*nouppercase>
+%<*nouppercase|thu>
   #0 'uppercase.name :=
-%</nouppercase>
+%</nouppercase|thu>
 %    \end{macrocode}
 %
 % 最多显示的作者数量：
@@ -1183,9 +1189,22 @@ FUNCTION {output.check}
 %    \end{macrocode}
 %
 % This function finishes all entries.
+%
+% Tsinghua requires no period at the end of book-like entries.
 %    \begin{macrocode}
 FUNCTION {fin.entry}
+%<*!thu>
 { add.period$
+%</!thu>
+%<*thu>
+{ type$ "book" =
+  type$ "inbook" = or
+  type$ "incollection" = or
+  type$ "collection" = or
+    'skip$
+    'add.period$
+  if$
+%</thu>
   write$
   newline$
 }
@@ -2980,7 +2999,16 @@ FUNCTION {manual} { monograph }
 %       Optional: type, address, month, note
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
+%<*!thu>
 { "D" set.entry.mark
+%</!thu>
+%<*thu>
+{ lang.zh entry.lang =
+    { "硕士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
+%</thu>
   monograph
 }
 
@@ -3002,7 +3030,19 @@ FUNCTION {online}
 %
 %       Optional: type, address, month, note
 %    \begin{macrocode}
+%<*!thu>
 FUNCTION {phdthesis} { mastersthesis }
+%</!thu>
+%<*thu>
+FUNCTION {phdthesis}
+{ lang.zh entry.lang =
+    { "博士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
+  monograph
+}
+%</thu>
 
 %    \end{macrocode}
 %
