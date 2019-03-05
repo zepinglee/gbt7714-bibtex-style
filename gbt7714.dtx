@@ -685,6 +685,13 @@ INTEGERS {
   show.url
   show.doi
   show.note
+%<*authoryear>
+  lang.zh.order
+  lang.ja.order
+  lang.en.order
+  lang.ru.order
+  lang.other.order
+%</authoryear>
 }
 
 %    \end{macrocode}
@@ -711,10 +718,12 @@ FUNCTION {load.config}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
+%<*authoryear>
   #0 'period.between.author.year :=
-%<*period|2005>
+%<*period|2005|ustc>
   #1 'period.between.author.year :=
-%</period|2005>
+%</period|2005|ustc>
+%</authoryear>
 %    \end{macrocode}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
@@ -794,6 +803,18 @@ FUNCTION {load.config}
 % 在每一条文献最后输出注释（note）的内容：
 %    \begin{macrocode}
   #0 'show.note :=
+%    \end{macrocode}
+%
+% \changes{v1.1.1}{2019/03/05}{允许自定义文种的顺序}
+% 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
+%    \begin{macrocode}
+%<*authoryear>
+  #1 'lang.zh.order :=
+  #2 'lang.ja.order :=
+  #3 'lang.en.order :=
+  #4 'lang.ru.order :=
+  #5 'lang.other.order :=
+%</authoryear>
 }
 
 %    \end{macrocode}
@@ -3456,14 +3477,14 @@ FUNCTION {calc.label}
 %<*authoryear>
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
-    { "a zh " }
+    { lang.zh.order }
     { entry.lang lang.ja =
-        { "b ja " }
+        { lang.ja.order }
         { entry.lang lang.en =
-            { "c en " }
+            { lang.en.order }
             { entry.lang lang.ru =
-                { "d ru " }
-                { "e other " }
+                { lang.ru.order }
+                { lang.other.order }
               if$
             }
           if$
@@ -3471,6 +3492,7 @@ FUNCTION {sort.language.label}
       if$
     }
   if$
+  int.to.chr$
 }
 
 FUNCTION {sort.format.names}

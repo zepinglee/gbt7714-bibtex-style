@@ -42,7 +42,6 @@ FUNCTION {load.config}
   #1 'uppercase.name :=
   #0 'uppercase.name :=
   #3 'max.num.authors :=
-  #0 'period.between.author.year :=
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'show.mark :=
