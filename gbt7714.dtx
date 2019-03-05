@@ -58,6 +58,15 @@ version 2005/12/01 or later.
     \from{\jobname.dtx}{thu,2005,numerical}}
   \file{versions/thu/thuthesis-bachelor.bst}{
     \from{\jobname.dtx}{2015,numerical}}
+  \file{versions/ustc/ustcthesis-authoryear.bst}{
+    \from{\jobname.dtx}{ustc,2015,authoryear}
+  }
+  \file{versions/ustc/ustcthesis-numerical.bst}{
+    \from{\jobname.dtx}{ustc,2015,numerical}
+  }
+  \file{versions/ustc/ustcthesis-bachelor.bst}{
+    \from{\jobname.dtx}{ustc,2015,numerical,nouppercase,nomark,italicjournal}
+  }
 }
 \endbatchfile
 %</install>
@@ -761,9 +770,9 @@ FUNCTION {load.config}
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
   #1 'show.missing.address.publisher :=
-%<*noslsn>
+%<*noslsn|ustc>
   #0 'show.missing.address.publisher :=
-%</noslsn>
+%</noslsn|ustc>
 %    \end{macrocode}
 %
 % 是否著录 URL：
