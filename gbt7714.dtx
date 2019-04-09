@@ -1220,21 +1220,9 @@ FUNCTION {output.check}
 %
 % This function finishes all entries.
 %
-% Tsinghua requires no period at the end of book-like entries.
 %    \begin{macrocode}
 FUNCTION {fin.entry}
-%<*!thu>
 { add.period$
-%</!thu>
-%<*thu>
-{ type$ "book" =
-  type$ "inbook" = or
-  type$ "incollection" = or
-  type$ "collection" = or
-    'skip$
-    'add.period$
-  if$
-%</thu>
   write$
   newline$
 }

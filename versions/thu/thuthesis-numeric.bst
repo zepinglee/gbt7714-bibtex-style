@@ -259,13 +259,7 @@ FUNCTION {output.check}
 }
 
 FUNCTION {fin.entry}
-{ type$ "book" =
-  type$ "inbook" = or
-  type$ "incollection" = or
-  type$ "collection" = or
-    'skip$
-    'add.period$
-  if$
+{ add.period$
   write$
   newline$
 }
