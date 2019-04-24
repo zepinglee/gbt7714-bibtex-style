@@ -14,7 +14,6 @@ fi
 tlmgr update --self --all --reinstall-forcibly-removed;
 
 tlmgr install latexmk l3build \
-    etoolbox \
     fandol \
     fontname fontspec l3kernel l3packages xetex \
     cjk ctex environ ms trimspaces ulem xecjk zhnumber \
