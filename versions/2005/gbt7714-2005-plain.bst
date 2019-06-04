@@ -46,7 +46,6 @@ FUNCTION {load.config}
 {
   #1 'uppercase.name :=
   #3 'max.num.authors :=
-  #0 'period.between.author.year :=
   #1 'period.between.author.year :=
   #1 'sentence.case.title :=
   #0 'link.title :=
@@ -57,7 +56,6 @@ FUNCTION {load.config}
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
   #1 'show.url :=
-  #1 'show.doi :=
   #0 'show.doi :=
   #0 'show.note :=
   #1 'lang.zh.order :=

@@ -39,7 +39,6 @@ INTEGERS {
 
 FUNCTION {load.config}
 {
-  #1 'uppercase.name :=
   #0 'uppercase.name :=
   #3 'max.num.authors :=
   #1 'sentence.case.title :=
@@ -51,7 +50,6 @@ FUNCTION {load.config}
   #0 'italic.jounal :=
   #1 'italic.jounal :=
   #0 'bold.journal.volume :=
-  #1 'show.missing.address.publisher :=
   #0 'show.missing.address.publisher :=
   #1 'show.url :=
   #1 'show.doi :=

@@ -837,7 +837,9 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
+%<*!nouppercase&!thu>
   #1 'uppercase.name :=
+%</!nouppercase&!thu>
 %<*nouppercase|thu>
   #0 'uppercase.name :=
 %</nouppercase|thu>
@@ -851,7 +853,9 @@ FUNCTION {load.config}
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
 %<*authoryear>
+%<*!period&!2005&!ustc>
   #0 'period.between.author.year :=
+%</!period&!2005&!ustc>
 %<*period|2005|ustc>
   #1 'period.between.author.year :=
 %</period|2005|ustc>
@@ -910,10 +914,12 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
+%<*!noslsn&!thu&!ustc>
   #1 'show.missing.address.publisher :=
-%<*noslsn|ustc>
+%</!noslsn&!thu&!ustc>
+%<*noslsn|thu|ustc>
   #0 'show.missing.address.publisher :=
-%</noslsn|ustc>
+%</noslsn|thu|ustc>
 %    \end{macrocode}
 %
 % 是否著录 URL：
@@ -926,7 +932,9 @@ FUNCTION {load.config}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
+%<*!nodoi&!2005>
   #1 'show.doi :=
+%</!nodoi&!2005>
 %<*nodoi|2005>
   #0 'show.doi :=
 %</nodoi|2005>
