@@ -1,3 +1,31 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.bst}{\from{gbt7714.dtx}{ustc,2015,numerical,nouppercase,nomark,italicjournal}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*bib>
 @article{wf,
   author    = {文富 and 顾丽梅},
   title     = {网络时代经济发展战略特征},
@@ -31,3 +59,6 @@
   volume    = {96},
   pages     = {4237},
 }
+%</bib>
+%    \end{macrocode}
+\endinput

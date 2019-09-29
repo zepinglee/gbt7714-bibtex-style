@@ -16,9 +16,8 @@ checkruns = 3
 checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 
+lvtext = ".tex"
+
 function runtest_tasks(name)
     return "bibtex -terse " .. name
 end
-
-kpse.set_program_name("kpsewhich")
-dofile(kpse.lookup("l3build.lua"))

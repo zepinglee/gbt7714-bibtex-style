@@ -1,9 +1,8 @@
-.PHONY : test testall save bst versions doc clean all inst install distclean zip FORCE_MAKE
+.PHONY : test testall save all bst doc clean cleanall install ctan FORCE_MAKE
 
 NAME = gbt7714
 PKGFILES = $(NAME).sty
 BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
-TESTDIR = test
 
 SHELL = bash
 LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
@@ -15,13 +14,13 @@ test : bst
 	bash check.sh
 
 testall : test
-	texlua build.lua check
+	l3build check
 
 save :
 	bash check.sh
-	texlua build.lua save --quiet super
-	texlua build.lua save --quiet numbers
-	texlua build.lua save --quiet authoryear
+	l3build save --quiet super
+	l3build save --quiet numbers
+	l3build save --quiet authoryear
 
 all : test doc
 
@@ -37,11 +36,11 @@ $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 
 clean :
 	$(LATEXMK) -c $(NAME).dtx
-	$(MAKE) -C $(TEST_DIR) clean
+	l3build clean
 
-distclean :
+cleanall :
 	$(LATEXMK) -C $(NAME).dtx
-	$(MAKE) -C $(TEST_DIR) distclean
+	l3build clean
 
 install : bst doc
 	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)

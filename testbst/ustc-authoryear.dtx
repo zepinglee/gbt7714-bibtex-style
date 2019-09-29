@@ -1,3 +1,31 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.bst}{\from{gbt7714.dtx}{ustc,2015,authoryear}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*bib>
 @collection{slg,
   editor    = {孙立广},
   title     = {顶级期刊论文摘要汇编（1999--2010）},
@@ -116,3 +144,6 @@
   publisher = {中国科学技术大学出版社},
   year      = {2014},
 }
+%</bib>
+%    \end{macrocode}
+\endinput

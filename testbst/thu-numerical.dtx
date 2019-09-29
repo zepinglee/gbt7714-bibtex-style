@@ -1,3 +1,31 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.bst}{\from{gbt7714.dtx}{thu,2005,numerical}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*bib>
 @article{zhangkun1994,
   title      = {机器人柔性手腕的球面齿轮设计研究},
   author     = {张昆 and 冯立群 and 余昌钰 and others},
@@ -327,3 +355,6 @@
   year       = {1983},
   medium     = {DK},
 }
+%</bib>
+%    \end{macrocode}
+\endinput

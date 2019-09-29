@@ -1,4 +1,5 @@
 testfiledir="testbst"
+testsuppdir="$testfiledir/support"
 unpackdir="build/unpacked";
 testdir="build/test";
 texoptions="-file-line-error -halt-on-error -interaction=nonstopmode"
@@ -16,36 +17,23 @@ cp -f "gbt7714.dtx" "$unpackdir";
 if [ ! -d "$testdir" ]; then
     mkdir -p "$testdir";
 fi
+cp -f "$testfiledir/support/test.aux" "$testdir";
 cp -f "$testfiledir/support/standard.bib" "$testdir";
 
 
 succuss=true;
 echo "Running checks on";
 
-for file in $testfiledir/*.bib; do
+for file in $testfiledir/*.dtx; do
     filename=$(basename $file);
-    testname=$(basename $filename .bib);
+    testname=$(basename $filename .dtx);
     echo "  $testname";
 
-    options=${testname//-/,};
-    content="\\input docstrip.tex
-\\keepsilent
-\\askforoverwritefalse
-\\nopostamble
-\\generate{\\file{test.bst}{\\from{gbt7714.dtx}{$options}}}
-\\endbatchfile";
-    echo "$content" > "$unpackdir/unpack.ins";
+    cp -f "$file" "$unpackdir";  # test bib file
 
-    ( cd "$unpackdir"; $unpackexe unpack.ins > /dev/null; )
+    ( cd "$unpackdir"; $unpackexe $filename > /dev/null; )
     cp -f "$unpackdir/test.bst" "$testdir"
-
-    content="\\relax
-\\bibstyle{test}
-\\citation{*}
-\\bibdata{standard,$testname}";
-    echo "$content" > "$testdir/test.aux";
-
-    cp -f "$file" "$testdir";  # test bib file
+    cp -f "$unpackdir/test.bib" "$testdir"
 
     ( cd $testdir; $bibtexexe test > /dev/null; )
 
