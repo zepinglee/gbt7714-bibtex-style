@@ -4,7 +4,7 @@ testdir="build/test";
 texoptions="-file-line-error -halt-on-error -interaction=nonstopmode"
 unpackexe="xetex $texoptions"
 checkexe="xelatex $texoptions -no-pdf"
-bibtexexe="bibtex -terse"
+bibtexexe="bibtex"
 
 
 if [ ! -d "$unpackdir" ]; then
@@ -42,7 +42,7 @@ for file in $testfiledir/*.bib; do
     content="\\relax
 \\bibstyle{test}
 \\citation{*}
-\\bibdata{standard,cases,$testname}";
+\\bibdata{standard,$testname}";
     echo "$content" > "$testdir/test.aux";
 
     cp -f "$file" "$testdir";  # test bib file
