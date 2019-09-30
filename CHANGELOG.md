@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - 不再依赖 `etoolbox`
 
+### Fixed
+- 修正与 `newtx` 冲突（[#42](https://github.com/CTeX-org/gbt7714-bibtex-style/issues/42)）
+
 ## [v1.1.1] - 2019-03-21
 ### Added
 - 允许自定义文种的顺序
