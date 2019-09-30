@@ -53,11 +53,14 @@ version 2005/12/01 or later.
     \from{\jobname.dtx}{2005,numerical}
   }
   \file{versions/thu/thuthesis-author-year.bst}{
-    \from{\jobname.dtx}{thu,2005,authoryear}}
+    \from{\jobname.dtx}{thu,2005,authoryear}
+  }
   \file{versions/thu/thuthesis-numeric.bst}{
-    \from{\jobname.dtx}{thu,2005,numerical}}
+    \from{\jobname.dtx}{thu,2005,numerical}
+  }
   \file{versions/thu/thuthesis-bachelor.bst}{
-    \from{\jobname.dtx}{2015,numerical}}
+    \from{\jobname.dtx}{2015,numerical,noslsn}
+  }
   \file{versions/ustc/ustcthesis-authoryear.bst}{
     \from{\jobname.dtx}{ustc,2015,authoryear}
   }
@@ -1227,7 +1230,12 @@ FUNCTION {bbl.wide.space} { "\quad " }
 FUNCTION {bbl.wide.space} { "\ " }
 %</2005>
 
+%<*!thu>
 FUNCTION {bbl.slash} { "//\allowbreak " }
+%</!thu>
+%<*thu>
+FUNCTION {bbl.slash} { " // " }
+%</thu>
 
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
@@ -2197,6 +2205,11 @@ FUNCTION {set.entry.mark}
 
 FUNCTION {format.mark}
 { show.mark
+%<*thu>
+  type$ "phdthesis" = type$ "mastersthesis" = or type$ "patent" = or
+  medium empty$ not or entry.is.electronic or
+  and
+%</thu>
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
         { entry.is.electronic
@@ -2205,7 +2218,12 @@ FUNCTION {format.mark}
           if$
         }
       if$
+%<*!thu>
       "\allowbreak[" entry.mark * "]" *
+%</!thu>
+%<*thu>
+      " [" entry.mark * "]" *
+%</thu>
     }
     { "" }
   if$

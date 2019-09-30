@@ -141,7 +141,7 @@ FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.wide.space} { "\ " }
 
-FUNCTION {bbl.slash} { "//\allowbreak " }
+FUNCTION {bbl.slash} { " // " }
 
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
@@ -871,6 +871,9 @@ FUNCTION {set.entry.mark}
 
 FUNCTION {format.mark}
 { show.mark
+  type$ "phdthesis" = type$ "mastersthesis" = or type$ "patent" = or
+  medium empty$ not or entry.is.electronic or
+  and
     { medium empty$ not
         { entry.mark "/" * medium * 'entry.mark := }
         { entry.is.electronic
@@ -879,7 +882,7 @@ FUNCTION {format.mark}
           if$
         }
       if$
-      "\allowbreak[" entry.mark * "]" *
+      " [" entry.mark * "]" *
     }
     { "" }
   if$
