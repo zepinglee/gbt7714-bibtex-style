@@ -617,19 +617,15 @@ FUNCTION {make.full.names}
 FUNCTION {output.bibitem}
 { newline$
   "\bibitem[" write$
-  label write$
-  ")" make.full.names duplicate$ short.list =
+  label ")" *
+  make.full.names duplicate$ short.list =
      { pop$ }
      { * }
   if$
   's :=
   s text.length$ 'charptr :=
-    { charptr #0 > }
-    { s charptr #1 substring$ "]" =
-        { #0 'charptr := }
-        { charptr #1 - 'charptr := }
-      if$
-    }
+    { charptr #0 > s charptr #1 substring$ "[" = not and }
+    { charptr #1 - 'charptr := }
   while$
   charptr #0 >
     { "{" s * "}" * }
