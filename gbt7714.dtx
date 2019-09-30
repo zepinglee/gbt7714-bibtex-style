@@ -129,27 +129,9 @@ version 2005/12/01 or later.
         \itemsep\z@}
 \let\@listI\@listi
 \@listi
-\renewcommand\glossaryname{版本历史}
-\GlossaryPrologue{\section*{\glossaryname}}
-\renewcommand*{\changes@}[3]{%
-  \protected@edef\@tempa{%
-    \noexpand\glossary{#1 (#2)\levelchar
-      \ifx\saved@macroname\@empty
-        \space\actualchar\generalname
-      \else
-        \expandafter\@gobble\saved@macroname
-        \actualchar
-        \string\verb\quotechar*\verbatimchar\saved@macroname\verbatimchar
-      \fi
-      :\levelchar #3}}%
-  \@tempa
-  \endgroup
-  \@esphack
-}
 \makeatother
 \EnableCrossrefs
 \CodelineIndex
-\RecordChanges
 % \OnlyDescription
 
 \begin{document}
@@ -167,7 +149,6 @@ version 2005/12/01 or later.
 % \date{\filedate\qquad\fileversion}
 % \maketitle
 %
-% \changes{v1.0}{2018/01/01}{Initial release.}
 %
 %
 % \begin{abstract}
@@ -477,8 +458,6 @@ version 2005/12/01 or later.
 % \end{thebibliography}
 %
 %
-% \linespread{1.3}
-% \PrintChanges
 %
 %
 % \clearpage
@@ -504,7 +483,6 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %
 % 只在顺序编码时使用 \opt{sort\&compress}。
-% \changes{v1.0.1}{2018/03/09}{著者出版年制的文献引用不再排序}
 %    \begin{macrocode}
 \if@gbt@numerical
   \PassOptionsToPackage{sort&compress}{natbib}
@@ -615,8 +593,6 @@ version 2005/12/01 or later.
 %
 % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
 % 这里修改为允许两个引用使用连接号。
-% \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
-% \changes{v1.0.4}{2018/04/12}{页码的连接号由 en dash 改为 hyphen}
 %    \begin{macrocode}
 \patchcmd{\NAT@citexnum}{%
   \ifx\NAT@last@yr\relax
@@ -632,7 +608,6 @@ version 2005/12/01 or later.
 %
 % \begin{environment}{thebibliography}
 % 参考文献列表的标签左对齐
-% \changes{v1.0.6}{2018/05/10}{文献列表的数字标签左对齐}
 %    \begin{macrocode}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 %    \end{macrocode}
@@ -640,7 +615,6 @@ version 2005/12/01 or later.
 %
 % \begin{macro}{\url}
 % 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-% \changes{v1.0.8}{2018/06/23}{使用 \pkg{xurl} 的方法改进 URL 断行}
 %    \begin{macrocode}
 \def\UrlBreaks{%
   \do\/%
@@ -667,7 +641,6 @@ version 2005/12/01 or later.
 % \begin{environment}{bst}
 % 这里定义了一些变量用于定制样式，
 % 可以在下面的 |load.config| 函数中选择是否启用。
-% \changes{v1.0.8}{2018/06/23}{新增接口供用户自定义样式}
 %    \begin{macrocode}
 %<*authoryear|numerical>
 INTEGERS {
@@ -805,7 +778,6 @@ FUNCTION {load.config}
   #0 'show.note :=
 %    \end{macrocode}
 %
-% \changes{v1.1.1}{2019/03/21}{允许自定义文种的顺序}
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
 %    \begin{macrocode}
 %<*authoryear>
@@ -1047,7 +1019,6 @@ FUNCTION {init.state.consts}
 %    \end{macrocode}
 %
 % 下面是一些常量的定义
-% \changes{v1.1}{2019/01/02}{允许自定义“et al”}
 %    \begin{macrocode}
 FUNCTION {bbl.anonymous}
 { entry.lang lang.zh =
@@ -1364,7 +1335,6 @@ FUNCTION {italicize}
 %    \end{macrocode}
 %
 % \subsubsection{Detect Language}
-% \changes{v1.0.7}{2018/05/12}{修正了检测 Unicode 语言}
 %    \begin{macrocode}
 INTEGERS { byte second.byte }
 
@@ -1574,8 +1544,6 @@ FUNCTION {set.entry.numbered}
 %
 % Other formatting functions are similar, so no "comment version" will be
 % given for them.
-% \changes{v1.0.2}{2018/03/16}{正确识别姓名中的“others”}
-% \changes{v1.0.8}{2018/06/23}{使用“\textasciitilde”连接英文姓名}
 %    \begin{macrocode}
 INTEGERS { nameptr namesleft numnames name.lang }
 
@@ -1775,9 +1743,6 @@ FUNCTION {output.bibitem}
 % and except for the first one after a colon (followed by whitespace)),
 % and hope the user has brace-surrounded words that need to stay capitilized;
 % for some styles, however, we leave it as it is in the database.
-% \changes{v1.0.6}{2018/05/10}{不再处理中文标题的英文单词的大小写}
-% \changes{v1.0.9}{2018/08/05}{不再转换题名 volume 的大小写}
-% \changes{v1.0.9}{2018/08/05}{增加选项在题名添加超链接}
 %    \begin{macrocode}
 FUNCTION {change.sentence.case}
 { entry.lang lang.en =
@@ -2021,7 +1986,6 @@ FUNCTION {format.booktitle.vol.num}
 
 %    \end{macrocode}
 %
-% \changes{v1.1}{2019/01/02}{修正 series 的 bug}
 %    \begin{macrocode}
 FUNCTION {format.series.vol.num.booktitle}
 { format.volume.number 's :=
@@ -2465,7 +2429,6 @@ FUNCTION {format.periodical.year.volume.number}
 % \subsubsection{Format url and doi}
 %
 % 传统的 \BibTeX{} 习惯使用 howpublished 著录 url，这里提供支持。
-% \changes{v1.0.8}{2018/06/23}{支持 howpublished 中的 url}
 %    \begin{macrocode}
 FUNCTION {check.url}
 { url empty$ not
@@ -2506,7 +2469,6 @@ FUNCTION {format.url}
 %    \end{macrocode}
 %
 % 需要检测 DOI 是否已经包含在 URL 中。
-% \changes{v1.0.5}{2018/04/18}{允许著录多个 DOI}
 %    \begin{macrocode}
 FUNCTION {check.doi}
 { doi empty$ not
@@ -2891,7 +2853,6 @@ FUNCTION {electronic}
 %       Optional: author, title, howpublished, month, year, note
 %
 % Misc 用来自动判断类型。
-% \changes{v1.0.9}{2018/08/05}{修正不显示 url 的选项}
 %    \begin{macrocode}
 FUNCTION {misc}
 { journal empty$ not
