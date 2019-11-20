@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v1.1.2] - 2019-11-20
 ### Changed
 - 不再依赖 `etoolbox`
 
@@ -71,7 +73,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...HEAD
+[v1.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1...v1.1.1
 [v1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.9...v1.1
 [v1.0.9]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.8...v1.0.9

@@ -22,11 +22,13 @@
 %</internal>
 %<*install>
 \input docstrip.tex
+\keepsilent
+\askforoverwritefalse
 \preamble
 -------------------------------------------------------------------
 GB/T 7714-2015 BibTeX Style
 https://github.com/CTeX-org/gbt7714-bibtex-style
-Version: 2019/03/21 v1.1.1
+Version: 2019/11/20 v1.1.2
 -------------------------------------------------------------------
 Copyright (C) 2016-\the\year by Zeping Lee <zepinglee AT gmail.com>
 -------------------------------------------------------------------
@@ -39,37 +41,11 @@ and version 1.3c or later is part of all distributions of LaTeX
 version 2005/12/01 or later.
 -------------------------------------------------------------------
 \endpreamble
-\keepsilent
-\askforoverwritefalse
 \nopostamble
 \generate{
   \file{\jobname.sty}{\from{\jobname.dtx}{package}}
   \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
   \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
-  \file{versions/2005/\jobname-2005-plain.bst}{
-    \from{\jobname.dtx}{2005,authoryear}
-  }
-  \file{versions/2005/\jobname-2005-unsrt.bst}{
-    \from{\jobname.dtx}{2005,numerical}
-  }
-  \file{versions/thu/thuthesis-author-year.bst}{
-    \from{\jobname.dtx}{thu,2005,authoryear}
-  }
-  \file{versions/thu/thuthesis-numeric.bst}{
-    \from{\jobname.dtx}{thu,2005,numerical}
-  }
-  \file{versions/thu/thuthesis-bachelor.bst}{
-    \from{\jobname.dtx}{2015,numerical,noslsn}
-  }
-  \file{versions/ustc/ustcthesis-authoryear.bst}{
-    \from{\jobname.dtx}{ustc,2015,authoryear}
-  }
-  \file{versions/ustc/ustcthesis-numerical.bst}{
-    \from{\jobname.dtx}{ustc,2015,numerical}
-  }
-  \file{versions/ustc/ustcthesis-bachelor.bst}{
-    \from{\jobname.dtx}{ustc,2015,numerical,nouppercase,nomark,italicjournal}
-  }
 }
 \endbatchfile
 %</install>
@@ -82,7 +58,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
 %<*package>
-  [2019/03/21 v1.1.1 GB/T 7714-2015 BibTeX Style]
+  [2019/11/20 v1.1.2 GB/T 7714-2015 BibTeX Style]
 %</package>
 %
 %<*driver>

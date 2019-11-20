@@ -1,11 +1,51 @@
 \input docstrip.tex
 \keepsilent
 \askforoverwritefalse
-\nopreamble
+\preamble
+-------------------------------------------------------------------
+GB/T 7714-2015 BibTeX Style
+https://github.com/CTeX-org/gbt7714-bibtex-style
+Version: 2019/11/20 v1.1.2
+-------------------------------------------------------------------
+Copyright (C) 2016-\the\year by Zeping Lee <zepinglee AT gmail.com>
+-------------------------------------------------------------------
+This file may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3c
+of this license or (at your option) any later version.
+The latest version of this license is in
+   https://www.latex-project.org/lppl.txt
+and version 1.3c or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+-------------------------------------------------------------------
+\endpreamble
 \nopostamble
 \generate{
   \file{\jobname.sty}{\from{\jobname.dtx}{package}}
   \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
   \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
+  \file{versions/2005/\jobname-2005-plain.bst}{
+    \from{\jobname.dtx}{2005,authoryear}
+  }
+  \file{versions/2005/\jobname-2005-unsrt.bst}{
+    \from{\jobname.dtx}{2005,numerical}
+  }
+  \file{versions/thu/thuthesis-author-year.bst}{
+    \from{\jobname.dtx}{thu,2005,authoryear}
+  }
+  \file{versions/thu/thuthesis-numeric.bst}{
+    \from{\jobname.dtx}{thu,2005,numerical}
+  }
+  \file{versions/thu/thuthesis-bachelor.bst}{
+    \from{\jobname.dtx}{2015,numerical,noslsn}
+  }
+  \file{versions/ustc/ustcthesis-authoryear.bst}{
+    \from{\jobname.dtx}{ustc,2015,authoryear}
+  }
+  \file{versions/ustc/ustcthesis-numerical.bst}{
+    \from{\jobname.dtx}{ustc,2015,numerical}
+  }
+  \file{versions/ustc/ustcthesis-bachelor.bst}{
+    \from{\jobname.dtx}{ustc,2015,numerical,nouppercase,nomark,italicjournal}
+  }
 }
 \endbatchfile

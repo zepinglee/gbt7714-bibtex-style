@@ -4,11 +4,8 @@ NAME = gbt7714
 PKGFILES = $(NAME).sty
 BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
 
-SHELL = bash
-LATEXMK = latexmk -xelatex -file-line-error -halt-on-error -interaction=nonstopmode
-VERSION = $(shell cat $(NAME).dtx | egrep -o "\[\d\d\d\d/\d\d\/\d\d v.+\]" \
-	  | egrep -o "v\S+")
-TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
+TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
+LATEXMK = latexmk -xelatex $(TEXOPTS)
 
 test : bst
 	bash check.sh
@@ -28,11 +25,11 @@ bst : $(PKGFILES) $(BSTFILES)
 
 doc : $(NAME).pdf
 
-%.sty %-plain.bst %-unsrt.bst : %.dtx
-	xetex $<
+%.sty %-plain.bst %-unsrt.bst : %.ins %.dtx
+	xetex $(TEXOPTS) $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
-	$(LATEXMK) -xelatex -halt-on-error -interaction=nonstopmode $<
+	$(LATEXMK) $<
 
 clean :
 	$(LATEXMK) -c $(NAME).dtx
@@ -42,16 +39,8 @@ cleanall :
 	$(LATEXMK) -C $(NAME).dtx
 	l3build clean
 
-install : bst doc
-	mkdir -p $(TEXMF)/{doc,source,tex}/latex/$(NAME)
-	mkdir -p $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(BSTFILES) $(TEXMF)/bibtex/bst/$(NAME)
-	cp $(NAME).pdf $(TEXMF)/doc/latex/$(NAME)
-	cp $(NAME).dtx $(TEXMF)/source/latex/$(NAME)
-	cp $(PKGFILES) $(TEXMF)/tex/latex/$(NAME)
+install :
+	l3build install
 
-ctan : bst doc
-	ln -sf . $(NAME)
-	zip -r ../$(NAME).zip $(NAME)/{README.md,LICENSE,$(NAME).dtx,\
-	$(NAME).pdf,$(NAME).sty,$(NAME)-plain.bst,$(NAME)-unsrt.bst}
-	rm $(NAME)
+ctan :
+	l3build ctan
