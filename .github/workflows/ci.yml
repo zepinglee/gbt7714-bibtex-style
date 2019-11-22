@@ -1,0 +1,39 @@
+name: build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install TeX Live
+      run: |
+        REMOTE="http://mirror.ctan.org/systems/texlive/tlnet"
+        INSTALL="/tmp/install-texlive"
+        mkdir -p $INSTALL
+        curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xzv -C $INSTALL \
+          --strip-components=1
+        $INSTALL/install-tl -profile .github/workflows/texlive.profile
+    - name: Install dependencies
+      run: |
+        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+        tlmgr install latexmk l3build \
+          fontname fontspec l3kernel l3packages xetex \
+          cjk ctex fandol environ ms trimspaces ulem xecjk zhnumber \
+          booktabs caption listings thumbpdf zapfding \
+          cite
+    - name: Test bst
+      run: |
+        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+        make test
+    - name: Test citation styles
+      run: |
+        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+        l3build check
+    - name: Test doc
+      run: |
+        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+        make doc

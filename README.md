@@ -4,7 +4,7 @@
 [![CTAN](https://img.shields.io/ctan/v/gbt7714.svg)](https://ctan.org/pkg/gbt7714)
 [![GitHub release](https://img.shields.io/github/release/CTeX-org/gbt7714-bibtex-style/all.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/CTeX-org/gbt7714-bibtex-style/latest.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/commits/master)
-[![Travis build](https://travis-ci.org/CTeX-org/gbt7714-bibtex-style.svg?branch=master)](https://travis-ci.org/CTeX-org/gbt7714-bibtex-style)
+[![Build](https://github.com/CTeX-org/gbt7714-bibtex-style/workflows/build/badge.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/actions)
 
 
 ## Introduction
