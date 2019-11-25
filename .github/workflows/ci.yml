@@ -23,7 +23,7 @@ jobs:
         tlmgr install latexmk l3build \
           fontname fontspec l3kernel l3packages xetex \
           cjk ctex fandol environ ms trimspaces ulem xecjk zhnumber \
-          booktabs caption listings thumbpdf zapfding \
+          booktabs caption pdftexcmds listings thumbpdf zapfding \
           cite
     - name: Test bst
       run: |
