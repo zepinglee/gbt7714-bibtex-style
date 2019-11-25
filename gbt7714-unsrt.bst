@@ -873,14 +873,20 @@ FUNCTION {set.entry.mark}
 
 FUNCTION {format.mark}
 { show.mark
-    { medium empty$ not
-        { entry.mark "/" * medium * 'entry.mark := }
-        { entry.is.electronic
-            { entry.mark "/OL" * 'entry.mark := }
-            'skip$
+    { entry.mark
+      show.medium.type
+        { medium empty$ not
+            { "/" * medium * }
+            { entry.is.electronic
+                { "/OL" * }
+                'skip$
+              if$
+            }
           if$
         }
+        'skip$
       if$
+      'entry.mark :=
       "\allowbreak[" entry.mark * "]" *
     }
     { "" }

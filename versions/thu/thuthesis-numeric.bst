@@ -876,14 +876,20 @@ FUNCTION {format.mark}
   type$ "phdthesis" = type$ "mastersthesis" = or type$ "patent" = or
   medium empty$ not or entry.is.electronic or
   and
-    { medium empty$ not
-        { entry.mark "/" * medium * 'entry.mark := }
-        { entry.is.electronic
-            { entry.mark "/OL" * 'entry.mark := }
-            'skip$
+    { entry.mark
+      show.medium.type
+        { medium empty$ not
+            { "/" * medium * }
+            { entry.is.electronic
+                { "/OL" * }
+                'skip$
+              if$
+            }
           if$
         }
+        'skip$
       if$
+      'entry.mark :=
       " [" entry.mark * "]" *
     }
     { "" }
