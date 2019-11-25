@@ -27,6 +27,7 @@ INTEGERS {
   sentence.case.title
   link.title
   show.mark
+  show.medium.type
   slash.for.extraction
   in.booktitle
   italic.jounal
@@ -45,6 +46,7 @@ FUNCTION {load.config}
   #0 'link.title :=
   #1 'show.mark :=
   #0 'show.mark :=
+  #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
   #0 'italic.jounal :=
