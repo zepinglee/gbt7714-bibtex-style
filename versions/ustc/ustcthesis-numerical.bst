@@ -10,7 +10,7 @@
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
 %% Version: 2019/11/20 v1.1.2
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016-2019 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016-2020 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
