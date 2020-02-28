@@ -65,37 +65,35 @@ version 2005/12/01 or later.
 \documentclass[a4paper]{ltxdoc}
 \usepackage[paper=a4paper,margin=1in,left=1.25in]{geometry}
 \usepackage{hypdoc}
-\hypersetup{allcolors=blue}
 \usepackage[UTF8]{ctex}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{gbt7714}
+\usepackage{listings}
+\makeatletter
+\hypersetup{allcolors=blue}
 \IfFileExists{/System/Library/Fonts/Times.ttc}{
   \setmainfont{Times}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
 }{}
-\usepackage{caption}
-\usepackage{booktabs}
-\usepackage{gbt7714}
-\usepackage{listings}
+\citestyle{super}
 \lstnewenvironment{latex}{%
-  \lstset{%
+  \lstset{
     basicstyle = \ttfamily\small,
     language = [LaTeX]TeX,
-    gobble = 2,
-    frame = single,}}{}
+    gobble = 4,
+    frame = single,
+  }%
+}{}
 \lstnewenvironment{pseudocode}{%
-  \lstset{%
+  \lstset{
     basicstyle=\ttfamily\small,
     language=bash,
     gobble=2,
-    frame=single,}}{}
-\makeatletter
-\def\DescribeOption{\leavevmode\@bsphack\begingroup\MakePrivateLetters
-  \Describe@Option}
-\def\Describe@Option#1{\endgroup
-              \marginpar{\raggedleft\PrintDescribeOption{#1}}%
-              \SpecialEnvIndex{#1}\@esphack\ignorespaces}
-\@ifundefined{PrintDescribeOption}
-   {\def\PrintDescribeOption#1{\strut \MacroFont #1\ }}{}
+    frame=single,
+  }%
+}{}
 \DeclareRobustCommand\file{\nolinkurl}
 \DeclareRobustCommand\env{\texttt}
 \DeclareRobustCommand\pkg{\textsf}
@@ -155,44 +153,51 @@ version 2005/12/01 or later.
 %
 % \section{使用方法}
 %
-% \DescribeOption{super}
-% \DescribeOption{numbers}
-% \DescribeOption{authoryear}
 % 按照国标的规定，参考文献的标注体系分为“顺序编码制”和
-% “著者-出版年制”(\opt{authoryear})，
-% 其中顺序编码制根据引用标注样式的不同分为角标数字式(\opt{super})和
-% 与正文平排的数字式(\opt{numbers})。
-%
-% 用户应在导言区调用宏包 \pkg{gbt7714}，并在参数中选择参考文献的标注样式。
-% 默认的参数是 \opt{super}，额外的参数会传递给 \pkg{natbib} 宏包，比如：
+% “著者-出版年制”。
+% 用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
+% 命令选择参考文献表的样式，比如：
 % \begin{latex}
-% \usepackage[authoryear]{gbt7714}
+%   \bibliographystyle{gbt7714-numerical}  % 顺序编码制
 % \end{latex}
-% 然后\emph{不再}需要调用 \cs{bibliographystyle} 命令设置参考文献列表风格。
+% 或者
+% \begin{latex}
+%   \bibliographystyle{gbt7714-author-year}  % 著者-出版年制
+% \end{latex}
 %
-% 使用时需要注意以下几点：
-% \begin{itemize}
-%   \item \emph{不}再需要调用 \cs{bibliographystyle} 命令选择参考文献表的格式。
-%   \item bib 数据库应使用 UTF-8 编码。
-%   \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
-%         在 key 域填写作者姓名的拼音，才能按照拼音排序，
-%         详见第~\ref{sec:sort}~节。
-% \end{itemize}
+% 注意，版本 v2.0 更改了设置参考文献表样式的方法，
+% 要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
+% 而且更改了 \file{bst} 的文件名。
 %
-% \DescribeMacro{\cite}
-% 在正文中引用文献时应使用 \cs{cite} 命令。
-% 同一处引用多篇文献时，应将各篇文献的 key 一同写在 \cs{cite} 命令中，
-% 如 |\cite{knuth84,lamport94,mittelbach04}|。
-% 如遇连续编号，可以自动转为起讫序号并用短横线连接。
-% 它可以自动排序并用处理连续编号。
+% 顺序编码制的引用标注默认使用角标式，
+% 如“张三\textsuperscript{[2]}提出”。
+% 如果要使用正文模式，如“文献 [3] 中说明”，
+% 可以使用 \cs{citestyle} 命令进行切换：
+% \begin{latex}
+%   \citestyle{numbers}
+% \end{latex}
+%
+% 同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
+% 如遇连续编号，默认会自动转为起讫序号并用短横线连接
+% （见\pkg{natbib} 的 \opt{compress} 选项）。
+% 如果要对引用的编号进行自动排序，需要在调用 \pkg{gbt7714} 时加
+% \opt{sort\&compress} 参数：
+% \begin{latex}
+%   \usepackage[sort&compress]{gbt7714}
+% \end{latex}
+% 这些参数会传给 \pkg{natbib} 处理。
+%
 % 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
 % |\cite[42]{knuth84}|。
 % 更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明\cite{natbib}。
 %
-% \DescribeMacro{\bibliography}
-% 参考文献表可以在文中使用 \cs{bibliography} 命令调用。
-% 注意文献列表的样式已经在模板中根据选项设置，
-% 用户\emph{不再}需要使用 \cs{bibliographystyle} 命令。
+% 使用时需要注意以下几点：
+% \begin{itemize}
+%   \item \file{.bib} 数据库应使用 UTF-8 编码。
+%   \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
+%         在 key 域填写作者姓名的拼音，才能按照拼音排序，
+%         详见第~\ref{sec:sort}~节。
+% \end{itemize}
 %
 %
 % \section{文献类型}
@@ -270,11 +275,12 @@ version 2005/12/01 or later.
 % 本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
 % 但是在少数情况下需要用户手动指定，如：
 % \begin{latex}
-% @misc{citekey,
-%   language = {japanese},
-%   mark     = {Z},
-%   medium   = {DK},
-%   ...
+%   @misc{citekey,
+%     language = {japanese},
+%     mark     = {Z},
+%     medium   = {DK},
+%     ...
+%   }
 % \end{latex}
 % 可选的语言有 english, chinese, japanese, russian。
 %
@@ -288,11 +294,14 @@ version 2005/12/01 or later.
 % 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
 % 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音，如：
 % \begin{latex}
-% @book{capital,
-%   author = {马克思 and 恩格斯},
-%   key    = {ma3 ke4 si1   en1 ge2 si1},
-%   ...
+%   @book{capital,
+%     author = {马克思 and 恩格斯},
+%     key    = {ma3 ke4 si1   en1 ge2 si1},
+%     ...
+%   }
 % \end{latex}
+% 注意名字之间需要额外的空格，比如“张三, 李四”要排在
+% “张三丰”前面。
 %
 %
 % \section{自定义样式}
@@ -534,8 +543,6 @@ version 2005/12/01 or later.
 %
 % 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
 % 这里修改为允许两个引用使用连接号。
-% \changes{v1.0.3}{2018/03/29}{顺序编码制连续两个文献引用之间使用连接号}
-% \changes{v1.0.4}{2018/04/12}{页码的连接号由 en dash 改为 hyphen}
 %    \begin{macrocode}
              % \ifx\NAT@last@yr\relax
              %   \def@NAT@last@yr{\@citea}%

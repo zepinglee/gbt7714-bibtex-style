@@ -24,50 +24,38 @@ and English) for each biblilography entry.
 ## 新特性
 
 - 兼容 `natbib`
-- 支持顺序编码制和著者-出版年制两种风格
+- 支持“顺序编码制”和“著者-出版年制”两种风格
 - 自动识别语言并进行相应处理
 - 提供了简单的接口供用户修改样式
 
 
 ## 使用方法
 
-1. 将 `bst` 文件和 `sty` 文件复制到工作目录。
+1. 在导言区调用宏包 `gbt7714`；
 
-2. 在导言区调用宏包 `gbt7714`，可选的参数如下表。
-   默认的参数是 `super`，额外的参数会传递给 `natbib` 宏包。
+2. 在正文中 `\cite` 文献；
 
-可选参数 | 引用标注 | 参考文献列表
---- | --- | ---
-`super`(默认) | 角标数字 | 顺序编码
-`numbers` | 数字 | 顺序编码
-`authoryear` | 著者-出版年 | 著者-出版年
-`2015`（默认） | - | GB/T 7714-2015 版
-`2005` | - | GB/T 7714-2005 版
-
-比如： `\usepackage[authoryear]{gbt7714}`
-
-3. 在正文中 `\cite` 文献。
+3. 使用 `\bibliographystyle` 选择参考文献表的样式；
 
 4. 使用 `\bibliography` 命令生成参考文献表。
 
 
 ## 注意事项
 
-1. **不再**需要调用 `\bibliographystyle` 命令。
-2. `bib` 数据库应使用 UTF-8 编码。
-3. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
+1. `bib` 数据库应使用 UTF-8 编码。
+2. 使用著者-出版年制参考文献表时，中文的文献**必须**在 `key` 域填写
 著者姓名的拼音，才能按照拼音排序，比如：
 ```
 @book{capital,
   author = {马克思 and 恩格斯},
   key    = {ma3 ke4 si1   en1 ge2 si1},
   ...
+}
 ```
 
 同一处引用多篇文献时，应将各篇文献的 key 一同写在 `\cite` 命令中，
 如 `\cite{knuth84,lamport94,mittelbach04}`。
 如遇连续编号，可以自动转为起讫序号并用短横线连接。
-它可以自动排序并用处理连续编号。
 
 若需要标出引文的页码，可以标在 `\cite` 的可选参数中，如 `\cite[42]{knuth84}`。
 
@@ -81,6 +69,7 @@ and English) for each biblilography entry.
   mark     = {Z},
   medium   = {DK},
   ...
+}
 ```
 可选的语言有 `english`, `chinese`, `japanese`, `russian`。
 
