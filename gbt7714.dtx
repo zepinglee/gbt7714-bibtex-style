@@ -449,16 +449,15 @@ version 2005/12/01 or later.
 % 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numbers}。
 %    \begin{macrocode}
 %<*package>
-\newif\if@gbt@mmxv
-\newif\if@gbt@numerical
-\newif\if@gbt@super
-\DeclareOption{2015}{\@gbt@mmxvtrue}
-\DeclareOption{2005}{\@gbt@mmxvfalse}
-\DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
-\DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
-\DeclareOption{authoryear}{\@gbt@numericalfalse}
+\newcommand\gbt@obselete@option[1]{%
+  \PackageWarning{gbt7714}{The option "#1" is obselete}%
+}
+\DeclareOption{2015}{\gbt@obselete{2015}}
+\DeclareOption{2005}{\gbt@obselete{2005}}
+\DeclareOption{super}{\gbt@obselete{super}}
+\DeclareOption{numbers}{\gbt@obselete{super}}
+\DeclareOption{authoryear}{\gbt@obselete{authoryear}}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ExecuteOptions{2015,super}
 \ProcessOptions\relax
 %    \end{macrocode}
 %
@@ -475,51 +474,16 @@ version 2005/12/01 or later.
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
+\newcommand\bibstyle@inline{\bibstyle@numbers}
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\gbtbibstyle}
-% 定义接口切换参考文献表的风格，可选 \opt{authoryear} 和 \opt{numerical}，
-% 这个仅用于\pkg{chapterbib}。
+% 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
 %    \begin{macrocode}
-\newcommand\gbtbibstyle[1]{%
-  \@ifundefined{gbt@bib@#1}{%
-    \PackageError{gbt7714}{Invalid argument #1}{}%
-  }{%
-    \@nameuse{gbt@bib@#1}
-  }%
-}
-\newcommand\gbt@bib@numerical{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-numerical}%
-  \else
-    \bibliographystyle{gbt7714-2005-numerical}%
-  \fi
-}
-\newcommand\gbt@bib@authoryear{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-author-year}%
-  \else
-    \bibliographystyle{gbt7714-2005-author-year}%
-  \fi
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% 处理宏包选项。
-%    \begin{macrocode}
-\if@gbt@numerical
-  \if@gbt@super
-    \citestyle{super}%
-    \gbtbibstyle{numerical}%
-  \else
-    \citestyle{numbers}
-    \gbtbibstyle{numerical}%
-  \fi
-\else
-  \citestyle{authoryear}
-  \gbtbibstyle{authoryear}%
-\fi
+\@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
 %    \end{macrocode}
 %
 % \begin{macro}{\cite}

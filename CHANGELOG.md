@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ### Changed
+- 需要用户在主文档使用 `\bibliographystyle` 命令
 - 更改 `bst` 文件名为 `-numerical` 和 `-author-year`
 - 不再默认对顺序编码制的引用标注进行排序
 

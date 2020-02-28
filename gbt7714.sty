@@ -23,55 +23,26 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
   [2019/11/20 v1.1.2 GB/T 7714-2015 BibTeX Style]
-\newif\if@gbt@mmxv
-\newif\if@gbt@numerical
-\newif\if@gbt@super
-\DeclareOption{2015}{\@gbt@mmxvtrue}
-\DeclareOption{2005}{\@gbt@mmxvfalse}
-\DeclareOption{super}{\@gbt@numericaltrue\@gbt@supertrue}
-\DeclareOption{numbers}{\@gbt@numericaltrue\@gbt@superfalse}
-\DeclareOption{authoryear}{\@gbt@numericalfalse}
+\newcommand\gbt@obselete@option[1]{%
+  \PackageWarning{gbt7714}{The option "#1" is obselete}%
+}
+\DeclareOption{2015}{\gbt@obselete{2015}}
+\DeclareOption{2005}{\gbt@obselete{2005}}
+\DeclareOption{super}{\gbt@obselete{super}}
+\DeclareOption{numbers}{\gbt@obselete{super}}
+\DeclareOption{authoryear}{\gbt@obselete{authoryear}}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ExecuteOptions{2015,super}
 \ProcessOptions\relax
 \RequirePackage[compress]{natbib}
 \RequirePackage{url}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\gbtbibstyle[1]{%
-  \@ifundefined{gbt@bib@#1}{%
-    \PackageError{gbt7714}{Invalid argument #1}{}%
-  }{%
-    \@nameuse{gbt@bib@#1}
-  }%
-}
-\newcommand\gbt@bib@numerical{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-numerical}%
-  \else
-    \bibliographystyle{gbt7714-2005-numerical}%
-  \fi
-}
-\newcommand\gbt@bib@authoryear{%
-  \if@gbt@mmxv
-    \bibliographystyle{gbt7714-author-year}%
-  \else
-    \bibliographystyle{gbt7714-2005-author-year}%
-  \fi
-}
-\if@gbt@numerical
-  \if@gbt@super
-    \citestyle{super}%
-    \gbtbibstyle{numerical}%
-  \else
-    \citestyle{numbers}
-    \gbtbibstyle{numerical}%
-  \fi
-\else
-  \citestyle{authoryear}
-  \gbtbibstyle{authoryear}%
-\fi
+\newcommand\bibstyle@inline{\bibstyle@numbers}
+\@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
