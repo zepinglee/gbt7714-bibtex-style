@@ -769,22 +769,24 @@ version 2005/12/01 or later.
 % 兼容 v2.0 前过时的接口：
 %    \begin{macrocode}
 \newif\ifgbt@bib@style@written
-\def\bibliography#1{%
-  \ifgbt@bib@style@written\else
-    \bibliographystyle{gbt7714-numerical}%
-  \fi
-  \if@filesw
-    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
-  \fi
-  \@input@{\jobname.bbl}}
-\def\bibliographystyle#1{%
-  \gbt@bib@style@writtentrue
-  \ifx\@begindocumenthook\@undefined\else
-    \expandafter\AtBeginDocument
-  \fi
-    {\if@filesw
-      \immediate\write\@auxout{\string\bibstyle{#1}}%
-    \fi}%
+\@ifpackageloaded{chapterbib}{}{%
+  \def\bibliography#1{%
+    \ifgbt@bib@style@written\else
+      \bibliographystyle{gbt7714-numerical}%
+    \fi
+    \if@filesw
+      \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+    \fi
+    \@input@{\jobname.bbl}}
+  \def\bibliographystyle#1{%
+    \gbt@bib@style@writtentrue
+    \ifx\@begindocumenthook\@undefined\else
+      \expandafter\AtBeginDocument
+    \fi
+      {\if@filesw
+        \immediate\write\@auxout{\string\bibstyle{#1}}%
+      \fi}%
+  }%
 }
 \ifgbt@legacy@interface
   \ifgbt@numerical

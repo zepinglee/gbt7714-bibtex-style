@@ -15,6 +15,11 @@ unpackfiles = {"*.dtx"}
 checkengines = {"xetex"}
 stdengine = "xetex"
 
+checkconfigs = {
+    "build",
+    "test/config-chapterbib",
+}
+
 typesetexe = "xelatex"
 unpackexe = "xetex"
 

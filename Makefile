@@ -21,6 +21,7 @@ save :
 	l3build save --quiet legacy-super
 	l3build save --quiet legacy-numbers
 	l3build save --quiet legacy-authoryear
+	l3build save --config test/config-chapterbib package-chapterbib
 
 all : test doc
 

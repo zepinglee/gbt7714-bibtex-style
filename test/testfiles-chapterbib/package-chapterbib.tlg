@@ -1,0 +1,275 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+(section1.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+(section1.bbl))
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 443.0417fil
+...\write-{}
+...\write-{}
+...\write-{}
+...\glue(\topskip) 0.1936
+...\hbox(9.8064+0.08638)x345.0, glue set 297.00482fil
+....\hbox(9.4464+0.0)x22.50719
+.....\glue 0.0
+.....\TU/lmr/bx/n/14.4 1
+.....\glue 14.4
+....\TU/lmr/bx/n/14.4 Foo
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 3.0347
+...\hbox(8.87892+0.10999)x345.0, glue set 312.33699fil
+....\TU/lmr/m/n/10 Foo
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+.....\TU/lmr/m/n/7 -
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+.....\TU/lmr/m/n/7 ]
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 15.08499 plus 4.31 minus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.81001
+...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
+....\hbox(0.0+0.0)x0.0
+.....\glue 0.0
+....\TU/lmr/bx/n/14.4 References
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.32721
+...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 BAKER,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 1990.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.00002
+...\hbox(7.5+2.49998)x329.44, glue set 86.19998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JAMES,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 BAKER,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 1991.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 10.0 plus 3.0 minus 5.0
+...\glue -10.0 plus -3.0 minus -5.0
+...\glue -2.49998
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+(section2.tex (section2.bbl))
+Completed box being shipped out [2]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 443.0417fil
+...\write-{}
+...\write-{}
+...\write-{}
+...\glue(\topskip) 0.1216
+...\hbox(9.8784+0.08638)x345.0, glue set 296.47203fil
+....\hbox(9.4464+0.0)x22.50719
+.....\glue 0.0
+.....\TU/lmr/bx/n/14.4 2
+.....\glue 14.4
+....\TU/lmr/bx/n/14.4 Bar
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline \ETC.}
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 3.0347
+...\hbox(8.87892+0.10999)x345.0, glue set 312.31699fil
+....\TU/lmr/m/n/10 Bar
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+.....\TU/lmr/m/n/7 -
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+.....\TU/lmr/m/n/7 ]
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 15.08499 plus 4.31 minus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.81001
+...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
+....\hbox(0.0+0.0)x0.0
+.....\glue 0.0
+....\TU/lmr/bx/n/14.4 References
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 4.32721
+...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 BAKER,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 1991.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.00002
+...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 BAKER,
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 1992.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 10.0 plus 3.0 minus 5.0
+...\glue -10.0 plus -3.0 minus -5.0
+...\glue -2.49998
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
