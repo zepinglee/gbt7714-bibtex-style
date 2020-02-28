@@ -1,5 +1,5 @@
 %%
-%% This is file `gbt7714-plain.bst',
+%% This is file `gbt7714-author-year.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:

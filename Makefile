@@ -2,7 +2,7 @@
 
 NAME = gbt7714
 PKGFILES = $(NAME).sty
-BSTFILES = $(NAME)-plain.bst $(NAME)-unsrt.bst
+BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 
 TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
 LATEXMK = latexmk -xelatex $(TEXOPTS)
@@ -25,7 +25,7 @@ bst : $(PKGFILES) $(BSTFILES)
 
 doc : $(NAME).pdf
 
-%.sty %-plain.bst %-unsrt.bst : %.ins %.dtx
+%.sty %-numerical.bst %-author-year.bst : %.ins %.dtx
 	xetex $(TEXOPTS) $<
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
