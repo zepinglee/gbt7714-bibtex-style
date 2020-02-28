@@ -34,10 +34,7 @@
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ExecuteOptions{2015,super}
 \ProcessOptions\relax
-\if@gbt@numerical
-  \PassOptionsToPackage{sort&compress}{natbib}
-\fi
-\RequirePackage{natbib}
+\RequirePackage[compress]{natbib}
 \RequirePackage{url}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}

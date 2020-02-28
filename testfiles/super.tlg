@@ -17,7 +17,7 @@ Completed box being shipped out [1]
 ...\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 13.31357fil
+..\vbox(550.0+0.0)x345.0, glue set >20000.0fil
 ...\write-{}
 ...\glue(\topskip) 0.92535
 ...\hbox(9.07465+0.0)x345.0, glue set 314.91626fil
@@ -634,6 +634,49 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
+...\kern 1.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.3668
+...\hbox(9.07465+0.0)x345.0, glue set 295.75024fil
+....\hbox(0.0+0.0)x21.07874
+....\mathon
+....\hbox(5.25+1.74998)x28.17102, shifted -3.82465
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.13998)x3.983
+......\TU/lmr/m/n/7 3
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ,
+.....\kern -0.0002
+.....\kern 0.0002
+.....\penalty 1000
+.....\hbox(4.648+0.13998)x3.983
+......\TU/lmr/m/n/7 8
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 -
+.....\kern -0.00024
+.....\kern 0.00024
+.....\penalty 1000
+.....\hbox(4.648+0.13998)x3.983
+......\TU/lmr/m/n/7 9
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ,
+.....\kern -0.0002
+.....\kern 0.0002
+.....\penalty 1000
+.....\hbox(4.732+0.13998)x3.983
+......\TU/lmr/m/n/7 7
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\baselineskip) 7.96881
 ...\hbox(8.47264+0.23186)x345.0, glue set 265.13136fil
@@ -868,8 +911,21 @@ Completed box being shipped out [1]
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 9.19037
+...\glue -0.23186
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+Completed box being shipped out [2]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 539.94232fil
+...\glue(\topskip) 2.98077
 ...\hbox(7.01923+0.23186)x345.0, glue set 302.34253fil
 ....\hbox(0.0+0.0)x21.07874
 ....\TU/lmr/m/n/10.53937 1990

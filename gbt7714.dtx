@@ -462,12 +462,9 @@ version 2005/12/01 or later.
 \ProcessOptions\relax
 %    \end{macrocode}
 %
-% 只在顺序编码时使用 \opt{sort\&compress}。
+% 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
 %    \begin{macrocode}
-\if@gbt@numerical
-  \PassOptionsToPackage{sort&compress}{natbib}
-\fi
-\RequirePackage{natbib}
+\RequirePackage[compress]{natbib}
 \RequirePackage{url}
 %    \end{macrocode}
 %
