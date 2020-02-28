@@ -455,17 +455,49 @@ version 2005/12/01 or later.
 %
 % \section{宏包的代码实现}
 %
-% 下面声明和处理宏包的选项，有 \opt{authoryear} 和 \opt{numbers}。
+% 兼容过时的接口
 %    \begin{macrocode}
 %<*package>
+\newif\ifgbt@legacy@interface
+\newif\ifgbt@mmxv
+\newif\ifgbt@numerical
+\newif\ifgbt@super
 \newcommand\gbt@obselete@option[1]{%
   \PackageWarning{gbt7714}{The option "#1" is obselete}%
 }
-\DeclareOption{2015}{\gbt@obselete{2015}}
-\DeclareOption{2005}{\gbt@obselete{2005}}
-\DeclareOption{super}{\gbt@obselete{super}}
-\DeclareOption{numbers}{\gbt@obselete{super}}
-\DeclareOption{authoryear}{\gbt@obselete{authoryear}}
+\DeclareOption{authoryear}{}
+
+\DeclareOption{2015}{%
+  \gbt@obselete@option{2015}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvtrue
+}
+\DeclareOption{2005}{%
+  \gbt@obselete@option{2005}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvfalse
+}
+\DeclareOption{super}{%
+  \gbt@obselete@option{super}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@supertrue
+}
+\DeclareOption{numbers}{%
+  \gbt@obselete@option{numbers}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@superfalse
+}
+\DeclareOption{authoryear}{%
+  \gbt@obselete@option{authoryear}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericalfalse
+}
+%    \end{macrocode}
+%
+% 将选项传递给 \pkg{natbib}
+%    \begin{macrocode}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ProcessOptions\relax
 %    \end{macrocode}
@@ -731,9 +763,41 @@ version 2005/12/01 or later.
   \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
 }
 \Urlmuskip=0mu plus 0.1mu
-%</package>
 %    \end{macrocode}
 % \end{macro}
+%
+% 兼容 v2.0 前过时的接口：
+%    \begin{macrocode}
+\newif\ifgbt@bib@style@written
+\def\bibliography#1{%
+  \ifgbt@bib@style@written\else
+    \bibliographystyle{gbt7714-numerical}%
+  \fi
+  \if@filesw
+    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+  \fi
+  \@input@{\jobname.bbl}}
+\def\bibliographystyle#1{%
+  \gbt@bib@style@writtentrue
+  \ifx\@begindocumenthook\@undefined\else
+    \expandafter\AtBeginDocument
+  \fi
+    {\if@filesw
+      \immediate\write\@auxout{\string\bibstyle{#1}}%
+    \fi}%
+}
+\ifgbt@legacy@interface
+  \ifgbt@numerical
+    \ifgbt@super\else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{gbt7714-numerical}
+  \else
+    \bibliographystyle{gbt7714-author-year}
+  \fi
+\fi
+%</package>
+%    \end{macrocode}
 %
 %
 %

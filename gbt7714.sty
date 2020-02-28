@@ -23,14 +23,42 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
   [2019/11/20 v1.1.2 GB/T 7714-2015 BibTeX Style]
+\newif\ifgbt@legacy@interface
+\newif\ifgbt@mmxv
+\newif\ifgbt@numerical
+\newif\ifgbt@super
 \newcommand\gbt@obselete@option[1]{%
   \PackageWarning{gbt7714}{The option "#1" is obselete}%
 }
-\DeclareOption{2015}{\gbt@obselete{2015}}
-\DeclareOption{2005}{\gbt@obselete{2005}}
-\DeclareOption{super}{\gbt@obselete{super}}
-\DeclareOption{numbers}{\gbt@obselete{super}}
-\DeclareOption{authoryear}{\gbt@obselete{authoryear}}
+\DeclareOption{authoryear}{}
+
+\DeclareOption{2015}{%
+  \gbt@obselete@option{2015}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvtrue
+}
+\DeclareOption{2005}{%
+  \gbt@obselete@option{2005}%
+  \gbt@legacy@interfacetrue
+  \gbt@mmxvfalse
+}
+\DeclareOption{super}{%
+  \gbt@obselete@option{super}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@supertrue
+}
+\DeclareOption{numbers}{%
+  \gbt@obselete@option{numbers}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericaltrue
+  \gbt@superfalse
+}
+\DeclareOption{authoryear}{%
+  \gbt@obselete@option{authoryear}%
+  \gbt@legacy@interfacetrue
+  \gbt@numericalfalse
+}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ProcessOptions\relax
 \RequirePackage[compress]{natbib}
@@ -236,3 +264,31 @@
   \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
 }
 \Urlmuskip=0mu plus 0.1mu
+\newif\ifgbt@bib@style@written
+\def\bibliography#1{%
+  \ifgbt@bib@style@written\else
+    \bibliographystyle{gbt7714-numerical}%
+  \fi
+  \if@filesw
+    \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
+  \fi
+  \@input@{\jobname.bbl}}
+\def\bibliographystyle#1{%
+  \gbt@bib@style@writtentrue
+  \ifx\@begindocumenthook\@undefined\else
+    \expandafter\AtBeginDocument
+  \fi
+    {\if@filesw
+      \immediate\write\@auxout{\string\bibstyle{#1}}%
+    \fi}%
+}
+\ifgbt@legacy@interface
+  \ifgbt@numerical
+    \ifgbt@super\else
+      \citestyle{numbers}
+    \fi
+    \bibliographystyle{gbt7714-numerical}
+  \else
+    \bibliographystyle{gbt7714-author-year}
+  \fi
+\fi

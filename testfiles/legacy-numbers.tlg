@@ -1,0 +1,776 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+(citations.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.53937> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+)
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 13.87206fil
+...\write-{}
+...\glue(\topskip) 2.09547
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.0)x5.26968
+.....\TU/lmr/m/n/10.53937 1
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.0)x5.26968
+.....\TU/lmr/m/n/10.53937 2
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.13515+0.0)x5.26968
+.....\TU/lmr/m/n/10.53937 4
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 5
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 6
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 256.97517fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.26398
+...\hbox(8.54265+2.63483)x345.0, glue set 248.50917fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathon
+....\hbox(4.718+0.0)x8.466, shifted -3.82465
+.....\TU/lmr/m/n/7 42
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 295.81276fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 42]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 278.79167fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [see
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 42]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 182.9572fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 Baker,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 and
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 Williams
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 312.79169fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 180.67012fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 James
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.12462+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 7
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 245.26593fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 8
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 239.99625fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 9
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.01923+0.23186)x10.53937
+.....\TU/lmr/m/n/10.53937 10
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(7.90453+2.63483)x2.92995
+.....\TU/lmr/m/n/10.53937 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 301.08244fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.12462+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 7
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 301.08244fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 8
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 298.7427fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 9
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 -
+....\discretionary
+....\kern -0.00024
+....\kern 0.00024
+....\penalty 1000
+....\hbox(7.01923+0.23186)x10.53937
+.....\TU/lmr/m/n/10.53937 10
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 292.30315fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.12462+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 7
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 -
+....\discretionary
+....\kern -0.00024
+....\kern 0.00024
+....\penalty 1000
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 9
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 5.9021
+...\hbox(7.90453+2.63483)x345.0, glue set 280.5939fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 8
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 -
+....\discretionary
+....\kern -0.00024
+....\kern 0.00024
+....\penalty 1000
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 9
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.12462+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 7
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 6.49231
+...\hbox(7.31432+0.23186)x345.0, glue set 262.83507fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(0.0+0.0)x0.0
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 8.89528
+...\hbox(7.31432+2.03409)x345.0, glue set 188.8171fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 Baker,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 and
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 Williams
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(0.0+0.0)x0.0
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.38814
+...\hbox(7.01923+0.23186)x345.0, glue set 318.65158fil
+....\hbox(0.0+0.0)x21.07874
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 9.19037
+...\hbox(7.01923+0.23186)x345.0, glue set 318.65158fil
+....\hbox(0.0+0.0)x21.07874
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 9.08498
+...\hbox(7.12462+2.03409)x345.0, glue set 306.94234fil
+....\hbox(0.0+0.0)x21.07874
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 1000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\hbox(7.12462+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 7
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.38814
+...\hbox(7.01923+2.03409)x345.0, glue set 301.67265fil
+....\hbox(0.0+0.0)x21.07874
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 32
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.38814
+...\hbox(7.01923+0.23186)x345.0, glue set 318.65158fil
+....\hbox(0.0+0.0)x21.07874
+....\hbox(7.01923+0.23186)x5.26968
+.....\TU/lmr/m/n/10.53937 3
+.....\kern -0.0002
+.....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 8.30507
+...\hbox(7.90453+2.63483)x345.0, glue set 262.69806fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [priv.
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 comm.]
+....\kern -0.00021
+....\kern 0.00021
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 6.49231
+...\hbox(7.31432+0.23186)x345.0, glue set 271.61436fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 al.
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 8.89528
+...\hbox(7.31432+2.03409)x345.0, glue set 197.59639fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 Jones,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 Baker,
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 2.1935 minus 0.93588
+....\TU/lmr/m/n/10.53937 and
+....\kern -0.00021
+....\kern 0.00021
+....\glue 3.50961 plus 1.7548 minus 1.16986
+....\TU/lmr/m/n/10.53937 Williams
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 7.38814
+...\hbox(7.01923+0.23186)x345.0, glue set 302.84253fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 1990
+....\kern -0.0002
+....\kern 0.0002
+....\hbox(0.0+0.0)x0.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\baselineskip) 8.30507
+...\hbox(7.90453+2.63483)x345.0, glue set 296.98264fil
+....\hbox(0.0+0.0)x21.07874
+....\TU/lmr/m/n/10.53937 [1990
+....\kern -0.0002
+....\kern 0.0002
+....\TU/lmr/m/n/10.53937 ]
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue -2.63483
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
