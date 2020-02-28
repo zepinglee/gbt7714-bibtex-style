@@ -20,7 +20,7 @@ jobs:
     - name: Test bst
       run: |
         export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make test
+        make testbst
 
     - name: Test citation styles
       run: |

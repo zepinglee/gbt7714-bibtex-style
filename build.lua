@@ -2,6 +2,9 @@
 
 module = "gbt7714"
 
+testfiledir = "./test/testfiles"
+testsuppdir = testfiledir .. "/support"
+
 installfiles = {"*.sty", "*.bst"}
 sourcefiles = {"*.dtx"}
 tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md"}

@@ -7,14 +7,14 @@ BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
-test : bst
-	bash check.sh
+testbst : bst
+	bash test/check.sh
 
-testall : test
+test: testbst
 	l3build check
 
 save :
-	bash check.sh
+	bash test/check.sh
 	l3build save --quiet super
 	l3build save --quiet numbers
 	l3build save --quiet authoryear
