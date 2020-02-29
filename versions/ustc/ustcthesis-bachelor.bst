@@ -1824,14 +1824,16 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\url}[1]{#1}"
   write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else"
+  "\expandafter\ifx\csname urlstyle\endcsname\relax\else"
   write$ newline$
   "  \urlstyle{same}\fi"
   write$ newline$
   show.doi
-    { "\providecommand{\href}[2]{\url{#2}}"
+    { "\expandafter\ifx\csname href\endcsname\relax"
       write$ newline$
-      "\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}"
+      "  \def\doi#1{#1}\else"
+      write$ newline$
+      "  \def\doi#1{\href{https://doi.org/#1}{#1}}\fi"
       write$ newline$
     }
     'skip$

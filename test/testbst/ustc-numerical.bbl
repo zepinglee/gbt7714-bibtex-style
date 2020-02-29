@@ -1,10 +1,11 @@
 \begin{thebibliography}{133}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi#1{#1}\else
+  \def\doi#1{\href{https://doi.org/#1}{#1}}\fi
 
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 陈登原.

@@ -14,7 +14,7 @@ test: testbst
 	l3build check
 
 save :
-	bash test/check.sh
+	bash test/save.sh
 	l3build save --quiet super
 	l3build save --quiet numbers
 	l3build save --quiet authoryear

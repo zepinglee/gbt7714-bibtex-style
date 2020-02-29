@@ -1,7 +1,7 @@
 \begin{thebibliography}{120}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
-\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
 
 \bibitem[刘彻东(1998)]{liuchedong1998zhongguo}
