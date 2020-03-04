@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v2.0] - 2020-03-04
 ### Changed
 - 需要用户在主文档使用 `\bibliographystyle` 命令
 - 更改 `bst` 文件名为 `-numerical` 和 `-author-year`
@@ -80,7 +82,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...HEAD
+[v2.0]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...v2.0
 [v1.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1...v1.1.1
 [v1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.9...v1.1
