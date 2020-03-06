@@ -6,11 +6,8 @@ testfiledir = "./test/testfiles"
 testsuppdir = testfiledir .. "/support"
 
 installfiles = {"*.sty", "*.bst"}
-sourcefiles = {"*.dtx"}
-tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md"}
+tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md", "variants/*.ins"}
 textfiles = {"*.md", "LICENSE"}
-
-unpackfiles = {"*.dtx"}
 
 checkengines = {"xetex"}
 stdengine = "xetex"

@@ -42,7 +42,6 @@ for file in $testfiledir/*.dtx; do
     if ! diff -q "$bblfile" "$stdfile"; then
         echo "fails";
         succuss=false;
-        cp -f "$bblfile" "$stdfile";
     fi
 done
 

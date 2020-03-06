@@ -20,8 +20,29 @@ version 2005/12/01 or later.
 \endpreamble
 \nopostamble
 \generate{
-  \file{gbt7714.sty}{\from{gbt7714.dtx}{package}}
-  \file{gbt7714-numerical.bst}{\from{gbt7714.dtx}{2015,numerical}}
-  \file{gbt7714-author-year.bst}{\from{gbt7714.dtx}{2015,authoryear}}
+  \file{variants/2005/gbt7714-2005-numerical.bst}{
+    \from{gbt7714.dtx}{2005,numerical}
+  }
+  \file{variants/2005/gbt7714-2005-author-year.bst}{
+    \from{gbt7714.dtx}{2005,authoryear}
+  }
+  \file{variants/thu/thuthesis-numeric.bst}{
+    \from{gbt7714.dtx}{thu,2005,numerical}
+  }
+  \file{variants/thu/thuthesis-author-year.bst}{
+    \from{gbt7714.dtx}{thu,2005,authoryear}
+  }
+  \file{variants/thu/thuthesis-bachelor.bst}{
+    \from{gbt7714.dtx}{2015,numerical,noslsn}
+  }
+  \file{variants/ustc/ustcthesis-authoryear.bst}{
+    \from{gbt7714.dtx}{ustc,2015,authoryear}
+  }
+  \file{variants/ustc/ustcthesis-numerical.bst}{
+    \from{gbt7714.dtx}{ustc,2015,numerical}
+  }
+  \file{variants/ustc/ustcthesis-bachelor.bst}{
+    \from{gbt7714.dtx}{ustc,2015,numerical,nouppercase,nomark,italicjournal}
+  }
 }
 \endbatchfile

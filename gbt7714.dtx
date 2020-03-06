@@ -12,58 +12,15 @@
 % and version 1.3c or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 %
-%<*internal>
-\iffalse
-\fi
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatex\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\keepsilent
-\askforoverwritefalse
-\preamble
--------------------------------------------------------------------
-GB/T 7714-2015 BibTeX Style
-https://github.com/CTeX-org/gbt7714-bibtex-style
-Version: 2020/03/04 v2.0
--------------------------------------------------------------------
-Copyright (C) 2016-\the\year by Zeping Lee <zepinglee AT gmail.com>
--------------------------------------------------------------------
-This file may be distributed and/or modified under the
-conditions of the LaTeX Project Public License, either version 1.3c
-of this license or (at your option) any later version.
-The latest version of this license is in
-   https://www.latex-project.org/lppl.txt
-and version 1.3c or later is part of all distributions of LaTeX
-version 2005/12/01 or later.
--------------------------------------------------------------------
-\endpreamble
-\nopostamble
-\generate{
-  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
-  \file{\jobname-numerical.bst}{\from{\jobname.dtx}{2015,numerical}}
-  \file{\jobname-author-year.bst}{\from{\jobname.dtx}{2015,authoryear}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.dtx}
-%</driver>
+% \fi
+%
+% \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
-%<*package>
-  [2020/03/04 v2.0 GB/T 7714-2015 BibTeX Style]
-%</package>
+%<package>  [2020/03/04 v2.0 GB/T 7714-2015 BibTeX Style]
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
-\usepackage[paper=a4paper,margin=1in,left=1.25in]{geometry}
 \usepackage{hypdoc}
 \usepackage[UTF8]{ctex}
 \usepackage{caption}
@@ -119,7 +76,7 @@ version 2005/12/01 or later.
 %
 %
 %
-% \GetFileInfo{\jobname.dtx}
+% \GetFileInfo{gbt7714.sty}
 %
 % \title{GB/T 7714-2015 \BibTeX{} style}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com}}

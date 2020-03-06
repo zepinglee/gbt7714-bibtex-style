@@ -1,5 +1,5 @@
 %%
-%% This is file `versions/thu/thuthesis-bachelor.bst',
+%% This is file `variants/thu/thuthesis-bachelor.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:

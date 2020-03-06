@@ -31,6 +31,7 @@ doc : $(NAME).pdf
 
 %.sty %-numerical.bst %-author-year.bst : %.ins %.dtx
 	xetex $(TEXOPTS) $<
+	xetex $(TEXOPTS) variants/gbt7714-variants.ins
 
 $(NAME).pdf : $(NAME).dtx FORCE_MAKE
 	$(LATEXMK) $<
@@ -46,5 +47,8 @@ cleanall :
 install :
 	l3build install
 
-ctan :
-	l3build ctan
+ctan : test doc
+	ln -sf . $(NAME)
+	zip -r ../$(NAME).zip $(NAME)/{README.md,LICENSE,$(NAME).dtx,$(NAME).ins,\
+	$(NAME).pdf,$(NAME).sty,$(NAME)-author-year.bst,$(NAME)-numerical.bst}
+	rm $(NAME)
