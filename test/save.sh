@@ -38,7 +38,7 @@ for file in $testfiledir/*.dtx; do
 
     bblfile="$testdir/test.bbl";
     stdfile="$testfiledir/$testname.bbl";
-    if ! diff -q "$bblfile" "$stdfile"; then
+    if ! diff -q "$bblfile" "$stdfile" 2> /dev/null; then
         cp -f "$bblfile" "$stdfile";
     fi
 done

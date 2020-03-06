@@ -8,13 +8,15 @@ TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
 testbst : bst
-	bash test/check.sh
+	bash test/test.sh
 
 test: testbst
 	l3build check
 
-save :
+savebst:
 	bash test/save.sh
+
+save : savebst
 	l3build save --quiet super
 	l3build save --quiet numbers
 	l3build save --quiet authoryear

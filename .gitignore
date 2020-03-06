@@ -29,7 +29,7 @@ build/
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
-!testbst/**/*.bbl
+!test/**/*.bbl
 *.bcf
 *.blg
 *-blx.aux
