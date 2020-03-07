@@ -288,7 +288,7 @@
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
-%   italic.jounal                  & |#0|   & 西文期刊名使用斜体             \\
+%   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#0|   & 页码前有空白                   \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
@@ -787,7 +787,7 @@ INTEGERS {
   slash.for.extraction
   in.booktitle
   abbreviate.journal
-  italic.jounal
+  italic.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
@@ -907,9 +907,9 @@ FUNCTION {load.config}
 %
 % 期刊名使用斜体：
 %    \begin{macrocode}
-  #0 'italic.jounal :=
+  #0 'italic.journal :=
 %<*italicjournal>
-  #1 'italic.jounal :=
+  #1 'italic.journal :=
 %</italicjournal>
 %    \end{macrocode}
 %
@@ -2282,7 +2282,7 @@ FUNCTION {format.journal}
     'abbreviate
     'skip$
   if$
-  italic.jounal entry.lang lang.en = and
+  italic.journal entry.lang lang.en = and
     'italicize
     'skip$
   if$

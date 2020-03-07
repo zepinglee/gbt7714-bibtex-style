@@ -32,7 +32,7 @@ INTEGERS {
   slash.for.extraction
   in.booktitle
   abbreviate.journal
-  italic.jounal
+  italic.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
@@ -55,8 +55,8 @@ FUNCTION {load.config}
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
   #0 'abbreviate.journal :=
-  #0 'italic.jounal :=
-  #1 'italic.jounal :=
+  #0 'italic.journal :=
+  #1 'italic.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
   #0 'space.before.pages :=
@@ -899,7 +899,7 @@ FUNCTION {format.journal}
     'abbreviate
     'skip$
   if$
-  italic.jounal entry.lang lang.en = and
+  italic.journal entry.lang lang.en = and
     'italicize
     'skip$
   if$
