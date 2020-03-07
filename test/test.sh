@@ -41,7 +41,7 @@ if [ -z "$1" ]; then
         bblfile="$testdir/test.bbl";
         stdfile="$testfiledir/$testname.bbl";
         if ! diff -q "$bblfile" "$stdfile" > /dev/null 2> /dev/null; then
-            echo "    fails";
+            echo "    differs";
             cp -f "$bblfile" "$stdfile";
             succuss=false;
         fi
