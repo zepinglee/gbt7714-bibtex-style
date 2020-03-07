@@ -31,6 +31,7 @@ INTEGERS {
   show.medium.type
   slash.for.extraction
   in.booktitle
+  abbreviate.journal
   italic.jounal
   bold.journal.volume
   show.missing.address.publisher
@@ -52,6 +53,7 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
+  #0 'abbreviate.journal :=
   #0 'italic.jounal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
@@ -858,8 +860,43 @@ FUNCTION {format.series.vol.num.booktitle}
   if$
 }
 
+FUNCTION {remove.period}
+{ 't :=
+  "" 's :=
+    { t empty$ not }
+    { t #1 #1 substring$ 'tmp.str :=
+      tmp.str "." = not
+        { s tmp.str * 's := }
+        'skip$
+      if$
+      t #2 global.max$ substring$ 't :=
+    }
+  while$
+  s
+}
+
+FUNCTION {abbreviate}
+{ remove.period
+  't :=
+  t "l" change.case$ 's :=
+  ""
+  s "physical review letters" =
+    { "Phys Rev Lett" }
+    'skip$
+  if$
+  's :=
+  s empty$
+    { t }
+    { pop$ s }
+  if$
+}
+
 FUNCTION {format.journal}
 { journal
+  abbreviate.journal
+    'abbreviate
+    'skip$
+  if$
   italic.jounal entry.lang lang.en = and
     'italicize
     'skip$

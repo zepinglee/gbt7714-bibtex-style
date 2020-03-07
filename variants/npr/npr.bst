@@ -31,6 +31,7 @@ INTEGERS {
   show.medium.type
   slash.for.extraction
   in.booktitle
+  abbreviate.journal
   italic.jounal
   bold.journal.volume
   show.missing.address.publisher
@@ -52,6 +53,7 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
+  #1 'abbreviate.journal :=
   #0 'italic.jounal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
@@ -858,8 +860,83 @@ FUNCTION {format.series.vol.num.booktitle}
   if$
 }
 
+FUNCTION {remove.period}
+{ 't :=
+  "" 's :=
+    { t empty$ not }
+    { t #1 #1 substring$ 'tmp.str :=
+      tmp.str "." = not
+        { s tmp.str * 's := }
+        'skip$
+      if$
+      t #2 global.max$ substring$ 't :=
+    }
+  while$
+  s
+}
+
+FUNCTION {abbreviate}
+{ remove.period
+  't :=
+  t "l" change.case$ 's :=
+  ""
+  s "physical review letters" =
+    { "Phys Rev Lett" }
+    'skip$
+  if$
+  s "china physics c" =
+    { "Chin Phys C" }
+    'skip$
+  if$
+  s "chinese physics letters" =
+    { "Chin Phys Lett" }
+    'skip$
+  if$
+  s "nuclear instruments and methods in physics research section a" =
+    { "Nucl Instr and Meth A" }
+    'skip$
+  if$
+  s "nuclear instruments and methods in physics research section a: accelerators, spectrometers, detectors and associated equipment" =
+    { "Nucl Instr and Meth A" }
+    'skip$
+  if$
+  s "nuclear instruments and methods in physics research section b" =
+    { "Nucl Instr and Meth B" }
+    'skip$
+  if$
+  s "nuclear instruments and methods in physics research section b: beam interactions with materials and atoms" =
+    { "Nucl Instr and Meth B" }
+    'skip$
+  if$
+  s "physical review c" =
+    { "Phys Rev C" }
+    'skip$
+  if$
+  s "physical review d" =
+    { "Phys Rev D" }
+    'skip$
+  if$
+  s "physical review e" =
+    { "Phys Rev E" }
+    'skip$
+  if$
+  s "physics letters b" =
+    { "Phys Lett B" }
+    'skip$
+  if$
+  's :=
+  s empty$
+    { t }
+    { pop$ s }
+  if$
+}
+
 FUNCTION {format.journal}
 { journal
+  abbreviate.journal
+    'abbreviate
+    'skip$
+  if$
   italic.jounal entry.lang lang.en = and
     'italicize
     'skip$
