@@ -33,6 +33,7 @@ INTEGERS {
   italic.jounal
   bold.journal.volume
   show.missing.address.publisher
+  only.start.page
   show.url
   show.doi
   show.note
@@ -57,6 +58,7 @@ FUNCTION {load.config}
   #0 'italic.jounal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
+  #0 'only.start.page :=
   #1 'show.url :=
   #0 'show.doi :=
   #0 'show.note :=
@@ -1110,7 +1112,12 @@ FUNCTION {hyphenate}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
-    { pages hyphenate }
+    { pages
+      only.start.page
+        'extract.before.dash
+        'hyphenate
+      if$
+    }
   if$
 }
 
@@ -1135,7 +1142,7 @@ FUNCTION {format.journal.number}
 FUNCTION {format.journal.pages}
 { pages empty$
     { "" }
-    { ":\penalty0 " pages hyphenate * }
+    { ":\penalty0 " format.pages * }
   if$
 }
 

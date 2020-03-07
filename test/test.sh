@@ -36,12 +36,13 @@ if [ -z "$1" ]; then
         cp -f "$unpackdir/test.bst" "$testdir"
         cp -f "$unpackdir/test.bib" "$testdir"
 
-        ( cd $testdir; $bibtexexe test > /dev/null; )
+        ( cd $testdir; if ! $bibtexexe test > /dev/null; then $bibtexexe test; fi )
 
         bblfile="$testdir/test.bbl";
         stdfile="$testfiledir/$testname.bbl";
-        if ! diff -q "$bblfile" "$stdfile" 2> /dev/null; then
-            echo "fails";
+        if ! diff -q "$bblfile" "$stdfile" > /dev/null 2> /dev/null; then
+            echo "    fails";
+            cp -f "$bblfile" "$stdfile";
             succuss=false;
         fi
     done
@@ -63,11 +64,11 @@ else
 
     cp -f "$file" "$unpackdir";  # test bib file
 
-    ( cd "$unpackdir"; $unpackexe $filename > /dev/null; )
+    ( cd "$unpackdir"; $unpackexe $filename; )
     cp -f "$unpackdir/test.bst" "$testdir";
     cp -f "$unpackdir/test.bib" "$testdir";
 
-    ( cd "$testdir"; latexmk -xelatex test > /dev/null; )
+    ( cd "$testdir"; latexmk -xelatex test; )
 
     bblfile="$testdir/test.bbl";
     stdfile="$testfiledir/$testname.bbl";

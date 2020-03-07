@@ -1,4 +1,4 @@
-\begin{thebibliography}{134}
+\begin{thebibliography}{120}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -818,77 +818,5 @@ PARK~J~R, TOSAKA~Y.
 Dublin core metadata element set: version 1.1\allowbreak[EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
-
-\bibitem[魏志勇\ 等(2006)魏志勇, 臧黎慧, 范我,
-  et~al.]{weizhiyong2006}
-魏志勇, 臧黎慧, 范我, 等.
-\newblock \allowbreak[J].
-\newblock 核技术, 2006, 29\penalty0 (9):\penalty0 713.
-
-\bibitem[陈东风\ 等(2005)陈东风, 勾成, 叶春堂,
-  et~al.]{chendongfeng2005}
-陈东风, 勾成, 叶春堂, 等.
-\newblock \allowbreak[J].
-\newblock 核技术, 2005, 28\penalty0 (2):\penalty0 127.
-
-\bibitem[Oed(2004)]{oed2004}
-OED~A.
-\newblock \allowbreak[J].
-\newblock Nucl Instr Meth A, 2004, 525\penalty0 (1-2):\penalty0 62.
-
-\bibitem[Rhodes et~al.(1997)Rhodes, Wardle, Boram, et~al.]{rhodes1997}
-RHODES~N~J, WARDLE~A~G, BORAM~A~J, et~al.
-\newblock \allowbreak[J].
-\newblock Nucl Instr Meth A, 1997, 392\penalty0 (1-3):\penalty0 315.
-
-\bibitem[Crow et~al.(2004)Crow, Hodges, and Cooper]{crow2004}
-CROW~M~L, HODGES~J~P, COOPER~R~G.
-\newblock \allowbreak[J].
-\newblock Nucl Instr Meth A, 2004, 529\penalty0 (1-3):\penalty0 287.
-
-\bibitem[mis()]{misc}
-\allowbreak[EB/OL].
-\newblock \url{http://www.detectors.saint-gobain.com/default.aspx}.
-
-\bibitem[phi(1987)]{philips1987}
-Philips data handbook for electron tubes t9\allowbreak[M].
-\newblock [S.l.: s.n.], 1987.
-
-\bibitem[迟少鹏\ 等(2003)迟少鹏, 夏小米, 周莉,
-  et~al.]{chishaopeng2003}
-迟少鹏, 夏小米, 周莉, 等.
-\newblock \allowbreak[J].
-\newblock 高能物理与核物理, 2003, 27\penalty0 (3):\penalty0 257.
-
-\bibitem[汪晓莲\ 等(2003)汪晓莲, 许咨宗, 侯云珍,
-  et~al.]{wangxiaolian2003}
-汪晓莲, 许咨宗, 侯云珍, 等.
-\newblock \allowbreak[J].
-\newblock 高能物理与核物理, 2003, 27\penalty0 (3):\penalty0 257.
-
-\bibitem[Sackett et~al.(1993)Sackett, Ieki, A, et~al.]{sackett1993}
-SACKETT~D, IEKI~K, A~G, et~al.
-\newblock \allowbreak[J].
-\newblock Physical Review C, 1993, 48\penalty0 (1):\penalty0 118.
-
-\bibitem[Sackett et~al.(1997)Sackett, Ieki, A, et~al.]{zecher1997}
-SACKETT~D, IEKI~K, A~G, et~al.
-\newblock \allowbreak[J].
-\newblock Nucl Instr Meth A, 1997, 401\penalty0 (2-3):\penalty0 329.
-
-\bibitem[薛梦驰(2009)]{xuemengchi2009}
-薛梦驰.
-\newblock \allowbreak[J].
-\newblock 电信科学, 2009, 7:\penalty0 57.
-
-\bibitem[唐军杰\ 等(2013)唐军杰, 王拓, 张强, et~al.]{tangjunjie2013}
-唐军杰, 王拓, 张强, 等.
-\newblock \allowbreak[J].
-\newblock 发光学报, 2013, 34\penalty0 (1):\penalty0 78.
-
-\bibitem[WU et~al.(2013)WU, TANG, SUN, et~al.]{wuchong2013}
-WU~C, TANG~B, SUN~Z, et~al.
-\newblock \allowbreak[J].
-\newblock Radiation Measurements, 2013, 58\penalty0 (11):\penalty0 128.
 
 \end{thebibliography}
