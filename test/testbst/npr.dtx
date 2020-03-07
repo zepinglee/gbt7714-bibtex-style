@@ -1,0 +1,152 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.bst}{\from{gbt7714.dtx}{npr,2015,numerical}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*bib>
+@article{weizhiyong2006,
+  author       = {魏志勇 and 臧黎慧 and 范我 and others},
+  journal      = {核技术},
+  year         = {2006},
+  volume       = {29},
+  number       = {9},
+  pages        = {713},
+  translation  = {WEI Zhiyong, ZANG Lihui, FAN Wo, \textit{et al}. Nuclear Techniques, 2006, \textbf{29}(9): 713.}
+}
+
+@article{chendongfeng2005,
+  author       = {陈东风 and 勾成 and 叶春堂 and others},
+  journal      = {核技术},
+  year         = {2005},
+  volume       = {28},
+  number       = {2},
+  pages        = {127},
+  translation  = {CHEN Dongfeng, GOU Cheng, YE Chuntang, \textit{et al}. Nuclear Techniques, 2005, \textbf{28}(2): 127.}
+}
+
+@article{oed2004,
+  author       = {Oed, A},
+  journal      = {Nucl Instr Meth A},
+  year         = {2004},
+  volume       = {525},
+  number       = {1-2},
+  pages        = {62},
+}
+
+@article{rhodes1997,
+  author       = {Rhodes, N J and Wardle, A G and Boram, A J and others},
+  journal      = {Nucl Instr Meth A},
+  year         = {1997},
+  volume       = {392},
+  number       = {1-3},
+  pages        = {315},
+}
+
+@article{crow2004,
+  author       = {Crow, M L and Hodges, J P and Cooper, R G},
+  journal      = {Nucl Instr Meth A},
+  year         = {2004},
+  volume       = {529},
+  number       = {1-3},
+  pages        = {287},
+}
+
+@online{misc,
+  url          = {http://www.detectors.saint-gobain.com/default.aspx},
+}
+
+@book{philips1987,
+  title        = {Philips Data Handbook for Electron Tubes T9},
+  year         = {1987},
+}
+
+@article{chishaopeng2003,
+  author       = {迟少鹏 and 夏小米 and 周莉 and others},
+  journal      = {高能物理与核物理},
+  year         = {2003},
+  volume       = {27},
+  number       = {3},
+  pages        = {257},
+  translation  = {CHI Shaopeng, XIA Xiaomi, ZHOU Li, et al. High Energy Physics and Nuclear Physics. 2003, 27(3): 257.}
+}
+
+@article{wangxiaolian2003,
+  author       = {汪晓莲 and 许咨宗 and 侯云珍 and others},
+  journal      = {高能物理与核物理},
+  year         = {2003},
+  volume       = {27},
+  number       = {3},
+  pages        = {257},
+  translation  = {WANG Xiaolian, XU Zizong, HOU Yunzhen, et al. High Energy Physics and Nuclear Physics. 1997, 21(9): 787.}
+}
+
+@article{sackett1993,
+  author       = {Sackett, D and Ieki, K and Galonsky A and others},
+  journal      = {Physical Review C},
+  year         = {1993},
+  volume       = {48},
+  number       = {1},
+  pages        = {118},
+}
+
+@article{zecher1997,
+  author       = {Sackett, D and Ieki, K and Galonsky A and others},
+  journal      = {Nucl Instr Meth A},
+  year         = {1997},
+  volume       = {401},
+  number       = {2-3},
+  pages        = {329},
+}
+
+@article{xuemengchi2009,
+  author       = {薛梦驰},
+  journal      = {电信科学},
+  year         = {2009},
+  volume       = {7},
+  pages        = {57},
+  translation  = {XUE Mengchi. Telecommunication Science. 2009, 7: 57.}
+}
+
+@article{tangjunjie2013,
+  author       = {唐军杰 and 王拓 and 张强 and others},
+  journal      = {发光学报},
+  year         = {2013},
+  volume       = {34},
+  number       = {1},
+  pages        = {78},
+  translation  = {TANG Junjie, WANG Tuo, ZHANG Qiang, et al. Chin J Lumi, 2013, 34(1): 78.}
+}
+
+@article{wuchong2013,
+  author       = {WU, Chong and TANG, Bin and SUN, Zhijia and others},
+  journal      = {Radiation Measurements},
+  year         = {2013},
+  volume       = {58},
+  number       = {11},
+  pages        = {128},
+}
+%</bib>
+%    \end{macrocode}
+\endinput
