@@ -26,6 +26,7 @@ INTEGERS {
   period.between.author.year
   sentence.case.title
   link.title
+  title.in.journal
   show.mark
   show.medium.type
   slash.for.extraction
@@ -45,6 +46,7 @@ FUNCTION {load.config}
   #3 'max.num.authors :=
   #1 'sentence.case.title :=
   #0 'link.title :=
+  #1 'title.in.journal :=
   #1 'show.mark :=
   #0 'show.mark :=
   #1 'show.medium.type :=
@@ -1399,10 +1401,14 @@ FUNCTION {article}
   format.authors output
   author format.key output
   new.block
-  format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
-  new.block
+  title.in.journal
+    { format.title "title" output.check
+      "J" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.journal "journal" output.check
   format.date "year" output.check
   format.journal.volume output

@@ -285,6 +285,7 @@
 %   period.between.author.year     & |#0|   & 著者和年份之间使用句点连接     \\
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
+%   title.in.journal               & |#1|   & 期刊是否显示标题               \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.jounal                  & |#0|   & 西文期刊名使用斜体             \\
@@ -779,6 +780,7 @@ INTEGERS {
   period.between.author.year
   sentence.case.title
   link.title
+  title.in.journal
   show.mark
   show.medium.type
   slash.for.extraction
@@ -849,6 +851,16 @@ FUNCTION {load.config}
 %<*linktitle>
   #1 'link.title :=
 %</linktitle>
+%    \end{macrocode}
+%
+% 期刊是否含标题：
+%    \begin{macrocode}
+%<*!title-in-journal&!npr>
+  #1 'title.in.journal :=
+%</!title-in-journal&!npr>
+%<*title-in-journal|npr>
+  #0 'title.in.journal :=
+%</title-in-journal|npr>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
@@ -2933,10 +2945,14 @@ FUNCTION {article}
   format.year "year" output.check
 %</authoryear>
   new.block
-  format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
-  new.block
+  title.in.journal
+    { format.title "title" output.check
+      "J" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.journal "journal" output.check
 %<*numerical>
   format.date "year" output.check
