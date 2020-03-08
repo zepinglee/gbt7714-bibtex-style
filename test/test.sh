@@ -22,7 +22,7 @@ cp -f "$testfiledir/support/standard.bib" "$testdir";
 
 
 if [ -z "$1" ]; then
-    succuss=true;
+    fails=0;
     echo "Running checks on";
 
     for file in $testfiledir/*.dtx; do
@@ -43,17 +43,16 @@ if [ -z "$1" ]; then
         if ! diff -q "$bblfile" "$stdfile" > /dev/null 2> /dev/null; then
             echo "    differs";
             cp -f "$bblfile" "$stdfile";
-            succuss=false;
+            fails=$((fails+1));
         fi
     done
 
-    if $succuss; then
-        echo "";
+    echo "";
+    if [ $fails == 0 ]; then
         echo "All checks passed";
         echo "";
-    else
-        exit 1;
     fi
+    exit $fails;
 
 else
     cp -f "$testfiledir/support/test.tex" "$testdir";

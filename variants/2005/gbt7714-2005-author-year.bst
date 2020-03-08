@@ -40,6 +40,7 @@ INTEGERS {
   show.url
   show.doi
   show.note
+  show.english.translation
   lang.zh.order
   lang.ja.order
   lang.en.order
@@ -68,6 +69,7 @@ FUNCTION {load.config}
   #1 'show.url :=
   #0 'show.doi :=
   #0 'show.note :=
+  #0 'show.english.translation :=
   #1 'lang.zh.order :=
   #2 'lang.ja.order :=
   #3 'lang.en.order :=
@@ -99,6 +101,7 @@ ENTRY
     series
     title
     translator
+    translation
     url
     urldate
     volume
@@ -280,6 +283,12 @@ FUNCTION {output.check}
 FUNCTION {fin.entry}
 { add.period$
   write$
+  show.english.translation entry.lang lang.zh = and
+    { ")"
+      write$
+    }
+    'skip$
+  if$
   newline$
 }
 
@@ -1257,9 +1266,15 @@ FUNCTION {check.url}
 }
 
 FUNCTION {format.url}
+{ entry.url
+}
+
+FUNCTION {output.url}
 { entry.url empty$ not
-    { new.block entry.url }
-    { "" }
+    { new.block
+      entry.url output
+    }
+    'skip$
   if$
 }
 
@@ -1293,7 +1308,7 @@ FUNCTION {is.in.url}
 
 FUNCTION {format.doi}
 { ""
-  doi empty$ not show.doi and
+  doi empty$ not
     { "" 's :=
       doi 't :=
       #0 'numnames :=
@@ -1321,11 +1336,16 @@ FUNCTION {format.doi}
           t #2 global.max$ substring$ 't :=
         }
       while$
-      's :=
-      s empty$ not
-        { new.block s }
-        { "" }
-      if$
+    }
+    'skip$
+  if$
+}
+
+FUNCTION {output.doi}
+{ doi empty$ not show.doi and
+  show.english.translation entry.lang lang.zh = and not and
+    { new.block
+      format.doi output
     }
     'skip$
   if$
@@ -1357,6 +1377,30 @@ FUNCTION {format.note}
   if$
 }
 
+FUNCTION {output.translation}
+{ show.english.translation entry.lang lang.zh = and
+    { translation empty$ not
+        { translation }
+        { "[English translation missing!]" }
+      if$
+      " (in Chinese)" * output
+      write$
+      format.doi duplicate$ empty$ not
+        { newline$
+          write$
+        }
+        'pop$
+      if$
+      " \\" write$
+      newline$
+      "(" write$
+      ""
+      before.all 'output.state :=
+    }
+    'skip$
+  if$
+}
+
 FUNCTION {empty.misc.check}
 { author empty$ title empty$
   year empty$
@@ -1369,6 +1413,7 @@ FUNCTION {empty.misc.check}
 
 FUNCTION {monograph}
 { output.bibitem
+  output.translation
   author empty$ not
     { format.authors }
     { editor empty$ not
@@ -1397,8 +1442,8 @@ FUNCTION {monograph}
   format.address.publisher output
   format.pages bbl.colon output.after
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -1406,6 +1451,7 @@ FUNCTION {monograph}
 
 FUNCTION {incollection}
 { output.bibitem
+  output.translation
   format.authors output
   author format.key output
   period.between.author.year
@@ -1429,8 +1475,8 @@ FUNCTION {incollection}
   format.address.publisher output
   format.pages bbl.colon output.after
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -1438,6 +1484,7 @@ FUNCTION {incollection}
 
 FUNCTION {periodical}
 { output.bibitem
+  output.translation
   format.authors output
   author format.key output
   period.between.author.year
@@ -1454,8 +1501,8 @@ FUNCTION {periodical}
   new.block
   format.address.publisher output
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -1463,6 +1510,7 @@ FUNCTION {periodical}
 
 FUNCTION {article}
 { output.bibitem
+  output.translation
   format.authors output
   author format.key output
   period.between.author.year
@@ -1484,8 +1532,8 @@ FUNCTION {article}
   format.journal.number "" output.after
   format.journal.pages "" output.after
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -1493,6 +1541,7 @@ FUNCTION {article}
 
 FUNCTION {patent}
 { output.bibitem
+  output.translation
   format.authors output
   author format.key output
   period.between.author.year
@@ -1507,8 +1556,8 @@ FUNCTION {patent}
   new.block
   format.date "year" output.check
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry
@@ -1518,6 +1567,7 @@ FUNCTION {electronic}
 { #1 #1 check.electronic
   #1 'entry.is.electronic :=
   output.bibitem
+  output.translation
   format.authors output
   author format.key output
   period.between.author.year
@@ -1534,8 +1584,8 @@ FUNCTION {electronic}
   format.pages bbl.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
-  format.url output
-  format.doi output
+  output.url
+  output.doi
   new.block
   format.note output
   fin.entry

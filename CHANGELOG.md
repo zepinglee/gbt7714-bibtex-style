@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 增加选项 `title.in.journal`
 - 增加选项 `space.before.pages`
 - 增加选项 `abbreviate.journal`
+- 增加选项 `show.english.translation`
 
 ## [v2.0] - 2020-03-04
 ### Changed
