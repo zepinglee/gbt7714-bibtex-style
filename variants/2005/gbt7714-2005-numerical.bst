@@ -901,14 +901,18 @@ FUNCTION {abbreviate}
 }
 
 FUNCTION {format.journal}
-{ journal
-  abbreviate.journal
-    'abbreviate
-    'skip$
-  if$
-  italic.journal entry.lang lang.en = and
-    'italicize
-    'skip$
+{ journal empty$ not
+    { journal
+      abbreviate.journal
+        'abbreviate
+        'skip$
+      if$
+      italic.journal entry.lang lang.en = and
+        'italicize
+        'skip$
+      if$
+    }
+    { "" }
   if$
 }
 
