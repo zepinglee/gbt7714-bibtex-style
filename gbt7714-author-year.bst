@@ -2119,9 +2119,9 @@ FUNCTION {begin.bib}
   show.doi
     { "\expandafter\ifx\csname href\endcsname\relax"
       write$ newline$
-      "  \def\doi#1{#1}\else"
+      "  \providecommand\doi[1]{\nolinkurl{#1}}\else"
       write$ newline$
-      "  \def\doi#1{\href{https://doi.org/#1}{#1}}\fi"
+      "  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi"
       write$ newline$
     }
     'skip$
