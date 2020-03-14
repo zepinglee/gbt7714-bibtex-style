@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v2.0.1] - 2020-03-14
 ### Added
 - 新增选项 `only.start.page`
 - 增加选项 `title.in.journal`
@@ -91,7 +93,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.1...HEAD
+[v2.0.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...v2.0.1
 [v2.0]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...v2.0
 [v1.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1...v1.1.1
