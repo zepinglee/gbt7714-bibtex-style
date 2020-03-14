@@ -4,7 +4,7 @@
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
 \expandafter\ifx\csname href\endcsname\relax
-  \providecommand\doi[1]{\nolinkurl{#1}}\else
+  \DeclareUrlCommand\doi{\urlstyle{rm}}\else
   \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi
 
 \bibitem[刘彻东(1998)]{liuchedong1998zhongguo}

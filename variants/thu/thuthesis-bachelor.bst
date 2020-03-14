@@ -1940,7 +1940,7 @@ FUNCTION {begin.bib}
   show.doi
     { "\expandafter\ifx\csname href\endcsname\relax"
       write$ newline$
-      "  \providecommand\doi[1]{\nolinkurl{#1}}\else"
+      "  \DeclareUrlCommand\doi{\urlstyle{rm}}\else"
       write$ newline$
       "  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi"
       write$ newline$
