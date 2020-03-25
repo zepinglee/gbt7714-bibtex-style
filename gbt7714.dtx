@@ -843,7 +843,9 @@ FUNCTION {load.config}
 %    \end{macrocode}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
+%<*!nosentencecase>
 %    \begin{macrocode}
+%</!nosentencecase>
   #1 'sentence.case.title :=
 %<*nosentencecase>
   #0 'sentence.case.title :=
@@ -852,7 +854,9 @@ FUNCTION {load.config}
 %
 % 在标题添加超链接：
 %    \begin{macrocode}
+%<*!linktitle>
   #0 'link.title :=
+%</!linktitle>
 %<*linktitle>
   #1 'link.title :=
 %</linktitle>
@@ -870,7 +874,9 @@ FUNCTION {load.config}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
 %    \begin{macrocode}
+%<*!nomark>
   #1 'show.mark :=
+%</!nomark>
 %<*nomark>
   #0 'show.mark :=
 %</nomark>
@@ -878,7 +884,9 @@ FUNCTION {load.config}
 %
 % 是否显示载体类型标识（比如“/OL“）：
 %    \begin{macrocode}
+%<*!no.medium.type>
   #1 'show.medium.type :=
+%</!no.medium.type>
 %<*no.medium.type>
   #0 'show.medium.type :=
 %</no.medium.type>
@@ -886,7 +894,9 @@ FUNCTION {load.config}
 %
 % 使用“//”表示析出文献
 %    \begin{macrocode}
+%<*!noslash>
   #1 'slash.for.extraction :=
+%</!noslash>
 %<*noslash>
   #0 'slash.for.extraction :=
 %</noslash>
@@ -909,7 +919,9 @@ FUNCTION {load.config}
 %
 % 期刊名使用斜体：
 %    \begin{macrocode}
+%<*!italicjournal>
   #0 'italic.journal :=
+%</!italicjournal>
 %<*italicjournal>
   #1 'italic.journal :=
 %</italicjournal>
@@ -952,7 +964,9 @@ FUNCTION {load.config}
 %
 % 是否著录 URL：
 %    \begin{macrocode}
+%<*!nourl>
   #1 'show.url :=
+%</!nourl>
 %<*nourl>
   #0 'show.url :=
 %</nourl>
