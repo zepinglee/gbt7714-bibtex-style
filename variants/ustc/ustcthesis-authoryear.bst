@@ -497,15 +497,20 @@ FUNCTION {format.names}
 { 's :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
+  ""
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+      nameptr #1 >
+        { ", " * }
+        'skip$
+      if$
       nameptr max.num.authors >
-        { bbl.et.al
+        { bbl.et.al *
           #1 'namesleft :=
         }
         { t "others" =
-            { bbl.et.al }
+            { bbl.et.al * }
             { t get.str.lang 'name.lang :=
               name.lang lang.en =
                 { t #1 "{vv~}{ll}{~f{~}}" format.name$
@@ -517,13 +522,10 @@ FUNCTION {format.names}
                 }
                 { t #1 "{ll}{ff}" format.name$ }
               if$
+              *
             }
           if$
         }
-      if$
-      nameptr #1 >
-        { ", " swap$ * * }
-        'skip$
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
