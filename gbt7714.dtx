@@ -294,6 +294,7 @@
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 doi                       \\
+%   show.preprint                  & |#0|   & 显示预印本                       \\
 %   show.note                      & |#0|   & 显示 note 域的信息             \\
 %   \bottomrule
 % \end{tabular}
@@ -795,6 +796,7 @@ INTEGERS {
   only.start.page
   show.url
   show.doi
+  show.preprint
   show.note
   show.english.translation
 %<*authoryear>
@@ -934,12 +936,12 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-%<*!noslsn&!thu&!ustc>
+%<*!noslsn&!thu&!ustc&!npr>
   #1 'show.missing.address.publisher :=
-%</!noslsn&!thu&!ustc>
-%<*noslsn|thu|ustc>
+%</!noslsn&!thu&!ustc&!npr>
+%<*noslsn|thu|ustc|npr>
   #0 'show.missing.address.publisher :=
-%</noslsn|thu|ustc>
+%</noslsn|thu|ustc|npr>
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
@@ -982,6 +984,16 @@ FUNCTION {load.config}
 %</nodoi|2005>
 %    \end{macrocode}
 %
+% 是否著录 e-print：
+%    \begin{macrocode}
+%<*!preprint&!npr>
+  #0 'show.preprint :=
+%</!preprint&!npr>
+%<*preprint|npr>
+  #1 'show.preprint :=
+%</preprint|npr>
+%    \end{macrocode}
+%
 % 在每一条文献最后输出注释（note）的内容：
 %    \begin{macrocode}
   #0 'show.note :=
@@ -1021,12 +1033,14 @@ FUNCTION {load.config}
 %    \begin{macrocode}
 ENTRY
   { address
+    archivePrefix
     author
     booktitle
     date
     doi
     edition
     editor
+    eprint
     howpublished
     institution
     journal
@@ -1042,8 +1056,8 @@ ENTRY
     school
     series
     title
-    translator
     translation
+    translator
     url
     urldate
     volume
@@ -2902,6 +2916,27 @@ FUNCTION {check.electronic}
   if$
 }
 
+FUNCTION {format.eprint}
+{ ""
+  archivePrefix empty$ not
+    { archivePrefix * ": " *
+      "\eprint{https://" *
+      archivePrefix "l" change.case$ * ".org/abs/" * eprint * "}{" *
+      eprint * "}" *
+    }
+    { eprint }
+  if$
+}
+
+FUNCTION {output.eprint}
+{ show.preprint eprint empty$ not and
+    { new.block
+      format.eprint output
+    }
+    'skip$
+  if$
+}
+
 FUNCTION {format.note}
 { note empty$ not show.note and
     { note }
@@ -3223,6 +3258,62 @@ FUNCTION {electronic}
 
 %    \end{macrocode}
 %
+% \subsubsection{预印本}
+%
+%    \begin{macrocode}
+FUNCTION {preprint}
+{ output.bibitem
+  output.translation
+  author empty$ not
+    { format.authors }
+    { editor empty$ not
+        { format.editors }
+        { "empty author and editor in " cite$ * warning$
+%<*authoryear>
+          bbl.anonymous
+%</authoryear>
+%<*numerical>
+          ""
+%</numerical>
+        }
+      if$
+    }
+  if$
+  output
+%<*authoryear>
+  period.between.author.year
+    'new.sentence
+    'skip$
+  if$
+  format.year "year" output.check
+%</authoryear>
+  new.block
+  title.in.journal
+    { format.series.vol.num.title "title" output.check
+      "Z" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  output.eprint
+%<*numerical>
+  format.year "year" output.check
+%</numerical>
+  format.pages bbl.colon output.after
+  format.urldate "" output.after
+  output.url
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
 % \subsubsection{其他文献类型}
 %
 % A misc is something that doesn't fit elsewhere.
@@ -3240,10 +3331,14 @@ FUNCTION {misc}
         'incollection
         { publisher empty$ not
             'monograph
-            { entry.is.electronic
-                'electronic
-                { "Z" set.entry.mark
-                  monograph
+            { eprint empty$ not show.preprint and
+                'preprint
+                { entry.is.electronic
+                    'electronic
+                    { "Z" set.entry.mark
+                      monograph
+                    }
+                  if$
                 }
               if$
             }
@@ -3450,10 +3545,7 @@ FUNCTION {techreport}
 %
 %       Optional: month, year
 %    \begin{macrocode}
-FUNCTION {unpublished}
-{ "Z" set.entry.mark
-  misc
-}
+FUNCTION {unpublished} { misc }
 
 %    \end{macrocode}
 %
@@ -4141,17 +4233,21 @@ FUNCTION {begin.bib}
   write$ newline$
   "  \urlstyle{same}\fi"
   write$ newline$
-  show.doi
-    { "\expandafter\ifx\csname href\endcsname\relax"
+  "\expandafter\ifx\csname href\endcsname\relax"
+  write$ newline$
+  "  \DeclareUrlCommand\doi{\urlstyle{rm}}"
+  write$ newline$
+  "  \def\eprint#1#2{#2}"
       write$ newline$
-      "  \DeclareUrlCommand\doi{\urlstyle{rm}}\else"
+  "\else"
+  write$ newline$
+  "  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+  write$ newline$
+  "  \let\eprint\href"
       write$ newline$
-      "  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi"
+  "\fi"
       write$ newline$
     }
-    'skip$
-  if$
-}
 
 %    \end{macrocode}
 %

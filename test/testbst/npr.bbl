@@ -1,11 +1,15 @@
-\begin{thebibliography}{134}
+\begin{thebibliography}{128}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
 \expandafter\ifx\csname href\endcsname\relax
-  \DeclareUrlCommand\doi{\urlstyle{rm}}\else
-  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
 
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 [English translation missing!] (in Chinese) \\
@@ -597,7 +601,7 @@ BABU~B~V, NAGAR~A~K, DEEP~K, et~al.
 CALKIN~D, AGER~A, THOMPSON~M.
 \newblock A comparative risk assessment framework for wildland fire management:
   the 2010 cohesive strategy science report: RMRS-GTR-262\allowbreak[R].
-\newblock [S.l.: s.n.], 2011: 8.
+\newblock 2011: 8.
 
 \bibitem[{U.S. Department of Transportation Federal Highway
   Administration}(1990)]{usdtfha1990guidelines}
@@ -856,75 +860,52 @@ Dublin core metadata element set: version 1.1\allowbreak[EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
 
-\bibitem[魏志勇\ 等(2006)魏志勇, 臧黎慧, 范我,
-  et~al.]{weizhiyong2006}
-WEI Zhiyong, ZANG Lihui, FAN Wo, et al. Nuclear Techniques, 2006, 29(9): 713.
-  (in Chinese) \\
-(魏志勇, 臧黎慧, 范我, 等.
-\newblock 核技术, 2006, 29\penalty0 (9): 713.)
+\bibitem[Hirata et~al.(1996)Hirata, Sumiyoshi, Carlson, Toki, and
+  Tanihata]{hirata1996triaxial}
+HIRATA~D, SUMIYOSHI~K, CARLSON~B~V, et~al.
+\newblock Nuclear Physics A, 1996, 609\penalty0 (2): 131.
 
-\bibitem[陈东风\ 等(2005)陈东风, 勾成, 叶春堂,
-  et~al.]{chendongfeng2005}
-CHEN Dongfeng, GOU Cheng, YE Chuntang, et al. Nuclear Techniques, 2005, 28(2):
-  127. (in Chinese) \\
-(陈东风, 勾成, 叶春堂, 等.
-\newblock 核技术, 2005, 28\penalty0 (2): 127.)
+\bibitem[Martin et~al.(1970)Martin and Spearman]{martin1970elementary}
+MARTIN~A~D, SPEARMAN~T~D.
+\newblock Elementary particle theory\allowbreak[M].
+\newblock Amsterdam: North-Holland, 1970: 149.
 
-\bibitem[Oed(2004)]{oed2004}
-OED~A.
-\newblock Nucl Instr Meth A, 2004, 525\penalty0 (1-2): 62.
+\bibitem[Rosenthall(1963)]{rosenthall1963proceedings}
+ROSENTHALL~E~M.
+\newblock Proceedings of fifth canadian mathematical congress, university of
+  montreal, 1961\allowbreak[C].
+\newblock Toronto: University of Toronto Press, 1963: 20.
 
-\bibitem[Rhodes et~al.(1997)Rhodes, Wardle, Boram, et~al.]{rhodes1997}
-RHODES~N~J, WARDLE~A~G, BORAM~A~J, et~al.
-\newblock Nucl Instr Meth A, 1997, 392\penalty0 (1-3): 315.
+\bibitem[Matsumoto et~al.(2005)Matsumoto, Kazakov, and Saito]{matsumoto2005new}
+MATSUMOTO~H, KAZAKOV~S, SAITO~K.
+\newblock A new design for a super-conducting cavity input
+  coupler\allowbreak[C]//\allowbreak
+HORAK~C.
+\newblock Proceedings of the 2005 Particle Accelerator Conference.
+\newblock USA: IEEE, 2005: 4141.
 
-\bibitem[Crow et~al.(2004)Crow, Hodges, and Cooper]{crow2004}
-CROW~M~L, HODGES~J~P, COOPER~R~G.
-\newblock Nucl Instr Meth A, 2004, 529\penalty0 (1-3): 287.
+\bibitem[Lijuan(2006)]{zhoulijuan2006quark}
+LIJUAN~Z.
+\newblock Quark propagator, qcd vacuum condensates and quark
+  virtuality\allowbreak[D].
+\newblock Nanning, China, 2006: 20.
 
-\bibitem[mis()]{misc}
-\allowbreak[EB/OL].
-\newblock \url{http://www.detectors.saint-gobain.com/default.aspx}.
+\bibitem[Romatschke et~al.(2017)Romatschke and
+  Romatschke]{romatschke2017relativistic}
+ROMATSCHKE~P, ROMATSCHKE~U.
+\newblock arXiv: \eprint{https://arxiv.org/abs/1712.05815}{1712.05815}, 2017.
 
-\bibitem[phi(1987)]{philips1987}
-Philips data handbook for electron tubes t9\allowbreak[M].
-\newblock [S.l.: s.n.], 1987.
+\bibitem[{Xiao([2002])}]{xiaoyu2002information}
+XIAO~{\relax YU}.
+\newblock Information highway\allowbreak[EB/OL].
+\newblock \allowbreak[2002-04-15].
+\newblock \url{http://www.creader.com/news/200112190019.htm}.
 
-\bibitem[迟少鹏\ 等(2003)迟少鹏, 夏小米, 周莉,
-  et~al.]{chishaopeng2003}
-CHI Shaopeng, XIA Xiaomi, ZHOU Li, et al. High Energy Physics and Nuclear
-  Physics. 2003, 27(3): 257. (in Chinese) \\
-(迟少鹏, 夏小米, 周莉, 等.
-\newblock 高能物理与核物理, 2003, 27\penalty0 (3): 257.)
-
-\bibitem[汪晓莲\ 等(2003)汪晓莲, 许咨宗, 侯云珍,
-  et~al.]{wangxiaolian2003}
-WANG Xiaolian, XU Zizong, HOU Yunzhen, et al. High Energy Physics and Nuclear
-  Physics. 1997, 21(9): 787. (in Chinese) \\
-(汪晓莲, 许咨宗, 侯云珍, 等.
-\newblock 高能物理与核物理, 2003, 27\penalty0 (3): 257.)
-
-\bibitem[Sackett et~al.(1993)Sackett, Ieki, A, et~al.]{sackett1993}
-SACKETT~D, IEKI~K, A~G, et~al.
-\newblock Phys Rev C, 1993, 48\penalty0 (1): 118.
-
-\bibitem[Sackett et~al.(1997)Sackett, Ieki, A, et~al.]{zecher1997}
-SACKETT~D, IEKI~K, A~G, et~al.
-\newblock Nucl Instr Meth A, 1997, 401\penalty0 (2-3): 329.
-
-\bibitem[薛梦驰(2009)]{xuemengchi2009}
-XUE Mengchi. Telecommunication Science. 2009, 7: 57. (in Chinese) \\
-(薛梦驰.
-\newblock 电信科学, 2009, 7: 57.)
-
-\bibitem[唐军杰\ 等(2013)唐军杰, 王拓, 张强, et~al.]{tangjunjie2013}
-TANG Junjie, WANG Tuo, ZHANG Qiang, et al. Chin J Lumi, 2013, 34(1): 78. (in
-  Chinese) \\
-(唐军杰, 王拓, 张强, 等.
-\newblock 发光学报, 2013, 34\penalty0 (1): 78.)
-
-\bibitem[WU et~al.(2013)WU, TANG, SUN, et~al.]{wuchong2013}
-WU~C, TANG~B, SUN~Z, et~al.
-\newblock Radiation Measurements, 2013, 58\penalty0 (11): 128.
+\bibitem[gbt(2015)]{gbt77142015xinxi}
+GB/T 7714-2015, Information and documentation---Rules for bibliographic
+  references and citations to information resources[S]. Beijing, China Standard
+  Press, 2015. (in Chinese) \\
+(GB/T 7714-2015, 信息与文献\quad 参考文献著录规则\allowbreak[S].
+\newblock 北京: 中国标准出版社, 2015.)
 
 \end{thebibliography}

@@ -1,0 +1,39 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical,preprint}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*bib>
+@misc{finn2017modelagnostic,
+    title={Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks},
+    author={Chelsea Finn and Pieter Abbeel and Sergey Levine},
+    year={2017},
+    eprint={1703.03400},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+%</bib>
+%    \end{macrocode}
+\endinput

@@ -1,4 +1,4 @@
-\begin{thebibliography}{120}
+\begin{thebibliography}{121}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -67,27 +67,27 @@
 
 \bibitem[杨保军(2012)]{yangbaojun2012xinwen}
 杨保军.
-\newblock 新闻道德论\allowbreak[D].
+\newblock 新闻道德论\allowbreak[D/OL].
 \newblock 北京: 中国人民大学出版社, 2012\allowbreak[2012-11-01].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20101104-BPO-889-1023&cult=CN}.
 
 \bibitem[赵学功(2001)]{zhaoxuegong2001dangdai}
 赵学功.
-\newblock 当代美国外交\allowbreak[M].
+\newblock 当代美国外交\allowbreak[M/OL].
 \newblock 北京: 社会科学文献出版社, 2001\allowbreak[2014-06-11].
 \newblock \url{http://www.cadal.zju.edu.cn/book/trySinglePage/33023884/1}.
 
 \bibitem[同济大学土木工程防灾国家重点实验室(2011)]{tongji2011wenchuan}
 同济大学土木工程防灾国家重点实验室.
-\newblock 汶川地震灾害研究\allowbreak[M].
+\newblock 汶川地震灾害研究\allowbreak[M/OL].
 \newblock 上海: 同济大学出版社, 2011: 5-6\allowbreak[2013-05-09].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20120406-YPT-889-0010}.
 
 \bibitem[中国造纸学会(2003)]{zaozhi2003zhongguo}
 中国造纸学会.
-\newblock 中国造纸年鉴：2003\allowbreak[M].
+\newblock 中国造纸年鉴：2003\allowbreak[M/OL].
 \newblock 北京: 中国轻工业出版社, 2003\allowbreak[2014-04-25].
 \newblock \url{http://www.cadal.zju.edu.cn/book/view/25010080}.
 
@@ -109,13 +109,13 @@ YUFIN~S~A.
 \bibitem[Baldock(2011)]{baldock2011developing}
 BALDOCK~P.
 \newblock Developing early childhood services: Past, present and
-  future\allowbreak[M].
+  future\allowbreak[M/OL].
 \newblock Rotterdam: Open University Press, 2011: 105\allowbreak[2012-11-27].
 \newblock \url{http://lib.myilibrary.com/Open.aspx?id=312377}.
 
 \bibitem[Fan et~al.(2013)Fan and Sommers]{fan2013food}
 FAN~X, SOMMERS~C~H.
-\newblock Food irradiation research and technology\allowbreak[M].
+\newblock Food irradiation research and technology\allowbreak[M/OL].
 \newblock 2nd ed.
 \newblock Ames, Iowa: Blackwell Publishing, 2013: 25-26\allowbreak[2014-06-26].
 \newblock
@@ -169,7 +169,7 @@ SODEMAN~W~A, Jr, SODEMAN~W~A.
 \bibitem[Roberson et~al.(2011)Roberson and Burneson]{roberson2011drinking}
 ROBERSON~J~A, BURNESON~E~G.
 \newblock Drinking water standards, regulations and
-  goals\allowbreak[M]//\allowbreak
+  goals\allowbreak[M/OL]//\allowbreak
 {American Water Works Association}.
 \newblock Water quality \& treatment: a handbook on drinking water.
 \newblock 6th ed.
@@ -206,21 +206,21 @@ ROBERSON~J~A, BURNESON~E~G.
 \bibitem[余建斌(2013)]{yujianbin2013women}
 余建斌.
 \newblock 我们的科技一直在追赶:
-  访中国工程院院长周济\allowbreak[N].
+  访中国工程院院长周济\allowbreak[N/OL].
 \newblock 人民日报, 2013-01-12\penalty0 (2)\allowbreak[2013-03-20].
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_5-02.htm}.
 
 \bibitem[李炳穆(2008{\natexlab{a}})]{libingmu2008hanguo}
 李炳穆.
-\newblock 韩国图书馆法\allowbreak[J].
+\newblock 韩国图书馆法\allowbreak[J/OL].
 \newblock 图书情报工作, 2008, 52\penalty0 (6):\penalty0
   6-12\allowbreak[2013-10-25].
 \newblock \url{http://www.docin.com/p-400265742.html}.
 
 \bibitem[李幼平\ 等(2010)李幼平 and 王莉]{liyouping2010xunzheng}
 李幼平, 王莉.
-\newblock 循证医学研究方法: 附视频\allowbreak[J].
+\newblock 循证医学研究方法: 附视频\allowbreak[J/OL].
 \newblock 中华移植杂志(电子版), 2010, 4\penalty0 (3):\penalty0
   225-228\allowbreak[2014-06-09].
 \newblock \url{http://www.cqvip.com/Read/Read.aspx?id=36658332}.
@@ -228,7 +228,7 @@ ROBERSON~J~A, BURNESON~E~G.
 \bibitem[武丽丽\ 等(2008)武丽丽, 华一新, 张亚军,
   et~al.]{wulili2008beidou}
 武丽丽, 华一新, 张亚军, 等.
-\newblock “北斗一号”监控管理网设计与实现\allowbreak[J].
+\newblock “北斗一号”监控管理网设计与实现\allowbreak[J/OL].
 \newblock 测绘科学, 2008, 33\penalty0 (5):\penalty0
   8-9\allowbreak[2009-10-25].
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
@@ -248,7 +248,7 @@ CAPLAN~P.
 \bibitem[Frese et~al.(2013)Frese, Katus, and Meder]{frese2013next}
 FRESE~K~S, KATUS~H~A, MEDER~B.
 \newblock Next-generation sequencing: from understanding biology to
-  personalized medicine\allowbreak[J].
+  personalized medicine\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1):\penalty0
   378-398\allowbreak[2013-03-19].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
@@ -257,7 +257,7 @@ FRESE~K~S, KATUS~H~A, MEDER~B.
 \bibitem[Myburg et~al.(2014)Myburg, Grattapaglia, Tuskan,
   et~al.]{myburg2014genome}
 MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
-\newblock The genome of eucalyptus grandis\allowbreak[J].
+\newblock The genome of eucalyptus grandis\allowbreak[J/OL].
 \newblock Nature, 2014, 510:\penalty0 356-362\allowbreak[2014-06-25].
 \newblock
   \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
@@ -270,7 +270,7 @@ MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
 
 \bibitem[西安电子科技大学(2002)]{xian2002guangzhebian}
 西安电子科技大学.
-\newblock 光折变自适应光外差探测方法: 01128777.2\allowbreak[P].
+\newblock 光折变自适应光外差探测方法: 01128777.2\allowbreak[P/OL].
 \newblock 2002-03-06\allowbreak[2002-05-28].
 \newblock
   \url{http://211.152.9.47/sipoasp/zljs/hyjs-yx-new.asp?recid=01128777.2&leixin=0}.
@@ -278,13 +278,15 @@ MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
 \bibitem[Tachibana et~al.(2005)Tachibana, Shimizu, Kobayshi, and
   Nakamura]{tachibana2005electronic}
 TACHIBANA~R, SHIMIZU~S, KOBAYSHI~S, et~al.
-\newblock Electronic watermarking method and system: US6915001\allowbreak[P].
+\newblock Electronic watermarking method and system:
+  US6915001\allowbreak[P/OL].
 \newblock 2005-07-05\allowbreak[2013-11-11].
 \newblock \url{http://www.google.co.in/patents/US6915001}.
 
 \bibitem[中国互联网络信息中心(2012)]{hulianwang2012di}
 中国互联网络信息中心.
-\newblock 第 29 次中国互联网络发展现状统计报告\allowbreak[R].
+\newblock 第 29
+  次中国互联网络发展现状统计报告\allowbreak[R/OL].
 \newblock \allowbreak(2012-01-16)\allowbreak[2013-03-26].
 \newblock
   \url{http://www.cnnic.net.cn/hlwfzyj/hlwxzbg/201201/P020120709345264469680}.
@@ -293,33 +295,33 @@ TACHIBANA~R, SHIMIZU~S, KOBAYSHI~S, et~al.
 北京市人民政府办公厅.
 \newblock
   关于转发北京市企业投资项目核准暂行实施办法的通知:
-  京政办发[2005]37号\allowbreak[A].
+  京政办发[2005]37号\allowbreak[A/OL].
 \newblock \allowbreak(2005-07-12)\allowbreak[2011-07-12].
 \newblock \url{http://china.findlaw.cn/fagui/p_1/39934.html}.
 
 \bibitem[Bawden(2008)]{bawden2008origins}
 BAWDEN~D.
-\newblock Origins and concepts of digital literacy\allowbreak[EB].
+\newblock Origins and concepts of digital literacy\allowbreak[EB/OL].
 \newblock \allowbreak(2008-05-04)\allowbreak[2013-03-08].
 \newblock
   \url{http://www.soi.city.ac.uk/~dbawden/digital%20literacy%20chapter.pdf}.
 
 \bibitem[{{Online Computer Library Center, Inc}([2012])}]{oclc2012about}
 {Online Computer Library Center, Inc}.
-\newblock About {OCLC}: History of cooperation\allowbreak[EB].
+\newblock About {OCLC}: History of cooperation\allowbreak[EB/OL].
 \newblock \allowbreak[2012-03-27].
 \newblock \url{http://www.oclc.org/about/cooperation.en.html}.
 
 \bibitem[Hopkinson(2009)]{hopkinson2009unimarc}
 HOPKINSON~A.
-\newblock {UNIMARC} and metadata: Dublin core\allowbreak[EB].
+\newblock {UNIMARC} and metadata: Dublin core\allowbreak[EB/OL].
 \newblock \allowbreak(2009-04-22)\allowbreak[2013-03-27].
 \newblock \url{http://archive.ifla.org/IV/ifla64/138-161e.htm}.
 
 \bibitem[刘乃安(2000)]{liunaian2000shengwu}
 刘乃安.
 \newblock
-  生物质材料热解失重动力学及其分析方法研究\allowbreak[D].
+  生物质材料热解失重动力学及其分析方法研究\allowbreak[D/OL].
 \newblock 安徽: 中国科学技术大学, 2000: 17-18\allowbreak[2014-08-29].
 \newblock
   \url{http://wenku.baidu.com/link?url=GJDJxb4lxBUXnIPmq1XoEGSIr1H8TMLbidW_LjlYu33tpt707u62rKliypU_FBGUmox7ovPNaVIVBALAMd5yfwuKUUOAGYuB7cuZ-BYEhXa}.
@@ -327,7 +329,7 @@ HOPKINSON~A.
 
 \bibitem[Deverell et~al.(2013)Deverell and Igler]{deverell2013companion}
 DEVERELL~W, IGLER~D.
-\newblock A companion to {California} history\allowbreak[D].
+\newblock A companion to {California} history\allowbreak[D/OL].
 \newblock New York: John Wiley \& Sons, 2013: 21-22\allowbreak[2014-06-24].
 \newblock
   \url{http://onlinelibrary.wiley.com/doi/10.1002/9781444305036.ch2/summary}.
@@ -368,7 +370,7 @@ DOWLER~L.
 
 \bibitem[Sunstein(1996)]{sunstein1996social}
 SUNSTEIN~C~R.
-\newblock Social norms and social roles\allowbreak[J].
+\newblock Social norms and social roles\allowbreak[J/OL].
 \newblock Columbia law review, 1996, 96:\penalty0 903\allowbreak[2012-01-26].
 \newblock
   \url{http://www.heinonline.org/HOL/Page?handle=hein.journals/clr96&id=913&collection=journals&index=journals/clr}.
@@ -476,7 +478,7 @@ MORRI~I.
 \bibitem[侯文顺(2010)]{houwenshun2010gaofenzi}
 侯文顺.
 \newblock 高分子物理:
-  高分子材料分析、选择与改性\allowbreak[M].
+  高分子材料分析、选择与改性\allowbreak[M/OL].
 \newblock 北京: 化学工业出版社, 2010: 119\allowbreak[2012-11-27].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20111114-HGS-889-0228}.
@@ -503,14 +505,14 @@ O'BRIEN~J~A.
 \bibitem[Kinchy(2012)]{kinchy2012seeds}
 KINCHY~A.
 \newblock Seeds, sciences, and struggle: the global politics of transgenic
-  crops\allowbreak[M].
+  crops\allowbreak[M/OL].
 \newblock Cambridge, Mass.: MIT Press, 2012: 50\allowbreak[2013-07-14].
 \newblock \url{http://lib.myilibrary.com?ID=381443}.
 
 \bibitem[Praetzellis(2011)]{praetzellis2011death}
 PRAETZELLIS~A.
 \newblock Death by theory: a tale of mystery and archaeological
-  theory\allowbreak[M].
+  theory\allowbreak[M/OL].
 \newblock Rev. ed.
 \newblock Rowman \& Littlefield Publishing Group, Inc., 2011:
   13\allowbreak[2012-07-26].
@@ -536,7 +538,7 @@ PRAETZELLIS~A.
 \bibitem[陈志勇(2011)]{chenzhiyong2011zhongguo}
 陈志勇.
 \newblock 中国财税文化价值研究:
-  “中国财税文化国际学术研讨会”论文集\allowbreak[C].
+  “中国财税文化国际学术研讨会”论文集\allowbreak[C/OL].
 \newblock 北京: 经济科学出版社, 2011\allowbreak[2013-10-14].
 \newblock
   \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.201106228-BPO-889-0135&cult=CN}.
@@ -549,7 +551,8 @@ BABU~B~V, NAGAR~A~K, DEEP~K, et~al.
 
 \bibitem[中华人民共和国国务院新闻办公室(2013)]{zhonghua2013guofang}
 中华人民共和国国务院新闻办公室.
-\newblock 国防白皮书: 中国武装力量的多样化运用\allowbreak[R].
+\newblock 国防白皮书:
+  中国武装力量的多样化运用\allowbreak[R/OL].
 \newblock \allowbreak(2013-04-16)\allowbreak[2014-06-11].
 \newblock \url{http://www.mod.gov.cn/affair/2013-04/16/content_4442839.htm}.
 
@@ -557,7 +560,7 @@ BABU~B~V, NAGAR~A~K, DEEP~K, et~al.
   et~al.]{tangwanjin2013renti}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告:
-  7178999X-2006BAK04A10/10.2013\allowbreak[R].
+  7178999X-2006BAK04A10/10.2013\allowbreak[R/OL].
 \newblock \allowbreak(2013-09-30)\allowbreak[2014-06-24].
 \newblock \url{http://www.nstrs.org.cn/xiangxiBG.aspx?id=41707}.
 
@@ -584,7 +587,7 @@ CALKIN~D, AGER~A, THOMPSON~M.
 \bibitem[马欢(2011)]{mahuan2011renlei}
 马欢.
 \newblock
-  人类活动影响下海河流域典型区水循环变化分析\allowbreak[D].
+  人类活动影响下海河流域典型区水循环变化分析\allowbreak[D/OL].
 \newblock 北京: 清华大学, 2011: 27\allowbreak[2013-10-14].
 \newblock
   \url{http://www.cnki.net/kcms/detail/detail.aspx?dbcode=CDFD&QueryID=.0&CurRec=11&dbname=CDFDLAST2013&filename=1012035905.nh&uid=WEEvREcwSlJHSldTTGJhYIJRaEhGUXFQWVB6SGZXeisxdmVhV3ZyZkpoUnozeDE1b0paM0NmMjZiQ3p4TUdmcw=}.
@@ -592,7 +595,7 @@ CALKIN~D, AGER~A, THOMPSON~M.
 \bibitem[吴云芳(2003)]{wuyunfang2003mianxiang}
 吴云芳.
 \newblock
-  面向中文信息处理的现代汉语并列结构研究\allowbreak[D].
+  面向中文信息处理的现代汉语并列结构研究\allowbreak[D/OL].
 \newblock 北京: 北京大学, 2003\allowbreak[2013-10-14].
 \newblock
   \url{http://thesis.lib.pku.edu.cn/dlib/List.asp?lang=gb&type=Reader&DocGroupID=4&DocID=6328}.
@@ -611,7 +614,7 @@ CALMS~R~B.
 \bibitem[河北绿洲生态环境科技有限公司(2001)]{hebei2001yizhong}
 河北绿洲生态环境科技有限公司.
 \newblock 一种荒漠化地区生态植被综合培育种植方法:
-  01129210.5\allowbreak[P].
+  01129210.5\allowbreak[P/OL].
 \newblock 2001-10-24\allowbreak[2002-05-28].
 \newblock
   \url{http://211.152.9.47/sipoasp/zlijs/hyjs-yx-new.asp?recid=01129210.5&leixin=0}.
@@ -619,7 +622,7 @@ CALMS~R~B.
 \bibitem[Koseki et~al.(2002)Koseki, Momose, Kawahito,
   et~al.]{koseki2002compiler}
 KOSEKI~A, MOMOSE~H, KAWAHITO~M, et~al.
-\newblock Compiler: US828402\allowbreak[P].
+\newblock Compiler: US828402\allowbreak[P/OL].
 \newblock 2002-05-25\allowbreak[2002-05-28].
 \newblock
   \url{http://FF&p=1&u=netahtml/PTO/search-bool.html&r=5&f=G&1=50&col=AND&d=PG01&sl=IBM.AS.&OS=AN/IBM/RS=AN/IBM}.
@@ -638,13 +641,13 @@ KOSEKI~A, MOMOSE~H, KAWAHITO~M, et~al.
 
 \bibitem[国家环境保护局科技标准司(1996)]{guojia1996turang}
 国家环境保护局科技标准司.
-\newblock 土壤环境质量标准: GB 15616—1995\allowbreak[S].
+\newblock 土壤环境质量标准: GB 15616—1995\allowbreak[S/OL].
 \newblock 北京: 中国标准出版社, 1996: 2-3\allowbreak[2013-10-14].
 \newblock \url{http://wenku.baidu.com/view/b950a34b767f5acfa1c7cd49.html}.
 
 \bibitem[200(2009{\natexlab{b}})]{2009information}
 Information and documentation---the {Dublin} cord metadata element set: ISO
-  15836: 2009\allowbreak[S].
+  15836: 2009\allowbreak[S/OL].
 \newblock 2009\allowbreak[2013-03-24].
 \newblock
   \url{http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=52142}.
@@ -685,7 +688,7 @@ Information and documentation---the {Dublin} cord metadata element set: ISO
 
 \bibitem[楼梦鳞\ 等(2011)楼梦鳞 and 杨燕]{loumenglin2011wenchuan}
 楼梦鳞, 杨燕.
-\newblock 汶川地震基岩地震动特征分析\allowbreak[M]//\allowbreak
+\newblock 汶川地震基岩地震动特征分析\allowbreak[M/OL]//\allowbreak
 同济大学土木工程防灾国家重点实验室.
 \newblock 汶川地震震害研究.
 \newblock 上海: 同济大学出版社, 2011: 011-012\allowbreak[2013-05-09].
@@ -725,7 +728,7 @@ Symposium on Applications of Holography in Mechanics, August 23-25, 1971,
 
 \bibitem[陈建军(20l0)]{chenjianjun20l0cong}
 陈建军.
-\newblock 从数字地球到智慧地球\allowbreak[J].
+\newblock 从数字地球到智慧地球\allowbreak[J/OL].
 \newblock 国图资源导刊, 20l0, 7\penalty0 (10):\penalty0
   93\allowbreak[2013-03-20].
 \newblock \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.
@@ -749,7 +752,7 @@ SAITO~M, MIYAZAKI~K.
 \bibitem[Walls et~al.(2013)Walls, Barichivich, and Brown]{walls2013drought}
 WALLS~S~C, BARICHIVICH~W~J, BROWN~M~E.
 \newblock Drought, deluge and declines: the impact of precipitation extremes on
-  amphibians in a changing climate\allowbreak[J].
+  amphibians in a changing climate\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1):\penalty0
   399-418\allowbreak[2013-11-04].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/399}.
@@ -759,7 +762,7 @@ WALLS~S~C, BARICHIVICH~W~J, BROWN~M~E.
   Boothe]{franz2013phenotypic}
 FRANZ~A~K, DANIELEWICZ~M~A, WONG~D~M, et~al.
 \newblock Phenotypic screening with oleaginous microalgae reveals modulators of
-  lipid productivity\allowbreak[J].
+  lipid productivity\allowbreak[J/OL].
 \newblock ACS Chemical biology, 2013, 8:\penalty0
   1053-1062\allowbreak[2014-06-26].
 \newblock \url{http://pubs.acs.org/doi/ipdf/10.1021/cb300573r}.
@@ -767,7 +770,7 @@ FRANZ~A~K, DANIELEWICZ~M~A, WONG~D~M, et~al.
 \bibitem[Park et~al.(2010)Park and Tosaka]{park2010metadata}
 PARK~J~R, TOSAKA~Y.
 \newblock Metadata quality control in digital repositories and collections:
-  Criteria, semantics, and mechanisms\allowbreak[J].
+  Criteria, semantics, and mechanisms\allowbreak[J/OL].
 \newblock Cataloging \& classification quarterly, 2010, 48\penalty0
   (8):\penalty0 696-715\allowbreak[2013-09-05].
 \newblock
@@ -785,7 +788,7 @@ PARK~J~R, TOSAKA~Y.
 
 \bibitem[傅刚\ 等(2000)傅刚, 赵承, and 李佳路]{fugang2000dafeng}
 傅刚, 赵承, 李佳路.
-\newblock 大风沙过后的思考\allowbreak[N].
+\newblock 大风沙过后的思考\allowbreak[N/OL].
 \newblock 北京青年报, 2000-01-12\allowbreak[2005-09-28].
 \newblock
   \url{http://www.bjyouth.com.cn/Bqb/20000412/GB/4216%5ED0412B1401.htm}.
@@ -793,20 +796,20 @@ PARK~J~R, TOSAKA~Y.
 \bibitem[刘裕国\ 等(2013)刘裕国, 杨柳, 张洋,
   et~al.]{liuyuguo2013wumai}
 刘裕国, 杨柳, 张洋, 等.
-\newblock 雾霾来袭, 如何突围\allowbreak[N].
+\newblock 雾霾来袭, 如何突围\allowbreak[N/OL].
 \newblock 人民日报, 2013-01-12\allowbreak[2013-11-06].
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_2-04.htm}.
 
 \bibitem[萧钰(2001)]{xiaoyu2001chuban}
 萧钰.
-\newblock 出版业信息化迈入快车道\allowbreak[EB].
+\newblock 出版业信息化迈入快车道\allowbreak[EB/OL].
 \newblock \allowbreak(2001-12-19)\allowbreak[2002-04-15].
 \newblock \url{http://www.creader.com/news/20011219/200112190019.html}.
 
 \bibitem[李强(2012)]{liqiang2012huajie}
 李强.
-\newblock 化解医患矛盾需釜底抽薪\allowbreak[EB].
+\newblock 化解医患矛盾需釜底抽薪\allowbreak[EB/OL].
 \newblock \allowbreak(2012-05-03)\allowbreak[2013-03-25].
 \newblock \url{http://wenku.baidu.com/view/47e4f206b52acfc789ebc92f.html}.
 
@@ -814,13 +817,19 @@ PARK~J~R, TOSAKA~Y.
   Department of Education Office}([2013])}]{clbld2013pennsylvania}
 {Commonwealth Libraries Bureau of Library Development. Pennsylvania Department
   of Education Office}.
-\newblock Pennsylvania library laws\allowbreak[EB].
+\newblock Pennsylvania library laws\allowbreak[EB/OL].
 \newblock \allowbreak[2013-03-24].
 \newblock \url{http://www.racc.edu/yocum/pdf/PALibraryLaws.pdf}.
 
 \bibitem[201(2012)]{2012dublin}
-Dublin core metadata element set: version 1.1\allowbreak[EB].
+Dublin core metadata element set: version 1.1\allowbreak[EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
+
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017modelagnostic}
+FINN~C, ABBEEL~P, LEVINE~S.
+\newblock Model-agnostic meta-learning for fast adaptation of deep
+  networks\allowbreak[Z].
+\newblock arXiv: \eprint{https://arxiv.org/abs/1703.03400}{1703.03400}, 2017.
 
 \end{thebibliography}

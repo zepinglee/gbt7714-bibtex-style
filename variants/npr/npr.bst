@@ -39,6 +39,7 @@ INTEGERS {
   only.start.page
   show.url
   show.doi
+  show.preprint
   show.note
   show.english.translation
 }
@@ -57,23 +58,26 @@ FUNCTION {load.config}
   #1 'abbreviate.journal :=
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
-  #1 'show.missing.address.publisher :=
+  #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #1 'only.start.page :=
   #1 'show.url :=
   #1 'show.doi :=
+  #1 'show.preprint :=
   #0 'show.note :=
   #1 'show.english.translation :=
 }
 
 ENTRY
   { address
+    archivePrefix
     author
     booktitle
     date
     doi
     edition
     editor
+    eprint
     howpublished
     institution
     journal
@@ -89,8 +93,8 @@ ENTRY
     school
     series
     title
-    translator
     translation
+    translator
     url
     urldate
     volume
@@ -1403,6 +1407,27 @@ FUNCTION {check.electronic}
   if$
 }
 
+FUNCTION {format.eprint}
+{ ""
+  archivePrefix empty$ not
+    { archivePrefix * ": " *
+      "\eprint{https://" *
+      archivePrefix "l" change.case$ * ".org/abs/" * eprint * "}{" *
+      eprint * "}" *
+    }
+    { eprint }
+  if$
+}
+
+FUNCTION {output.eprint}
+{ show.preprint eprint empty$ not and
+    { new.block
+      format.eprint output
+    }
+    'skip$
+  if$
+}
+
 FUNCTION {format.note}
 { note empty$ not show.note and
     { note }
@@ -1602,6 +1627,43 @@ FUNCTION {electronic}
   fin.entry
 }
 
+FUNCTION {preprint}
+{ output.bibitem
+  output.translation
+  author empty$ not
+    { format.authors }
+    { editor empty$ not
+        { format.editors }
+        { "empty author and editor in " cite$ * warning$
+          ""
+        }
+      if$
+    }
+  if$
+  output
+  new.block
+  title.in.journal
+    { format.series.vol.num.title "title" output.check
+      "Z" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  output.eprint
+  format.year "year" output.check
+  format.pages bbl.colon output.after
+  format.urldate "" output.after
+  output.url
+  new.block
+  format.note output
+  fin.entry
+}
+
 FUNCTION {misc}
 { journal empty$ not
     'article
@@ -1609,10 +1671,14 @@ FUNCTION {misc}
         'incollection
         { publisher empty$ not
             'monograph
-            { entry.is.electronic
-                'electronic
-                { "Z" set.entry.mark
-                  monograph
+            { eprint empty$ not show.preprint and
+                'preprint
+                { entry.is.electronic
+                    'electronic
+                    { "Z" set.entry.mark
+                      monograph
+                    }
+                  if$
                 }
               if$
             }
@@ -1701,10 +1767,7 @@ FUNCTION {techreport}
   misc
 }
 
-FUNCTION {unpublished}
-{ "Z" set.entry.mark
-  misc
-}
+FUNCTION {unpublished} { misc }
 
 FUNCTION {default.type} { misc }
 
@@ -1977,17 +2040,21 @@ FUNCTION {begin.bib}
   write$ newline$
   "  \urlstyle{same}\fi"
   write$ newline$
-  show.doi
-    { "\expandafter\ifx\csname href\endcsname\relax"
+  "\expandafter\ifx\csname href\endcsname\relax"
+  write$ newline$
+  "  \DeclareUrlCommand\doi{\urlstyle{rm}}"
+  write$ newline$
+  "  \def\eprint#1#2{#2}"
       write$ newline$
-      "  \DeclareUrlCommand\doi{\urlstyle{rm}}\else"
+  "\else"
+  write$ newline$
+  "  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+  write$ newline$
+  "  \let\eprint\href"
       write$ newline$
-      "  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi"
+  "\fi"
       write$ newline$
     }
-    'skip$
-  if$
-}
 
 FUNCTION {end.bib}
 { newline$

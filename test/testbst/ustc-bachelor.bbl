@@ -4,8 +4,12 @@
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
 \expandafter\ifx\csname href\endcsname\relax
-  \DeclareUrlCommand\doi{\urlstyle{rm}}\else
-  \providecommand\doi[1]{\href{https://doi.org/#1}{\nolinkurl{#1}}}\fi
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
 
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 陈登原.
