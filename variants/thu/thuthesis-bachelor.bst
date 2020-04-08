@@ -1156,6 +1156,13 @@ FUNCTION {hyphenate}
 FUNCTION {format.pages}
 { pages empty$
     { "" }
+    { pages hyphenate }
+  if$
+}
+
+FUNCTION {format.extracted.pages}
+{ pages empty$
+    { "" }
     { pages
       only.start.page
         'extract.before.dash
@@ -1190,7 +1197,7 @@ FUNCTION {format.journal.pages}
         { ": " }
         { ":\penalty0 " }
       if$
-      format.pages *
+      format.extracted.pages *
     }
   if$
 }
@@ -1483,7 +1490,7 @@ FUNCTION {incollection}
   new.block
   format.address.publisher output
   format.year "year" output.check
-  format.pages bbl.colon output.after
+  format.extracted.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
   output.doi
