@@ -147,6 +147,6 @@ and English) for each biblilography entry.
 - 胡振震 [hushidong/biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)
 - 沈周 [szsdk/biblatex-gbt77142005](https://github.com/szsdk/biblatex-gbt77142005)
 - 胡海星 [Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
-- 李志奇 [基于biblatex的符合GBT7714-2005的中文文献生成工具](http://bbs.ctex.org/forum.php?mod=viewthread&tid=74474) (not accessible)
+- 李志奇 基于biblatex的符合GBT7714-2005的中文文献生成工具
 - Casper Ti. Vector [CasperVector/biblatex-caspervector](https://github.com/CasperVector/biblatex-caspervector)
-- 吴凯 [发布GBT7714-2005.bst version1 Beta版](http://bbs.ctex.org/forum.php?mod=viewthread&tid=33591) (not accessible)
+- 吴凯 发布GBT7714-2005.bst version1 Beta版

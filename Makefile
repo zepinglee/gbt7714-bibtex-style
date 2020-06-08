@@ -52,5 +52,5 @@ install :
 ctan : test doc
 	ln -sf . $(NAME)
 	zip -r ../$(NAME).zip $(NAME)/{README.md,LICENSE,$(NAME).dtx,$(NAME).ins,\
-	$(NAME).pdf,$(NAME).sty,$(NAME)-author-year.bst,$(NAME)-numerical.bst}
+	$(NAME).pdf,CHANGELOG.md}
 	rm $(NAME)

@@ -25,13 +25,6 @@ checkruns = 3
 checkopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 typesetopts = "-file-line-error -halt-on-error -interaction=nonstopmode"
 
-packtdszip = true
-
-tdslocations = {
-  "bibtex/bst/gbt7714/*.bst",
-  "tex/latex/gbt7714/*.sty",
-}
-
 changeslisting = nil
 do
   local f = assert(io.open("CHANGELOG.md", "r"))
