@@ -425,33 +425,33 @@
 \newif\ifgbt@mmxv
 \newif\ifgbt@numerical
 \newif\ifgbt@super
-\newcommand\gbt@obselete@option[1]{%
-  \PackageWarning{gbt7714}{The option "#1" is obselete}%
+\newcommand\gbt@obsolete@option[1]{%
+  \PackageWarning{gbt7714}{The option "#1" is obsolete}%
 }
 \DeclareOption{2015}{%
-  \gbt@obselete@option{2015}%
+  \gbt@obsolete@option{2015}%
   \gbt@legacy@interfacetrue
   \gbt@mmxvtrue
 }
 \DeclareOption{2005}{%
-  \gbt@obselete@option{2005}%
+  \gbt@obsolete@option{2005}%
   \gbt@legacy@interfacetrue
   \gbt@mmxvfalse
 }
 \DeclareOption{super}{%
-  \gbt@obselete@option{super}%
+  \gbt@obsolete@option{super}%
   \gbt@legacy@interfacetrue
   \gbt@numericaltrue
   \gbt@supertrue
 }
 \DeclareOption{numbers}{%
-  \gbt@obselete@option{numbers}%
+  \gbt@obsolete@option{numbers}%
   \gbt@legacy@interfacetrue
   \gbt@numericaltrue
   \gbt@superfalse
 }
 \DeclareOption{authoryear}{%
-  \gbt@obselete@option{authoryear}%
+  \gbt@obsolete@option{authoryear}%
   \gbt@legacy@interfacetrue
   \gbt@numericalfalse
 }
