@@ -290,7 +290,6 @@
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
-%   space.before.pages             & |#0|   & 页码前有空白                   \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 doi                       \\
@@ -792,7 +791,6 @@ INTEGERS {
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
-  space.before.pages
   only.start.page
   show.url
   show.doi
@@ -945,16 +943,6 @@ FUNCTION {load.config}
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
-%    \begin{macrocode}
-%<*!space-begore-pages&!npr>
-  #0 'space.before.pages :=
-%</!space-begore-pages&!npr>
-%<*space-begore-pages|npr>
-  #1 'space.before.pages :=
-%</space-begore-pages|npr>
-%    \end{macrocode}
-%
-% 页码前是否有空白：
 %    \begin{macrocode}
 %<*!only-start-page&!npr>
   #0 'only.start.page :=
@@ -2730,10 +2718,7 @@ FUNCTION {format.journal.number}
 FUNCTION {format.journal.pages}
 { pages empty$
     { "" }
-    { space.before.pages
-        { ": " }
-        { ":\penalty0 " }
-      if$
+    { ": "
       format.extracted.pages *
     }
   if$

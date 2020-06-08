@@ -35,7 +35,6 @@ INTEGERS {
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
-  space.before.pages
   only.start.page
   show.url
   show.doi
@@ -59,7 +58,6 @@ FUNCTION {load.config}
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
   #1 'show.missing.address.publisher :=
-  #0 'space.before.pages :=
   #0 'only.start.page :=
   #1 'show.url :=
   #0 'show.doi :=
@@ -1195,10 +1193,7 @@ FUNCTION {format.journal.number}
 FUNCTION {format.journal.pages}
 { pages empty$
     { "" }
-    { space.before.pages
-        { ": " }
-        { ":\penalty0 " }
-      if$
+    { ": "
       format.extracted.pages *
     }
   if$
