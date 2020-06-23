@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - 文献类型标识前默认有空格，可通过 `space.before.mark` 选项来控制（ustctug/ustcthesis/#267）
 
+### Added
+- 新增选项 `show.urldate` 选择是否显示非电子文献的引用日期
+
 ## [v2.0.2] - 2020-06-08
 ### Changed
 - 期刊的页码前默认有空格（#62）

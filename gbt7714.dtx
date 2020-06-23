@@ -292,6 +292,7 @@
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
+%   show.urldate                   & |#1|   & 显示 urldate                   \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 doi                       \\
 %   show.preprint                  & |#0|   & 显示预印本                     \\
@@ -792,6 +793,7 @@ INTEGERS {
   bold.journal.volume
   show.missing.address.publisher
   only.start.page
+  show.urldate
   show.url
   show.doi
   show.preprint
@@ -962,6 +964,16 @@ FUNCTION {load.config}
 %</only-start-page|npr>
 %    \end{macrocode}
 %
+% 是否著录非电子文献的引用日期：
+%    \begin{macrocode}
+%<*!no-urldate>
+  #1 'show.urldate :=
+%</!no-urldate>
+%<*no-urldate>
+  #0 'show.urldate :=
+%</no-urldate>
+%    \end{macrocode}
+%
 % 是否著录 URL：
 %    \begin{macrocode}
 %<*!nourl>
@@ -1061,7 +1073,7 @@ ENTRY
     volume
     year
   }
-  { entry.lang entry.is.electronic entry.numbered }
+  { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
 %
 % These string entry variables are used to form the citation label.
@@ -2603,7 +2615,9 @@ FUNCTION {format.editdate}
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$ not entry.is.electronic and
+{ urldate empty$ not
+  show.urldate show.url and is.pure.electronic or and
+  url empty$ not and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -3225,6 +3239,7 @@ FUNCTION {patent}
 FUNCTION {electronic}
 { #1 #1 check.electronic
   #1 'entry.is.electronic :=
+  #1 'is.pure.electronic :=
   output.bibitem
   output.translation
   format.authors output
@@ -4073,6 +4088,7 @@ FUNCTION {presort}
 { set.entry.lang
   set.entry.numbered
   show.url show.doi check.electronic
+  #0 'is.pure.electronic :=
   calc.label
   label sortify
   "    "
