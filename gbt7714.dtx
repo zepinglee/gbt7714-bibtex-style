@@ -287,13 +287,14 @@
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
+%   space.before.mark              & |#1|   & 文献类型标识前有空格           \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 doi                       \\
-%   show.preprint                  & |#0|   & 显示预印本                       \\
+%   show.preprint                  & |#0|   & 显示预印本                     \\
 %   show.note                      & |#0|   & 显示 note 域的信息             \\
 %   \bottomrule
 % \end{tabular}
@@ -782,6 +783,7 @@ INTEGERS {
   link.title
   title.in.journal
   show.mark
+  space.before.mark
   show.medium.type
   slash.for.extraction
   in.booktitle
@@ -878,6 +880,16 @@ FUNCTION {load.config}
 %<*nomark>
   #0 'show.mark :=
 %</nomark>
+%    \end{macrocode}
+%
+% 文献类型标识前是否加空格：
+%    \begin{macrocode}
+%<*!no-space-before-mark>
+  #1 'space.before.mark :=
+%</!no-space-before-mark>
+%<*no-space-before-mark>
+  #0 'space.before.mark :=
+%</no-space-before-mark>
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
@@ -2364,12 +2376,10 @@ FUNCTION {format.mark}
         'skip$
       if$
       'entry.mark :=
-%<*!thu>
-      "\allowbreak[" entry.mark * "]" *
-%</!thu>
-%<*thu>
-      " [" entry.mark * "]" *
-%</thu>
+      space.before.mark
+        { " [" entry.mark * "]" * }
+        { "\allowbreak[" entry.mark * "]" * }
+      if$
     }
     { "" }
   if$
