@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 兼容 biblatex 的 `langid` 域
 - 兼容 biblatex 的 `journaltitle` 和 `shortjournal` 域
 - 兼容 biblatex 的 `location` 域
+- 兼容 biblatex 的 `eprinttype` 域
 
 ## [v2.0.2] - 2020-06-08
 ### Changed

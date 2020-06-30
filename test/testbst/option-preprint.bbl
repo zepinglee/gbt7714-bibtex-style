@@ -1,4 +1,4 @@
-\begin{thebibliography}{121}
+\begin{thebibliography}{122}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -805,5 +805,13 @@ FINN~C, ABBEEL~P, LEVINE~S.
 \newblock Model-agnostic meta-learning for fast adaptation of deep networks
   [Z].
 \newblock arXiv: \eprint{https://arxiv.org/abs/1703.03400}{1703.03400}, 2017.
+
+\bibitem[Liang et~al.(2019)Liang, Zhang, Sun, He, Huang, Zhuang, and
+  Li]{liang_darts_2019}
+LIANG~H, ZHANG~S, SUN~J, et~al.
+\newblock {DARTS}+: Improved differentiable architecture search with early
+  stopping [Z/OL].
+\newblock arxiv: \eprint{http://arxiv.org/abs/1909.06035}{1909.06035}, 2019.
+\newblock \url{http://arxiv.org/abs/1909.06035}.
 
 \end{thebibliography}

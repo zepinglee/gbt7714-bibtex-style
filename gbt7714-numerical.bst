@@ -80,6 +80,7 @@ ENTRY
     edition
     editor
     eprint
+    eprinttype
     howpublished
     institution
     journal
@@ -1424,11 +1425,22 @@ FUNCTION {check.electronic}
 }
 
 FUNCTION {format.eprint}
-{ ""
-  archivePrefix empty$ not
-    { archivePrefix * ": " *
-      "\eprint{https://" *
-      archivePrefix "l" change.case$ * ".org/abs/" * eprint * "}{" *
+{ eprinttype empty$ not
+    { eprinttype }
+    { archivePrefix empty$ not
+        { archivePrefix }
+        { "" }
+      if$
+    }
+  if$
+  's :=
+  s empty$ not
+    { s ": \eprint{" *
+      url empty$ not
+        { url }
+        { "https://" s "l" change.case$ * ".org/abs/" * eprint * }
+      if$
+      * "}{" *
       eprint * "}" *
     }
     { eprint }
