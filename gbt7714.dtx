@@ -224,7 +224,7 @@
 %   \item[urldate*]     引用日期
 %   \item[url]          获取和访问路径
 %   \item[doi]          数字对象唯一标识符
-%   \item[language*]    语言
+%   \item[langid*]      语言
 %   \item[key]          拼音（用于排序）
 % \end{description}
 % 不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref, month, type。
@@ -233,9 +233,9 @@
 % 但是在少数情况下需要用户手动指定，如：
 % \begin{latex}
 %   @misc{citekey,
-%     language = {japanese},
-%     mark     = {Z},
-%     medium   = {DK},
+%     langid = {japanese},
+%     mark   = {Z},
+%     medium = {DK},
 %     ...
 %   }
 % \end{latex}
@@ -1055,6 +1055,7 @@ ENTRY
     institution
     journal
     key
+    langid
     language
     mark
     medium
@@ -1691,16 +1692,27 @@ FUNCTION {check.entry.lang}
   get.str.lang
 }
 
+STRINGS { entry.langid }
+
 FUNCTION {set.entry.lang}
-{ language empty$
+{ "" 'entry.langid :=
+  language empty$ not
+    { language 'entry.langid := }
+    'skip$
+  if$
+  langid empty$ not
+    { langid 'entry.langid := }
+    'skip$
+  if$
+  entry.langid empty$ 
     { check.entry.lang }
-    { language "english" = language "american" = or language "british" = or
+    { entry.langid "english" = entry.langid "american" = or entry.langid "british" = or
         { lang.en }
-        { language "chinese" =
+        { entry.langid "chinese" = 
             { lang.zh }
-            { language "japanese" =
+            { entry.langid "japanese" = 
                 { lang.ja }
-                { language "russian" =
+                { entry.langid "russian" = 
                     { lang.ru }
                     { check.entry.lang }
                   if$

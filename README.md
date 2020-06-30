@@ -65,9 +65,9 @@ and English) for each biblilography entry.
 但是在少数情况下需要用户手动指定，如：
 ```
 @misc{citekey,
-  language = {japanese},
-  mark     = {Z},
-  medium   = {DK},
+  langid = {japanese},
+  mark   = {Z},
+  medium = {DK},
   ...
 }
 ```
@@ -128,7 +128,7 @@ and English) for each biblilography entry.
 引用日期               | `urldate`\*
 获取和访问路径         | `url`
 数字对象唯一标识符     | `doi`
-语言                   | `language`\*
+语言                   | `langid`\*
 拼音（用于排序）       | `key`
 
 注:

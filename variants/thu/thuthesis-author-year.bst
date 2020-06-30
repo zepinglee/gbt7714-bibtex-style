@@ -95,6 +95,7 @@ ENTRY
     institution
     journal
     key
+    langid
     language
     mark
     medium
@@ -460,16 +461,27 @@ FUNCTION {check.entry.lang}
   get.str.lang
 }
 
+STRINGS { entry.langid }
+
 FUNCTION {set.entry.lang}
-{ language empty$
+{ "" 'entry.langid :=
+  language empty$ not
+    { language 'entry.langid := }
+    'skip$
+  if$
+  langid empty$ not
+    { langid 'entry.langid := }
+    'skip$
+  if$
+  entry.langid empty$
     { check.entry.lang }
-    { language "english" = language "american" = or language "british" = or
+    { entry.langid "english" = entry.langid "american" = or entry.langid "british" = or
         { lang.en }
-        { language "chinese" =
+        { entry.langid "chinese" =
             { lang.zh }
-            { language "japanese" =
+            { entry.langid "japanese" =
                 { lang.ja }
-                { language "russian" =
+                { entry.langid "russian" =
                     { lang.ru }
                     { check.entry.lang }
                   if$
