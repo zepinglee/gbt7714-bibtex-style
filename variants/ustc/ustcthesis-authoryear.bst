@@ -98,6 +98,7 @@ ENTRY
     key
     langid
     language
+    location
     mark
     medium
     note
@@ -1067,8 +1068,15 @@ FUNCTION {format.publisher}
 
 FUNCTION {format.address.publisher}
 { address empty$ not
-    { address
-      format.publisher empty$ not
+    { address }
+    { location empty$ not
+        { location }
+        { "" }
+      if$
+    }
+  if$
+  duplicate$ empty$ not
+    { format.publisher empty$ not
         { bbl.colon * format.publisher * }
         { entry.is.electronic not show.missing.address.publisher and
             { bbl.colon * bbl.sine.nomine * }
@@ -1077,7 +1085,8 @@ FUNCTION {format.address.publisher}
         }
       if$
     }
-    { entry.is.electronic not show.missing.address.publisher and
+    { pop$
+      entry.is.electronic not show.missing.address.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco bbl.colon * format.publisher * }
             { bbl.sine.loco.sine.nomine }
