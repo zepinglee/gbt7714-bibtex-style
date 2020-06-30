@@ -32,7 +32,7 @@ INTEGERS {
   show.medium.type
   slash.for.extraction
   in.booktitle
-  abbreviate.journal
+  short.journal
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
@@ -63,7 +63,7 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
-  #0 'abbreviate.journal :=
+  #0 'short.journal :=
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
@@ -94,6 +94,7 @@ ENTRY
     howpublished
     institution
     journal
+    journaltitle
     key
     langid
     language
@@ -106,6 +107,7 @@ ENTRY
     publisher
     school
     series
+    shortjournal
     title
     translation
     translator
@@ -932,18 +934,38 @@ FUNCTION {abbreviate}
 }
 
 FUNCTION {format.journal}
-{ journal empty$ not
-    { journal
-      abbreviate.journal
-        'abbreviate
-        'skip$
+{ ""
+  short.journal
+    { shortjournal empty$ not
+        { shortjournal * }
+        { journal empty$ not
+            { journal * abbreviate }
+            { journaltitle empty$ not
+                { journaltitle * abbreviate }
+                'skip$
+              if$
+            }
+          if$
+        }
       if$
-      italic.journal entry.lang lang.en = and
+    }
+    { journal empty$ not
+        { journal * }
+        { journaltitle empty$ not
+            { journaltitle * }
+            'skip$
+          if$
+        }
+      if$
+    }
+  if$
+  duplicate$ empty$ not
+    { italic.journal entry.lang lang.en = and
         'italicize
         'skip$
       if$
     }
-    { "" }
+    'pop$
   if$
 }
 

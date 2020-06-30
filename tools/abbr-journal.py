@@ -15,7 +15,7 @@ abbrs = {
 lines = []
 
 lines.append('''\
-FUNCTION {abbreviate.journal}
+FUNCTION {short.journal}
 { 't :=
   t "l" change.case$ 's :=
 ''')

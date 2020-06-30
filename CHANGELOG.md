@@ -6,10 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Changed
 - 文献类型标识前默认有空格，可通过 `space.before.mark` 选项来控制（ustctug/ustcthesis/#267）
+- 选项 `abbreviate.journal` 改为 `short.journal`
 
 ### Added
 - 新增选项 `show.urldate` 选择是否显示非电子文献的引用日期
 - 兼容 biblatex 的 `langid` 域
+- 兼容 biblatex 的 `journaltitle` 和 `shortjournal` 域
 
 ## [v2.0.2] - 2020-06-08
 ### Changed
