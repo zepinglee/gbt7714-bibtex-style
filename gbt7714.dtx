@@ -3362,7 +3362,12 @@ FUNCTION {preprint}
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
+%<*2015>
       "Z" set.entry.mark
+%</2015>
+%<*2005>
+      "M" set.entry.mark
+%</2005>
       format.mark "" output.after
       new.block
     }
@@ -3407,7 +3412,13 @@ FUNCTION {misc}
                 'preprint
                 { entry.is.electronic
                     'electronic
-                    { "Z" set.entry.mark
+                    { 
+%<*2015>
+                      "Z" set.entry.mark
+%</2015>
+%<*2005>
+                      "M" set.entry.mark
+%</2005>
                       monograph
                     }
                   if$

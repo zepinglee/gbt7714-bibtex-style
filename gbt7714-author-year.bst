@@ -1741,7 +1741,8 @@ FUNCTION {misc}
                 'preprint
                 { entry.is.electronic
                     'electronic
-                    { "Z" set.entry.mark
+                    {
+                      "Z" set.entry.mark
                       monograph
                     }
                   if$

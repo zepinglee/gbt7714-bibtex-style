@@ -1676,7 +1676,7 @@ FUNCTION {preprint}
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
-      "Z" set.entry.mark
+      "M" set.entry.mark
       format.mark "" output.after
       new.block
     }
@@ -1707,7 +1707,8 @@ FUNCTION {misc}
                 'preprint
                 { entry.is.electronic
                     'electronic
-                    { "Z" set.entry.mark
+                    {
+                      "M" set.entry.mark
                       monograph
                     }
                   if$
