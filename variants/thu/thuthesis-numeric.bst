@@ -53,7 +53,7 @@ FUNCTION {load.config}
   #0 'link.title :=
   #1 'title.in.journal :=
   #1 'show.mark :=
-  #1 'space.before.mark :=
+  #0 'space.before.mark :=
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
@@ -165,7 +165,7 @@ FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.wide.space} { "\ " }
 
-FUNCTION {bbl.slash} { " // " }
+FUNCTION {bbl.slash} { "// " }
 
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
@@ -973,9 +973,6 @@ FUNCTION {set.entry.mark}
 
 FUNCTION {format.mark}
 { show.mark
-  type$ "phdthesis" = type$ "mastersthesis" = or type$ "patent" = or
-  medium empty$ not or entry.is.electronic or
-  and
     { entry.mark
       show.medium.type
         { medium empty$ not
@@ -992,7 +989,7 @@ FUNCTION {format.mark}
       'entry.mark :=
       space.before.mark
         { " [" entry.mark * "]" * }
-        { "\allowbreak[" entry.mark * "]" * }
+        { "[" entry.mark * "]" * }
       if$
     }
     { "" }
@@ -1764,11 +1761,7 @@ FUNCTION {map}
 FUNCTION {manual} { monograph }
 
 FUNCTION {mastersthesis}
-{ lang.zh entry.lang =
-    { "硕士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
+{ "D" set.entry.mark
   monograph
 }
 
@@ -1782,14 +1775,7 @@ FUNCTION {online}
   electronic
 }
 
-FUNCTION {phdthesis}
-{ lang.zh entry.lang =
-    { "博士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
-  monograph
-}
+FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}
 { "C" set.entry.mark

@@ -1029,7 +1029,7 @@ FUNCTION {format.mark}
       'entry.mark :=
       space.before.mark
         { " [" entry.mark * "]" * }
-        { "\allowbreak[" entry.mark * "]" * }
+        { "[" entry.mark * "]" * }
       if$
     }
     { "" }

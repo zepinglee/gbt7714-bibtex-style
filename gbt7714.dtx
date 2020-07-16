@@ -886,12 +886,12 @@ FUNCTION {load.config}
 %
 % 文献类型标识前是否加空格：
 %    \begin{macrocode}
-%<*!no-space-before-mark>
+%<*!no-space-before-mark&!thu>
   #1 'space.before.mark :=
-%</!no-space-before-mark>
-%<*no-space-before-mark>
+%</!no-space-before-mark&!thu>
+%<*no-space-before-mark|thu>
   #0 'space.before.mark :=
-%</no-space-before-mark>
+%</no-space-before-mark|thu>
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
@@ -1314,7 +1314,7 @@ FUNCTION {bbl.wide.space} { "\ " }
 FUNCTION {bbl.slash} { "//\allowbreak " }
 %</!thu>
 %<*thu>
-FUNCTION {bbl.slash} { " // " }
+FUNCTION {bbl.slash} { "// " }
 %</thu>
 
 FUNCTION {bbl.sine.loco}
@@ -2405,11 +2405,6 @@ FUNCTION {set.entry.mark}
 
 FUNCTION {format.mark}
 { show.mark
-%<*thu>
-  type$ "phdthesis" = type$ "mastersthesis" = or type$ "patent" = or
-  medium empty$ not or entry.is.electronic or
-  and
-%</thu>
     { entry.mark
       show.medium.type
         { medium empty$ not
@@ -2426,7 +2421,7 @@ FUNCTION {format.mark}
       'entry.mark :=
       space.before.mark
         { " [" entry.mark * "]" * }
-        { "\allowbreak[" entry.mark * "]" * }
+        { "[" entry.mark * "]" * }
       if$
     }
     { "" }
@@ -3535,16 +3530,7 @@ FUNCTION {manual} { monograph }
 %       Optional: type, address, month, note
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
-%<*!thu>
 { "D" set.entry.mark
-%</!thu>
-%<*thu>
-{ lang.zh entry.lang =
-    { "硕士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
-%</thu>
   monograph
 }
 
@@ -3566,19 +3552,7 @@ FUNCTION {online}
 %
 %       Optional: type, address, month, note
 %    \begin{macrocode}
-%<*!thu>
 FUNCTION {phdthesis} { mastersthesis }
-%</!thu>
-%<*thu>
-FUNCTION {phdthesis}
-{ lang.zh entry.lang =
-    { "博士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
-  monograph
-}
-%</thu>
 
 %    \end{macrocode}
 %
