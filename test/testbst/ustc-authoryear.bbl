@@ -1,4 +1,4 @@
-\begin{thebibliography}{133}
+\begin{thebibliography}{137}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -34,6 +34,21 @@
 汪冰. 1997.
 \newblock 电子图书馆理论与实践研究 [M].
 \newblock 北京: 北京图书馆出版社: 16.
+
+\bibitem[王临惠\ 等(2010)王临惠 et~al.]{wanglinhui2010tianjin}
+王临惠, 等. 2010.
+\newblock 天津方言的源流关系刍议 [J].
+\newblock 山西师范大学学报（社会科学版）, 37\penalty0 (4): 147.
+
+\bibitem[王临惠(2010)]{wanglinhui2010cong}
+王临惠. 2010.
+\newblock
+  从几组声母的演变看天津方言形成的自然条件和历史条件
+  [C]//\allowbreak
+曹志耘.
+\newblock 汉语方言的地理语言学研究:
+  首届中国地理语言学国际学术研讨会论文集.
+\newblock 北京: 北京语言大学出版社: 138.
 
 \bibitem[杨宗英(1996)]{yangzongying1996dianzi}
 杨宗英. 1996.
@@ -743,6 +758,20 @@ HOPKINSON~A. 2009.
 KANAMORI~H. 1998.
 \newblock Shaking without quaking [J].
 \newblock Science, 279\penalty0 (5359): 2063.
+
+\bibitem[Kennedy et~al.(1975{\natexlab{a}})Kennedy and
+  Garrison]{kennedy1975chalks}
+KENNEDY~W~L, GARRISON~R~E. 1975{\natexlab{a}}.
+\newblock Morphology and genesis of nodular chalks and hardgrounds in the
+  {Upper Cretaceous of southern England} [J].
+\newblock Sedimentology, 22: 311.
+
+\bibitem[Kennedy et~al.(1975{\natexlab{b}})Kennedy and
+  Garrison]{kennedy1975phosphates}
+KENNEDY~W~L, GARRISON~R~E. 1975{\natexlab{b}}.
+\newblock Morphology and genesis of nodular phosphates in the cenomanian of
+  {South-east England} [J].
+\newblock Lethaia, 8: 339.
 
 \bibitem[Kinchy(2012)]{kinchy2012seeds}
 KINCHY~A. 2012.
