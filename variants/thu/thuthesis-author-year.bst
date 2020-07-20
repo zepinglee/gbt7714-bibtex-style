@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `thu,2005,authoryear')
+%% gbt7714.dtx  (with options: `thu,2015,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
@@ -54,7 +54,7 @@ FUNCTION {load.config}
 {
   #0 'uppercase.name :=
   #3 'max.num.authors :=
-  #1 'period.between.author.year :=
+  #0 'period.between.author.year :=
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
@@ -70,7 +70,7 @@ FUNCTION {load.config}
   #0 'only.start.page :=
   #1 'show.urldate :=
   #1 'show.url :=
-  #0 'show.doi :=
+  #1 'show.doi :=
   #0 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
@@ -174,7 +174,7 @@ FUNCTION {citation.et.al}
 
 FUNCTION {bbl.colon} { ": " }
 
-FUNCTION {bbl.wide.space} { "\ " }
+FUNCTION {bbl.wide.space} { "\quad " }
 
 FUNCTION {bbl.slash} { "// " }
 
@@ -1711,7 +1711,7 @@ FUNCTION {preprint}
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
-      "M" set.entry.mark
+      "Z" set.entry.mark
       format.mark "" output.after
       new.block
     }
@@ -1742,7 +1742,7 @@ FUNCTION {misc}
                 { entry.is.electronic
                     'electronic
                     {
-                      "M" set.entry.mark
+                      "Z" set.entry.mark
                       monograph
                     }
                   if$
