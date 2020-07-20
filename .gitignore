@@ -2,7 +2,7 @@ build/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
-!testbst/**/*.aux
+!test/**/*.aux
 *.lof
 *.log
 *.lot
