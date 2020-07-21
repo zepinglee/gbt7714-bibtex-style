@@ -36,7 +36,11 @@ if [ -z "$1" ]; then
         cp -f "$unpackdir/test.bst" "$testdir"
         cp -f "$unpackdir/test.bib" "$testdir"
 
-        ( cd $testdir; if ! $bibtexexe test > /dev/null; then $bibtexexe test; fi )
+        ( cd $testdir;
+        if ! $bibtexexe test > /dev/null; then
+            $bibtexexe test | head -n 20;
+            echo "";
+        fi )
 
         bblfile="$testdir/test.bbl";
         stdfile="$testfiledir/$testname.bbl";

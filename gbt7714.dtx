@@ -282,7 +282,8 @@
 %   \midrule
 %   uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
 %   max.num.authors                & |#3|   & 输出著者的最多数量             \\
-%   period.between.author.year     & |#0|   & 著者和年份之间使用句点连接     \\
+%   year.after.author              & |#0|   & 年份置于著者之后     \\
+%   period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
@@ -779,7 +780,8 @@
 INTEGERS {
   uppercase.name
   max.num.authors
-  period.between.author.year
+  year.after.author
+  period.after.author
   sentence.case.title
   link.title
   title.in.journal
@@ -832,14 +834,27 @@ FUNCTION {load.config}
   #3 'max.num.authors :=
 %    \end{macrocode}
 %
+% 将年份置于著者后面（著者-出版年制默认）
+%    \begin{macrocode}
+%<*numerical>
+  #0 'year.after.author :=
+%</numerical>
+%<*authoryear>
+  #1 'year.after.author :=
+%</authoryear>
+%    \end{macrocode}
+%
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
+%<*numerical>
+  #1 'period.after.author :=
+%</numerical>
 %<*authoryear>
 %<*2015&!(period|ustc)>
-  #0 'period.between.author.year :=
+  #0 'period.after.author :=
 %</2015&!(period|ustc)>
 %<*period|2005|ustc>
-  #1 'period.between.author.year :=
+  #1 'period.after.author :=
 %</period|2005|ustc>
 %</authoryear>
 %    \end{macrocode}
@@ -3084,13 +3099,15 @@ FUNCTION {monograph}
     }
   if$
   output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   format.series.vol.num.title "title" output.check
   "M" set.entry.mark
@@ -3101,9 +3118,10 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-%<*numerical>
-  format.year "year" output.check
-%</numerical>
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
@@ -3131,13 +3149,15 @@ FUNCTION {incollection}
   output.translation
   format.authors output
   author format.key output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   format.title "title" output.check
   "M" set.entry.mark
@@ -3152,9 +3172,10 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-%<*numerical>
-  format.year "year" output.check
-%</numerical>
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.extracted.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
@@ -3174,13 +3195,15 @@ FUNCTION {periodical}
   output.translation
   format.authors output
   author format.key output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   format.title "title" output.check
   "J" set.entry.mark
@@ -3189,9 +3212,10 @@ FUNCTION {periodical}
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
+  year.after.author not
+    { format.date "year" output.check }
+    'skip$
+  if$
   format.urldate "" output.after
   output.url
   output.doi
@@ -3219,13 +3243,15 @@ FUNCTION {article}
   output.translation
   format.authors output
   author format.key output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   title.in.journal
     { format.title "title" output.check
@@ -3236,9 +3262,10 @@ FUNCTION {article}
     'skip$
   if$
   format.journal "journal" output.check
-%<*numerical>
-  format.date "year" output.check
-%</numerical>
+  year.after.author not
+    { format.date "year" output.check }
+    'skip$
+  if$
   format.journal.volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
@@ -3261,13 +3288,15 @@ FUNCTION {patent}
   output.translation
   format.authors output
   author format.key output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   format.title "title" output.check
   "P" set.entry.mark
@@ -3294,25 +3323,29 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   format.series.vol.num.title "title" output.check
   "EB" set.entry.mark
   format.mark "" output.after
   new.block
   format.address.publisher output
-%<*numerical>
-  date empty$
-    { format.date output }
+  year.after.author not
+    { date empty$
+        { format.date output }
+        'skip$
+      if$
+    }
     'skip$
   if$
-%</numerical>
   format.pages bbl.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
@@ -3347,13 +3380,15 @@ FUNCTION {preprint}
     }
   if$
   output
-%<*authoryear>
-  period.between.author.year
-    'new.sentence
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
     'skip$
   if$
-  format.year "year" output.check
-%</authoryear>
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
@@ -3373,9 +3408,10 @@ FUNCTION {preprint}
   format.edition output
   new.block
   output.eprint
-%<*numerical>
-  format.year "year" output.check
-%</numerical>
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.pages bbl.colon output.after
   format.urldate "" output.after
   output.url

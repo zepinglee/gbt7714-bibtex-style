@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 兼容 biblatex 的 `journaltitle` 和 `shortjournal` 域
 - 兼容 biblatex 的 `location` 域
 - 兼容 biblatex 的 `eprinttype` 域
+- 新增选项 `year.after.author` 选择将年份置于著者后
 
 ## [v2.0.2] - 2020-06-08
 ### Changed

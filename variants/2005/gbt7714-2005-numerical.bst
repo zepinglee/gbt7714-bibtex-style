@@ -23,7 +23,8 @@
 INTEGERS {
   uppercase.name
   max.num.authors
-  period.between.author.year
+  year.after.author
+  period.after.author
   sentence.case.title
   link.title
   title.in.journal
@@ -49,6 +50,8 @@ FUNCTION {load.config}
 {
   #1 'uppercase.name :=
   #3 'max.num.authors :=
+  #0 'year.after.author :=
+  #1 'period.after.author :=
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
@@ -1511,6 +1514,15 @@ FUNCTION {monograph}
     }
   if$
   output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   format.series.vol.num.title "title" output.check
   "M" set.entry.mark
@@ -1521,7 +1533,10 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  format.year "year" output.check
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
@@ -1536,6 +1551,15 @@ FUNCTION {incollection}
   output.translation
   format.authors output
   author format.key output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   format.title "title" output.check
   "M" set.entry.mark
@@ -1550,7 +1574,10 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  format.year "year" output.check
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.extracted.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
@@ -1565,6 +1592,15 @@ FUNCTION {periodical}
   output.translation
   format.authors output
   author format.key output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   format.title "title" output.check
   "J" set.entry.mark
@@ -1573,7 +1609,10 @@ FUNCTION {periodical}
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
-  format.date "year" output.check
+  year.after.author not
+    { format.date "year" output.check }
+    'skip$
+  if$
   format.urldate "" output.after
   output.url
   output.doi
@@ -1587,6 +1626,15 @@ FUNCTION {article}
   output.translation
   format.authors output
   author format.key output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   title.in.journal
     { format.title "title" output.check
@@ -1597,7 +1645,10 @@ FUNCTION {article}
     'skip$
   if$
   format.journal "journal" output.check
-  format.date "year" output.check
+  year.after.author not
+    { format.date "year" output.check }
+    'skip$
+  if$
   format.journal.volume output
   format.journal.number "" output.after
   format.journal.pages "" output.after
@@ -1614,6 +1665,15 @@ FUNCTION {patent}
   output.translation
   format.authors output
   author format.key output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   format.title "title" output.check
   "P" set.entry.mark
@@ -1636,14 +1696,27 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   format.series.vol.num.title "title" output.check
   "EB" set.entry.mark
   format.mark "" output.after
   new.block
   format.address.publisher output
-  date empty$
-    { format.date output }
+  year.after.author not
+    { date empty$
+        { format.date output }
+        'skip$
+      if$
+    }
     'skip$
   if$
   format.pages bbl.colon output.after
@@ -1670,6 +1743,15 @@ FUNCTION {preprint}
     }
   if$
   output
+  year.after.author
+    { period.after.author
+        'new.sentence
+        'skip$
+      if$
+      format.year "year" output.check
+    }
+    'skip$
+  if$
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
@@ -1684,7 +1766,10 @@ FUNCTION {preprint}
   format.edition output
   new.block
   output.eprint
-  format.year "year" output.check
+  year.after.author not
+    { format.year "year" output.check }
+    'skip$
+  if$
   format.pages bbl.colon output.after
   format.urldate "" output.after
   output.url
