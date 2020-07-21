@@ -11,6 +11,24 @@
   \let\eprint\href
 \fi
 
+\bibitem[文富\ 等(2000)文富 and 顾丽梅]{wf}
+文富, 顾丽梅.
+\newblock 网络时代经济发展战略特征.
+\newblock 学术研究, 2000, 21\penalty0 (4): 35-40.
+
+\bibitem[肖度\ 等(2000)肖度 et~al.]{xd}
+肖度, 等.
+\newblock 知识时代的企业合作经营.
+\newblock 北京: 北京大学出版社, 2000: 67-69.
+
+\bibitem[{The White House}(1993)]{twh}
+{The White House}.
+\newblock \textit{Technology for Economic Growth}, 1993.
+
+\bibitem[Hutson(1992)]{huston}
+Hutson~J~M.
+\newblock \textit{J. Phys. Chem.}, 1992, 96: 4237.
+
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 陈登原.
 \newblock 国史旧闻: 第 1 卷.
@@ -827,23 +845,5 @@ Park~J~R, Tosaka~Y.
 Dublin core metadata element set: version 1.1.
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
-
-\bibitem[文富\ 等(2000)文富 and 顾丽梅]{wf}
-文富, 顾丽梅.
-\newblock 网络时代经济发展战略特征.
-\newblock 学术研究, 2000, 21\penalty0 (4): 35-40.
-
-\bibitem[肖度\ 等(2000)肖度 et~al.]{xd}
-肖度, 等.
-\newblock 知识时代的企业合作经营.
-\newblock 北京: 北京大学出版社, 2000: 67-69.
-
-\bibitem[{The White House}(1993)]{twh}
-{The White House}.
-\newblock \textit{Technology for Economic Growth}, 1993.
-
-\bibitem[Hutson(1992)]{huston}
-Hutson~J~M.
-\newblock \textit{J. Phys. Chem.}, 1992, 96: 4237.
 
 \end{thebibliography}

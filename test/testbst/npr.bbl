@@ -11,6 +11,53 @@
   \let\eprint\href
 \fi
 
+\bibitem[Hirata et~al.(1996)Hirata, Sumiyoshi, Carlson, Toki, and
+  Tanihata]{hirata1996triaxial}
+HIRATA~D, SUMIYOSHI~K, CARLSON~B~V, et~al.
+\newblock Nuclear Physics A, 1996, 609\penalty0 (2): 131.
+
+\bibitem[Martin et~al.(1970)Martin and Spearman]{martin1970elementary}
+MARTIN~A~D, SPEARMAN~T~D.
+\newblock Elementary particle theory [M].
+\newblock Amsterdam: North-Holland, 1970: 149-201.
+
+\bibitem[Rosenthall(1963)]{rosenthall1963proceedings}
+ROSENTHALL~E~M.
+\newblock Proceedings of fifth canadian mathematical congress, university of
+  montreal, 1961 [C].
+\newblock Toronto: University of Toronto Press, 1963: 20-50.
+
+\bibitem[Matsumoto et~al.(2005)Matsumoto, Kazakov, and Saito]{matsumoto2005new}
+MATSUMOTO~H, KAZAKOV~S, SAITO~K.
+\newblock A new design for a super-conducting cavity input coupler
+  [C]//\allowbreak
+HORAK~C.
+\newblock Proceedings of the 2005 Particle Accelerator Conference.
+\newblock USA: IEEE, 2005: 4141.
+
+\bibitem[Lijuan(2006)]{zhoulijuan2006quark}
+LIJUAN~Z.
+\newblock Quark propagator, qcd vacuum condensates and quark virtuality [D].
+\newblock Nanning, China, 2006: 20-67.
+
+\bibitem[Romatschke et~al.(2017)Romatschke and
+  Romatschke]{romatschke2017relativistic}
+ROMATSCHKE~P, ROMATSCHKE~U.
+\newblock arXiv: \eprint{https://arxiv.org/abs/1712.05815}{1712.05815}, 2017.
+
+\bibitem[{Xiao([2002])}]{xiaoyu2002information}
+XIAO~{\relax YU}.
+\newblock Information highway [EB/OL].
+\newblock \allowbreak[2002-04-15].
+\newblock \url{http://www.creader.com/news/200112190019.htm}.
+
+\bibitem[gbt(2015)]{gbt77142015xinxi}
+GB/T 7714-2015, Information and documentation---Rules for bibliographic
+  references and citations to information resources[S]. Beijing, China Standard
+  Press, 2015. (in Chinese) \\
+(GB/T 7714-2015, 信息与文献\quad 参考文献著录规则 [S].
+\newblock 北京: 中国标准出版社, 2015.)
+
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 [English translation missing!] (in Chinese) \\
 (陈登原.
@@ -866,52 +913,5 @@ PARK~J~R, TOSAKA~Y.
 Dublin core metadata element set: version 1.1 [EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
-
-\bibitem[Hirata et~al.(1996)Hirata, Sumiyoshi, Carlson, Toki, and
-  Tanihata]{hirata1996triaxial}
-HIRATA~D, SUMIYOSHI~K, CARLSON~B~V, et~al.
-\newblock Nuclear Physics A, 1996, 609\penalty0 (2): 131.
-
-\bibitem[Martin et~al.(1970)Martin and Spearman]{martin1970elementary}
-MARTIN~A~D, SPEARMAN~T~D.
-\newblock Elementary particle theory [M].
-\newblock Amsterdam: North-Holland, 1970: 149-201.
-
-\bibitem[Rosenthall(1963)]{rosenthall1963proceedings}
-ROSENTHALL~E~M.
-\newblock Proceedings of fifth canadian mathematical congress, university of
-  montreal, 1961 [C].
-\newblock Toronto: University of Toronto Press, 1963: 20-50.
-
-\bibitem[Matsumoto et~al.(2005)Matsumoto, Kazakov, and Saito]{matsumoto2005new}
-MATSUMOTO~H, KAZAKOV~S, SAITO~K.
-\newblock A new design for a super-conducting cavity input coupler
-  [C]//\allowbreak
-HORAK~C.
-\newblock Proceedings of the 2005 Particle Accelerator Conference.
-\newblock USA: IEEE, 2005: 4141.
-
-\bibitem[Lijuan(2006)]{zhoulijuan2006quark}
-LIJUAN~Z.
-\newblock Quark propagator, qcd vacuum condensates and quark virtuality [D].
-\newblock Nanning, China, 2006: 20-67.
-
-\bibitem[Romatschke et~al.(2017)Romatschke and
-  Romatschke]{romatschke2017relativistic}
-ROMATSCHKE~P, ROMATSCHKE~U.
-\newblock arXiv: \eprint{https://arxiv.org/abs/1712.05815}{1712.05815}, 2017.
-
-\bibitem[{Xiao([2002])}]{xiaoyu2002information}
-XIAO~{\relax YU}.
-\newblock Information highway [EB/OL].
-\newblock \allowbreak[2002-04-15].
-\newblock \url{http://www.creader.com/news/200112190019.htm}.
-
-\bibitem[gbt(2015)]{gbt77142015xinxi}
-GB/T 7714-2015, Information and documentation---Rules for bibliographic
-  references and citations to information resources[S]. Beijing, China Standard
-  Press, 2015. (in Chinese) \\
-(GB/T 7714-2015, 信息与文献\quad 参考文献著录规则 [S].
-\newblock 北京: 中国标准出版社, 2015.)
 
 \end{thebibliography}

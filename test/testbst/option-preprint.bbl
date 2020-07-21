@@ -11,6 +11,20 @@
   \let\eprint\href
 \fi
 
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017modelagnostic}
+FINN~C, ABBEEL~P, LEVINE~S.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks
+  [Z].
+\newblock arXiv: \eprint{https://arxiv.org/abs/1703.03400}{1703.03400}, 2017.
+
+\bibitem[Liang et~al.(2019)Liang, Zhang, Sun, He, Huang, Zhuang, and
+  Li]{liang_darts_2019}
+LIANG~H, ZHANG~S, SUN~J, et~al.
+\newblock {DARTS}+: Improved differentiable architecture search with early
+  stopping [Z/OL].
+\newblock arxiv: \eprint{http://arxiv.org/abs/1909.06035}{1909.06035}, 2019.
+\newblock \url{http://arxiv.org/abs/1909.06035}.
+
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 陈登原.
 \newblock 国史旧闻: 第 1 卷 [M].
@@ -829,19 +843,5 @@ PARK~J~R, TOSAKA~Y.
 Dublin core metadata element set: version 1.1 [EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
-
-\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017modelagnostic}
-FINN~C, ABBEEL~P, LEVINE~S.
-\newblock Model-agnostic meta-learning for fast adaptation of deep networks
-  [Z].
-\newblock arXiv: \eprint{https://arxiv.org/abs/1703.03400}{1703.03400}, 2017.
-
-\bibitem[Liang et~al.(2019)Liang, Zhang, Sun, He, Huang, Zhuang, and
-  Li]{liang_darts_2019}
-LIANG~H, ZHANG~S, SUN~J, et~al.
-\newblock {DARTS}+: Improved differentiable architecture search with early
-  stopping [Z/OL].
-\newblock arxiv: \eprint{http://arxiv.org/abs/1909.06035}{1909.06035}, 2019.
-\newblock \url{http://arxiv.org/abs/1909.06035}.
 
 \end{thebibliography}

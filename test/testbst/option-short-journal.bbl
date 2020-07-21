@@ -11,6 +11,14 @@
   \let\eprint\href
 \fi
 
+\bibitem[Franz et~al.(2014)Franz, Danielewicz, Wong, Anderson, and
+  Boothe]{franz2013phenotypic-short}
+FRANZ~A~K, DANIELEWICZ~M~A, WONG~D~M, et~al.
+\newblock Phenotypic screening with oleaginous microalgae reveals modulators of
+  lipid productivity [J/OL].
+\newblock ACS Chem. Biol., 2014, 8: 1053-1062\allowbreak[2014-06-26].
+\newblock \url{http://pubs.acs.org/doi/ipdf/10.1021/cb300573r}.
+
 \bibitem[陈登原(2000)]{chendengyuan2000guoshijiuwen}
 陈登原.
 \newblock 国史旧闻: 第 1 卷 [M].
@@ -829,13 +837,5 @@ PARK~J~R, TOSAKA~Y.
 Dublin core metadata element set: version 1.1 [EB/OL].
 \newblock \allowbreak(2012-06-14)\allowbreak[2014-06-11].
 \newblock \url{http://dublincore.org/documents/dces/}.
-
-\bibitem[Franz et~al.(2014)Franz, Danielewicz, Wong, Anderson, and
-  Boothe]{franz2013phenotypic-short}
-FRANZ~A~K, DANIELEWICZ~M~A, WONG~D~M, et~al.
-\newblock Phenotypic screening with oleaginous microalgae reveals modulators of
-  lipid productivity [J/OL].
-\newblock ACS Chem. Biol., 2014, 8: 1053-1062\allowbreak[2014-06-26].
-\newblock \url{http://pubs.acs.org/doi/ipdf/10.1021/cb300573r}.
 
 \end{thebibliography}
