@@ -826,8 +826,14 @@ FUNCTION {load.config}
 % 如果姓名的数量大于等于 |et.al.min|，只著录前 |et.al.use.first| 个，
 % 其后加“et al.”或“等”。
 %    \begin{macrocode}
+%<*!ucas>
   #2 'citation.et.al.min :=
   #1 'citation.et.al.use.first :=
+%</!ucas>
+%<*ucas>
+  #3 'citation.et.al.min :=
+  #1 'citation.et.al.use.first :=
+%</ucas>
   #4 'bibliography.et.al.min :=
   #3 'bibliography.et.al.use.first :=
 %    \end{macrocode}
@@ -844,22 +850,22 @@ FUNCTION {load.config}
 %
 % 使用 TeX 宏输出“和”、“等”
 %    \begin{macrocode}
-%<*!macro>
+%<*!(macro|ucas)>
   #0 'terms.in.macro :=
-%</!macro>
-%<*macro>
+%</!(macro|ucas)>
+%<*macro|ucas>
   #1 'terms.in.macro :=
-%</macro>
+%</macro|ucas>
 %    \end{macrocode}
 %
 % 将年份置于著者后面（著者-出版年制默认）
 %    \begin{macrocode}
-%<*numerical>
+%<*numerical|ucas>
   #0 'year.after.author :=
-%</numerical>
-%<*authoryear>
+%</numerical|ucas>
+%<*authoryear&!ucas>
   #1 'year.after.author :=
-%</authoryear>
+%</authoryear&!ucas>
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
@@ -979,12 +985,12 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-%<*!(noslsn|thu|ustc|npr)>
+%<*!(noslsn|thu|ustc|ucas|npr)>
   #1 'show.missing.address.publisher :=
-%</!(noslsn|thu|ustc|npr)>
-%<*noslsn|thu|ustc|npr>
+%</!(noslsn|thu|ustc|ucas|npr)>
+%<*noslsn|thu|ustc|ucas|npr>
   #0 'show.missing.address.publisher :=
-%</noslsn|thu|ustc|npr>
+%</noslsn|thu|ustc|ucas|npr>
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
