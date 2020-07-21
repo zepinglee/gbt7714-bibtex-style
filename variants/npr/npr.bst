@@ -22,6 +22,7 @@
 %% -------------------------------------------------------------------
 INTEGERS {
   uppercase.name
+  terms.in.macro
   max.num.authors
   year.after.author
   period.after.author
@@ -49,6 +50,7 @@ INTEGERS {
 FUNCTION {load.config}
 {
   #1 'uppercase.name :=
+  #0 'terms.in.macro :=
   #3 'max.num.authors :=
   #0 'year.after.author :=
   #1 'period.after.author :=
@@ -146,6 +148,9 @@ FUNCTION {bbl.space}
   if$
 }
 
+FUNCTION {bbl.and}
+{ "" }
+
 FUNCTION {bbl.et.al}
 { entry.lang lang.zh =
     { "等" }
@@ -161,8 +166,19 @@ FUNCTION {bbl.et.al}
   if$
 }
 
+FUNCTION {citation.and}
+{ terms.in.macro
+    { "{\biband}" }
+    'bbl.and
+  if$
+}
+
 FUNCTION {citation.et.al}
-{ bbl.et.al }
+{ terms.in.macro
+    { "{\bibetal}" }
+    'bbl.et.al
+  if$
+}
 
 FUNCTION {bbl.colon} { ": " }
 
@@ -2188,6 +2204,14 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
+  terms.in.macro
+    { "\providecommand{\biband}{和}"
+      write$ newline$
+      "\providecommand{\bibetal}{等}"
+      write$ newline$
+    }
+    'skip$
+  if$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
   "\providecommand{\url}[1]{#1}"
