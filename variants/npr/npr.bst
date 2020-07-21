@@ -21,9 +21,12 @@
 %% version 2005/12/01 or later.
 %% -------------------------------------------------------------------
 INTEGERS {
+  citation.et.al.min
+  citation.et.al.use.first
+  bibliography.et.al.min
+  bibliography.et.al.use.first
   uppercase.name
   terms.in.macro
-  max.num.authors
   year.after.author
   period.after.author
   sentence.case.title
@@ -49,9 +52,12 @@ INTEGERS {
 
 FUNCTION {load.config}
 {
+  #2 'citation.et.al.min :=
+  #1 'citation.et.al.use.first :=
+  #4 'bibliography.et.al.min :=
+  #3 'bibliography.et.al.use.first :=
   #1 'uppercase.name :=
   #0 'terms.in.macro :=
-  #3 'max.num.authors :=
   #0 'year.after.author :=
   #1 'period.after.author :=
   #1 'sentence.case.title :=
@@ -519,6 +525,25 @@ FUNCTION {set.entry.numbered}
 
 INTEGERS { nameptr namesleft numnames name.lang }
 
+FUNCTION {format.name}
+{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+  t "others" =
+    { bbl.et.al }
+    { t get.str.lang 'name.lang :=
+      name.lang lang.en =
+        { t #1 "{vv~}{ll}{~f{~}}" format.name$
+          uppercase.name
+            { "u" change.case$ }
+            'skip$
+          if$
+          t #1 "{, jj}" format.name$ *
+        }
+        { t #1 "{ll}{ff}" format.name$ }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.names}
 { 's :=
   #1 'nameptr :=
@@ -526,31 +551,21 @@ FUNCTION {format.names}
   ""
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      nameptr #1 >
-        { ", " * }
-        'skip$
-      if$
-      nameptr max.num.authors >
-        { bbl.et.al *
+    { s nameptr format.name bbl.et.al =
+      numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
+        { ", " *
+          bbl.et.al *
           #1 'namesleft :=
         }
-        { t "others" =
-            { bbl.et.al * }
-            { t get.str.lang 'name.lang :=
-              name.lang lang.en =
-                { t #1 "{vv~}{ll}{~f{~}}" format.name$
-                  uppercase.name
-                    { "u" change.case$ }
-                    'skip$
-                  if$
-                  t #1 "{, jj}" format.name$ *
-                }
-                { t #1 "{ll}{ff}" format.name$ }
+        { nameptr #1 >
+            { namesleft #1 = bbl.and "" = not and
+                { bbl.and * }
+                { ", " * }
               if$
-              *
             }
+            'skip$
           if$
+          s nameptr format.name *
         }
       if$
       nameptr #1 + 'nameptr :=
@@ -2021,18 +2036,47 @@ FUNCTION {chop.word}
   if$
 }
 
+FUNCTION {format.lab.name}
+{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
+  t "others" =
+    { citation.et.al }
+    { t get.str.lang 'name.lang :=
+      name.lang lang.zh = name.lang lang.ja = or
+        { t #1 "{ll}{ff}" format.name$ }
+        { t #1 "{vv~}{ll}" format.name$ }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.lab.names}
 { 's :=
-  s #1 "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t get.str.lang 'name.lang :=
-  name.lang lang.en =
-    { t #1 "{vv~}{ll}" format.name$}
-    { t #1 "{ll}{ff}" format.name$}
-  if$
-  s num.names$ #1 >
-    { bbl.space * citation.et.al * }
-    'skip$
-  if$
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  ""
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { s nameptr format.lab.name citation.et.al =
+      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
+        { bbl.space *
+          citation.et.al *
+          #1 'namesleft :=
+        }
+        { nameptr #1 >
+            { namesleft #1 = citation.and "" = not and
+                { citation.and * }
+                { ", " * }
+              if$
+            }
+            'skip$
+          if$
+          s nameptr format.lab.name *
+        }
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
 }
 
 FUNCTION {author.key.label}

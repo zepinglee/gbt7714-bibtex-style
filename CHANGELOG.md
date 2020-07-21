@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - 文献类型标识前默认有空格，可通过 `space.before.mark` 选项来控制（ustctug/ustcthesis/#267）
 - 选项 `abbreviate.journal` 改为 `short.journal`
+- 选项 `max.num.authors` 改为 `et.al.min` 和 `et.al.use.first` 控制输出作者姓名的数量
 
 ### Added
 - 新增选项 `show.urldate` 选择是否显示非电子文献的引用日期
