@@ -819,9 +819,9 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
-%<*!nouppercase&!thu>
+%<*!(nouppercase|thu)>
   #1 'uppercase.name :=
-%</!nouppercase&!thu>
+%</!(nouppercase|thu)>
 %<*nouppercase|thu>
   #0 'uppercase.name :=
 %</nouppercase|thu>
@@ -835,9 +835,9 @@ FUNCTION {load.config}
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
 %<*authoryear>
-%<*!period&!2005&!ustc>
+%<*2015&!(period|ustc)>
   #0 'period.between.author.year :=
-%</!period&!2005&!ustc>
+%</2015&!(period|ustc)>
 %<*period|2005|ustc>
   #1 'period.between.author.year :=
 %</period|2005|ustc>
@@ -866,9 +866,9 @@ FUNCTION {load.config}
 %
 % 期刊是否含标题：
 %    \begin{macrocode}
-%<*!title-in-journal&!npr>
+%<*!(title-in-journal|npr)>
   #1 'title.in.journal :=
-%</!title-in-journal&!npr>
+%</!(title-in-journal|npr)>
 %<*title-in-journal|npr>
   #0 'title.in.journal :=
 %</title-in-journal|npr>
@@ -886,9 +886,9 @@ FUNCTION {load.config}
 %
 % 文献类型标识前是否加空格：
 %    \begin{macrocode}
-%<*!no-space-before-mark&!thu>
+%<*!(no-space-before-mark|thu)>
   #1 'space.before.mark :=
-%</!no-space-before-mark&!thu>
+%</!(no-space-before-mark|thu)>
 %<*no-space-before-mark|thu>
   #0 'space.before.mark :=
 %</no-space-before-mark|thu>
@@ -921,9 +921,9 @@ FUNCTION {load.config}
 %
 % 期刊名使用缩写：
 %    \begin{macrocode}
-%<*!short-journal&!npr>
+%<*!(short-journal|npr)>
   #0 'short.journal :=
-%</!short-journal&!npr>
+%</!(short-journal|npr)>
 %<*short-journal|npr>
   #1 'short.journal :=
 %</short-journal|npr>
@@ -946,9 +946,9 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-%<*!noslsn&!thu&!ustc&!npr>
+%<*!(noslsn|thu|ustc|npr)>
   #1 'show.missing.address.publisher :=
-%</!noslsn&!thu&!ustc&!npr>
+%</!(noslsn|thu|ustc|npr)>
 %<*noslsn|thu|ustc|npr>
   #0 'show.missing.address.publisher :=
 %</noslsn|thu|ustc|npr>
@@ -956,9 +956,9 @@ FUNCTION {load.config}
 %
 % 页码是否只含起始页：
 %    \begin{macrocode}
-%<*!only-start-page&!npr>
+%<*!(only-start-page|npr)>
   #0 'only.start.page :=
-%</!only-start-page&!npr>
+%</!(only-start-page|npr)>
 %<*only-start-page|npr>
   #1 'only.start.page :=
 %</only-start-page|npr>
@@ -986,9 +986,9 @@ FUNCTION {load.config}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
-%<*!nodoi&!2005>
+%<*!nodoi&2015>
   #1 'show.doi :=
-%</!nodoi&!2005>
+%</!nodoi&2015>
 %<*nodoi|2005>
   #0 'show.doi :=
 %</nodoi|2005>
@@ -996,9 +996,9 @@ FUNCTION {load.config}
 %
 % 是否著录 e-print：
 %    \begin{macrocode}
-%<*!preprint&!npr>
+%<*!(preprint|npr)>
   #0 'show.preprint :=
-%</!preprint&!npr>
+%</!(preprint|npr)>
 %<*preprint|npr>
   #1 'show.preprint :=
 %</preprint|npr>
@@ -1011,9 +1011,9 @@ FUNCTION {load.config}
 %
 % 中文文献是否显示英文翻译
 %    \begin{macrocode}
-%<*!show-english-translation&!npr>
+%<*!(show-english-translation|npr)>
   #0 'show.english.translation :=
-%</!show-english-translation&!npr>
+%</!(show-english-translation|npr)>
 %<*show-english-translation|npr>
   #1 'show.english.translation :=
 %</show-english-translation|npr>
@@ -1708,15 +1708,15 @@ FUNCTION {set.entry.lang}
     { langid 'entry.langid := }
     'skip$
   if$
-  entry.langid empty$ 
+  entry.langid empty$
     { check.entry.lang }
     { entry.langid "english" = entry.langid "american" = or entry.langid "british" = or
         { lang.en }
-        { entry.langid "chinese" = 
+        { entry.langid "chinese" =
             { lang.zh }
-            { entry.langid "japanese" = 
+            { entry.langid "japanese" =
                 { lang.ja }
-                { entry.langid "russian" = 
+                { entry.langid "russian" =
                     { lang.ru }
                     { check.entry.lang }
                   if$
@@ -2983,7 +2983,7 @@ FUNCTION {format.eprint}
   's :=
   s empty$ not
     { s ": \eprint{" *
-      url empty$ not 
+      url empty$ not
         { url }
         { "https://" s "l" change.case$ * ".org/abs/" * eprint * }
       if$
@@ -3407,7 +3407,7 @@ FUNCTION {misc}
                 'preprint
                 { entry.is.electronic
                     'electronic
-                    { 
+                    {
 %<*2015>
                       "Z" set.entry.mark
 %</2015>
