@@ -1030,7 +1030,7 @@ FUNCTION {format.journal}
         'skip$
       if$
     }
-    'pop$
+    'skip$
   if$
 }
 
