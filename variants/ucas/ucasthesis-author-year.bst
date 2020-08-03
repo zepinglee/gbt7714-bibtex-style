@@ -2237,6 +2237,7 @@ FUNCTION {sort.language.label}
       if$
     }
   if$
+  #64 +
   int.to.chr$
 }
 
@@ -2365,6 +2366,8 @@ FUNCTION {presort}
   "    "
   *
   sort.language.label
+  "    "
+  *
   type$ "book" =
   type$ "inbook" =
   or
