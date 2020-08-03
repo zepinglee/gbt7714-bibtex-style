@@ -89,7 +89,7 @@ Completed box being shipped out [1]
 ....\glue(\rightskip) 0.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\baselineskip) 5.78616
-...\hbox(8.02046+2.63483)x345.0, glue set 259.5152fil
+...\hbox(8.02046+2.63483)x345.0, glue set 254.83572fil
 ....\hbox(0.0+0.0)x21.07874
 ....\TU/FandolSong-Regular(0)/m/n/10.53937 李
 ....\glue 0.0 plus 0.60931
@@ -100,6 +100,9 @@ Completed box being shipped out [1]
 ....\kern 0.00017
 ....\glue 3.50961 plus 1.7548 minus 1.16986
 ....\TU/lmr/m/n/10.53937 (2016
+....\kern -0.0002
+....\kern 0.0002
+....\TU/lmr/m/n/10.53937 c
 ....\kern -0.0002
 ....\kern 0.0002
 ....\TU/lmr/m/n/10.53937 )
