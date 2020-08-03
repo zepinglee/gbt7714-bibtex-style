@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - 选项 `max.num.authors` 改为 `et.al.min` 和 `et.al.use.first` 控制输出作者姓名的数量
 - 期刊的起止年份分隔符由 `--` 改为 `/`（hushidong/biblatex-gb7714-2015/pull/79）
 
+## Fixed
+- 修正第一作者姓名相同、年份相同但作者数量不同时的年份标签
+
 ### Added
 - 新增选项 `show.urldate` 选择是否显示非电子文献的引用日期
 - 兼容 biblatex 的 `langid` 域

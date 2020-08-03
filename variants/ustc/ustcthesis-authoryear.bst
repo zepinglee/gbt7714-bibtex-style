@@ -129,7 +129,7 @@ ENTRY
     year
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
-  { label extra.label sort.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -1254,19 +1254,18 @@ FUNCTION {contains.slash}
 
 FUNCTION {format.year}
 { year empty$ not
-    { year extract.before.slash }
+    { year extract.before.slash extra.label * }
     { date empty$ not
-        { date extract.before.dash }
+        { date extract.before.dash extra.label * }
         { "empty year in " cite$ * warning$
           urldate empty$ not
-            { "[" urldate extract.before.dash * "]" * }
+            { "[" urldate extract.before.dash * extra.label * "]" * }
             { "" }
           if$
         }
       if$
     }
   if$
-  extra.label *
 }
 
 FUNCTION {format.periodical.year}
@@ -1290,14 +1289,15 @@ FUNCTION {format.periodical.year}
       if$
     }
   if$
-  extra.label *
 }
 
 FUNCTION {format.date}
 { type$ "patent" = type$ "newspaper" = or
   date empty$ not and
     { date }
-    { year }
+    { year field.or.null
+      extra.label *
+    }
   if$
 }
 
@@ -2102,6 +2102,7 @@ FUNCTION {format.lab.name}
 
 FUNCTION {format.lab.names}
 { 's :=
+  s #1 format.lab.name 'short.label :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
   ""
@@ -2187,7 +2188,8 @@ FUNCTION {editor.key.organization.label}
 }
 
 FUNCTION {calc.short.authors}
-{ type$ "book" =
+{ "" 'short.label :=
+  type$ "book" =
   type$ "inbook" =
   or
     'author.editor.key.label
@@ -2204,6 +2206,10 @@ FUNCTION {calc.short.authors}
     }
   if$
   'short.list :=
+  short.label empty$
+    { short.list 'short.label := }
+    'skip$
+  if$
 }
 
 FUNCTION {calc.label}
@@ -2218,6 +2224,16 @@ FUNCTION {calc.label}
   if$
   *
   'label :=
+  short.label
+  "("
+  *
+  format.year duplicate$ empty$
+  short.list key field.or.null = or
+     { pop$ "" }
+     'skip$
+  if$
+  *
+  'short.label :=
 }
 
 FUNCTION {sort.language.label}
@@ -2410,13 +2426,13 @@ FUNCTION {initialize.longest.label}
 }
 
 FUNCTION {forward.pass}
-{ last.label label =
+{ last.label short.label =
     { last.extra.num #1 + 'last.extra.num :=
       last.extra.num int.to.chr$ 'extra.label :=
     }
     { "a" chr.to.int$ 'last.extra.num :=
       "" 'extra.label :=
-      label 'last.label :=
+      short.label 'last.label :=
     }
   if$
   number.label #1 + 'number.label :=

@@ -273,7 +273,8 @@ ROBERSON~J~A, BURNESON~E~G.
 \bibitem[李炳穆(2008{\natexlab{a}})]{libingmu2008hanguo}
 [English translation missing!] (in Chinese) \\
 (李炳穆.
-\newblock 图书情报工作, 2008, 52\penalty0 (6): 6\allowbreak[2013-10-25].
+\newblock 图书情报工作, 2008{\natexlab{a}}, 52\penalty0 (6):
+  6\allowbreak[2013-10-25].
 \newblock \url{http://www.docin.com/p-400265742.html}.)
 
 \bibitem[李幼平\ 等(2010)李幼平 and 王莉]{liyouping2010xunzheng}
@@ -437,13 +438,14 @@ MORRI~I.
 \newblock 潘惠霞, 魏婧, 杨艳, 等译.
 \newblock 大连: 东北财经大学出版社, 2011: 15-16.)
 
-\bibitem[王临惠\ 等(2010)王临惠 et~al.]{wanglinhui2010tianjin}
+\bibitem[王临惠\ 等(2010{\natexlab{a}})王临惠
+  et~al.]{wanglinhui2010tianjin}
 [English translation missing!] (in Chinese) \\
 (王临惠, 等.
-\newblock 山西师范大学学报（社会科学版）, 2010, 37\penalty0 (4):
-  147.)
+\newblock 山西师范大学学报（社会科学版）, 2010{\natexlab{a}},
+  37\penalty0 (4): 147.)
 
-\bibitem[王临惠(2010)]{wanglinhui2010cong}
+\bibitem[王临惠(2010{\natexlab{b}})]{wanglinhui2010cong}
 [English translation missing!] (in Chinese) \\
 (王临惠.
 \newblock
@@ -452,17 +454,17 @@ MORRI~I.
 曹志耘.
 \newblock 汉语方言的地理语言学研究:
   首届中国地理语言学国际学术研讨会论文集.
-\newblock 北京: 北京语言大学出版社, 2010: 138.)
+\newblock 北京: 北京语言大学出版社, 2010{\natexlab{b}}: 138.)
 
 \bibitem[Kennedy et~al.(1975{\natexlab{a}})Kennedy and
   Garrison]{kennedy1975chalks}
 KENNEDY~W~L, GARRISON~R~E.
-\newblock Sedimentology, 1975, 22: 311.
+\newblock Sedimentology, 1975{\natexlab{a}}, 22: 311.
 
 \bibitem[Kennedy et~al.(1975{\natexlab{b}})Kennedy and
   Garrison]{kennedy1975phosphates}
 KENNEDY~W~L, GARRISON~R~E.
-\newblock Lethaia, 1975, 8: 339.
+\newblock Lethaia, 1975{\natexlab{b}}, 8: 339.
 
 \bibitem[张忠智(1997)]{zhangzhongzhi1997keji}
 [English translation missing!] (in Chinese) \\
@@ -744,7 +746,7 @@ KOSEKI~A, MOMOSE~H, KAWAHITO~M, et~al.
 \bibitem[200(2009{\natexlab{b}})]{2009information}
 Information and documentation---the {Dublin} cord metadata element set: ISO
   15836: 2009 [S/OL].
-\newblock 2009\allowbreak[2013-03-24].
+\newblock 2009{\natexlab{b}}\allowbreak[2013-03-24].
 \newblock
   \url{http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=52142}.
 
@@ -817,7 +819,7 @@ Symposium on Applications of Holography in Mechanics, August 23-25, 1971,
 \bibitem[李炳穆(2008{\natexlab{b}})]{libingmu2008hanguo2}
 [English translation missing!] (in Chinese) \\
 (李炳穆.
-\newblock 图书情报工作, 2008, 52\penalty0 (6): 6.)
+\newblock 图书情报工作, 2008{\natexlab{b}}, 52\penalty0 (6): 6.)
 
 \bibitem[于潇\ 等(2012)于潇, 刘义, 柴跃廷,
   et~al.]{yuxiao2012hulianwang}
