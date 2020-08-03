@@ -2320,7 +2320,7 @@ FUNCTION {author.sort}
         { author sort.format.names }
       if$
     }
-    { key sortify }
+    { key }
   if$
 }
 
@@ -2336,7 +2336,7 @@ FUNCTION {author.editor.sort}
         { author sort.format.names }
       if$
     }
-    { key sortify }
+    { key }
   if$
 }
 
@@ -2352,7 +2352,7 @@ FUNCTION {author.organization.sort}
         { author sort.format.names }
       if$
     }
-    { key sortify }
+    { key }
   if$
 }
 
@@ -2368,7 +2368,7 @@ FUNCTION {editor.organization.sort}
         { editor sort.format.names }
       if$
     }
-    { key sortify }
+    { key }
   if$
 }
 

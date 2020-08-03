@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 ### Changed
+- 著者-出版年制的 `key` 域如果含有多个姓名的拼音，改为使用 ` & ` 分隔（#68）
 - 文献类型标识前默认有空格，可通过 `space.before.mark` 选项来控制（ustctug/ustcthesis/#267）
 - 选项 `abbreviate.journal` 改为 `short.journal`
 - 选项 `max.num.authors` 改为 `et.al.min` 和 `et.al.use.first` 控制输出作者姓名的数量

@@ -1,4 +1,4 @@
-\begin{thebibliography}{124}
+\begin{thebibliography}{126}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -85,6 +85,16 @@
 王夫之.
 \newblock 船山全书: 第 6 册.
 \newblock 长沙: 岳麓书社: 1109.
+
+\bibitem[张三\ 等(2007)张三 and 李四]{zhangsan}
+张三, 李四, 2007.
+\newblock 高等数学教学 [J].
+\newblock 大學數學, 23\penalty0 (4): 20-26.
+
+\bibitem[张三丰(2007)]{zhangsanfeng}
+张三丰, 2007.
+\newblock 高等数学教学改革研究进展 [J].
+\newblock 大學數學, 23\penalty0 (4): 20-26.
 
 \bibitem[张忠智(1997)]{zhangzhongzhi1997keji}
 张忠智, 1997.

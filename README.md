@@ -48,7 +48,7 @@ and English) for each biblilography entry.
 ```
 @book{capital,
   author = {马克思 and 恩格斯},
-  key    = {ma3 ke4 si1   en1 ge2 si1},
+  key    = {ma3 ke4 si1 & en1 ge2 si1},
   ...
 }
 ```
