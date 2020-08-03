@@ -1181,9 +1181,94 @@ FUNCTION {contains.dash}
   if$
 }
 
+FUNCTION {extract.before.slash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'len :=
+        { charptr len <
+          s charptr #1 substring$ "/" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.after.slash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'len :=
+        { charptr len <
+          s charptr #1 substring$ "-" = not
+          and
+          s charptr #1 substring$ "/" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr len <
+          s charptr #1 substring$ "-" =
+          s charptr #1 substring$ "/" =
+          or
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.slash}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { 's :=
+        { s empty$ not
+          s #1 #1 substring$ "-" = not
+          and
+          s #1 #1 substring$ "/" = not
+          and
+        }
+        { s #2 global.max$ substring$ 's := }
+      while$
+      s empty$ not
+    }
+  if$
+}
+
 FUNCTION {format.year}
 { year empty$ not
-    { year extract.before.dash }
+    { year extract.before.slash }
+    { date empty$ not
+        { date extract.before.dash }
+        { "empty year in " cite$ * warning$
+          urldate empty$ not
+            { "[" urldate extract.before.dash * "]" * }
+            { "" }
+          if$
+        }
+      if$
+    }
+  if$
+  extra.label *
+}
+
+FUNCTION {format.periodical.year}
+{ year empty$ not
+    { year extract.before.slash
+      "--" *
+      year extract.after.slash
+      duplicate$ empty$
+        'pop$
+        { * }
+      if$
+    }
     { date empty$ not
         { date extract.before.dash }
         { "empty year in " cite$ * warning$
@@ -1288,7 +1373,7 @@ FUNCTION {format.journal.pages}
 
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
-    { year extract.before.dash }
+    { year extract.before.slash }
     { "empty year in periodical " cite$ * warning$ }
   if$
   volume empty$ not
@@ -1299,24 +1384,20 @@ FUNCTION {format.periodical.year.volume.number}
     { "\penalty0 (" * number extract.before.dash * ")" * }
     'skip$
   if$
-  year contains.dash
-    { "--" *
-      year extract.after.dash empty$
-      volume extract.after.dash empty$ and
-      number extract.after.dash empty$ and not
-        { year extract.after.dash empty$ not
-            { year extract.after.dash * }
-            { year extract.before.dash * }
-          if$
-          volume empty$ not
-            { ", " * volume extract.after.dash * }
-            'skip$
-          if$
-          number empty$ not
-            { "\penalty0 (" * number extract.after.dash * ")" * }
-            'skip$
-          if$
-        }
+  "--" *
+  year extract.after.slash empty$
+  volume extract.after.dash empty$ and
+  number extract.after.dash empty$ and not
+    { year extract.after.slash empty$ not
+        { year extract.after.slash * }
+        { year extract.before.slash * }
+      if$
+      volume empty$ not
+        { ", " * volume extract.after.dash * }
+        'skip$
+      if$
+      number empty$ not
+        { "\penalty0 (" * number extract.after.dash * ")" * }
         'skip$
       if$
     }
@@ -1641,7 +1722,7 @@ FUNCTION {periodical}
   new.block
   format.address.publisher output
   year.after.author not
-    { format.date "year" output.check }
+    { format.periodical.year "year" output.check }
     'skip$
   if$
   format.urldate "" output.after

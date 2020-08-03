@@ -2608,8 +2608,8 @@ FUNCTION {format.address.publisher}
 % there's an empty year but the month is there, and we return the empty string
 % if they're both empty.
 %
-% Newspaer 和 paptent 要显示完整的日期，同时不再显示修改日期。
-% 但是在 author-year 模式下，需要单独设置 format.year。
+% 期刊需要著录起止范围，其中年份使用“/”分隔，卷和期使用“--”分隔。
+% 版本 v2.0.2 前的年份也使用“--”分隔，仅提供兼容性，不再推荐。
 %    \begin{macrocode}
 FUNCTION {extract.before.dash}
 { duplicate$ empty$
@@ -2666,13 +2666,98 @@ FUNCTION {contains.dash}
   if$
 }
 
+FUNCTION {extract.before.slash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'len :=
+        { charptr len <
+          s charptr #1 substring$ "/" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s #1 charptr #1 - substring$
+    }
+  if$
+}
+
+FUNCTION {extract.after.slash}
+{ duplicate$ empty$
+    { pop$ "" }
+    { 's :=
+      #1 'charptr :=
+      s text.length$ #1 + 'len :=
+        { charptr len <
+          s charptr #1 substring$ "-" = not
+          and
+          s charptr #1 substring$ "/" = not
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+        { charptr len <
+          s charptr #1 substring$ "-" =
+          s charptr #1 substring$ "/" =
+          or
+          and
+        }
+        { charptr #1 + 'charptr := }
+      while$
+      s charptr global.max$ substring$
+    }
+  if$
+}
+
+FUNCTION {contains.slash}
+{ duplicate$ empty$
+    { pop$ #0 }
+    { 's :=
+        { s empty$ not
+          s #1 #1 substring$ "-" = not
+          and
+          s #1 #1 substring$ "/" = not
+          and
+        }
+        { s #2 global.max$ substring$ 's := }
+      while$
+      s empty$ not
+    }
+  if$
+}
+
 %    \end{macrocode}
 %
 % 著者-出版年制必须提取出年份
 %    \begin{macrocode}
 FUNCTION {format.year}
 { year empty$ not
-    { year extract.before.dash }
+    { year extract.before.slash }
+    { date empty$ not
+        { date extract.before.dash }
+        { "empty year in " cite$ * warning$
+          urldate empty$ not
+            { "[" urldate extract.before.dash * "]" * }
+            { "" }
+          if$
+        }
+      if$
+    }
+  if$
+  extra.label *
+}
+
+FUNCTION {format.periodical.year}
+{ year empty$ not
+    { year extract.before.slash
+      "--" *
+      year extract.after.slash
+      duplicate$ empty$
+        'pop$
+        { * }
+      if$
+    }
     { date empty$ not
         { date extract.before.dash }
         { "empty year in " cite$ * warning$
@@ -2853,7 +2938,7 @@ FUNCTION {format.journal.pages}
 %    \begin{macrocode}
 FUNCTION {format.periodical.year.volume.number}
 { year empty$ not
-    { year extract.before.dash }
+    { year extract.before.slash }
     { "empty year in periodical " cite$ * warning$ }
   if$
   volume empty$ not
@@ -2864,24 +2949,20 @@ FUNCTION {format.periodical.year.volume.number}
     { "\penalty0 (" * number extract.before.dash * ")" * }
     'skip$
   if$
-  year contains.dash
-    { "--" *
-      year extract.after.dash empty$
-      volume extract.after.dash empty$ and
-      number extract.after.dash empty$ and not
-        { year extract.after.dash empty$ not
-            { year extract.after.dash * }
-            { year extract.before.dash * }
-          if$
-          volume empty$ not
-            { ", " * volume extract.after.dash * }
-            'skip$
-          if$
-          number empty$ not
-            { "\penalty0 (" * number extract.after.dash * ")" * }
-            'skip$
-          if$
-        }
+  "--" *
+  year extract.after.slash empty$
+  volume extract.after.dash empty$ and
+  number extract.after.dash empty$ and not
+    { year extract.after.slash empty$ not
+        { year extract.after.slash * }
+        { year extract.before.slash * }
+      if$
+      volume empty$ not
+        { ", " * volume extract.after.dash * }
+        'skip$
+      if$
+      number empty$ not
+        { "\penalty0 (" * number extract.after.dash * ")" * }
         'skip$
       if$
     }
@@ -3260,7 +3341,7 @@ FUNCTION {periodical}
   new.block
   format.address.publisher output
   year.after.author not
-    { format.date "year" output.check }
+    { format.periodical.year "year" output.check }
     'skip$
   if$
   format.urldate "" output.after

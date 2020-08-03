@@ -140,8 +140,8 @@ Kusch~P, Hessel~M~M.
 \newblock 职工教育研究论文集.
 \newblock 北京: 人民教育出版社, 1985: 90-99.
 
-\bibitem[中国地址学会(1936)]{dizhi1936dizhi}
-中国地址学会.
+\bibitem[中国地质学会(1936)]{dizhi1936dizhi}
+中国地质学会.
 \newblock 地质评论[J].
 \newblock 1936, 1\penalty0 (1)--.
 \newblock 北京: 地质出版社, 1936--.
@@ -150,7 +150,7 @@ Kusch~P, Hessel~M~M.
 中国图书馆学会.
 \newblock 图书馆学通讯[J].
 \newblock 1957\penalty0 (1)--1990\penalty0 (4).
-\newblock 北京: 北京图书馆, 1957--1990.
+\newblock 北京: 北京图书馆, 1957--1990{\natexlab{a}}.
 
 \bibitem[傅刚\ 等(2000{\natexlab{a}})傅刚, 赵承, and
   李佳路]{fugang2000fengsha}
@@ -344,7 +344,7 @@ Roberson~J~A, Burneson~E~G.
 中国图书馆学会.
 \newblock 图书馆学通讯[J].
 \newblock 1957\penalty0 (1)--1990\penalty0 (4).
-\newblock 北京: 北京图书馆, 1957--1990.
+\newblock 北京: 北京图书馆, 1957--1990{\natexlab{b}}.
 
 \bibitem[{American Association for the Advancement of
   Science}(1883)]{aaas1883science}
