@@ -490,8 +490,26 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\cite}
-% 下面修改 \pkg{natbib} 的引用格式，将页码写在上标位置。
+% 下面修改 \pkg{natbib} 的引用格式。
 % 为了减少依赖的宏包，这里直接重定义命令不使用 \cs{patchcmd}。
+%
+% Super 样式的 \cs{citep} 的页码也为上标。
+%    \begin{macrocode}
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+  \if*#2*\else#2\NAT@spacechar\fi
+  % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+  %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+  \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
+   \else #1\fi\endgroup}
+%    \end{macrocode}
+%
+% 将 numbers 样式的 \cs{citep} 的页码置于括号外。
+%    \begin{macrocode}
+\renewcommand\NAT@citenum%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
+        #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+%    \end{macrocode}
 %
 % Numerical 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
@@ -591,13 +609,13 @@
 }%
 %    \end{macrocode}
 %
-% Numerical 模式的 \cs{citep} 的页码：
+% Author-year 模式的 \cs{citep} 的页码：
 %    \begin{macrocode}
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa
-  \if*#2*\else#2\NAT@spacechar\fi
-\unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-   \else #1\fi\endgroup}
+\renewcommand\NAT@cite%
+    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
+        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
 %    \end{macrocode}
+% \end{macro}
 %
 % Author-year 模式的 \cs{citet} 的页码：
 %    \begin{macrocode}
@@ -698,14 +716,6 @@
        \if*#2*\else\textsuperscript{#2}\fi
      \fi}{#1}{#2}}
 %    \end{macrocode}
-%
-% Author-year 模式的 \cs{citep} 的页码：
-%    \begin{macrocode}
-\renewcommand\NAT@cite%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
-%    \end{macrocode}
-% \end{macro}
 %
 % \begin{environment}{thebibliography}
 % 参考文献列表的标签左对齐

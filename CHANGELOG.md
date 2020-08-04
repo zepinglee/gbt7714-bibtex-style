@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Fixed
 - 修正第一作者姓名相同、年份相同但作者数量不同时的年份标签
+- 修正 `number` 样式 `\citep` 命令引用的页码位置
 
 ### Added
 - 新增选项 `show.urldate` 选择是否显示非电子文献的引用日期
