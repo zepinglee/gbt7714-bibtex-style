@@ -6,7 +6,7 @@
 %%
 %% gbt7714.dtx  (with options: `ustc,2015,numerical,nouppercase,nomark,italicjournal')
 %% -------------------------------------------------------------------
-%% GB/T 7714-2015 BibTeX Style
+%% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
 %% Version: 2020/06/08 v2.0.2
 %% -------------------------------------------------------------------

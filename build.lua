@@ -37,14 +37,14 @@ uploadconfig = {
   author      = "Zeping Lee",
   license     = "lppl1.3c",
   version     = pkgversion,
-  summary     = "BibTeX implementation of Chinese bibliography style standard GB/T 7714-2015",
+  summary     = "BibTeX implementation of Chinese bibliography style standard GB/T 15",
   topic       = {"bibtex-supp", "chinese"},
   ctanPath    = "/biblio/bibtex/contrib/gbt7714",
   repository  = "https://github.com/CTeX-org/gbt7714-bibtex-style",
   bugtracker  = "https://github.com/CTeX-org/gbt7714-bibtex-style/issues",
   update      = true,
   description = [[
-The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714-2015. It consists of two bst files for numerical and author-year styles and a LaTeX package which provides the citation style defined in the standard. It also support automatic language recognization (Chinese and English) for each biblilography entry and is designed to be fully compatible with natbib.
+The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 15. It consists of two bst files for numerical and author-year styles and a LaTeX package which provides the citation style defined in the standard. It also support automatic language recognization (Chinese and English) for each biblilography entry and is designed to be fully compatible with natbib.
   ]],
 }
 
