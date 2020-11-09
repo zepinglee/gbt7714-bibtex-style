@@ -33,7 +33,6 @@ INTEGERS {
   link.title
   title.in.journal
   show.mark
-  space.before.mark
   show.medium.type
   slash.for.extraction
   in.booktitle
@@ -64,7 +63,6 @@ FUNCTION {load.config}
   #0 'link.title :=
   #1 'title.in.journal :=
   #1 'show.mark :=
-  #1 'space.before.mark :=
   #1 'show.medium.type :=
   #1 'slash.for.extraction :=
   #0 'in.booktitle :=
@@ -1021,10 +1019,7 @@ FUNCTION {format.mark}
         'skip$
       if$
       'entry.mark :=
-      space.before.mark
-        { " [" entry.mark * "]" * }
-        { "[" entry.mark * "]" * }
-      if$
+      "[" entry.mark * "]" *
     }
     { "" }
   if$

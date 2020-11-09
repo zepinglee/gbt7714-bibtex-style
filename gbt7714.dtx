@@ -288,7 +288,6 @@
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
-%   space.before.mark              & |#1|   & 文献类型标识前有空格           \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
@@ -800,7 +799,6 @@ INTEGERS {
   link.title
   title.in.journal
   show.mark
-  space.before.mark
   show.medium.type
   slash.for.extraction
   in.booktitle
@@ -931,16 +929,6 @@ FUNCTION {load.config}
 %<*nomark>
   #0 'show.mark :=
 %</nomark>
-%    \end{macrocode}
-%
-% 文献类型标识前是否加空格：
-%    \begin{macrocode}
-%<*!(no-space-before-mark|thu)>
-  #1 'space.before.mark :=
-%</!(no-space-before-mark|thu)>
-%<*no-space-before-mark|thu>
-  #0 'space.before.mark :=
-%</no-space-before-mark|thu>
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
@@ -2491,10 +2479,7 @@ FUNCTION {format.mark}
         'skip$
       if$
       'entry.mark :=
-      space.before.mark
-        { " [" entry.mark * "]" * }
-        { "[" entry.mark * "]" * }
-      if$
+      "[" entry.mark * "]" *
     }
     { "" }
   if$
