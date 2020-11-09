@@ -138,9 +138,12 @@ and English) for each biblilography entry.
 
 ## 参考文献著录标准
 
-- [GB/T 7714—2015 信息与文献 参考文献著录规则.pdf](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style/files/153951/GBT.7714-2015.pdf)
-- [GB/T 7714—2005 文后参考文献著录规则.pdf](https://github.com/Haixing-Hu/typesetting-standard/raw/master/%E5%9B%BE%E4%B9%A6%E3%80%81%E6%9C%9F%E5%88%8A%E3%80%81%E8%AE%BA%E6%96%87%E7%9A%84%E7%BC%96%E6%8E%92/%E3%80%90GB:T%207714-2005%E3%80%91%E6%96%87%E5%90%8E%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%91%97%E5%BD%95%E8%A7%84%E5%88%99.pdf)
+- [GB/T 7714—2015 信息与文献 参考文献著录规则](http://www.cessp.org.cn/uploads/1/file/public/201607/20160708142456_8mqgu0dpgk.pdf)
 
+## 相关讨论
+- 陈浩元（标准起草人）：[GB/T 7714 新标准对旧标准的主要修改及实施要点提示](http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20150411&flag=1)
+- 陈浩元（标准起草人）：[GB/T 7714一2015 的新点、实施要点及其他](http://www.cessp.org.cn/uploads/1/file/public/201607/20160705202202_0airiqt165.pdf)（Slides）
+- 梁海：[知乎回答「GB/T 7714—2005 一些有关空格和标点符号的细节问题？」](https://www.zhihu.com/question/23371611/answer/24696880)
 
 ## 相关项目
 
