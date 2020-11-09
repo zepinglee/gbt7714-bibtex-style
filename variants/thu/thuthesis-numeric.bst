@@ -188,7 +188,7 @@ FUNCTION {bbl.colon} { ": " }
 
 FUNCTION {bbl.wide.space} { "\quad " }
 
-FUNCTION {bbl.slash} { "// " }
+FUNCTION {bbl.slash} { "//\allowbreak " }
 
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
