@@ -14,7 +14,7 @@
 \bibitem[Hirata et~al.(1996)Hirata, Sumiyoshi, Carlson, Toki, and
   Tanihata]{hirata1996triaxial}
 HIRATA~D, SUMIYOSHI~K, CARLSON~B~V, et~al.
-\newblock Nuclear Physics A, 1996, 609\penalty0 (2): 131.
+\newblock Nuclear Physics A, 1996, 609\allowbreak (2): 131.
 
 \bibitem[Martin et~al.(1970)Martin and Spearman]{martin1970elementary}
 MARTIN~A~D, SPEARMAN~T~D.
@@ -239,21 +239,21 @@ ROBERSON~J~A, BURNESON~E~G.
 [English translation missing!] (in Chinese) \\
 (中华医学会湖北分会.
 \newblock 临床内科杂志[J].
-\newblock 1984, 1\penalty0 (1)--.
+\newblock 1984, 1\allowbreak (1)--.
 \newblock 武汉: 中华医学会湖北分会, 1984--.)
 
 \bibitem[中国图书馆学会(1957)]{zhongguo1957tushu}
 [English translation missing!] (in Chinese) \\
 (中国图书馆学会.
 \newblock 图书馆学通讯[J].
-\newblock 1957\penalty0 (1)--1990\penalty0 (4).
+\newblock 1957\allowbreak (1)--1990\allowbreak (4).
 \newblock 北京: 北京图书馆, 1957--1990.)
 
 \bibitem[{American Association for the Advancement of
   Science}(1883)]{aaas1883science}
 {American Association for the Advancement of Science}.
 \newblock Science[J].
-\newblock 1883, 1\penalty0 (1)--.
+\newblock 1883, 1\allowbreak (1)--.
 \newblock Washington, D.C.: American Association for the Advancement of
   Science, 1883--.
 
@@ -261,26 +261,26 @@ ROBERSON~J~A, BURNESON~E~G.
   et~al.]{yuanxunlai2012lantian}
 [English translation missing!] (in Chinese) \\
 (袁训来, 陈哲, 肖书海, 等.
-\newblock 科学通报, 2012, 55\penalty0 (34): 3219.)
+\newblock 科学通报, 2012, 55\allowbreak (34): 3219.)
 
 \bibitem[余建斌(2013)]{yujianbin2013women}
 [English translation missing!] (in Chinese) \\
 (余建斌.
-\newblock 人民日报, 2013-01-12\penalty0 (2)\allowbreak[2013-03-20].
+\newblock 人民日报, 2013-01-12\allowbreak (2)\allowbreak[2013-03-20].
 \newblock
   \url{http://paper.people.com.cn/rmrb/html/2013-01/12/nw.D110000renmrb_20130112_5-02.htm}.)
 
 \bibitem[李炳穆(2008{\natexlab{a}})]{libingmu2008hanguo}
 [English translation missing!] (in Chinese) \\
 (李炳穆.
-\newblock 图书情报工作, 2008{\natexlab{a}}, 52\penalty0 (6):
+\newblock 图书情报工作, 2008{\natexlab{a}}, 52\allowbreak (6):
   6\allowbreak[2013-10-25].
 \newblock \url{http://www.docin.com/p-400265742.html}.)
 
 \bibitem[李幼平\ 等(2010)李幼平 and 王莉]{liyouping2010xunzheng}
 [English translation missing!] (in Chinese) \\
 (李幼平, 王莉.
-\newblock 中华移植杂志(电子版), 2010, 4\penalty0 (3):
+\newblock 中华移植杂志(电子版), 2010, 4\allowbreak (3):
   225\allowbreak[2014-06-09].
 \newblock \url{http://www.cqvip.com/Read/Read.aspx?id=36658332}.)
 
@@ -289,20 +289,21 @@ ROBERSON~J~A, BURNESON~E~G.
 [English translation missing!] (in Chinese)
 DOI: \doi{10.3771/j.issn.1009-2307.2008.05.002} \\
 (武丽丽, 华一新, 张亚军, 等.
-\newblock 测绘科学, 2008, 33\penalty0 (5): 8\allowbreak[2009-10-25].
+\newblock 测绘科学, 2008, 33\allowbreak (5): 8\allowbreak[2009-10-25].
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.)
 
 \bibitem[Kanamori(1998)]{kanamori1998shaking}
 KANAMORI~H.
-\newblock Science, 1998, 279\penalty0 (5359): 2063.
+\newblock Science, 1998, 279\allowbreak (5359): 2063.
 
 \bibitem[Caplan(1993)]{caplan1993cataloging}
 CAPLAN~P.
-\newblock The public access computer systems review, 1993, 4\penalty0 (2): 61.
+\newblock The public access computer systems review, 1993, 4\allowbreak (2):
+  61.
 
 \bibitem[Frese et~al.(2013)Frese, Katus, and Meder]{frese2013next}
 FRESE~K~S, KATUS~H~A, MEDER~B.
-\newblock Biology, 2013, 2\penalty0 (1): 378\allowbreak[2013-03-19].
+\newblock Biology, 2013, 2\allowbreak (1): 378\allowbreak[2013-03-19].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
 \newblock DOI: \doi{10.3390/biology2010378}.
 
@@ -413,11 +414,11 @@ CHERNIK~B~E.
 \bibitem[杨宗英(1996)]{yangzongying1996dianzi}
 [English translation missing!] (in Chinese) \\
 (杨宗英.
-\newblock 中国图书馆学报, 1996\penalty0 (2): 24.)
+\newblock 中国图书馆学报, 1996\allowbreak (2): 24.)
 
 \bibitem[Dowler(1995)]{dowler1995research}
 DOWLER~L.
-\newblock Journal of library administration, 1995, 21\penalty0 (1/2): 5.
+\newblock Journal of library administration, 1995, 21\allowbreak (1/2): 5.
 
 \bibitem[Sunstein(1996)]{sunstein1996social}
 SUNSTEIN~C~R.
@@ -443,7 +444,7 @@ MORRI~I.
 [English translation missing!] (in Chinese) \\
 (王临惠, 等.
 \newblock 山西师范大学学报（社会科学版）, 2010{\natexlab{a}},
-  37\penalty0 (4): 147.)
+  37\allowbreak (4): 147.)
 
 \bibitem[王临惠(2010{\natexlab{b}})]{wanglinhui2010cong}
 [English translation missing!] (in Chinese) \\
@@ -485,7 +486,7 @@ KENNEDY~W~L, GARRISON~R~E.
 \bibitem[刘彻东(1998)]{liuchedong1998zhongguo}
 [English translation missing!] (in Chinese) \\
 (刘彻东.
-\newblock 中国出版, 1998\penalty0 (5): 38.)
+\newblock 中国出版, 1998\allowbreak (5): 38.)
 
 \bibitem[裴丽生(1981)]{peilisheng1981jianghua}
 [English translation missing!] (in Chinese) \\
@@ -813,24 +814,25 @@ Symposium on Applications of Holography in Mechanics, August 23-25, 1971,
 \bibitem[杨洪升(2013)]{yanghongsheng2013siku}
 [English translation missing!] (in Chinese) \\
 (杨洪升.
-\newblock 文献, 2013\penalty0 (1): 56.)
+\newblock 文献, 2013\allowbreak (1): 56.)
 
 \bibitem[李炳穆(2008{\natexlab{b}})]{libingmu2008hanguo2}
 [English translation missing!] (in Chinese) \\
 (李炳穆.
-\newblock 图书情报工作, 2008{\natexlab{b}}, 52\penalty0 (6): 6.)
+\newblock 图书情报工作, 2008{\natexlab{b}}, 52\allowbreak (6): 6.)
 
 \bibitem[于潇\ 等(2012)于潇, 刘义, 柴跃廷,
   et~al.]{yuxiao2012hulianwang}
 [English translation missing!] (in Chinese) \\
 (于潇, 刘义, 柴跃廷, 等.
-\newblock 清华大学学报(自然科学版), 2012, 52\penalty0 (11): 1518.)
+\newblock 清华大学学报(自然科学版), 2012, 52\allowbreak (11): 1518.)
 
 \bibitem[陈建军(2010)]{chenjianjun2010cong}
 [English translation missing!] (in Chinese)
 DOI: \doi{10.3969/j.issn.1672-5603.2010.10.038} \\
 (陈建军.
-\newblock 国土资源导刊, 2010, 7\penalty0 (10): 93\allowbreak[2013-03-20].
+\newblock 国土资源导刊, 2010, 7\allowbreak (10):
+  93\allowbreak[2013-03-20].
 \newblock
   \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.)
 
@@ -841,12 +843,12 @@ DES~MARAIS~D~J, STRAUSS~H, SUMMONS~R~E, et~al.
 
 \bibitem[Saito et~al.(2006)Saito and Miyazaki]{saito2006jadeite}
 SAITO~M, MIYAZAKI~K.
-\newblock Bulletin of the geological survey of Japan, 2006, 57\penalty0 (5/6):
-  169.
+\newblock Bulletin of the geological survey of Japan, 2006, 57\allowbreak
+  (5/6): 169.
 
 \bibitem[Walls et~al.(2013)Walls, Barichivich, and Brown]{walls2013drought}
 WALLS~S~C, BARICHIVICH~W~J, BROWN~M~E.
-\newblock Biology, 2013, 2\penalty0 (1): 399\allowbreak[2013-11-04].
+\newblock Biology, 2013, 2\allowbreak (1): 399\allowbreak[2013-11-04].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/399}.
 \newblock DOI: \doi{10.3390/biology2010399}.
 
@@ -858,7 +860,7 @@ FRANZ~A~K, DANIELEWICZ~M~A, WONG~D~M, et~al.
 
 \bibitem[Park et~al.(2010)Park and Tosaka]{park2010metadata}
 PARK~J~R, TOSAKA~Y.
-\newblock Cataloging \& classification quarterly, 2010, 48\penalty0 (8):
+\newblock Cataloging \& classification quarterly, 2010, 48\allowbreak (8):
   696\allowbreak[2013-09-05].
 \newblock
   \url{http://www.tandfonline.com/doi/pdf/10.1080/01639374.2010.508711}.
@@ -866,12 +868,12 @@ PARK~J~R, TOSAKA~Y.
 \bibitem[丁文详(2000)]{dingwenxiang2000shuzi}
 [English translation missing!] (in Chinese) \\
 (丁文详.
-\newblock 中国青年报, 2000-11-20\penalty0 (15).)
+\newblock 中国青年报, 2000-11-20\allowbreak (15).)
 
 \bibitem[张田勤(2000)]{zhangtianqin2000zuifan}
 [English translation missing!] (in Chinese) \\
 (张田勤.
-\newblock 大众科技报, 2000-11-12\penalty0 (7).)
+\newblock 大众科技报, 2000-11-12\allowbreak (7).)
 
 \bibitem[傅刚\ 等(2000)傅刚, 赵承, and 李佳路]{fugang2000dafeng}
 [English translation missing!] (in Chinese) \\

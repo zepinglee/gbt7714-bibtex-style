@@ -291,6 +291,7 @@
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
+%   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
 %   show.urldate                   & |#1|   & 显示 urldate                   \\
 %   show.url                       & |#1|   & 显示 url                       \\
@@ -806,6 +807,7 @@ INTEGERS {
   italic.journal
   bold.journal.volume
   show.missing.address.publisher
+  space.before.pages
   only.start.page
   show.urldate
   show.url
@@ -989,6 +991,16 @@ FUNCTION {load.config}
 %<*noslsn|thu|ustc|ucas|npr>
   #0 'show.missing.address.publisher :=
 %</noslsn|thu|ustc|ucas|npr>
+%    \end{macrocode}
+%
+% 页码是否只含起始页：
+%    \begin{macrocode}
+%<*!(no-space-before-pages|thu)>
+  #1 'space.before.pages :=
+%</!(no-space-before-pages|thu)>
+%<*no-space-before-pages|thu>
+  #0 'space.before.pages :=
+%</no-space-before-pages|thu>
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
@@ -1353,6 +1365,13 @@ FUNCTION {citation.et.al}
 }
 
 FUNCTION {bbl.colon} { ": " }
+
+FUNCTION {bbl.pages.colon}
+{ space.before.pages
+    { ": " }
+    { ":\allowbreak " }
+  if$
+}
 
 %<*2015>
 FUNCTION {bbl.wide.space} { "\quad " }
@@ -2908,7 +2927,7 @@ FUNCTION {format.journal.volume}
 
 FUNCTION {format.journal.number}
 { number empty$ not
-    { "\penalty0 (" number * ")" * }
+    { "\allowbreak (" number * ")" * }
     { "" }
   if$
 }
@@ -2916,9 +2935,7 @@ FUNCTION {format.journal.number}
 FUNCTION {format.journal.pages}
 { pages empty$
     { "" }
-    { ": "
-      format.extracted.pages *
-    }
+    { format.extracted.pages }
   if$
 }
 
@@ -2936,7 +2953,7 @@ FUNCTION {format.periodical.year.volume.number}
     'skip$
   if$
   number empty$ not
-    { "\penalty0 (" * number extract.before.dash * ")" * }
+    { "\allowbreak (" * number extract.before.dash * ")" * }
     'skip$
   if$
   "--" *
@@ -2952,7 +2969,7 @@ FUNCTION {format.periodical.year.volume.number}
         'skip$
       if$
       number empty$ not
-        { "\penalty0 (" * number extract.after.dash * ")" * }
+        { "\allowbreak (" * number extract.after.dash * ")" * }
         'skip$
       if$
     }
@@ -3240,7 +3257,7 @@ FUNCTION {monograph}
     { format.year "year" output.check }
     'skip$
   if$
-  format.pages bbl.colon output.after
+  format.pages bbl.pages.colon output.after
   format.urldate "" output.after
   output.url
   output.doi
@@ -3294,7 +3311,7 @@ FUNCTION {incollection}
     { format.year "year" output.check }
     'skip$
   if$
-  format.extracted.pages bbl.colon output.after
+  format.extracted.pages bbl.pages.colon output.after
   format.urldate "" output.after
   output.url
   output.doi
@@ -3386,7 +3403,7 @@ FUNCTION {article}
   if$
   format.journal.volume output
   format.journal.number "" output.after
-  format.journal.pages "" output.after
+  format.journal.pages bbl.pages.colon output.after
   format.urldate "" output.after
   output.url
   output.doi
@@ -3464,7 +3481,7 @@ FUNCTION {electronic}
     }
     'skip$
   if$
-  format.pages bbl.colon output.after
+  format.pages bbl.pages.colon output.after
   format.editdate "" output.after
   format.urldate "" output.after
   output.url
@@ -3530,7 +3547,7 @@ FUNCTION {preprint}
     { format.year "year" output.check }
     'skip$
   if$
-  format.pages bbl.colon output.after
+  format.pages bbl.pages.colon output.after
   format.urldate "" output.after
   output.url
   new.block
