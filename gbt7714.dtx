@@ -459,13 +459,14 @@
 %
 % 将选项传递给 \pkg{natbib}
 %    \begin{macrocode}
+\PassOptionsToPackage{compress}{natbib}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ProcessOptions\relax
 %    \end{macrocode}
 %
 % 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
 %    \begin{macrocode}
-\RequirePackage[compress]{natbib}
+\RequirePackage{natbib}
 \RequirePackage{url}
 %    \end{macrocode}
 %

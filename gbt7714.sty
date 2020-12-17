@@ -57,9 +57,10 @@
   \gbt@legacy@interfacetrue
   \gbt@numericalfalse
 }
+\PassOptionsToPackage{compress}{natbib}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ProcessOptions\relax
-\RequirePackage[compress]{natbib}
+\RequirePackage{natbib}
 \RequirePackage{url}
 \renewcommand\newblock{\space}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
