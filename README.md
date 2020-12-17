@@ -21,12 +21,24 @@ and English) for each biblilography entry.
 - Email: zepinglee AT gmail DOT com
 - License: LaTeX Project Public License 1.3c or later
 
-## 新特性
 
+## 简介
+
+GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》是中国的参考文献推荐标准。
+本宏包是国标的 BibTeX 实现，主要有以下特性：
 - 兼容 `natbib`
 - 支持“顺序编码制”和“著者-出版年制”两种风格
 - 自动识别语言并进行相应处理
 - 提供了简单的接口供用户修改样式
+
+
+## 版本 v2.0 的重要修改
+
+从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 `\biblilographystyle` 命令选择参考文献样式，
+如 `gbt7714-numerical` 或 `gbt7714-author-year`。
+在早期的版本中，选择文献样式的方法是将 `numbers` 或 `super` 等参数传递给 `gbt7714`，
+而不能使用 `\bibliographystyle`。
+这跟标准的 LaTeX 接口不一致，所以将被弃用。
 
 
 ## 使用方法

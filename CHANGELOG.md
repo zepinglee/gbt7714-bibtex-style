@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v2.1] - 2020-12-17
 ### Changed
 - 著者-出版年制的 `key` 域如果含有多个姓名的拼音，改为使用 ` & ` 分隔（#68）
 - 选项 `abbreviate.journal` 改为 `short.journal`
@@ -119,7 +121,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1...HEAD
+[v2.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.2...v2.1
 [v2.0.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...v2.0.1
 [v2.0]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...v2.0

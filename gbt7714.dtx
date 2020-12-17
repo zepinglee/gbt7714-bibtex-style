@@ -17,7 +17,7 @@
 % \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
-%<package>  [2020/06/08 v2.0.2 GB/T 7714—2015 BibTeX Style]
+%<package>  [2020/12/17 v2.1 GB/T 7714—2015 BibTeX Style]
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
@@ -106,6 +106,16 @@
 %   \item 提供了简单的接口供用户修改样式
 % \end{itemize}
 % 本宏包的主页：\url{https://github.com/CTeX-org/gbt7714-bibtex-style}。
+%
+%
+% \section{版本 v2.0 的重要修改}
+%
+% 从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 \cs{biblilographystyle} 命令选择参考文献样式，
+% 如 \opt{gbt7714-numerical} 或 \opt{gbt7714-author-year}。
+% 在早期的版本中，选择文献样式的方法是将 \opt{numbers} 或 \opt{super} 等参数传递给
+% \pkg{gbt7714}，
+% 而不能使用 \cs{bibliographystyle}。
+% 这跟标准的 LaTeX 接口不一致，所以将被弃用。
 %
 %
 % \section{使用方法}
@@ -257,8 +267,6 @@
 %     ...
 %   }
 % \end{latex}
-% 注意名字之间需要额外的空格，比如“张三, 李四”要排在
-% “张三丰”前面。
 %
 %
 % \section{自定义样式}
@@ -282,7 +290,7 @@
 %   \midrule
 %   uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
 %   max.num.authors                & |#3|   & 输出著者的最多数量             \\
-%   year.after.author              & |#0|   & 年份置于著者之后     \\
+%   year.after.author              & |#0|   & 年份置于著者之后               \\
 %   period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
@@ -293,10 +301,10 @@
 %   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
-%   show.urldate                   & |#1|   & 显示 urldate                   \\
+%   show.urldate                   & |#1|   & 显示引用日期 urldate           \\
 %   show.url                       & |#1|   & 显示 url                       \\
-%   show.doi                       & |#1|   & 显示 doi                       \\
-%   show.preprint                  & |#0|   & 显示预印本                     \\
+%   show.doi                       & |#1|   & 显示 DOI                       \\
+%   show.preprint                  & |#0|   & 显示预印本信息                 \\
 %   show.note                      & |#0|   & 显示 note 域的信息             \\
 %   \bottomrule
 % \end{tabular}
