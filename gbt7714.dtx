@@ -295,6 +295,7 @@
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
+%   space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
@@ -809,6 +810,7 @@ INTEGERS {
   link.title
   title.in.journal
   show.mark
+  space.before.mark
   show.medium.type
   slash.for.extraction
   in.booktitle
@@ -940,6 +942,16 @@ FUNCTION {load.config}
 %<*nomark>
   #0 'show.mark :=
 %</nomark>
+%    \end{macrocode}
+%
+% 文献类型标识前是否有空格：
+%    \begin{macrocode}
+%<*!space-before-mark>
+  #0 'space.before.mark :=
+%</!space-before-mark>
+%<*space-before-mark>
+  #1 'space.before.mark :=
+%</space-before-mark>
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
@@ -2502,7 +2514,11 @@ FUNCTION {format.mark}
         'skip$
       if$
       'entry.mark :=
-      "[" entry.mark * "]" *
+      space.before.mark
+        { " " }
+        { "\allowbreak" }
+      if$
+      "[" * entry.mark * "]" *
     }
     { "" }
   if$
