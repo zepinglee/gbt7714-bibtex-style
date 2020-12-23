@@ -299,7 +299,7 @@
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
-%   show.missing.address.publisher & |#1|   & 出版项缺失时显示“出版者不详”   \\
+%   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
 %   show.urldate                   & |#1|   & 显示引用日期 urldate           \\
@@ -1006,12 +1006,12 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-%<*!(noslsn|thu|ustc|ucas|npr)>
-  #1 'show.missing.address.publisher :=
-%</!(noslsn|thu|ustc|ucas|npr)>
-%<*noslsn|thu|ustc|ucas|npr>
+%<*!sl-sn>
   #0 'show.missing.address.publisher :=
-%</noslsn|thu|ustc|ucas|npr>
+%</!sl-sn>
+%<*sl-sn>
+  #1 'show.missing.address.publisher :=
+%</sl-sn>
 %    \end{macrocode}
 %
 % 页码是否只含起始页：

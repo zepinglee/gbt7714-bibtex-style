@@ -72,7 +72,7 @@ FUNCTION {load.config}
   #0 'short.journal :=
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
-  #1 'show.missing.address.publisher :=
+  #0 'show.missing.address.publisher :=
   #1 'space.before.pages :=
   #0 'only.start.page :=
   #1 'show.urldate :=
