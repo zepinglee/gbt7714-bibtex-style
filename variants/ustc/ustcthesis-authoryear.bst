@@ -4,13 +4,13 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `ustc,2015,authoryear')
+%% gbt7714.dtx  (with options: `2015,ustc,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
 %% Version: 2020/12/17 v2.1
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016-2020 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016—2021 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -18,7 +18,7 @@
 %% The latest version of this license is in
 %%    https://www.latex-project.org/lppl.txt
 %% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
+%% version 2008 or later.
 %% -------------------------------------------------------------------
 INTEGERS {
   citation.et.al.min
