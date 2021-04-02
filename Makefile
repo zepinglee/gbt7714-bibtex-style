@@ -19,7 +19,7 @@ savebst:
 save : savebst
 	l3build save --quiet super
 	l3build save --quiet numbers
-	l3build save --quiet authoryear
+	l3build save --quiet author-year
 	l3build save --config test/config-chapterbib package-chapterbib
 
 all : test doc
