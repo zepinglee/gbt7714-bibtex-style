@@ -20,9 +20,6 @@ save : savebst
 	l3build save --quiet super
 	l3build save --quiet numbers
 	l3build save --quiet authoryear
-	l3build save --quiet legacy-super
-	l3build save --quiet legacy-numbers
-	l3build save --quiet legacy-authoryear
 	l3build save --config test/config-chapterbib package-chapterbib
 
 all : test doc
