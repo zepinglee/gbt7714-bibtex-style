@@ -4,11 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- 新增选项 `space.before.mark` 选择文献类型标识前是否有空格。
+
 ### Changed
 - 默认不再显示“出版地不详”、“S.l.”等信息。
 
-### Added
-- 新增选项 `space.before.mark` 选择文献类型标识前是否有空格。
+### Fixed
+- 修正了上标式引用后与中文之间多余的空格（tuna/thuthesis#624）。
 
 ## [v2.1] - 2020-12-17
 ### Changed

@@ -71,16 +71,44 @@
 \@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
 \@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
 \@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa
-  \if*#2*\else#2\NAT@spacechar\fi
-  % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-  %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
-  \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-   \else #1\fi\endgroup}
-\renewcommand\NAT@citenum%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-        #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+\renewcommand\NAT@citesuper[3]{%
+  \ifNAT@swa
+    \if*#2*\else
+      #2\NAT@spacechar
+    \fi
+    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+    \unskip\kern\p@
+    \textsuperscript{%
+      \NAT@@open
+      #1%
+      \NAT@@close
+      \if*#3*\else
+        #3%
+      \fi
+    }%
+    \kern\p@
+  \else
+    #1%
+  \fi
+  \endgroup
+}
+\renewcommand\NAT@citenum[3]{%
+  \ifNAT@swa
+    \NAT@@open
+    \if*#2*\else
+      #2\NAT@spacechar
+    \fi
+    % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
+    #1\NAT@@close
+    \if*#3*\else
+      \textsuperscript{#3}%
+    \fi
+  \else
+    #1%
+  \fi
+  \endgroup
+}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -161,8 +189,11 @@
         % }{}%
         \NAT@mbox{\NAT@@close}%
         \@ifnum{\NAT@ctype=\z@}{%
-          \if*#2*\else\textsuperscript{#2}\fi
+          \if*#2*\else
+            \textsuperscript{#2}%
+          \fi
         }{}%
+        \NAT@super@kern
       \fi
   }{#1}{#2}%
 }%

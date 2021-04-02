@@ -504,21 +504,51 @@
 % 为了减少依赖的宏包，这里直接重定义命令不使用 \cs{patchcmd}。
 %
 % Super 样式的 \cs{citep} 的页码也为上标。
+% 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
+% 参考 \href{https://github.com/tuna/thuthesis/issues/624}{tuna/thuthesis#624}。
 %    \begin{macrocode}
-\renewcommand\NAT@citesuper[3]{\ifNAT@swa
-  \if*#2*\else#2\NAT@spacechar\fi
-  % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-  %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
-  \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close\if*#3*\else#3\fi}%
-   \else #1\fi\endgroup}
+\renewcommand\NAT@citesuper[3]{%
+  \ifNAT@swa
+    \if*#2*\else
+      #2\NAT@spacechar
+    \fi
+    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
+    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
+    \unskip\kern\p@
+    \textsuperscript{%
+      \NAT@@open
+      #1%
+      \NAT@@close
+      \if*#3*\else
+        #3%
+      \fi
+    }%
+    \kern\p@
+  \else
+    #1%
+  \fi
+  \endgroup
+}
 %    \end{macrocode}
 %
 % 将 numbers 样式的 \cs{citep} 的页码置于括号外。
 %    \begin{macrocode}
-\renewcommand\NAT@citenum%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-        #1\NAT@@close\textsuperscript{\if*#3*\else#3\fi}\else#1\fi\endgroup}
+\renewcommand\NAT@citenum[3]{%
+  \ifNAT@swa
+    \NAT@@open
+    \if*#2*\else
+      #2\NAT@spacechar
+    \fi
+    % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
+    #1\NAT@@close
+    \if*#3*\else
+      \textsuperscript{#3}%
+    \fi
+  \else
+    #1%
+  \fi
+  \endgroup
+}
 %    \end{macrocode}
 %
 % Numerical 模式的 \cs{citet} 的页码：
@@ -612,8 +642,11 @@
         % }{}%
         \NAT@mbox{\NAT@@close}%
         \@ifnum{\NAT@ctype=\z@}{%
-          \if*#2*\else\textsuperscript{#2}\fi
+          \if*#2*\else
+            \textsuperscript{#2}%
+          \fi
         }{}%
+        \NAT@super@kern
       \fi
   }{#1}{#2}%
 }%
