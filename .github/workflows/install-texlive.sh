@@ -16,7 +16,7 @@ HYPERREF_PKGS="bitset letltxmacro pdfescape pdflscape";
 BIN_PKGS="latexmk l3build";
 REQUIRED_PKGS="$XETEX_PKGS $CTEX_PKGS";
 FONT_PKGS="fandol";
-EXTRA_PKGS="cite";
+EXTRA_PKGS="bibunits cite";
 DOC_PKGS="booktabs caption $HYPERREF_PKGS listings xcolor";
 
 tlmgr install $BIN_PKGS $REQUIRED_PKGS $FONT_PKGS $EXTRA_PKGS $DOC_PKGS;

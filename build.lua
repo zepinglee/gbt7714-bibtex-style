@@ -15,6 +15,7 @@ stdengine = "xetex"
 checkconfigs = {
     "build",
     "test/config-chapterbib",
+    "test/config-bibunits",
 }
 
 typesetexe = "xelatex"

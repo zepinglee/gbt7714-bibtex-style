@@ -21,6 +21,7 @@ save : savebst
 	l3build save --quiet numbers
 	l3build save --quiet author-year
 	l3build save --config test/config-chapterbib package-chapterbib
+	l3build save --config test/config-bibunits package-bibunits
 
 all : test doc
 
