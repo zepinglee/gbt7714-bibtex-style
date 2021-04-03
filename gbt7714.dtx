@@ -1047,14 +1047,14 @@ FUNCTION {load.config}
 %</sl-sn>
 %    \end{macrocode}
 %
-% 页码是否只含起始页：
+% 页码与前面的冒号之间是否有空格：
 %    \begin{macrocode}
-%<*!(no-space-before-pages|thu)>
+%<*!(no-space-before-pages)>
   #1 'space.before.pages :=
-%</!(no-space-before-pages|thu)>
-%<*no-space-before-pages|thu>
+%</!(no-space-before-pages)>
+%<*no-space-before-pages>
   #0 'space.before.pages :=
-%</no-space-before-pages|thu>
+%</no-space-before-pages>
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
