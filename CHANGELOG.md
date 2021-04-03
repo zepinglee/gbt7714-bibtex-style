@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v2.1.1] - 2021-04-03
 ### Added
 - 新增选项 `space.before.mark` 选择文献类型标识前是否有空格。
 
@@ -130,7 +132,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.1...HEAD
+[v2.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1...v2.1.1
 [v2.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.2...v2.1
 [v2.0.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
 [v2.0.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...v2.0.1
