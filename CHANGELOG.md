@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - 修正了上标式引用后与中文之间多余的空格（tuna/thuthesis#624）。
+- 修正了姓名或年份中含有中括号时的引用错误，该问题是同时使用 `bibunits` 导致的（tuna/thuthesis#630）。
 
 ## [v2.1] - 2020-12-17
 ### Changed

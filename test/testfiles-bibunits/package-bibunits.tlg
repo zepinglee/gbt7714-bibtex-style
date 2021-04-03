@@ -1,13 +1,11 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 (section1.tex (bu1.aux)
-Package natbib Warning: Citation `oclc2012about' on page 1 undefined on input line ....
-(bu1.bbl
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line ....
-) (bu1.aux)
+(bu1.bbl) (bu1.aux)
 No file bu.aux.
 )
 Completed box being shipped out [1]
@@ -21,7 +19,7 @@ Completed box being shipped out [1]
 ...\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 439.04213fil
+..\vbox(550.0+0.0)x345.0, glue set 451.04085fil
 ...\write-{}
 ...\write-{}
 ...\glue(\topskip) 0.1936
@@ -38,10 +36,18 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 4.91362
-...\hbox(7.0+0.10999)x345.0, glue set 323.59001fil
+...\glue(\baselineskip) 3.0347
+...\hbox(8.87892+0.10999)x345.0, glue set 318.015fil
 ....\TU/lmr/m/n/10 Foo
-....\TU/lmr/bx/n/10 ?
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x9.005, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+.....\TU/lmr/m/n/7 ]
+....\mathoff
+....\kern 1.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -60,19 +66,18 @@ Completed box being shipped out [1]
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.32721
-...\hbox(7.5+2.49998)x335.0, glue set 0.41147, shifted 10.0
-....\hbox(0.0+0.0)x-10.0
-.....\glue -10.0
-.....\glue -20.0
+...\hbox(7.5+2.49998)x329.44, glue set - 0.58081, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
 .....\glue -5.0
-.....\hbox(0.0+0.0)x20.0, glue set 20.0fill
+.....\hbox(7.5+2.49998)x10.56
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
-....\TU/lmr/m/n/10 ]oclc2012about
-....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Online
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Computer
@@ -89,14 +94,15 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 OCLC:
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 History
-....\glue(\rightskip) 0.0
-...\penalty 10000
-...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.5)x335.0, glue set 0.21, shifted 10.0
+....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 of
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 cooperation
 ....\penalty 0
+....\glue(\rightskip) 0.0
+...\penalty 8000
+...\glue(\baselineskip) 2.00002
+...\hbox(7.5+2.5)x329.44, glue set 10.34001fil, shifted 15.56
 ....\TU/lmr/m/n/10 [EB/OL].
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\glue 1.1 plus 3.30002 minus 0.70007
@@ -190,10 +196,7 @@ Completed box being shipped out [1]
 ....\glue(\medmuskip) 0.0 plus 0.05556
 ....\TU/lmr/m/n/10 glyph#66
 ....\penalty 700
-....\glue(\rightskip) 0.0
-...\penalty 4000
-...\glue(\baselineskip) 2.56
-...\hbox(6.94+0.11)x335.0, glue set 285.54001fil, shifted 10.0
+....\glue(\medmuskip) 0.0 plus 0.05556
 ....\TU/lmr/m/n/10 glyph#81
 ....\glue(\medmuskip) 0.0 plus 0.05556
 ....\TU/lmr/m/n/10 glyph#77
@@ -224,7 +227,7 @@ Completed box being shipped out [1]
 ...\penalty -51
 ...\glue 10.0 plus 3.0 minus 5.0
 ...\glue -10.0 plus -3.0 minus -5.0
-...\glue -0.11
+...\glue -2.5
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
@@ -262,25 +265,29 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 4.41362
-...\hbox(7.5+2.49998)x345.0, glue set 222.15fil
-....\TU/lmr/m/n/10 BarJones
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 et
-....\penalty 10000
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 al.
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 (1991,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 1992)
+...\glue(\baselineskip) 3.0347
+...\hbox(8.87892+0.10999)x345.0, glue set 311.31699fil
+....\TU/lmr/m/n/10 Bar
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+.....\TU/lmr/m/n/7 -
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+.....\TU/lmr/m/n/7 ]
+....\mathoff
+....\kern 1.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
 ...\glue 15.08499 plus 4.31 minus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 5.42001
+...\glue(\baselineskip) 7.81001
 ...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
 ....\hbox(0.0+0.0)x0.0
 .....\glue 0.0
@@ -292,14 +299,15 @@ Completed box being shipped out [2]
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.32721
-...\hbox(7.5+2.49998)x335.0, glue set 103.14998fil, shifted 10.0
-....\hbox(0.0+0.0)x-10.0
-.....\glue -10.0
-.....\glue -20.0
+...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
 .....\glue -5.0
-.....\hbox(0.0+0.0)x20.0, glue set 20.0fill
+.....\hbox(7.5+2.49998)x10.56
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
@@ -325,14 +333,15 @@ Completed box being shipped out [2]
 ...\glue 8.0 plus 4.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.49998)x335.0, glue set 103.14998fil, shifted 10.0
-....\hbox(0.0+0.0)x-10.0
-.....\glue -10.0
-.....\glue -20.0
+...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
 .....\glue -5.0
-.....\hbox(0.0+0.0)x20.0, glue set 20.0fill
+.....\hbox(7.5+2.49998)x10.56
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
