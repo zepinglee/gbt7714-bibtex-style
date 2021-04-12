@@ -468,7 +468,6 @@
 %
 % 将选项传递给 \pkg{natbib}
 %    \begin{macrocode}
-\PassOptionsToPackage{compress}{natbib}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
 \ProcessOptions\relax
 %    \end{macrocode}
@@ -477,6 +476,12 @@
 %    \begin{macrocode}
 \RequirePackage{natbib}
 \RequirePackage{url}
+%    \end{macrocode}
+%
+% 如果将 \opt{compress} 传给 \pkg{natbib} 容易导致 option clash。
+% 这里直接修改内部命令。
+%    \begin{macrocode}
+\def\NAT@cmprs{\@ne}
 %    \end{macrocode}
 %
 % \begin{macro}{\citestyle}
