@@ -34,7 +34,7 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》是中国的
 
 ## 版本 v2.0 的重要修改
 
-从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 `\biblilographystyle` 命令选择参考文献样式，
+从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 `\bibliographystyle` 命令选择参考文献样式，
 如 `gbt7714-numerical` 或 `gbt7714-author-year`。
 在早期的版本中，选择文献样式的方法是将 `numbers` 或 `super` 等参数传递给 `gbt7714`，
 而不能使用 `\bibliographystyle`。
