@@ -1282,11 +1282,16 @@ FUNCTION {format.periodical.year}
 }
 
 FUNCTION {format.date}
-{ type$ "patent" = type$ "newspaper" = or
-  date empty$ not and
-    { date }
-    { year field.or.null
-      extra.label *
+{ date empty$ not
+    { type$ "patent" = type$ "newspaper" = or
+        { date }
+        { format.year }
+      if$
+    }
+    { year empty$ not
+        { format.year }
+        { "" }
+      if$
     }
   if$
 }
