@@ -51,6 +51,7 @@ INTEGERS {
   show.preprint
   show.note
   show.english.translation
+  end.with.period
   lang.zh.order
   lang.ja.order
   lang.en.order
@@ -90,6 +91,7 @@ FUNCTION {load.config}
   #0 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
+  #1 'end.with.period :=
   #1 'lang.zh.order :=
   #2 'lang.ja.order :=
   #3 'lang.en.order :=
@@ -345,7 +347,10 @@ FUNCTION {output.check}
 }
 
 FUNCTION {fin.entry}
-{ add.period$
+{ end.with.period
+    'add.period$
+    'skip$
+  if$
   write$
   show.english.translation entry.lang lang.zh = and
     { ")"

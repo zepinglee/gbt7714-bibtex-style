@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - 新增选项 `italic.book.title` 控制书名使用斜体。
 - 新增选项 `wave.dash.in.pages` 控制起止页码使用波浪号。
+- 新增选项 `end.with.period` 控制结尾加句点。
 
 ### Fixed
 - 修正了 `article` 只有 `date` 时年份缺失的问题（ustctug/ustcthesis#299）。
