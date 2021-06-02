@@ -29,6 +29,7 @@ INTEGERS {
   terms.in.macro
   year.after.author
   period.after.author
+  italic.book.title
   sentence.case.title
   link.title
   title.in.journal
@@ -66,6 +67,7 @@ FUNCTION {load.config}
   #1 'terms.in.macro :=
   #0 'year.after.author :=
   #0 'period.after.author :=
+  #0 'italic.book.title :=
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
@@ -428,10 +430,18 @@ FUNCTION {field.or.null}
   if$
 }
 
-FUNCTION {italicize}
+FUNCTION {emphasize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textit{" swap$ * "}" * }
+    { "\emph{" swap$ * "}" * }
+  if$
+}
+
+FUNCTION {format.btitle}
+{ italic.book.title
+  entry.lang lang.en = and
+    'emphasize
+    'skip$
   if$
 }
 
@@ -917,6 +927,7 @@ FUNCTION {format.series.vol.num.title}
     }
     { format.title.vol.num }
   if$
+  format.btitle
   link.title
     'add.link
     'skip$
@@ -948,6 +959,7 @@ FUNCTION {format.series.vol.num.booktitle}
     }
     { format.booktitle.vol.num }
   if$
+  format.btitle
   in.booktitle
     { duplicate$ empty$ not entry.lang lang.en = and
         { "In: " swap$ * }
@@ -1017,7 +1029,7 @@ FUNCTION {format.journal}
   if$
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
-        'italicize
+        'emphasize
         'skip$
       if$
     }

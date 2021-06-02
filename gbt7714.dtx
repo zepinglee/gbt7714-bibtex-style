@@ -292,6 +292,7 @@
 %   max.num.authors                & |#3|   & 输出著者的最多数量             \\
 %   year.after.author              & |#0|   & 年份置于著者之后               \\
 %   period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
+%   italic.book.title              & |#0|   & 西文书籍名使用斜体             \\
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
@@ -844,6 +845,7 @@ INTEGERS {
   terms.in.macro
   year.after.author
   period.after.author
+  italic.book.title
   sentence.case.title
   link.title
   title.in.journal
@@ -942,11 +944,21 @@ FUNCTION {load.config}
 %</authoryear>
 %    \end{macrocode}
 %
-% 英文标题转为 sentence case （句首字母大写，其余小写）：
-%<*!nosentencecase>
+% 书名使用斜体：
 %    \begin{macrocode}
-%</!nosentencecase>
+%<*!italic-book-title>
+  #0 'italic.book.title :=
+%</!italic-book-title>
+%<*italic-book-title>
+  #1 'italic.book.title :=
+%</italic-book-title>
+%    \end{macrocode}
+%
+% 英文标题转为 sentence case （句首字母大写，其余小写）：
+%    \begin{macrocode}
+%<*!nosentencecase>
   #1 'sentence.case.title :=
+%</!nosentencecase>
 %<*nosentencecase>
   #0 'sentence.case.title :=
 %</nosentencecase>
@@ -1725,10 +1737,18 @@ FUNCTION {field.or.null}
   if$
 }
 
-FUNCTION {italicize}
+FUNCTION {emphasize}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textit{" swap$ * "}" * }
+    { "\emph{" swap$ * "}" * }
+  if$
+}
+
+FUNCTION {format.btitle}
+{ italic.book.title
+  entry.lang lang.en = and
+    'emphasize
+    'skip$
   if$
 }
 
@@ -2379,6 +2399,7 @@ FUNCTION {format.series.vol.num.title}
     }
     { format.title.vol.num }
   if$
+  format.btitle
   link.title
     'add.link
     'skip$
@@ -2413,6 +2434,7 @@ FUNCTION {format.series.vol.num.booktitle}
     }
     { format.booktitle.vol.num }
   if$
+  format.btitle
   in.booktitle
     { duplicate$ empty$ not entry.lang lang.en = and
         { "In: " swap$ * }
@@ -2482,7 +2504,7 @@ FUNCTION {format.journal}
   if$
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
-        'italicize
+        'emphasize
         'skip$
       if$
     }
