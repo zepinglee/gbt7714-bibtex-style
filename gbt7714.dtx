@@ -303,6 +303,7 @@
 %   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
+%   wave.dash.in.pages             & |#0|   & 起止页码使用波浪号             \\
 %   show.urldate                   & |#1|   & 显示引用日期 urldate           \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 DOI                       \\
@@ -860,6 +861,7 @@ INTEGERS {
   show.missing.address.publisher
   space.before.pages
   only.start.page
+  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
@@ -1082,6 +1084,16 @@ FUNCTION {load.config}
 %<*only-start-page>
   #1 'only.start.page :=
 %</only-start-page>
+%    \end{macrocode}
+%
+% 起止页码使用波浪号：
+%    \begin{macrocode}
+%<*!wave-dash-in-pages>
+  #0 'wave.dash.in.pages :=
+%</!wave-dash-in-pages>
+%<*wave-dash-in-pages>
+  #1 'wave.dash.in.pages :=
+%</wave-dash-in-pages>
 %    \end{macrocode}
 %
 % 是否著录非电子文献的引用日期：
@@ -2897,7 +2909,10 @@ FUNCTION {hyphenate}
   ""
     { t empty$ not }
     { t #1 #1 substring$ "-" =
-        { "-" *
+        { wave.dash.in.pages
+            { "～" * }
+            { "-" * }
+          if$
             { t #1 #1 substring$ "-" = }
             { t #2 global.max$ substring$ 't := }
           while$
