@@ -1,4 +1,4 @@
-REMOTE="https://mirrors.rit.edu/CTAN/systems/texlive/tlnet";
+REMOTE="https://mirrors.ctan.org/systems/texlive/tlnet";
 INSTALL="/tmp/install-texlive";
 
 mkdir -p "$INSTALL";
@@ -9,14 +9,13 @@ curl -sSL "$REMOTE/install-tl-unx.tar.gz" | tar -xz -C "$INSTALL" \
 
 export PATH="/tmp/texlive/bin/x86_64-linux:$PATH";
 
-XETEX_PKGS="fontname fontspec l3packages xetex";
-CTEX_PKGS="cjk ctex environ everysel trimspaces ulem xecjk zhnumber";
-HYPERREF_PKGS="bitset letltxmacro pdfescape pdflscape";
+XECJK_PKGS="fontspec ulem xecjk xetex";
+CTEX_PKGS="cjk ctex environ everysel trimspaces zhnumber";
 
 BIN_PKGS="latexmk l3build";
-REQUIRED_PKGS="$XETEX_PKGS $CTEX_PKGS";
+REQUIRED_PKGS="$XECJK_PKGS $CTEX_PKGS";
 FONT_PKGS="fandol";
 EXTRA_PKGS="bibunits cite";
-DOC_PKGS="booktabs caption $HYPERREF_PKGS listings xcolor";
+DOC_PKGS="booktabs caption listings xcolor";
 
 tlmgr install $BIN_PKGS $REQUIRED_PKGS $FONT_PKGS $EXTRA_PKGS $DOC_PKGS;
