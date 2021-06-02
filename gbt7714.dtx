@@ -964,12 +964,12 @@ FUNCTION {load.config}
 %
 % 期刊是否含标题：
 %    \begin{macrocode}
-%<*!(title-in-journal|npr)>
+%<*!no-title-in-journal>
   #1 'title.in.journal :=
-%</!(title-in-journal|npr)>
-%<*title-in-journal|npr>
+%</!no-title-in-journal>
+%<*no-title-in-journal>
   #0 'title.in.journal :=
-%</title-in-journal|npr>
+%</no-title-in-journal>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
@@ -1019,12 +1019,12 @@ FUNCTION {load.config}
 %
 % 期刊名使用缩写：
 %    \begin{macrocode}
-%<*!(short-journal|npr)>
+%<*!short-journal>
   #0 'short.journal :=
-%</!(short-journal|npr)>
-%<*short-journal|npr>
+%</!short-journal>
+%<*short-journal>
   #1 'short.journal :=
-%</short-journal|npr>
+%</short-journal>
 %    \end{macrocode}
 %
 % 期刊名使用斜体：
@@ -1064,12 +1064,12 @@ FUNCTION {load.config}
 %
 % 页码是否只含起始页：
 %    \begin{macrocode}
-%<*!(only-start-page|npr)>
+%<*!only-start-page>
   #0 'only.start.page :=
-%</!(only-start-page|npr)>
-%<*only-start-page|npr>
+%</!only-start-page>
+%<*only-start-page>
   #1 'only.start.page :=
-%</only-start-page|npr>
+%</only-start-page>
 %    \end{macrocode}
 %
 % 是否著录非电子文献的引用日期：
@@ -1104,12 +1104,12 @@ FUNCTION {load.config}
 %
 % 是否著录 e-print：
 %    \begin{macrocode}
-%<*!(preprint|npr)>
+%<*!preprint>
   #0 'show.preprint :=
-%</!(preprint|npr)>
-%<*preprint|npr>
+%</!preprint>
+%<*preprint>
   #1 'show.preprint :=
-%</preprint|npr>
+%</preprint>
 %    \end{macrocode}
 %
 % 在每一条文献最后输出注释（note）的内容：
@@ -1119,12 +1119,12 @@ FUNCTION {load.config}
 %
 % 中文文献是否显示英文翻译
 %    \begin{macrocode}
-%<*!(show-english-translation|npr)>
+%<*!show-english-translation>
   #0 'show.english.translation :=
-%</!(show-english-translation|npr)>
-%<*show-english-translation|npr>
+%</!show-english-translation>
+%<*show-english-translation>
   #1 'show.english.translation :=
-%</show-english-translation|npr>
+%</show-english-translation>
 %    \end{macrocode}
 %
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
@@ -2447,48 +2447,6 @@ FUNCTION {abbreviate}
     { "Phys Rev Lett" }
     'skip$
   if$
-%<*npr>
-  s "china physics c" =
-    { "Chin Phys C" }
-    'skip$
-  if$
-  s "chinese physics letters" =
-    { "Chin Phys Lett" }
-    'skip$
-  if$
-  s "nuclear instruments and methods in physics research section a" =
-    { "Nucl Instr and Meth A" }
-    'skip$
-  if$
-  s "nuclear instruments and methods in physics research section a: accelerators, spectrometers, detectors and associated equipment" =
-    { "Nucl Instr and Meth A" }
-    'skip$
-  if$
-  s "nuclear instruments and methods in physics research section b" =
-    { "Nucl Instr and Meth B" }
-    'skip$
-  if$
-  s "nuclear instruments and methods in physics research section b: beam interactions with materials and atoms" =
-    { "Nucl Instr and Meth B" }
-    'skip$
-  if$
-  s "physical review c" =
-    { "Phys Rev C" }
-    'skip$
-  if$
-  s "physical review d" =
-    { "Phys Rev D" }
-    'skip$
-  if$
-  s "physical review e" =
-    { "Phys Rev E" }
-    'skip$
-  if$
-  s "physics letters b" =
-    { "Phys Lett B" }
-    'skip$
-  if$
-%</npr>
   's :=
   s empty$
     { t }
