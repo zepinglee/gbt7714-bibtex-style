@@ -837,7 +837,7 @@
 % 这里定义了一些变量用于定制样式，
 % 可以在下面的 |load.config| 函数中选择是否启用。
 %    \begin{macrocode}
-%<*authoryear|numerical>
+%<*author-year|numerical>
 INTEGERS {
   citation.et.al.min
   citation.et.al.use.first
@@ -870,13 +870,13 @@ INTEGERS {
   show.note
   show.english.translation
   end.with.period
-%<*authoryear>
+%<*author-year>
   lang.zh.order
   lang.ja.order
   lang.en.order
   lang.ru.order
   lang.other.order
-%</authoryear>
+%</author-year>
 }
 
 %    \end{macrocode}
@@ -905,12 +905,12 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
-%<*!(nouppercase|thu)>
+%<*!(no-uppercase|thu)>
   #1 'uppercase.name :=
-%</!(nouppercase|thu)>
-%<*nouppercase|thu>
+%</!(no-uppercase|thu)>
+%<*no-uppercase|thu>
   #0 'uppercase.name :=
-%</nouppercase|thu>
+%</no-uppercase|thu>
 %    \end{macrocode}
 %
 % 使用 TeX 宏输出“和”、“等”
@@ -928,9 +928,9 @@ FUNCTION {load.config}
 %<*numerical|ucas>
   #0 'year.after.author :=
 %</numerical|ucas>
-%<*authoryear&!ucas>
+%<*author-year&!ucas>
   #1 'year.after.author :=
-%</authoryear&!ucas>
+%</author-year&!ucas>
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
@@ -938,14 +938,14 @@ FUNCTION {load.config}
 %<*numerical>
   #1 'period.after.author :=
 %</numerical>
-%<*authoryear>
+%<*author-year>
 %<*2015&!(period|ustc)>
   #0 'period.after.author :=
 %</2015&!(period|ustc)>
 %<*period|2005|ustc>
   #1 'period.after.author :=
 %</period|2005|ustc>
-%</authoryear>
+%</author-year>
 %    \end{macrocode}
 %
 % 书名使用斜体：
@@ -960,22 +960,22 @@ FUNCTION {load.config}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
 %    \begin{macrocode}
-%<*!nosentencecase>
+%<*!no-sentence-case>
   #1 'sentence.case.title :=
-%</!nosentencecase>
-%<*nosentencecase>
+%</!no-sentence-case>
+%<*no-sentence-case>
   #0 'sentence.case.title :=
-%</nosentencecase>
+%</no-sentence-case>
 %    \end{macrocode}
 %
 % 在标题添加超链接：
 %    \begin{macrocode}
-%<*!linktitle>
+%<*!link-title>
   #0 'link.title :=
-%</!linktitle>
-%<*linktitle>
+%</!link-title>
+%<*link-title>
   #1 'link.title :=
-%</linktitle>
+%</link-title>
 %    \end{macrocode}
 %
 % 期刊是否含标题：
@@ -990,12 +990,12 @@ FUNCTION {load.config}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
 %    \begin{macrocode}
-%<*!nomark>
+%<*!no-mark>
   #1 'show.mark :=
-%</!nomark>
-%<*nomark>
+%</!no-mark>
+%<*no-mark>
   #0 'show.mark :=
-%</nomark>
+%</no-mark>
 %    \end{macrocode}
 %
 % 文献类型标识前是否有空格：
@@ -1010,22 +1010,22 @@ FUNCTION {load.config}
 %
 % 是否显示载体类型标识（比如“/OL“）：
 %    \begin{macrocode}
-%<*!no.medium.type>
+%<*!no-medium-type>
   #1 'show.medium.type :=
-%</!no.medium.type>
-%<*no.medium.type>
+%</!no-medium-type>
+%<*no-medium-type>
   #0 'show.medium.type :=
-%</no.medium.type>
+%</no-medium-type>
 %    \end{macrocode}
 %
 % 使用“//”表示析出文献
 %    \begin{macrocode}
-%<*!noslash>
+%<*!no-slash>
   #1 'slash.for.extraction :=
-%</!noslash>
-%<*noslash>
+%</!no-slash>
+%<*no-slash>
   #0 'slash.for.extraction :=
-%</noslash>
+%</no-slash>
 %    \end{macrocode}
 %
 % 使用“In:”表示析出文献
@@ -1045,12 +1045,12 @@ FUNCTION {load.config}
 %
 % 期刊名使用斜体：
 %    \begin{macrocode}
-%<*!italicjournal>
+%<*!italic-journal>
   #0 'italic.journal :=
-%</!italicjournal>
-%<*italicjournal>
+%</!italic-journal>
+%<*italic-journal>
   #1 'italic.journal :=
-%</italicjournal>
+%</italic-journal>
 %    \end{macrocode}
 %
 % 期刊的卷使用粗体：
@@ -1070,9 +1070,9 @@ FUNCTION {load.config}
 %
 % 页码与前面的冒号之间是否有空格：
 %    \begin{macrocode}
-%<*!(no-space-before-pages)>
+%<*!no-space-before-pages>
   #1 'space.before.pages :=
-%</!(no-space-before-pages)>
+%</!no-space-before-pages>
 %<*no-space-before-pages>
   #0 'space.before.pages :=
 %</no-space-before-pages>
@@ -1110,22 +1110,22 @@ FUNCTION {load.config}
 %
 % 是否著录 URL：
 %    \begin{macrocode}
-%<*!nourl>
+%<*!no-url>
   #1 'show.url :=
-%</!nourl>
-%<*nourl>
+%</!no-url>
+%<*no-url>
   #0 'show.url :=
-%</nourl>
+%</no-url>
 %    \end{macrocode}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
-%<*!(nodoi|2005)>
+%<*!(no-doi|2005)>
   #1 'show.doi :=
-%</!(nodoi|2005)>
-%<*nodoi|2005>
+%</!(no-doi|2005)>
+%<*no-doi|2005>
   #0 'show.doi :=
-%</nodoi|2005>
+%</no-doi|2005>
 %    \end{macrocode}
 %
 % 是否著录 e-print：
@@ -1165,13 +1165,13 @@ FUNCTION {load.config}
 %
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
 %    \begin{macrocode}
-%<*authoryear>
+%<*author-year>
   #1 'lang.zh.order :=
   #2 'lang.ja.order :=
   #3 'lang.en.order :=
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
-%</authoryear>
+%</author-year>
 }
 
 %    \end{macrocode}
@@ -2065,9 +2065,9 @@ FUNCTION {format.authors}
 { author empty$ not
     { author format.names }
     { "empty author in " cite$ * warning$
-%<*authoryear>
+%<*author-year>
       bbl.anonymous
-%</authoryear>
+%</author-year>
 %<*numerical>
       ""
 %</numerical>
@@ -3281,9 +3281,9 @@ FUNCTION {monograph}
     { editor empty$ not
         { format.editors }
         { "empty author and editor in " cite$ * warning$
-%<*authoryear>
+%<*author-year>
           bbl.anonymous
-%</authoryear>
+%</author-year>
 %<*numerical>
           ""
 %</numerical>
@@ -3562,9 +3562,9 @@ FUNCTION {preprint}
     { editor empty$ not
         { format.editors }
         { "empty author and editor in " cite$ * warning$
-%<*authoryear>
+%<*author-year>
           bbl.anonymous
-%</authoryear>
+%</author-year>
 %<*numerical>
           ""
 %</numerical>
@@ -4244,7 +4244,7 @@ FUNCTION {calc.label}
 % names in the format described above.  The function is almost the same
 % as format.names.
 %    \begin{macrocode}
-%<*authoryear>
+%<*author-year>
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
     { lang.zh.order }
@@ -4394,7 +4394,7 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-%</authoryear>
+%</author-year>
 %    \end{macrocode}
 %
 % 顺序编码制的排序要简单得多
@@ -4427,7 +4427,7 @@ FUNCTION {presort}
   label sortify
   "    "
   *
-%<*authoryear>
+%<*author-year>
   sort.language.label
   "    "
   *
@@ -4453,7 +4453,7 @@ FUNCTION {presort}
   cite$
   *
   #1 entry.max$ substring$
-%</authoryear>
+%</author-year>
 %<*numerical>
   seq.num #1 + 'seq.num :=
   seq.num  int.to.fix
@@ -4664,7 +4664,7 @@ EXECUTE {begin.bib}
 ITERATE {call.type$}
 
 EXECUTE {end.bib}
-%</authoryear|numerical>
+%</author-year|numerical>
 %    \end{macrocode}
 % \end{environment}
 %

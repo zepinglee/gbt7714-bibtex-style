@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,ustc,authoryear')
+%% gbt7714.dtx  (with options: `2015,ustc,author-year')
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
