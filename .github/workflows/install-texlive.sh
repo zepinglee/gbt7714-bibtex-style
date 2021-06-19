@@ -9,8 +9,8 @@ curl -sSL "$REMOTE/install-tl-unx.tar.gz" | tar -xz -C "$INSTALL" \
 
 export PATH="/tmp/texlive/bin/x86_64-linux:$PATH";
 
-XECJK_PKGS="fontspec ulem xecjk xetex";
-CTEX_PKGS="cjk ctex environ everysel trimspaces zhnumber";
+XECJK_PKGS="fontspec xecjk xetex";
+CTEX_PKGS="cjk ctex everysel zhnumber";
 
 BIN_PKGS="latexmk l3build";
 REQUIRED_PKGS="$XECJK_PKGS $CTEX_PKGS";

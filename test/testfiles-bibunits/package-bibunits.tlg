@@ -17,6 +17,7 @@ Completed box being shipped out [1]
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 451.04085fil
@@ -29,6 +30,7 @@ Completed box being shipped out [1]
 .....\TU/lmr/bx/n/14.4 1
 .....\glue 14.4
 ....\TU/lmr/bx/n/14.4 Foo
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -36,6 +38,7 @@ Completed box being shipped out [1]
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.0347
 ...\hbox(8.87892+0.10999)x345.0, glue set 318.015fil
 ....\TU/lmr/m/n/10 Foo
@@ -48,22 +51,26 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/7 ]
 ....\mathoff
 ....\kern 1.0
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
 ...\glue 15.08499 plus 4.31 minus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.81001
 ...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
 ....\hbox(0.0+0.0)x0.0
 .....\glue 0.0
 ....\TU/lmr/bx/n/14.4 References
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.32721
 ...\hbox(7.5+2.49998)x329.44, glue set - 0.58081, shifted 15.56
@@ -221,6 +228,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 glyph#72
 ....\mathoff
 ....\TU/lmr/m/n/10 .
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -233,6 +241,7 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0
 .\kern 0.0
 (section2.tex (bu2.aux)
 (bu2.bbl) (bu2.aux)
@@ -245,6 +254,7 @@ Completed box being shipped out [2]
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
 ...\glue 0.0 plus 1.0fil
 ...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
 ..\vbox(550.0+0.0)x345.0, glue set 443.0417fil
@@ -258,6 +268,7 @@ Completed box being shipped out [2]
 .....\TU/lmr/bx/n/14.4 2
 .....\glue 14.4
 ....\TU/lmr/bx/n/14.4 Bar
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -265,6 +276,7 @@ Completed box being shipped out [2]
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.0347
 ...\hbox(8.87892+0.10999)x345.0, glue set 311.31699fil
 ....\TU/lmr/m/n/10 Bar
@@ -281,22 +293,26 @@ Completed box being shipped out [2]
 .....\TU/lmr/m/n/7 ]
 ....\mathoff
 ....\kern 1.0
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -300
 ...\glue 15.08499 plus 4.31 minus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 7.81001
 ...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
 ....\hbox(0.0+0.0)x0.0
 .....\glue 0.0
 ....\TU/lmr/bx/n/14.4 References
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty 10000
 ...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.32721
 ...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
@@ -326,11 +342,13 @@ Completed box being shipped out [2]
 ....\TU/lmr/m/n/10 Journal,
 ....\glue 3.33 plus 2.08124 minus 0.888
 ....\TU/lmr/m/n/10 1991.
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
 ...\penalty -51
 ...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.00002
 ...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
@@ -360,6 +378,7 @@ Completed box being shipped out [2]
 ....\TU/lmr/m/n/10 Journal,
 ....\glue 3.33 plus 2.08124 minus 0.888
 ....\TU/lmr/m/n/10 1992.
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -372,3 +391,4 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 0.0001fil
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0
