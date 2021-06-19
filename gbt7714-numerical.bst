@@ -8,7 +8,7 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2021/04/03 v2.1.1
+%% Version: 2021/06/20 v2.1.2
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016—2021 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
@@ -573,7 +573,7 @@ FUNCTION {format.name}
     { bbl.et.al }
     { t get.str.lang 'name.lang :=
       name.lang lang.en =
-        { t #1 "{vv~}{ll}{~f{~}}" format.name$
+        { t #1 "{vv~}{ll}{ f{~}}" format.name$
           uppercase.name
             { "u" change.case$ }
             'skip$

@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+
+## [v2.1.2] - 2021-06-20
 ### Added
 - 新增选项 `italic.book.title` 控制书名使用斜体。
 - 新增选项 `wave.dash.in.pages` 控制起止页码使用波浪号。
@@ -139,7 +141,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.2...HEAD
+[v2.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
 [v2.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1...v2.1.1
 [v2.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.2...v2.1
 [v2.0.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
