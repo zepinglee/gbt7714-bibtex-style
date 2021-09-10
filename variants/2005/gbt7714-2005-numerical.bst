@@ -1313,9 +1313,9 @@ FUNCTION {format.editdate}
 }
 
 FUNCTION {format.urldate}
-{ urldate empty$ not
-  show.urldate show.url and is.pure.electronic or and
-  url empty$ not and
+{ show.urldate show.url and entry.url empty$ not and
+  is.pure.electronic or
+  urldate empty$ not and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -1449,12 +1449,9 @@ FUNCTION {check.url}
   if$
 }
 
-FUNCTION {format.url}
-{ entry.url
-}
-
 FUNCTION {output.url}
-{ entry.url empty$ not
+{ show.url is.pure.electronic or
+  entry.url empty$ not and
     { new.block
       entry.url output
     }

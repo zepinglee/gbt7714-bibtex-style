@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Fixed
+- 修正了只有 `howpublished` 时的 URL 显示问题（stone-zeng/fduthesis#218）。
 
 ## [v2.1.2] - 2021-06-20
 ### Added

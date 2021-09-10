@@ -2850,7 +2850,7 @@ FUNCTION {format.date}
 
 %    \end{macrocode}
 %
-% 更新、修改日期只用于电子资源 elctronic
+% 更新、修改日期只用于电子资源 electronic
 %    \begin{macrocode}
 FUNCTION {format.editdate}
 { date empty$ not
@@ -2865,9 +2865,9 @@ FUNCTION {format.editdate}
 % 不是 \BibTeX{} 标准的域，但是实际中很常见。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ urldate empty$ not
-  show.urldate show.url and is.pure.electronic or and
-  url empty$ not and
+{ show.urldate show.url and entry.url empty$ not and
+  is.pure.electronic or
+  urldate empty$ not and
     { "\allowbreak[" urldate * "]" * }
     { "" }
   if$
@@ -3070,12 +3070,9 @@ FUNCTION {check.url}
   if$
 }
 
-FUNCTION {format.url}
-{ entry.url
-}
-
 FUNCTION {output.url}
-{ entry.url empty$ not
+{ show.url is.pure.electronic or
+  entry.url empty$ not and
     { new.block
       entry.url output
     }
