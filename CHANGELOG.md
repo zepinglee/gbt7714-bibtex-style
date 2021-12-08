@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - 新增选项 `show.patent.country` 控制专利文献的题名是否含专利国别。
 
+### Changed
+
+- 预印本 `@preprint` 的文献类型标识改为“`A`”（#89）。
+- 预印本的信息（如“arXiv: 1703.03400”）改在日期后输出（#89）。
+- 默认显示预印本的信息（#89）。
+
 ### Fixed
 - 修正了只有 `howpublished` 时的 URL 显示问题（stone-zeng/fduthesis#218）。
 - 修正了出版年后缀超出“z”的问题（#90）。

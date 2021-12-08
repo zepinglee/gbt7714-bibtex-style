@@ -11,19 +11,20 @@
   \let\eprint\href
 \fi
 
+\bibitem[Kingma et~al.(2014)Kingma and Ba]{kingma2014adam}
+KINGMA D~P, BA J.
+\newblock Adam: A method for stochastic optimization\allowbreak[A/OL].
+\newblock 2014\allowbreak[2017-04-19].
+\newblock arXiv: \eprint{http://arxiv.org/abs/1412.6980}{1412.6980}.
+\newblock \url{http://arxiv.org/abs/1412.6980}.
+
 \bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017modelagnostic}
 FINN C, ABBEEL P, LEVINE S.
 \newblock Model-agnostic meta-learning for fast adaptation of deep
-  networks\allowbreak[Z].
-\newblock arXiv: \eprint{https://arxiv.org/abs/1703.03400}{1703.03400}, 2017.
-
-\bibitem[Liang et~al.(2019)Liang, Zhang, Sun, He, Huang, Zhuang, and
-  Li]{liang_darts_2019}
-LIANG H, ZHANG S, SUN J, et~al.
-\newblock {DARTS}+: Improved differentiable architecture search with early
-  stopping\allowbreak[Z/OL].
-\newblock arxiv: \eprint{http://arxiv.org/abs/1909.06035}{1909.06035}, 2019.
-\newblock \url{http://arxiv.org/abs/1909.06035}.
+  networks\allowbreak[A/OL].
+\newblock \allowbreak(2017-07-17)\allowbreak[2018-04-08].
+\newblock arXiv: \eprint{http://arxiv.org/abs/1703.03400}{1703.03400}.
+\newblock \url{http://arxiv.org/abs/1703.03400}.
 
 \bibitem[陈登原(2000)]{4.1.2:1}
 陈登原.

@@ -85,7 +85,7 @@ FUNCTION {load.config}
   #1 'show.urldate :=
   #1 'show.url :=
   #0 'show.doi :=
-  #0 'show.preprint :=
+  #1 'show.preprint :=
   #0 'show.note :=
   #0 'show.english.translation :=
   #1 'end.with.period :=
@@ -1018,16 +1018,15 @@ FUNCTION {abbreviate}
   if$
 }
 
-FUNCTION {format.journal}
-{ ""
-  short.journal
+FUNCTION {get.journal.title}
+{ short.journal
     { shortjournal empty$ not
-        { shortjournal * }
+        { shortjournal }
         { journal empty$ not
-            { journal * abbreviate }
+            { journal abbreviate }
             { journaltitle empty$ not
-                { journaltitle * abbreviate }
-                'skip$
+                { journaltitle abbreviate }
+                { "" }
               if$
             }
           if$
@@ -1035,15 +1034,30 @@ FUNCTION {format.journal}
       if$
     }
     { journal empty$ not
-        { journal * }
+        { journal }
         { journaltitle empty$ not
-            { journaltitle * }
-            'skip$
+            { journaltitle }
+            { shortjournal empty$ not
+                { shortjournal }
+                { "" }
+              if$
+            }
           if$
         }
       if$
     }
   if$
+}
+
+FUNCTION {check.arxiv.preprint}
+{ #1 #5 substring$ "l" change.case$ "arxiv" =
+    { #1 }
+    { #0 }
+  if$
+}
+
+FUNCTION {format.journal}
+{ get.journal.title
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
         'emphasize
@@ -1572,9 +1586,9 @@ FUNCTION {check.electronic}
 }
 
 FUNCTION {format.eprint}
-{ eprinttype empty$ not
-    { eprinttype }
-    { archivePrefix empty$ not
+{ archivePrefix empty$ not
+    { archivePrefix }
+    { eprinttype empty$ not
         { archivePrefix }
         { "" }
       if$
@@ -1765,7 +1779,7 @@ FUNCTION {periodical}
   fin.entry
 }
 
-FUNCTION {article}
+FUNCTION {journal.article}
 { output.bibitem
   output.translation
   format.authors output
@@ -1899,7 +1913,7 @@ FUNCTION {preprint}
   new.block
   title.in.journal
     { format.series.vol.num.title "title" output.check
-      "M" set.entry.mark
+      "Z" set.entry.mark
       format.mark "" output.after
       new.block
     }
@@ -1909,13 +1923,18 @@ FUNCTION {preprint}
   new.sentence
   format.edition output
   new.block
-  output.eprint
   year.after.author not
-    { format.year "year" output.check }
+    { date empty$
+        { format.date output }
+        'skip$
+      if$
+    }
     'skip$
   if$
   format.pages bbl.pages.colon output.after
+  format.editdate "" output.after
   format.urldate "" output.after
+  output.eprint
   output.url
   new.block
   format.note output
@@ -1923,13 +1942,19 @@ FUNCTION {preprint}
 }
 
 FUNCTION {misc}
-{ journal empty$ not
-    'article
-    { booktitle empty$ not
+{ get.journal.title
+  duplicate$ empty$ not
+    { check.arxiv.preprint
+        'preprint
+        'journal.article
+      if$
+    }
+    { pop$
+      booktitle empty$ not
         'incollection
         { publisher empty$ not
             'monograph
-            { eprint empty$ not show.preprint and
+            { eprint empty$ not archivePrefix empty$ not or
                 'preprint
                 { entry.is.electronic
                     'electronic
@@ -1953,6 +1978,8 @@ FUNCTION {archive}
 { "A" set.entry.mark
   misc
 }
+
+FUNCTION {article} { misc }
 
 FUNCTION {book} { monograph }
 
@@ -1981,6 +2008,8 @@ FUNCTION {inproceedings}
 }
 
 FUNCTION {conference} { inproceedings }
+
+FUNCTION {legislation} { archive }
 
 FUNCTION {map}
 { "CM" set.entry.mark

@@ -12,7 +12,7 @@
 \nopostamble
 \generate{
   \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical,preprint}}
+  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical}}
   \file{test.bib}{\from{\jobname.dtx}{bib}}
 }
 \endbatchfile
@@ -35,23 +35,31 @@
 %
 %    \begin{macrocode}
 %<*bib>
-@misc{finn2017modelagnostic,
-    title={Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks},
-    author={Chelsea Finn and Pieter Abbeel and Sergey Levine},
-    year={2017},
-    eprint={1703.03400},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+@preprint{kingma2014adam,
+  title         = {Adam: A Method for Stochastic Optimization},
+  shorttitle    = {Adam},
+  author        = {Kingma, Diederik P. and Ba, Jimmy},
+  year          = {2014},
+  month         = dec,
+  eprint        = {1412.6980},
+  eprinttype    = {arxiv},
+  url           = {http://arxiv.org/abs/1412.6980},
+  urldate       = {2017-04-19},
+  archiveprefix = {arXiv},
 }
 
-@unpublished{liang_darts_2019,
-	title = {{DARTS}+: Improved Differentiable Architecture Search with Early Stopping},
-	url = {http://arxiv.org/abs/1909.06035},
-	shorttitle = {{DARTS}+},
-	author = {Liang, Hanwen and Zhang, Shifeng and Sun, Jiacheng and He, Xingqiu and Huang, Weiran and Zhuang, Kechen and Li, Zhenguo},
-	date = {2019-09-13},
-	eprinttype = {arxiv},
-	eprint = {1909.06035},
+@article{finn2017modelagnostic,
+  title         = {Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks},
+  author        = {Finn, Chelsea and Abbeel, Pieter and Levine, Sergey},
+  date          = {2017-07-17},
+  month         = jul,
+  journal       = {arXiv:1703.03400 [cs]},
+  eprint        = {1703.03400},
+  eprinttype    = {arxiv},
+  primaryclass  = {cs},
+  url           = {http://arxiv.org/abs/1703.03400},
+  urldate       = {2018-04-08},
+  archiveprefix = {arXiv},
 }
 
 %</bib>
