@@ -11,6 +11,7 @@
 \askforoverwritefalse
 \nopostamble
 \generate{
+  \file{test.aux}{\from{\jobname.dtx}{aux}}
   \file{test.bst}{\from{gbt7714.dtx}{2015,numerical,link-title}}
   \file{test.bib}{\from{\jobname.dtx}{bib}}
 }
@@ -23,6 +24,14 @@
 \ProvidesFile{\jobname.dtx}
 %</driver>
 % \fi
+%
+%    \begin{macrocode}
+%<*aux>
+\bibstyle{test}
+\citation{*}
+\bibdata{test,standard}
+%</aux>
+%    \end{macrocode}
 %
 %    \begin{macrocode}
 %<*bib>

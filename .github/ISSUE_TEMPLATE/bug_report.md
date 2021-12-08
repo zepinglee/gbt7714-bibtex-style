@@ -14,13 +14,13 @@ about: Create a report to help us improve
 bib 数据库代码：
 ```TeX
 @book{knuth86a,
-  author    = {Donald E. Knuth},
-  title     = {The {\TeX}book},
-  volume    = {A},
-  publisher = {Addison-Wesley},
-  address   = {Reading, MA, USA},
-  year      = {1986},
-  series    = {Computers and Typesetting},
+  author       = {Donald E. Knuth},
+  title        = {The {\TeX}book},
+  volume       = {A},
+  publisher    = {Addison-Wesley},
+  address      = {Reading, MA, USA},
+  year         = {1986},
+  series       = {Computers and Typesetting},
 }
 ```
 

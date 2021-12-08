@@ -17,7 +17,6 @@ cp -f "gbt7714.dtx" "$unpackdir";
 if [ ! -d "$testdir" ]; then
     mkdir -p "$testdir";
 fi
-cp -f "$testfiledir/support/test.aux" "$testdir";
 cp -f "$testfiledir/support/standard.bib" "$testdir";
 
 
@@ -33,6 +32,7 @@ if [ -z "$1" ]; then
         cp -f "$file" "$unpackdir";  # test bib file
 
         ( cd "$unpackdir"; $unpackexe $filename > /dev/null; )
+        cp -f "$unpackdir/test.aux" "$testdir"
         cp -f "$unpackdir/test.bst" "$testdir"
         cp -f "$unpackdir/test.bib" "$testdir"
 
@@ -68,6 +68,7 @@ else
     cp -f "$file" "$unpackdir";  # test bib file
 
     ( cd "$unpackdir"; $unpackexe $filename; )
+    cp -f "$unpackdir/test.aux" "$testdir";
     cp -f "$unpackdir/test.bst" "$testdir";
     cp -f "$unpackdir/test.bib" "$testdir";
 
