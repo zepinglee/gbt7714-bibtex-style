@@ -2286,46 +2286,12 @@ FUNCTION {initialize.longest.label}
 }
 
 FUNCTION {forward.pass}
-{ last.label short.label =
-    { "" 'extra.label :=
-      last.extra.label text.length$ 'charptr :=
-        { last.extra.label charptr #1 substring$ "z" =
-          charptr #0 > and
-        }
-        { "a" extra.label * 'extra.label :=
-          charptr #1 - 'charptr :=
-        }
-      while$
-      charptr #0 >
-        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-          extra.label * 'extra.label :=
-          last.extra.label #1 charptr #1 - substring$
-          extra.label * 'extra.label :=
-        }
-        { "a" extra.label * 'extra.label := }
-      if$
-      extra.label 'last.extra.label :=
-    }
-    { "a" 'last.extra.label :=
-      "" 'extra.label :=
-      short.label 'last.label :=
-    }
-  if$
+{
   number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{ next.extra "b" =
-    { "a" 'extra.label := }
-    'skip$
-  if$
-  extra.label 'next.extra :=
-  extra.label
-  duplicate$ empty$
-    'skip$
-    { "{\natexlab{" swap$ * "}}" * }
-  if$
-  'extra.label :=
+{
   label extra.label * 'label :=
 }
 

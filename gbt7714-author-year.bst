@@ -2445,7 +2445,8 @@ FUNCTION {initialize.longest.label}
 }
 
 FUNCTION {forward.pass}
-{ last.label short.label =
+{
+  last.label short.label =
     { "" 'extra.label :=
       last.extra.label text.length$ 'charptr :=
         { last.extra.label charptr #1 substring$ "z" =
@@ -2474,7 +2475,8 @@ FUNCTION {forward.pass}
 }
 
 FUNCTION {reverse.pass}
-{ next.extra "b" =
+{
+  next.extra "b" =
     { "a" 'extra.label := }
     'skip$
   if$

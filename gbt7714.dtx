@@ -4524,7 +4524,9 @@ FUNCTION {initialize.longest.label}
 }
 
 FUNCTION {forward.pass}
-{ last.label short.label =
+{
+%<*author-year>
+  last.label short.label =
     { "" 'extra.label :=
       last.extra.label text.length$ 'charptr :=
         { last.extra.label charptr #1 substring$ "z" =
@@ -4549,11 +4551,14 @@ FUNCTION {forward.pass}
       short.label 'last.label :=
     }
   if$
+%</author-year>
   number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{ next.extra "b" =
+{
+%<*author-year>
+  next.extra "b" =
     { "a" 'extra.label := }
     'skip$
   if$
@@ -4564,6 +4569,7 @@ FUNCTION {reverse.pass}
     { "{\natexlab{" swap$ * "}}" * }
   if$
   'extra.label :=
+%</author-year>
   label extra.label * 'label :=
 }
 
