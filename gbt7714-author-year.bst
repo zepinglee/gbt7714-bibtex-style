@@ -2431,25 +2431,41 @@ FUNCTION {presort}
   'sort.key$ :=
 }
 
-STRINGS { longest.label last.label next.extra }
+STRINGS { longest.label last.label next.extra last.extra.label }
 
-INTEGERS { longest.label.width last.extra.num number.label }
+INTEGERS { longest.label.width number.label }
 
 FUNCTION {initialize.longest.label}
 { "" 'longest.label :=
   #0 int.to.chr$ 'last.label :=
   "" 'next.extra :=
   #0 'longest.label.width :=
-  #0 'last.extra.num :=
   #0 'number.label :=
+  "" 'last.extra.label :=
 }
 
 FUNCTION {forward.pass}
 { last.label short.label =
-    { last.extra.num #1 + 'last.extra.num :=
-      last.extra.num int.to.chr$ 'extra.label :=
+    { "" 'extra.label :=
+      last.extra.label text.length$ 'charptr :=
+        { last.extra.label charptr #1 substring$ "z" =
+          charptr #0 > and
+        }
+        { "a" extra.label * 'extra.label :=
+          charptr #1 - 'charptr :=
+        }
+      while$
+      charptr #0 >
+        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
+          extra.label * 'extra.label :=
+          last.extra.label #1 charptr #1 - substring$
+          extra.label * 'extra.label :=
+        }
+        { "a" extra.label * 'extra.label := }
+      if$
+      extra.label 'last.extra.label :=
     }
-    { "a" chr.to.int$ 'last.extra.num :=
+    { "a" 'last.extra.label :=
       "" 'extra.label :=
       short.label 'last.label :=
     }

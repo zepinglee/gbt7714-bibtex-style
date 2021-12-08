@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Fixed
 - 修正了只有 `howpublished` 时的 URL 显示问题（stone-zeng/fduthesis#218）。
+- 修正了出版年后缀超出“z”的问题（#90）。
 
 ## [v2.1.2] - 2021-06-20
 ### Added
