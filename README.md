@@ -2,9 +2,9 @@
 
 
 [![CTAN](https://img.shields.io/ctan/v/gbt7714.svg)](https://ctan.org/pkg/gbt7714)
-[![GitHub release](https://img.shields.io/github/release/CTeX-org/gbt7714-bibtex-style/all.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/releases/latest)
-[![GitHub commits](https://img.shields.io/github/commits-since/CTeX-org/gbt7714-bibtex-style/latest.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/commits/master)
-[![Build](https://github.com/CTeX-org/gbt7714-bibtex-style/workflows/build/badge.svg)](https://github.com/CTeX-org/gbt7714-bibtex-style/actions)
+[![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
+[![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/latest.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
+[![Build](https://github.com/zepinglee/gbt7714-bibtex-style/workflows/build/badge.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/actions)
 
 
 ## Introduction
@@ -16,7 +16,7 @@ LaTeX package which provides the citation style defined in the standard.
 It is compatible with `natbib` and supports language detection (Chinese
 and English) for each biblilography entry.
 
-- Homepage: https://github.com/CTeX-org/gbt7714-bibtex-style
+- Homepage: https://github.com/zepinglee/gbt7714-bibtex-style
 - Maintainer: Zeping Lee
 - Email: zepinglee AT gmail DOT com
 - License: LaTeX Project Public License 1.3c or later
@@ -24,12 +24,13 @@ and English) for each biblilography entry.
 
 ## 简介
 
-GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》是中国的参考文献推荐标准。
+GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参考文献推荐标准。
 本宏包是国标的 BibTeX 实现，主要有以下特性：
-- 兼容 `natbib`
-- 支持“顺序编码制”和“著者-出版年制”两种风格
-- 自动识别语言并进行相应处理
-- 提供了简单的接口供用户修改样式
+- 兼容 `natbib`。
+- 支持“顺序编码制”和“著者-出版年制”两种风格。
+- 自动识别语言并进行相应处理。
+- 提供了简单的接口供用户修改样式。
+- 同时提供了 2005 版的 `bst` 文件（[gbt7714-bibtex-style/variants/2005](https://github.com/zepinglee/gbt7714-bibtex-style/tree/master/variants/2005)）。
 
 
 ## 版本 v2.0 的重要修改
@@ -90,24 +91,24 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》是中国的
 
 文献类型         | 标识代码 | Entry Type
 ---              | :---:    | ---
-普通图书         | M        | `book`
-图书的析出文献   | M        | `incollection`
-会议录           | C        | `proceedings`
-会议录的析出文献 | C        | `inproceedings` 或 `conference`
-汇编             | G        | `collection`\*
-报纸             | N        | `newspaper`\*
-期刊的析出文献   | J        | `article`
-学位论文         | D        | `mastersthesis` 或 `phdthesis`
-报告             | R        | `techreport`
-标准             | S        | `standard`\*
-专利             | P        | `patent`\*
-数据库           | DB       | `database`\*
-计算机程序       | CP       | `software`\*
-电子公告         | EB       | `online`\*
-档案             | A        | `archive`\*
-舆图             | CM       | `map`\*
-数据集           | DS       | `dataset`\*
-其他             | Z        | `misc`
+普通图书         | M        | `@book`
+图书的析出文献   | M        | `@incollection`
+会议录           | C        | `@proceedings`
+会议录的析出文献 | C        | `@inproceedings` 或 `@conference`
+汇编             | G        | `@collection`\*
+报纸             | N        | `@newspaper`\*
+期刊的析出文献   | J        | `@article`
+学位论文         | D        | `@mastersthesis` 或 `@phdthesis`
+报告             | R        | `@techreport`
+标准             | S        | `@standard`\*
+专利             | P        | `@patent`\*
+数据库           | DB       | `@database`\*
+计算机程序       | CP       | `@software`\*
+电子公告         | EB       | `@online`\*
+档案             | A        | `@archive`\*
+舆图             | CM       | `@map`\*
+数据集           | DS       | `@dataset`\*
+其他             | Z        | `@misc`
 
 注：
 - 带 “\*” 的类型不是 BibTeX 的标准文献类型。
@@ -130,8 +131,8 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》是中国的
 版本                   | `edition`
 出版地                 | `address`
 出版者                 | `publisher`
-学校（用于phdthesis）  | `school`
-机构（用于techreport） | `institution`
+学校（用于 `phdthesis`）  | `school`
+机构（用于 `techreport`） | `institution`
 出版年                 | `year`
 卷                     | `volume`
 期（或者专利号）       | `number`

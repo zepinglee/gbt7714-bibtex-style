@@ -16,6 +16,6 @@ BIN_PKGS="latexmk l3build";
 REQUIRED_PKGS="$XECJK_PKGS $CTEX_PKGS";
 FONT_PKGS="fandol";
 EXTRA_PKGS="bibunits cite";
-DOC_PKGS="booktabs caption listings xcolor";
+DOC_PKGS="booktabs caption hypdoc listings xcolor";
 
 tlmgr install $BIN_PKGS $REQUIRED_PKGS $FONT_PKGS $EXTRA_PKGS $DOC_PKGS;

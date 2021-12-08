@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [v2.1.3] - 2021-12-08
+
 ### Added
 
 - 新增选项 `show.patent.country` 控制专利文献的题名是否含专利国别。
@@ -117,7 +119,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 
-- 修正与 `newtx` 冲突（[#42](https://github.com/CTeX-org/gbt7714-bibtex-style/issues/42)）
+- 修正与 `newtx` 冲突（[#42](https://github.com/zepinglee/gbt7714-bibtex-style/issues/42)）
 
 ## [v1.1.1] - 2019-03-21
 
@@ -207,23 +209,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Initial release.
 
-[Unreleased]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.2...HEAD
-[v2.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
-[v2.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.1...v2.1.1
-[v2.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.2...v2.1
-[v2.0.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
-[v2.0.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v2.0...v2.0.1
-[v2.0]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.2...v2.0
-[v1.1.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
-[v1.1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.1...v1.1.1
-[v1.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.9...v1.1
-[v1.0.9]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.8...v1.0.9
-[v1.0.8]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.7...v1.0.8
-[v1.0.7]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.6...v1.0.7
-[v1.0.6]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.5...v1.0.6
-[v1.0.5]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.4...v1.0.5
-[v1.0.4]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.3...v1.0.4
-[v1.0.3]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.2...v1.0.3
-[v1.0.2]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://github.com/CTeX-org/gbt7714-bibtex-style/compare/v1.0...v1.0.1
-[v1.0]: https://github.com/CTeX-org/gbt7714-bibtex-style/releases/tag/v1.0
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...HEAD
+[v2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
+[v2.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
+[v2.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1...v2.1.1
+[v2.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.2...v2.1
+[v2.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
+[v2.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0...v2.0.1
+[v2.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.2...v2.0
+[v1.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
+[v1.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1...v1.1.1
+[v1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.9...v1.1
+[v1.0.9]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.8...v1.0.9
+[v1.0.8]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.7...v1.0.8
+[v1.0.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.6...v1.0.7
+[v1.0.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.5...v1.0.6
+[v1.0.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.4...v1.0.5
+[v1.0.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.3...v1.0.4
+[v1.0.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.2...v1.0.3
+[v1.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0...v1.0.1
+[v1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/releases/tag/v1.0

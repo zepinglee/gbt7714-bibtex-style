@@ -7,8 +7,8 @@
 %% gbt7714.dtx  (with options: `2015,thu,author-year')
 %% -------------------------------------------------------------------
 %% GB/T 7714—2015 BibTeX Style
-%% https://github.com/CTeX-org/gbt7714-bibtex-style
-%% Version: 2021/06/20 v2.1.2
+%% https://github.com/zepinglee/gbt7714-bibtex-style
+%% Version: 2021/12/08 v2.1.3
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016—2021 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------

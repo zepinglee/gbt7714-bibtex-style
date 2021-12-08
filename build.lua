@@ -41,8 +41,8 @@ uploadconfig = {
   summary     = "BibTeX implementation of Chinese bibliography style standard GB/T 15",
   topic       = {"bibtex-supp", "chinese"},
   ctanPath    = "/biblio/bibtex/contrib/gbt7714",
-  repository  = "https://github.com/CTeX-org/gbt7714-bibtex-style",
-  bugtracker  = "https://github.com/CTeX-org/gbt7714-bibtex-style/issues",
+  repository  = "https://github.com/zepinglee/gbt7714-bibtex-style",
+  bugtracker  = "https://github.com/zepinglee/gbt7714-bibtex-style/issues",
   update      = true,
   description = [[
 The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 15. It consists of two bst files for numerical and author-year styles and a LaTeX package which provides the citation style defined in the standard. It also support automatic language recognization (Chinese and English) for each biblilography entry and is designed to be fully compatible with natbib.
@@ -57,7 +57,7 @@ end
 
 function update_tag(file, content, tagname, tagdate)
   local iso = "%d%d%d%d%-%d%d%-%d%d"
-  local url = "https://github.com/CTeX-org/gbt7714-bibtex-style"
+  local url = "https://github.com/zepinglee/gbt7714-bibtex-style"
   local date = string.gsub(tagdate, "%-", "/")
   if string.match(file, "%.dtx$") or string.match(file, "%.ins$") then
     return string.gsub(content, "%d%d%d%d/%d%d/%d%d v[%d.]+",
