@@ -33,6 +33,7 @@ INTEGERS {
   sentence.case.title
   link.title
   title.in.journal
+  show.patent.country
   show.mark
   space.before.mark
   show.medium.type
@@ -68,6 +69,7 @@ FUNCTION {load.config}
   #1 'sentence.case.title :=
   #0 'link.title :=
   #1 'title.in.journal :=
+  #0 'show.patent.country :=
   #1 'show.mark :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
@@ -779,7 +781,25 @@ FUNCTION {format.title}
         'skip$
       if$
       entry.numbered number empty$ not and
-        { bbl.colon * number * }
+        { bbl.colon *
+          type$ "patent" = show.patent.country and
+            { address empty$ not
+                { address * ", " * }
+                { location empty$ not
+                    { location * ", " * }
+                    { entry.lang lang.zh =
+                        { "中国" * ", " * }
+                        'skip$
+                      if$
+                    }
+                  if$
+                }
+              if$
+            }
+            'skip$
+          if$
+          number *
+        }
         'skip$
       if$
       link.title
@@ -1101,7 +1121,7 @@ FUNCTION {format.edition}
             { edition change.sentence.case 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
-                { s " ed." *}
+                { s " ed." * }
               if$
             }
             { edition }

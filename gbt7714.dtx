@@ -296,6 +296,7 @@
 %   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
 %   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
 %   title.in.journal               & |#1|   & 期刊是否显示标题               \\
+%   show.patent.country            & |#0|   & 专利题名是否含国别             \\
 %   space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
@@ -851,6 +852,7 @@ INTEGERS {
   sentence.case.title
   link.title
   title.in.journal
+  show.patent.country
   show.mark
   space.before.mark
   show.medium.type
@@ -986,6 +988,16 @@ FUNCTION {load.config}
 %<*no-title-in-journal>
   #0 'title.in.journal :=
 %</no-title-in-journal>
+%    \end{macrocode}
+%
+% 专利题名是否含专利国别
+%    \begin{macrocode}
+%<*!(show-patent-country|2005|ustc|thu)>
+  #0 'show.patent.country :=
+%</!(show-patent-country|2005|ustc|thu)>
+%<*(show-patent-country|2005|ustc|thu)>
+  #1 'show.patent.country :=
+%</(show-patent-country|2005|ustc|thu)>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
@@ -2232,7 +2244,25 @@ FUNCTION {format.title}
         'skip$
       if$
       entry.numbered number empty$ not and
-        { bbl.colon * number * }
+        { bbl.colon *
+          type$ "patent" = show.patent.country and
+            { address empty$ not
+                { address * ", " * }
+                { location empty$ not
+                    { location * ", " * }
+                    { entry.lang lang.zh =
+                        { "中国" * ", " * }
+                        'skip$
+                      if$
+                    }
+                  if$
+                }
+              if$
+            }
+            'skip$
+          if$
+          number *
+        }
         'skip$
       if$
       link.title
@@ -2619,7 +2649,7 @@ FUNCTION {format.edition}
             { edition change.sentence.case 's :=
               s "Revised" = s "Revised edition" = or
                 { "Rev. ed." }
-                { s " ed." *}
+                { s " ed." * }
               if$
             }
             { edition }

@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- 新增选项 `show.patent.country` 控制专利文献的题名是否含专利国别。
+
 ### Fixed
 - 修正了只有 `howpublished` 时的 URL 显示问题（stone-zeng/fduthesis#218）。
 - 修正了出版年后缀超出“z”的问题（#90）。
