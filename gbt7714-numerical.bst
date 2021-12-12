@@ -6,7 +6,7 @@
 %%
 %% gbt7714.dtx  (with options: `2015,numerical')
 %% -------------------------------------------------------------------
-%% GB/T 7714—2015 BibTeX Style
+%% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
 %% Version: 2021/12/08 v2.1.3
 %% -------------------------------------------------------------------

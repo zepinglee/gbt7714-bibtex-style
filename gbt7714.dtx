@@ -1,5 +1,5 @@
 % \iffalse meta-comment
-% GB/T 7714—2015 BibTeX Style
+% GB/T 7714 BibTeX Style
 % https://github.com/zepinglee/gbt7714-bibtex-style
 %
 % Copyright (C) 2016—2021 by Zeping Lee <zepinglee AT gmail.com>
@@ -17,7 +17,7 @@
 % \iffalse
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{gbt7714}
-%<package>  [2021/12/08 v2.1.3 GB/T 7714—2015 BibTeX Style]
+%<package>  [2021/12/08 v2.1.3 GB/T 7714 BibTeX Style]
 %
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
@@ -78,7 +78,7 @@
 %
 % \GetFileInfo{gbt7714.sty}
 %
-% \title{GB/T 7714—2015 \BibTeX{} style}
+% \title{GB/T 7714 \BibTeX{} style}
 % \author{Zeping Lee\thanks{zepinglee AT gmail.com}}
 % \date{\filedate\qquad\fileversion}
 % \maketitle
@@ -87,8 +87,8 @@
 %
 % \begin{abstract}
 % The \pkg{gbt7714} package provides a \BibTeX{} implementation for the China's
-% bibliography style standard GB/T 7714—2015.
-% It consists of two bst files for numerical and authoryear styles as well as a
+% national bibliography style standard GB/T 7714.
+% It consists of \file{.bst} files for numeric and author-date styles as well as a
 % \LaTeX{} package which provides the citation style defined in the standard.
 % It is compatible with \pkg{natbib} and supports language detection (Chinese
 % and English) for each biblilography entry.
@@ -96,14 +96,16 @@
 %
 % \section{简介}
 %
-% GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt77142015}
-% （以下简称“国标”）是中国的参考文献推荐标准。
+% GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt7714-2015}
+% （以下简称“国标”）是中国的参考文献格式推荐标准。
+% 国内的绝大部分学术期刊、学位论文都使用了基于该标准的格式。
 % 本宏包是国标的 \BibTeX{}\cite{bibtex} 实现，具有以下特性：
 % \begin{itemize}
-%   \item 兼容 \pkg{natbib} 宏包\cite{natbib}
-%   \item 支持顺序编码制和著者-出版年制两种风格
-%   \item 自动识别语言并进行相应处理
-%   \item 提供了简单的接口供用户修改样式
+%   \item 兼容 \pkg{natbib} 宏包\cite{natbib}。
+%   \item 支持“顺序编码制”和“著者-出版年制”两种风格。
+%   \item 自动识别语言并进行相应处理。
+%   \item 提供了简单的接口供用户修改样式。
+%   \item 同时提供了 2005 版的 \file{.bst} 文件。
 % \end{itemize}
 % 本宏包的主页：\url{https://github.com/zepinglee/gbt7714-bibtex-style}。
 %
@@ -120,6 +122,18 @@
 %
 % \section{使用方法}
 %
+% 以下是 \pkg{gbt7714} 宏包的一个简单示例。
+% \begin{latex}
+%   \documentclass{ctexart}
+%   \usepackage{gbt7714}
+%   \bibliographystyle{gbt7714-numerical}
+%   \begin{document}
+%     \cite{...}
+%     ...
+%     \bibliography{bibfile}
+%   \end{document}
+% \end{latex}
+%
 % 按照国标的规定，参考文献的标注体系分为“顺序编码制”和
 % “著者-出版年制”。
 % 用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
@@ -131,6 +145,8 @@
 % \begin{latex}
 %   \bibliographystyle{gbt7714-author-year}  % 著者-出版年制
 % \end{latex}
+% 此外还可以使用 2005 版的格式 \file{gbt7714-2005-numerical} 和
+% \file{gbt7714-2005-numerical}。
 %
 % 注意，版本 v2.0 更改了设置参考文献表样式的方法，
 % 要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
@@ -341,7 +357,7 @@
 % \providecommand{\href}[2]{\url{#2}}
 % \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 %
-% \bibitem[{中国国家标准化委员会}(2015)]{gbt77142015}
+% \bibitem[{中国国家标准化委员会}(2015)]{gbt7714-2015}
 % {中国国家标准化委员会}.
 % \newblock 信息与文献\quad 参考文献著录规则: GB/T
 %   7714—2015[S].

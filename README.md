@@ -10,8 +10,8 @@
 ## Introduction
 
 The `gbt7714` package provides a BibTeX implementation for the China's
-bibliography style standard GB/T 7714—2015.
-It consists of two `bst` files for numerical and authoryear styles as well as a
+national bibliography style standard GB/T 7714.
+It consists of `.bst` files for both numeric and author-date styles as well as a
 LaTeX package which provides the citation style defined in the standard.
 It is compatible with `natbib` and supports language detection (Chinese
 and English) for each biblilography entry.
@@ -24,13 +24,13 @@ and English) for each biblilography entry.
 
 ## 简介
 
-GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参考文献推荐标准。
+GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参考文献推荐标准。 国内的绝大部分学术期刊、学位论文都使用了基于该标准的格式。
 本宏包是国标的 BibTeX 实现，主要有以下特性：
-- 兼容 `natbib`。
+- 兼容 `natbib` 宏包。
 - 支持“顺序编码制”和“著者-出版年制”两种风格。
 - 自动识别语言并进行相应处理。
 - 提供了简单的接口供用户修改样式。
-- 同时提供了 2005 版的 `bst` 文件（[gbt7714-bibtex-style/variants/2005](https://github.com/zepinglee/gbt7714-bibtex-style/tree/master/variants/2005)）。
+- 同时提供了 2005 版的 `.bst` 文件。
 
 
 ## 版本 v2.0 的重要修改
@@ -43,6 +43,20 @@ GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参
 
 
 ## 使用方法
+
+以下是 \pkg{gbt7714} 宏包的一个简单示例。
+```latex
+\begin{latex}
+  \documentclass{ctexart}
+  \usepackage{gbt7714}
+  \bibliographystyle{gbt7714-numerical}
+  \begin{document}
+    \cite{...}
+    ...
+    \bibliography{bibfile}
+  \end{document}
+\end{latex}
+```
 
 1. 在导言区调用宏包 `gbt7714`；
 
