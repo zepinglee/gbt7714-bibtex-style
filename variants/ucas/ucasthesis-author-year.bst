@@ -37,8 +37,6 @@ INTEGERS {
   show.mark
   space.before.mark
   show.medium.type
-  slash.for.extraction
-  in.booktitle
   short.journal
   italic.journal
   bold.journal.volume
@@ -60,6 +58,10 @@ INTEGERS {
   lang.other.order
 }
 
+STRINGS {
+  component.part.label
+}
+
 FUNCTION {load.config}
 {
   #3 'citation.et.al.min :=
@@ -78,8 +80,7 @@ FUNCTION {load.config}
   #1 'show.mark :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
-  #1 'slash.for.extraction :=
-  #0 'in.booktitle :=
+  "slash" 'component.part.label :=
   #0 'short.journal :=
   #0 'italic.journal :=
   #0 'bold.journal.volume :=
@@ -392,9 +393,22 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { slash.for.extraction
+    { component.part.label "slash" =
         { after.slash 'output.state := }
-        { after.block 'output.state := }
+        { new.block
+          component.part.label "in" =
+            { entry.lang lang.en =
+                { "In: " output
+                  write$
+                  ""
+                  before.all 'output.state :=
+                }
+                'skip$
+              if$
+            }
+            'skip$
+          if$
+        }
       if$
     }
   if$
@@ -987,14 +1001,6 @@ FUNCTION {format.series.vol.num.booktitle}
     { format.booktitle.vol.num }
   if$
   format.btitle
-  in.booktitle
-    { duplicate$ empty$ not entry.lang lang.en = and
-        { "In: " swap$ * }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
 }
 
 FUNCTION {remove.period}

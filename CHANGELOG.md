@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 新增选项 `component.part.label` 控制表示析出文献的符号，可选 `“slash”`, `"in"`, `"none"`。
+
+### Changed
+
+- 表示析出文献的“In:”改为编者姓名前。
+
+### Removed
+
+- 移除选项 `slash.for.extraction` 和 `in.booktitle`。
+
 ## [v2.1.3] - 2021-12-08
 
 ### Added

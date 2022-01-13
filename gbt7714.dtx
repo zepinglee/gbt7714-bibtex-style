@@ -316,6 +316,7 @@
 %   space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
 %   show.mark                      & |#1|   & 显示文献类型标识               \\
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
+%   component.part.label           & |"slash"| & 表示析出文献的符号，可选：|"in"|, |"none"| \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
 %   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
@@ -872,8 +873,6 @@ INTEGERS {
   show.mark
   space.before.mark
   show.medium.type
-  slash.for.extraction
-  in.booktitle
   short.journal
   italic.journal
   bold.journal.volume
@@ -895,6 +894,10 @@ INTEGERS {
   lang.ru.order
   lang.other.order
 %</author-year>
+}
+
+STRINGS {
+  component.part.label
 }
 
 %    \end{macrocode}
@@ -1048,17 +1051,15 @@ FUNCTION {load.config}
 %
 % 使用“//”表示析出文献
 %    \begin{macrocode}
-%<*!no-slash>
-  #1 'slash.for.extraction :=
-%</!no-slash>
+%<*!(in-collection|no-slash)>
+  "slash" 'component.part.label :=
+%</!(in-collection|no-slash)>
+%<*in-collection>
+  "in" 'component.part.label :=
+%</in-collection>
 %<*no-slash>
-  #0 'slash.for.extraction :=
+  "none" 'component.part.label :=
 %</no-slash>
-%    \end{macrocode}
-%
-% 使用“In:”表示析出文献
-%    \begin{macrocode}
-  #0 'in.booktitle :=
 %    \end{macrocode}
 %
 % 期刊名使用缩写：
@@ -1694,9 +1695,22 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { slash.for.extraction
+    { component.part.label "slash" =
         { after.slash 'output.state := }
-        { after.block 'output.state := }
+        { new.block
+          component.part.label "in" =
+            { entry.lang lang.en =
+                { "In: " output
+                  write$
+                  ""
+                  before.all 'output.state :=
+                }
+                'skip$
+              if$
+            }
+            'skip$
+          if$
+        }
       if$
     }
   if$
@@ -2508,14 +2522,6 @@ FUNCTION {format.series.vol.num.booktitle}
     { format.booktitle.vol.num }
   if$
   format.btitle
-  in.booktitle
-    { duplicate$ empty$ not entry.lang lang.en = and
-        { "In: " swap$ * }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
 }
 
 FUNCTION {remove.period}
