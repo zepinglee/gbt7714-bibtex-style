@@ -20,7 +20,7 @@
 %<package>  [2021/12/08 v2.1.3 GB/T 7714 BibTeX Style]
 %
 %<*driver>
-\documentclass[a4paper]{ltxdoc}
+\documentclass[a4paper]{l3doc}
 \usepackage{hypdoc}
 \usepackage[UTF8]{ctex}
 \usepackage{caption}
@@ -152,6 +152,10 @@
 % 要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
 % 而且更改了 \file{bst} 的文件名。
 %
+% \begin{function}{\citestyle}
+%   \begin{syntax}
+%     |\citestyle|\Arg{citation style}
+%   \end{syntax}
 % 顺序编码制的引用标注默认使用角标式，
 % 如“张三\textsuperscript{[2]}提出”。
 % 如果要使用正文模式，如“文献 [3] 中说明”，
@@ -159,6 +163,7 @@
 % \begin{latex}
 %   \citestyle{numbers}
 % \end{latex}
+% \end{function}
 %
 % 同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
 % 如遇连续编号，默认会自动转为起讫序号并用短横线连接
@@ -187,7 +192,7 @@
 %
 % 国标中规定了 16 种参考文献类型，
 % 表~\ref{tab:entry-types} 列举了 \file{bib} 数据库中对应的文献类型。
-% 这些尽可能兼容 \BibTeX{} 的标准类型，但是新增了若干文献类型（带 * 号）。
+% 这些尽可能兼容 \BibTeX{} 和 \pkg{biblatex} 的标准类型，但是新增了若干文献类型（带 * 号）。
 %
 % \begin{table}[htb]
 %   \centering\small
@@ -240,8 +245,8 @@
 %   \item[edition]      版本
 %   \item[address]      出版地
 %   \item[publisher]    出版者
-%   \item[school]       学校（用于phdthesis）
-%   \item[institution]  机构（用于techreport）
+%   \item[school]       学校（用于 \texttt{@phdthesis}）
+%   \item[institution]  机构（用于 \texttt{@techreport}）
 %   \item[year]         出版年
 %   \item[volume]       卷
 %   \item[number]       期（或者专利号）
@@ -275,7 +280,7 @@
 % 然后按著者字顺和出版年排列；
 % 中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
 % 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
-% 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音，如：
+% 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音用于排序，如：
 % \begin{latex}
 %   @book{capital,
 %     author = {马克思 and 恩格斯},
@@ -283,6 +288,9 @@
 %     ...
 %   }
 % \end{latex}
+%
+% 对于著者-出版年的样式，更推荐使用 \pkg{biblatex} 宏包，其后端 \file{biber} 
+% 可以自动处理中文按照拼音排序，无须手动填写拼音。
 %
 %
 % \section{自定义样式}
@@ -527,7 +535,7 @@
 %
 % \begin{macro}{\cite}
 % 下面修改 \pkg{natbib} 的引用格式。
-% 为了减少依赖的宏包，这里直接重定义命令不使用 \cs{patchcmd}。
+% 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
 %
 % Super 样式的 \cs{citep} 的页码也为上标。
 % 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
