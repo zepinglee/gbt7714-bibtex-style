@@ -103,6 +103,7 @@ ENTRY
     editor
     eprint
     eprinttype
+    entrysubtype
     howpublished
     institution
     journal
@@ -1334,7 +1335,15 @@ FUNCTION {format.date}
 { date empty$ not
     { type$ "patent" = type$ "newspaper" = or
         { date }
-        { format.year }
+        { entrysubtype empty$ not
+            { type$ "article" = entrysubtype "newspaper" = and
+                { date }
+                { format.year }
+              if$
+            }
+            { format.year }
+          if$
+        }
       if$
     }
     { year empty$ not
@@ -1802,7 +1811,15 @@ FUNCTION {journal.article}
   new.block
   title.in.journal
     { format.title "title" output.check
-      "J" set.entry.mark
+      entrysubtype empty$ not
+        {
+          entrysubtype "newspaper" =
+            { "N" set.entry.mark }
+            { "J" set.entry.mark }
+          if$
+        }
+        { "J" set.entry.mark }
+      if$
       format.mark "" output.after
       new.block
     }
