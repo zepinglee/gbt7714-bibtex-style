@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 新增选项 `component.part.label` 控制表示析出文献的符号，可选 `“slash”`, `"in"`, `"none"`。
 - 新增 `entrysubtype` 域的支持（[hushidong/biblatex-gb7714-2015/#113](https://github.com/hushidong/biblatex-gb7714-2015/issues/113)）。
+- 不著录第 1 版（[hushidong/biblatex-gb7714-2015#117](https://github.com/hushidong/biblatex-gb7714-2015/issues/117）。
 
 ### Changed
 

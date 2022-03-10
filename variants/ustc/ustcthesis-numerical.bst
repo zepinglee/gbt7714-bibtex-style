@@ -1133,9 +1133,13 @@ FUNCTION {format.edition}
 { edition empty$
     { "" }
     { edition is.number
-        { entry.lang lang.zh =
-            { edition " 版" * }
-            { edition num.to.ordinal " ed." * }
+        { edition "1" = not
+            { entry.lang lang.zh =
+                { edition " 版" * }
+                { edition num.to.ordinal " ed." * }
+              if$
+            }
+            'skip$
           if$
         }
         { entry.lang lang.en =
