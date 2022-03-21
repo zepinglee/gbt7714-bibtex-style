@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.1.4] - 2022-03-21
+
 ### Added
 
 - 新增选项 `component.part.label` 控制表示析出文献的符号，可选 `“slash”`, `"in"`, `"none"`。
@@ -224,7 +226,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...HEAD
+[v2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
 [v2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
 [v2.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
 [v2.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1...v2.1.1

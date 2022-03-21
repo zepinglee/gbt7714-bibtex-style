@@ -1,4 +1,6 @@
 build/
+*.zip
+gbt7714/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
