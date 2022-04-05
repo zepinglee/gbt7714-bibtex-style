@@ -157,24 +157,30 @@
 %   \begin{syntax}
 %     |\citestyle|\Arg{citation style}
 %   \end{syntax}
-% 顺序编码制的引用标注默认使用角标式，
+% 可选：\opt{super}, \opt{numbers}, \opt{author-year}。
+% 使用 \cs{bibliography} 选择参考文献表的样式时会自动设置对应的引用样式。
+% 顺序编码制的引用标注默认使用角标式（\opt{super}），
 % 如“张三\textsuperscript{[2]}提出”。
 % 如果要使用正文模式，如“文献 [3] 中说明”，
-% 可以使用 \cs{citestyle} 命令进行切换：
+% 可以使用 \cs{citestyle} 命令切换为数字式（\opt{numbers}）。
 % \begin{latex}
 %   \citestyle{numbers}
 % \end{latex}
+% 著者-出版年制通常不需要修改引用样式。
 % \end{function}
 %
+% \DescribeEnv{sort\&compress}
 % 同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
 % 如遇连续编号，默认会自动转为起讫序号并用短横线连接
 % （见\pkg{natbib} 的 \opt{compress} 选项）。
 % 如果要对引用的编号进行自动排序，需要在调用 \pkg{gbt7714} 时加
-% \opt{sort\&compress} 参数：
+% \opt{sort\&compress} 参数，
+% 这些参数会传给 \pkg{natbib} 处理。
 % \begin{latex}
 %   \usepackage[sort&compress]{gbt7714}
 % \end{latex}
-% 这些参数会传给 \pkg{natbib} 处理。
+% 注意国标中要求 2 个或以上的连续编号用连接号，不同于 \pkg{natbib} 默认的 3 个或以上。
+% 宏包中已经作了修改。
 %
 % 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
 % |\cite[42]{knuth84}|。
@@ -290,8 +296,8 @@
 %   }
 % \end{latex}
 %
-% 对于著者-出版年的样式，更推荐使用 \pkg{biblatex} 宏包，其后端 \file{biber}
-% 可以自动处理中文按照拼音排序，无须手动填写拼音。
+% 对于著者-出版年的样式，如果中文文献较多时更推荐使用 \pkg{biblatex} 宏包，
+% 其后端 \file{biber} 可以自动处理中文按照拼音排序，无须手动填写拼音。
 %
 %
 % \section{自定义样式}

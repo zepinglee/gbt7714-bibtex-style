@@ -44,7 +44,7 @@ GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参
 
 ## 使用方法
 
-以下是 \pkg{gbt7714} 宏包的一个简单示例。
+以下是 `gbt7714` 宏包的一个简单示例。
 ```latex
 \begin{latex}
   \documentclass{ctexart}
@@ -60,9 +60,9 @@ GB/T 7714—2015 《信息与文献 参考文献著录规则》是中国的参
 
 1. 在导言区调用宏包 `gbt7714`；
 
-2. 在正文中 `\cite` 文献；
+2. 使用 `\bibliographystyle` 选择参考文献的样式；
 
-3. 使用 `\bibliographystyle` 选择参考文献表的样式；
+3. 在正文中 `\cite` 文献；
 
 4. 使用 `\bibliography` 命令生成参考文献表。
 
