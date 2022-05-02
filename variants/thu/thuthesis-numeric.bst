@@ -1301,7 +1301,10 @@ FUNCTION {format.year}
     { year extract.before.slash extra.label * }
     { date empty$ not
         { date extract.before.dash extra.label * }
-        { "empty year in " cite$ * warning$
+        { entry.is.electronic not
+            { "empty year in " cite$ * warning$ }
+            'skip$
+          if$
           urldate empty$ not
             { "[" urldate extract.before.dash * extra.label * "]" * }
             { "" }
