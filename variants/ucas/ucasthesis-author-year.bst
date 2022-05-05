@@ -887,7 +887,7 @@ FUNCTION {format.volume}
     { volume is.number
         { entry.lang lang.zh =
             { "第 " volume * " 卷" * }
-            { "volume" volume tie.or.space.connect }
+            { "Vol." volume tie.or.space.connect }
           if$
         }
         { volume }
@@ -902,7 +902,7 @@ FUNCTION {format.number}
     { number is.number
         { entry.lang lang.zh =
             { "第 " number * " 册" * }
-            { "number" number tie.or.space.connect }
+            { "No." number tie.or.space.connect }
           if$
         }
         { number }
