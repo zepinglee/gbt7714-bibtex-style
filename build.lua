@@ -51,7 +51,7 @@ The package provides a BibTeX implementation for the Chinese national bibliograp
 
 lvtext = ".tex"
 
-function runtest_tasks(name)
+function runtest_tasks(name, run)
   return "bibtex -terse " .. name
 end
 

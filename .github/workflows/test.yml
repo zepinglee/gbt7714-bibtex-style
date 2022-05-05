@@ -1,30 +1,52 @@
-name: Test
+name: Automated testing
 
-on: [push]
+on:
+  push:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  test:
-
+  Test:
     runs-on: ubuntu-latest
 
     steps:
+      # Boilerplate
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Generate unique ID
+        id: get-id
+        run: |
+          echo -n ::set-output name=id::
+          cat /proc/sys/kernel/random/uuid
+      # Actually load the cache. Since we never reuse the key, we need restore-keys
+      # to indicate the prefix of our caches. This loads the newest cache with this
+      # prefix in the key.
+      #
+      # If we want to force regeneration of the cache, increase the number after
+      # *both* instances of "texlive-v"
+      - name: Load cache
+        uses: actions/cache@v2
+        with:
+          path: ~/texlive
+          key: texlive-v1-${{ steps.get-id.outputs.id }}
+          restore-keys: texlive-v1-
+      # We need Ghostscript for XeTeX tests.
+      - run: sudo apt-get update && sudo apt-get install ghostscript
+      - name: Install TeX Live
+        uses: zauguin/install-texlive@v1
+        with:
+          # List the required TeX Live packages in a separate file to allow reuse in
+          # different workflows.
+          package_file: .github/tl_packages
 
-    - uses: actions/checkout@v1
+      - name: Test bst
+        run: make testbst
 
-    - name: Install TeX Live
-      run: bash .github/workflows/install-texlive.sh
+      - name: Test citation styles
+        run: l3build check
 
-    - name: Test bst
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make testbst
-
-    - name: Test citation styles
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        l3build check
-
-    - name: Test doc
-      run: |
-        export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
-        make doc
+      - name: Test doc
+        run: make doc

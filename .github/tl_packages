@@ -1,0 +1,46 @@
+# The test framework itself
+l3build
+#
+# Required to build formats
+latex-bin
+tex
+xetex
+#
+# Assuming a 'basic' font set up, metafont is required to avoid
+# warnings with some packages and errors with others
+metafont
+mfware
+#
+# Dependencies for the package
+bibtex
+natbib
+url
+#
+# Dependencies for tests
+bibunits
+cite
+cjk
+ctex
+everysel
+fandol
+fontspec
+xecjk
+xetex
+zhnumber
+#
+# Dependencies for typesetting
+alphalph
+booktabs
+caption
+colortbl
+csquotes
+enumitem
+fancyvrb
+hologo
+hypdoc
+latexmk
+listings
+makeindex
+psnfss
+underscore
+xcolor

@@ -14,7 +14,7 @@ test: testbst
 	l3build check
 
 savebst:
-	bash test/save.sh
+	bash test/test.sh
 
 save : savebst
 	l3build save --quiet super

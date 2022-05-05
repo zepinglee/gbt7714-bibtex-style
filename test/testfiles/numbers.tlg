@@ -6,8 +6,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line ....
 Completed box being shipped out [1]
 \vbox(633.0+0.0)x407.0
-.\hbox(0.0+0.0)x0.0
-..\special{pdfcolorstackinit 1 page direct (0 g 0 G)}
 .\glue 16.0
 .\vbox(617.0+0.0)x345.0, shifted 62.0
 ..\vbox(12.0+0.0)x345.0, glue set 12.0fil
@@ -22,8 +20,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 233.09fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Jones
 ....\kern -0.0002
@@ -52,8 +48,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 249.8fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Jones
 ....\kern -0.0002
@@ -81,12 +75,8 @@ Completed box being shipped out [1]
 ...\hbox(8.34692+2.49998)x345.0, glue set 199.07399fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Jones
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 et
 ....\kern -0.0002
@@ -126,12 +116,8 @@ Completed box being shipped out [1]
 ...\hbox(8.34692+2.49998)x345.0, glue set 215.784fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Jones
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 et
 ....\kern -0.0002
@@ -170,8 +156,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 260.5fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -194,8 +178,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 277.21fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -217,8 +199,6 @@ Completed box being shipped out [1]
 ...\hbox(8.34692+2.49998)x345.0, glue set 252.034fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -247,8 +227,6 @@ Completed box being shipped out [1]
 ...\hbox(8.34692+2.49998)x345.0, glue set 268.744fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -276,8 +254,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 244.34999fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [see
 ....\kern -0.0002
@@ -303,8 +279,6 @@ Completed box being shipped out [1]
 ...\hbox(8.34692+2.49998)x345.0, glue set 235.88399fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [see
 ....\kern -0.0002
@@ -681,8 +655,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 260.5fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -705,8 +677,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 252.17fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.66+0.0)x5.0
@@ -715,8 +685,8 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 ....\TU/lmr/m/n/10 -
 ....\discretionary
-....\kern -0.00024
-....\kern 0.00024
+....\kern -0.00023
+....\kern 0.00023
 ....\penalty 1000
 ....\hbox(6.66+0.21999)x5.0
 .....\TU/lmr/m/n/10 3
@@ -738,8 +708,6 @@ Completed box being shipped out [1]
 ...\hbox(7.5+2.49998)x345.0, glue set 252.17fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
-....\kern -0.00021
-....\kern 0.00021
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 [
 ....\hbox(6.77+0.0)x5.0
@@ -748,8 +716,8 @@ Completed box being shipped out [1]
 .....\kern 0.0002
 ....\TU/lmr/m/n/10 -
 ....\discretionary
-....\kern -0.00024
-....\kern 0.00024
+....\kern -0.00023
+....\kern 0.00023
 ....\penalty 1000
 ....\hbox(6.66+0.21999)x5.0
 .....\TU/lmr/m/n/10 6
@@ -772,4 +740,3 @@ Completed box being shipped out [1]
 ..\glue(\baselineskip) 30.0
 ..\hbox(0.0+0.0)x345.0
 ...\hbox(0.0+0.0)x345.0
-.\kern 0.0
