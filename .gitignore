@@ -1,6 +1,7 @@
 build/
-*.zip
 gbt7714/
+*.curlopt
+*.zip
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

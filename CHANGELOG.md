@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.1.5] - 2022-10-03
+
 ### Changed
 
 - “volume”和“number”改为缩写“Vol.”和“No.”（[#104](https://github.com/zepinglee/gbt7714-bibtex-style/issues/104)）。
+- 纯电子文献缺失“出版日期”时不再警告。
 
 ## [v2.1.4] - 2022-03-21
 
@@ -230,7 +233,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...HEAD
+[v2.1.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...v2.1.5
 [v2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
 [v2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
 [v2.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2

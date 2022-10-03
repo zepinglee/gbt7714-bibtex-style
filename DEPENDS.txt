@@ -1,0 +1,5 @@
+# The format of this file is described in https://www.tug.org/texlive/pkgcontrib.html#deps.
+
+hard bibtex
+hard natbib
+hard url
