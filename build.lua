@@ -5,7 +5,7 @@ module = "gbt7714"
 testfiledir = "./test/testfiles"
 testsuppdir = testfiledir .. "/support"
 
-sourcefiles = {"*.dtx", "*.sty", "*.bst"}
+-- sourcefiles = {"*.dtx", "*.sty"}
 installfiles = {"*.sty", "*.bst"}
 tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md", "variants/*.ins"}
 
@@ -39,8 +39,7 @@ uploadconfig = {
   uploader          = "Zeping Lee",
   email             = "zepinglee@gmail.com",
   summary           = "BibTeX implementation of China’s bibliography style standard GB/T 7714—2015",
-  description       = [[
-The package pr      ovides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714—2015. It consists of two bst files for numerical and author-year styles as well as a LaTeX package which provides the citation style defined in the standard. The package is compatible with natbib and supports language detection (Chinese and English) for each biblilography entry.]],
+  description       = [[The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714—2015. It consists of two bst files for numerical and author-year styles as well as a LaTeX package which provides the citation style defined in the standard. The package is compatible with natbib and supports language detection (Chinese and English) for each biblilography entry.]],
   note              = "Uploaded automatically by l3build...",
   ctanPath          = "/biblio/bibtex/contrib/gbt7714",
   repository        = "https://github.com/zepinglee/gbt7714-bibtex-style",

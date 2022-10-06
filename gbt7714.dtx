@@ -23,6 +23,7 @@
 \documentclass[a4paper]{l3doc}
 \usepackage{hypdoc}
 \usepackage[UTF8]{ctex}
+\usepackage{fontspec}
 \usepackage{caption}
 \usepackage{booktabs}
 \usepackage{gbt7714}
@@ -30,8 +31,8 @@
 \usepackage{listings}
 \makeatletter
 \hypersetup{allcolors=blue}
-\IfFileExists{/System/Library/Fonts/Times.ttc}{
-  \setmainfont{Times}
+\IfFileExists{/System/Library/Fonts/Palatino.ttc}{
+  \setmainfont{Palatino}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
 }{}
