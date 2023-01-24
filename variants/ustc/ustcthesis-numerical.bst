@@ -1057,7 +1057,7 @@ FUNCTION {get.journal.title}
 }
 
 FUNCTION {check.arxiv.preprint}
-{ #1 #5 substring$ "l" change.case$ "arxiv" =
+{ #1 #5 substring$ purify$ "l" change.case$ "arxiv" =
     { #1 }
     { #0 }
   if$

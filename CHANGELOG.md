@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Fixed
+
+修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113）。
+
 ## [v2.1.5] - 2022-10-03
 
 ### Changed
