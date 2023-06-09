@@ -1966,6 +1966,10 @@ FUNCTION {preprint}
   format.urldate "" output.after
   output.eprint
   output.url
+  show.preprint not eprint empty$ or
+    'output.doi
+    'skip$
+  if$
   new.block
   format.note output
   fin.entry
