@@ -334,6 +334,7 @@
 %   show.medium.type               & |#1|   & 显示载体类型标识               \\
 %   component.part.label           & |"slash"| & 表示析出文献的符号，可选：|"in"|, |"none"| \\
 %   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
+%   link.journal                   & |#0|   & 在期刊题名上添加 url 的超链接      \\
 %   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
@@ -891,6 +892,7 @@ INTEGERS {
   show.medium.type
   short.journal
   italic.journal
+  link.journal
   bold.journal.volume
   show.missing.address.publisher
   space.before.pages
@@ -1096,6 +1098,16 @@ FUNCTION {load.config}
 %<*italic-journal>
   #1 'italic.journal :=
 %</italic-journal>
+%    \end{macrocode}
+%
+% 在期刊题名添加超链接：
+%    \begin{macrocode}
+%<*!link-journal>
+  #0 'link.journal :=
+%</!link-journal>
+%<*link-journal>
+  #1 'link.journal :=
+%</link-journal>
 %    \end{macrocode}
 %
 % 期刊的卷使用粗体：
@@ -2615,6 +2627,10 @@ FUNCTION {format.journal}
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
         'emphasize
+        'skip$
+      if$
+      link.journal
+        'add.link
         'skip$
       if$
     }

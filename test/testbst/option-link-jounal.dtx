@@ -1,0 +1,40 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.aux}{\from{\jobname.dtx}{aux}}
+  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical,link-journal}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*aux>
+\bibstyle{test}
+\citation{*}
+\bibdata{test,standard}
+%</aux>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<*bib>
+%</bib>
+%    \end{macrocode}
+\endinput

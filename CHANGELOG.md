@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+新增选项 `link.journal` 允许在期刊题名添加超链接（[#144](https://github.com/zepinglee/gbt7714-bibtex-style/issues/144)）。
+
 ## Fixed
 
-修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113）。
+修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113)）。
 
 ## [v2.1.5] - 2022-10-03
 
