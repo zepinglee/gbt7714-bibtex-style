@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.1.6] - 2024-03-08
+
 ## Added
 
 新增选项 `link.journal` 允许在期刊题名添加超链接（[#144](https://github.com/zepinglee/gbt7714-bibtex-style/issues/144)）。
@@ -245,7 +247,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.6...HEAD
+[v2.1.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...v2.1.6
 [v2.1.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...v2.1.5
 [v2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
 [v2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
