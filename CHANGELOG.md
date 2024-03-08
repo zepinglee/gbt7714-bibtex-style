@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 新增选项 `link.journal` 允许在期刊题名添加超链接（[#144](https://github.com/zepinglee/gbt7714-bibtex-style/issues/144)）。
 
+### Changed
+
+`@inbook` 改为按照是否有 `booktitle` 选择“专著”或“专著的吸出文献”格式（[tuna/thuthesis#930](https://github.com/tuna/thuthesis/issues/930)）。
+
 ## Fixed
 
 修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113)）。

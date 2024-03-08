@@ -2232,7 +2232,7 @@ FUNCTION {editor.full}
 
 FUNCTION {make.full.names}
 { type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.full
     { type$ "collection" =
@@ -3844,10 +3844,16 @@ FUNCTION {dataset}
 %
 %       Optional: volume or number, series, type, address, edition, month, note
 %
-% inbook 类是不含 booktitle 域的，所以不应该适用于“专著中的析出文献”，而应该是专
-% 著，即 book 类。
+% 原生 BibTeX 的数据模型中 \texttt{@inbook} 不含 \texttt{booktitle} ，
+% 按照“专著”处理。而 biblatex 的 \texttt{@inbook} 跟 \texttt{incollection} 一样。
+% 按照“专著的析出文献”处理。
 %    \begin{macrocode}
-FUNCTION {inbook} { book }
+FUNCTION {inbook} {
+  booktitle empty$
+    'book
+    'incollection
+  if$
+}
 
 %    \end{macrocode}
 %
@@ -4297,7 +4303,7 @@ FUNCTION {editor.key.organization.label}
 FUNCTION {calc.short.authors}
 { "" 'short.label :=
   type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.key.label
     { type$ "collection" =
@@ -4571,7 +4577,7 @@ FUNCTION {presort}
   "    "
   *
   type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.sort
     { type$ "collection" =

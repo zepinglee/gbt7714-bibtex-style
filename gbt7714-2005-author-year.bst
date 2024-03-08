@@ -10,7 +10,7 @@
 %% https://github.com/zepinglee/gbt7714-bibtex-style
 %% Version: 2022/10/03 v2.1.5
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2023 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2024 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -747,7 +747,7 @@ FUNCTION {editor.full}
 
 FUNCTION {make.full.names}
 { type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.full
     { type$ "collection" =
@@ -2050,7 +2050,12 @@ FUNCTION {dataset}
   electronic
 }
 
-FUNCTION {inbook} { book }
+FUNCTION {inbook} {
+  booktitle empty$
+    'book
+    'incollection
+  if$
+}
 
 FUNCTION {inproceedings}
 { "C" set.entry.mark
@@ -2291,7 +2296,7 @@ FUNCTION {editor.key.organization.label}
 FUNCTION {calc.short.authors}
 { "" 'short.label :=
   type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.key.label
     { type$ "collection" =
@@ -2493,7 +2498,7 @@ FUNCTION {presort}
   "    "
   *
   type$ "book" =
-  type$ "inbook" =
+  type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.sort
     { type$ "collection" =
