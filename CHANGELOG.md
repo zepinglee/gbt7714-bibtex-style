@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- 新增对 `\noopsort` 的支持，与 `xampl.bib` 兼容（[CTeX-org/forum#315](https://github.com/CTeX-org/forum/issues/315)）。
+
 ## [v2.1.6] - 2024-03-08
 
 ## Added

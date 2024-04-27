@@ -293,6 +293,10 @@
        \if*#2*\else\textsuperscript{#2}\fi
      \fi}{#1}{#2}}
 \renewcommand\@biblabel[1]{[#1]\hfill}
+\let\NAT@bare@aux\NAT@bare
+\def\NAT@bare#1(#2){%
+ \begingroup\edef\x{\endgroup
+   \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
 \g@addto@macro\UrlBreaks{%
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
   \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M

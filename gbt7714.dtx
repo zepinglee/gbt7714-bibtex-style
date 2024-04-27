@@ -810,6 +810,15 @@
 %    \end{macrocode}
 % \end{environment}
 %
+% Patch \pkg{natbib} 内部命令，以支持 \cs{noopsort}。
+% 参考 \url{https://tex.stackexchange.com/a/39718/82731}。
+%    \begin{macrocode}
+\let\NAT@bare@aux\NAT@bare
+\def\NAT@bare#1(#2){%
+ \begingroup\edef\x{\endgroup
+   \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
+%    \end{macrocode}
+%
 % \begin{macro}{\url}
 % 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
 %    \begin{macrocode}
