@@ -1314,7 +1314,7 @@ FUNCTION {extract.after.slash}
 
 FUNCTION {format.year}
 { year empty$ not
-    { year extract.before.slash extra.label * }
+    { year extra.label * }
     { date empty$ not
         { date extract.before.dash extra.label * }
         { entry.is.electronic not
