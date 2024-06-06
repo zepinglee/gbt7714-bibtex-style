@@ -1484,7 +1484,7 @@ FUNCTION {format.periodical.year.volume.number}
 
 FUNCTION {check.url}
 { url empty$ not
-    { "\url{" url * "}" * 'entry.url :=
+    { url 'entry.url :=
       #1 'entry.is.electronic :=
     }
     { howpublished empty$ not
@@ -1515,7 +1515,11 @@ FUNCTION {output.url}
 { show.url is.pure.electronic or
   entry.url empty$ not and
     { new.block
-      entry.url output
+      entry.url #1 #5 substring$ "\url{" =
+        { entry.url }
+        { "\url{" entry.url * "}" * }
+      if$
+      output
     }
     'skip$
   if$
@@ -1535,8 +1539,8 @@ FUNCTION {is.in.url}
     { entry.url empty$
         { #0 }
         { s text.length$ 'len :=
-          entry.url text.length$ 'charptr :=
-            { entry.url charptr len substring$ s = not
+          entry.url "l" change.case$ text.length$ 'charptr :=
+            { entry.url "l" change.case$ charptr len substring$ s "l" change.case$ = not
               charptr #0 >
               and
             }
