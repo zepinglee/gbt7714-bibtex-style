@@ -42,5 +42,6 @@ latexmk
 listings
 makeindex
 psnfss
+tex-gyre
 underscore
 xcolor
