@@ -49,6 +49,6 @@ install :
 
 ctan : test doc
 	ln -sf . $(NAME)
-	zip -r ../$(NAME).zip $(NAME)/{$(NAME)-*.bst,$(NAME).sty,$(NAME).pdf,README.md,\
+	zip -r $(NAME)-ctan.zip $(NAME)/{$(NAME)-*.bst,$(NAME).sty,$(NAME).pdf,README.md,\
 	CHANGELOG.md}
 	rm $(NAME)

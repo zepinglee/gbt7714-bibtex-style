@@ -7,9 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## Added
+## [v2.1.7] - 2025-03-11
+
+### Added
 
 - 新增对 `\noopsort` 的支持，与 `xampl.bib` 兼容（[CTeX-org/forum#315](https://github.com/CTeX-org/forum/issues/315)）。
+
+### Fixed
+
+- 修正多余的年份后缀（[#176](https://github.com/zepinglee/gbt7714-bibtex-style/issues/176)）。
 
 ## [v2.1.6] - 2024-03-08
 
@@ -251,7 +257,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.6...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.7...HEAD
+[v2.1.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.6...v2.1.7
 [v2.1.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...v2.1.6
 [v2.1.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...v2.1.5
 [v2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
