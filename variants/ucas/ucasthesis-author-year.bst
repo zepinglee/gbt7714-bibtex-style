@@ -10,7 +10,7 @@
 %% https://github.com/zepinglee/gbt7714-bibtex-style
 %% Version: 2024/03/08 v2.1.6
 %% -------------------------------------------------------------------
-%% Copyright (C) 2016--2024 by Zeping Lee <zepinglee AT gmail.com>
+%% Copyright (C) 2016--2025 by Zeping Lee <zepinglee AT gmail.com>
 %% -------------------------------------------------------------------
 %% This file may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
@@ -143,7 +143,7 @@ ENTRY
     year
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
-  { label extra.label sort.label short.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.mark entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -2212,7 +2212,6 @@ FUNCTION {format.lab.name}
 
 FUNCTION {format.lab.names}
 { 's :=
-  s #1 format.lab.name 'short.label :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
   ""
@@ -2298,8 +2297,7 @@ FUNCTION {editor.key.organization.label}
 }
 
 FUNCTION {calc.short.authors}
-{ "" 'short.label :=
-  type$ "book" =
+{ type$ "book" =
   type$ "inbook" = booktitle empty$ not and
   or
     'author.editor.key.label
@@ -2316,10 +2314,6 @@ FUNCTION {calc.short.authors}
     }
   if$
   'short.list :=
-  short.label empty$
-    { short.list 'short.label := }
-    'skip$
-  if$
 }
 
 FUNCTION {calc.label}
@@ -2341,16 +2335,6 @@ FUNCTION {calc.label}
   if$
   *
   'label :=
-  short.label
-  "("
-  *
-  format.year duplicate$ empty$
-  short.list key field.or.null = or
-     { pop$ "" }
-     'skip$
-  if$
-  *
-  'short.label :=
 }
 
 FUNCTION {sort.language.label}
@@ -2544,7 +2528,7 @@ FUNCTION {initialize.longest.label}
 
 FUNCTION {forward.pass}
 {
-  last.label short.label =
+  last.label label =
     { "" 'extra.label :=
       last.extra.label text.length$ 'charptr :=
         { last.extra.label charptr #1 substring$ "z" =
@@ -2566,7 +2550,7 @@ FUNCTION {forward.pass}
     }
     { "a" 'last.extra.label :=
       "" 'extra.label :=
-      short.label 'last.label :=
+      label 'last.label :=
     }
   if$
   number.label #1 + 'number.label :=
