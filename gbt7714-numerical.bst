@@ -1996,10 +1996,10 @@ FUNCTION {misc}
     { pop$
       booktitle empty$ not
         'incollection
-        { publisher empty$ not
-            'monograph
-            { eprint empty$ not archivePrefix empty$ not or
-                'preprint
+        { eprint empty$ not archivePrefix empty$ not or
+            'preprint
+            { publisher empty$ not
+                'monograph
                 { entry.is.electronic
                     'electronic
                     {

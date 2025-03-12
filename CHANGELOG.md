@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 改进 `@misc` 的预印本判断方式（[#155](https://github.com/zepinglee/gbt7714-bibtex-style/issues/155#issuecomment-2715067957)）。
+
 ## [v2.1.7] - 2025-03-11
 
 ### Added
