@@ -22,7 +22,7 @@
 %<*driver>
 \documentclass[a4paper]{l3doc}
 \usepackage{hypdoc}
-\usepackage[UTF8]{ctex}
+\usepackage[UTF8,fontset=none]{ctex}
 \usepackage{fontspec}
 \usepackage{caption}
 \usepackage{booktabs}
@@ -35,7 +35,15 @@
   \setmainfont{Palatino}
   \setsansfont[Scale=MatchLowercase]{Helvetica}
   \setmonofont[Scale=MatchLowercase]{Menlo}
-}{}
+  \ctexset{fontset=macnew}
+}{%
+  \IfFontExistsTF{Songti SC}{%
+    \setmainfont{Palatino}
+    \setsansfont[Scale=MatchLowercase]{Helvetica}
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+    \ctexset{fontset=macnew}
+  }{\ctexset{fontset=fandol}}
+}
 \citestyle{super}
 \lstnewenvironment{latex}{%
   \lstset{
@@ -338,13 +346,14 @@
 %   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
 %   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
 %   only.start.page                & |#0|   & 只显示起始页码                 \\
-%   wave.dash.in.pages             & |#0|   & 起止页码使用波浪号             \\
+%   page.range.separator           & |"-"|  & 起止页码中的连接号             \\
 %   show.urldate                   & |#1|   & 显示引用日期 urldate           \\
 %   show.url                       & |#1|   & 显示 url                       \\
 %   show.doi                       & |#1|   & 显示 DOI                       \\
 %   show.preprint                  & |#1|   & 显示预印本信息                 \\
 %   show.note                      & |#0|   & 显示 note 域的信息             \\
 %   end.with.period                & |#1|   & 结尾加句点                     \\
+%   lowercase.word.after.colon     & |#1|   & 将冒号后的单词变成小写 \\
 %   \bottomrule
 % \end{tabular}
 % \end{table}
@@ -906,7 +915,6 @@ INTEGERS {
   show.missing.address.publisher
   space.before.pages
   only.start.page
-  wave.dash.in.pages
   show.urldate
   show.url
   show.doi
@@ -914,6 +922,7 @@ INTEGERS {
   show.note
   show.english.translation
   end.with.period
+  lowercase.word.after.colon
 %<*author-year>
   lang.zh.order
   lang.ja.order
@@ -925,6 +934,7 @@ INTEGERS {
 
 STRINGS {
   component.part.label
+  page.range.separator
 }
 
 %    \end{macrocode}
@@ -1154,14 +1164,17 @@ FUNCTION {load.config}
 %</only-start-page>
 %    \end{macrocode}
 %
-% 起止页码使用波浪号：
+% 起止页码中的连接号：
 %    \begin{macrocode}
-%<*!wave-dash-in-pages>
-  #0 'wave.dash.in.pages :=
-%</!wave-dash-in-pages>
-%<*wave-dash-in-pages>
-  #1 'wave.dash.in.pages :=
-%</wave-dash-in-pages>
+%<*!(en-dash-page-range-separator|wave-dash-page-range-separator)>
+  "-" 'page.range.separator :=
+%</!(en-dash-page-range-separator|wave-dash-page-range-separator)>
+%<*en-dash-page-range-separator>
+  "--" 'page.range.separator :=
+%</en-dash-page-range-separator>
+%<*wave-dash-page-range-separator>
+  "～" 'page.range.separator :=
+%</wave-dash-page-range-separator>
 %    \end{macrocode}
 %
 % 是否著录非电子文献的引用日期：
@@ -1227,6 +1240,16 @@ FUNCTION {load.config}
 %<*no-period-at-end>
   #0 'end.with.period :=
 %</no-period-at-end>
+%    \end{macrocode}
+%
+% 将冒号后的单词变成小写
+%    \begin{macrocode}
+%<*!no-lowercase-word-after-colon>
+  #1 'lowercase.word.after.colon :=
+%</!no-lowercase-word-after-colon>
+%<*no-lowercase-word-after-colon>
+  #0 'lowercase.word.after.colon :=
+%</no-lowercase-word-after-colon>
 %    \end{macrocode}
 %
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
@@ -1565,6 +1588,14 @@ FUNCTION {bbl.sine.loco.sine.nomine}
   if$
 }
 
+FUNCTION {default.self.tokens} { ":,-'–—?.!" }
+
+FUNCTION {latin.upper} { "ÀÁÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞŸĀĂĄĆĈĊČĎĐĒĔĖĘĚĜĞĠĢĤĦĨĪĬĮİIĴĶĹĻĽĿŁŃŅŇŊŌŎŐŒŔŖŘŚŜŞŠŢŤŦŨŪŬŮŰŲŴŶŸŹŻŽ" }
+
+FUNCTION {latin.lower} { "àáãäåæçèéêëìíîïðñòóôõöøùúûüýþÿāăąćĉċčďđēĕėęěĝğġģĥħĩīĭįiıĵķĺļľŀłńņňŋōŏőœŕŗřśŝşšţťŧũūŭůűųŵŷÿźżž" }
+
+FUNCTION {range.separators} { "-–—~～" }
+
 %    \end{macrocode}
 %
 % These three functions pop one or two (integer) arguments from the stack
@@ -1794,6 +1825,785 @@ FUNCTION {new.sentence.checkb}
     'skip$
     'new.sentence
   if$
+}
+
+%    \end{macrocode}
+%
+% In order to support UTF-8 encoding, we need some auxiliary functions.  Below
+% are a series of such functions.  We try to make functions loosely-coupled as
+% much as possible.  Where the use of variables is inevitable in functions, we
+% generally assume it is the caller's responsibility to save and restore those
+% variables.  Exceptions are made for some unary functions, where it is
+% convenient for the callee to do so.
+%    \begin{macrocode}
+INTEGERS { b }
+
+%    \end{macrocode}
+%
+% Function |is.int.in.range| takes a codepoint and two integers and check if the
+% codepoint is between these two integers (inclusive).
+%    \begin{macrocode}
+% codepoint: int, a: int, b: int -> bool
+% variable used: b
+FUNCTION {is.int.in.range}
+{
+  'b :=
+  #1 +
+  b >
+    { #1 - b < }
+    { pop$ #0 }
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |mult.power2| takes two integers and returns \(2^nm\).
+%    \begin{macrocode}
+% m: int, n: int -> int
+FUNCTION {mult.power2}
+{
+  { duplicate$ #0 > }
+    {
+      swap$
+      duplicate$ +
+      swap$ #1 -
+    }
+  while$
+  pop$
+}
+
+%    \end{macrocode}
+%
+% Function |find.match.brace| takes two strings, the first of which is assumed
+% to be |"{"|, and find the matching brace in the second string.  It returns a
+% token (or subtoken) and the rest of the string after the matching brace.  When
+% braces are unmatched, it issues a warning and complete the brace
+% automatically, following the convention of the original \hologo{BibTeX}.
+%    \begin{macrocode}
+% "{", str -> subtoken: str, rest: str
+% variables used: s, t
+FUNCTION {find.match.brace}
+{
+  's :=
+  't :=
+
+  #1
+  { duplicate$ #0 >
+    s empty$ not and }
+    {
+      s #1 #1 substring$ "{" =
+        { #1 + }
+        {
+          s #1 #1 substring$ "}" =
+            { #1 - }
+            'skip$
+          if$
+        }
+      if$
+      t s #1 #1 substring$ * 't :=
+      s #2 global.max$ substring$ 's :=
+    }
+  while$
+
+  duplicate$ #0 >
+    {
+      "Unbalanced brace(s): one or more closing braces are missing" warning$
+      { duplicate$ #0 > }
+        {
+          t "}" * 't :=
+          #1 -
+        }
+      while$
+    }
+    'skip$
+  if$
+  pop$
+
+  t
+  s
+}
+
+%    \end{macrocode}
+%
+% Function |split.first.char.from.str| takes a UTF-8 string and return
+% the first UTF-8 character and the rest of the string in reverse order.
+%    \begin{macrocode}
+% str -> str, char
+FUNCTION {split.first.char.from.str}
+{
+  duplicate$ "" =
+    {
+      "split.first.char.from.str: Trying to split an empty string!" warning$
+      ""
+    }
+    {
+      duplicate$ #1 #1 substring$ chr.to.int$ #128 <
+        {
+          duplicate$ #1 #1 substring$ swap$
+          #2 global.max$ substring$ swap$
+        }
+        {
+          duplicate$ #1 #1 substring$ chr.to.int$ #224 <
+            {
+              duplicate$ #1 #2 substring$ swap$
+              #3 global.max$ substring$ swap$
+            }
+            {
+              duplicate$ #1 #1 substring$ chr.to.int$ #240 <
+                {
+                  duplicate$ #1 #3 substring$ swap$
+                  #4 global.max$ substring$ swap$
+                }
+                {
+                  duplicate$ #1 #4 substring$ swap$
+                  #5 global.max$ substring$ swap$
+                }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |get.first.char.from.str| takes a UTF-8 string and return the
+% first UTF-8 character.
+%    \begin{macrocode}
+% str -> char
+FUNCTION {get.first.char.from.str}
+{
+  split.first.char.from.str swap$ pop$
+}
+
+%    \end{macrocode}
+%
+% Function |split.first.tex.char.from.str| is like
+% |split.first.char.from.str|.  It takes a UTF-8 string and return the
+% first UTF-8 character or first \TeX group and the rest of string in
+% reverse order.
+%    \begin{macrocode}
+% str -> rest: str, texchar
+FUNCTION {split.first.tex.char.from.str}
+{
+  duplicate$ #1 #1 substring$ "{" =
+    {
+      split.first.char.from.str swap$
+      find.match.brace swap$
+    }
+    'split.first.char.from.str
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |char.to.unicode| takes a UTF-8 character and returns its
+% codepoint in Unicode.  It issues a warning and returns \(-1\) if the
+% presumed character is an empty string.  For other invalid input, the
+% behavior is undefined.
+%    \begin{macrocode}
+% char -> int
+FUNCTION {char.to.unicode}
+{
+  duplicate$ #4 #1 substring$ "" =
+    {
+      duplicate$ #3 #1 substring$ "" =
+        {
+          duplicate$ #2 #1 substring$ "" =
+            {
+              duplicate$ "" =
+                {
+                  "Empty string is not a char!" warning$
+                  pop$ #-1
+                }
+                { #1 #1 substring$ chr.to.int$ }
+              if$
+            }
+            {
+              duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
+              #1 #1 substring$ chr.to.int$ #192 -
+              #6 mult.power2 +
+            }
+          if$
+        }
+        {
+          duplicate$ #3 #1 substring$ chr.to.int$ #128 - swap$
+          duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
+          #1 #1 substring$ chr.to.int$ #224 -
+          #6 mult.power2 +
+          #6 mult.power2 +
+        }
+      if$
+    }
+    {
+      duplicate$ #4 #1 substring$ chr.to.int$ #128 - swap$
+      duplicate$ #3 #1 substring$ chr.to.int$ #128 - swap$
+      duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
+      #1 #1 substring$ chr.to.int$ #240 -
+      #6 mult.power2 +
+      #6 mult.power2 +
+      #6 mult.power2 +
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |is.char.in.str| takes a string and a UTF-8 character.  It
+% checks whether the character is in the string.  It issues a warning
+% and returns \(0\) if the presumed character is an empty string.  It
+% also returns \(0\) if the string itself is empty.  For other input,
+% the behavior is undefined.
+%    \begin{macrocode}
+% str, char -> bool
+% variable used: t
+FUNCTION {is.char.in.str}
+{
+  't :=
+
+  t "" =
+    { "is.char.in.str: Empty string is not a char!" warning$ }
+    'skip$
+  if$
+
+  #0 swap$
+  { duplicate$ "" = not }
+    {
+      split.first.char.from.str t =
+        { pop$ pop$ #1 "" }
+        'skip$
+      if$
+    }
+  while$
+  pop$
+}
+
+%    \end{macrocode}
+%
+% Function |is.upper.ascii| takes a UTF-8 character and checks whether
+% it is an uppercase ASCII letter.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.upper.ascii}
+{
+  char.to.unicode #65 swap$ #90 swap$ is.int.in.range
+}
+
+%    \end{macrocode}
+%
+% Function |is.upper| takes a UTF-8 character and checks whether it is
+% uppercase in the range from |U+0000| to |U+017F|.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.upper}
+{
+  duplicate$ is.upper.ascii
+    { pop$ #1 }
+    { latin.upper swap$ is.char.in.str }
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |is.lower.ascii| takes a UTF-8 character and checks whether
+% it is a lowercase ASCII letter.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.lower.ascii}
+{
+  char.to.unicode #97 swap$ #122 swap$ is.int.in.range
+}
+
+%    \end{macrocode}
+%
+% Function |is.upper| takes a UTF-8 character and checks whether it is
+% lowercase in the range from |U+0000| to |U+017F|.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.lower}
+{
+  duplicate$ is.lower.ascii
+    { pop$ #1 }
+    { latin.lower swap$ is.char.in.str }
+  if$
+}
+
+%    \end{macrocode}
+%
+% Function |is.printable.ascii| takes a UTF-8 character and checks
+% whether it is a printable ASCII character.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.printable.ascii}
+{
+  char.to.unicode #32 swap$ #126 swap$ is.int.in.range
+}
+
+%    \end{macrocode}
+%
+% Function |is.letter.ascii| takes a UTF-8 character and checks
+% whether it is an ASCII letter.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.letter.ascii}
+{
+  duplicate$ is.upper.ascii swap$ is.lower.ascii or
+}
+
+%    \end{macrocode}
+%
+% Function |is.symbol.ascii| takes a UTF-8 character and checks whether
+% it is a printable ASCII character but not an ASCII letter.
+%    \begin{macrocode}
+% char -> bool
+% variable used: b
+FUNCTION {is.symbol.ascii}
+{
+  duplicate$ is.printable.ascii swap$ is.letter.ascii not and
+}
+
+%    \end{macrocode}
+%
+% Function |is.all.lower| takes a string and checks whether every
+% character in it is lowercase in the range from |U+0000| to |U+017F|.
+%    \begin{macrocode}
+% str -> bool
+% variable used: b
+% return true if str is empty
+FUNCTION {is.all.lower}
+{
+  #1 swap$
+  { duplicate$ "" = not }
+    {
+      split.first.char.from.str is.lower
+        'skip$
+        { pop$ pop$ #0 "" }
+      if$
+    }
+  while$
+  pop$
+}
+
+% str -> bool
+% variable used: b
+FUNCTION {is.tex.str.in.title.case}
+{
+  duplicate$ "" =
+    { pop$ #0 }
+    {
+      split.first.tex.char.from.str purify$
+      duplicate$ "" =
+        { pop$ pop$ #0 }
+        {
+          split.first.char.from.str is.upper
+            {
+              duplicate$ is.all.lower
+                {
+                  empty$
+                    {
+                      duplicate$ "" =
+                        { pop$ #0 }
+                        'is.all.lower
+                      if$
+                    }
+                    'is.all.lower
+                  if$
+                }
+                { pop$ pop$ #0 }
+              if$
+            }
+            { pop$ pop$ #0}
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+% char, int -> bool
+% variables used: t, b
+FUNCTION {is.in.inter.token.chars}
+{
+  duplicate$ #0 =
+    { pop$ " " = }
+    {
+      #1 =
+        { " " range.separators * swap$ is.char.in.str }
+        'is.letter.ascii
+      if$
+    }
+  if$
+}
+
+% str, int -> intertoken: str, rest: str
+% variable used: t, b
+FUNCTION {skip.inter.token.chars.by}
+{
+  'b :=
+  't :=
+
+  "" t
+  { duplicate$ "" = not }
+    {
+      split.first.char.from.str
+      duplicate$ b is.in.inter.token.chars
+        { swap$ 't := * t }
+        { swap$ * 't := "" }
+      if$
+    }
+  while$
+
+  pop$ t
+}
+
+% str -> intertoken: str, rest: str
+% variable used: t, b
+FUNCTION {skip.inter.token.chars}
+{
+  #0 skip.inter.token.chars.by
+}
+
+% str -> intertoken: str, rest: str
+% variable used: t, b
+FUNCTION {skip.inter.token.command}
+{
+  duplicate$ "" =
+    { "" }
+    {
+      duplicate$ #1 #1 substring$ is.symbol.ascii
+        { split.first.char.from.str swap$ }
+        { #2 skip.inter.token.chars.by }
+     if$
+    }
+  if$
+}
+
+% cmdstr -> cmdstr
+FUNCTION {is.special.char.command}
+{
+  #2 global.max$ substring$ skip.inter.token.command
+
+  empty$
+    'skip$
+    { "is.special.char.command: cmdstr has extra components!" warning$ }
+  if$
+
+  duplicate$ duplicate$ duplicate$ duplicate$ duplicate$ duplicate$
+  "oOlLij" swap$ is.char.in.str
+  swap$ "oe" = or
+  swap$ "OE" = or
+  swap$ "ae" = or
+  swap$ "AE" = or
+  swap$ "aa" = or
+  swap$ "AA" = or
+}
+
+% str, str, char -> char
+% variable used: t
+FUNCTION {map.char}
+{
+  't :=
+  split.first.char.from.str
+  { swap$ duplicate$ "" = not }
+    {
+      swap$ t =
+        { pop$ "" t }
+        {
+          swap$ split.first.char.from.str pop$ swap$
+          split.first.char.from.str
+        }
+      if$
+    }
+  while$
+  pop$ t =
+    'get.first.char.from.str
+    { pop$ t }
+  if$
+}
+
+% char -> char
+% variables used: t, b
+FUNCTION {to.lower}
+{
+  duplicate$ is.upper.ascii
+    { chr.to.int$ #32 + int.to.chr$ }
+    { latin.lower swap$ latin.upper swap$ map.char }
+  if$
+}
+
+% char -> char
+% variables used: t, b
+FUNCTION {to.upper}
+{
+  duplicate$ is.lower.ascii
+    { chr.to.int$ #32 - int.to.chr$ }
+    { latin.upper swap$ latin.lower swap$ map.char }
+  if$
+}
+
+% str -> str
+% variables used: t, b
+FUNCTION {all.to.lower}
+{
+  "" swap$
+  { duplicate$ empty$ not }
+    { split.first.char.from.str to.lower swap$ 't := * t }
+  while$
+  *
+}
+
+% texchar -> texchar
+% variables used: t, b
+FUNCTION {command.to.lower}
+{
+  duplicate$ "" =
+    { "command.to.lower: Empty string is not a texchar!" warning$ }
+    {
+      duplicate$ #1 #1 substring$ #92 int.to.chr$ =
+        {
+          duplicate$ is.special.char.command
+            'all.to.lower
+            'skip$
+          if$
+        }
+        'to.lower
+      if$
+    }
+  if$
+}
+
+% texchar -> texchar
+% variables used: t, b
+FUNCTION {tex.to.lower}
+{
+  duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
+    {
+      "" swap$
+      { duplicate$ "" = not }
+        {
+          split.first.char.from.str
+          duplicate$ #92 int.to.chr$ =
+            {
+              swap$ skip.inter.token.command 't := * t
+              swap$ command.to.lower
+            }
+            'to.lower
+          if$
+          swap$ 't := * t
+        }
+      while$
+      pop$
+    }
+    {
+      duplicate$ #1 #1 substring$ "{" =
+        { split.first.char.from.str swap$ find.match.brace pop$ }
+        'command.to.lower
+      if$
+    }
+  if$
+}
+
+% str -> str
+% variables used: t, b
+FUNCTION {all.to.upper}
+{
+  "" swap$
+  { duplicate$ empty$ not }
+    { split.first.char.from.str to.upper swap$ 't := * t }
+  while$
+  *
+}
+
+% texchar -> texchar
+% variables used: t, b
+FUNCTION {command.to.upper}
+{
+  duplicate$ "" =
+    { "command.to.lower: Empty string is not a texchar!" warning$ }
+    {
+      duplicate$ #1 #1 substring$ #92 int.to.chr$ =
+        {
+           duplicate$ is.special.char.command
+             'all.to.upper
+             'skip$
+           if$
+        }
+        'to.upper
+      if$
+    }
+  if$
+}
+
+% texchar -> texchar
+% variables used: t, b
+FUNCTION {tex.to.upper}
+{
+  duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
+    {
+      "" swap$
+      { duplicate$ "" = not }
+      {
+        split.first.char.from.str
+        duplicate$ #92 int.to.chr$ =
+          {
+            swap$ skip.inter.token.command 't := * t
+            swap$ command.to.upper
+          }
+          'to.upper
+        if$
+        swap$ 't := * t
+      }
+      while$
+      pop$
+    }
+    {
+      duplicate$ #1 #1 substring$ "{" =
+        { split.first.char.from.str swap$ find.match.brace pop$ }
+        'command.to.upper
+      if$
+    }
+  if$
+}
+
+% texstr -> texstr
+% variable used: t, b
+FUNCTION {lower.token.if.in.title.case}
+{
+  duplicate$ is.tex.str.in.title.case
+    { split.first.tex.char.from.str tex.to.lower swap$ * }
+    'skip$
+  if$
+}
+
+% int -> str
+FUNCTION {self.tokens}
+{
+  #0 =
+    'default.self.tokens
+    'range.separators
+  if$
+}
+
+% str, int -> token: str, rest: str
+% variables used: s, t, b
+FUNCTION {tokenize.by}
+{
+  'b :=
+  's :=
+
+  s "" =
+    { "" "" }
+    {
+      s split.first.char.from.str
+      duplicate$ b self.tokens swap$ is.char.in.str
+        'swap$
+        {
+          duplicate$ #92 int.to.chr$ =
+            { swap$ skip.inter.token.command 's := * s }
+            {
+              pop$ pop$ "" s
+              { duplicate$ "" = not }
+                {
+                  split.first.char.from.str
+                  duplicate$ "\ " b self.tokens * swap$ is.char.in.str
+                    { pop$ pop$ "" }
+                    {
+                      duplicate$ "{" =
+                        { swap$ find.match.brace }
+                        'swap$
+                      if$
+                      's := * s
+                    }
+                  if$
+                }
+              while$
+              pop$ s
+            }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+% str -> str
+% variables used: s, t, b
+FUNCTION {tokenize}
+{
+  #0 tokenize.by
+}
+
+% str -> str
+% variables used: s, t, b
+FUNCTION {smart.sentence.case}
+{
+  tokenize 's :=
+
+  { s "" = not }
+    {
+      s skip.inter.token.chars 's := * s
+      tokenize swap$
+      duplicate$ ":" =
+        {
+          swap$ 's := *
+          s skip.inter.token.chars 's := * s
+          tokenize swap$
+          lowercase.word.after.colon
+            {
+              duplicate$ "A" =
+                { pop$ "a" }
+                'lower.token.if.in.title.case
+              if$
+            }
+            'skip$
+          if$
+        }
+        'lower.token.if.in.title.case
+      if$
+      swap$ 's := *
+    }
+  while$
+}
+
+% str -> str
+% variables used: s, t, b
+FUNCTION {smart.upper.case}
+{
+  s swap$ t swap$
+
+  "" swap$
+  { duplicate$ "" = not }
+    {
+      tokenize swap$
+      duplicate$ #1 #1 substring$ #92 int.to.chr$ =
+        'command.to.upper
+        {
+          "" swap$
+          { duplicate$ "" = not }
+            {
+              split.first.tex.char.from.str tex.to.upper
+              swap$ 't := * t
+            }
+          while$
+          pop$
+        }
+      if$
+      swap$ 't := * t
+      skip.inter.token.chars 't := * t
+    }
+  while$
+  pop$
+
+  swap$ 't :=
+  swap$ 's :=
 }
 
 %    \end{macrocode}
@@ -2093,7 +2903,7 @@ FUNCTION {format.name}
       name.lang lang.en =
         { t #1 "{vv~}{ll}{ f{~}}" format.name$
           uppercase.name
-            { "u" change.case$ }
+            'smart.upper.case
             'skip$
           if$
           t #1 "{, jj}" format.name$ *
@@ -2287,7 +3097,7 @@ FUNCTION {output.bibitem}
 %    \begin{macrocode}
 FUNCTION {change.sentence.case}
 { entry.lang lang.en =
-    { "t" change.case$ }
+    'smart.sentence.case
     'skip$
   if$
 }
@@ -3042,25 +3852,24 @@ FUNCTION {format.urldate}
 %
 % 国标里页码范围的连接号使用 hyphen，需要将 dash 转为 hyphen。
 %    \begin{macrocode}
-FUNCTION {hyphenate}
-{ 't :=
-  ""
-    { t empty$ not }
-    { t #1 #1 substring$ "-" =
-        { wave.dash.in.pages
-            { "～" * }
-            { "-" * }
-          if$
-            { t #1 #1 substring$ "-" = }
-            { t #2 global.max$ substring$ 't := }
-          while$
-        }
-        { t #1 #1 substring$ *
-          t #2 global.max$ substring$ 't :=
-        }
+% str -> str
+% variable used: s, t, b
+FUNCTION {normalize.page.range}
+{
+  "" swap$
+  { duplicate$ empty$ not }
+    {
+      #1 skip.inter.token.chars.by 't :=
+      empty$
+        { "" }
+        'page.range.separator
       if$
+      * t
+      #1 tokenize.by 't :=
+      * t
     }
   while$
+  pop$
 }
 
 %    \end{macrocode}
@@ -3069,10 +3878,8 @@ FUNCTION {hyphenate}
 % Other functions that use this should keep that in mind.
 %    \begin{macrocode}
 FUNCTION {format.pages}
-{ pages empty$
-    { "" }
-    { pages hyphenate }
-  if$
+{
+  pages normalize.page.range
 }
 
 FUNCTION {format.extracted.pages}
@@ -3080,8 +3887,8 @@ FUNCTION {format.extracted.pages}
     { "" }
     { pages
       only.start.page
-        'extract.before.dash
-        'hyphenate
+        { #1 tokenize.by pop$ }
+        'normalize.page.range
       if$
     }
   if$
