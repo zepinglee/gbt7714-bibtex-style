@@ -30,35 +30,43 @@
 \newcommand\gbt@obsolete@option[1]{%
   \PackageWarning{gbt7714}{The option "#1" is obsolete}%
 }
-\DeclareOption{2015}{%
-  \gbt@obsolete@option{2015}%
-  \gbt@legacy@interfacetrue
-  \gbt@mmxvtrue
+\DeclareKeys[gbt7714]{
+  2015 .code = {%
+    \gbt@obsolete@option{2015}%
+    \gbt@legacy@interfacetrue
+    \gbt@mmxvtrue
+  },
+  2005 .code = {%
+    \gbt@obsolete@option{2005}%
+    \gbt@legacy@interfacetrue
+    \gbt@mmxvfalse
+  },
+  super .code = {%
+    \gbt@obsolete@option{super}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericaltrue
+    \gbt@supertrue
+  },
+  numbers .code = {%
+    \gbt@obsolete@option{numbers}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericaltrue
+    \gbt@superfalse
+  },
+  authoryear .code = {%
+    \gbt@obsolete@option{authoryear}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericalfalse
+  },
 }
-\DeclareOption{2005}{%
-  \gbt@obsolete@option{2005}%
-  \gbt@legacy@interfacetrue
-  \gbt@mmxvfalse
+\DeclareKeys[gbt7714]{
+  locator-inside-brackets .if = @gbt@locator@inside@affixes ,
 }
-\DeclareOption{super}{%
-  \gbt@obsolete@option{super}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericaltrue
-  \gbt@supertrue
+\SetKeys[gbt7714]{
+  locator-inside-brackets = false ,
 }
-\DeclareOption{numbers}{%
-  \gbt@obsolete@option{numbers}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericaltrue
-  \gbt@superfalse
-}
-\DeclareOption{authoryear}{%
-  \gbt@obsolete@option{authoryear}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericalfalse
-}
-\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ProcessOptions\relax
+\DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
+\ProcessKeyOptions[gbt7714]
 \RequirePackage{natbib}
 \RequirePackage{url}
 \def\NAT@cmprs{\@ne}
@@ -76,15 +84,20 @@
     \if*#2*\else
       #2\NAT@spacechar
     \fi
-    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
     \unskip\kern\p@
     \textsuperscript{%
       \NAT@@open
       #1%
-      \NAT@@close
-      \if*#3*\else
-        #3%
+      \if@gbt@locator@inside@affixes
+        \if*#3*\else
+          \NAT@cmt#3%
+        \fi
+        \NAT@@close
+      \else
+        \NAT@@close
+        \if*#3*\else
+          #3%
+        \fi
       \fi
     }%
     \kern\p@
@@ -99,10 +112,14 @@
     \if*#2*\else
       #2\NAT@spacechar
     \fi
-    % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-    #1\NAT@@close
-    \if*#3*\else
-      \textsuperscript{#3}%
+    #1%
+    \if@gbt@locator@inside@affixes
+      \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    \else
+      \NAT@@close
+      \if*#3*\else
+        \textsuperscript{#3}%
+      \fi
     \fi
   \else
     #1%
@@ -184,22 +201,32 @@
     }%
       \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
       \ifNAT@swa\else
-        % \@ifnum{\NAT@ctype=\z@}{%
-        %   \if*#2*\else\NAT@cmt#2\fi
-        % }{}%
-        \NAT@mbox{\NAT@@close}%
-        \@ifnum{\NAT@ctype=\z@}{%
-          \if*#2*\else
-            \textsuperscript{#2}%
-          \fi
-        }{}%
-        \NAT@super@kern
+        \if@gbt@locator@inside@affixes
+          \@ifnum{\NAT@ctype=\z@}{%
+            \if*#2*\else\NAT@cmt#2\fi
+          }{}%
+          \NAT@mbox{\NAT@@close}%
+        \else
+          \NAT@mbox{\NAT@@close}%
+          \@ifnum{\NAT@ctype=\z@}{%
+            \if*#2*\else
+              \textsuperscript{#2}%
+            \fi
+          }{}%
+          \NAT@super@kern
+        \fi
       \fi
   }{#1}{#2}%
 }%
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+        #1%
+        \if@gbt@locator@inside@affixes
+          \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+        \else
+          \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
+        \fi
+        \else#1\fi\endgroup}
 \def\NAT@citex%
   [#1][#2]#3{%
   \NAT@reset@parser
@@ -288,9 +315,13 @@
        \fi
      \fi
      }}\ifNAT@swa\else
-       % \if*#2*\else\NAT@cmt#2\fi
-       \if\relax\NAT@date\relax\else\NAT@@close\fi
-       \if*#2*\else\textsuperscript{#2}\fi
+       \if@gbt@locator@inside@affixes
+         \if*#2*\else\NAT@cmt#2\fi
+         \if\relax\NAT@date\relax\else\NAT@@close\fi
+       \else
+         \if\relax\NAT@date\relax\else\NAT@@close\fi
+         \if*#2*\else\textsuperscript{#2}\fi
+       \fi
      \fi}{#1}{#2}}
 \renewcommand\@biblabel[1]{[#1]\hfill}
 \let\NAT@bare@aux\NAT@bare

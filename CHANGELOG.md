@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加选项 `locator-inside-brackets` 控制引注的页码是否在括号外（[#181](https://github.com/zepinglee/gbt7714-bibtex-style/issues/181)）。
+
 ### Changed
 
 - 改进 `@misc` 的预印本判断方式（[#155](https://github.com/zepinglee/gbt7714-bibtex-style/issues/155#issuecomment-2715067957)）。

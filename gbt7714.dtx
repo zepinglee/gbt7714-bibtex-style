@@ -187,6 +187,13 @@
 % |\cite[42]{knuth84}|。
 % 更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明\cite{natbib}。
 %
+% \DescribeOption{locator-inside-brackets}
+% 国标要求在括号外以角标的形式著录引文页码。
+% 如果要将页码置于括号内，可以在调用宏包时设置 \opt{locator-inside-brackets=true}。
+% \begin{latex}
+%   \usepackage[locator-inside-brackets=true]{gbt7714}
+% \end{latex}
+%
 % 使用时需要注意以下几点：
 % \begin{itemize}
 %   \item \file{.bib} 数据库应使用 UTF-8 编码。
@@ -475,39 +482,51 @@
 \newcommand\gbt@obsolete@option[1]{%
   \PackageWarning{gbt7714}{The option "#1" is obsolete}%
 }
-\DeclareOption{2015}{%
-  \gbt@obsolete@option{2015}%
-  \gbt@legacy@interfacetrue
-  \gbt@mmxvtrue
+\DeclareKeys[gbt7714]{
+  2015 .code = {%
+    \gbt@obsolete@option{2015}%
+    \gbt@legacy@interfacetrue
+    \gbt@mmxvtrue
+  },
+  2005 .code = {%
+    \gbt@obsolete@option{2005}%
+    \gbt@legacy@interfacetrue
+    \gbt@mmxvfalse
+  },
+  super .code = {%
+    \gbt@obsolete@option{super}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericaltrue
+    \gbt@supertrue
+  },
+  numbers .code = {%
+    \gbt@obsolete@option{numbers}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericaltrue
+    \gbt@superfalse
+  },
+  authoryear .code = {%
+    \gbt@obsolete@option{authoryear}%
+    \gbt@legacy@interfacetrue
+    \gbt@numericalfalse
+  },
 }
-\DeclareOption{2005}{%
-  \gbt@obsolete@option{2005}%
-  \gbt@legacy@interfacetrue
-  \gbt@mmxvfalse
+%    \end{macrocode}
+%
+% 控制引注的页码在括号内还是在括号外。
+%    \begin{macrocode}
+\DeclareKeys[gbt7714]{
+  locator-inside-brackets .if = @gbt@locator@inside@affixes ,
 }
-\DeclareOption{super}{%
-  \gbt@obsolete@option{super}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericaltrue
-  \gbt@supertrue
-}
-\DeclareOption{numbers}{%
-  \gbt@obsolete@option{numbers}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericaltrue
-  \gbt@superfalse
-}
-\DeclareOption{authoryear}{%
-  \gbt@obsolete@option{authoryear}%
-  \gbt@legacy@interfacetrue
-  \gbt@numericalfalse
+\SetKeys[gbt7714]{
+  locator-inside-brackets = false ,
 }
 %    \end{macrocode}
 %
 % 将选项传递给 \pkg{natbib}
 %    \begin{macrocode}
-\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{natbib}}
-\ProcessOptions\relax
+\DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
+\ProcessKeyOptions[gbt7714]
 %    \end{macrocode}
 %
 % 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
@@ -555,15 +574,20 @@
     \if*#2*\else
       #2\NAT@spacechar
     \fi
-    % \unskip\kern\p@\textsuperscript{\NAT@@open#1\NAT@@close}%
-    %  \if*#3*\else\NAT@spacechar#3\fi\else #1\fi\endgroup}
     \unskip\kern\p@
     \textsuperscript{%
       \NAT@@open
       #1%
-      \NAT@@close
-      \if*#3*\else
-        #3%
+      \if@gbt@locator@inside@affixes
+        \if*#3*\else
+          \NAT@cmt#3%
+        \fi
+        \NAT@@close
+      \else
+        \NAT@@close
+        \if*#3*\else
+          #3%
+        \fi
       \fi
     }%
     \kern\p@
@@ -582,10 +606,14 @@
     \if*#2*\else
       #2\NAT@spacechar
     \fi
-    % #1\if*#3*\else\NAT@cmt#3\fi\NAT@@close\else#1\fi\endgroup}
-    #1\NAT@@close
-    \if*#3*\else
-      \textsuperscript{#3}%
+    #1%
+    \if@gbt@locator@inside@affixes
+      \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    \else
+      \NAT@@close
+      \if*#3*\else
+        \textsuperscript{#3}%
+      \fi
     \fi
   \else
     #1%
@@ -680,16 +708,20 @@
 %
 % 将页码放在括号外边，并且置于上标。
 %    \begin{macrocode}
-        % \@ifnum{\NAT@ctype=\z@}{%
-        %   \if*#2*\else\NAT@cmt#2\fi
-        % }{}%
-        \NAT@mbox{\NAT@@close}%
-        \@ifnum{\NAT@ctype=\z@}{%
-          \if*#2*\else
-            \textsuperscript{#2}%
-          \fi
-        }{}%
-        \NAT@super@kern
+        \if@gbt@locator@inside@affixes
+          \@ifnum{\NAT@ctype=\z@}{%
+            \if*#2*\else\NAT@cmt#2\fi
+          }{}%
+          \NAT@mbox{\NAT@@close}%
+        \else
+          \NAT@mbox{\NAT@@close}%
+          \@ifnum{\NAT@ctype=\z@}{%
+            \if*#2*\else
+              \textsuperscript{#2}%
+            \fi
+          }{}%
+          \NAT@super@kern
+        \fi
       \fi
   }{#1}{#2}%
 }%
@@ -699,7 +731,13 @@
 %    \begin{macrocode}
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1\NAT@@close\if*#3*\else\textsuperscript{#3}\fi\else#1\fi\endgroup}
+        #1%
+        \if@gbt@locator@inside@affixes
+          \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+        \else
+          \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
+        \fi
+        \else#1\fi\endgroup}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -797,9 +835,13 @@
 %
 % 将页码放在括号外边，并且置于上标。
 %    \begin{macrocode}
-       % \if*#2*\else\NAT@cmt#2\fi
-       \if\relax\NAT@date\relax\else\NAT@@close\fi
-       \if*#2*\else\textsuperscript{#2}\fi
+       \if@gbt@locator@inside@affixes
+         \if*#2*\else\NAT@cmt#2\fi
+         \if\relax\NAT@date\relax\else\NAT@@close\fi
+       \else
+         \if\relax\NAT@date\relax\else\NAT@@close\fi
+         \if*#2*\else\textsuperscript{#2}\fi
+       \fi
      \fi}{#1}{#2}}
 %    \end{macrocode}
 %
