@@ -995,12 +995,12 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
-%<*!(no-uppercase|thu)>
+%<*!(no-uppercase|thu|ustc)>
   #1 'uppercase.name :=
-%</!(no-uppercase|thu)>
-%<*no-uppercase|thu>
+%</!(no-uppercase|thu|ustc)>
+%<*no-uppercase|thu|ustc>
   #0 'uppercase.name :=
-%</no-uppercase|thu>
+%</no-uppercase|thu|ustc>
 %    \end{macrocode}
 %
 % 使用 TeX 宏输出“和”、“等”
@@ -1029,12 +1029,12 @@ FUNCTION {load.config}
   #1 'period.after.author :=
 %</numerical>
 %<*author-year>
-%<*2015&!(period|ustc)>
+%<*2015&!(period)>
   #0 'period.after.author :=
-%</2015&!(period|ustc)>
-%<*period|2005|ustc>
+%</2015&!(period)>
+%<*period|2005>
   #1 'period.after.author :=
-%</period|2005|ustc>
+%</period|2005>
 %</author-year>
 %    \end{macrocode}
 %
@@ -1080,12 +1080,12 @@ FUNCTION {load.config}
 %
 % 专利题名是否含专利国别
 %    \begin{macrocode}
-%<*!(show-patent-country|2005|ustc|thu)>
+%<*!(show-patent-country|2005|thu)>
   #0 'show.patent.country :=
-%</!(show-patent-country|2005|ustc|thu)>
-%<*(show-patent-country|2005|ustc|thu)>
+%</!(show-patent-country|2005|thu)>
+%<*(show-patent-country|2005|thu)>
   #1 'show.patent.country :=
-%</(show-patent-country|2005|ustc|thu)>
+%</(show-patent-country|2005|thu)>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
@@ -1218,22 +1218,22 @@ FUNCTION {load.config}
 %
 % 是否著录 URL：
 %    \begin{macrocode}
-%<*!no-url>
+%<*!(no-url|ustc)>
   #1 'show.url :=
-%</!no-url>
-%<*no-url>
+%</!(no-url|ustc)>
+%<*no-url|ustc>
   #0 'show.url :=
-%</no-url>
+%</no-url|ustc>
 %    \end{macrocode}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
-%<*!(no-doi|2005)>
+%<*!(no-doi|2005|ustc)>
   #1 'show.doi :=
-%</!(no-doi|2005)>
-%<*no-doi|2005>
+%</!(no-doi|2005|ustc)>
+%<*no-doi|2005|ustc>
   #0 'show.doi :=
-%</no-doi|2005>
+%</no-doi|2005|ustc>
 %    \end{macrocode}
 %
 % 是否著录 e-print：

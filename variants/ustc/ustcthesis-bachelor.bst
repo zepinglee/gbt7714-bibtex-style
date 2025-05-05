@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,numerical,italic-journal,no-url,no-doi')
+%% gbt7714.dtx  (with options: `2015,ustc,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -64,7 +64,7 @@ FUNCTION {load.config}
   #1 'citation.et.al.use.first :=
   #4 'bibliography.et.al.min :=
   #3 'bibliography.et.al.use.first :=
-  #1 'uppercase.name :=
+  #0 'uppercase.name :=
   #0 'terms.in.macro :=
   #0 'year.after.author :=
   #1 'period.after.author :=
@@ -78,7 +78,7 @@ FUNCTION {load.config}
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
-  #1 'italic.journal :=
+  #0 'italic.journal :=
   #0 'link.journal :=
   #0 'bold.journal.volume :=
   #0 'show.missing.address.publisher :=
