@@ -17,6 +17,7 @@ stdengine = "xetex"
 
 checkconfigs = {
   "build",
+  "tests/config-bbl",
   "tests/config-chapterbib",
   "tests/config-bibunits",
 }

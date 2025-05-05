@@ -7,21 +7,17 @@ BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
+savebst : bst
+	bash tests/save.sh bbl
+
 testbst : bst
-	bash tests/test.sh
+	l3build check --config tests/config-bbl
 
-test: testbst
+save : bst
+	bash tests/save.sh
+
+test : bst
 	l3build check
-
-savebst:
-	bash tests/test.sh
-
-save : savebst
-	l3build save --quiet super
-	l3build save --quiet numbers
-	l3build save --quiet author-year
-	l3build save --config tests/config-chapterbib package-chapterbib
-	l3build save --config tests/config-bibunits package-bibunits
 
 all : test doc
 
@@ -47,5 +43,5 @@ cleanall :
 install :
 	l3build install
 
-ctan : test doc
+ctan :
 	l3build ctan
