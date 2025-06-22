@@ -23,8 +23,6 @@
 INTEGERS {
   citation.et.al.min
   citation.et.al.use.first
-  bibliography.et.al.min
-  bibliography.et.al.use.first
   uppercase.name
   terms.in.macro
   year.after.author
@@ -59,6 +57,11 @@ INTEGERS {
   lang.other.order
 }
 
+INTEGERS {
+  max.bib.names
+  min.bib.names
+}
+
 STRINGS {
   component.part.label
   page.range.delimiter
@@ -68,8 +71,6 @@ FUNCTION {load.config}
 {
   #3 'citation.et.al.min :=
   #1 'citation.et.al.use.first :=
-  #4 'bibliography.et.al.min :=
-  #3 'bibliography.et.al.use.first :=
   #1 'uppercase.name :=
   #1 'terms.in.macro :=
   #0 'year.after.author :=
@@ -104,6 +105,10 @@ FUNCTION {load.config}
   #3 'lang.en.order :=
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
+
+  #3 'max.bib.names :=
+  #3 'min.bib.names :=
+
 }
 
 ENTRY
@@ -143,6 +148,8 @@ ENTRY
     urldate
     volume
     year
+    CTL_max_bib_names
+    CTL_min_bib_names
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -1246,7 +1253,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.name bbl.et.al =
-      numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
+      numnames max.bib.names > nameptr min.bib.names > and or
         { ", " *
           bbl.et.al *
           #1 'namesleft :=
@@ -2736,6 +2743,85 @@ FUNCTION {unpublished} { misc }
 
 FUNCTION {default.type} { misc }
 
+INTEGERS { a }
+
+FUNCTION {mult}
+{
+ 'a :=      %% we store the first value
+ 'b :=     %% we store the second value
+
+ b #0 <     %% We remember the sign of b, and
+    {#-1 #0 b - 'b :=}     %% then consider its absolute value.
+    {#1}     %%
+ if$     %%
+
+ #0     %% Put 0 on the stack.
+ {b #0 >}     %% While b is strictly positive,
+ {     %% we add a to the value on the stack
+   a +     %% and decrement b.
+   b #1 - 'b :=     %%
+ }     %%
+ while$     %%
+
+ swap$         %% Last, we take the opposite
+   'skip$       %% if b was negative.
+   {#0 swap$ -}     %%
+ if$     %%
+}
+FUNCTION {chr.to.value}       %% The ASCII code of a character
+{
+  chr.to.int$ #48 -       %% ASCII value of "0" -> 48
+  duplicate$ duplicate$       %%         "1" -> 49
+  #0 < swap$ #9 > or       %%    ...
+  {       %%                "9" -> 57
+      #48 + int.to.chr$
+      " is not a number..." *
+      warning$       %% Return 0 if it is not a number
+      pop$ #0       %%
+    }
+  {}
+  if$
+}
+
+FUNCTION {str.to.int.aux}     %% The auxiliary function
+{
+  {duplicate$ empty$ not}     %% While the string is not empty
+    {       %% consider its first char
+      swap$ #10 mult 'a :=    %% and ``add'' it at the end of
+      duplicate$ #1 #1 substring$   %% the result.
+      chr.to.value a +
+      swap$
+      #2 global.max$ substring$
+    }
+  while$
+  pop$
+}
+
+FUNCTION {str.to.int}
+{       %% Handling negative values
+  duplicate$ #1 #1 substring$ "-" =
+    {#1 swap$ #2 global.max$ substring$}
+    {#0 swap$}
+  if$
+      %% Initialization, and then
+  #0 swap$ str.to.int.aux     %% call to the aux. funtion
+  swap$
+    {#0 swap$ -}       %% And handle the sign.
+    {}
+  if$
+}
+
+FUNCTION {GBT7714BSTCTL}
+{
+  CTL_max_bib_names empty$
+    'skip$
+    { CTL_max_bib_names str.to.int 'max.bib.names := }
+  if$
+  CTL_min_bib_names empty$
+    'skip$
+    { CTL_min_bib_names str.to.int 'min.bib.names := }
+  if$
+}
 MACRO {jan} {"January"}
 
 MACRO {feb} {"February"}
@@ -3092,39 +3178,45 @@ FUNCTION {editor.organization.sort}
 }
 
 FUNCTION {presort}
-{ set.entry.lang
-  set.entry.numbered
-  show.url show.doi check.electronic
-  #0 'is.pure.electronic :=
-  calc.label
-  label sortify
-  "    "
-  *
-  sort.language.label
-  "    "
-  *
-  type$ "book" =
-  type$ "inbook" = booktitle empty$ not and
-  or
-    'author.editor.sort
-    { type$ "collection" =
-      type$ "proceedings" =
+{ type$ "gbt7714bstctl" =
+    { "_    "
+      seq.num  int.to.fix
+    }
+    { set.entry.lang
+      set.entry.numbered
+      show.url show.doi check.electronic
+      #0 'is.pure.electronic :=
+      calc.label
+      label sortify
+      "    "
+      *
+      sort.language.label
+      "    "
+      *
+      type$ "book" =
+      type$ "inbook" = booktitle empty$ not and
       or
-        'editor.organization.sort
-        'author.sort
+        'author.editor.sort
+        { type$ "collection" =
+          type$ "proceedings" =
+          or
+            'editor.organization.sort
+            'author.sort
+          if$
+        }
       if$
+      *
+      "    "
+      *
+      year field.or.null sortify
+      *
+      "    "
+      *
+      cite$
+      *
+      #1 entry.max$ substring$
     }
   if$
-  *
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  cite$
-  *
-  #1 entry.max$ substring$
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
@@ -3146,48 +3238,57 @@ FUNCTION {initialize.longest.label}
 
 FUNCTION {forward.pass}
 {
-  last.label label =
-    { "" 'extra.label :=
-      last.extra.label text.length$ 'charptr :=
-        { last.extra.label charptr #1 substring$ "z" =
-          charptr #0 > and
+  type$ "gbt7714bstctl" =
+    'skip$
+    {
+      last.label label =
+        { "" 'extra.label :=
+          last.extra.label text.length$ 'charptr :=
+            { last.extra.label charptr #1 substring$ "z" =
+              charptr #0 > and
+            }
+            { "a" extra.label * 'extra.label :=
+              charptr #1 - 'charptr :=
+            }
+          while$
+          charptr #0 >
+            { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
+              extra.label * 'extra.label :=
+              last.extra.label #1 charptr #1 - substring$
+              extra.label * 'extra.label :=
+            }
+            { "a" extra.label * 'extra.label := }
+          if$
+          extra.label 'last.extra.label :=
         }
-        { "a" extra.label * 'extra.label :=
-          charptr #1 - 'charptr :=
+        { "a" 'last.extra.label :=
+          "" 'extra.label :=
+          label 'last.label :=
         }
-      while$
-      charptr #0 >
-        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-          extra.label * 'extra.label :=
-          last.extra.label #1 charptr #1 - substring$
-          extra.label * 'extra.label :=
-        }
-        { "a" extra.label * 'extra.label := }
       if$
-      extra.label 'last.extra.label :=
-    }
-    { "a" 'last.extra.label :=
-      "" 'extra.label :=
-      label 'last.label :=
+      number.label #1 + 'number.label :=
     }
   if$
-  number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{
-  next.extra "b" =
-    { "a" 'extra.label := }
+{ type$ "gbt7714bstctl" =
     'skip$
+    {
+      next.extra "b" =
+        { "a" 'extra.label := }
+        'skip$
+      if$
+      extra.label 'next.extra :=
+      extra.label
+      duplicate$ empty$
+        'skip$
+        { "{\natexlab{" swap$ * "}}" * }
+      if$
+      'extra.label :=
+      label extra.label * 'label :=
+    }
   if$
-  extra.label 'next.extra :=
-  extra.label
-  duplicate$ empty$
-    'skip$
-    { "{\natexlab{" swap$ * "}}" * }
-  if$
-  'extra.label :=
-  label extra.label * 'label :=
 }
 
 FUNCTION {bib.sort.order}

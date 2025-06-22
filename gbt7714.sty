@@ -59,6 +59,46 @@
     \gbt@numericalfalse
   },
 }
+\ExplSyntaxOn
+
+\prop_new:N \l__gbt_bst_control_prop
+
+\keys_define:nn { gbt7714 }
+  {
+    maxbibnames .code:n =
+    { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} },
+    minbibnames .code:n =
+    { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_bib_names } {#1} },
+  }
+
+\AtBeginDocument
+  {
+    \prop_if_empty:NF \l__gbt_bst_control_prop
+      {
+        \iow_new:N \l__gbt_bst_control_iow
+        \iow_open:Nn \l__gbt_bst_control_iow { \jobname -BSTcontrol.bib }
+        \iow_now:Ne \l__gbt_bst_control_iow
+          { @GBT7714BSTCTL \c_left_brace_str GBT7714:BSTcontrol, }
+        \prop_map_inline:Nn \l__gbt_bst_control_prop
+          {
+            \iow_now:Ne \l__gbt_bst_control_iow
+              { \c_space_tl \c_space_tl #1 \c_space_tl = \c_space_tl {#2} , }
+          }
+        \iow_now:Ne \l__gbt_bst_control_iow { \c_right_brace_str }
+        \iow_close:N \l__gbt_bst_control_iow
+        \nocite { GBT7714:BSTcontrol }
+        \cs_set:Npn \bibliography #1
+          {
+            \if@filesw
+              \immediate \write \@auxout
+                { \string \bibdata { \jobname -BSTcontrol , \zap@space #1 ~ \@empty } }
+            \fi
+            \@input@ { \jobname .bbl }
+          }
+      }
+  }
+
+\ExplSyntaxOff
 \DeclareKeys[gbt7714]{
   locator-inside-brackets .if = @gbt@locator@inside@affixes ,
 }
