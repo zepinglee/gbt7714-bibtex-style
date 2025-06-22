@@ -10,10 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 添加选项 `locator-inside-brackets` 控制引注的页码是否在括号外（[#181](https://github.com/zepinglee/gbt7714-bibtex-style/issues/181)）。
+- 新增支持转换 Unicode 带变音符号字母的大小写（PR [#174](https://github.com/zepinglee/gbt7714-bibtex-style/pull/174) by [@LeeiFrankJaw](https://github.com/LeeiFrankJaw), resolve [#145](https://github.com/zepinglee/gbt7714-bibtex-style/issues/145)）。
+- 新增 `lowercase.word.after.colon` 选项控制 sentence case 冒号后的字母是否大小写（PR [#174](https://github.com/zepinglee/gbt7714-bibtex-style/pull/174) by [@LeeiFrankJaw](https://github.com/LeeiFrankJaw), resolve [#172](https://github.com/zepinglee/gbt7714-bibtex-style/issues/172#issuecomment-2445775274)）。
 
 ### Changed
 
 - 改进 `@misc` 的预印本判断方式（[#155](https://github.com/zepinglee/gbt7714-bibtex-style/issues/155#issuecomment-2715067957)）。
+- 将 `pages` 的 en dash（U+2013）和波浪线“～”（U+FF5E）转为 hyphen（PR [#174](https://github.com/zepinglee/gbt7714-bibtex-style/pull/174) by [@LeeiFrankJaw](https://github.com/LeeiFrankJaw), resolve [#172](https://github.com/zepinglee/gbt7714-bibtex-style/issues/172#issuecomment-2445782552)）。
 
 ## [v2.1.7] - 2025-03-11
 
