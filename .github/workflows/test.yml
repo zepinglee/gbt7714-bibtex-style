@@ -1,44 +1,24 @@
-name: Automated testing
+name: Test
 
 on:
   push:
-  pull_request:
     branches:
-      - master
+      - "**"
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  Test:
-    runs-on: ubuntu-latest
 
+  test:
+    name: Test
+    runs-on: ubuntu-latest
     steps:
-      # Boilerplate
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: true
-      - name: Generate unique ID
-        id: get-id
-        run: |
-          echo "id=$(cat /proc/sys/kernel/random/uuid)" >> $GITHUB_OUTPUT
-      # Actually load the cache. Since we never reuse the key, we need restore-keys
-      # to indicate the prefix of our caches. This loads the newest cache with this
-      # prefix in the key.
-      #
-      # If we want to force regeneration of the cache, increase the number after
-      # *both* instances of "texlive-v"
-      - name: Load cache
-        uses: actions/cache@v4
-        with:
-          path: ~/texlive
-          key: texlive-v1-${{ steps.get-id.outputs.id }}
-          restore-keys: texlive-v1-
-      # We need Ghostscript for XeTeX tests.
-      - run: sudo apt-get update && sudo apt-get install ghostscript
-      - name: Install TeX Live
+
+      - name: Set up TeX Live
         uses: zauguin/install-texlive@v4
         with:
-          # List the required TeX Live packages in a separate file to allow reuse in
-          # different workflows.
           package_file: .github/tl_packages
 
       - name: Test bst

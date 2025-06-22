@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.8] - 2025-06-22
+
 ### Added
 
 - 添加选项 `locator-inside-brackets` 控制引注的页码是否在括号外（[#181](https://github.com/zepinglee/gbt7714-bibtex-style/issues/181)）。
@@ -18,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 改进 `@misc` 的预印本判断方式（[#155](https://github.com/zepinglee/gbt7714-bibtex-style/issues/155#issuecomment-2715067957)）。
 - 将 `pages` 的 en dash（U+2013）和波浪线“～”（U+FF5E）转为 hyphen（PR [#174](https://github.com/zepinglee/gbt7714-bibtex-style/pull/174) by [@LeeiFrankJaw](https://github.com/LeeiFrankJaw), resolve [#172](https://github.com/zepinglee/gbt7714-bibtex-style/issues/172#issuecomment-2445782552)）。
 
-## [v2.1.7] - 2025-03-11
+## [2.1.7] - 2025-03-11
 
 ### Added
 
@@ -28,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正多余的年份后缀（[#176](https://github.com/zepinglee/gbt7714-bibtex-style/issues/176)）。
 
-## [v2.1.6] - 2024-03-08
+## [2.1.6] - 2024-03-08
 
 ## Added
 
@@ -42,14 +44,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113)）。
 
-## [v2.1.5] - 2022-10-03
+## [2.1.5] - 2022-10-03
 
 ### Changed
 
 - “volume”和“number”改为缩写“Vol.”和“No.”（[#104](https://github.com/zepinglee/gbt7714-bibtex-style/issues/104)）。
 - 纯电子文献缺失“出版日期”时不再警告。
 
-## [v2.1.4] - 2022-03-21
+## [2.1.4] - 2022-03-21
 
 ### Added
 
@@ -65,7 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 移除选项 `slash.for.extraction` 和 `in.booktitle`。
 
-## [v2.1.3] - 2021-12-08
+## [2.1.3] - 2021-12-08
 
 ### Added
 
@@ -82,7 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正了只有 `howpublished` 时的 URL 显示问题（[stone-zeng/fduthesis#218](https://github.com/stone-zeng/fduthesis/issues/218)）。
 - 修正了出版年后缀超出“z”的问题（[#90](https://github.com/zepinglee/gbt7714-bibtex-style/issues/90)）。
 
-## [v2.1.2] - 2021-06-20
+## [2.1.2] - 2021-06-20
 
 ### Added
 
@@ -94,7 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正了 `article` 只有 `date` 时年份缺失的问题（[ustctug/ustcthesis#299](https://github.com/ustctug/ustcthesis/issues/299)）。
 
-## [v2.1.1] - 2021-04-03
+## [2.1.1] - 2021-04-03
 
 ### Added
 
@@ -109,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正了上标式引用后与中文之间多余的空格（[tuna/thuthesis#624](https://github.com/tuna/thuthesis/issues/624)）。
 - 修正了姓名或年份中含有中括号时的引用错误，该问题是同时使用 `bibunits` 导致的（[tuna/thuthesis#630](https://github.com/tuna/thuthesis/issues/630)）。
 
-## [v2.1] - 2020-12-17
+## [2.1] - 2020-12-17
 
 ### Changed
 
@@ -135,7 +137,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `year.after.author` 选择将年份置于著者后。
 - 新增选项 `terms.in.macro` 选择以 TeX 宏输出“和”、“等”。
 
-## [v2.0.2] - 2020-06-08
+## [2.0.2] - 2020-06-08
 
 ### Changed
 
@@ -145,7 +147,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 支持预印本（preprint）文献类型。
 
-## [v2.0.1] - 2020-03-14
+## [2.0.1] - 2020-03-14
 
 ### Added
 
@@ -158,7 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正 DOI 中含有下划线的问题。
 
-## [v2.0] - 2020-03-04
+## [2.0] - 2020-03-04
 
 ### Changed
 
@@ -170,7 +172,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 兼容 `chapterbib` 宏包（[#48](https://github.com/zepinglee/gbt7714-bibtex-style/issues/48)）。
 
-## [v1.1.2] - 2019-11-20
+## [1.1.2] - 2019-11-20
 
 ### Changed
 
@@ -180,13 +182,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正与 `newtx` 冲突（[#42](https://github.com/zepinglee/gbt7714-bibtex-style/issues/42)）。
 
-## [v1.1.1] - 2019-03-21
+## [1.1.1] - 2019-03-21
 
 ### Added
 
 - 允许自定义文种的顺序。
 
-## [v1.1] - 2019-01-02
+## [1.1] - 2019-01-02
 
 ### Added
 
@@ -196,7 +198,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正 series 的 bug。
 
-## [v1.0.9] - 2018-08-05
+## [1.0.9] - 2018-08-05
 
 ### Added
 
@@ -207,7 +209,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 不再转换题名 volume 的大小写。
 - 修正不显示 url 的选项。
 
-## [v1.0.8] - 2018-06-23
+## [1.0.8] - 2018-06-23
 
 ### Added
 
@@ -219,77 +221,78 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 使用 `xurl` 的方法改进 URL 断行。
 - 使用“~”连接英文姓名。
 
-## [v1.0.7] - 2018-05-12
+## [1.0.7] - 2018-05-12
 
 ### Changed
 
 - 修正了检测 Unicode 语言。
 
-## [v1.0.6] - 2018-05-10
+## [1.0.6] - 2018-05-10
 
 ### Changed
 
 - 文献列表的数字标签左对齐。
 - 不再处理中文标题的英文单词的大小写。
 
-## [v1.0.5] - 2018-04-18
+## [1.0.5] - 2018-04-18
 
 ### Added
 
 - 允许著录多个 DOI。
 
-## [v1.0.4] - 2018-04-12
+## [1.0.4] - 2018-04-12
 
 ### Changed
 
 - 页码的连接号由 en dash 改为 hyphen。
 
-## [v1.0.3] - 2018-03-29
+## [1.0.3] - 2018-03-29
 
 ### Changed
 
 - 顺序编码制连续两个文献引用之间使用连接号。
 
-## [v1.0.2] - 2018-03-16
+## [1.0.2] - 2018-03-16
 
 ### Changed
 
 - 正确识别姓名中的“others”。
 
-## [v1.0.1] - 2018-03-09
+## [1.0.1] - 2018-03-09
 
 ### Changed
 
 - 著者出版年制的文献引用不再排序。
 
-## [v1.0] - 2018-01-01
+## [1.0] - 2018-01-01
 
 ### Changed
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.7...HEAD
-[v2.1.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.6...v2.1.7
-[v2.1.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...v2.1.6
-[v2.1.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...v2.1.5
-[v2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
-[v2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
-[v2.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
-[v2.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1...v2.1.1
-[v2.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.2...v2.1
-[v2.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
-[v2.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0...v2.0.1
-[v2.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.2...v2.0
-[v1.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
-[v1.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1...v1.1.1
-[v1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.9...v1.1
-[v1.0.9]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.8...v1.0.9
-[v1.0.8]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.7...v1.0.8
-[v1.0.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.6...v1.0.7
-[v1.0.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.5...v1.0.6
-[v1.0.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.4...v1.0.5
-[v1.0.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.3...v1.0.4
-[v1.0.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.2...v1.0.3
-[v1.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0...v1.0.1
-[v1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/releases/tag/v1.0
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.8...HEAD
+[2.1.8]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.7...v2.1.8
+[2.1.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.6...v2.1.7
+[2.1.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.5...v2.1.6
+[2.1.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.4...v2.1.5
+[2.1.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.3...v2.1.4
+[2.1.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.2...v2.1.3
+[2.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1.1...v2.1.2
+[2.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.1...v2.1.1
+[2.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.2...v2.1
+[2.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0.1...v2.0.2
+[2.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.0...v2.0.1
+[2.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.2...v2.0
+[1.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.1...v1.1.1
+[1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.9...v1.1
+[1.0.9]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.8...v1.0.9
+[1.0.8]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.7...v1.0.8
+[1.0.7]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.6...v1.0.7
+[1.0.6]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.5...v1.0.6
+[1.0.5]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.4...v1.0.5
+[1.0.4]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.3...v1.0.4
+[1.0.3]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.2...v1.0.3
+[1.0.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v1.0...v1.0.1
+[1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/releases/tag/v1.0

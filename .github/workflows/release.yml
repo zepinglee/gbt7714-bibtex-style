@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v**"
+
+jobs:
+
+  github-release:
+    if: ${{ github.repository == 'zepinglee/gbt7714-bibtex-style' }}
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          body: ${{ steps.extract-release-notes.outputs.release_notes }}
+
+  ctan-upload:
+    if: ${{ github.repository == 'zepinglee/gbt7714-bibtex-style' }}
+    name: Upload to CTAN
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up TeX Live
+        uses: zauguin/install-texlive@v4
+        with:
+          package_file: .github/tl_packages
+
+      - name: Create CTAN archive
+        run: l3build ctan
+
+      - name: Parse semver string
+        id: semver
+        uses: booxmedialtd/ws-action-parse-semver@v1
+        with:
+          input_string: ${{ github.ref }}
+          version_extractor_regex: '\/v(.*)$'
+
+      - name: Extract release notes
+        id: extract-release-notes
+        uses: ffurrer2/extract-release-notes@v2
+        with:
+          release_notes_file: RELEASE_NOTES.md
+
+      # - name: Upload to CTAN with announcements
+      #   if: ${{ steps.semver.outputs.patch == '0' }}
+      #   run: echo "y" | l3build upload --email ${{ secrets.CTAN_EMAIL }} --file RELEASE_NOTES.md ${{ steps.semver.outputs.fullversion }}
+
+      # - name: Upload to CTAN without announcements (patch version)
+      #   if: ${{ steps.semver.outputs.patch != '0' }}
+      #   run: echo "y" | l3build upload --email ${{ secrets.CTAN_EMAIL }} --message "" ${{ steps.semver.outputs.fullversion }}
