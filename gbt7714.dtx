@@ -26,8 +26,10 @@
 %    \begin{macrocode}
 %<*author-year|numerical>
 INTEGERS {
-  citation.et.al.min
-  citation.et.al.use.first
+  max.bib.names
+  min.bib.names
+  max.cite.names
+  min.cite.names
   uppercase.name
   terms.in.macro
   year.after.author
@@ -64,11 +66,6 @@ INTEGERS {
 %</author-year>
 }
 
-INTEGERS {
-  max.bib.names
-  min.bib.names
-}
-
 STRINGS {
   component.part.label
   page.range.delimiter
@@ -83,16 +80,18 @@ FUNCTION {load.config}
 {
 %    \end{macrocode}
 %
-% 如果姓名的数量大于等于 |et.al.min|，只著录前 |et.al.use.first| 个，
-% 其后加“et al.”或“等”。
+% 姓名的数量超过 |max.bib.names| 时，只著录前 |min.bib.names| 个，
+%  其后加“，等”或与之相应的词。
 %    \begin{macrocode}
+  #3 'max.bib.names :=
+  #3 'min.bib.names :=
 %<*!ucas>
-  #2 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #1 'max.cite.names :=
+  #1 'min.cite.names :=
 %</!ucas>
 %<*ucas>
-  #3 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #2 'max.cite.names :=
+  #1 'min.cite.names :=
 %</ucas>
 %    \end{macrocode}
 %
@@ -396,10 +395,6 @@ FUNCTION {load.config}
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
 %</author-year>
-
-  #3 'max.bib.names :=
-  #3 'min.bib.names :=
-
 }
 
 %    \end{macrocode}
@@ -452,6 +447,8 @@ ENTRY
     year
     CTL_max_bib_names
     CTL_min_bib_names
+    CTL_max_cite_names
+    CTL_min_cite_names
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -4027,7 +4024,27 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_min_bib_names str.to.int 'min.bib.names := }
   if$
+  CTL_max_cite_names empty$
+    'skip$
+    { CTL_max_cite_names str.to.int 'max.cite.names := }
+  if$
+  CTL_min_cite_names empty$
+    'skip$
+    { CTL_min_cite_names str.to.int 'min.cite.names := }
+  if$
 }
+
+FUNCTION {control.pass}
+{ type$ "gbt7714bstctl" =
+    'GBT7714BSTCTL
+    'skip$
+  if$
+}
+
+FUNCTION {control.check}
+{ % TODO
+}
+
 %    \end{macrocode}
 %
 %
@@ -4262,7 +4279,7 @@ FUNCTION {format.lab.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.lab.name citation.et.al =
-      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
+      numnames max.cite.names > nameptr min.cite.names > and or
         { bbl.space *
           citation.et.al *
           #1 'namesleft :=
@@ -4590,8 +4607,15 @@ FUNCTION {int.to.fix}
 %    \begin{macrocode}
 FUNCTION {presort}
 { type$ "gbt7714bstctl" =
-    { "_    "
+    {
+%<*author-year>
+      "_"
+      "    "
+%</author-year>
+%<*numerical>
+      "_    "
       seq.num  int.to.fix
+%</numerical>
     }
     { set.entry.lang
       set.entry.numbered
@@ -4839,6 +4863,10 @@ READ
 EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
+
+ITERATE {control.pass}
+
+EXECUTE {control.check}
 
 %<*numerical>
 EXECUTE {init.seq}

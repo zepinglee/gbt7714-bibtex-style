@@ -55,9 +55,13 @@
 \keys_define:nn { gbt7714 }
   {
     maxbibnames .code:n =
-    { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} },
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} } ,
     minbibnames .code:n =
-    { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_bib_names } {#1} },
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_bib_names } {#1} } ,
+    maxcitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_cite_names } {#1} } ,
+    mincitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_cite_names } {#1} } ,
   }
 
 \AtBeginDocument

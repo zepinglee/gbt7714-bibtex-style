@@ -21,8 +21,10 @@
 %% version 2008 or later.
 %% -------------------------------------------------------------------
 INTEGERS {
-  citation.et.al.min
-  citation.et.al.use.first
+  max.bib.names
+  min.bib.names
+  max.cite.names
+  min.cite.names
   uppercase.name
   terms.in.macro
   year.after.author
@@ -57,11 +59,6 @@ INTEGERS {
   lang.other.order
 }
 
-INTEGERS {
-  max.bib.names
-  min.bib.names
-}
-
 STRINGS {
   component.part.label
   page.range.delimiter
@@ -69,8 +66,10 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  #3 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #3 'max.bib.names :=
+  #3 'min.bib.names :=
+  #2 'max.cite.names :=
+  #1 'min.cite.names :=
   #1 'uppercase.name :=
   #1 'terms.in.macro :=
   #0 'year.after.author :=
@@ -105,10 +104,6 @@ FUNCTION {load.config}
   #3 'lang.en.order :=
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
-
-  #3 'max.bib.names :=
-  #3 'min.bib.names :=
-
 }
 
 ENTRY
@@ -150,6 +145,8 @@ ENTRY
     year
     CTL_max_bib_names
     CTL_min_bib_names
+    CTL_max_cite_names
+    CTL_min_cite_names
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -2821,7 +2818,27 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_min_bib_names str.to.int 'min.bib.names := }
   if$
+  CTL_max_cite_names empty$
+    'skip$
+    { CTL_max_cite_names str.to.int 'max.cite.names := }
+  if$
+  CTL_min_cite_names empty$
+    'skip$
+    { CTL_min_cite_names str.to.int 'min.cite.names := }
+  if$
 }
+
+FUNCTION {control.pass}
+{ type$ "gbt7714bstctl" =
+    'GBT7714BSTCTL
+    'skip$
+  if$
+}
+
+FUNCTION {control.check}
+{ % TODO
+}
+
 MACRO {jan} {"January"}
 
 MACRO {feb} {"February"}
@@ -2922,7 +2939,7 @@ FUNCTION {format.lab.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.lab.name citation.et.al =
-      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
+      numnames max.cite.names > nameptr min.cite.names > and or
         { bbl.space *
           citation.et.al *
           #1 'namesleft :=
@@ -3179,8 +3196,9 @@ FUNCTION {editor.organization.sort}
 
 FUNCTION {presort}
 { type$ "gbt7714bstctl" =
-    { "_    "
-      seq.num  int.to.fix
+    {
+      "_"
+      "    "
     }
     { set.entry.lang
       set.entry.numbered
@@ -3344,6 +3362,10 @@ READ
 EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
+
+ITERATE {control.pass}
+
+EXECUTE {control.check}
 
 ITERATE {presort}
 
