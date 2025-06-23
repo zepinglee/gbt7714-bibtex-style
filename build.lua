@@ -8,9 +8,18 @@ module = "gbt7714"
 testfiledir = "./tests/testfiles"
 testsuppdir = testfiledir .. "/support"
 
--- sourcefiles = {"*.dtx", "*.sty"}
+sourcefiles = {"*.dtx", "*.ins", "*.sty"}
 installfiles = {"*.sty", "*.bst"}
-tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md", "variants/*.ins"}
+tagfiles = {
+  "CHANGELOG.md",
+  "*.dtx",
+  "*.ins",
+  "*.sty",
+  "*-doc.tex",
+  "*.bst",
+  "variants/*.ins",
+}
+typesetfiles = {"*-doc.tex"}
 
 checkengines = {"xetex"}
 stdengine = "xetex"

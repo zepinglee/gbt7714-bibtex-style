@@ -23,14 +23,14 @@ all : test doc
 
 bst : $(PKGFILES) $(BSTFILES)
 
-doc : $(NAME).pdf
+doc : $(NAME)-doc.pdf
 
-%.sty %-numerical.bst %-author-year.bst : %.ins %.dtx
+%-numerical.bst %-author-year.bst : %.ins %.dtx
 	xetex $(TEXOPTS) $<
 	xetex $(TEXOPTS) variants/gbt7714-variants.ins
 
-$(NAME).pdf : $(NAME).dtx FORCE_MAKE
-	$(LATEXMK) $<
+$(NAME)-doc.pdf : $(NAME)-doc.tex FORCE_MAKE
+	l3build doc
 
 clean :
 	$(LATEXMK) -c $(NAME).dtx
