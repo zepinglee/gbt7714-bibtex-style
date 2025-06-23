@@ -5,7 +5,7 @@
 
 module = "gbt7714"
 
-testfiledir = "./test/testfiles"
+testfiledir = "./tests/testfiles"
 testsuppdir = testfiledir .. "/support"
 
 -- sourcefiles = {"*.dtx", "*.sty"}
@@ -17,8 +17,8 @@ stdengine = "xetex"
 
 checkconfigs = {
   "build",
-  "test/config-chapterbib",
-  "test/config-bibunits",
+  "tests/config-chapterbib",
+  "tests/config-bibunits",
 }
 
 typesetexe = "xelatex"
@@ -57,10 +57,8 @@ uploadconfig = {
   update = true,
 }
 
-lvtext = ".tex"
-
 function runtest_tasks(name)
-  return "bibtex -terse " .. name
+  return "bibtex " .. name
 end
 
 function update_tag(file, content, tagname, tagdate)

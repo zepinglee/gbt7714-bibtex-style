@@ -8,20 +8,20 @@ TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
 testbst : bst
-	bash test/test.sh
+	bash tests/test.sh
 
 test: testbst
 	l3build check
 
 savebst:
-	bash test/test.sh
+	bash tests/test.sh
 
 save : savebst
 	l3build save --quiet super
 	l3build save --quiet numbers
 	l3build save --quiet author-year
-	l3build save --config test/config-chapterbib package-chapterbib
-	l3build save --config test/config-bibunits package-bibunits
+	l3build save --config tests/config-chapterbib package-chapterbib
+	l3build save --config tests/config-bibunits package-bibunits
 
 all : test doc
 

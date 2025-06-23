@@ -1,4 +1,4 @@
-testfiledir="test/testbst"
+testfiledir="tests/testbst"
 testsuppdir="$testfiledir/support"
 unpackdir="build/unpacked";
 testdir="build/test";

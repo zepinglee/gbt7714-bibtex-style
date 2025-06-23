@@ -1,7 +1,11 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
-\pagestyle{empty}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
 \usepackage[locator-inside-brackets=true]{gbt7714}
+
+\pagestyle{empty}
+
+
 \begin{document}
 \START
 \showoutput

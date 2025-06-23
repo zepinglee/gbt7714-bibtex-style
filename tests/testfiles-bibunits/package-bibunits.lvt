@@ -1,9 +1,12 @@
 \input{regression-test.tex}
 \documentclass{article}
-\pagestyle{empty}
+
 \usepackage{gbt7714}
-\usepackage{bibunits}
 \citestyle{super}
+\usepackage{bibunits}
+
+\pagestyle{empty}
+
 
 \begin{document}
 \START

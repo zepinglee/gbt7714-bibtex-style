@@ -1,8 +1,12 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
-\pagestyle{empty}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
 \usepackage{gbt7714}
 \citestyle{numbers}
+
+\pagestyle{empty}
+
+
 \begin{document}
 \START
 \showoutput
