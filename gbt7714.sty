@@ -62,6 +62,8 @@
       { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_cite_names } {#1} } ,
     mincitenames .code:n =
       { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_cite_names } {#1} } ,
+    familyuppercase .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_family_uppercase } \l_keys_choice_tl },
   }
 
 \AtBeginDocument

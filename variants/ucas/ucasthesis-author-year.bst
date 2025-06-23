@@ -25,7 +25,7 @@ INTEGERS {
   min.bib.names
   max.cite.names
   min.cite.names
-  uppercase.name
+  family.uppercase
   terms.in.macro
   year.after.author
   period.after.author
@@ -70,7 +70,7 @@ FUNCTION {load.config}
   #3 'min.bib.names :=
   #2 'max.cite.names :=
   #1 'min.cite.names :=
-  #1 'uppercase.name :=
+  #1 'family.uppercase :=
   #1 'terms.in.macro :=
   #0 'year.after.author :=
   #0 'period.after.author :=
@@ -147,6 +147,7 @@ ENTRY
     CTL_min_bib_names
     CTL_max_cite_names
     CTL_min_cite_names
+    CTL_family_uppercase
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -1224,19 +1225,18 @@ FUNCTION {set.entry.numbered}
 INTEGERS { nameptr namesleft numnames name.lang }
 
 FUNCTION {format.name}
-{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t "others" =
-    { bbl.et.al }
-    { t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{~}}" format.name$
-          uppercase.name
+{ "{vv~}{ll}{, jj}{, ff}" format.name$ duplicate$
+  "others" =
+    { pop$ bbl.et.al }
+    { get.str.lang lang.en =
+        { s nameptr "{vv~}{ll}" format.name$
+          family.uppercase
             'smart.upper.case
             'skip$
           if$
-          t #1 "{, jj}" format.name$ *
+          s nameptr "{ f{~}}{, jj}" format.name$ *
         }
-        { t #1 "{ll}{ff}" format.name$ }
+        { s nameptr "{vv~}{ll}{ff}{, jj}" format.name$  }
       if$
     }
   if$
@@ -2808,6 +2808,21 @@ FUNCTION {str.to.int}
   if$
 }
 
+FUNCTION {boolean.to.int}
+{ "l" change.case$ duplicate$
+    "true" =
+    { pop$ #1 }
+    { duplicate$ "false" =
+        { pop$ #0 }
+        { "unknown boolean " quote$ * swap$ * quote$ *
+          " in " * cite$ * warning$
+          #0
+        }
+      if$
+    }
+  if$
+}
+
 FUNCTION {GBT7714BSTCTL}
 {
   CTL_max_bib_names empty$
@@ -2825,6 +2840,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_min_cite_names empty$
     'skip$
     { CTL_min_cite_names str.to.int 'min.cite.names := }
+  if$
+  CTL_family_uppercase empty$
+    'skip$
+    { CTL_family_uppercase boolean.to.int 'family.uppercase := }
   if$
 }
 
