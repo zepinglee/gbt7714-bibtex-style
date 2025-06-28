@@ -26,7 +26,7 @@ INTEGERS {
   max.cite.names
   min.cite.names
   family.uppercase
-  year.after.author
+  year.before.title
   period.after.author
   italic.book.title
   sentence.case.title
@@ -72,7 +72,7 @@ FUNCTION {load.config}
   #1 'min.cite.names :=
   #1 'family.uppercase :=
   "auto" 'cite.lang :=
-  #1 'year.after.author :=
+  #1 'year.before.title :=
   #0 'period.after.author :=
   #0 'italic.book.title :=
   #1 'sentence.case.title :=
@@ -149,6 +149,7 @@ ENTRY
     CTL_min_cite_names
     CTL_family_uppercase
     CTL_cite_lang
+    CTL_year_before_title
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -2365,7 +2366,7 @@ FUNCTION {monograph}
     }
   if$
   output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2384,7 +2385,7 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -2402,7 +2403,7 @@ FUNCTION {incollection}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2425,7 +2426,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -2443,7 +2444,7 @@ FUNCTION {periodical}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2460,7 +2461,7 @@ FUNCTION {periodical}
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.periodical.year "year" output.check }
     'skip$
   if$
@@ -2477,7 +2478,7 @@ FUNCTION {journal.article}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2504,7 +2505,7 @@ FUNCTION {journal.article}
     'skip$
   if$
   format.journal "journal" output.check
-  year.after.author not
+  year.before.title not
     { format.date "year" output.check }
     'skip$
   if$
@@ -2524,7 +2525,7 @@ FUNCTION {patent}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2555,7 +2556,7 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2570,7 +2571,7 @@ FUNCTION {electronic}
   format.mark "" output.after
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -2602,7 +2603,7 @@ FUNCTION {preprint}
     }
   if$
   output
-  year.after.author
+  year.before.title
     { period.after.author
         'new.sentence
         'skip$
@@ -2624,7 +2625,7 @@ FUNCTION {preprint}
   new.sentence
   format.edition output
   new.block
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -2877,6 +2878,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_cite_lang empty$
     'skip$
     { CTL_cite_lang 'cite.lang := }
+  if$
+  CTL_year_before_title empty$
+    'skip$
+    { CTL_year_before_title boolean.to.int 'year.before.title := }
   if$
 }
 
