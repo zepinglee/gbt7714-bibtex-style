@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 添加选项 `maxbibnames` 和 `minbibnames` 控制参考文献表中显示姓名的数量。
 - 添加选项 `maxcitenames` 和 `mincitenames` 控制引注显示姓名的数量。
 - 添加选项 `familyuppercase` 控制西文姓是否大写。
+- 添加选项 `citelang` 控制引注中“and”、“et al.”的语言。
 
 ## [2.1.8] - 2025-06-22
 
