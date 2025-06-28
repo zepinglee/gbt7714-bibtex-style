@@ -27,7 +27,6 @@ INTEGERS {
   min.cite.names
   family.uppercase
   year.before.title
-  period.after.author
   italic.book.title
   sentence.case.title
   link.title
@@ -55,6 +54,7 @@ INTEGERS {
 
 STRINGS {
   cite.lang
+  name.year.delim
   component.part.label
   page.range.delimiter
 }
@@ -68,7 +68,7 @@ FUNCTION {load.config}
   #1 'family.uppercase :=
   "auto" 'cite.lang :=
   #0 'year.before.title :=
-  #1 'period.after.author :=
+  "period" 'name.year.delim :=
   #0 'italic.book.title :=
   #1 'sentence.case.title :=
   #0 'link.title :=
@@ -140,6 +140,7 @@ ENTRY
     CTL_family_uppercase
     CTL_cite_lang
     CTL_year_before_title
+    CTL_name_year_delim
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -2357,7 +2358,7 @@ FUNCTION {monograph}
   if$
   output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2394,7 +2395,7 @@ FUNCTION {incollection}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2435,7 +2436,7 @@ FUNCTION {periodical}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2469,7 +2470,7 @@ FUNCTION {journal.article}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2516,7 +2517,7 @@ FUNCTION {patent}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2547,7 +2548,7 @@ FUNCTION {electronic}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2594,7 +2595,7 @@ FUNCTION {preprint}
   if$
   output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2872,6 +2873,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_year_before_title empty$
     'skip$
     { CTL_year_before_title boolean.to.int 'year.before.title := }
+  if$
+  CTL_name_year_delim empty$
+    'skip$
+    { CTL_name_year_delim 'name.year.delim := }
   if$
 }
 
