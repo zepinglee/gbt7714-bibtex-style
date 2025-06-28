@@ -32,7 +32,6 @@ INTEGERS {
   min.cite.names
   family.uppercase
   year.before.title
-  period.after.author
   italic.book.title
   sentence.case.title
   link.title
@@ -67,6 +66,7 @@ INTEGERS {
 
 STRINGS {
   cite.lang
+  name.year.delim
   component.part.label
   page.range.delimiter
 }
@@ -128,15 +128,15 @@ FUNCTION {load.config}
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
 %<*numerical>
-  #1 'period.after.author :=
+  "period" 'name.year.delim :=
 %</numerical>
 %<*author-year>
-%<*2015&!(period)>
-  #0 'period.after.author :=
-%</2015&!(period)>
-%<*period|2005>
-  #1 'period.after.author :=
-%</period|2005>
+%<*2015>
+  "comma" 'name.year.delim :=
+%</2015>
+%<*2005>
+  "period" 'name.year.delim :=
+%</2005>
 %</author-year>
 %    \end{macrocode}
 %
@@ -452,6 +452,7 @@ ENTRY
     CTL_family_uppercase
     CTL_cite_lang
     CTL_year_before_title
+    CTL_name_year_delim
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -3392,7 +3393,7 @@ FUNCTION {monograph}
   if$
   output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3442,7 +3443,7 @@ FUNCTION {incollection}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3488,7 +3489,7 @@ FUNCTION {periodical}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3536,7 +3537,7 @@ FUNCTION {journal.article}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3589,7 +3590,7 @@ FUNCTION {patent}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3624,7 +3625,7 @@ FUNCTION {electronic}
   format.authors output
   author format.key output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -3681,7 +3682,7 @@ FUNCTION {preprint}
   if$
   output
   year.before.title
-    { period.after.author
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4088,6 +4089,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_year_before_title empty$
     'skip$
     { CTL_year_before_title boolean.to.int 'year.before.title := }
+  if$
+  CTL_name_year_delim empty$
+    'skip$
+    { CTL_name_year_delim 'name.year.delim := }
   if$
 }
 
