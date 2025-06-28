@@ -26,7 +26,6 @@ INTEGERS {
   max.cite.names
   min.cite.names
   family.uppercase
-  terms.in.macro
   year.after.author
   period.after.author
   italic.book.title
@@ -55,6 +54,7 @@ INTEGERS {
 }
 
 STRINGS {
+  cite.lang
   component.part.label
   page.range.delimiter
 }
@@ -66,7 +66,7 @@ FUNCTION {load.config}
   #2 'max.cite.names :=
   #1 'min.cite.names :=
   #1 'family.uppercase :=
-  #1 'terms.in.macro :=
+  "macro" 'cite.lang :=
   #0 'year.after.author :=
   #1 'period.after.author :=
   #0 'italic.book.title :=
@@ -138,6 +138,7 @@ ENTRY
     CTL_max_cite_names
     CTL_min_cite_names
     CTL_family_uppercase
+    CTL_cite_lang
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -182,9 +183,9 @@ FUNCTION {bbl.et.al}
 { entry.lang lang.zh =
     { "等" }
     { entry.lang lang.ja =
-        { "他" }
+        { "ほか" }
         { entry.lang lang.ru =
-            { "идр" }
+            { "и др." }
             { "et~al." }
           if$
         }
@@ -194,16 +195,44 @@ FUNCTION {bbl.et.al}
 }
 
 FUNCTION {citation.and}
-{ terms.in.macro
-    { "{\biband}" }
-    'bbl.and
+{ cite.lang "auto" =
+    { entry.lang lang.zh =
+        { "和" }
+        { entry.lang lang.ja =
+            { "と" }
+            { entry.lang lang.ru =
+                { "и" }
+                { "and" }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+    { cite.lang "macro" =
+        { "{\biband}" }
+        { cite.lang "chinese" =
+            { "和" }
+            { "and" }
+          if$
+        }
+      if$
+    }
   if$
 }
 
 FUNCTION {citation.et.al}
-{ terms.in.macro
-    { "{\bibetal}" }
-    'bbl.et.al
+{ cite.lang "auto" =
+    { bbl.et.al }
+    { cite.lang "macro" =
+        { "{\bibetal}" }
+        { cite.lang "chinese" =
+            { "等" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
@@ -2835,6 +2864,10 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_family_uppercase boolean.to.int 'family.uppercase := }
   if$
+  CTL_cite_lang empty$
+    'skip$
+    { CTL_cite_lang 'cite.lang := }
+  if$
 }
 
 FUNCTION {control.pass}
@@ -2940,6 +2973,13 @@ FUNCTION {format.lab.name}
   if$
 }
 
+FUNCTION {inter.word.space}
+{ entry.lang lang.zh = entry.lang lang.ja = or
+    { "" }
+    { " " }
+  if$
+}
+
 FUNCTION {format.lab.names}
 { 's :=
   #1 'nameptr :=
@@ -2955,7 +2995,10 @@ FUNCTION {format.lab.names}
         }
         { nameptr #1 >
             { namesleft #1 = citation.and "" = not and
-                { citation.and * }
+                { inter.word.space *
+                  citation.and *
+                  inter.word.space *
+                }
                 { ", " * }
               if$
             }
@@ -3144,7 +3187,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  terms.in.macro
+  cite.lang "macro" =
     { "\providecommand{\biband}{和}"
       write$ newline$
       "\providecommand{\bibetal}{等}"
