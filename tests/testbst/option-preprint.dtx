@@ -1,0 +1,67 @@
+%<*internal>
+\begingroup
+  \def\nameoflatex{LaTeX2e}
+\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
+\csname fi\endcsname
+%</internal>
+%<*install>
+\input docstrip.tex
+\nopreamble
+\keepsilent
+\askforoverwritefalse
+\nopostamble
+\generate{
+  \file{test.aux}{\from{\jobname.dtx}{aux}}
+  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical}}
+  \file{test.bib}{\from{\jobname.dtx}{bib}}
+}
+\endbatchfile
+%</install>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+%</driver>
+% \fi
+%
+%    \begin{macrocode}
+%<*aux>
+\bibstyle{test}
+\citation{*}
+\bibdata{test,gbt7714-examples}
+%</aux>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+%<*bib>
+@preprint{kingma2014adam,
+  title         = {Adam: A Method for Stochastic Optimization},
+  shorttitle    = {Adam},
+  author        = {Kingma, Diederik P. and Ba, Jimmy},
+  year          = {2014},
+  month         = dec,
+  eprint        = {1412.6980},
+  eprinttype    = {arxiv},
+  url           = {http://arxiv.org/abs/1412.6980},
+  urldate       = {2017-04-19},
+  archiveprefix = {arXiv},
+}
+
+@article{finn2017modelagnostic,
+  title         = {Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks},
+  author        = {Finn, Chelsea and Abbeel, Pieter and Levine, Sergey},
+  date          = {2017-07-17},
+  month         = jul,
+  journal       = {arXiv:1703.03400 [cs]},
+  eprint        = {1703.03400},
+  eprinttype    = {arxiv},
+  primaryclass  = {cs},
+  url           = {http://arxiv.org/abs/1703.03400},
+  urldate       = {2018-04-08},
+  archiveprefix = {arXiv},
+}
+
+%</bib>
+%    \end{macrocode}
+\endinput

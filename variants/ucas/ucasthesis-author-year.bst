@@ -21,14 +21,12 @@
 %% version 2008 or later.
 %% -------------------------------------------------------------------
 INTEGERS {
-  citation.et.al.min
-  citation.et.al.use.first
-  bibliography.et.al.min
-  bibliography.et.al.use.first
-  uppercase.name
-  terms.in.macro
-  year.after.author
-  period.after.author
+  max.bib.names
+  min.bib.names
+  max.cite.names
+  min.cite.names
+  family.uppercase
+  year.before.title
   italic.book.title
   sentence.case.title
   link.title
@@ -60,20 +58,22 @@ INTEGERS {
 }
 
 STRINGS {
+  cite.lang
+  name.year.delim
   component.part.label
   page.range.delimiter
 }
 
 FUNCTION {load.config}
 {
-  #3 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
-  #4 'bibliography.et.al.min :=
-  #3 'bibliography.et.al.use.first :=
-  #1 'uppercase.name :=
-  #1 'terms.in.macro :=
-  #0 'year.after.author :=
-  #0 'period.after.author :=
+  #3 'max.bib.names :=
+  #3 'min.bib.names :=
+  #2 'max.cite.names :=
+  #1 'min.cite.names :=
+  #1 'family.uppercase :=
+  "macro" 'cite.lang :=
+  #0 'year.before.title :=
+  "comma" 'name.year.delim :=
   #0 'italic.book.title :=
   #1 'sentence.case.title :=
   #0 'link.title :=
@@ -143,6 +143,15 @@ ENTRY
     urldate
     volume
     year
+    CTL_max_bib_names
+    CTL_min_bib_names
+    CTL_max_cite_names
+    CTL_min_cite_names
+    CTL_family_uppercase
+    CTL_cite_lang
+    CTL_year_before_title
+    CTL_name_year_delim
+    CTL_italic_book_title
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -187,9 +196,9 @@ FUNCTION {bbl.et.al}
 { entry.lang lang.zh =
     { "等" }
     { entry.lang lang.ja =
-        { "他" }
+        { "ほか" }
         { entry.lang lang.ru =
-            { "идр" }
+            { "и др." }
             { "et~al." }
           if$
         }
@@ -199,16 +208,44 @@ FUNCTION {bbl.et.al}
 }
 
 FUNCTION {citation.and}
-{ terms.in.macro
-    { "{\biband}" }
-    'bbl.and
+{ cite.lang "auto" =
+    { entry.lang lang.zh =
+        { "和" }
+        { entry.lang lang.ja =
+            { "と" }
+            { entry.lang lang.ru =
+                { "и" }
+                { "and" }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+    { cite.lang "macro" =
+        { "{\biband}" }
+        { cite.lang "chinese" =
+            { "和" }
+            { "and" }
+          if$
+        }
+      if$
+    }
   if$
 }
 
 FUNCTION {citation.et.al}
-{ terms.in.macro
-    { "{\bibetal}" }
-    'bbl.et.al
+{ cite.lang "auto" =
+    { bbl.et.al }
+    { cite.lang "macro" =
+        { "{\bibetal}" }
+        { cite.lang "chinese" =
+            { "等" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
@@ -1220,19 +1257,18 @@ FUNCTION {set.entry.numbered}
 INTEGERS { nameptr namesleft numnames name.lang }
 
 FUNCTION {format.name}
-{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t "others" =
-    { bbl.et.al }
-    { t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{~}}" format.name$
-          uppercase.name
+{ "{vv~}{ll}{, jj}{, ff}" format.name$ duplicate$
+  "others" =
+    { pop$ bbl.et.al }
+    { get.str.lang lang.en =
+        { s nameptr "{vv~}{ll}" format.name$
+          family.uppercase
             'smart.upper.case
             'skip$
           if$
-          t #1 "{, jj}" format.name$ *
+          s nameptr "{ f{~}}{, jj}" format.name$ *
         }
-        { t #1 "{ll}{ff}" format.name$ }
+        { s nameptr "{vv~}{ll}{ff}{, jj}" format.name$  }
       if$
     }
   if$
@@ -1246,7 +1282,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.name bbl.et.al =
-      numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
+      numnames max.bib.names > nameptr min.bib.names > and or
         { ", " *
           bbl.et.al *
           #1 'namesleft :=
@@ -2332,8 +2368,8 @@ FUNCTION {monograph}
     }
   if$
   output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2351,7 +2387,7 @@ FUNCTION {monograph}
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -2369,8 +2405,8 @@ FUNCTION {incollection}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2392,7 +2428,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -2410,8 +2446,8 @@ FUNCTION {periodical}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2427,7 +2463,7 @@ FUNCTION {periodical}
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.periodical.year "year" output.check }
     'skip$
   if$
@@ -2444,8 +2480,8 @@ FUNCTION {journal.article}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2471,7 +2507,7 @@ FUNCTION {journal.article}
     'skip$
   if$
   format.journal "journal" output.check
-  year.after.author not
+  year.before.title not
     { format.date "year" output.check }
     'skip$
   if$
@@ -2491,8 +2527,8 @@ FUNCTION {patent}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2522,8 +2558,8 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2537,7 +2573,7 @@ FUNCTION {electronic}
   format.mark "" output.after
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -2569,8 +2605,8 @@ FUNCTION {preprint}
     }
   if$
   output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -2591,7 +2627,7 @@ FUNCTION {preprint}
   new.sentence
   format.edition output
   new.block
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -2736,6 +2772,140 @@ FUNCTION {unpublished} { misc }
 
 FUNCTION {default.type} { misc }
 
+INTEGERS { a }
+
+FUNCTION {mult}
+{
+ 'a :=      %% we store the first value
+ 'b :=     %% we store the second value
+
+ b #0 <     %% We remember the sign of b, and
+    {#-1 #0 b - 'b :=}     %% then consider its absolute value.
+    {#1}     %%
+ if$     %%
+
+ #0     %% Put 0 on the stack.
+ {b #0 >}     %% While b is strictly positive,
+ {     %% we add a to the value on the stack
+   a +     %% and decrement b.
+   b #1 - 'b :=     %%
+ }     %%
+ while$     %%
+
+ swap$         %% Last, we take the opposite
+   'skip$       %% if b was negative.
+   {#0 swap$ -}     %%
+ if$     %%
+}
+FUNCTION {chr.to.value}       %% The ASCII code of a character
+{
+  chr.to.int$ #48 -       %% ASCII value of "0" -> 48
+  duplicate$ duplicate$       %%         "1" -> 49
+  #0 < swap$ #9 > or       %%    ...
+  {       %%                "9" -> 57
+      #48 + int.to.chr$
+      " is not a number..." *
+      warning$       %% Return 0 if it is not a number
+      pop$ #0       %%
+    }
+  {}
+  if$
+}
+
+FUNCTION {str.to.int.aux}     %% The auxiliary function
+{
+  {duplicate$ empty$ not}     %% While the string is not empty
+    {       %% consider its first char
+      swap$ #10 mult 'a :=    %% and ``add'' it at the end of
+      duplicate$ #1 #1 substring$   %% the result.
+      chr.to.value a +
+      swap$
+      #2 global.max$ substring$
+    }
+  while$
+  pop$
+}
+
+FUNCTION {str.to.int}
+{       %% Handling negative values
+  duplicate$ #1 #1 substring$ "-" =
+    {#1 swap$ #2 global.max$ substring$}
+    {#0 swap$}
+  if$
+      %% Initialization, and then
+  #0 swap$ str.to.int.aux     %% call to the aux. funtion
+  swap$
+    {#0 swap$ -}       %% And handle the sign.
+    {}
+  if$
+}
+
+FUNCTION {boolean.to.int}
+{ "l" change.case$ duplicate$
+    "true" =
+    { pop$ #1 }
+    { duplicate$ "false" =
+        { pop$ #0 }
+        { "unknown boolean " quote$ * swap$ * quote$ *
+          " in " * cite$ * warning$
+          #0
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {GBT7714BSTCTL}
+{
+  CTL_max_bib_names empty$
+    'skip$
+    { CTL_max_bib_names str.to.int 'max.bib.names := }
+  if$
+  CTL_min_bib_names empty$
+    'skip$
+    { CTL_min_bib_names str.to.int 'min.bib.names := }
+  if$
+  CTL_max_cite_names empty$
+    'skip$
+    { CTL_max_cite_names str.to.int 'max.cite.names := }
+  if$
+  CTL_min_cite_names empty$
+    'skip$
+    { CTL_min_cite_names str.to.int 'min.cite.names := }
+  if$
+  CTL_family_uppercase empty$
+    'skip$
+    { CTL_family_uppercase boolean.to.int 'family.uppercase := }
+  if$
+  CTL_cite_lang empty$
+    'skip$
+    { CTL_cite_lang 'cite.lang := }
+  if$
+  CTL_year_before_title empty$
+    'skip$
+    { CTL_year_before_title boolean.to.int 'year.before.title := }
+  if$
+  CTL_name_year_delim empty$
+    'skip$
+    { CTL_name_year_delim 'name.year.delim := }
+  if$
+  CTL_italic_book_title empty$
+    'skip$
+    { CTL_italic_book_title boolean.to.int 'italic.book.title := }
+  if$
+}
+
+FUNCTION {control.pass}
+{ type$ "gbt7714bstctl" =
+    'GBT7714BSTCTL
+    'skip$
+  if$
+}
+
+FUNCTION {control.check}
+{ % TODO
+}
+
 MACRO {jan} {"January"}
 
 MACRO {feb} {"February"}
@@ -2828,6 +2998,13 @@ FUNCTION {format.lab.name}
   if$
 }
 
+FUNCTION {inter.word.space}
+{ entry.lang lang.zh = entry.lang lang.ja = or
+    { "" }
+    { " " }
+  if$
+}
+
 FUNCTION {format.lab.names}
 { 's :=
   #1 'nameptr :=
@@ -2836,14 +3013,17 @@ FUNCTION {format.lab.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.lab.name citation.et.al =
-      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
+      numnames max.cite.names > nameptr min.cite.names > and or
         { bbl.space *
           citation.et.al *
           #1 'namesleft :=
         }
         { nameptr #1 >
             { namesleft #1 = citation.and "" = not and
-                { citation.and * }
+                { inter.word.space *
+                  citation.and *
+                  inter.word.space *
+                }
                 { ", " * }
               if$
             }
@@ -3092,39 +3272,46 @@ FUNCTION {editor.organization.sort}
 }
 
 FUNCTION {presort}
-{ set.entry.lang
-  set.entry.numbered
-  show.url show.doi check.electronic
-  #0 'is.pure.electronic :=
-  calc.label
-  label sortify
-  "    "
-  *
-  sort.language.label
-  "    "
-  *
-  type$ "book" =
-  type$ "inbook" = booktitle empty$ not and
-  or
-    'author.editor.sort
-    { type$ "collection" =
-      type$ "proceedings" =
+{ type$ "gbt7714bstctl" =
+    {
+      "_"
+      "    "
+    }
+    { set.entry.lang
+      set.entry.numbered
+      show.url show.doi check.electronic
+      #0 'is.pure.electronic :=
+      calc.label
+      label sortify
+      "    "
+      *
+      sort.language.label
+      "    "
+      *
+      type$ "book" =
+      type$ "inbook" = booktitle empty$ not and
       or
-        'editor.organization.sort
-        'author.sort
+        'author.editor.sort
+        { type$ "collection" =
+          type$ "proceedings" =
+          or
+            'editor.organization.sort
+            'author.sort
+          if$
+        }
       if$
+      *
+      "    "
+      *
+      year field.or.null sortify
+      *
+      "    "
+      *
+      cite$
+      *
+      #1 entry.max$ substring$
     }
   if$
-  *
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  cite$
-  *
-  #1 entry.max$ substring$
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
@@ -3146,48 +3333,57 @@ FUNCTION {initialize.longest.label}
 
 FUNCTION {forward.pass}
 {
-  last.label label =
-    { "" 'extra.label :=
-      last.extra.label text.length$ 'charptr :=
-        { last.extra.label charptr #1 substring$ "z" =
-          charptr #0 > and
+  type$ "gbt7714bstctl" =
+    'skip$
+    {
+      last.label label =
+        { "" 'extra.label :=
+          last.extra.label text.length$ 'charptr :=
+            { last.extra.label charptr #1 substring$ "z" =
+              charptr #0 > and
+            }
+            { "a" extra.label * 'extra.label :=
+              charptr #1 - 'charptr :=
+            }
+          while$
+          charptr #0 >
+            { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
+              extra.label * 'extra.label :=
+              last.extra.label #1 charptr #1 - substring$
+              extra.label * 'extra.label :=
+            }
+            { "a" extra.label * 'extra.label := }
+          if$
+          extra.label 'last.extra.label :=
         }
-        { "a" extra.label * 'extra.label :=
-          charptr #1 - 'charptr :=
+        { "a" 'last.extra.label :=
+          "" 'extra.label :=
+          label 'last.label :=
         }
-      while$
-      charptr #0 >
-        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-          extra.label * 'extra.label :=
-          last.extra.label #1 charptr #1 - substring$
-          extra.label * 'extra.label :=
-        }
-        { "a" extra.label * 'extra.label := }
       if$
-      extra.label 'last.extra.label :=
-    }
-    { "a" 'last.extra.label :=
-      "" 'extra.label :=
-      label 'last.label :=
+      number.label #1 + 'number.label :=
     }
   if$
-  number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{
-  next.extra "b" =
-    { "a" 'extra.label := }
+{ type$ "gbt7714bstctl" =
     'skip$
+    {
+      next.extra "b" =
+        { "a" 'extra.label := }
+        'skip$
+      if$
+      extra.label 'next.extra :=
+      extra.label
+      duplicate$ empty$
+        'skip$
+        { "{\natexlab{" swap$ * "}}" * }
+      if$
+      'extra.label :=
+      label extra.label * 'label :=
+    }
   if$
-  extra.label 'next.extra :=
-  extra.label
-  duplicate$ empty$
-    'skip$
-    { "{\natexlab{" swap$ * "}}" * }
-  if$
-  'extra.label :=
-  label extra.label * 'label :=
 }
 
 FUNCTION {bib.sort.order}
@@ -3201,7 +3397,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  terms.in.macro
+  cite.lang "macro" =
     { "\providecommand{\biband}{和}"
       write$ newline$
       "\providecommand{\bibetal}{等}"
@@ -3243,6 +3439,10 @@ READ
 EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
+
+ITERATE {control.pass}
+
+EXECUTE {control.check}
 
 ITERATE {presort}
 
