@@ -151,6 +151,7 @@ ENTRY
     CTL_cite_lang
     CTL_year_before_title
     CTL_name_year_delim
+    CTL_italic_book_title
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -2887,6 +2888,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_name_year_delim empty$
     'skip$
     { CTL_name_year_delim 'name.year.delim := }
+  if$
+  CTL_italic_book_title empty$
+    'skip$
+    { CTL_italic_book_title boolean.to.int 'italic.book.title := }
   if$
 }
 
