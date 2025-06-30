@@ -29,6 +29,8 @@ INTEGERS {
   year.before.title
   italic.book.title
   sentence.case.title
+  sentence.case.journal
+  sentence.case.booktitle
   link.title
   title.in.journal
   show.patent.country
@@ -71,6 +73,8 @@ FUNCTION {load.config}
   "period" 'name.year.delim :=
   #0 'italic.book.title :=
   #1 'sentence.case.title :=
+  #1 'sentence.case.journal :=
+  #1 'sentence.case.booktitle :=
   #0 'link.title :=
   #1 'title.in.journal :=
   #1 'show.patent.country :=
@@ -142,6 +146,9 @@ ENTRY
     CTL_year_before_title
     CTL_name_year_delim
     CTL_italic_book_title
+    CTL_sentence_case_title
+    CTL_sentence_case_journal
+    CTL_sentence_case_booktitle
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -1629,6 +1636,10 @@ FUNCTION {format.series.vol.num.title}
 
 FUNCTION {format.booktitle.vol.num}
 { booktitle
+  sentence.case.booktitle
+    'change.sentence.case
+    'skip$
+  if$
   entry.numbered
     'skip$
     { format.volume.number 's :=
@@ -1648,7 +1659,12 @@ FUNCTION {format.series.vol.num.booktitle}
         { s * bbl.wide.space * }
         'skip$
       if$
-      booktitle *
+      booktitle
+      sentence.case.booktitle
+        'change.sentence.case
+        'skip$
+      if$
+      *
     }
     { format.booktitle.vol.num }
   if$
@@ -1729,6 +1745,10 @@ FUNCTION {format.journal}
   duplicate$ empty$ not
     { italic.journal entry.lang lang.en = and
         'emphasize
+        'skip$
+      if$
+      sentence.case.journal
+        'change.sentence.case
         'skip$
       if$
       link.journal
@@ -2882,6 +2902,18 @@ FUNCTION {GBT7714BSTCTL}
   CTL_italic_book_title empty$
     'skip$
     { CTL_italic_book_title boolean.to.int 'italic.book.title := }
+  if$
+  CTL_sentence_case_title empty$
+    'skip$
+    { CTL_sentence_case_title boolean.to.int 'sentence.case.title := }
+  if$
+  CTL_sentence_case_journal empty$
+    'skip$
+    { CTL_sentence_case_journal boolean.to.int 'sentence.case.journal := }
+  if$
+  CTL_sentence_case_booktitle empty$
+    'skip$
+    { CTL_sentence_case_booktitle boolean.to.int 'sentence.case.booktitle := }
   if$
 }
 
