@@ -36,7 +36,7 @@ INTEGERS {
   control.patent.country
   control.entry.type.id
   control.space.before.type.id
-  show.medium.type
+  control.entry.medium.id
   short.journal
   italic.journal
   link.journal
@@ -80,7 +80,7 @@ FUNCTION {load.config}
   #0 'control.patent.country :=
   #1 'control.entry.type.id :=
   #0 'control.space.before.type.id :=
-  #1 'show.medium.type :=
+  #1 'control.entry.medium.id :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
   #0 'italic.journal :=
@@ -114,6 +114,7 @@ ENTRY
     eprinttype
     entrysubtype
     entrytypeid
+    entrymediumid
     howpublished
     institution
     journal
@@ -156,6 +157,7 @@ ENTRY
     CTL_patent_country
     CTL_entry_type_id
     CTL_space_before_type_id
+    CTL_entry_medium_id
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.type.id entry.url }
@@ -1796,12 +1798,18 @@ FUNCTION {set.entry.type.id}
 FUNCTION {format.entry.type.id}
 { control.entry.type.id
     { entry.type.id
-      show.medium.type
-        { medium empty$ not
-            { "/" * medium * }
-            { entry.is.electronic
-                { "/OL" * }
-                'skip$
+      control.entry.medium.id
+        { entrymediumid empty$ not
+            { "/" * entrymediumid * }
+            { medium empty$ not
+                { "The field 'medium' for entry medium ID is deprecated. Use 'entrymediumid' instead." warning$
+                  "/" * medium *
+                }
+                { entry.is.electronic
+                    { "/OL" * }
+                    'skip$
+                  if$
+                }
               if$
             }
           if$
@@ -2960,6 +2968,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_space_before_type_id empty$
     'skip$
     { CTL_space_before_type_id boolean.to.int 'control.space.before.type.id := }
+  if$
+  CTL_entry_medium_id empty$
+    'skip$
+    { CTL_entry_medium_id boolean.to.int 'control.entry.medium.id := }
   if$
 }
 

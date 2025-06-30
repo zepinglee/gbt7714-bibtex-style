@@ -21,14 +21,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `patentcountry` 控制是否显示专利国别。
 - 新增选项 `entrytypeid` 控制是否著录文献类型标识。
 - 新增选项 `spacebeforetypeid` 控制题名与文献类型标识之间是否有空格。
+- 新增选项 `entrymediumid` 控制是否著录载体类型标识。
 
 ### Changed
 
 - 文献类型标识的字段改为 `entrytypeid`。
+- 载体类型标识的字段改为 `entrymediumid`。
 
 ### Deprecated
 
 - 文献类型标识的字段 `mark` 已过时。
+- 载体类型标识的字段 `medium` 已过时。
 
 ## [2.1.8] - 2025-06-22
 
