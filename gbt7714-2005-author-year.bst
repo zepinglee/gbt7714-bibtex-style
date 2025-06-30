@@ -35,7 +35,7 @@ INTEGERS {
   control.article.title
   control.patent.country
   control.entry.type.id
-  space.before.mark
+  control.space.before.type.id
   show.medium.type
   short.journal
   italic.journal
@@ -84,7 +84,7 @@ FUNCTION {load.config}
   #1 'control.article.title :=
   #1 'control.patent.country :=
   #1 'control.entry.type.id :=
-  #0 'space.before.mark :=
+  #0 'control.space.before.type.id :=
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
   #0 'short.journal :=
@@ -165,6 +165,7 @@ ENTRY
     CTL_article_title
     CTL_patent_country
     CTL_entry_type_id
+    CTL_space_before_type_id
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.type.id entry.url }
@@ -1818,7 +1819,7 @@ FUNCTION {format.entry.type.id}
         'skip$
       if$
       'entry.type.id :=
-      space.before.mark
+      control.space.before.type.id
         { " " }
         { "\allowbreak" }
       if$
@@ -2965,6 +2966,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_entry_type_id empty$
     'skip$
     { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
+  if$
+  CTL_space_before_type_id empty$
+    'skip$
+    { CTL_space_before_type_id boolean.to.int 'control.space.before.type.id := }
   if$
 }
 

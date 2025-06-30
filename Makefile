@@ -4,7 +4,7 @@ NAME = gbt7714
 PKGFILES = $(NAME).sty
 BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
 
-TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
+TEXOPTS = -file-line-error
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
 savebst : bst

@@ -40,7 +40,7 @@ INTEGERS {
   control.article.title
   control.patent.country
   control.entry.type.id
-  space.before.mark
+  control.space.before.type.id
   show.medium.type
   short.journal
   italic.journal
@@ -190,14 +190,9 @@ FUNCTION {load.config}
   #1 'control.entry.type.id :=
 %    \end{macrocode}
 %
-% 文献类型标识前是否有空格：
+% 题名与文献类型标识的分隔符。
 %    \begin{macrocode}
-%<*!space-before-mark>
-  #0 'space.before.mark :=
-%</!space-before-mark>
-%<*space-before-mark>
-  #1 'space.before.mark :=
-%</space-before-mark>
+  #0 'control.space.before.type.id :=
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
@@ -453,6 +448,7 @@ ENTRY
     CTL_article_title
     CTL_patent_country
     CTL_entry_type_id
+    CTL_space_before_type_id
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -2686,7 +2682,7 @@ FUNCTION {format.entry.type.id}
         'skip$
       if$
       'entry.type.id :=
-      space.before.mark
+      control.space.before.type.id
         { " " }
         { "\allowbreak" }
       if$
@@ -4157,6 +4153,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_entry_type_id empty$
     'skip$
     { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
+  if$
+  CTL_space_before_type_id empty$
+    'skip$
+    { CTL_space_before_type_id boolean.to.int 'control.space.before.type.id := }
   if$
 }
 

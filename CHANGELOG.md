@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `articletitle` 控制期刊文章是否显示题名。
 - 新增选项 `patentcountry` 控制是否显示专利国别。
 - 新增选项 `entrytypeid` 控制是否著录文献类型标识。
+- 新增选项 `spacebeforetypeid` 控制题名与文献类型标识之间是否有空格。
 
 ### Changed
 
