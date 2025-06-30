@@ -32,7 +32,7 @@ INTEGERS {
   sentence.case.journal
   sentence.case.booktitle
   link.title
-  title.in.journal
+  control.article.title
   show.patent.country
   show.mark
   space.before.mark
@@ -76,7 +76,7 @@ FUNCTION {load.config}
   #1 'sentence.case.journal :=
   #1 'sentence.case.booktitle :=
   #0 'link.title :=
-  #1 'title.in.journal :=
+  #1 'control.article.title :=
   #1 'show.patent.country :=
   #1 'show.mark :=
   #0 'space.before.mark :=
@@ -149,6 +149,7 @@ ENTRY
     CTL_sentence_case_title
     CTL_sentence_case_journal
     CTL_sentence_case_booktitle
+    CTL_article_title
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -2425,10 +2426,14 @@ FUNCTION {incollection}
     'skip$
   if$
   new.block
-  format.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
-  new.block
+  control.article.title
+    { format.title "title" output.check
+      "M" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.translators output
   new.slash
   format.editors output
@@ -2500,7 +2505,7 @@ FUNCTION {journal.article}
     'skip$
   if$
   new.block
-  title.in.journal
+  control.article.title
     { format.title "title" output.check
       entrysubtype empty$ not
         {
@@ -2547,10 +2552,14 @@ FUNCTION {patent}
     'skip$
   if$
   new.block
-  format.title "title" output.check
-  "P" set.entry.mark
-  format.mark "" output.after
-  new.block
+  control.article.title
+    { format.title "title" output.check
+      "P" set.entry.mark
+      format.mark "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.date "year" output.check
   format.urldate "" output.after
   output.url
@@ -2625,7 +2634,7 @@ FUNCTION {preprint}
     'skip$
   if$
   new.block
-  title.in.journal
+  control.article.title
     { format.series.vol.num.title "title" output.check
       "A" set.entry.mark
       format.mark "" output.after
@@ -2914,6 +2923,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_sentence_case_booktitle empty$
     'skip$
     { CTL_sentence_case_booktitle boolean.to.int 'sentence.case.booktitle := }
+  if$
+  CTL_article_title empty$
+    'skip$
+    { CTL_article_title boolean.to.int 'control.article.title := }
   if$
 }
 
