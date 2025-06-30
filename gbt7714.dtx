@@ -38,7 +38,7 @@ INTEGERS {
   sentence.case.booktitle
   link.title
   control.article.title
-  show.patent.country
+  control.patent.country
   show.mark
   space.before.mark
   show.medium.type
@@ -177,12 +177,12 @@ FUNCTION {load.config}
 %
 % 专利题名是否含专利国别
 %    \begin{macrocode}
-%<*!(show-patent-country|2005|thu)>
-  #0 'show.patent.country :=
-%</!(show-patent-country|2005|thu)>
-%<*(show-patent-country|2005|thu)>
-  #1 'show.patent.country :=
-%</(show-patent-country|2005|thu)>
+%<*!(2005|thu)>
+  #0 'control.patent.country :=
+%</!(2005|thu)>
+%<*(2005|thu)>
+  #1 'control.patent.country :=
+%</(2005|thu)>
 %    \end{macrocode}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
@@ -408,6 +408,7 @@ ENTRY
     archivePrefix
     author
     booktitle
+    country  % 专利国别
     date
     doi
     edition
@@ -425,6 +426,7 @@ ENTRY
     location
     mark
     medium
+    nationality  % 专利国别，兼容 IEEEtran.bst
     note
     number
     organization
@@ -453,6 +455,7 @@ ENTRY
     CTL_sentence_case_journal
     CTL_sentence_case_booktitle
     CTL_article_title
+    CTL_patent_country
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -2292,14 +2295,22 @@ FUNCTION {format.title}
       if$
       entry.numbered number empty$ not and
         { bbl.colon *
-          type$ "patent" = show.patent.country and
-            { address empty$ not
-                { address * ", " * }
-                { location empty$ not
-                    { location * ", " * }
-                    { entry.lang lang.zh =
-                        { "中国" * ", " * }
-                        'skip$
+          type$ "patent" = control.patent.country and
+            { country empty$ not
+                { country * ", " * }
+                { nationality empty$ not
+                    { nationality * ", " * }
+                    { address empty$ not
+                        { address * ", " * }
+                        { location empty$ not
+                            { location * ", " * }
+                            { entry.lang lang.zh =
+                                { "中国" * ", " * }
+                                'skip$
+                              if$
+                            }
+                          if$
+                        }
                       if$
                     }
                   if$
@@ -4134,6 +4145,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_article_title empty$
     'skip$
     { CTL_article_title boolean.to.int 'control.article.title := }
+  if$
+  CTL_patent_country empty$
+    'skip$
+    { CTL_patent_country boolean.to.int 'control.patent.country := }
   if$
 }
 

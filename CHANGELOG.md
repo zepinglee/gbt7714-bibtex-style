@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 期刊题名 `journal` 和专著题名 `booktitle` 默认转为 sentence case。
 - 新增选项 `sentence-case`、`sentence-case-title`、`sentence-case-journal`、`sentence-case-booktitle` 控制是否将对应题名转为 sentence case。
 - 新增选项 `articletitle` 控制期刊文章是否显示题名。
+- 新增选项 `patentcountry` 控制是否显示专利国别。
 
 ## [2.1.8] - 2025-06-22
 

@@ -33,7 +33,7 @@ INTEGERS {
   sentence.case.booktitle
   link.title
   control.article.title
-  show.patent.country
+  control.patent.country
   show.mark
   space.before.mark
   show.medium.type
@@ -82,7 +82,7 @@ FUNCTION {load.config}
   #1 'sentence.case.booktitle :=
   #0 'link.title :=
   #1 'control.article.title :=
-  #0 'show.patent.country :=
+  #0 'control.patent.country :=
   #1 'show.mark :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
@@ -115,6 +115,7 @@ ENTRY
     archivePrefix
     author
     booktitle
+    country  % 专利国别
     date
     doi
     edition
@@ -132,6 +133,7 @@ ENTRY
     location
     mark
     medium
+    nationality  % 专利国别，兼容 IEEEtran.bst
     note
     number
     organization
@@ -160,6 +162,7 @@ ENTRY
     CTL_sentence_case_journal
     CTL_sentence_case_booktitle
     CTL_article_title
+    CTL_patent_country
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.mark entry.url }
@@ -1476,14 +1479,22 @@ FUNCTION {format.title}
       if$
       entry.numbered number empty$ not and
         { bbl.colon *
-          type$ "patent" = show.patent.country and
-            { address empty$ not
-                { address * ", " * }
-                { location empty$ not
-                    { location * ", " * }
-                    { entry.lang lang.zh =
-                        { "中国" * ", " * }
-                        'skip$
+          type$ "patent" = control.patent.country and
+            { country empty$ not
+                { country * ", " * }
+                { nationality empty$ not
+                    { nationality * ", " * }
+                    { address empty$ not
+                        { address * ", " * }
+                        { location empty$ not
+                            { location * ", " * }
+                            { entry.lang lang.zh =
+                                { "中国" * ", " * }
+                                'skip$
+                              if$
+                            }
+                          if$
+                        }
                       if$
                     }
                   if$
@@ -2937,6 +2948,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_article_title empty$
     'skip$
     { CTL_article_title boolean.to.int 'control.article.title := }
+  if$
+  CTL_patent_country empty$
+    'skip$
+    { CTL_patent_country boolean.to.int 'control.patent.country := }
   if$
 }
 

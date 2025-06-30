@@ -202,6 +202,7 @@ ROBERSON J~A, BURNESON E~G.
 \newblock “北斗一号”监控管理网设计与实现\allowbreak[J/OL].
 \newblock 测绘科学, 2008, 33\allowbreak (5): 8-9\allowbreak[2009-10-25].
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
+\newblock DOI: \doi{10.3771/j.issn.1009-2307.2008.05.002}.
 
 \bibitem[Kanamori(1998)]{4.4.2:6}
 KANAMORI H.
@@ -218,12 +219,14 @@ FRESE K~S, KATUS H~A, MEDER B.
 \newblock Next-generation sequencing: from understanding biology to personalized medicine\allowbreak[J/OL].
 \newblock Biology, 2013, 2\allowbreak (1): 378-398\allowbreak[2013-03-19].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
+\newblock DOI: \doi{10.3390/biology2010378}.
 
 \bibitem[Myburg et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.]{4.4.2:9}
 MYBURG A~A, GRATTAPAGLIA D, TUSKAN G~A, et~al.
 \newblock The genome of eucalyptus grandis\allowbreak[J/OL].
 \newblock Nature, 2014, 510: 356-362\allowbreak[2014-06-25].
 \newblock \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
+\newblock DOI: \doi{10.1038/nature13308}.
 
 \bibitem[邓一刚(2006)]{4.5.2:1}
 邓一刚.
@@ -281,6 +284,7 @@ Coffee drinking and cancer of the pancreas\allowbreak[J].
 \newblock 生物质材料热解失重动力学及其分析方法研究\allowbreak[D/OL].
 \newblock 合肥: 中国科学技术大学, 2000: 17-18\allowbreak[2014-08-29].
 \newblock \url{http://wenku.baidu.com/link?url=GJDJxb4lxBUXnIPmq1XoEGSIr1H8TMLbidW_LjlYu33tpt707u62rKliypU_FBGUmox7ovPNaVIVBALAMd5yfwuKUUOAGYuB7cuZ-BYEhXa}.
+\newblock DOI: \doi{10.7666/d.y351065}.
 
 \bibitem[Deverell et~al.(2013)Deverell and Igler]{8.7:2}
 DEVERELL W, IGLER D.
@@ -667,6 +671,7 @@ Symposium on {Applications of Holography in Mechanics}, {August} 23--25, 1971, {
 \newblock 从数字地球到智慧地球\allowbreak[J/OL].
 \newblock 国土资源导刊, 2010, 7\allowbreak (10): 93\allowbreak[2013-03-20].
 \newblock \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.
+\newblock DOI: \doi{10.3969/j.issn.1672-5603.2010.10.038}.
 
 \bibitem[Des~Marais et~al.(1992)Des~Marais, Strauss, Summons, et~al.]{A.8:5}
 DES~MARAIS D~J, STRAUSS H, SUMMONS R~E, et~al.
@@ -683,6 +688,7 @@ WALLS S~C, BARICHIVICH W~J, BROWN M~E.
 \newblock Drought, deluge and declines: the impact of precipitation extremes on amphibians in a changing climate\allowbreak[J/OL].
 \newblock Biology, 2013, 2\allowbreak (1): 399-418\allowbreak[2013-11-04].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/399}.
+\newblock DOI: \doi{10.3390/biology2010399}.
 
 \bibitem[Franz et~al.(2013)Franz, Danielewicz, Wong, Anderson, and Boothe]{A.8:8}
 FRANZ A~K, DANIELEWICZ M~A, WONG D~M, et~al.
