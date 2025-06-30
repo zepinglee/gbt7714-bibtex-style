@@ -57,7 +57,7 @@ INTEGERS {
 STRINGS {
   cite.lang
   name.year.delim
-  component.part.label
+  control.component.part.delim
   page.range.delimiter
 }
 
@@ -81,7 +81,7 @@ FUNCTION {load.config}
   #1 'control.entry.type.id :=
   #0 'control.space.before.type.id :=
   #1 'control.entry.medium.id :=
-  "slash" 'component.part.label :=
+  "slash" 'control.component.part.delim :=
   #0 'short.journal :=
   #0 'italic.journal :=
   #0 'link.journal :=
@@ -158,6 +158,7 @@ ENTRY
     CTL_entry_type_id
     CTL_space_before_type_id
     CTL_entry_medium_id
+    CTL_component_part_delim
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
   { label extra.label sort.label short.list entry.type.id entry.url }
@@ -449,10 +450,10 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { component.part.label "slash" =
+    { control.component.part.delim "slash" =
         { after.slash 'output.state := }
         { new.block
-          component.part.label "in" =
+          control.component.part.delim "in" =
             { entry.lang lang.en =
                 { "In: " output
                   write$
@@ -2972,6 +2973,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_entry_medium_id empty$
     'skip$
     { CTL_entry_medium_id boolean.to.int 'control.entry.medium.id := }
+  if$
+  CTL_component_part_delim empty$
+    'skip$
+    { CTL_component_part_delim 'control.component.part.delim := }
   if$
 }
 
