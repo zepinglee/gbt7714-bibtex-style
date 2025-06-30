@@ -14,924 +14,6 @@
 %
 % \fi
 %
-% \iffalse
-%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<package>\ProvidesPackage{gbt7714}
-%<package>  [2025/06/22 v2.1.8 GB/T 7714 BibTeX Style]
-%
-%<*driver>
-\documentclass[a4paper]{l3doc}
-\usepackage{hypdoc}
-\usepackage[UTF8]{ctex}
-\usepackage{fontspec}
-\usepackage{caption}
-\usepackage{booktabs}
-\usepackage{gbt7714}
-\usepackage{hologo}
-\usepackage{listings}
-\makeatletter
-\hypersetup{allcolors=blue}
-\setmainfont{texgyretermes}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-]%
-\setsansfont{texgyreheros}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-]%
-\setmonofont{texgyrecursor}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-  Scale          = MatchLowercase,
-  Ligatures      = CommonOff,
-]%
-\citestyle{super}
-\lstnewenvironment{latex}{%
-  \lstset{
-    basicstyle = \ttfamily\small,
-    language = [LaTeX]TeX,
-    gobble = 4,
-    frame = single,
-  }%
-}{}
-\lstnewenvironment{pseudocode}{%
-  \lstset{
-    basicstyle=\ttfamily\small,
-    language=bash,
-    gobble=2,
-    frame=single,
-  }%
-}{}
-\DeclareRobustCommand\file{\nolinkurl}
-\DeclareRobustCommand\env{\texttt}
-\DeclareRobustCommand\pkg{\textsf}
-\DeclareRobustCommand\cls{\textsf}
-\DeclareRobustCommand\opt{\texttt}
-\setlength\partopsep{\z@}
-\def\@listi{\leftmargin\leftmargini
-            \parsep \z@
-            \topsep 5\p@ \@plus2\p@ \@minus3\p@
-        \itemsep\z@}
-\let\@listI\@listi
-\@listi
-\makeatother
-\EnableCrossrefs
-\CodelineIndex
-% \OnlyDescription
-
-\begin{document}
-  \DocInput{\jobname.dtx}
-\end{document}
-%</driver>
-% \fi
-%
-%
-%
-% \GetFileInfo{gbt7714.sty}
-%
-% \title{GB/T 7714 \hologo{BibTeX} style}
-% \author{Zeping Lee\thanks{zepinglee AT gmail.com}}
-% \date{\filedate\qquad\fileversion}
-% \maketitle
-%
-%
-%
-% \begin{abstract}
-% The \pkg{gbt7714} package provides a \BibTeX{} implementation for the China's
-% national bibliography style standard GB/T 7714.
-% It consists of \file{.bst} files for numeric and author-date styles as well as a
-% \LaTeX{} package which provides the citation style defined in the standard.
-% It is compatible with \pkg{natbib} and supports language detection (Chinese
-% and English) for each biblilography entry.
-% \end{abstract}
-%
-% \section{简介}
-%
-% GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt7714-2015}
-% （以下简称“国标”）是中国的参考文献格式推荐标准。
-% 国内的绝大部分学术期刊、学位论文都使用了基于该标准的格式。
-% 本宏包是国标的 \BibTeX{}\cite{bibtex} 实现，具有以下特性：
-% \begin{itemize}
-%   \item 兼容 \pkg{natbib} 宏包\cite{natbib}。
-%   \item 支持“顺序编码制”和“著者-出版年制”两种风格。
-%   \item 自动识别语言并进行相应处理。
-%   \item 提供了简单的接口供用户修改样式。
-%   \item 同时提供了 2005 版的 \file{.bst} 文件。
-% \end{itemize}
-% 本宏包的主页：\url{https://github.com/zepinglee/gbt7714-bibtex-style}。
-%
-%
-% \section{版本 v2.0 的重要修改}
-%
-% 从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 \cs{biblilographystyle} 命令选择参考文献样式，
-% 如 \opt{gbt7714-numerical} 或 \opt{gbt7714-author-year}。
-% 在早期的版本中，选择文献样式的方法是将 \opt{numbers} 或 \opt{super} 等参数传递给
-% \pkg{gbt7714}，
-% 而不能使用 \cs{bibliographystyle}。
-% 这跟标准的 LaTeX 接口不一致，所以将被弃用。
-%
-%
-% \section{使用方法}
-%
-% 以下是 \pkg{gbt7714} 宏包的一个简单示例。
-% \begin{latex}
-%   \documentclass{ctexart}
-%   \usepackage{gbt7714}
-%   \bibliographystyle{gbt7714-numerical}
-%   \begin{document}
-%     \cite{...}
-%     ...
-%     \bibliography{bibfile}
-%   \end{document}
-% \end{latex}
-%
-% 按照国标的规定，参考文献的标注体系分为“顺序编码制”和
-% “著者-出版年制”。
-% 用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
-% 命令选择参考文献表的样式，比如：
-% \begin{latex}
-%   \bibliographystyle{gbt7714-numerical}  % 顺序编码制
-% \end{latex}
-% 或者
-% \begin{latex}
-%   \bibliographystyle{gbt7714-author-year}  % 著者-出版年制
-% \end{latex}
-% 此外还可以使用 2005 版的格式 \file{gbt7714-2005-numerical} 和
-% \file{gbt7714-2005-author-year}。
-%
-% 注意，版本 v2.0 更改了设置参考文献表样式的方法，
-% 要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
-% 而且更改了 \file{bst} 的文件名。
-%
-% \begin{function}{\citestyle}
-%   \begin{syntax}
-%     |\citestyle|\Arg{citation style}
-%   \end{syntax}
-% 可选：\opt{super}, \opt{numbers}, \opt{author-year}。
-% 使用 \cs{bibliography} 选择参考文献表的样式时会自动设置对应的引用样式。
-% 顺序编码制的引用标注默认使用角标式（\opt{super}），
-% 如“张三\textsuperscript{[2]}提出”。
-% 如果要使用正文模式，如“文献 [3] 中说明”，
-% 可以使用 \cs{citestyle} 命令切换为数字式（\opt{numbers}）。
-% \begin{latex}
-%   \citestyle{numbers}
-% \end{latex}
-% 著者-出版年制通常不需要修改引用样式。
-% \end{function}
-%
-% \DescribeOption{sort\&compress}
-% 同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
-% 如遇连续编号，默认会自动转为起讫序号并用短横线连接
-% （见\pkg{natbib} 的 \opt{compress} 选项）。
-% 如果要对引用的编号进行自动排序，需要在调用 \pkg{gbt7714} 时加
-% \opt{sort\&compress} 参数，
-% 这些参数会传给 \pkg{natbib} 处理。
-% \begin{latex}
-%   \usepackage[sort&compress]{gbt7714}
-% \end{latex}
-% 注意国标中要求 2 个或以上的连续编号用连接号，不同于 \pkg{natbib} 默认的 3 个或以上。
-% 宏包中已经作了修改。
-%
-% 若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
-% |\cite[42]{knuth84}|。
-% 更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明\cite{natbib}。
-%
-% \DescribeOption{locator-inside-brackets}
-% 国标要求在括号外以角标的形式著录引文页码。
-% 如果要将页码置于括号内，可以在调用宏包时设置 \opt{locator-inside-brackets=true}。
-% \begin{latex}
-%   \usepackage[locator-inside-brackets=true]{gbt7714}
-% \end{latex}
-%
-% 使用时需要注意以下几点：
-% \begin{itemize}
-%   \item \file{.bib} 数据库应使用 UTF-8 编码。
-%   \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
-%         在 key 域填写作者姓名的拼音，才能按照拼音排序，
-%         详见第~\ref{sec:sort}~节。
-% \end{itemize}
-%
-%
-% \section{文献类型}
-%
-% 国标中规定了 16 种参考文献类型，
-% 表~\ref{tab:entry-types} 列举了 \file{bib} 数据库中对应的文献类型。
-% 这些尽可能兼容 \BibTeX{} 和 \pkg{biblatex} 的标准类型，但是新增了若干文献类型（带 * 号）。
-%
-% \begin{table}[htb]
-%   \centering\small
-%   \caption{全部文献类型}
-%   \label{tab:entry-types}
-%   \begin{tabular}{lcl}
-%     \toprule
-%     文献类型         & 标识代码 & Entry Type                  \\
-%     \midrule
-%     普通图书         & M        & book                        \\
-%     图书的析出文献   & M        & incollection                \\
-%     会议录           & C        & proceedings                 \\
-%     会议录的析出文献 & C        & inproceedings 或 conference \\
-%     汇编             & G        & collection*                 \\
-%     报纸             & N        & newspaper*                  \\
-%     期刊的析出文献   & J        & article                     \\
-%     学位论文         & D        & mastersthesis 或 phdthesis  \\
-%     报告             & R        & techreport                  \\
-%     标准             & S        & standard*                   \\
-%     专利             & P        & patent*                     \\
-%     数据库           & DB       & database*                   \\
-%     计算机程序       & CP       & software*                   \\
-%     电子公告         & EB       & online*                     \\
-%     档案             & A        & archive*                    \\
-%     舆图             & CM       & map*                        \\
-%     数据集           & DS       & dataset*                    \\
-%     其他             & Z        & misc                        \\
-%     \bottomrule
-%   \end{tabular}
-% \end{table}
-%
-%
-% \section{著录项目}
-%
-% 由于国标中规定的著录项目多于 \BibTeX{} 的标准域，
-% 必须新增一些著录项目（带 * 号），
-% 这些新增的类型在设计时参考了 BibLaTeX，如 date 和 urldate。
-% 本宏包支持的全部域如下：
-% \begin{description}
-%   \item[author]       主要责任者
-%   \item[title]        题名
-%   \item[mark*]        文献类型标识
-%   \item[medium*]      载体类型标识
-%   \item[translator*]  译者
-%   \item[editor]       编辑
-%   \item[organization] 组织（用于会议）
-%   \item[booktitle]    图书题名
-%   \item[series]       系列
-%   \item[journal]      期刊题名
-%   \item[edition]      版本
-%   \item[address]      出版地
-%   \item[publisher]    出版者
-%   \item[school]       学校（用于 \texttt{@phdthesis}）
-%   \item[institution]  机构（用于 \texttt{@techreport}）
-%   \item[year]         出版年
-%   \item[volume]       卷
-%   \item[number]       期（或者专利号）
-%   \item[pages]        引文页码
-%   \item[date*]        更新或修改日期
-%   \item[urldate*]     引用日期
-%   \item[url]          获取和访问路径
-%   \item[doi]          数字对象唯一标识符
-%   \item[langid*]      语言
-%   \item[key]          拼音（用于排序）
-% \end{description}
-% 不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref, month, type。
-%
-% 本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
-% 但是在少数情况下需要用户手动指定，如：
-% \begin{latex}
-%   @misc{citekey,
-%     langid = {japanese},
-%     mark   = {Z},
-%     medium = {DK},
-%     ...
-%   }
-% \end{latex}
-% 可选的语言有 english, chinese, japanese, russian。
-%
-%
-% \section{文献列表的排序}
-% \label{sec:sort}
-%
-% 国标规定参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中，
-% 然后按著者字顺和出版年排列；
-% 中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
-% 然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
-% 所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音用于排序，如：
-% \begin{latex}
-%   @book{capital,
-%     author = {马克思 and 恩格斯},
-%     key    = {ma3 ke4 si1 & en1 ge2 si1},
-%     ...
-%   }
-% \end{latex}
-%
-% 对于著者-出版年的样式，如果中文文献较多时更推荐使用 \pkg{biblatex} 宏包，
-% 其后端 \file{biber} 可以自动处理中文按照拼音排序，无须手动填写拼音。
-%
-%
-% \section{自定义样式}
-%
-% \BibTeX{} 对自定义样式的支持比较有限，
-% 所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
-% 本宏包提供了一些接口供用户更方便地修改。
-%
-% 在 \file{bst} 文件开始处的 |load.config| 函数中，
-% 有一组配置参数用来控制样式，表~\ref{tab:config} 列出了每一项的默认值和功能。
-% 若变量被设为 |#1| 则表示该项被启用，设为 |#0| 则不启用。
-% 默认的值是严格遵循国标的配置。
-%
-% \begin{table}[htb]
-% \centering\small
-% \caption{参考文献表样式的配置参数}
-% \label{tab:config}
-% \begin{tabular}{lcl}
-%   \toprule
-%   参数值                         & 默认值 & 功能                           \\
-%   \midrule
-%   uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
-%   max.num.authors                & |#3|   & 输出著者的最多数量             \\
-%   year.after.author              & |#0|   & 年份置于著者之后               \\
-%   period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
-%   italic.book.title              & |#0|   & 西文书籍名使用斜体             \\
-%   sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
-%   link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
-%   title.in.journal               & |#1|   & 期刊是否显示标题               \\
-%   show.patent.country            & |#0|   & 专利题名是否含国别             \\
-%   space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
-%   show.mark                      & |#1|   & 显示文献类型标识               \\
-%   show.medium.type               & |#1|   & 显示载体类型标识               \\
-%   component.part.label           & |"slash"| & 表示析出文献的符号，可选：|"in"|, |"none"| \\
-%   italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
-%   link.journal                   & |#0|   & 在期刊题名上添加 url 的超链接      \\
-%   show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
-%   space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
-%   only.start.page                & |#0|   & 只显示起始页码                 \\
-%   page.range.delimiter           & |"-"|  & 起止页码中的连接号             \\
-%   show.urldate                   & |#1|   & 显示引用日期 urldate           \\
-%   show.url                       & |#1|   & 显示 url                       \\
-%   show.doi                       & |#1|   & 显示 DOI                       \\
-%   show.preprint                  & |#1|   & 显示预印本信息                 \\
-%   show.note                      & |#0|   & 显示 note 域的信息             \\
-%   end.with.period                & |#1|   & 结尾加句点                     \\
-%   lowercase.word.after.colon     & |#1|   & 将冒号后的单词变成小写 \\
-%   \bottomrule
-% \end{tabular}
-% \end{table}
-%
-% 若用户需要定制更多内容，可以学习 \file{bst} 文件的语法并修改
-% \cite{btxhak,ttb,tlc2}，或者联系作者。
-%
-%
-% \section{相关工作}
-%
-% TeX 社区也有其他关于 GB/T 7714 系列参考文献标准的工作。
-% 2005 年吴凯\cite{wk2006}发布了基于 GB/T 7714—2005 的 \BibTeX{} 样式，
-% 支持顺序编码制和著者出版年制两种风格。
-% 李志奇\cite{lqz2013}发布了严格遵循 GB/T 7714—2005 的 BibLaTeX 的样式。
-% 胡海星\cite{hhx2013}提供了另一个 \BibTeX{} 实现，
-% 还给每行 bst 代码写了 java 语言注释。
-% 沈周\cite{sz2016}基于 \pkg{biblatex-caspervector}\cite{vector2012} 进行修改，
-% 以符合国标的格式。
-% 胡振震发布了符合 GB/T 7714—2015 标准的 BibLaTeX 参考文献样式\cite{hzz2016}，
-% 并进行了比较完善的持续维护。
-%
-%
-% \begin{thebibliography}{12}
-% \providecommand{\natexlab}[1]{#1}
-% \providecommand{\url}[1]{#1}
-% \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
-%   \urlstyle{same}\fi
-% \providecommand{\href}[2]{\url{#2}}
-% \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
-%
-% \bibitem[{中国国家标准化委员会}(2015)]{gbt7714-2015}
-% {中国国家标准化委员会}.
-% \newblock 信息与文献\quad 参考文献著录规则: GB/T
-%   7714—2015[S].
-% \newblock 北京: 中国标准出版社, 2015.
-%
-% \bibitem[Patashnik(1988{\natexlab{a}})]{bibtex}
-% PATASHNIK~O.
-% \newblock {\BibTeX}ing[M/OL].
-% \newblock 1988{\natexlab{a}}.
-% \newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf}.
-%
-% \bibitem[Daly(1999)]{natbib}
-% DALY~P~W.
-% \newblock Natural sciences citations and references[M/OL].
-% \newblock 1999.
-% \newblock \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natbib.pdf}.
-%
-% \bibitem[Patashnik(1988{\natexlab{b}})]{btxhak}
-% PATASHNIK~O.
-% \newblock Designing {\BibTeX} styles[M/OL].
-% \newblock 1988{\natexlab{b}}.
-% \newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxhak.pdf}.
-%
-% \bibitem[Markey(2003)]{ttb}
-% MARKEY~N.
-% \newblock Tame the beast[M/OL].
-% \newblock 2003.
-% \newblock \url{http://mirrors.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf}.
-%
-% \bibitem[Mittelbach et~al.(2004)Mittelbach, Goossens, Braams, Carlisle, and
-%   Rowley]{tlc2}
-% MITTELBACH~F, GOOSSENS~M, BRAAMS~J, et~al.
-% \newblock The {\LaTeX} companion[M].
-% \newblock 2nd ed.
-% \newblock Reading, MA, USA: Addison-Wesley, 2004.
-%
-% \bibitem[吴凯(2006)]{wk2006}
-% 吴凯.
-% \newblock 发布GBT7714-2005.bst version1 Beta版[EB/OL].
-% \newblock 2006.
-% \newblock CTeX 论坛（已关闭）.
-%
-% \bibitem[李志奇(2013)]{lqz2013}
-% 李志奇.
-% \newblock
-%   基于biblatex的符合GBT7714—2005的中文文献生成工具[EB/OL].
-% \newblock 2013.
-% \newblock CTeX 论坛（已关闭）.
-%
-% \bibitem[胡海星(2013)]{hhx2013}
-% 胡海星.
-% \newblock A GB/T 7714—2005 national standard compliant BibTeX
-%   style[EB/OL].
-% \newblock 2013.
-% \newblock \url{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}.
-%
-% \bibitem[沈周(2016)]{sz2016}
-% 沈周.
-% \newblock 基于caspervector改写的符合GB/T
-%   7714—2005标准的参考文献格式[EB/OL].
-% \newblock 2016.
-% \newblock \url{https://github.com/szsdk/biblatex-gbt77142005}.
-%
-% \bibitem[Vector(2012)]{vector2012}
-% VECTOR~C~T.
-% \newblock biblatex 参考文献和引用样式: caspervector[M/OL].
-% \newblock 2012.
-% \newblock
-%   \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-caspervector/doc/caspervector.pdf}.
-%
-% \bibitem[胡振震(2016)]{hzz2016}
-% 胡振震.
-% \newblock 符合 GB/T 7714—2015 标准的 biblatex
-%   参考文献样式[M/OL].
-% \newblock 2016.
-% \newblock
-%   \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf}.
-%
-% \end{thebibliography}
-%
-%
-%
-%
-% \clearpage
-% \appendix
-% \StopEventually{}
-%
-% \section{宏包的代码实现}
-%
-% 兼容过时的接口
-%    \begin{macrocode}
-%<*package>
-\newif\ifgbt@legacy@interface
-\newif\ifgbt@mmxv
-\newif\ifgbt@numerical
-\newif\ifgbt@super
-\newcommand\gbt@obsolete@option[1]{%
-  \PackageWarning{gbt7714}{The option "#1" is obsolete}%
-}
-\DeclareKeys[gbt7714]{
-  2015 .code = {%
-    \gbt@obsolete@option{2015}%
-    \gbt@legacy@interfacetrue
-    \gbt@mmxvtrue
-  },
-  2005 .code = {%
-    \gbt@obsolete@option{2005}%
-    \gbt@legacy@interfacetrue
-    \gbt@mmxvfalse
-  },
-  super .code = {%
-    \gbt@obsolete@option{super}%
-    \gbt@legacy@interfacetrue
-    \gbt@numericaltrue
-    \gbt@supertrue
-  },
-  numbers .code = {%
-    \gbt@obsolete@option{numbers}%
-    \gbt@legacy@interfacetrue
-    \gbt@numericaltrue
-    \gbt@superfalse
-  },
-  authoryear .code = {%
-    \gbt@obsolete@option{authoryear}%
-    \gbt@legacy@interfacetrue
-    \gbt@numericalfalse
-  },
-}
-%    \end{macrocode}
-%
-% 控制引注的页码在括号内还是在括号外。
-%    \begin{macrocode}
-\DeclareKeys[gbt7714]{
-  locator-inside-brackets .if = @gbt@locator@inside@affixes ,
-}
-\SetKeys[gbt7714]{
-  locator-inside-brackets = false ,
-}
-%    \end{macrocode}
-%
-% 将选项传递给 \pkg{natbib}
-%    \begin{macrocode}
-\DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
-\ProcessKeyOptions[gbt7714]
-%    \end{macrocode}
-%
-% 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
-%    \begin{macrocode}
-\RequirePackage{natbib}
-\RequirePackage{url}
-%    \end{macrocode}
-%
-% 如果将 \opt{compress} 传给 \pkg{natbib} 容易导致 option clash。
-% 这里直接修改内部命令。
-%    \begin{macrocode}
-\def\NAT@cmprs{\@ne}
-%    \end{macrocode}
-%
-% \begin{macro}{\citestyle}
-% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
-% 或 \opt{authoryear}，参见 \pkg{natbib}。
-%    \begin{macrocode}
-\renewcommand\newblock{\space}
-\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@inline{\bibstyle@numbers}
-%    \end{macrocode}
-% \end{macro}
-%
-% 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
-%    \begin{macrocode}
-\@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
-\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
-%    \end{macrocode}
-%
-% \begin{macro}{\cite}
-% 下面修改 \pkg{natbib} 的引用格式。
-% 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
-%
-% Super 样式的 \cs{citep} 的页码也为上标。
-% 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
-% 参考 \href{https://github.com/tuna/thuthesis/issues/624}{tuna/thuthesis\#624}。
-%    \begin{macrocode}
-\renewcommand\NAT@citesuper[3]{%
-  \ifNAT@swa
-    \if*#2*\else
-      #2\NAT@spacechar
-    \fi
-    \unskip\kern\p@
-    \textsuperscript{%
-      \NAT@@open
-      #1%
-      \if@gbt@locator@inside@affixes
-        \if*#3*\else
-          \NAT@cmt#3%
-        \fi
-        \NAT@@close
-      \else
-        \NAT@@close
-        \if*#3*\else
-          #3%
-        \fi
-      \fi
-    }%
-    \kern\p@
-  \else
-    #1%
-  \fi
-  \endgroup
-}
-%    \end{macrocode}
-%
-% 将 numbers 样式的 \cs{citep} 的页码置于括号外。
-%    \begin{macrocode}
-\renewcommand\NAT@citenum[3]{%
-  \ifNAT@swa
-    \NAT@@open
-    \if*#2*\else
-      #2\NAT@spacechar
-    \fi
-    #1%
-    \if@gbt@locator@inside@affixes
-      \if*#3*\else\NAT@cmt#3\fi\NAT@@close
-    \else
-      \NAT@@close
-      \if*#3*\else
-        \textsuperscript{#3}%
-      \fi
-    \fi
-  \else
-    #1%
-  \fi
-  \endgroup
-}
-%    \end{macrocode}
-%
-% Numerical 模式的 \cs{citet} 的页码：
-%    \begin{macrocode}
-\def\NAT@citexnum[#1][#2]#3{%
-  \NAT@reset@parser
-  \NAT@sort@cites{#3}%
-  \NAT@reset@citea
-  \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
-    \@for\@citeb:=\NAT@cite@list\do
-    {\@safe@activestrue
-     \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
-     \@safe@activesfalse
-     \@ifundefined{b@\@citeb\@extra@b@citeb}{%
-       {\reset@font\bfseries?}
-        \NAT@citeundefined\PackageWarning{natbib}%
-       {Citation `\@citeb' on page \thepage \space undefined}}%
-     {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
-      \NAT@parse{\@citeb}%
-      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
-        \let\NAT@name=\NAT@all@names
-        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
-      \fi
-      \ifNAT@full\let\NAT@nm\NAT@all@names\else
-        \let\NAT@nm\NAT@name\fi
-      \ifNAT@swa
-       \@ifnum{\NAT@ctype>\@ne}{%
-        \@citea
-        \NAT@hyper@{\@ifnum{\NAT@ctype=\tw@}{\NAT@test{\NAT@ctype}}{\NAT@alias}}%
-       }{%
-        \@ifnum{\NAT@cmprs>\z@}{%
-         \NAT@ifcat@num\NAT@num
-          {\let\NAT@nm=\NAT@num}%
-          {\def\NAT@nm{-2}}%
-         \NAT@ifcat@num\NAT@last@num
-          {\@tempcnta=\NAT@last@num\relax}%
-          {\@tempcnta\m@ne}%
-         \@ifnum{\NAT@nm=\@tempcnta}{%
-          \@ifnum{\NAT@merge>\@ne}{}{\NAT@last@yr@mbox}%
-         }{%
-           \advance\@tempcnta by\@ne
-           \@ifnum{\NAT@nm=\@tempcnta}{%
-%    \end{macrocode}
-%
-% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
-% 这里修改为允许两个引用使用连接号。
-% 参考 \url{https://tex.stackexchange.com/a/86991/82731}。
-%    \begin{macrocode}
-             % \ifx\NAT@last@yr\relax
-             %   \def@NAT@last@yr{\@citea}%
-             % \else
-             %   \def@NAT@last@yr{--\NAT@penalty}%
-             % \fi
-             \def@NAT@last@yr{-\NAT@penalty}%
-           }{%
-             \NAT@last@yr@mbox
-           }%
-         }%
-        }{%
-         \@tempswatrue
-         \@ifnum{\NAT@merge>\@ne}{\@ifnum{\NAT@last@num=\NAT@num\relax}{\@tempswafalse}{}}{}%
-         \if@tempswa\NAT@citea@mbox\fi
-        }%
-       }%
-       \NAT@def@citea
-      \else
-        \ifcase\NAT@ctype
-          \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\NAT@penalty\NAT@space\else
-            \@citea \NAT@test{\@ne}\NAT@spacechar\NAT@mbox{\NAT@super@kern\NAT@@open}%
-          \fi
-          \if*#1*\else#1\NAT@spacechar\fi
-          \NAT@mbox{\NAT@hyper@{{\citenumfont{\NAT@num}}}}%
-          \NAT@def@citea@box
-        \or
-          \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
-        \or
-          \NAT@hyper@citea@space{\NAT@test{\NAT@ctype}}%
-        \or
-          \NAT@hyper@citea@space\NAT@alias
-        \fi
-      \fi
-     }%
-    }%
-      \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
-      \ifNAT@swa\else
-%    \end{macrocode}
-%
-% 将页码放在括号外边，并且置于上标。
-%    \begin{macrocode}
-        \if@gbt@locator@inside@affixes
-          \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else\NAT@cmt#2\fi
-          }{}%
-          \NAT@mbox{\NAT@@close}%
-        \else
-          \NAT@mbox{\NAT@@close}%
-          \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else
-              \textsuperscript{#2}%
-            \fi
-          }{}%
-          \NAT@super@kern
-        \fi
-      \fi
-  }{#1}{#2}%
-}%
-%    \end{macrocode}
-%
-% Author-year 模式的 \cs{citep} 的页码：
-%    \begin{macrocode}
-\renewcommand\NAT@cite%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1%
-        \if@gbt@locator@inside@affixes
-          \if*#3*\else\NAT@cmt#3\fi\NAT@@close
-        \else
-          \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
-        \fi
-        \else#1\fi\endgroup}
-%    \end{macrocode}
-% \end{macro}
-%
-% Author-year 模式的 \cs{citet} 的页码：
-%    \begin{macrocode}
-\def\NAT@citex%
-  [#1][#2]#3{%
-  \NAT@reset@parser
-  \NAT@sort@cites{#3}%
-  \NAT@reset@citea
-  \@cite{\let\NAT@nm\@empty\let\NAT@year\@empty
-    \@for\@citeb:=\NAT@cite@list\do
-    {\@safe@activestrue
-     \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
-     \@safe@activesfalse
-     \@ifundefined{b@\@citeb\@extra@b@citeb}{\@citea%
-       {\reset@font\bfseries ?}\NAT@citeundefined
-                 \PackageWarning{natbib}%
-       {Citation `\@citeb' on page \thepage \space undefined}\def\NAT@date{}}%
-     {\let\NAT@last@nm=\NAT@nm\let\NAT@last@yr=\NAT@year
-      \NAT@parse{\@citeb}%
-      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
-        \let\NAT@name=\NAT@all@names
-        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
-      \fi
-     \ifNAT@full\let\NAT@nm\NAT@all@names\else
-       \let\NAT@nm\NAT@name\fi
-     \ifNAT@swa\ifcase\NAT@ctype
-       \if\relax\NAT@date\relax
-         \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}\NAT@date}%
-       \else
-         \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
-            \ifx\NAT@last@yr\NAT@year
-              \def\NAT@temp{{?}}%
-              \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
-               {Multiple citation on page \thepage: same authors and
-               year\MessageBreak without distinguishing extra
-               letter,\MessageBreak appears as question mark}\fi
-              \NAT@hyper@{\NAT@exlab}%
-            \else\unskip\NAT@spacechar
-              \NAT@hyper@{\NAT@date}%
-            \fi
-         \else
-           \@citea\NAT@hyper@{%
-             \NAT@nmfmt{\NAT@nm}%
-             \hyper@natlinkbreak{%
-               \NAT@aysep\NAT@spacechar}{\@citeb\@extra@b@citeb
-             }%
-             \NAT@date
-           }%
-         \fi
-       \fi
-     \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
-     \or\@citea\NAT@hyper@{\NAT@date}%
-     \or\@citea\NAT@hyper@{\NAT@alias}%
-     \fi \NAT@def@citea
-     \else
-       \ifcase\NAT@ctype
-        \if\relax\NAT@date\relax
-          \@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
-        \else
-         \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
-            \ifx\NAT@last@yr\NAT@year
-              \def\NAT@temp{{?}}%
-              \ifx\NAT@temp\NAT@exlab\PackageWarningNoLine{natbib}%
-               {Multiple citation on page \thepage: same authors and
-               year\MessageBreak without distinguishing extra
-               letter,\MessageBreak appears as question mark}\fi
-              \NAT@hyper@{\NAT@exlab}%
-            \else
-              \unskip\NAT@spacechar
-              \NAT@hyper@{\NAT@date}%
-            \fi
-         \else
-           \@citea\NAT@hyper@{%
-             \NAT@nmfmt{\NAT@nm}%
-             \hyper@natlinkbreak{\NAT@spacechar\NAT@@open\if*#1*\else#1\NAT@spacechar\fi}%
-               {\@citeb\@extra@b@citeb}%
-             \NAT@date
-           }%
-         \fi
-        \fi
-       \or\@citea\NAT@hyper@{\NAT@nmfmt{\NAT@nm}}%
-       \or\@citea\NAT@hyper@{\NAT@date}%
-       \or\@citea\NAT@hyper@{\NAT@alias}%
-       \fi
-       \if\relax\NAT@date\relax
-         \NAT@def@citea
-       \else
-         \NAT@def@citea@close
-       \fi
-     \fi
-     }}\ifNAT@swa\else
-%    \end{macrocode}
-%
-% 将页码放在括号外边，并且置于上标。
-%    \begin{macrocode}
-       \if@gbt@locator@inside@affixes
-         \if*#2*\else\NAT@cmt#2\fi
-         \if\relax\NAT@date\relax\else\NAT@@close\fi
-       \else
-         \if\relax\NAT@date\relax\else\NAT@@close\fi
-         \if*#2*\else\textsuperscript{#2}\fi
-       \fi
-     \fi}{#1}{#2}}
-%    \end{macrocode}
-%
-% \begin{environment}{thebibliography}
-% 参考文献列表的标签左对齐
-%    \begin{macrocode}
-\renewcommand\@biblabel[1]{[#1]\hfill}
-%    \end{macrocode}
-% \end{environment}
-%
-% Patch \pkg{natbib} 内部命令，以支持 \cs{noopsort}。
-% 参考 \url{https://tex.stackexchange.com/a/39718/82731}。
-%    \begin{macrocode}
-\let\NAT@bare@aux\NAT@bare
-\def\NAT@bare#1(#2){%
- \begingroup\edef\x{\endgroup
-   \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
-%    \end{macrocode}
-%
-% \begin{macro}{\url}
-% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-%    \begin{macrocode}
-\g@addto@macro\UrlBreaks{%
-  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
-  \do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m
-  \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
-}
-\Urlmuskip=0mu plus 0.1mu
-%    \end{macrocode}
-% \end{macro}
-%
-% 兼容 v2.0 前过时的接口：
-%    \begin{macrocode}
-\newif\ifgbt@bib@style@written
-\@ifpackageloaded{chapterbib}{}{%
-  \def\bibliography#1{%
-    \ifgbt@bib@style@written\else
-      \bibliographystyle{gbt7714-numerical}%
-    \fi
-    \if@filesw
-      \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
-    \fi
-    \@input@{\jobname.bbl}}
-  \def\bibliographystyle#1{%
-    \gbt@bib@style@writtentrue
-    \ifx\@begindocumenthook\@undefined\else
-      \expandafter\AtBeginDocument
-    \fi
-      {\if@filesw
-        \immediate\write\@auxout{\string\bibstyle{#1}}%
-      \fi}%
-  }%
-}
-\ifgbt@legacy@interface
-  \ifgbt@numerical
-    \ifgbt@super\else
-      \citestyle{numbers}
-    \fi
-    \bibliographystyle{gbt7714-numerical}
-  \else
-    \bibliographystyle{gbt7714-author-year}
-  \fi
-\fi
-%</package>
-%    \end{macrocode}
-%
-%
-%
 % \section{BibTeX 样式的代码实现}
 % \label{bst-implementation}
 % \linespread{1}
@@ -939,28 +21,27 @@
 % \subsection{自定义选项}
 % \label{sec:options}
 %
-% \begin{environment}{bst}
 % 这里定义了一些变量用于定制样式，
 % 可以在下面的 |load.config| 函数中选择是否启用。
 %    \begin{macrocode}
 %<*author-year|numerical>
 INTEGERS {
-  citation.et.al.min
-  citation.et.al.use.first
-  bibliography.et.al.min
-  bibliography.et.al.use.first
-  uppercase.name
-  terms.in.macro
-  year.after.author
-  period.after.author
+  max.bib.names
+  min.bib.names
+  max.cite.names
+  min.cite.names
+  family.uppercase
+  year.before.title
   italic.book.title
   sentence.case.title
+  sentence.case.journal
+  sentence.case.booktitle
   link.title
-  title.in.journal
-  show.patent.country
-  show.mark
-  space.before.mark
-  show.medium.type
+  control.article.title
+  control.patent.country
+  control.entry.type.id
+  control.space.before.type.id
+  control.entry.medium.id
   short.journal
   italic.journal
   link.journal
@@ -986,7 +67,9 @@ INTEGERS {
 }
 
 STRINGS {
-  component.part.label
+  cite.lang
+  name.year.delim
+  control.component.part.delim
   page.range.delimiter
 }
 
@@ -999,63 +82,63 @@ FUNCTION {load.config}
 {
 %    \end{macrocode}
 %
-% 如果姓名的数量大于等于 |et.al.min|，只著录前 |et.al.use.first| 个，
-% 其后加“et al.”或“等”。
+% 姓名的数量超过 |max.bib.names| 时，只著录前 |min.bib.names| 个，
+%  其后加“，等”或与之相应的词。
 %    \begin{macrocode}
+  #3 'max.bib.names :=
+  #3 'min.bib.names :=
 %<*!ucas>
-  #2 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #1 'max.cite.names :=
+  #1 'min.cite.names :=
 %</!ucas>
 %<*ucas>
-  #3 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #2 'max.cite.names :=
+  #1 'min.cite.names :=
 %</ucas>
-  #4 'bibliography.et.al.min :=
-  #3 'bibliography.et.al.use.first :=
 %    \end{macrocode}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
-%<*!(no-uppercase|thu|ustc)>
-  #1 'uppercase.name :=
-%</!(no-uppercase|thu|ustc)>
-%<*no-uppercase|thu|ustc>
-  #0 'uppercase.name :=
-%</no-uppercase|thu|ustc>
+%<*!(thu|ustc)>
+  #1 'family.uppercase :=
+%</!(thu|ustc)>
+%<*thu|ustc>
+  #0 'family.uppercase :=
+%</thu|ustc>
 %    \end{macrocode}
 %
 % 使用 TeX 宏输出“和”、“等”
 %    \begin{macrocode}
-%<*!(macro|ucas)>
-  #0 'terms.in.macro :=
-%</!(macro|ucas)>
-%<*macro|ucas>
-  #1 'terms.in.macro :=
-%</macro|ucas>
+%<*!ucas>
+  "auto" 'cite.lang :=
+%</!ucas>
+%<*ucas>
+  "macro" 'cite.lang :=
+%</ucas>
 %    \end{macrocode}
 %
 % 将年份置于著者后面（著者-出版年制默认）
 %    \begin{macrocode}
 %<*numerical|ucas>
-  #0 'year.after.author :=
+  #0 'year.before.title :=
 %</numerical|ucas>
 %<*author-year&!ucas>
-  #1 'year.after.author :=
+  #1 'year.before.title :=
 %</author-year&!ucas>
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
 %<*numerical>
-  #1 'period.after.author :=
+  "period" 'name.year.delim :=
 %</numerical>
 %<*author-year>
-%<*2015&!(period)>
-  #0 'period.after.author :=
-%</2015&!(period)>
-%<*period|2005>
-  #1 'period.after.author :=
-%</period|2005>
+%<*2015>
+  "comma" 'name.year.delim :=
+%</2015>
+%<*2005>
+  "period" 'name.year.delim :=
+%</2005>
 %</author-year>
 %    \end{macrocode}
 %
@@ -1071,12 +154,9 @@ FUNCTION {load.config}
 %
 % 英文标题转为 sentence case （句首字母大写，其余小写）：
 %    \begin{macrocode}
-%<*!no-sentence-case>
   #1 'sentence.case.title :=
-%</!no-sentence-case>
-%<*no-sentence-case>
-  #0 'sentence.case.title :=
-%</no-sentence-case>
+  #1 'sentence.case.journal :=
+  #1 'sentence.case.booktitle :=
 %    \end{macrocode}
 %
 % 在标题添加超链接：
@@ -1089,67 +169,40 @@ FUNCTION {load.config}
 %</link-title>
 %    \end{macrocode}
 %
-% 期刊是否含标题：
+% 期刊是否含标题（参考 \pkg{bilatex-phys} 的选项），此选项也适用于 @incollection,
+% @inproceedings, @patent 的标题，它们的处理方式相同。
 %    \begin{macrocode}
-%<*!no-title-in-journal>
-  #1 'title.in.journal :=
-%</!no-title-in-journal>
-%<*no-title-in-journal>
-  #0 'title.in.journal :=
-%</no-title-in-journal>
+  #1 'control.article.title :=
 %    \end{macrocode}
 %
 % 专利题名是否含专利国别
 %    \begin{macrocode}
-%<*!(show-patent-country|2005|thu)>
-  #0 'show.patent.country :=
-%</!(show-patent-country|2005|thu)>
-%<*(show-patent-country|2005|thu)>
-  #1 'show.patent.country :=
-%</(show-patent-country|2005|thu)>
+%<*!(2005|thu)>
+  #0 'control.patent.country :=
+%</!(2005|thu)>
+%<*(2005|thu)>
+  #1 'control.patent.country :=
+%</(2005|thu)>
 %    \end{macrocode}
 %
-% 著录文献类型标识（比如“[M/OL]“）：
+% 控制是否著录类型标识（比如“[M/OL]，含文献载体标识）：
 %    \begin{macrocode}
-%<*!no-mark>
-  #1 'show.mark :=
-%</!no-mark>
-%<*no-mark>
-  #0 'show.mark :=
-%</no-mark>
+  #1 'control.entry.type.id :=
 %    \end{macrocode}
 %
-% 文献类型标识前是否有空格：
+% 题名与文献类型标识的分隔符。
 %    \begin{macrocode}
-%<*!space-before-mark>
-  #0 'space.before.mark :=
-%</!space-before-mark>
-%<*space-before-mark>
-  #1 'space.before.mark :=
-%</space-before-mark>
+  #0 'control.space.before.type.id :=
 %    \end{macrocode}
 %
 % 是否显示载体类型标识（比如“/OL“）：
 %    \begin{macrocode}
-%<*!no-medium-type>
-  #1 'show.medium.type :=
-%</!no-medium-type>
-%<*no-medium-type>
-  #0 'show.medium.type :=
-%</no-medium-type>
+  #1 'control.entry.medium.id :=
 %    \end{macrocode}
 %
 % 使用“//”表示析出文献
 %    \begin{macrocode}
-%<*!(in-collection|no-slash)>
-  "slash" 'component.part.label :=
-%</!(in-collection|no-slash)>
-%<*in-collection>
-  "in" 'component.part.label :=
-%</in-collection>
-%<*no-slash>
-  "none" 'component.part.label :=
-%</no-slash>
+  "slash" 'control.component.part.delim :=
 %    \end{macrocode}
 %
 % 期刊名使用缩写：
@@ -1332,6 +385,7 @@ ENTRY
     archivePrefix
     author
     booktitle
+    country  % 专利国别
     date
     doi
     edition
@@ -1339,6 +393,8 @@ ENTRY
     eprint
     eprinttype
     entrysubtype
+    entrytypeid
+    entrymediumid
     howpublished
     institution
     journal
@@ -1349,6 +405,7 @@ ENTRY
     location
     mark
     medium
+    nationality  % 专利国别，兼容 IEEEtran.bst
     note
     number
     organization
@@ -1364,6 +421,24 @@ ENTRY
     urldate
     volume
     year
+    CTL_max_bib_names
+    CTL_min_bib_names
+    CTL_max_cite_names
+    CTL_min_cite_names
+    CTL_family_uppercase
+    CTL_cite_lang
+    CTL_year_before_title
+    CTL_name_year_delim
+    CTL_italic_book_title
+    CTL_sentence_case_title
+    CTL_sentence_case_journal
+    CTL_sentence_case_booktitle
+    CTL_article_title
+    CTL_patent_country
+    CTL_entry_type_id
+    CTL_space_before_type_id
+    CTL_entry_medium_id
+    CTL_component_part_delim
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -1371,7 +446,7 @@ ENTRY
 % These string entry variables are used to form the citation label.
 % In a storage pinch, sort.label can be easily computed on the fly.
 %    \begin{macrocode}
-  { label extra.label sort.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.type.id entry.url }
 
 %    \end{macrocode}
 %
@@ -1577,9 +652,9 @@ FUNCTION {bbl.et.al}
 { entry.lang lang.zh =
     { "等" }
     { entry.lang lang.ja =
-        { "他" }
+        { "ほか" }
         { entry.lang lang.ru =
-            { "идр" }
+            { "и др." }
             { "et~al." }
           if$
         }
@@ -1589,16 +664,44 @@ FUNCTION {bbl.et.al}
 }
 
 FUNCTION {citation.and}
-{ terms.in.macro
-    { "{\biband}" }
-    'bbl.and
+{ cite.lang "auto" =
+    { entry.lang lang.zh =
+        { "和" }
+        { entry.lang lang.ja =
+            { "と" }
+            { entry.lang lang.ru =
+                { "и" }
+                { "and" }
+              if$
+            }
+          if$
+        }
+      if$
+    }
+    { cite.lang "macro" =
+        { "{\biband}" }
+        { cite.lang "chinese" =
+            { "和" }
+            { "and" }
+          if$
+        }
+      if$
+    }
   if$
 }
 
 FUNCTION {citation.et.al}
-{ terms.in.macro
-    { "{\bibetal}" }
-    'bbl.et.al
+{ cite.lang "auto" =
+    { bbl.et.al }
+    { cite.lang "macro" =
+        { "{\bibetal}" }
+        { cite.lang "chinese" =
+            { "等" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
@@ -1817,10 +920,10 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { component.part.label "slash" =
+    { control.component.part.delim "slash" =
         { after.slash 'output.state := }
         { new.block
-          component.part.label "in" =
+          control.component.part.delim "in" =
             { entry.lang lang.en =
                 { "In: " output
                   write$
@@ -2949,19 +2052,18 @@ FUNCTION {set.entry.numbered}
 INTEGERS { nameptr namesleft numnames name.lang }
 
 FUNCTION {format.name}
-{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t "others" =
-    { bbl.et.al }
-    { t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{~}}" format.name$
-          uppercase.name
+{ "{vv~}{ll}{, jj}{, ff}" format.name$ duplicate$
+  "others" =
+    { pop$ bbl.et.al }
+    { get.str.lang lang.en =
+        { s nameptr "{vv~}{ll}" format.name$
+          family.uppercase
             'smart.upper.case
             'skip$
           if$
-          t #1 "{, jj}" format.name$ *
+          s nameptr "{ f{~}}{, jj}" format.name$ *
         }
-        { t #1 "{ll}{ff}" format.name$ }
+        { s nameptr "{vv~}{ll}{ff}{, jj}" format.name$  }
       if$
     }
   if$
@@ -2975,7 +2077,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.name bbl.et.al =
-      numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
+      numnames max.bib.names > nameptr min.bib.names > and or
         { ", " *
           bbl.et.al *
           #1 'namesleft :=
@@ -3176,14 +2278,22 @@ FUNCTION {format.title}
       if$
       entry.numbered number empty$ not and
         { bbl.colon *
-          type$ "patent" = show.patent.country and
-            { address empty$ not
-                { address * ", " * }
-                { location empty$ not
-                    { location * ", " * }
-                    { entry.lang lang.zh =
-                        { "中国" * ", " * }
-                        'skip$
+          type$ "patent" = control.patent.country and
+            { country empty$ not
+                { country * ", " * }
+                { nationality empty$ not
+                    { nationality * ", " * }
+                    { address empty$ not
+                        { address * ", " * }
+                        { location empty$ not
+                            { location * ", " * }
+                            { entry.lang lang.zh =
+                                { "中国" * ", " * }
+                                'skip$
+                              if$
+                            }
+                          if$
+                        }
                       if$
                     }
                   if$
@@ -3396,6 +2506,10 @@ FUNCTION {format.series.vol.num.title}
 
 FUNCTION {format.booktitle.vol.num}
 { booktitle
+  sentence.case.booktitle
+    'change.sentence.case
+    'skip$
+  if$
   entry.numbered
     'skip$
     { format.volume.number 's :=
@@ -3418,7 +2532,12 @@ FUNCTION {format.series.vol.num.booktitle}
         { s * bbl.wide.space * }
         'skip$
       if$
-      booktitle *
+      booktitle
+      sentence.case.booktitle
+        'change.sentence.case
+        'skip$
+      if$
+      *
     }
     { format.booktitle.vol.num }
   if$
@@ -3501,6 +2620,10 @@ FUNCTION {format.journal}
         'emphasize
         'skip$
       if$
+      sentence.case.journal
+        'change.sentence.case
+        'skip$
+      if$
       link.journal
         'add.link
         'skip$
@@ -3515,38 +2638,51 @@ FUNCTION {format.journal}
 % \subsubsection{Format entry type mark}
 %
 %    \begin{macrocode}
-FUNCTION {set.entry.mark}
-{ entry.mark empty$ not
+FUNCTION {set.entry.type.id}
+{ entry.type.id empty$ not
     'pop$
-    { mark empty$ not
-        { pop$ mark 'entry.mark := }
-        { 'entry.mark := }
+    { entrytypeid empty$ not
+        { pop$ entrytypeid 'entry.type.id := }
+        { mark empty$ not
+            { pop$
+              "The field 'mark' for entry type ID is deprecated. Use 'entrytypeid' instead." warning$
+              mark 'entry.type.id :=
+            }
+            { 'entry.type.id := }
+          if$
+        }
       if$
     }
   if$
 }
 
-FUNCTION {format.mark}
-{ show.mark
-    { entry.mark
-      show.medium.type
-        { medium empty$ not
-            { "/" * medium * }
-            { entry.is.electronic
-                { "/OL" * }
-                'skip$
+FUNCTION {format.entry.type.id}
+{ control.entry.type.id
+    { entry.type.id
+      control.entry.medium.id
+        { entrymediumid empty$ not
+            { "/" * entrymediumid * }
+            { medium empty$ not
+                { "The field 'medium' for entry medium ID is deprecated. Use 'entrymediumid' instead." warning$
+                  "/" * medium *
+                }
+                { entry.is.electronic
+                    { "/OL" * }
+                    'skip$
+                  if$
+                }
               if$
             }
           if$
         }
         'skip$
       if$
-      'entry.mark :=
-      space.before.mark
+      'entry.type.id :=
+      control.space.before.type.id
         { " " }
         { "\allowbreak" }
       if$
-      "[" * entry.mark * "]" *
+      "[" * entry.type.id * "]" *
     }
     { "" }
   if$
@@ -4276,8 +3412,8 @@ FUNCTION {monograph}
     }
   if$
   output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4287,15 +3423,15 @@ FUNCTION {monograph}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
+  "M" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.translators output
   new.sentence
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -4326,8 +3462,8 @@ FUNCTION {incollection}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4336,10 +3472,14 @@ FUNCTION {incollection}
     'skip$
   if$
   new.block
-  format.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
-  new.block
+  control.article.title
+    { format.title "title" output.check
+      "M" set.entry.type.id
+      format.entry.type.id "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.translators output
   new.slash
   format.editors output
@@ -4349,7 +3489,7 @@ FUNCTION {incollection}
   format.edition output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.year "year" output.check }
     'skip$
   if$
@@ -4372,8 +3512,8 @@ FUNCTION {periodical}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4383,13 +3523,13 @@ FUNCTION {periodical}
   if$
   new.block
   format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
+  "J" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.periodical.year.volume.number output
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { format.periodical.year "year" output.check }
     'skip$
   if$
@@ -4420,8 +3560,8 @@ FUNCTION {journal.article}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4430,24 +3570,24 @@ FUNCTION {journal.article}
     'skip$
   if$
   new.block
-  title.in.journal
+  control.article.title
     { format.title "title" output.check
       entrysubtype empty$ not
         {
           entrysubtype "newspaper" =
-            { "N" set.entry.mark }
-            { "J" set.entry.mark }
+            { "N" set.entry.type.id }
+            { "J" set.entry.type.id }
           if$
         }
-        { "J" set.entry.mark }
+        { "J" set.entry.type.id }
       if$
-      format.mark "" output.after
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
   if$
   format.journal "journal" output.check
-  year.after.author not
+  year.before.title not
     { format.date "year" output.check }
     'skip$
   if$
@@ -4473,8 +3613,8 @@ FUNCTION {patent}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4483,10 +3623,14 @@ FUNCTION {patent}
     'skip$
   if$
   new.block
-  format.title "title" output.check
-  "P" set.entry.mark
-  format.mark "" output.after
-  new.block
+  control.article.title
+    { format.title "title" output.check
+      "P" set.entry.type.id
+      format.entry.type.id "" output.after
+      new.block
+    }
+    'skip$
+  if$
   format.date "year" output.check
   format.urldate "" output.after
   output.url
@@ -4508,8 +3652,8 @@ FUNCTION {electronic}
   output.translation
   format.authors output
   author format.key output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4519,11 +3663,11 @@ FUNCTION {electronic}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "EB" set.entry.mark
-  format.mark "" output.after
+  "EB" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.address.publisher output
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -4565,8 +3709,8 @@ FUNCTION {preprint}
     }
   if$
   output
-  year.after.author
-    { period.after.author
+  year.before.title
+    { "period" name.year.delim =
         'new.sentence
         'skip$
       if$
@@ -4575,15 +3719,15 @@ FUNCTION {preprint}
     'skip$
   if$
   new.block
-  title.in.journal
+  control.article.title
     { format.series.vol.num.title "title" output.check
 %<*2015>
-      "A" set.entry.mark
+      "A" set.entry.type.id
 %</2015>
 %<*!2015>
-      "Z" set.entry.mark
+      "Z" set.entry.type.id
 %</!2015>
-      format.mark "" output.after
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -4592,7 +3736,7 @@ FUNCTION {preprint}
   new.sentence
   format.edition output
   new.block
-  year.after.author not
+  year.before.title not
     { date empty$
         { format.date output }
         'skip$
@@ -4645,10 +3789,10 @@ FUNCTION {misc}
                     'electronic
                     {
 %<*!2005>
-                      "Z" set.entry.mark
+                      "Z" set.entry.type.id
 %</!2005>
 %<*2005>
-                      "M" set.entry.mark
+                      "M" set.entry.type.id
 %</2005>
                       monograph
                     }
@@ -4665,7 +3809,7 @@ FUNCTION {misc}
 }
 
 FUNCTION {archive}
-{ "A" set.entry.mark
+{ "A" set.entry.type.id
   misc
 }
 
@@ -4693,17 +3837,17 @@ FUNCTION {book} { monograph }
 FUNCTION {booklet} { book }
 
 FUNCTION {collection}
-{ "G" set.entry.mark
+{ "G" set.entry.type.id
   monograph
 }
 
 FUNCTION {database}
-{ "DB" set.entry.mark
+{ "DB" set.entry.type.id
   electronic
 }
 
 FUNCTION {dataset}
-{ "DS" set.entry.mark
+{ "DS" set.entry.type.id
   electronic
 }
 
@@ -4740,7 +3884,7 @@ FUNCTION {inbook} {
 %                       organization, publisher, note
 %    \begin{macrocode}
 FUNCTION {inproceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   incollection
 }
 
@@ -4754,7 +3898,7 @@ FUNCTION {legislation} { archive }
 
 
 FUNCTION {map}
-{ "CM" set.entry.mark
+{ "CM" set.entry.type.id
   misc
 }
 
@@ -4777,17 +3921,17 @@ FUNCTION {manual} { monograph }
 %       Optional: type, address, month, note
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
-{ "D" set.entry.mark
+{ "D" set.entry.type.id
   monograph
 }
 
 FUNCTION {newspaper}
-{ "N" set.entry.mark
+{ "N" set.entry.type.id
   article
 }
 
 FUNCTION {online}
-{ "EB" set.entry.mark
+{ "EB" set.entry.type.id
   electronic
 }
 
@@ -4814,17 +3958,17 @@ FUNCTION {phdthesis} { mastersthesis }
 %                       organization, publisher, note
 %    \begin{macrocode}
 FUNCTION {proceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   monograph
 }
 
 FUNCTION {software}
-{ "CP" set.entry.mark
+{ "CP" set.entry.type.id
   electronic
 }
 
 FUNCTION {standard}
-{ "S" set.entry.mark
+{ "S" set.entry.type.id
   misc
 }
 
@@ -4837,7 +3981,7 @@ FUNCTION {standard}
 %       Optional: type, number, address, month, note
 %    \begin{macrocode}
 FUNCTION {techreport}
-{ "R" set.entry.mark
+{ "R" set.entry.type.id
   misc
 }
 
@@ -4856,6 +4000,180 @@ FUNCTION {unpublished} { misc }
 % We use entry type `misc' for an unknown type; BibTeX gives a warning.
 %    \begin{macrocode}
 FUNCTION {default.type} { misc }
+
+%    \end{macrocode}
+%
+% The following is taken from ttb.pdf.
+%    \begin{macrocode}
+INTEGERS { a }
+
+FUNCTION {mult}
+{
+ 'a := 			    %% we store the first value
+ 'b :=			    %% we store the second value
+
+ b #0 <			    %% We remember the sign of b, and
+    {#-1 #0 b - 'b :=}	    %% then consider its absolute value.
+    {#1}		    %%
+ if$			    %%
+
+ #0			    %% Put 0 on the stack.
+ {b #0 >}		    %% While b is strictly positive,
+ {			    %% we add a to the value on the stack
+   a +			    %% and decrement b.
+   b #1 - 'b :=		    %%
+ }			    %%
+ while$			    %%
+
+ swap$ 	  		    %% Last, we take the opposite
+   'skip$  		    %% if b was negative.
+   {#0 swap$ -}		    %%
+ if$			    %%
+}
+FUNCTION {chr.to.value}	      %% The ASCII code of a character
+{
+  chr.to.int$ #48 -	      %% ASCII value of "0" -> 48
+  duplicate$ duplicate$	      %%	        "1" -> 49
+  #0 < swap$ #9 > or	      %%		   ...
+  {			      %%                "9" -> 57
+      #48 + int.to.chr$
+      " is not a number..." *
+      warning$		      %% Return 0 if it is not a number
+      pop$ #0		      %%
+    }
+  {}
+  if$
+}
+
+FUNCTION {str.to.int.aux}     %% The auxiliary function
+{
+  {duplicate$ empty$ not}     %% While the string is not empty
+    {			      %% consider its first char
+      swap$ #10 mult 'a :=    %% and ``add'' it at the end of
+      duplicate$ #1 #1 substring$   %% the result.
+      chr.to.value a +
+      swap$
+      #2 global.max$ substring$
+    }
+  while$
+  pop$
+}
+
+FUNCTION {str.to.int}
+{			      %% Handling negative values
+  duplicate$ #1 #1 substring$ "-" =
+    {#1 swap$ #2 global.max$ substring$}
+    {#0 swap$}
+  if$
+			      %% Initialization, and then
+  #0 swap$ str.to.int.aux     %% call to the aux. funtion
+  swap$
+    {#0 swap$ -}	      %% And handle the sign.
+    {}
+  if$
+}
+
+FUNCTION {boolean.to.int}
+{ "l" change.case$ duplicate$
+    "true" =
+    { pop$ #1 }
+    { duplicate$ "false" =
+        { pop$ #0 }
+        { "unknown boolean " quote$ * swap$ * quote$ *
+          " in " * cite$ * warning$
+          #0
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {GBT7714BSTCTL}
+{
+  CTL_max_bib_names empty$
+    'skip$
+    { CTL_max_bib_names str.to.int 'max.bib.names := }
+  if$
+  CTL_min_bib_names empty$
+    'skip$
+    { CTL_min_bib_names str.to.int 'min.bib.names := }
+  if$
+  CTL_max_cite_names empty$
+    'skip$
+    { CTL_max_cite_names str.to.int 'max.cite.names := }
+  if$
+  CTL_min_cite_names empty$
+    'skip$
+    { CTL_min_cite_names str.to.int 'min.cite.names := }
+  if$
+  CTL_family_uppercase empty$
+    'skip$
+    { CTL_family_uppercase boolean.to.int 'family.uppercase := }
+  if$
+  CTL_cite_lang empty$
+    'skip$
+    { CTL_cite_lang 'cite.lang := }
+  if$
+  CTL_year_before_title empty$
+    'skip$
+    { CTL_year_before_title boolean.to.int 'year.before.title := }
+  if$
+  CTL_name_year_delim empty$
+    'skip$
+    { CTL_name_year_delim 'name.year.delim := }
+  if$
+  CTL_italic_book_title empty$
+    'skip$
+    { CTL_italic_book_title boolean.to.int 'italic.book.title := }
+  if$
+  CTL_sentence_case_title empty$
+    'skip$
+    { CTL_sentence_case_title boolean.to.int 'sentence.case.title := }
+  if$
+  CTL_sentence_case_journal empty$
+    'skip$
+    { CTL_sentence_case_journal boolean.to.int 'sentence.case.journal := }
+  if$
+  CTL_sentence_case_booktitle empty$
+    'skip$
+    { CTL_sentence_case_booktitle boolean.to.int 'sentence.case.booktitle := }
+  if$
+  CTL_article_title empty$
+    'skip$
+    { CTL_article_title boolean.to.int 'control.article.title := }
+  if$
+  CTL_patent_country empty$
+    'skip$
+    { CTL_patent_country boolean.to.int 'control.patent.country := }
+  if$
+  CTL_entry_type_id empty$
+    'skip$
+    { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
+  if$
+  CTL_space_before_type_id empty$
+    'skip$
+    { CTL_space_before_type_id boolean.to.int 'control.space.before.type.id := }
+  if$
+  CTL_entry_medium_id empty$
+    'skip$
+    { CTL_entry_medium_id boolean.to.int 'control.entry.medium.id := }
+  if$
+  CTL_component_part_delim empty$
+    'skip$
+    { CTL_component_part_delim 'control.component.part.delim := }
+  if$
+}
+
+FUNCTION {control.pass}
+{ type$ "gbt7714bstctl" =
+    'GBT7714BSTCTL
+    'skip$
+  if$
+}
+
+FUNCTION {control.check}
+{ % TODO
+}
 
 %    \end{macrocode}
 %
@@ -5083,6 +4401,13 @@ FUNCTION {format.lab.name}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
+FUNCTION {inter.word.space}
+{ entry.lang lang.zh = entry.lang lang.ja = or
+    { "" }
+    { " " }
+  if$
+}
+
 FUNCTION {format.lab.names}
 { 's :=
   #1 'nameptr :=
@@ -5091,14 +4416,17 @@ FUNCTION {format.lab.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr format.lab.name citation.et.al =
-      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
+      numnames max.cite.names > nameptr min.cite.names > and or
         { bbl.space *
           citation.et.al *
           #1 'namesleft :=
         }
         { nameptr #1 >
             { namesleft #1 = citation.and "" = not and
-                { citation.and * }
+                { inter.word.space *
+                  citation.and *
+                  inter.word.space *
+                }
                 { ", " * }
               if$
             }
@@ -5418,45 +4746,58 @@ FUNCTION {int.to.fix}
 % to that many characters!
 %    \begin{macrocode}
 FUNCTION {presort}
-{ set.entry.lang
-  set.entry.numbered
-  show.url show.doi check.electronic
-  #0 'is.pure.electronic :=
-  calc.label
-  label sortify
-  "    "
-  *
+{ type$ "gbt7714bstctl" =
+    {
 %<*author-year>
-  sort.language.label
-  "    "
-  *
-  type$ "book" =
-  type$ "inbook" = booktitle empty$ not and
-  or
-    'author.editor.sort
-    { type$ "collection" =
-      type$ "proceedings" =
-      or
-        'editor.organization.sort
-        'author.sort
-      if$
-    }
-  if$
-  *
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  cite$
-  *
-  #1 entry.max$ substring$
+      "_"
+      "    "
 %</author-year>
 %<*numerical>
-  seq.num #1 + 'seq.num :=
-  seq.num  int.to.fix
+      "_    "
+      seq.num  int.to.fix
 %</numerical>
+    }
+    { set.entry.lang
+      set.entry.numbered
+      show.url show.doi check.electronic
+      #0 'is.pure.electronic :=
+      calc.label
+      label sortify
+      "    "
+      *
+%<*author-year>
+      sort.language.label
+      "    "
+      *
+      type$ "book" =
+      type$ "inbook" = booktitle empty$ not and
+      or
+        'author.editor.sort
+        { type$ "collection" =
+          type$ "proceedings" =
+          or
+            'editor.organization.sort
+            'author.sort
+          if$
+        }
+      if$
+      *
+      "    "
+      *
+      year field.or.null sortify
+      *
+      "    "
+      *
+      cite$
+      *
+      #1 entry.max$ substring$
+%</author-year>
+%<*numerical>
+      seq.num #1 + 'seq.num :=
+      seq.num  int.to.fix
+%</numerical>
+    }
+  if$
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
@@ -5527,52 +4868,61 @@ FUNCTION {initialize.longest.label}
 
 FUNCTION {forward.pass}
 {
+  type$ "gbt7714bstctl" =
+    'skip$
+    {
 %<*author-year>
-  last.label label =
-    { "" 'extra.label :=
-      last.extra.label text.length$ 'charptr :=
-        { last.extra.label charptr #1 substring$ "z" =
-          charptr #0 > and
+      last.label label =
+        { "" 'extra.label :=
+          last.extra.label text.length$ 'charptr :=
+            { last.extra.label charptr #1 substring$ "z" =
+              charptr #0 > and
+            }
+            { "a" extra.label * 'extra.label :=
+              charptr #1 - 'charptr :=
+            }
+          while$
+          charptr #0 >
+            { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
+              extra.label * 'extra.label :=
+              last.extra.label #1 charptr #1 - substring$
+              extra.label * 'extra.label :=
+            }
+            { "a" extra.label * 'extra.label := }
+          if$
+          extra.label 'last.extra.label :=
         }
-        { "a" extra.label * 'extra.label :=
-          charptr #1 - 'charptr :=
+        { "a" 'last.extra.label :=
+          "" 'extra.label :=
+          label 'last.label :=
         }
-      while$
-      charptr #0 >
-        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-          extra.label * 'extra.label :=
-          last.extra.label #1 charptr #1 - substring$
-          extra.label * 'extra.label :=
-        }
-        { "a" extra.label * 'extra.label := }
       if$
-      extra.label 'last.extra.label :=
-    }
-    { "a" 'last.extra.label :=
-      "" 'extra.label :=
-      label 'last.label :=
+%</author-year>
+      number.label #1 + 'number.label :=
     }
   if$
-%</author-year>
-  number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{
+{ type$ "gbt7714bstctl" =
+    'skip$
+    {
 %<*author-year>
-  next.extra "b" =
-    { "a" 'extra.label := }
-    'skip$
-  if$
-  extra.label 'next.extra :=
-  extra.label
-  duplicate$ empty$
-    'skip$
-    { "{\natexlab{" swap$ * "}}" * }
-  if$
-  'extra.label :=
+      next.extra "b" =
+        { "a" 'extra.label := }
+        'skip$
+      if$
+      extra.label 'next.extra :=
+      extra.label
+      duplicate$ empty$
+        'skip$
+        { "{\natexlab{" swap$ * "}}" * }
+      if$
+      'extra.label :=
 %</author-year>
-  label extra.label * 'label :=
+      label extra.label * 'label :=
+    }
+  if$
 }
 
 FUNCTION {bib.sort.order}
@@ -5600,7 +4950,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  terms.in.macro
+  cite.lang "macro" =
     { "\providecommand{\biband}{和}"
       write$ newline$
       "\providecommand{\bibetal}{等}"
@@ -5654,6 +5004,10 @@ EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
 
+ITERATE {control.pass}
+
+EXECUTE {control.check}
+
 %<*numerical>
 EXECUTE {init.seq}
 
@@ -5687,7 +5041,5 @@ ITERATE {call.type$}
 EXECUTE {end.bib}
 %</author-year|numerical>
 %    \end{macrocode}
-% \end{environment}
 %
 % \Finale
-\endinput

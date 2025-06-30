@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加选项 `maxbibnames` 和 `minbibnames` 控制参考文献表中显示姓名的数量。
+- 添加选项 `maxcitenames` 和 `mincitenames` 控制引注显示姓名的数量。
+- 添加选项 `familyuppercase` 控制西文姓是否大写。
+- 添加选项 `citelang` 控制引注中“and”、“et al.”的语言。
+- 添加选项 `yearbeforetitle` 控制著者-出版年制出版年是否置于题名前。
+- 添加选项 `nameyeardelim` 控制著者-出版年制姓名和出版年之间的分隔符。
+- 期刊题名 `journal` 和专著题名 `booktitle` 默认转为 sentence case。
+- 新增选项 `sentence-case`、`sentence-case-title`、`sentence-case-journal`、`sentence-case-booktitle` 控制是否将对应题名转为 sentence case。
+- 新增选项 `articletitle` 控制期刊文章是否显示题名。
+- 新增选项 `patentcountry` 控制是否显示专利国别。
+- 新增选项 `entrytypeid` 控制是否著录文献类型标识。
+- 新增选项 `spacebeforetypeid` 控制题名与文献类型标识之间是否有空格。
+- 新增选项 `entrymediumid` 控制是否著录载体类型标识。
+
+### Changed
+
+- 文献类型标识的字段改为 `entrytypeid`。
+- 载体类型标识的字段改为 `entrymediumid`。
+
+### Deprecated
+
+- 文献类型标识的字段 `mark` 已过时。
+- 载体类型标识的字段 `medium` 已过时。
+
 ## [2.1.8] - 2025-06-22
 
 ### Added
