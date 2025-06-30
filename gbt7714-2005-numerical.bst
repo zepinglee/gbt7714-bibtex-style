@@ -34,7 +34,7 @@ INTEGERS {
   link.title
   control.article.title
   control.patent.country
-  show.mark
+  control.entry.type.id
   space.before.mark
   show.medium.type
   short.journal
@@ -78,7 +78,7 @@ FUNCTION {load.config}
   #0 'link.title :=
   #1 'control.article.title :=
   #1 'control.patent.country :=
-  #1 'show.mark :=
+  #1 'control.entry.type.id :=
   #0 'space.before.mark :=
   #1 'show.medium.type :=
   "slash" 'component.part.label :=
@@ -113,6 +113,7 @@ ENTRY
     eprint
     eprinttype
     entrysubtype
+    entrytypeid
     howpublished
     institution
     journal
@@ -153,9 +154,10 @@ ENTRY
     CTL_sentence_case_booktitle
     CTL_article_title
     CTL_patent_country
+    CTL_entry_type_id
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
-  { label extra.label sort.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.type.id entry.url }
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
 
@@ -1772,20 +1774,27 @@ FUNCTION {format.journal}
   if$
 }
 
-FUNCTION {set.entry.mark}
-{ entry.mark empty$ not
+FUNCTION {set.entry.type.id}
+{ entry.type.id empty$ not
     'pop$
-    { mark empty$ not
-        { pop$ mark 'entry.mark := }
-        { 'entry.mark := }
+    { entrytypeid empty$ not
+        { pop$ entrytypeid 'entry.type.id := }
+        { mark empty$ not
+            { pop$
+              "The field 'mark' for entry type ID is deprecated. Use 'entrytypeid' instead." warning$
+              mark 'entry.type.id :=
+            }
+            { 'entry.type.id := }
+          if$
+        }
       if$
     }
   if$
 }
 
-FUNCTION {format.mark}
-{ show.mark
-    { entry.mark
+FUNCTION {format.entry.type.id}
+{ control.entry.type.id
+    { entry.type.id
       show.medium.type
         { medium empty$ not
             { "/" * medium * }
@@ -1798,12 +1807,12 @@ FUNCTION {format.mark}
         }
         'skip$
       if$
-      'entry.mark :=
+      'entry.type.id :=
       space.before.mark
         { " " }
         { "\allowbreak" }
       if$
-      "[" * entry.mark * "]" *
+      "[" * entry.type.id * "]" *
     }
     { "" }
   if$
@@ -2401,8 +2410,8 @@ FUNCTION {monograph}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
+  "M" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.translators output
   new.sentence
@@ -2439,8 +2448,8 @@ FUNCTION {incollection}
   new.block
   control.article.title
     { format.title "title" output.check
-      "M" set.entry.mark
-      format.mark "" output.after
+      "M" set.entry.type.id
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -2483,8 +2492,8 @@ FUNCTION {periodical}
   if$
   new.block
   format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
+  "J" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.periodical.year.volume.number output
   new.block
@@ -2521,13 +2530,13 @@ FUNCTION {journal.article}
       entrysubtype empty$ not
         {
           entrysubtype "newspaper" =
-            { "N" set.entry.mark }
-            { "J" set.entry.mark }
+            { "N" set.entry.type.id }
+            { "J" set.entry.type.id }
           if$
         }
-        { "J" set.entry.mark }
+        { "J" set.entry.type.id }
       if$
-      format.mark "" output.after
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -2565,8 +2574,8 @@ FUNCTION {patent}
   new.block
   control.article.title
     { format.title "title" output.check
-      "P" set.entry.mark
-      format.mark "" output.after
+      "P" set.entry.type.id
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -2599,8 +2608,8 @@ FUNCTION {electronic}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "EB" set.entry.mark
-  format.mark "" output.after
+  "EB" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.address.publisher output
   year.before.title not
@@ -2647,8 +2656,8 @@ FUNCTION {preprint}
   new.block
   control.article.title
     { format.series.vol.num.title "title" output.check
-      "Z" set.entry.mark
-      format.mark "" output.after
+      "Z" set.entry.type.id
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -2697,7 +2706,7 @@ FUNCTION {misc}
                 { entry.is.electronic
                     'electronic
                     {
-                      "M" set.entry.mark
+                      "M" set.entry.type.id
                       monograph
                     }
                   if$
@@ -2713,7 +2722,7 @@ FUNCTION {misc}
 }
 
 FUNCTION {archive}
-{ "A" set.entry.mark
+{ "A" set.entry.type.id
   misc
 }
 
@@ -2724,17 +2733,17 @@ FUNCTION {book} { monograph }
 FUNCTION {booklet} { book }
 
 FUNCTION {collection}
-{ "G" set.entry.mark
+{ "G" set.entry.type.id
   monograph
 }
 
 FUNCTION {database}
-{ "DB" set.entry.mark
+{ "DB" set.entry.type.id
   electronic
 }
 
 FUNCTION {dataset}
-{ "DS" set.entry.mark
+{ "DS" set.entry.type.id
   electronic
 }
 
@@ -2746,7 +2755,7 @@ FUNCTION {inbook} {
 }
 
 FUNCTION {inproceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   incollection
 }
 
@@ -2755,46 +2764,46 @@ FUNCTION {conference} { inproceedings }
 FUNCTION {legislation} { archive }
 
 FUNCTION {map}
-{ "CM" set.entry.mark
+{ "CM" set.entry.type.id
   misc
 }
 
 FUNCTION {manual} { monograph }
 
 FUNCTION {mastersthesis}
-{ "D" set.entry.mark
+{ "D" set.entry.type.id
   monograph
 }
 
 FUNCTION {newspaper}
-{ "N" set.entry.mark
+{ "N" set.entry.type.id
   article
 }
 
 FUNCTION {online}
-{ "EB" set.entry.mark
+{ "EB" set.entry.type.id
   electronic
 }
 
 FUNCTION {phdthesis} { mastersthesis }
 
 FUNCTION {proceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   monograph
 }
 
 FUNCTION {software}
-{ "CP" set.entry.mark
+{ "CP" set.entry.type.id
   electronic
 }
 
 FUNCTION {standard}
-{ "S" set.entry.mark
+{ "S" set.entry.type.id
   misc
 }
 
 FUNCTION {techreport}
-{ "R" set.entry.mark
+{ "R" set.entry.type.id
   misc
 }
 
@@ -2942,6 +2951,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_patent_country empty$
     'skip$
     { CTL_patent_country boolean.to.int 'control.patent.country := }
+  if$
+  CTL_entry_type_id empty$
+    'skip$
+    { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
   if$
 }
 

@@ -39,7 +39,7 @@ INTEGERS {
   link.title
   control.article.title
   control.patent.country
-  show.mark
+  control.entry.type.id
   space.before.mark
   show.medium.type
   short.journal
@@ -185,14 +185,9 @@ FUNCTION {load.config}
 %</(2005|thu)>
 %    \end{macrocode}
 %
-% 著录文献类型标识（比如“[M/OL]“）：
+% 控制是否著录类型标识（比如“[M/OL]，含文献载体标识）：
 %    \begin{macrocode}
-%<*!no-mark>
-  #1 'show.mark :=
-%</!no-mark>
-%<*no-mark>
-  #0 'show.mark :=
-%</no-mark>
+  #1 'control.entry.type.id :=
 %    \end{macrocode}
 %
 % 文献类型标识前是否有空格：
@@ -416,6 +411,7 @@ ENTRY
     eprint
     eprinttype
     entrysubtype
+    entrytypeid
     howpublished
     institution
     journal
@@ -456,6 +452,7 @@ ENTRY
     CTL_sentence_case_booktitle
     CTL_article_title
     CTL_patent_country
+    CTL_entry_type_id
   }
   { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
 %    \end{macrocode}
@@ -463,7 +460,7 @@ ENTRY
 % These string entry variables are used to form the citation label.
 % In a storage pinch, sort.label can be easily computed on the fly.
 %    \begin{macrocode}
-  { label extra.label sort.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.type.id entry.url }
 
 %    \end{macrocode}
 %
@@ -2655,20 +2652,27 @@ FUNCTION {format.journal}
 % \subsubsection{Format entry type mark}
 %
 %    \begin{macrocode}
-FUNCTION {set.entry.mark}
-{ entry.mark empty$ not
+FUNCTION {set.entry.type.id}
+{ entry.type.id empty$ not
     'pop$
-    { mark empty$ not
-        { pop$ mark 'entry.mark := }
-        { 'entry.mark := }
+    { entrytypeid empty$ not
+        { pop$ entrytypeid 'entry.type.id := }
+        { mark empty$ not
+            { pop$
+              "The field 'mark' for entry type ID is deprecated. Use 'entrytypeid' instead." warning$
+              mark 'entry.type.id :=
+            }
+            { 'entry.type.id := }
+          if$
+        }
       if$
     }
   if$
 }
 
-FUNCTION {format.mark}
-{ show.mark
-    { entry.mark
+FUNCTION {format.entry.type.id}
+{ control.entry.type.id
+    { entry.type.id
       show.medium.type
         { medium empty$ not
             { "/" * medium * }
@@ -2681,12 +2685,12 @@ FUNCTION {format.mark}
         }
         'skip$
       if$
-      'entry.mark :=
+      'entry.type.id :=
       space.before.mark
         { " " }
         { "\allowbreak" }
       if$
-      "[" * entry.mark * "]" *
+      "[" * entry.type.id * "]" *
     }
     { "" }
   if$
@@ -3427,8 +3431,8 @@ FUNCTION {monograph}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
+  "M" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.translators output
   new.sentence
@@ -3478,8 +3482,8 @@ FUNCTION {incollection}
   new.block
   control.article.title
     { format.title "title" output.check
-      "M" set.entry.mark
-      format.mark "" output.after
+      "M" set.entry.type.id
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -3527,8 +3531,8 @@ FUNCTION {periodical}
   if$
   new.block
   format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
+  "J" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.periodical.year.volume.number output
   new.block
@@ -3579,13 +3583,13 @@ FUNCTION {journal.article}
       entrysubtype empty$ not
         {
           entrysubtype "newspaper" =
-            { "N" set.entry.mark }
-            { "J" set.entry.mark }
+            { "N" set.entry.type.id }
+            { "J" set.entry.type.id }
           if$
         }
-        { "J" set.entry.mark }
+        { "J" set.entry.type.id }
       if$
-      format.mark "" output.after
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -3629,8 +3633,8 @@ FUNCTION {patent}
   new.block
   control.article.title
     { format.title "title" output.check
-      "P" set.entry.mark
-      format.mark "" output.after
+      "P" set.entry.type.id
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -3667,8 +3671,8 @@ FUNCTION {electronic}
   if$
   new.block
   format.series.vol.num.title "title" output.check
-  "EB" set.entry.mark
-  format.mark "" output.after
+  "EB" set.entry.type.id
+  format.entry.type.id "" output.after
   new.block
   format.address.publisher output
   year.before.title not
@@ -3726,12 +3730,12 @@ FUNCTION {preprint}
   control.article.title
     { format.series.vol.num.title "title" output.check
 %<*2015>
-      "A" set.entry.mark
+      "A" set.entry.type.id
 %</2015>
 %<*!2015>
-      "Z" set.entry.mark
+      "Z" set.entry.type.id
 %</!2015>
-      format.mark "" output.after
+      format.entry.type.id "" output.after
       new.block
     }
     'skip$
@@ -3793,10 +3797,10 @@ FUNCTION {misc}
                     'electronic
                     {
 %<*!2005>
-                      "Z" set.entry.mark
+                      "Z" set.entry.type.id
 %</!2005>
 %<*2005>
-                      "M" set.entry.mark
+                      "M" set.entry.type.id
 %</2005>
                       monograph
                     }
@@ -3813,7 +3817,7 @@ FUNCTION {misc}
 }
 
 FUNCTION {archive}
-{ "A" set.entry.mark
+{ "A" set.entry.type.id
   misc
 }
 
@@ -3841,17 +3845,17 @@ FUNCTION {book} { monograph }
 FUNCTION {booklet} { book }
 
 FUNCTION {collection}
-{ "G" set.entry.mark
+{ "G" set.entry.type.id
   monograph
 }
 
 FUNCTION {database}
-{ "DB" set.entry.mark
+{ "DB" set.entry.type.id
   electronic
 }
 
 FUNCTION {dataset}
-{ "DS" set.entry.mark
+{ "DS" set.entry.type.id
   electronic
 }
 
@@ -3888,7 +3892,7 @@ FUNCTION {inbook} {
 %                       organization, publisher, note
 %    \begin{macrocode}
 FUNCTION {inproceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   incollection
 }
 
@@ -3902,7 +3906,7 @@ FUNCTION {legislation} { archive }
 
 
 FUNCTION {map}
-{ "CM" set.entry.mark
+{ "CM" set.entry.type.id
   misc
 }
 
@@ -3925,17 +3929,17 @@ FUNCTION {manual} { monograph }
 %       Optional: type, address, month, note
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
-{ "D" set.entry.mark
+{ "D" set.entry.type.id
   monograph
 }
 
 FUNCTION {newspaper}
-{ "N" set.entry.mark
+{ "N" set.entry.type.id
   article
 }
 
 FUNCTION {online}
-{ "EB" set.entry.mark
+{ "EB" set.entry.type.id
   electronic
 }
 
@@ -3962,17 +3966,17 @@ FUNCTION {phdthesis} { mastersthesis }
 %                       organization, publisher, note
 %    \begin{macrocode}
 FUNCTION {proceedings}
-{ "C" set.entry.mark
+{ "C" set.entry.type.id
   monograph
 }
 
 FUNCTION {software}
-{ "CP" set.entry.mark
+{ "CP" set.entry.type.id
   electronic
 }
 
 FUNCTION {standard}
-{ "S" set.entry.mark
+{ "S" set.entry.type.id
   misc
 }
 
@@ -3985,7 +3989,7 @@ FUNCTION {standard}
 %       Optional: type, number, address, month, note
 %    \begin{macrocode}
 FUNCTION {techreport}
-{ "R" set.entry.mark
+{ "R" set.entry.type.id
   misc
 }
 
@@ -4149,6 +4153,10 @@ FUNCTION {GBT7714BSTCTL}
   CTL_patent_country empty$
     'skip$
     { CTL_patent_country boolean.to.int 'control.patent.country := }
+  if$
+  CTL_entry_type_id empty$
+    'skip$
+    { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
   if$
 }
 

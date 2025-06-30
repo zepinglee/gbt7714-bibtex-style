@@ -19,6 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `sentence-case`、`sentence-case-title`、`sentence-case-journal`、`sentence-case-booktitle` 控制是否将对应题名转为 sentence case。
 - 新增选项 `articletitle` 控制期刊文章是否显示题名。
 - 新增选项 `patentcountry` 控制是否显示专利国别。
+- 文献类型标识的字段改为 `entrytypeid`。
+
+### Deprecated
+
+- 文献类型标识的字段 `mark` 已过时。
 
 ## [2.1.8] - 2025-06-22
 
