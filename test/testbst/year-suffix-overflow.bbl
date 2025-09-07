@@ -1,4 +1,4 @@
-\begin{thebibliography}{185}
+\begin{thebibliography}{186}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -761,6 +761,9 @@ Anon.
 \bibitem[ch9({\natexlab{at}})]{ch9-9}
 Anon.
 \newblock CW-30\allowbreak[Z].
+
+\bibitem[dee({[2025]})]{deepseek}
+{DeepSeek}, DeepSeek-R1-0528, 深度求索（DeepSeek）, 2025-09-05.
 
 \bibitem[A.6(2009)]{A.6:4}
 Anon, 2009.

@@ -141,6 +141,7 @@ ENTRY
     translator
     url
     urldate
+    version
     volume
     year
   }
@@ -2555,6 +2556,21 @@ FUNCTION {electronic}
   fin.entry
 }
 
+FUNCTION {software}
+{ #1 #1 check.electronic
+  #1 'entry.is.electronic :=
+  #1 'is.pure.electronic :=
+  output.bibitem
+  output.translation
+  format.series.vol.num.title "title" output.check
+  version field.or.null output
+  format.address.publisher output
+  urldate field.or.null output
+  new.block
+  format.note output
+  fin.entry
+}
+
 FUNCTION {preprint}
 { output.bibitem
   output.translation
@@ -2715,11 +2731,6 @@ FUNCTION {phdthesis} { mastersthesis }
 FUNCTION {proceedings}
 { "C" set.entry.mark
   monograph
-}
-
-FUNCTION {software}
-{ "CP" set.entry.mark
-  electronic
 }
 
 FUNCTION {standard}
