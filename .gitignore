@@ -1,11 +1,10 @@
-build/
-gbt7714/
 *.curlopt
 *.zip
+build/
+gbt7714/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
-!test/**/*.aux
 *.lof
 *.log
 *.lot
@@ -23,8 +22,8 @@ gbt7714/
 *.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
-# *.ps
-# *.eps
+*.ps
+*.eps
 *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
@@ -32,8 +31,10 @@ gbt7714/
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
-!test/**/*.bbl
+!tests/**/*.bbl
+*.bbl-SAVE-ERROR
 *.bcf
+*.bcf-SAVE-ERROR
 *.blg
 *-blx.aux
 *-blx.bib
@@ -46,6 +47,8 @@ gbt7714/
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+*.rubbercache
+rubber.cache
 
 ## Build tool directories for auxiliary files
 # latexrun
@@ -62,6 +65,9 @@ acs-*.bib
 # amsthm
 *.thm
 
+# attachfile2
+*.atfi
+
 # beamer
 *.nav
 *.pre
@@ -70,6 +76,7 @@ acs-*.bib
 
 # changes
 *.soc
+*.loc
 
 # comment
 *.cut
@@ -113,20 +120,31 @@ acs-*.bib
 *.acn
 *.acr
 *.glg
+*.glg-abr
 *.glo
+*.glo-abr
 *.gls
+*.gls-abr
 *.glsdefs
 *.lzo
 *.lzs
+*.slg
+*.slo
+*.sls
 
 # uncomment this for glossaries-extra (will ignore makeindex's style files!)
 # *.ist
+
+# gnuplot
+*.gnuplot
+*.table
 
 # gnuplottex
 *-gnuplottex-*
 
 # gregoriotex
 *.gaux
+*.glog
 *.gtex
 
 # htlatex
@@ -145,9 +163,12 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-# TODO Comment the next line if you want to keep your tikz graphics files
-*.tikz
+# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
+# *.tikz
 *-tikzDictionary
+
+# latexindent will create succesive backup files by default
+#*.bak*
 
 # listings
 *.lol
@@ -171,10 +192,14 @@ acs-*.bib
 
 # minted
 _minted*
+*.data.minted
 *.pyg
 
 # morewrites
 *.mw
+
+# newpax
+*.newpax
 
 # nomencl
 *.nlg
@@ -194,6 +219,13 @@ _minted*
 
 # scrwfile
 *.wrt
+
+# spelling
+*.spell.bad
+*.spell.txt
+
+# svg
+svg-inkscape/
 
 # sympy
 *.sout
@@ -218,6 +250,9 @@ pythontex-files-*/
 *.dpth
 *.md5
 *.auxlock
+
+# titletoc
+*.ptc
 
 # todonotes
 *.tdo
@@ -254,6 +289,9 @@ TSWLatexianTemp*
 *.bak
 *.sav
 
+# latexindent.pl
+*.bak[0-9]*
+
 # Texpad
 .texpadtmp
 
@@ -269,6 +307,9 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 
+# TeXnicCenter
+*.tps
+
 # auto folder when using emacs and auctex
 ./auto/*
 *.el
@@ -281,3 +322,11 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# xwatermark package
+*.xwm
+
+# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
+# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
+# Uncomment the next line to have this generated file ignored.
+#*Notes.bib
