@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- 修正 `edition` 为 `1` 的报错（[ustctug/ustcthesis#476](https://github.com/ustctug/ustcthesis/issues/476)）。
+
 ## [2.1.8] - 2025-06-22
 
 ### Added

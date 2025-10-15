@@ -1768,7 +1768,7 @@ FUNCTION {format.edition}
                 { edition num.to.ordinal " ed." * }
               if$
             }
-            'skip$
+            { "" }
           if$
         }
         { entry.lang lang.en =
