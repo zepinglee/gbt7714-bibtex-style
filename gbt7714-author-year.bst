@@ -2712,6 +2712,8 @@ FUNCTION {online}
 
 FUNCTION {phdthesis} { mastersthesis }
 
+FUNCTION {thesis} { mastersthesis }
+
 FUNCTION {proceedings}
 { "C" set.entry.mark
   monograph

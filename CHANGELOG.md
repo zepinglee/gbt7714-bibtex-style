@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加 `@thesis` 类型（[#197](https://github.com/zepinglee/gbt7714-bibtex-style/issues/197)）。
+
 ### Fixed
 
 - 修正 `edition` 为 `1` 的报错（[ustctug/ustcthesis#476](https://github.com/ustctug/ustcthesis/issues/476)）。
