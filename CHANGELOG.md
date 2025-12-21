@@ -11,9 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 添加 `@thesis` 类型（[#197](https://github.com/zepinglee/gbt7714-bibtex-style/issues/197)）。
 
+### Changed
+
+- 参照 GB/T 7714—2025 修改预印本的格式（[ustctug/ustcthesis#488](https://github.com/ustctug/ustcthesis/issues/488)）。
+
 ### Fixed
 
 - 修正 `edition` 为 `1` 的报错（[ustctug/ustcthesis#476](https://github.com/ustctug/ustcthesis/issues/476)）。
+
+### Removed
+
+- 移除 `show.preprint` 选项。
 
 ## [2.1.8] - 2025-06-22
 

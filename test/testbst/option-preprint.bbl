@@ -1,4 +1,4 @@
-\begin{thebibliography}{130}
+\begin{thebibliography}{132}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -14,17 +14,30 @@
 \bibitem[Kingma et~al.(2014)Kingma and Ba]{kingma2014adam}
 KINGMA D~P, BA J.
 \newblock Adam: a method for stochastic optimization\allowbreak[A/OL].
-\newblock 2014\allowbreak[2017-04-19].
-\newblock arXiv: \eprint{http://arxiv.org/abs/1412.6980}{1412.6980}.
+\newblock arXiv (2014)\allowbreak[2017-04-19].
 \newblock \url{http://arxiv.org/abs/1412.6980}.
 
 \bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{finn2017modelagnostic}
 FINN C, ABBEEL P, LEVINE S.
 \newblock Model-agnostic meta-learning for fast adaptation of deep
   networks\allowbreak[A/OL].
-\newblock \allowbreak(2017-07-17)\allowbreak[2018-04-08].
-\newblock arXiv: \eprint{http://arxiv.org/abs/1703.03400}{1703.03400}.
-\newblock \url{http://arxiv.org/abs/1703.03400}.
+\newblock arXiv (2017-07-17)\allowbreak[2018-04-08].
+\newblock \url{https://arxiv.org/abs/1703.03400 }.
+
+\bibitem[Hui et~al.(2024)Hui, Yang, Cui, Yang, Liu, Zhang, Liu, Zhang, Yu, Lu,
+  Dang, Fan, Zhang, Yang, Men, Huang, Zheng, Miao, Quan, Feng, Ren, Ren, Zhou,
+  and Lin]{hui2024qwen25codertechnicalreport}
+HUI B, YANG J, CUI Z, et~al.
+\newblock Qwen2.5-coder technical report\allowbreak[A/OL].
+\newblock arXiv (2024).
+\newblock \url{https://arxiv.org/abs/2409.12186}.
+
+\bibitem[Bai et~al.(2025)Bai, Chen, Liu, Wang, Ge, Song, Dang, Wang, Wang,
+  Tang, et~al.]{bai2025qwen2}
+BAI S, CHEN K, LIU X, et~al.
+\newblock Qwen2. 5-vl technical report\allowbreak[A/OL].
+\newblock arXiv (2025).
+\newblock \url{https://arxiv.org/abs/2502.13923}.
 
 \bibitem[陈登原(2000)]{4.1.2:1}
 陈登原.
