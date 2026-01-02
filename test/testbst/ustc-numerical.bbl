@@ -1,4 +1,4 @@
-\begin{thebibliography}{128}
+\begin{thebibliography}{129}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -10,6 +10,14 @@
   \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
   \let\eprint\href
 \fi
+
+\bibitem[Cimini et~al.(2025)Cimini, Sohoni, Presutti, Malia, Ma, Yanagimoto,
+  Wang, Onodera, Wright, and McMahon]{Cimini2025}
+Cimini V, Sohoni M~M, Presutti F, et~al.
+\newblock Large-scale quantum reservoir computing using a gaussian boson
+  sampler\allowbreak[A/OL].
+\newblock arXiv (2025).
+\newblock \url{https://arxiv.org/abs/2505.13695}.
 
 \bibitem[陈登原(2000)]{4.1.2:1}
 陈登原.

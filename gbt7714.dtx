@@ -4562,12 +4562,12 @@ FUNCTION {preprint}
             { eprinttype field.or.null }
             { archivePrefix }
           if$
-          "l" change.case$ duplicate$ "arxiv" =
-            { "https://arxiv.org/abs/" swap$ * eprint * 'entry.url :=
+          "l" change.case$ "arxiv" =
+            { "https://arxiv.org/abs/" eprint * 'entry.url :=
               #1 'entry.is.electronic :=
               #1 'is.pure.electronic :=
             }
-            'pop$
+            'skip$
           if$
         }
       if$
