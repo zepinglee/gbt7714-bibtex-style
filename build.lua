@@ -53,7 +53,7 @@ uploadconfig = {
   ctanPath = "/biblio/bibtex/contrib/gbt7714",
   repository = package_repository,
   bugtracker = package_repository .. "/issues",
-  topic = {"bibtex-sty", "chinese", "std-conform"},
+  topic = {"bibtex-supp", "chinese", "std-conform"},
   update = true,
 }
 
