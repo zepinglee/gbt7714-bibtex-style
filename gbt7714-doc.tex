@@ -1,0 +1,480 @@
+% GB/T 7714 BibTeX Style
+% https://github.com/zepinglee/gbt7714-bibtex-style
+%
+% Copyright (c) 2016-2026 by Zeping Lee <zepinglee AT gmail.com>
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+\documentclass[a4paper]{l3doc}
+\usepackage{hypdoc}
+\usepackage[UTF8]{ctex}
+\usepackage{fontspec}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{gbt7714}
+\usepackage{hologo}
+\usepackage{listings}
+\makeatletter
+\hypersetup{allcolors=blue}
+\setmainfont{texgyretermes}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic,
+]%
+\setsansfont{texgyreheros}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic,
+]%
+\setmonofont{texgyrecursor}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic,
+  Scale          = MatchLowercase,
+  Ligatures      = CommonOff,
+]%
+\citestyle{super}
+\lstnewenvironment{latex}{%
+  \lstset{
+    basicstyle = \ttfamily\small,
+    language = [LaTeX]TeX,
+    gobble = 4,
+    frame = single,
+  }%
+}{}
+\lstnewenvironment{pseudocode}{%
+  \lstset{
+    basicstyle=\ttfamily\small,
+    language=bash,
+    gobble=2,
+    frame=single,
+  }%
+}{}
+\DeclareRobustCommand\file{\nolinkurl}
+\DeclareRobustCommand\env{\texttt}
+\DeclareRobustCommand\pkg{\textsf}
+\DeclareRobustCommand\cls{\textsf}
+\DeclareRobustCommand\opt{\texttt}
+\setlength\partopsep{\z@}
+\def\@listi{\leftmargin\leftmargini
+            \parsep \z@
+            \topsep 5\p@ \@plus2\p@ \@minus3\p@
+        \itemsep\z@}
+\let\@listI\@listi
+\@listi
+\makeatother
+\EnableCrossrefs
+\CodelineIndex
+% \OnlyDescription
+
+\begin{document}
+
+
+\GetFileInfo{gbt7714.sty}
+
+\title{GB/T 7714 \hologo{BibTeX} style}
+\author{Zeping Lee\thanks{zepinglee AT gmail.com}}
+\date{\filedate\qquad\fileversion}
+\maketitle
+
+
+
+\begin{abstract}
+The \pkg{gbt7714} package provides a \BibTeX{} implementation for the China's
+national bibliography style standard GB/T 7714.
+It consists of \file{.bst} files for numeric and author-date styles as well as a
+\LaTeX{} package which provides the citation style defined in the standard.
+It is compatible with \pkg{natbib} and supports language detection (Chinese
+and English) for each biblilography entry.
+\end{abstract}
+
+\section{简介}
+
+GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt7714-2015}
+（以下简称“国标”）是中国的参考文献格式推荐标准。
+国内的绝大部分学术期刊、学位论文都使用了基于该标准的格式。
+本宏包是国标的 \BibTeX{}\cite{bibtex} 实现，具有以下特性：
+\begin{itemize}
+  \item 兼容 \pkg{natbib} 宏包\cite{natbib}。
+  \item 支持“顺序编码制”和“著者-出版年制”两种风格。
+  \item 自动识别语言并进行相应处理。
+  \item 提供了简单的接口供用户修改样式。
+  \item 同时提供了 2005 版的 \file{.bst} 文件。
+\end{itemize}
+本宏包的主页：\url{https://github.com/zepinglee/gbt7714-bibtex-style}。
+
+
+\section{版本 v2.0 的重要修改}
+
+从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 \cs{biblilographystyle} 命令选择参考文献样式，
+如 \opt{gbt7714-numerical} 或 \opt{gbt7714-author-year}。
+在早期的版本中，选择文献样式的方法是将 \opt{numbers} 或 \opt{super} 等参数传递给
+\pkg{gbt7714}，
+而不能使用 \cs{bibliographystyle}。
+这跟标准的 LaTeX 接口不一致，所以将被弃用。
+
+
+\section{使用方法}
+
+以下是 \pkg{gbt7714} 宏包的一个简单示例。
+\begin{latex}
+  \documentclass{ctexart}
+  \usepackage{gbt7714}
+  \bibliographystyle{gbt7714-numerical}
+  \begin{document}
+    \cite{...}
+    ...
+    \bibliography{bibfile}
+  \end{document}
+\end{latex}
+
+按照国标的规定，参考文献的标注体系分为“顺序编码制”和
+“著者-出版年制”。
+用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
+命令选择参考文献表的样式，比如：
+\begin{latex}
+  \bibliographystyle{gbt7714-numerical}  % 顺序编码制
+\end{latex}
+或者
+\begin{latex}
+  \bibliographystyle{gbt7714-author-year}  % 著者-出版年制
+\end{latex}
+此外还可以使用 2005 版的格式 \file{gbt7714-2005-numerical} 和
+\file{gbt7714-2005-author-year}。
+
+注意，版本 v2.0 更改了设置参考文献表样式的方法，
+要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
+而且更改了 \file{bst} 的文件名。
+
+\begin{function}{\citestyle}
+  \begin{syntax}
+    |\citestyle|\Arg{citation style}
+  \end{syntax}
+可选：\opt{super}, \opt{numbers}, \opt{author-year}。
+使用 \cs{bibliography} 选择参考文献表的样式时会自动设置对应的引用样式。
+顺序编码制的引用标注默认使用角标式（\opt{super}），
+如“张三\textsuperscript{[2]}提出”。
+如果要使用正文模式，如“文献 [3] 中说明”，
+可以使用 \cs{citestyle} 命令切换为数字式（\opt{numbers}）。
+\begin{latex}
+  \citestyle{numbers}
+\end{latex}
+著者-出版年制通常不需要修改引用样式。
+\end{function}
+
+\DescribeOption{sort\&compress}
+同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
+如遇连续编号，默认会自动转为起讫序号并用短横线连接
+（见\pkg{natbib} 的 \opt{compress} 选项）。
+如果要对引用的编号进行自动排序，需要在调用 \pkg{gbt7714} 时加
+\opt{sort\&compress} 参数，
+这些参数会传给 \pkg{natbib} 处理。
+\begin{latex}
+  \usepackage[sort&compress]{gbt7714}
+\end{latex}
+注意国标中要求 2 个或以上的连续编号用连接号，不同于 \pkg{natbib} 默认的 3 个或以上。
+宏包中已经作了修改。
+
+若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
+|\cite[42]{knuth84}|。
+更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明\cite{natbib}。
+
+\DescribeOption{locator-inside-brackets}
+国标要求在括号外以角标的形式著录引文页码。
+如果要将页码置于括号内，可以在调用宏包时设置 \opt{locator-inside-brackets=true}。
+\begin{latex}
+  \usepackage[locator-inside-brackets=true]{gbt7714}
+\end{latex}
+
+使用时需要注意以下几点：
+\begin{itemize}
+  \item \file{.bib} 数据库应使用 UTF-8 编码。
+  \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
+        在 key 域填写作者姓名的拼音，才能按照拼音排序，
+        详见第~\ref{sec:sort}~节。
+\end{itemize}
+
+
+\section{文献类型}
+
+国标中规定了 16 种参考文献类型，
+表~\ref{tab:entry-types} 列举了 \file{bib} 数据库中对应的文献类型。
+这些尽可能兼容 \BibTeX{} 和 \pkg{biblatex} 的标准类型，但是新增了若干文献类型（带 * 号）。
+
+\begin{table}[htb]
+  \centering\small
+  \caption{全部文献类型}
+  \label{tab:entry-types}
+  \begin{tabular}{lcl}
+    \toprule
+    文献类型         & 标识代码 & Entry Type                  \\
+    \midrule
+    普通图书         & M        & book                        \\
+    图书的析出文献   & M        & incollection                \\
+    会议录           & C        & proceedings                 \\
+    会议录的析出文献 & C        & inproceedings 或 conference \\
+    汇编             & G        & collection*                 \\
+    报纸             & N        & newspaper*                  \\
+    期刊的析出文献   & J        & article                     \\
+    学位论文         & D        & mastersthesis 或 phdthesis  \\
+    报告             & R        & techreport                  \\
+    标准             & S        & standard*                   \\
+    专利             & P        & patent*                     \\
+    数据库           & DB       & database*                   \\
+    计算机程序       & CP       & software*                   \\
+    电子公告         & EB       & online*                     \\
+    档案             & A        & archive*                    \\
+    舆图             & CM       & map*                        \\
+    数据集           & DS       & dataset*                    \\
+    其他             & Z        & misc                        \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\section{著录项目}
+
+由于国标中规定的著录项目多于 \BibTeX{} 的标准域，
+必须新增一些著录项目（带 * 号），
+这些新增的类型在设计时参考了 BibLaTeX，如 date 和 urldate。
+本宏包支持的全部域如下：
+\begin{description}
+  \item[author]       主要责任者
+  \item[title]        题名
+  \item[mark*]        文献类型标识
+  \item[medium*]      载体类型标识
+  \item[translator*]  译者
+  \item[editor]       编辑
+  \item[organization] 组织（用于会议）
+  \item[booktitle]    图书题名
+  \item[series]       系列
+  \item[journal]      期刊题名
+  \item[edition]      版本
+  \item[address]      出版地
+  \item[publisher]    出版者
+  \item[school]       学校（用于 \texttt{@phdthesis}）
+  \item[institution]  机构（用于 \texttt{@techreport}）
+  \item[year]         出版年
+  \item[volume]       卷
+  \item[number]       期（或者专利号）
+  \item[pages]        引文页码
+  \item[date*]        更新或修改日期
+  \item[urldate*]     引用日期
+  \item[url]          获取和访问路径
+  \item[doi]          数字对象唯一标识符
+  \item[langid*]      语言
+  \item[key]          拼音（用于排序）
+\end{description}
+不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref, month, type。
+
+本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
+但是在少数情况下需要用户手动指定，如：
+\begin{latex}
+  @misc{citekey,
+    langid = {japanese},
+    mark   = {Z},
+    medium = {DK},
+    ...
+  }
+\end{latex}
+可选的语言有 english, chinese, japanese, russian。
+
+
+\section{文献列表的排序}
+\label{sec:sort}
+
+国标规定参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中，
+然后按著者字顺和出版年排列；
+中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
+然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
+所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音用于排序，如：
+\begin{latex}
+  @book{capital,
+    author = {马克思 and 恩格斯},
+    key    = {ma3 ke4 si1 & en1 ge2 si1},
+    ...
+  }
+\end{latex}
+
+对于著者-出版年的样式，如果中文文献较多时更推荐使用 \pkg{biblatex} 宏包，
+其后端 \file{biber} 可以自动处理中文按照拼音排序，无须手动填写拼音。
+
+
+\section{自定义样式}
+
+\BibTeX{} 对自定义样式的支持比较有限，
+所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
+本宏包提供了一些接口供用户更方便地修改。
+
+在 \file{bst} 文件开始处的 |load.config| 函数中，
+有一组配置参数用来控制样式，表~\ref{tab:config} 列出了每一项的默认值和功能。
+若变量被设为 |#1| 则表示该项被启用，设为 |#0| 则不启用。
+默认的值是严格遵循国标的配置。
+
+\begin{table}[htb]
+\centering\small
+\caption{参考文献表样式的配置参数}
+\label{tab:config}
+\begin{tabular}{lcl}
+  \toprule
+  参数值                         & 默认值 & 功能                           \\
+  \midrule
+  uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
+  max.num.authors                & |#3|   & 输出著者的最多数量             \\
+  year.after.author              & |#0|   & 年份置于著者之后               \\
+  period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
+  italic.book.title              & |#0|   & 西文书籍名使用斜体             \\
+  sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
+  link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
+  title.in.journal               & |#1|   & 期刊是否显示标题               \\
+  show.patent.country            & |#0|   & 专利题名是否含国别             \\
+  space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
+  show.mark                      & |#1|   & 显示文献类型标识               \\
+  show.medium.type               & |#1|   & 显示载体类型标识               \\
+  component.part.label           & |"slash"| & 表示析出文献的符号，可选：|"in"|, |"none"| \\
+  italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
+  link.journal                   & |#0|   & 在期刊题名上添加 url 的超链接      \\
+  show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
+  space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
+  only.start.page                & |#0|   & 只显示起始页码                 \\
+  page.range.delimiter           & |"-"|  & 起止页码中的连接号             \\
+  show.urldate                   & |#1|   & 显示引用日期 urldate           \\
+  show.url                       & |#1|   & 显示 url                       \\
+  show.doi                       & |#1|   & 显示 DOI                       \\
+  show.note                      & |#0|   & 显示 note 域的信息             \\
+  end.with.period                & |#1|   & 结尾加句点                     \\
+  lowercase.word.after.colon     & |#1|   & 将冒号后的单词变成小写 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+若用户需要定制更多内容，可以学习 \file{bst} 文件的语法并修改
+\cite{btxhak,ttb,tlc2}，或者联系作者。
+
+
+\section{相关工作}
+
+TeX 社区也有其他关于 GB/T 7714 系列参考文献标准的工作。
+2005 年吴凯\cite{wk2006}发布了基于 GB/T 7714—2005 的 \BibTeX{} 样式，
+支持顺序编码制和著者出版年制两种风格。
+李志奇\cite{lqz2013}发布了严格遵循 GB/T 7714—2005 的 BibLaTeX 的样式。
+胡海星\cite{hhx2013}提供了另一个 \BibTeX{} 实现，
+还给每行 bst 代码写了 java 语言注释。
+沈周\cite{sz2016}基于 \pkg{biblatex-caspervector}\cite{vector2012} 进行修改，
+以符合国标的格式。
+胡振震发布了符合 GB/T 7714—2015 标准的 BibLaTeX 参考文献样式\cite{hzz2016}，
+并进行了比较完善的持续维护。
+
+
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+\providecommand{\href}[2]{\url{#2}}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
+
+\bibitem[{中国国家标准化委员会}(2015)]{gbt7714-2015}
+{中国国家标准化委员会}.
+\newblock 信息与文献\quad 参考文献著录规则: GB/T
+  7714—2015[S].
+\newblock 北京: 中国标准出版社, 2015.
+
+\bibitem[Patashnik(1988{\natexlab{a}})]{bibtex}
+PATASHNIK~O.
+\newblock {\BibTeX}ing[M/OL].
+\newblock 1988{\natexlab{a}}.
+\newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf}.
+
+\bibitem[Daly(1999)]{natbib}
+DALY~P~W.
+\newblock Natural sciences citations and references[M/OL].
+\newblock 1999.
+\newblock \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natbib.pdf}.
+
+\bibitem[Patashnik(1988{\natexlab{b}})]{btxhak}
+PATASHNIK~O.
+\newblock Designing {\BibTeX} styles[M/OL].
+\newblock 1988{\natexlab{b}}.
+\newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxhak.pdf}.
+
+\bibitem[Markey(2003)]{ttb}
+MARKEY~N.
+\newblock Tame the beast[M/OL].
+\newblock 2003.
+\newblock \url{http://mirrors.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf}.
+
+\bibitem[Mittelbach et~al.(2004)Mittelbach, Goossens, Braams, Carlisle, and
+  Rowley]{tlc2}
+MITTELBACH~F, GOOSSENS~M, BRAAMS~J, et~al.
+\newblock The {\LaTeX} companion[M].
+\newblock 2nd ed.
+\newblock Reading, MA, USA: Addison-Wesley, 2004.
+
+\bibitem[吴凯(2006)]{wk2006}
+吴凯.
+\newblock 发布GBT7714-2005.bst version1 Beta版[EB/OL].
+\newblock 2006.
+\newblock CTeX 论坛（已关闭）.
+
+\bibitem[李志奇(2013)]{lqz2013}
+李志奇.
+\newblock
+  基于biblatex的符合GBT7714—2005的中文文献生成工具[EB/OL].
+\newblock 2013.
+\newblock CTeX 论坛（已关闭）.
+
+\bibitem[胡海星(2013)]{hhx2013}
+胡海星.
+\newblock A GB/T 7714—2005 national standard compliant BibTeX
+  style[EB/OL].
+\newblock 2013.
+\newblock \url{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}.
+
+\bibitem[沈周(2016)]{sz2016}
+沈周.
+\newblock 基于caspervector改写的符合GB/T
+  7714—2005标准的参考文献格式[EB/OL].
+\newblock 2016.
+\newblock \url{https://github.com/szsdk/biblatex-gbt77142005}.
+
+\bibitem[Vector(2012)]{vector2012}
+VECTOR~C~T.
+\newblock biblatex 参考文献和引用样式: caspervector[M/OL].
+\newblock 2012.
+\newblock
+  \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-caspervector/doc/caspervector.pdf}.
+
+\bibitem[胡振震(2016)]{hzz2016}
+胡振震.
+\newblock 符合 GB/T 7714—2015 标准的 biblatex
+  参考文献样式[M/OL].
+\newblock 2016.
+\newblock
+  \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf}.
+
+\end{thebibliography}
+
+
+
+
+% \clearpage
+% \appendix
+% \StopEventually{}
+
+% \section{宏包的代码实现}
+
+
+\end{document}

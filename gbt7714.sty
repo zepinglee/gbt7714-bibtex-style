@@ -23,6 +23,8 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{gbt7714}
   [2026/01/15 v2.1.9 GB/T 7714 BibTeX Style]
+
+% 兼容过时的接口
 \newif\ifgbt@legacy@interface
 \newif\ifgbt@mmxv
 \newif\ifgbt@numerical
@@ -59,26 +61,47 @@
     \gbt@numericalfalse
   },
 }
+
+% 控制引注的页码在括号内还是在括号外。
 \DeclareKeys[gbt7714]{
   locator-inside-brackets .if = @gbt@locator@inside@affixes ,
 }
 \SetKeys[gbt7714]{
   locator-inside-brackets = false ,
 }
+
+% 将选项传递给 \pkg{natbib}
 \DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
 \ProcessKeyOptions[gbt7714]
+
+% 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
 \RequirePackage{natbib}
 \RequirePackage{url}
+
+% 如果将 \opt{compress} 传给 \pkg{natbib} 容易导致 option clash。
+% 这里直接修改内部命令。
 \def\NAT@cmprs{\@ne}
+
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
+% 或 \opt{authoryear}，参见 \pkg{natbib}。
 \renewcommand\newblock{\space}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@inline{\bibstyle@numbers}
+
+% 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
 \@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
 \@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
 \@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
 \@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
+
+% 下面修改 \pkg{natbib} 的引用格式。
+% 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
+
+% Super 样式的 \cs{citep} 的页码也为上标。
+% 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
+% 参考 \href{https://github.com/tuna/thuthesis/issues/624}{tuna/thuthesis\#624}。
 \renewcommand\NAT@citesuper[3]{%
   \ifNAT@swa
     \if*#2*\else
@@ -106,6 +129,8 @@
   \fi
   \endgroup
 }
+
+% 将 numbers 样式的 \cs{citep} 的页码置于括号外。
 \renewcommand\NAT@citenum[3]{%
   \ifNAT@swa
     \NAT@@open
@@ -126,6 +151,8 @@
   \fi
   \endgroup
 }
+
+% Numerical 模式的 \cs{citet} 的页码：
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -164,6 +191,10 @@
          }{%
            \advance\@tempcnta by\@ne
            \@ifnum{\NAT@nm=\@tempcnta}{%
+
+% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+% 这里修改为允许两个引用使用连接号。
+% 参考 \url{https://tex.stackexchange.com/a/86991/82731}。
              % \ifx\NAT@last@yr\relax
              %   \def@NAT@last@yr{\@citea}%
              % \else
@@ -201,6 +232,8 @@
     }%
       \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
       \ifNAT@swa\else
+
+% 将页码放在括号外边，并且置于上标。
         \if@gbt@locator@inside@affixes
           \@ifnum{\NAT@ctype=\z@}{%
             \if*#2*\else\NAT@cmt#2\fi
@@ -218,6 +251,8 @@
       \fi
   }{#1}{#2}%
 }%
+
+% Author-year 模式的 \cs{citep} 的页码：
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1%
@@ -227,6 +262,8 @@
           \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
         \fi
         \else#1\fi\endgroup}
+
+% Author-year 模式的 \cs{citet} 的页码：
 \def\NAT@citex%
   [#1][#2]#3{%
   \NAT@reset@parser
@@ -315,6 +352,8 @@
        \fi
      \fi
      }}\ifNAT@swa\else
+
+% 将页码放在括号外边，并且置于上标。
        \if@gbt@locator@inside@affixes
          \if*#2*\else\NAT@cmt#2\fi
          \if\relax\NAT@date\relax\else\NAT@@close\fi
@@ -323,11 +362,20 @@
          \if*#2*\else\textsuperscript{#2}\fi
        \fi
      \fi}{#1}{#2}}
+
+% \begin{environment}{thebibliography}
+% 参考文献列表的标签左对齐
 \renewcommand\@biblabel[1]{[#1]\hfill}
+% \end{environment}
+
+% Patch \pkg{natbib} 内部命令，以支持 \cs{noopsort}。
+% 参考 \url{https://tex.stackexchange.com/a/39718/82731}。
 \let\NAT@bare@aux\NAT@bare
 \def\NAT@bare#1(#2){%
  \begingroup\edef\x{\endgroup
    \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
+
+% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
 \g@addto@macro\UrlBreaks{%
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
   \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
@@ -336,6 +384,8 @@
   \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
 }
 \Urlmuskip=0mu plus 0.1mu
+
+% 兼容 v2.0 前过时的接口：
 \newif\ifgbt@bib@style@written
 \@ifpackageloaded{chapterbib}{}{%
   \def\bibliography#1{%
