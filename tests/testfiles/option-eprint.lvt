@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@article {Bloss029983,
+  author = {Bloss, Cinnamon S. and Wineinger, Nathan E. and Peters, Melissa and Boeldt, Debra L. and Ariniello, Lauren and Kim, Ju Young and Sheard, Judy and Komatireddy, Ravi and Barrett, Paddy and Topol, Eric J.},
+  title = {A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors},
+  elocation-id = {029983},
+  year = {2016},
+  doi = {10.1101/029983},
+  publisher = {Cold Spring Harbor Laboratory},
+  URL = {https://www.biorxiv.org/content/early/2016/01/14/029983},
+  eprint = {https://www.biorxiv.org/content/early/2016/01/14/029983.full.pdf},
+  journal = {bioRxiv}
+}
+
+@misc{jenkins2012controlledmanipulationlightcooperative,
+  title={Controlled manipulation of light by cooperative response of atoms in an optical lattice},
+  author={Stewart D. Jenkins and Janne Ruostekoski},
+  year={2012},
+  version={2},
+  eprint={1112.6136},
+  archivePrefix={arXiv},
+  primaryClass={physics.optics},
+  doi={10.48550/arXiv.1112.6136},
+  url={https://arxiv.org/abs/1112.6136},
+}
+\end{filecontents}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage[eprint]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname, gbt7714-examples}
+
+\end{document}

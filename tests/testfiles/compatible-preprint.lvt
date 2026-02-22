@@ -1,0 +1,84 @@
+% 不同预印本平台导出的 .bib 格式差异很大，尽可能做一些兼容。
+
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+% Exported from <https://chinaxiv.org/abs/202303.00020V1>
+@article{fang2023yuanyuzhou,
+  author = {方向明 and 曹迎杰},
+  title = {元宇宙在图书馆的应用：理论研究与实践进展},
+  keywords = {元宇宙；智慧图书馆；底层技术；虚拟现实},
+  doi = {10.12074/202303.00020V1},
+  url = {https://chinaxiv.org/abs/202303.00020},
+  timestamp = {2025-12-02},
+}
+
+% Exported from <https://zsyyb.cn/abs/202408.01096>
+@article{xiao2025shuju,
+  author = {肖玲 and 张雪 and 王永},
+  title = {数据要素的统计测算方法探究},
+  keywords = {数据要素化；数据要素结构化；数据要素关系模式},
+  doi = {10.12451/202408.01096},
+  url = {https://zsyyb.cn/abs/202408.01096},
+  timestamp = {2025-12-02},
+}
+
+% Exported from <https://www.biorxiv.org/content/10.1101/029983v1>
+@article {Bloss029983,
+	author = {Bloss, Cinnamon S. and Wineinger, Nathan E. and Peters, Melissa and Boeldt, Debra L. and Ariniello, Lauren and Kim, Ju Young and Sheard, Judy and Komatireddy, Ravi and Barrett, Paddy and Topol, Eric J.},
+	title = {A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors},
+	elocation-id = {029983},
+	year = {2015},
+	doi = {10.1101/029983},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2015/10/28/029983},
+	eprint = {https://www.biorxiv.org/content/early/2015/10/28/029983.full.pdf},
+	journal = {bioRxiv}
+}
+
+% Exported from <https://arxiv.org/abs/2409.12186>
+@misc{jenkins2012controlledmanipulationlightcooperative,
+      title={Controlled manipulation of light by cooperative response of atoms in an optical lattice},
+      author={Stewart D. Jenkins and Janne Ruostekoski},
+      year={2012},
+      eprint={1112.6136},
+      archivePrefix={arXiv},
+      primaryClass={physics.optics},
+      url={https://arxiv.org/abs/1112.6136},
+}
+
+% Exported from Google Scholar
+% <https://github.com/ustctug/ustcthesis/issues/488>
+@article{bai2025qwen2,
+  title={Qwen2. 5-vl technical report},
+  author={Bai, Shuai and Chen, Keqin and Liu, Xuejing and Wang, Jialin and Ge, Wenbin and Song, Sibo and Dang, Kai and Wang, Peng and Wang, Shijie and Tang, Jun and others},
+  journal={arXiv preprint arXiv:2502.13923},
+  year={2025}
+}
+
+% 预印本未指定 url
+% <https://github.com/ustctug/ustcthesis/issues/490>
+@Article{Cimini2025,
+  author        = {Cimini, Valeria and Sohoni, Mandar M. and Presutti, Federico and Malia, Benjamin K. and Ma, Shi-Yuan and Yanagimoto, Ryotatsu and Wang, Tianyu and Onodera, Tatsuhiro and Wright, Logan G. and McMahon, Peter L.},
+  title         = {Large-scale quantum reservoir computing using a Gaussian Boson Sampler},
+  year          = {2025},
+  archiveprefix = {arXiv},
+  copyright     = {Creative Commons Attribution 4.0 International},
+  doi           = {10.48550/ARXIV.2505.13695},
+  eprint        = {2505.13695},
+  keywords      = {Quantum Physics (quant-ph), FOS: Physical sciences, FOS: Physical sciences},
+  publisher     = {arXiv},
+}
+\end{filecontents}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

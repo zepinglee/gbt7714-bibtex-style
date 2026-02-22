@@ -1,0 +1,75 @@
+\input{regression-test.tex}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\usepackage{gbt7714}
+\pagestyle{empty}
+
+
+\begin{document}
+\START
+\showoutput
+
+Citation \cite{jon88} test\par
+Citation \cite{jon89} test\par
+Citation \cite{jon90} test\par
+
+引用\cite{lzp1}测试\par
+引用\cite{lzp2}测试\par
+引用\cite{lzp3}测试\par
+
+% Basic Citation Commands
+Citation \citet{jon90} test\par
+Citation \citet{jon90}.\par
+Citation \citet[42]{jon90} test\par
+Citation \citet[42]{jon90}.\par
+Citation \citep{jon90} test\par
+Citation \citep{jon90}.\par
+Citation \citep[42]{jon90} test\par
+Citation \citep[42]{jon90}.\par
+Citation \citep[see][]{jon90} test\par
+Citation \citep[see][42]{jon90} test\par
+Citation \citet*{jon90} test\par
+Citation \citep*{jon90} test\par
+
+引用\citet{lzp3}测试\par
+引用\citet{lzp3}。\par
+引用\citet[42]{lzp3}测试\par
+引用\citet[42]{lzp3}。\par
+引用\citep{lzp3}测试\par
+引用\citep{lzp3}。\par
+引用\citep[42]{lzp3}测试\par
+引用\citep[42]{lzp3}。\par
+引用\citep[见][]{lzp3}测试\par
+引用\citep[见][42]{lzp3}测试\par
+引用\citet*{lzp3}测试\par
+引用\citep*{lzp3}测试\par
+
+% Multi Citations
+Citation \citet{jon90,jam91} test\par
+Citation \citet{jon90,jon91} test\par
+Citation \citet{jon92a,jon92b} test\par
+Citation \citep{jon90,jam91} test\par
+Citation \citep{jon90,jon91} test\par
+Citation \citep{jon92a,jon92b} test\par
+
+% Extended Citation Commands
+Citation \citealt{jon90} Test\par
+Citation \citealt*{jon90} Test\par
+Citation \citealp{jon90} Test\par
+Citation \citealp*{jon90} Test\par
+Citation \citealp{jon90,jam91} Test\par
+Citation \citealp[42]{jon90} Test\par
+Citation \citenum{jon90} Test\par
+Citation \citetext{priv.\ comm.} Test\par
+
+Citation \citeauthor{jon90} Test\par
+Citation \citeauthor*{jon90} Test\par
+Citation \citeyear{jon90} Test\par
+Citation \citeyearpar{jon90} Test\par
+
+
+\clearpage
+\OMIT
+\bibliographystyle{gbt7714-2015-authoryear}
+\bibliography{refs}
+\end{document}

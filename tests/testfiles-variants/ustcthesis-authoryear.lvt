@@ -1,0 +1,13 @@
+\documentclass{article}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{ustcthesis-authoryear}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{gbt7714-examples}
+
+\end{document}

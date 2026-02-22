@@ -1,51 +1,49 @@
 .PHONY : test testall save all bst doc clean cleanall install ctan FORCE_MAKE
 
 NAME = gbt7714
-PKGFILES = $(NAME).sty
-BSTFILES = $(NAME)-numerical.bst $(NAME)-author-year.bst
+BSTFILES = $(NAME)-numeric.bst $(NAME)-authoryear.bst
 
-TEXOPTS = -file-line-error -halt-on-error -interaction=nonstopmode
+TEXOPTS = -file-line-error -halt-on-error
 LATEXMK = latexmk -xelatex $(TEXOPTS)
 
 testbst : bst
-	bash test/test.sh
+	l3build check --config build
+	l3build check --config tests/config-variants
 
-test: testbst
+test : bst
 	l3build check
 
-savebst:
-	bash test/test.sh
+savebst : bst
+	bash tests/save.sh main
+	bash tests/save.sh variants
 
-save : savebst
-	l3build save --quiet super
-	l3build save --quiet numbers
-	l3build save --quiet author-year
-	l3build save --config test/config-chapterbib package-chapterbib
-	l3build save --config test/config-bibunits package-bibunits
+save : bst
+	bash tests/save.sh
 
 all : test doc
 
-bst : $(PKGFILES) $(BSTFILES)
+bst : $(BSTFILES)
 
-doc : $(NAME).pdf
+doc : $(NAME)-doc.pdf
 
-%.sty %-numerical.bst %-author-year.bst : %.ins %.dtx
-	xetex $(TEXOPTS) $<
+%-numeric.bst %-authoryear.bst : %-bst.dtx variants/gbt7714-variants.ins
 	xetex $(TEXOPTS) variants/gbt7714-variants.ins
 
-$(NAME).pdf : $(NAME).dtx FORCE_MAKE
+$(NAME)-doc.pdf : $(NAME)-doc.tex FORCE_MAKE
 	$(LATEXMK) $<
 
 clean :
-	$(LATEXMK) -c $(NAME).dtx
 	l3build clean
+	$(LATEXMK) -c $(NAME)-example.tex
+	$(LATEXMK) -c $(NAME)-doc.tex
 
 cleanall :
-	$(LATEXMK) -C $(NAME).dtx
 	l3build clean
+	$(LATEXMK) -C $(NAME)-example.tex
+	$(LATEXMK) -C $(NAME)-doc.tex
 
 install :
 	l3build install
 
-ctan : test doc
+ctan :
 	l3build ctan

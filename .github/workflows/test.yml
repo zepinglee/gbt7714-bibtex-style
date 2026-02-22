@@ -21,11 +21,8 @@ jobs:
         with:
           package_file: .github/tl_packages
 
-      - name: Test bst
-        run: make testbst
-
-      - name: Test citation styles
-        run: l3build check
+      - name: Test
+        run: make test
 
       - name: Test doc
         run: make doc

@@ -1,0 +1,26 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Li(n.d.)]{ITEM-1}
+Li Jiangning.
+
+\bibitem[Li(n.d.)]{ITEM-2}
+Li J~N.
+
+\bibitem[Li(n.d.)]{ITEM-3}
+Li J N.
+
+\bibitem[Li(n.d.)]{ITEM-4}
+Li J N.
+
+\end{thebibliography}

@@ -1,0 +1,65 @@
+\input{regression-test.tex}
+\documentclass{report}
+
+\begin{filecontents}[noheader, overwrite]{chapter1.tex}
+\chapter{Foo}
+Foo\cite{jon90,jam91}
+\bibliographystyle{gbt7714-numeric}
+\bibliography{refs}
+\end{filecontents}
+
+\begin{filecontents}[noheader, overwrite]{chapter2.tex}
+\chapter{Bar}
+Bar\cite{jon91,jon92a}
+\bibliographystyle{gbt7714-numeric}
+\bibliography{refs}
+\end{filecontents}
+
+\begin{filecontents}[noheader, overwrite]{refs.bib}
+@article{jon90,
+  author       = {Jones and Baker and Williams},
+  title        = {Title},
+  journal      = {Journal},
+  year         = {1990},
+}
+
+@article{jam91,
+  author       = {James and Baker and Williams},
+  title        = {Title},
+  journal      = {Journal},
+  year         = {1991},
+}
+
+@article{jon91,
+  author       = {Jones and Baker and Williams},
+  title        = {Title},
+  journal      = {Journal},
+  year         = {1991},
+}
+
+@article{jon92a,
+  author       = {Jones and Baker and Williams},
+  title        = {Title},
+  journal      = {Journal},
+  year         = {1992},
+}
+\end{filecontents}
+
+\usepackage[UTF8, scheme=plain, fontset=fandol]{ctex}
+
+\usepackage{chapterbib}  % The loading order of the two packages is not important.
+\usepackage[sectionbib]{gbt7714}  % Add the `sectionbib` option to natbib
+
+\pagestyle{empty}
+
+
+\begin{document}
+\START
+\showoutput
+
+\include{chapter1}
+\include{chapter2}
+
+\clearpage
+\OMIT
+\end{document}

@@ -1,0 +1,469 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+(chapter1.tex
+Chapter 1.
+(bu1.aux)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+(bu1.bbl) (bu1.aux)
+No file bu.aux.
+)
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 285.47154fil
+...\write-{}
+...\write-{}
+...\write-{}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {1}Foo}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{lof}{\protect \addvspace {10\p@ }}}
+...\write2{\@writefile{lot}{\protect \addvspace {10\p@ }}}
+...\glue(\topskip) 10.0
+...\rule(0.0+0.0)x*
+...\penalty 10000
+...\glue 50.0
+...\glue 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.52348
+...\hbox(14.47652+4.02354)x345.0, glue set 121.07516fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/20.74 Chapter
+....\glue 7.7775 plus 3.88875 minus 2.5925
+....\TU/lmr/bx/n/20.74 1
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 20.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.03317
+...\hbox(16.94328+0.14926)x345.0, glue set 150.4812fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/24.88 Foo
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 40.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.97182
+...\hbox(8.87892+0.10999)x345.0, glue set 311.33699fil
+....\TU/lmr/m/n/10 Foo
+....\kern -0.0002
+....\kern 0.0002
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 -
+.....\kern -0.00023
+.....\kern 0.00023
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\kern 1.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 15.08499 plus 4.31 minus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.89642
+...\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
+....\hbox(0.0+0.0)x0.0
+.....\glue 0.0
+....\TU/lmr/bx/n/14.4 Bibliography
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.10562
+...\hbox(8.0+2.49998)x329.44, glue set 61.47998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
+......\kern -0.0002
+......\kern 0.0002
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 BAKER
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.74 minus 5.0
+....\rule(0.0+0.0)x-6.74
+....\TU/FandolSong-Regular(0)/m/n/10 ［
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 J
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ］
+....\rule(0.0+0.0)x-6.74
+....\glue 6.74 minus 5.0
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 1990.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.49998)x329.44, glue set 60.08998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
+......\kern -0.0002
+......\kern 0.0002
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JAMES
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 BAKER
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.74 minus 5.0
+....\rule(0.0+0.0)x-6.74
+....\TU/FandolSong-Regular(0)/m/n/10 ［
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 J
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ］
+....\rule(0.0+0.0)x-6.74
+....\glue 6.74 minus 5.0
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 1991.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 10.0 plus 3.0 minus 5.0
+...\glue -10.0 plus -3.0 minus -5.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 1
+....\kern -0.0002
+....\kern 0.0002
+....\glue 0.0 plus 1.0fil
+(chapter2.tex
+Chapter 2.
+(bu2.aux)
+(bu2.bbl) (bu2.aux)
+No file bu.aux.
+)
+Completed box being shipped out [2]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 285.47154fil
+...\write-{}
+...\write-{}
+...\write-{}
+...\write-{}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {2}Bar}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{lof}{\protect \addvspace {10\p@ }}}
+...\write2{\@writefile{lot}{\protect \addvspace {10\p@ }}}
+...\glue(\topskip) 10.0
+...\rule(0.0+0.0)x*
+...\penalty 10000
+...\glue 50.0
+...\glue 0.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 10.52348
+...\hbox(14.47652+4.02354)x345.0, glue set 121.07516fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/20.74 Chapter
+....\glue 7.7775 plus 3.88875 minus 2.5925
+....\TU/lmr/bx/n/20.74 2
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 20.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.90877
+...\hbox(17.06769+0.14926)x345.0, glue set 150.02092fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/24.88 Bar
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 40.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.97182
+...\hbox(8.87892+0.10999)x345.0, glue set 311.31699fil
+....\TU/lmr/m/n/10 Bar
+....\kern -0.0002
+....\kern 0.0002
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 -
+.....\kern -0.00023
+.....\kern 0.00023
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\kern 1.0
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -300
+...\glue 15.08499 plus 4.31 minus 0.86198
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 7.89642
+...\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
+....\hbox(0.0+0.0)x0.0
+.....\glue 0.0
+....\TU/lmr/bx/n/14.4 Bibliography
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.10562
+...\hbox(8.0+2.49998)x329.44, glue set 61.47998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [1]
+......\kern -0.0002
+......\kern 0.0002
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 BAKER
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.74 minus 5.0
+....\rule(0.0+0.0)x-6.74
+....\TU/FandolSong-Regular(0)/m/n/10 ［
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 J
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ］
+....\rule(0.0+0.0)x-6.74
+....\glue 6.74 minus 5.0
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 1991.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.49998)x329.44, glue set 61.47998fil, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
+......\kern -0.0002
+......\kern 0.0002
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 JONES
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 BAKER
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 WILLIAMS.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Title
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.74 minus 5.0
+....\rule(0.0+0.0)x-6.74
+....\TU/FandolSong-Regular(0)/m/n/10 ［
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 J
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ］
+....\rule(0.0+0.0)x-6.74
+....\glue 6.74 minus 5.0
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 1992.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 10.0 plus 3.0 minus 5.0
+...\glue -10.0 plus -3.0 minus -5.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 2
+....\kern -0.0002
+....\kern 0.0002
+....\glue 0.0 plus 1.0fil

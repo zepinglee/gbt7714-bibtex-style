@@ -1,0 +1,22 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Package gbt7714 Warning: Bibliography style name 'gbt7714-numerical' is deprecated. Use 'gbt7714-numeric' instead.
+-------- deprecated-style-name.bbl (start) ---------
+(deprecated-style-name.bbl) \begin{thebibliography}{1}[nl]
+\providecommand{\natexlab}[1]{#1}[nl]
+\providecommand{\url}[1]{#1}[nl]
+\expandafter\ifx\csname urlstyle\endcsname\relax\else[nl]
+  \urlstyle{same}\fi[nl]
+\expandafter\ifx\csname href\endcsname\relax[nl]
+  \def\doi{\begingroup \urlstyle{same}\Url}[nl]
+\else[nl]
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}[nl]
+\fi[nl]
+[nl]
+\bibitem[Caplan(1993)]{gbt7714.8.1:4}[nl]
+CAPLAN P.[nl]
+\newblock Cataloging internet resources\allowbreak［J］.[nl]
+\newblock The Public-Access Computer Systems Review，1993，4\allowbreak （2）：61-66.[nl]
+[nl]
+\end{thebibliography}[nl]
+-------- deprecated-style-name.bbl (end) -----------

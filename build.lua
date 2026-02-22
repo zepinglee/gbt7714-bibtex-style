@@ -5,26 +5,92 @@
 
 module = "gbt7714"
 
-testfiledir = "./test/testfiles"
-testsuppdir = testfiledir .. "/support"
+testfiledir = "./tests/testfiles"
+testsuppdir = "./tests/support"
+supportdir = "."
+checksuppfiles = {"*-examples.bib"}
 
--- sourcefiles = {"*.dtx", "*.sty"}
+sourcefiles = {"*.dtx", "*.ins", "*.sty"}
 installfiles = {"*.sty", "*.bst"}
-tagfiles = {"*.dtx", "*.ins", "CHANGELOG.md", "variants/*.ins"}
+tagfiles = {
+  "CHANGELOG.md",
+  "*.dtx",
+  "*.ins",
+  "*.sty",
+  "*-doc.tex",
+  "*.bst",
+  "variants/*.ins",
+}
+typesetdemofiles = {"*-example.tex"}
+typesetfiles = {"*-doc.tex"}
+
+-- includetests = {}
 
 checkengines = {"xetex"}
 stdengine = "xetex"
 
 checkconfigs = {
   "build",
-  "test/config-chapterbib",
-  "test/config-bibunits",
+  "tests/config-cite",
+  "tests/config-chapterbib",
+  "tests/config-bibunits",
 }
 
 typesetexe = "xelatex"
 unpackexe = "xetex"
+bibtexexe = "bibtex"
 
-checkruns = 3
+unpackopts = "-interaction=batchmode"
+checkopts = "-interaction=batchmode"
+bibtexopts = ""
+
+checkruns = 1
+
+local function get_blg_message(blg_path)
+  local blg_file = assert(io.open(blg_path, "rb"))
+  local blg_content = blg_file:read("a")
+  io.close(blg_file)
+  local messages = {}
+  for line in blg_content:gmatch("[^\r\n]+") do
+    if line:find("^Warning--")
+        or line:find("^Error--")
+        or line:find("%d+ warning")
+        or line:find("[Ee]rror") then
+      table.insert(messages, "% " .. line)
+    end
+  end
+  return table.concat(messages, "\n")
+end
+
+test_types = {
+  bbl = {
+    test = ".lvt",
+    generated = ".bbl",
+    reference = ".tlg",
+    -- compare = compare_tlg,
+    rewrite = function(source, result, engine, errlevels)
+      local file = assert(io.open(source, "rb"))
+      local content = string.gsub(file:read("a"), "\r\n", "\n")
+      file:close()
+
+      local new_content = content
+      local blg_path = source:gsub("%.%w+$", ".blg")
+      if fileexists(blg_path) then
+        blg_message = get_blg_message(blg_path)
+        if blg_message ~= "" then
+          new_content = new_content .. "\n" .. blg_message .. "\n"
+        end
+      end
+
+      local newfile = assert(io.open(result, "w"))
+      io.output(newfile)
+      io.write(new_content)
+      io.close(newfile)
+    end,
+  },
+}
+
+test_order = {"bbl"}
 
 local version_pattern = "[%d%l.-]+"
 
@@ -56,8 +122,6 @@ uploadconfig = {
   topic = {"bibtex-sty", "chinese", "std-conform"},
   update = true,
 }
-
-lvtext = ".tex"
 
 function runtest_tasks(name)
   return "bibtex -terse " .. name

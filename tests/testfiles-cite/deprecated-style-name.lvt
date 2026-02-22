@@ -1,0 +1,22 @@
+\input{regression-test.tex}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\usepackage{gbt7714}
+\START
+  \bibliographystyle{gbt7714-numerical}
+\OMIT
+
+\pagestyle{empty}
+
+
+\begin{document}
+
+\cite{gbt7714.8.1:4}
+
+\TIMO
+\SHOWFILE{\jobname.bbl}
+\OMIT
+
+\bibliography{gbt7714-examples}
+
+\end{document}

@@ -1,28 +1,15 @@
-%%
-%% This is file `gbt7714.sty',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% gbt7714.dtx  (with options: `package')
-%% -------------------------------------------------------------------
-%% GB/T 7714 BibTeX Style
-%% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026/01/15 v2.1.9
-%% -------------------------------------------------------------------
-%% Copyright (C) 2016--2026 by Zeping Lee <zepinglee AT gmail.com>
-%% -------------------------------------------------------------------
-%% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3c
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    https://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2008 or later.
-%% -------------------------------------------------------------------
-\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{gbt7714}
-  [2026/01/15 v2.1.9 GB/T 7714 BibTeX Style]
+%
+% Copyright (c) 2016-2026 Zeping Lee
+% Released under the LaTeX Project Public License v1.3c or later versions.
+% Repository: https://github.com/zepinglee/gbt7714-bibtex-style
+%
+
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{expl3}
+\ProvidesPackage{gbt7714}[2026/01/15 v2.1.9 GB/T 7714 BibTeX Style]
+
+% 兼容过时的接口
 \newif\ifgbt@legacy@interface
 \newif\ifgbt@mmxv
 \newif\ifgbt@numerical
@@ -59,26 +46,244 @@
     \gbt@numericalfalse
   },
 }
+
+% 控制 bst 的格式。
+\ExplSyntaxOn
+
+\prop_new:N \l__gbt_bst_control_prop
+
+% 参考文献列表的标签左对齐
+\cs_new_nopar:Npn \__gbt_make_bib_label_halfwidth:n #1 { [ #1 ] }
+\cs_new_nopar:Npn \__gbt_make_bib_label_fullwidth:n #1 { ［ #1 ］ }
+\cs_new_eq:NN \__gbt_make_bib_label:n \__gbt_make_bib_label_halfwidth:n
+\cs_set_nopar:Npn \@biblabel #1
+  { \__gbt_make_bib_label:n {#1} \hfill }
+
+\keys_define:nn { gbt7714 }
+  {
+    punctstyle .choice: ,
+    punctstyle / 2025 .code:n =
+      {
+        \cs_set_eq:NN \__gbt_make_bib_label:n \__gbt_make_bib_label_halfwidth:n
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_punct_style } { 2025 }
+      } ,
+    punctstyle / 2015 .code:n =
+      {
+        \cs_set_eq:NN \__gbt_make_bib_label:n \__gbt_make_bib_label_fullwidth:n
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_punct_style } { 2015 }
+      } ,
+    punctstyle / halfwidth .code:n =
+      {
+        \cs_set_eq:NN \__gbt_make_bib_label:n \__gbt_make_bib_label_halfwidth:n
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_punct_style } { halfwidth }
+      } ,
+    punctstyle / bylanguage .code:n =
+      {
+        \cs_set_eq:NN \__gbt_make_bib_label:n \__gbt_make_bib_label_halfwidth:n
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_punct_style } { bylanguage }
+      } ,
+    maxbibnames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} } ,
+    minbibnames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_bib_names } {#1} } ,
+    maxcitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_cite_names } {#1} } ,
+    mincitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_cite_names } {#1} } ,
+    uppercasefamily .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_uppercase_family } \l_keys_choice_tl } ,
+    uppercasefamily .default:n = true ,
+    initializewithhyphen .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_initialize_with_hyphen } \l_keys_choice_tl } ,
+    initializewithhyphen .default:n = true ,
+    checkpinyin .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_check_pinyin } \l_keys_choice_tl } ,
+    checkpinyin .default:n = true ,
+    bibfinaland .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bib_final_and } \l_keys_choice_tl } ,
+    bibfinaland .default:n = true ,
+    citefinaland .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_final_and } \l_keys_choice_tl } ,
+    citefinaland .default:n = true ,
+    citelang .choices:nn = { auto, macro, chinese, english }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_lang } \l_keys_choice_tl } ,
+    spacebeforeetal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_et_al } \l_keys_choice_tl } ,
+    spacebeforeetal .default:n = true ,
+    yearbeforetitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_year_before_title } \l_keys_choice_tl } ,
+    yearbeforetitle .default:n = true ,
+    nameyeardelim .choices:nn = { comma , period }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_name_year_delim } \l_keys_choice_tl } ,
+    sentencecase .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case } \l_keys_choice_tl } ,
+    sentencecase .default:n = true ,
+    sentencecasetitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_title } \l_keys_choice_tl } ,
+    sentencecasetitle .default:n = true ,
+    sentencecasebooktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_booktitle } \l_keys_choice_tl } ,
+    sentencecasebooktitle .default:n = true ,
+    sentencecasejournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_journal } \l_keys_choice_tl } ,
+    sentencecasejournal .default:n = true ,
+    capitalizesubtitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_capitalize_subtitle } \l_keys_choice_tl } ,
+    capitalizesubtitle .default:n = true ,
+    linktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_title } \l_keys_choice_tl } ,
+    linktitle .default:n = true ,
+    articletitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_article_title } \l_keys_choice_tl } ,
+    articletitle .default:n = true ,
+    patentcountry .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_patent_country } \l_keys_choice_tl } ,
+    patentcountry .default:n = true ,
+    entrytypeid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_type_id } \l_keys_choice_tl } ,
+    entrytypeid .default:n = true ,
+    spacebeforetypeid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_type_id } \l_keys_choice_tl } ,
+    spacebeforetypeid .default:n = true ,
+    entrymediumid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_medium_id } \l_keys_choice_tl } ,
+    entrymediumid .default:n = true ,
+    componentpartdelim .choices:nn = { slash, period }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_component_part_delim } \l_keys_choice_tl } ,
+    in .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_in } \l_keys_choice_tl } ,
+    in .default:n = true ,
+    emphbooktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_booktitle } \l_keys_choice_tl } ,
+    emphbooktitle .default:n = true ,
+    emphjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_journal } \l_keys_choice_tl } ,
+    emphjournal .default:n = true ,
+    shortjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_short_journal } \l_keys_choice_tl } ,
+    shortjournal .default:n = true ,
+    dotlessjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_dotless_journal } \l_keys_choice_tl } ,
+    dotlessjournal .default:n = true ,
+    linkjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_journal } \l_keys_choice_tl } ,
+    linkjournal .default:n = true ,
+    boldvolume .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bold_volume } \l_keys_choice_tl } ,
+    boldvolume .default:n = true ,
+    unknownpublisher .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_unknown_publisher } \l_keys_choice_tl } ,
+    unknownpublisher .default:n = true ,
+    spacebeforepages .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_pages } \l_keys_choice_tl } ,
+    spacebeforepages .default:n = true ,
+    pageranges .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_page_ranges } \l_keys_choice_tl } ,
+    pageranges .default:n = true ,
+    pagerangedelim .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_page_range_delim } {#1} } ,
+    urldate .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_urldate } \l_keys_choice_tl } ,
+    urldate .default:n = true ,
+    url .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_url } \l_keys_choice_tl } ,
+    url .default:n = true ,
+    doi .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_doi } \l_keys_choice_tl } ,
+    doi .default:n = true ,
+    eprint .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_eprint } \l_keys_choice_tl } ,
+    eprint .default:n = true ,
+    note .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_note } \l_keys_choice_tl } ,
+    note .default:n = true ,
+    enddot .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_end_dot } \l_keys_choice_tl } ,
+    enddot .default:n = true ,
+    bibwarn .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_warn_empty_field } \l_keys_choice_tl } ,
+    bibwarn .default:n = true ,
+  }
+
+\AtBeginDocument
+  {
+    \prop_if_empty:NF \l__gbt_bst_control_prop
+      {
+        \iow_new:N \l__gbt_bst_control_iow
+        \iow_open:Nn \l__gbt_bst_control_iow { \jobname -BSTcontrol.bib }
+        \iow_now:Ne \l__gbt_bst_control_iow
+          { @GBT7714BSTCTL \c_left_brace_str GBT7714:BSTcontrol, }
+        \prop_map_inline:Nn \l__gbt_bst_control_prop
+          {
+            \iow_now:Ne \l__gbt_bst_control_iow
+              { \c_space_tl \c_space_tl #1 \c_space_tl = \c_space_tl {#2} , }
+          }
+        \iow_now:Ne \l__gbt_bst_control_iow { \c_right_brace_str }
+        \iow_close:N \l__gbt_bst_control_iow
+        \if@filesw
+          \iow_now:Ne \@auxout
+            { \token_to_str:N \citation { GBT7714:BSTcontrol } }
+        \fi
+        \cs_set:Npn \bibliography #1
+          {
+            \if@filesw
+              \immediate \write \@auxout
+                { \string \bibdata { \jobname -BSTcontrol , \zap@space #1 ~ \@empty } }
+            \fi
+            \@input@ { \jobname .bbl }
+          }
+      }
+  }
+
+\ExplSyntaxOff
+
+% 控制引注的页码在括号内还是在括号外。
 \DeclareKeys[gbt7714]{
   locator-inside-brackets .if = @gbt@locator@inside@affixes ,
 }
 \SetKeys[gbt7714]{
   locator-inside-brackets = false ,
 }
+
+% 将选项传递给 \pkg{natbib}
 \DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
 \ProcessKeyOptions[gbt7714]
+
+% 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
 \RequirePackage{natbib}
 \RequirePackage{url}
+
+% 如果将 \opt{compress} 传给 \pkg{natbib} 容易导致 option clash。
+% 这里直接修改内部命令。
 \def\NAT@cmprs{\@ne}
+
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
+% 或 \opt{authoryear}，参见 \pkg{natbib}。
 \renewcommand\newblock{\space}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
 \newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
 \newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
 \newcommand\bibstyle@inline{\bibstyle@numbers}
+
+% 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
+\@namedef{bibstyle@gbt7714-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2025-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2025-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2015-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2015-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2005-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2005-authoryear}{\bibstyle@authoryear}
+% 兼容过时的样式名称
 \@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
 \@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
-\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
+
+% 下面修改 \pkg{natbib} 的引用格式。
+% 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
+
+% Super 样式的 \cs{citep} 的页码也为上标。
+% 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
+% 参考 \href{https://github.com/tuna/thuthesis/issues/624}{tuna/thuthesis\#624}。
 \renewcommand\NAT@citesuper[3]{%
   \ifNAT@swa
     \if*#2*\else
@@ -106,6 +311,8 @@
   \fi
   \endgroup
 }
+
+% 将 numbers 样式的 \cs{citep} 的页码置于括号外。
 \renewcommand\NAT@citenum[3]{%
   \ifNAT@swa
     \NAT@@open
@@ -126,6 +333,8 @@
   \fi
   \endgroup
 }
+
+% Numerical 模式的 \cs{citet} 的页码：
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -164,6 +373,10 @@
          }{%
            \advance\@tempcnta by\@ne
            \@ifnum{\NAT@nm=\@tempcnta}{%
+%
+% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
+% 这里修改为允许两个引用使用连接号。
+% 参考 \url{https://tex.stackexchange.com/a/86991/82731}。
              % \ifx\NAT@last@yr\relax
              %   \def@NAT@last@yr{\@citea}%
              % \else
@@ -201,6 +414,8 @@
     }%
       \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
       \ifNAT@swa\else
+%
+% 将页码放在括号外边，并且置于上标。
         \if@gbt@locator@inside@affixes
           \@ifnum{\NAT@ctype=\z@}{%
             \if*#2*\else\NAT@cmt#2\fi
@@ -218,6 +433,8 @@
       \fi
   }{#1}{#2}%
 }%
+
+% Author-year 模式的 \cs{citep} 的页码：
 \renewcommand\NAT@cite%
     [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
         #1%
@@ -227,6 +444,8 @@
           \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
         \fi
         \else#1\fi\endgroup}
+
+% Author-year 模式的 \cs{citet} 的页码：
 \def\NAT@citex%
   [#1][#2]#3{%
   \NAT@reset@parser
@@ -315,6 +534,8 @@
        \fi
      \fi
      }}\ifNAT@swa\else
+%
+% 将页码放在括号外边，并且置于上标。
        \if@gbt@locator@inside@affixes
          \if*#2*\else\NAT@cmt#2\fi
          \if\relax\NAT@date\relax\else\NAT@@close\fi
@@ -323,11 +544,15 @@
          \if*#2*\else\textsuperscript{#2}\fi
        \fi
      \fi}{#1}{#2}}
-\renewcommand\@biblabel[1]{[#1]\hfill}
+
+% Patch \pkg{natbib} 内部命令，以支持 \cs{noopsort}。
+% 参考 \url{https://tex.stackexchange.com/a/39718/82731}。
 \let\NAT@bare@aux\NAT@bare
 \def\NAT@bare#1(#2){%
  \begingroup\edef\x{\endgroup
    \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
+
+% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
 \g@addto@macro\UrlBreaks{%
   \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
   \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
@@ -336,11 +561,13 @@
   \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
 }
 \Urlmuskip=0mu plus 0.1mu
+
+% 兼容 v2.0 前过时的接口：
 \newif\ifgbt@bib@style@written
 \@ifpackageloaded{chapterbib}{}{%
   \def\bibliography#1{%
     \ifgbt@bib@style@written\else
-      \bibliographystyle{gbt7714-numerical}%
+      \bibliographystyle{gbt7714-numeric}%
     \fi
     \if@filesw
       \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
@@ -361,8 +588,39 @@
     \ifgbt@super\else
       \citestyle{numbers}
     \fi
-    \bibliographystyle{gbt7714-numerical}
+    \bibliographystyle{gbt7714-numeric}
   \else
-    \bibliographystyle{gbt7714-author-year}
+    \bibliographystyle{gbt7714-authoryear}
   \fi
 \fi
+
+\ExplSyntaxOn
+
+\prop_const_from_keyval:Nn \l__gbt_deprecated_style_name_prop
+  {
+    gbt7714-2005-author-year = gbt7714-2005-authoryear ,
+    gbt7714-2005-numerical = gbt7714-2005-numeric ,
+    gbt7714-author-year = gbt7714-authoryear ,
+    gbt7714-numerical = gbt7714-numeric ,
+  }
+
+\cs_new:Npn \__gbt_patch_bib_style:
+  {
+    \cs_set_eq:NN \__gbt_original_bib_style:n \bibliographystyle
+    \cs_set_nopar:Npn \bibliographystyle ##1
+      {
+        \prop_get:NnNTF \l__gbt_deprecated_style_name_prop {##1} \l_tmpa_tl
+          {
+            \msg_warning:nnnV { gbt7714 } { deprecated-style-name } {##1} \l_tmpa_tl
+            \file_if_exist:nTF { ##1 .bst }
+              { \__gbt_original_bib_style:n {##1} }
+              { \exp_args:NV \__gbt_original_bib_style:n \l_tmpa_tl }
+          }
+          { \__gbt_original_bib_style:n {##1} }
+      }
+  }
+
+\msg_new:nnn { gbt7714 } { deprecated-style-name }
+  { Bibliography~ style~ name~ '#1'~ is~ deprecated.~ Use~ '#2'~ instead. }
+
+\__gbt_patch_bib_style:

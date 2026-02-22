@@ -1,0 +1,35 @@
+\input{regression-test.tex}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\usepackage[locator-inside-brackets]{gbt7714}
+\bibliographystyle{gbt7714-2025-authoryear}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\START
+\showoutput
+
+\citestyle{super}
+Citation \citet[42]{jon89} test\par
+Citation \citet[42]{jon89}.\par
+Citation \citep[42]{jon89} test\par
+Citation \citep[42]{jon89}.\par
+
+\citestyle{numbers}
+Citation \citet[42]{jon89} test\par
+Citation \citet[42]{jon89}.\par
+Citation \citep[42]{jon89} test\par
+Citation \citep[42]{jon89}.\par
+
+\citestyle{authoryear}
+Citation \citet[42]{jon89} test\par
+Citation \citet[42]{jon89}.\par
+Citation \citep[42]{jon89} test\par
+Citation \citep[42]{jon89}.\par
+
+\clearpage
+\OMIT
+\bibliography{refs}
+\end{document}

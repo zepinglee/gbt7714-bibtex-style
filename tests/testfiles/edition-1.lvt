@@ -1,0 +1,35 @@
+% 第 1 版不著录
+% <https://github.com/ustctug/ustcthesis/issues/476>
+
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@book{marx_ab_2009,
+  edition = {1},
+  title = {Ab {Initio} {Molecular} {Dynamics}: {Basic} {Theory} and {Advanced} {Methods}},
+  copyright = {https://www.cambridge.org/core/terms},
+  isbn = {978-0-521-89863-8 978-0-511-60963-3 978-1-107-66353-4},
+  shorttitle = {Ab {Initio} {Molecular} {Dynamics}},
+  url = {https://www.cambridge.org/core/product/identifier/9780511609633/type/book},
+  abstract = {Ab initio molecular dynamics revolutionized the field of realistic computer simulation of complex molecular systems and processes, including chemical reactions, by unifying molecular dynamics and electronic structure theory. This book provides the first coherent presentation of this rapidly growing field, covering a vast range of methods and their applications, from basic theory to advanced methods. This fascinating text for graduate students and researchers contains systematic derivations of various ab initio molecular dynamics techniques to enable readers to understand and assess the merits and drawbacks of commonly used methods. It also discusses the special features of the widely used Car–Parrinello approach, correcting various misconceptions currently found in research literature. The book contains pseudo-code and program layout for typical plane wave electronic structure codes, allowing newcomers to the field to understand commonly used program packages and enabling developers to improve and add new features in their code.},
+  urldate = {2025-10-10},
+    place = {Cambridge},
+  publisher = {Cambridge University Press},
+  author = {Marx, Dominik and Hutter, Jürg},
+  month = apr,
+  year = {2009},
+  doi = {10.1017/CBO9780511609633},
+  file = {PDF:/Users/ionizing/Zotero/storage/LI8XA988/Marx and Hutter - 2009 - Ab Initio Molecular Dynamics Basic Theory and Advanced Methods.pdf:application/pdf},
+}
+\end{filecontents}
+
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}
