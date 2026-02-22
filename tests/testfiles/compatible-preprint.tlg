@@ -1,0 +1,51 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[方向明\ 等(无日期)方向明和曹迎杰]{fang2023yuanyuzhou}
+方向明，曹迎杰.
+\newblock 元宇宙在图书馆的应用：理论研究与实践进展\allowbreak[J/OL].
+\newblock \url{https://chinaxiv.org/abs/202303.00020}.
+\newblock DOI:\doi{10.12074/202303.00020V1}.
+
+\bibitem[肖玲\ 等(无日期)肖玲，张雪和王永]{xiao2025shuju}
+肖玲，张雪，王永.
+\newblock 数据要素的统计测算方法探究\allowbreak[J/OL].
+\newblock \url{https://zsyyb.cn/abs/202408.01096}.
+\newblock DOI:\doi{10.12451/202408.01096}.
+
+\bibitem[Bloss et~al.(2015)Bloss，Wineinger，Peters，Boeldt，Ariniello，Kim，Sheard，Komatireddy，Barrett，and Topol]{Bloss029983}
+Bloss C~S，Wineinger N~E，Peters M，et~al.
+\newblock A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors\allowbreak[J/OL].
+\newblock bioRxiv，2015.
+\newblock \url{https://www.biorxiv.org/content/early/2015/10/28/029983}.
+\newblock DOI:\doi{10.1101/029983}.
+
+\bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{jenkins2012controlledmanipulationlightcooperative}
+Jenkins S~D，Ruostekoski J.
+\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Bai et~al.(2025)Bai，Chen，Liu，Wang，Ge，Song，Dang，Wang，Wang，Tang，et~al.]{bai2025qwen2}
+Bai S，Chen K，Liu X，et~al.
+\newblock Qwen2. 5-vl technical report\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2025）.
+\newblock \url{https://arxiv.org/abs/2502.13923}.
+
+\bibitem[Cimini et~al.(2025)Cimini，Sohoni，Presutti，Malia，Ma，Yanagimoto，Wang，Onodera，Wright，and McMahon]{Cimini2025}
+Cimini V，Sohoni M~M，Presutti F，et~al.
+\newblock Large-scale quantum reservoir computing using a gaussian boson sampler\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2025）.
+\newblock \url{https://doi.org/10.48550/ARXIV.2505.13695}.
+
+\end{thebibliography}

@@ -1,7 +1,10 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
-\pagestyle{empty}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
 \usepackage{gbt7714}
+\pagestyle{empty}
+
+
 \begin{document}
 \START
 \showoutput
@@ -67,6 +70,6 @@ Citation \citeyearpar{jon90} Test\par
 
 \clearpage
 \OMIT
-\bibliographystyle{gbt7714-author-year}
+\bibliographystyle{gbt7714-2015-authoryear}
 \bibliography{refs}
 \end{document}

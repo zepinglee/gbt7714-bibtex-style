@@ -1,7 +1,12 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\usepackage[locator-inside-brackets]{gbt7714}
+\bibliographystyle{gbt7714-2025-authoryear}
+
 \pagestyle{empty}
-\usepackage[locator-inside-brackets=true]{gbt7714}
+
+
 \begin{document}
 \START
 \showoutput
@@ -26,6 +31,5 @@ Citation \citep[42]{jon89}.\par
 
 \clearpage
 \OMIT
-\bibliographystyle{gbt7714-author-year}
 \bibliography{refs}
 \end{document}

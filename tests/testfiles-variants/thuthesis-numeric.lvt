@@ -1,40 +1,6 @@
-%<*internal>
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\nopreamble
-\keepsilent
-\askforoverwritefalse
-\nopostamble
-\generate{
-  \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{2015,thu,numerical}}
-  \file{test.bib}{\from{\jobname.dtx}{bib}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.dtx}
-%</driver>
-% \fi
-%
-%    \begin{macrocode}
-%<*aux>
-\bibstyle{test}
-\citation{*}
-\bibdata{test}
-%</aux>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%<*bib>
+\documentclass{article}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
 @article{10-1:1,
   author       = {张昆 and 冯立群 and 余昌钰 and others},
   title        = {机器人柔性手腕的球面齿轮设计研究},
@@ -348,6 +314,16 @@
   year         = {1983},
   medium       = {DK},
 }
-%</bib>
-%    \end{macrocode}
-\endinput
+\end{filecontents}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{thuthesis-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname, gbt7714-examples}
+
+\end{document}

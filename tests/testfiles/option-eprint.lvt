@@ -1,84 +1,39 @@
-%<*internal>
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\nopreamble
-\keepsilent
-\askforoverwritefalse
-\nopostamble
-\generate{
-  \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{2015,numerical}}
-  \file{test.bib}{\from{\jobname.dtx}{bib}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.dtx}
-%</driver>
-% \fi
-%
-%    \begin{macrocode}
-%<*aux>
-\bibstyle{test}
-\citation{*}
-\bibdata{test,standard}
-%</aux>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%<*bib>
-@preprint{kingma2014adam,
-  title         = {Adam: A Method for Stochastic Optimization},
-  shorttitle    = {Adam},
-  author        = {Kingma, Diederik P. and Ba, Jimmy},
-  year          = {2014},
-  month         = dec,
-  eprint        = {1412.6980},
-  eprinttype    = {arxiv},
-  url           = {http://arxiv.org/abs/1412.6980},
-  urldate       = {2017-04-19},
-  archiveprefix = {arXiv},
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@article {Bloss029983,
+  author = {Bloss, Cinnamon S. and Wineinger, Nathan E. and Peters, Melissa and Boeldt, Debra L. and Ariniello, Lauren and Kim, Ju Young and Sheard, Judy and Komatireddy, Ravi and Barrett, Paddy and Topol, Eric J.},
+  title = {A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors},
+  elocation-id = {029983},
+  year = {2016},
+  doi = {10.1101/029983},
+  publisher = {Cold Spring Harbor Laboratory},
+  URL = {https://www.biorxiv.org/content/early/2016/01/14/029983},
+  eprint = {https://www.biorxiv.org/content/early/2016/01/14/029983.full.pdf},
+  journal = {bioRxiv}
 }
 
-@article{finn2017modelagnostic,
-  title         = {Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks},
-  author        = {Finn, Chelsea and Abbeel, Pieter and Levine, Sergey},
-  date          = {2017-07-17},
-  month         = jul,
-  journal       = {arXiv:1703.03400 [cs]},
-  eprint        = {1703.03400},
-  eprinttype    = {arxiv},
-  primaryclass  = {cs},
-  url           = {http://arxiv.org/abs/1703.03400},
-  urldate       = {2018-04-08},
-  archiveprefix = {arXiv},
+@misc{jenkins2012controlledmanipulationlightcooperative,
+  title={Controlled manipulation of light by cooperative response of atoms in an optical lattice},
+  author={Stewart D. Jenkins and Janne Ruostekoski},
+  year={2012},
+  version={2},
+  eprint={1112.6136},
+  archivePrefix={arXiv},
+  primaryClass={physics.optics},
+  doi={10.48550/arXiv.1112.6136},
+  url={https://arxiv.org/abs/1112.6136},
 }
+\end{filecontents}
 
-<https://github.com/ustctug/ustcthesis/issues/488>
-@misc{hui2024qwen25codertechnicalreport,
-      title={Qwen2.5-Coder Technical Report},
-      author={Binyuan Hui and Jian Yang and Zeyu Cui and Jiaxi Yang and Dayiheng Liu and Lei Zhang and Tianyu Liu and Jiajun Zhang and Bowen Yu and Keming Lu and Kai Dang and Yang Fan and Yichang Zhang and An Yang and Rui Men and Fei Huang and Bo Zheng and Yibo Miao and Shanghaoran Quan and Yunlong Feng and Xingzhang Ren and Xuancheng Ren and Jingren Zhou and Junyang Lin},
-      year={2024},
-      eprint={2409.12186},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2409.12186},
-}
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage[eprint]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
 
-@article{bai2025qwen2,
-  title={Qwen2. 5-vl technical report},
-  author={Bai, Shuai and Chen, Keqin and Liu, Xuejing and Wang, Jialin and Ge, Wenbin and Song, Sibo and Dang, Kai and Wang, Peng and Wang, Shijie and Tang, Jun and others},
-  journal={arXiv preprint arXiv:2502.13923},
-  year={2025}
-}
-%</bib>
-%    \end{macrocode}
-\endinput
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname, gbt7714-examples}
+
+\end{document}

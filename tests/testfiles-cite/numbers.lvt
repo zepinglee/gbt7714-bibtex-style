@@ -1,8 +1,12 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
-\pagestyle{empty}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
 \usepackage{gbt7714}
 \citestyle{numbers}
+
+\pagestyle{empty}
+
+
 \begin{document}
 \START
 \showoutput
@@ -37,6 +41,6 @@ Citation \citep{lzp1,lzp2,lzp3} test\par
 
 \clearpage
 \OMIT
-\bibliographystyle{gbt7714-numerical}
+\bibliographystyle{gbt7714-2015-numeric}
 \bibliography{refs}
 \end{document}

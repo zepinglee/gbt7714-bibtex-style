@@ -1,40 +1,8 @@
-%<*internal>
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\nopreamble
-\keepsilent
-\askforoverwritefalse
-\nopostamble
-\generate{
-  \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{2015,author-year}}
-  \file{test.bib}{\from{\jobname.dtx}{bib}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.dtx}
-%</driver>
-% \fi
-%
-%    \begin{macrocode}
-%<*aux>
-\bibstyle{test}
-\citation{*}
-\bibdata{test,standard}
-%</aux>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%<*bib>
+% <https://github.com/zepinglee/gbt7714-bibtex-style/issues/90>
+
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
 @misc{ch9-1,
     title        = {ELIOS 2},
     howpublished = {https://www.flyability.com/}
@@ -307,6 +275,16 @@
     title        = {CityAirbus},
     howpublished = {https://www.airbus.com/innovation/zero-emission/urban-air-mobility/cityairbus.html\#ove}
 }
-%</bib>
-%    \end{macrocode}
-\endinput
+\end{filecontents}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-2025-authoryear}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{gbt7714-examples}
+
+\end{document}

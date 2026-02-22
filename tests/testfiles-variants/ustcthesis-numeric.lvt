@@ -1,51 +1,13 @@
-%<*internal>
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\nopreamble
-\keepsilent
-\askforoverwritefalse
-\nopostamble
-\generate{
-  \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{ustc,2015,numerical}}
-  \file{test.bib}{\from{\jobname.dtx}{bib}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.dtx}
-%</driver>
-% \fi
-%
-%    \begin{macrocode}
-%<*aux>
-\bibstyle{test}
-\citation{*}
-\bibdata{test,standard}
-%</aux>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%<*bib>
-@Article{Cimini2025,
-  author        = {Cimini, Valeria and Sohoni, Mandar M. and Presutti, Federico and Malia, Benjamin K. and Ma, Shi-Yuan and Yanagimoto, Ryotatsu and Wang, Tianyu and Onodera, Tatsuhiro and Wright, Logan G. and McMahon, Peter L.},
-  title         = {Large-scale quantum reservoir computing using a Gaussian Boson Sampler},
-  year          = {2025},
-  archiveprefix = {arXiv},
-  copyright     = {Creative Commons Attribution 4.0 International},
-  doi           = {10.48550/ARXIV.2505.13695},
-  eprint        = {2505.13695},
-  keywords      = {Quantum Physics (quant-ph), FOS: Physical sciences, FOS: Physical sciences},
-  publisher     = {arXiv},
-}
-%</bib>
-%    \end{macrocode}
-\endinput
+\documentclass{article}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{ustcthesis-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{gbt7714-examples}
+
+\end{document}

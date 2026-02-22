@@ -563,14 +563,20 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.49998)x345.0, glue set 120.09fil
+...\hbox(7.5+2.49998)x345.0, glue set 112.31fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Jones,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 Baker,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 Jones
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Baker
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
 ....\TU/lmr/m/n/10 and
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Williams
@@ -593,14 +599,20 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.49998)x345.0, glue set 117.31fil
+...\hbox(7.5+2.49998)x345.0, glue set 109.53fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 (Jones,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 Baker,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 (Jones
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Baker
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
 ....\TU/lmr/m/n/10 and
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Williams
@@ -1046,7 +1058,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.86002
-...\hbox(7.64+2.49998)x345.0, glue set 133.89fil
+...\hbox(7.64+2.49998)x345.0, glue set 145.56fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/FandolSong-Regular(0)/m/n/10 引
 ....\glue 0.0 plus 0.46875
@@ -1057,17 +1069,19 @@ Completed box being shipped out [1]
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
-....\TU/lmr/m/n/10 ,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 李
-....\TU/lmr/m/n/10 ,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 and
-....\glue 3.33 plus 1.665 minus 1.11
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 和
+....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
@@ -1092,7 +1106,7 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 1.86002
-...\hbox(7.64+2.49998)x345.0, glue set 127.78fil
+...\hbox(7.64+2.49998)x345.0, glue set 139.45fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/FandolSong-Regular(0)/m/n/10 引
 ....\glue 0.0 plus 0.46875
@@ -1104,17 +1118,19 @@ Completed box being shipped out [1]
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
-....\TU/lmr/m/n/10 ,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 李
-....\TU/lmr/m/n/10 ,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 and
-....\glue 3.33 plus 1.665 minus 1.11
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 和
+....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 平
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 泽
@@ -1436,14 +1452,20 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.73001
-...\hbox(7.05+1.92998)x345.0, glue set 125.37fil
+...\hbox(7.05+1.92998)x345.0, glue set 117.59fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Jones,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 Baker,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 Jones
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Baker
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
 ....\TU/lmr/m/n/10 and
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Williams
@@ -1494,14 +1516,20 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 3.02002
-...\hbox(7.05+1.92998)x345.0, glue set 122.59fil
+...\hbox(7.05+1.92998)x345.0, glue set 114.81fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Jones,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 Baker,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 Jones
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Baker
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
 ....\TU/lmr/m/n/10 and
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Williams
@@ -1674,14 +1702,20 @@ Completed box being shipped out [1]
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
 ...\glue(\baselineskip) 4.73001
-...\hbox(7.05+1.92998)x345.0, glue set 148.7fil
+...\hbox(7.05+1.92998)x345.0, glue set 140.92fil
 ....\hbox(0.0+0.0)x15.0
 ....\TU/lmr/m/n/10 Citation
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Jones,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 Baker,
-....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 Jones
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Baker
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
 ....\TU/lmr/m/n/10 and
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 Williams
