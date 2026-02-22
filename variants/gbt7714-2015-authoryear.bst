@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/ustcthesis-authoryear.bst',
+%% This is file `variants/gbt7714-2015-authoryear.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714-bst.dtx  (with options: `2015,ustc,authoryear')
+%% gbt7714-bst.dtx  (with options: `2015,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -76,7 +76,7 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  "halfwidth" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
+  "2015" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
   #3 'control.max.bib.names :=
   #3 'control.min.bib.names :=
   #1 'control.max.cite.names :=
@@ -84,7 +84,7 @@ FUNCTION {load.config}
   #0 'control.bib.final.and :=
   #1 'control.cite.final.and :=
   #1 'control.space.before.et.al :=
-  #0 'control.uppercase.family :=
+  #1 'control.uppercase.family :=
   #0 'control.initialize.with.hyphen :=
   #0 'control.check.pinyin :=
   "auto" 'control.cite.lang :=  % auto / chinese / english / macro
@@ -113,8 +113,8 @@ FUNCTION {load.config}
   #1 'control.page.ranges :=
   "-" 'control.page.range.delim :=
   #1 'control.urldate :=
-  #0 'control.url :=
-  #0 'control.doi :=
+  #1 'control.url :=
+  #1 'control.doi :=
   #0 'control.eprint :=
   #0 'control.note :=
   #1 'control.end.dot :=

@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/ustcthesis-authoryear.bst',
+%% This is file `gbt7714-2025-authoryear.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714-bst.dtx  (with options: `2015,ustc,authoryear')
+%% gbt7714-bst.dtx  (with options: `2025,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -76,7 +76,7 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  "halfwidth" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
+  "2025" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
   #3 'control.max.bib.names :=
   #3 'control.min.bib.names :=
   #1 'control.max.cite.names :=
@@ -85,7 +85,7 @@ FUNCTION {load.config}
   #1 'control.cite.final.and :=
   #1 'control.space.before.et.al :=
   #0 'control.uppercase.family :=
-  #0 'control.initialize.with.hyphen :=
+  #1 'control.initialize.with.hyphen :=
   #0 'control.check.pinyin :=
   "auto" 'control.cite.lang :=  % auto / chinese / english / macro
   #1 'control.year.before.title :=
@@ -113,8 +113,8 @@ FUNCTION {load.config}
   #1 'control.page.ranges :=
   "-" 'control.page.range.delim :=
   #1 'control.urldate :=
-  #0 'control.url :=
-  #0 'control.doi :=
+  #1 'control.url :=
+  #1 'control.doi :=
   #0 'control.eprint :=
   #0 'control.note :=
   #1 'control.end.dot :=
@@ -1422,7 +1422,6 @@ FUNCTION {set.entry.numbered}
   type$ "patent" = or
   type$ "regulation" = or
   type$ "report" = or
-  type$ "standard" = or
   type$ "techreport" = or
     { #1 'entry.numbered := }
     { #0 'entry.numbered := }
@@ -2797,7 +2796,10 @@ FUNCTION {format.date.before.title}
 FUNCTION {format.modification.date}
 { date empty$
     {
-      ""
+      year empty$
+        { "" }
+        { year}
+      if$
     }
     { date }
   if$
@@ -2811,12 +2813,7 @@ FUNCTION {format.modification.date}
 
 FUNCTION {format.urldate}
 {
-  control.url require.url or entry.url empty$ not and
-  control.doi
-  doi empty$ not
-  cstr empty$ not or
-  and or
-  control.urldate urldate empty$ not and and
+  control.urldate urldate empty$ not and
     { "\allowbreak" urldate make.brackets * }
     { "" }
   if$
@@ -3123,7 +3120,10 @@ FUNCTION {article.journal}
       format.newspaper.pages output
     }
     {
-      format.date output
+      volume empty$ number empty$ and
+        { format.full.date "year" output.check }
+        { format.date output }
+      if$
       format.journal.volume output
       "" set.punct.check
       format.journal.number output
@@ -3132,8 +3132,6 @@ FUNCTION {article.journal}
     }
   if$
   link.close
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3152,13 +3150,9 @@ FUNCTION {archive}
   % format.translators output
   new.block
   format.address.publisher output
-  format.date output
+  format.full.date "year" output.check
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.modification.date output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3182,8 +3176,6 @@ FUNCTION {book}
   format.date output
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3207,7 +3199,7 @@ FUNCTION {dataset}
   "" set.punct.check
   format.modification.date output
   "" set.punct.check
-  format.urldate output
+  format.urldate "urldate" output.check
   format.url output
   format.doi output
   new.block
@@ -3261,8 +3253,6 @@ FUNCTION {inbook}
       format.date output
       bbl.pages.colon set.punct.check
       format.pages output
-      "" set.punct.check
-      format.urldate output
       format.url output
       format.doi output
       new.block
@@ -3294,8 +3284,6 @@ FUNCTION {incollection}
   format.date output
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3327,8 +3315,6 @@ FUNCTION {inproceedings}
   format.date output
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3354,8 +3340,8 @@ FUNCTION {patent}
   if$
   new.block
   format.full.date "year" output.check
-  "" set.punct.check
-  format.urldate output
+  bbl.pages.colon set.punct.check
+  format.pages output
   format.url output
   format.doi output
   new.block
@@ -3385,8 +3371,6 @@ FUNCTION {periodical}
   new.block
   format.address.publisher output
   format.date output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3410,8 +3394,6 @@ FUNCTION {proceedings}
   format.date output
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3422,7 +3404,7 @@ FUNCTION {proceedings}
 FUNCTION {preprint}
 { #1 'require.url :=
   #1 check.electronic
-  "A" set.entry.type.id
+  "PP" set.entry.type.id
   output.bibitem
   format.authors output
   format.date.before.title output
@@ -3459,8 +3441,6 @@ FUNCTION {thesis}
   format.date output
   bbl.pages.colon set.punct.check
   format.pages output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3482,21 +3462,17 @@ FUNCTION {techreport}
   % new.block
   % format.translators output
   new.block
-  institution empty$
-  pages empty$ and
-  control.url and
-  entry.url empty$ not and
-    'skip$
+  institution empty$ publisher empty$ and
+    { format.full.date "year" output.check
+      bbl.pages.colon set.punct.check
+      format.pages output
+    }
     { format.address.publisher output
       format.date output
       bbl.pages.colon set.punct.check
       format.pages output
     }
   if$
-  "" set.punct.check
-  format.modification.date output
-  "" set.punct.check
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3611,10 +3587,8 @@ FUNCTION {map}
       format.date output
       bbl.pages.colon set.punct.check
       format.pages output
-      "" set.punct.check
-      format.modification.date output
-      "" set.punct.check
-      format.urldate output
+      new.block
+      format.dimensions output
       format.url output
       format.doi output
       new.block
@@ -3645,7 +3619,23 @@ FUNCTION {software}
 
 FUNCTION {standard}
 { "S" set.entry.type.id
-  misc
+  output.bibitem
+  format.authors.editors output
+  format.date.before.title output
+  new.block
+  number field.or.null output
+  is.lang.cjk
+    { "\quad " set.punct.check }
+    { " " set.punct.check }
+  if$
+  format.btitle "title" output.check
+  new.block
+  format.url output
+  new.block
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
 }
 
 FUNCTION {unpublished} { misc }
@@ -3794,7 +3784,6 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_sentence_case boolean.to.int 'control.sentence.case.title :=
       CTL_sentence_case boolean.to.int 'control.sentence.case.booktitle :=
-      CTL_sentence_case boolean.to.int 'control.sentence.case.journal :=
     }
   if$
   CTL_sentence_case_title empty$
@@ -4430,6 +4419,8 @@ FUNCTION {begin.bib}
       control.doi
         { "  \def\doi{\begingroup \urlstyle{same}\Url}"
           write$ newline$
+          "  \def\cstr{\begingroup \urlstyle{same}\Url}"
+          write$ newline$
         }
         'skip$
       if$
@@ -4443,6 +4434,8 @@ FUNCTION {begin.bib}
       write$ newline$
       control.doi
         { "  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+          write$ newline$
+          "  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}"
           write$ newline$
         }
         'skip$

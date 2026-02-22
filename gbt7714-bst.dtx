@@ -12,50 +12,60 @@
 % version 2008 or later.
 %
 %    \begin{macrocode}
-%<*author-year|numerical>
 INTEGERS {
-  citation.et.al.min
-  citation.et.al.use.first
-  bibliography.et.al.min
-  bibliography.et.al.use.first
-  uppercase.name
-  terms.in.macro
-  year.after.author
-  period.after.author
-  italic.book.title
-  sentence.case.title
-  link.title
-  title.in.journal
-  show.patent.country
-  show.mark
-  space.before.mark
-  show.medium.type
-  short.journal
-  italic.journal
-  link.journal
-  bold.journal.volume
-  show.missing.address.publisher
-  space.before.pages
-  only.start.page
-  show.urldate
-  show.url
-  show.doi
-  show.note
-  show.english.translation
-  end.with.period
-  lowercase.word.after.colon
-%<*author-year>
+  control.max.bib.names
+  control.min.bib.names
+  control.max.cite.names
+  control.min.cite.names
+  control.uppercase.family
+  control.initialize.with.hyphen
+  control.check.pinyin
+  control.cite.final.and
+  control.bib.final.and
+  control.space.before.et.al
+  control.year.before.title
+  control.sentence.case.title
+  control.sentence.case.journal
+  control.sentence.case.booktitle
+  control.link.title
+  control.article.title
+  control.patent.country
+  control.entry.type.id
+  control.space.before.type.id
+  control.entry.medium.id
+  control.in
+  control.emph.booktitle
+  control.emph.journal
+  control.short.journal
+  control.dotless.journal
+  control.link.journal
+  control.bold.volume
+  control.unknown.publisher
+  control.space.before.pages
+  control.page.ranges
+  control.urldate
+  control.url
+  control.doi
+  control.eprint
+  control.note
+  control.end.dot
+  control.capitalize.subtitle
+  control.warn.empty.field
+%<*authoryear>
   lang.zh.order
   lang.ja.order
   lang.en.order
   lang.ru.order
   lang.other.order
-%</author-year>
+%</authoryear>
 }
 
 STRINGS {
-  component.part.label
-  page.range.delimiter
+  control.punct.style
+  control.cite.lang
+  control.name.year.delim
+  control.component.part.delim
+  control.page.range.delim
 }
 
 %    \end{macrocode}
@@ -67,311 +77,275 @@ FUNCTION {load.config}
 {
 %    \end{macrocode}
 %
-% 如果姓名的数量大于等于 |et.al.min|，只著录前 |et.al.use.first| 个，
-% 其后加“et al.”或“等”。
 %    \begin{macrocode}
+%<*2025>
+  "2025" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
+%</2025>
+%<*!(2025|thu|ucas|ustc)>
+  "2015" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
+%</!(2025|thu|ucas|ustc)>
+%<*thu|ucas|ustc>
+  "halfwidth" 'control.punct.style :=  % 2025 / 2015 / halfwidth / bylanguage
+%</thu|ucas|ustc>
+%    \end{macrocode}
+%
+% 姓名的数量超过 |control.max.bib.names| 时，只著录前 |control.min.bib.names| 个，
+%  其后加“，等”或与之相应的词。
+%    \begin{macrocode}
+  #3 'control.max.bib.names :=
+  #3 'control.min.bib.names :=
 %<*!ucas>
-  #2 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #1 'control.max.cite.names :=
+  #1 'control.min.cite.names :=
 %</!ucas>
 %<*ucas>
-  #3 'citation.et.al.min :=
-  #1 'citation.et.al.use.first :=
+  #2 'control.max.cite.names :=
+  #1 'control.min.cite.names :=
 %</ucas>
-  #4 'bibliography.et.al.min :=
-  #3 'bibliography.et.al.use.first :=
 %    \end{macrocode}
+%
+%    \begin{macrocode}
+  #0 'control.bib.final.and :=
+  #1 'control.cite.final.and :=
+%    \end{macrocode}
+%
+%     \begin{macrocode}
+  #1 'control.space.before.et.al :=
+%     \end{macrocode}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
-%<*!(no-uppercase|thu|ustc)>
-  #1 'uppercase.name :=
-%</!(no-uppercase|thu|ustc)>
-%<*no-uppercase|thu|ustc>
-  #0 'uppercase.name :=
-%</no-uppercase|thu|ustc>
+%<*!(2005|2015)|thu|ustc>
+  #0 'control.uppercase.family :=
+%</!(2005|2015)|thu|ustc>
+%<*(2005|2015)&!(thu|ustc)>
+  #1 'control.uppercase.family :=
+%</(2005|2015)&!(thu|ustc)>
+%    \end{macrocode}
+%
+% 名字缩写时是否保留连字符：
+%    \begin{macrocode}
+%<*!(2005|2015)>
+  #1 'control.initialize.with.hyphen :=
+%</!(2005|2015)>
+%<*(2005|2015)>
+  #0 'control.initialize.with.hyphen :=
+%</(2005|2015)>
+%    \end{macrocode}
+%
+% 检查姓名是否为拼音：
+%    \begin{macrocode}
+  #0 'control.check.pinyin :=
 %    \end{macrocode}
 %
 % 使用 TeX 宏输出“和”、“等”
 %    \begin{macrocode}
-%<*!(macro|ucas)>
-  #0 'terms.in.macro :=
-%</!(macro|ucas)>
-%<*macro|ucas>
-  #1 'terms.in.macro :=
-%</macro|ucas>
+%<*!ucas>
+  "auto" 'control.cite.lang :=  % auto / chinese / english / macro
+%</!ucas>
+%<*ucas>
+  "macro" 'control.cite.lang :=  % auto / chinese / english / macro
+%</ucas>
 %    \end{macrocode}
 %
 % 将年份置于著者后面（著者-出版年制默认）
 %    \begin{macrocode}
-%<*numerical|ucas>
-  #0 'year.after.author :=
-%</numerical|ucas>
-%<*author-year&!ucas>
-  #1 'year.after.author :=
-%</author-year&!ucas>
+%<*numeric|ucas>
+  #0 'control.year.before.title :=
+%</numeric|ucas>
+%<*authoryear&!ucas>
+  #1 'control.year.before.title :=
+%</authoryear&!ucas>
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
-%<*numerical>
-  #1 'period.after.author :=
-%</numerical>
-%<*author-year>
-%<*2015&!(period)>
-  #0 'period.after.author :=
-%</2015&!(period)>
-%<*period|2005>
-  #1 'period.after.author :=
-%</period|2005>
-%</author-year>
+%<*numeric>
+  "period" 'control.name.year.delim :=  % comma / period
+%</numeric>
+%<*authoryear>
+%<*!2005>
+  "comma" 'control.name.year.delim :=  % comma / period
+%</!2005>
+%<*2005>
+  "period" 'control.name.year.delim :=  % comma / period
+%</2005>
+%</authoryear>
+%    \end{macrocode}
+%
+% 英文标题转为 sentence case （句首字母大写，其余小写）：
+%    \begin{macrocode}
+  #1 'control.sentence.case.title :=
+  #1 'control.sentence.case.booktitle :=
+%<*!(2005|2015)|thu|ustc>
+  #0 'control.sentence.case.journal :=
+%</!(2005|2015)|thu|ustc>
+% TODO: set this to #1 after implementation of GB/T 7714-2025
+%<*(2005|2015)&!(thu|ustc)>
+  #0 'control.sentence.case.journal :=
+%</(2005|2015)&!(thu|ustc)>
+%    \end{macrocode}
+%
+% Sentence case 的标题在冒号后是否大写：
+%    \begin{macrocode}
+  #0 'control.capitalize.subtitle :=
+%    \end{macrocode}
+%
+% 在标题添加超链接：
+%    \begin{macrocode}
+  #0 'control.link.title :=
+%    \end{macrocode}
+%
+% 期刊是否含标题（参考 \pkg{bilatex-phys} 的选项），此选项也适用于 @incollection,
+% @inproceedings, @patent 的标题，它们的处理方式相同。
+%    \begin{macrocode}
+  #1 'control.article.title :=
+%    \end{macrocode}
+%
+% 专利题名是否含专利国别
+%    \begin{macrocode}
+%<*!(2005|thu)>
+  #0 'control.patent.country :=
+%</!(2005|thu)>
+%<*(2005|thu)>
+  #1 'control.patent.country :=
+%</(2005|thu)>
+%    \end{macrocode}
+%
+% 控制是否著录类型标识（比如“[M/OL]，含文献载体标识）：
+%    \begin{macrocode}
+  #1 'control.entry.type.id :=
+%    \end{macrocode}
+%
+% 题名与文献类型标识的分隔符。
+%    \begin{macrocode}
+  #0 'control.space.before.type.id :=
+%    \end{macrocode}
+%
+% 是否显示载体类型标识（比如“/OL“）：
+%    \begin{macrocode}
+  #1 'control.entry.medium.id :=
+%    \end{macrocode}
+%
+% 使用“//”表示析出文献
+%    \begin{macrocode}
+  "slash" 'control.component.part.delim :=
+%    \end{macrocode}
+%
+% 控制是否使用”In:”和“见”。
+%    \begin{macrocode}
+  #0 'control.in :=
 %    \end{macrocode}
 %
 % 书名使用斜体：
 %    \begin{macrocode}
 %<*!italic-book-title>
-  #0 'italic.book.title :=
+  #0 'control.emph.booktitle :=
 %</!italic-book-title>
 %<*italic-book-title>
-  #1 'italic.book.title :=
+  #1 'control.emph.booktitle :=
 %</italic-book-title>
-%    \end{macrocode}
-%
-% 英文标题转为 sentence case （句首字母大写，其余小写）：
-%    \begin{macrocode}
-%<*!no-sentence-case>
-  #1 'sentence.case.title :=
-%</!no-sentence-case>
-%<*no-sentence-case>
-  #0 'sentence.case.title :=
-%</no-sentence-case>
-%    \end{macrocode}
-%
-% 在标题添加超链接：
-%    \begin{macrocode}
-%<*!link-title>
-  #0 'link.title :=
-%</!link-title>
-%<*link-title>
-  #1 'link.title :=
-%</link-title>
-%    \end{macrocode}
-%
-% 期刊是否含标题：
-%    \begin{macrocode}
-%<*!no-title-in-journal>
-  #1 'title.in.journal :=
-%</!no-title-in-journal>
-%<*no-title-in-journal>
-  #0 'title.in.journal :=
-%</no-title-in-journal>
-%    \end{macrocode}
-%
-% 专利题名是否含专利国别
-%    \begin{macrocode}
-%<*!(show-patent-country|2005|thu)>
-  #0 'show.patent.country :=
-%</!(show-patent-country|2005|thu)>
-%<*(show-patent-country|2005|thu)>
-  #1 'show.patent.country :=
-%</(show-patent-country|2005|thu)>
-%    \end{macrocode}
-%
-% 著录文献类型标识（比如“[M/OL]“）：
-%    \begin{macrocode}
-%<*!no-mark>
-  #1 'show.mark :=
-%</!no-mark>
-%<*no-mark>
-  #0 'show.mark :=
-%</no-mark>
-%    \end{macrocode}
-%
-% 文献类型标识前是否有空格：
-%    \begin{macrocode}
-%<*!space-before-mark>
-  #0 'space.before.mark :=
-%</!space-before-mark>
-%<*space-before-mark>
-  #1 'space.before.mark :=
-%</space-before-mark>
-%    \end{macrocode}
-%
-% 是否显示载体类型标识（比如“/OL“）：
-%    \begin{macrocode}
-%<*!no-medium-type>
-  #1 'show.medium.type :=
-%</!no-medium-type>
-%<*no-medium-type>
-  #0 'show.medium.type :=
-%</no-medium-type>
-%    \end{macrocode}
-%
-% 使用“//”表示析出文献
-%    \begin{macrocode}
-%<*!(in-collection|no-slash)>
-  "slash" 'component.part.label :=
-%</!(in-collection|no-slash)>
-%<*in-collection>
-  "in" 'component.part.label :=
-%</in-collection>
-%<*no-slash>
-  "none" 'component.part.label :=
-%</no-slash>
-%    \end{macrocode}
-%
-% 期刊名使用缩写：
-%    \begin{macrocode}
-%<*!short-journal>
-  #0 'short.journal :=
-%</!short-journal>
-%<*short-journal>
-  #1 'short.journal :=
-%</short-journal>
 %    \end{macrocode}
 %
 % 期刊名使用斜体：
 %    \begin{macrocode}
-%<*!italic-journal>
-  #0 'italic.journal :=
-%</!italic-journal>
-%<*italic-journal>
-  #1 'italic.journal :=
-%</italic-journal>
+  #0 'control.emph.journal :=
+%    \end{macrocode}
+%
+% 期刊名使用缩写：
+%    \begin{macrocode}
+  #0 'control.short.journal :=
+%    \end{macrocode}
+%
+% 刊名缩写是否去除缩写点：
+%    \begin{macrocode}
+  #1 'control.dotless.journal :=
 %    \end{macrocode}
 %
 % 在期刊题名添加超链接：
 %    \begin{macrocode}
-%<*!link-journal>
-  #0 'link.journal :=
-%</!link-journal>
-%<*link-journal>
-  #1 'link.journal :=
-%</link-journal>
+  #0 'control.link.journal :=
 %    \end{macrocode}
 %
 % 期刊的卷使用粗体：
 %    \begin{macrocode}
-  #0 'bold.journal.volume :=
+  #0 'control.bold.volume :=
 %    \end{macrocode}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-%<*!sl-sn>
-  #0 'show.missing.address.publisher :=
-%</!sl-sn>
-%<*sl-sn>
-  #1 'show.missing.address.publisher :=
-%</sl-sn>
+  #0 'control.unknown.publisher :=
 %    \end{macrocode}
 %
 % 页码与前面的冒号之间是否有空格：
 %    \begin{macrocode}
-%<*!no-space-before-pages>
-  #1 'space.before.pages :=
-%</!no-space-before-pages>
-%<*no-space-before-pages>
-  #0 'space.before.pages :=
-%</no-space-before-pages>
+  #1 'control.space.before.pages :=
 %    \end{macrocode}
 %
 % 页码是否只含起始页：
 %    \begin{macrocode}
-%<*!only-start-page>
-  #0 'only.start.page :=
-%</!only-start-page>
-%<*only-start-page>
-  #1 'only.start.page :=
-%</only-start-page>
+  #1 'control.page.ranges :=
 %    \end{macrocode}
 %
 % 起止页码中的连接号：
 %    \begin{macrocode}
-%<*!(en-dash-page-range-delimiter|wave-dash-page-range-delimiter)>
-  "-" 'page.range.delimiter :=
-%</!(en-dash-page-range-delimiter|wave-dash-page-range-delimiter)>
-%<*en-dash-page-range-delimiter>
-  "--" 'page.range.delimiter :=
-%</en-dash-page-range-delimiter>
-%<*wave-dash-page-range-delimiter>
-  "～" 'page.range.delimiter :=
-%</wave-dash-page-range-delimiter>
+  "-" 'control.page.range.delim :=
 %    \end{macrocode}
 %
 % 是否著录非电子文献的引用日期：
 %    \begin{macrocode}
-%<*!no-urldate>
-  #1 'show.urldate :=
-%</!no-urldate>
-%<*no-urldate>
-  #0 'show.urldate :=
-%</no-urldate>
+  #1 'control.urldate :=
 %    \end{macrocode}
 %
 % 是否著录 URL：
 %    \begin{macrocode}
-%<*!(no-url|ustc)>
-  #1 'show.url :=
-%</!(no-url|ustc)>
-%<*no-url|ustc>
-  #0 'show.url :=
-%</no-url|ustc>
+%<*!(ustc)>
+  #1 'control.url :=
+%</!(ustc)>
+%<*ustc>
+  #0 'control.url :=
+%</ustc>
 %    \end{macrocode}
 %
 % 是否著录 DOI：
 %    \begin{macrocode}
-%<*!(no-doi|2005|ustc)>
-  #1 'show.doi :=
-%</!(no-doi|2005|ustc)>
-%<*no-doi|2005|ustc>
-  #0 'show.doi :=
-%</no-doi|2005|ustc>
+%<*!(2005|ustc)>
+  #1 'control.doi :=
+%</!(2005|ustc)>
+%<*2005|ustc>
+  #0 'control.doi :=
+%</2005|ustc>
+%    \end{macrocode}
+%
+% 是否著录预印本的标识符 eprint（“arXiv:1112.6136”的编号部分。
+%    \begin{macrocode}
+  #0 'control.eprint :=
 %    \end{macrocode}
 %
 % 在每一条文献最后输出注释（note）的内容：
 %    \begin{macrocode}
-  #0 'show.note :=
-%    \end{macrocode}
-%
-% 中文文献是否显示英文翻译
-%    \begin{macrocode}
-%<*!show-english-translation>
-  #0 'show.english.translation :=
-%</!show-english-translation>
-%<*show-english-translation>
-  #1 'show.english.translation :=
-%</show-english-translation>
+  #0 'control.note :=
 %    \end{macrocode}
 %
 % 结尾加句点
 %    \begin{macrocode}
-%<*!no-period-at-end>
-  #1 'end.with.period :=
-%</!no-period-at-end>
-%<*no-period-at-end>
-  #0 'end.with.period :=
-%</no-period-at-end>
+  #1 'control.end.dot :=
 %    \end{macrocode}
 %
-% 将冒号后的单词变成小写
+% 是否警告缺失的字段。
 %    \begin{macrocode}
-%<*!no-lowercase-word-after-colon>
-  #1 'lowercase.word.after.colon :=
-%</!no-lowercase-word-after-colon>
-%<*no-lowercase-word-after-colon>
-  #0 'lowercase.word.after.colon :=
-%</no-lowercase-word-after-colon>
+  #1 'control.warn.empty.field :=
 %    \end{macrocode}
 %
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
 %    \begin{macrocode}
-%<*author-year>
+%<*authoryear>
   #1 'lang.zh.order :=
   #2 'lang.ja.order :=
   #3 'lang.en.order :=
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
-%</author-year>
+%</authoryear>
 }
 
 %    \end{macrocode}
@@ -387,49 +361,113 @@ FUNCTION {load.config}
 %    \begin{macrocode}
 ENTRY
   { address
-    archivePrefix
+    archiveprefix
     author
+    bookauthor
+    booksubtitle
     booktitle
+    booktitleaddon
+    country  % 专利国别
+    cstr
     date
+    dimensions
     doi
     edition
     editor
+    eid
+    entrymediumid
+    entrysubtype
+    entrytypeid
+    eventtitle
     eprint
     eprinttype
-    entrysubtype
+    holder
     howpublished
     institution
     journal
+    journalsubtitle
     journaltitle
+    journaltitleaddon
     key
     langid
     language
     location
+    mainsubtitle
+    maintitle
+    maintitleaddon
     mark
     medium
+    nationality  % 专利国别，兼容 IEEEtran.bst
     note
     number
     organization
     pages
     publisher
+    scale
     school
     series
     shortjournal
+    subtitle
     title
-    translation
+    titleaddon
     translator
     url
     urldate
+    version
     volume
     year
+    CTL_punct_style
+    CTL_max_bib_names
+    CTL_min_bib_names
+    CTL_max_cite_names
+    CTL_min_cite_names
+    CTL_uppercase_family
+    CTL_initialize_with_hyphen
+    CTL_check_pinyin
+    CTL_bib_final_and
+    CTL_cite_final_and
+    CTL_cite_lang
+    CTL_space_before_et_al
+    CTL_year_before_title
+    CTL_name_year_delim
+    CTL_sentence_case
+    CTL_sentence_case_title
+    CTL_sentence_case_booktitle
+    CTL_sentence_case_journal
+    CTL_capitalize_subtitle
+    CTL_link_title
+    CTL_article_title
+    CTL_patent_country
+    CTL_entry_type_id
+    CTL_space_before_type_id
+    CTL_entry_medium_id
+    CTL_component_part_delim
+    CTL_in
+    CTL_emph_booktitle
+    CTL_emph_journal
+    CTL_short_journal
+    CTL_dotless_journal
+    CTL_link_journal
+    CTL_bold_volume
+    CTL_unknown_publisher
+    CTL_space_before_pages
+    CTL_page_ranges
+    CTL_page_range_delim
+    CTL_urldate
+    CTL_url
+    CTL_doi
+    CTL_eprint
+    CTL_note
+    CTL_end_dot
+    CTL_warn_empty_field
   }
-  { entry.lang entry.is.electronic is.pure.electronic entry.numbered }
+  { entry.lang is.lang.cjk is.online entry.numbered require.url }
 %    \end{macrocode}
 %
 % These string entry variables are used to form the citation label.
 % In a storage pinch, sort.label can be easily computed on the fly.
 %    \begin{macrocode}
-  { label extra.label sort.label short.list entry.mark entry.url }
+  { label extra.label sort.label short.list entry.type.id entry.eprint entry.url }
 
 %    \end{macrocode}
 %
@@ -478,9 +516,6 @@ ENTRY
 % on the stack, and writes the old saved value followed by any needed
 % separator.  The ordering of the tests is decreasing frequency of
 % occurrence.
-%
-% 由于专著中的析出文献需要用到很特殊的“//”，所以我又加了一个 after.slash。
-% 其他需要在特定符号后面输出，所以写了一个 output.after。
 %
 % \begin{pseudocode}
 % output.nonnull(s) ==
@@ -591,23 +626,58 @@ ENTRY
 %  END
 % \end{pseudocode}
 %    \begin{macrocode}
-INTEGERS { output.state before.all mid.sentence after.sentence after.block after.slash }
+INTEGERS { output.state before.all mid.sentence after.sentence after.block after.punct }
 
-INTEGERS { lang.zh lang.ja lang.en lang.ru lang.other }
+INTEGERS { lang.zh lang.ja lang.ko lang.en lang.ru lang.other }
 
 INTEGERS { charptr len }
+
+STRINGS { pinyin.table }
 
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
-  #4 'after.slash :=
+  #4 'after.punct :=
   #3 'lang.zh :=
   #4 'lang.ja :=
+  #5 'lang.ko :=
   #1 'lang.en :=
   #2 'lang.ru :=
   #0 'lang.other :=
+  " a ai an ang ao "
+  "ba bai ban bang bao bei ben beng bi bian biao bie bin bing bo bu " *
+  "ca cai can cang cao ce cen ceng cha chai chan chang chao che chen cheng chi chong chou chu chuai chuan chuang chui chun chuo ci cong cou cu cuan cui cun cuo " *
+  "da dai dan dang dao de dei deng di dia dian diao die ding diu dong dou du duan dui dun duo " *
+  "e ei en eng er " *
+  "fa fan fang fei fen feng fo fou fu " *
+  "ga gai gan gang gao ge gei gen geng gong gou gu gua guai guan guang gui gun guo " *
+  "ha hai han hang hao he hei hen heng hong hou hu hua huai huan huang hui hun huo " *
+  "ji jia jian jiang jiao jie jin jing jiong jiu ju juan jue jun " *
+  "ka kai kan kang kao ke ken keng kong kou ku kua kuai kuan kuang kui kun kuo " *
+  "la lai lan lang lao le lei leng li lia lian liang liao lie lin ling liu long lou lu luan lun luo lü lüe lyu lyue " *
+  "ma mai man mang mao me mei men meng mi mian miao mie min ming miu mo mou mu " *
+  "na nai nan nang nao ne nei nen neng ni nian niang niao nie nin ning niu nong nu nuan nuo nü nüe nyu nyue " *
+  "o ou " *
+  "pa pai pan pang pao pei pen peng pi pian piao pie pin ping po pou pu " *
+  "qi qia qian qiang qiao qie qin qing qiong qiu qu quan que qun " *
+  "ran rang rao re ren reng ri rong rou ru ruan rui run ruo " *
+  "sa sai san sang sao se sen seng sha shai shan shang shao she shei shen sheng shi shou shu shua shuai shuan shuang shui shun shuo si song sou su suan sui sun suo " *
+  "ta tai tan tang tao te teng ti tian tiao tie ting tong tou tu tuan tui tun tuo " *
+  "wa wai wan wang wei wen weng wo wu " *
+  "xi xia xian xiang xiao xie xin xing xiong xiu xu xuan xue xun " *
+  "ya yan yang yao ye yi yin ying yong you yu yuan yue yun " *
+  "za zai zan zang zao ze zei zen zeng zha zhai zhan zhang zhao zhe zhei zhen zheng zhi zhong zhou zhu zhua zhuai zhuan zhuang zhui zhun zhuo zi zong zou zu zuan zui zun zuo " *
+  'pinyin.table :=
+%<*deprecated>
+%<*numeric>
+  "The style name 'gbt7714-numerical' is deprecated. Use 'gbt7714-numeric' instead." warning$
+%</numeric>
+%<*authoryear>
+  "The style name 'gbt7714-author-year' is deprecated. Use 'gbt7714-authoryear' instead." warning$
+%</authoryear>
+%</deprecated>
 }
 
 %    \end{macrocode}
@@ -621,23 +691,46 @@ FUNCTION {bbl.anonymous}
   if$
 }
 
-FUNCTION {bbl.space}
+FUNCTION {bbl.no.date}
 { entry.lang lang.zh =
-    { "\ " }
+    { "无日期" }
+    { "n.d." }
+  if$
+}
+
+FUNCTION {space.precedes.et.al}
+{ is.lang.cjk
+    { control.space.before.et.al
+        { "\ " }
+        { "" }
+      if$
+    }
     { " " }
   if$
 }
 
 FUNCTION {bbl.and}
-{ "" }
+{ entry.lang lang.zh =
+    { "和" }
+    { entry.lang lang.ja =
+        { "と" }
+        { entry.lang lang.ru =
+            { "и" }
+            { "and" }
+          if$
+        }
+      if$
+    }
+  if$
+}
 
 FUNCTION {bbl.et.al}
 { entry.lang lang.zh =
     { "等" }
     { entry.lang lang.ja =
-        { "他" }
+        { "ほか" }
         { entry.lang lang.ru =
-            { "идр" }
+            { "и~др." }
             { "et~al." }
           if$
         }
@@ -646,26 +739,47 @@ FUNCTION {bbl.et.al}
   if$
 }
 
-FUNCTION {citation.and}
-{ terms.in.macro
-    { "{\biband}" }
+FUNCTION {cite.and}
+{ control.cite.lang "auto" =
     'bbl.and
+    { control.cite.lang "macro" =
+        { "{\biband}" }
+        { control.cite.lang "chinese" =
+            { "和" }
+            { "and" }
+          if$
+        }
+      if$
+    }
   if$
 }
 
-FUNCTION {citation.et.al}
-{ terms.in.macro
-    { "{\bibetal}" }
-    'bbl.et.al
+FUNCTION {cite.et.al}
+{ control.cite.lang "auto" =
+    { bbl.et.al }
+    { control.cite.lang "macro" =
+        { "{\bibetal}" }
+        { control.cite.lang "chinese" =
+            { "等" }
+            { "et~al." }
+          if$
+        }
+      if$
+    }
   if$
 }
 
-FUNCTION {bbl.colon} { ": " }
+FUNCTION {bbl.in}
+{ entry.lang lang.zh =
+    { "见" }
+    { "In" }
+  if$
+}
 
-FUNCTION {bbl.pages.colon}
-{ space.before.pages
-    { ": " }
-    { ":\allowbreak " }
+FUNCTION {bbl.translator}
+{ entry.lang lang.zh =
+    { "译" }
+    { "trans." }
   if$
 }
 
@@ -676,26 +790,41 @@ FUNCTION {bbl.wide.space} { "\quad " }
 FUNCTION {bbl.wide.space} { "\ " }
 %</2005>
 
-FUNCTION {bbl.slash} { "//\allowbreak " }
+FUNCTION {bbl.edition}
+{ entry.lang lang.zh =
+    { "版" }
+    { entry.lang lang.ja =
+        { "版" }
+        { entry.lang lang.ru =
+            { "изд." }
+            { "ed." }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {bbl.double.slash} { "//\allowbreak" }
 
 FUNCTION {bbl.sine.loco}
 { entry.lang lang.zh =
-    { "[出版地不详]" }
-    { "[S.l.]" }
+    { "出版地不详" }
+    { "S.l." }
   if$
 }
 
 FUNCTION {bbl.sine.nomine}
 { entry.lang lang.zh =
-    { "[出版者不详]" }
-    { "[s.n.]" }
+    { "出版者不详" }
+    { "s.n." }
   if$
 }
 
 FUNCTION {bbl.sine.loco.sine.nomine}
 { entry.lang lang.zh =
-    { "[出版地不详: 出版者不详]" }
-    { "[S.l.: s.n.]" }
+    { "出版地不详: 出版者不详" }
+    { "S.l.: s.n." }
   if$
 }
 
@@ -732,15 +861,30 @@ FUNCTION {or}
   if$
 }
 
+FUNCTION {string.length}
+{ #0 swap$
+    { duplicate$ "" = not }
+    { swap$ #1 + swap$
+      #2 global.max$ substring$
+    }
+  while$
+  pop$
+}
+
 STRINGS { x y }
 
+STRINGS { replace find text }
+
+% The "X Y contains" function checks if string Y is contained in X.
+% Although we only need to check if Y is at the beginning of X,
+% it makes no practical difference, so just use it as-is.
 FUNCTION {contains}
-{ 'y :=
-  'x :=
-  y text.length$ 'len :=
-  x text.length$ len - #1 + 'charptr :=
+{ 'find :=
+  'text :=
+  find string.length 'len :=
+  text string.length len - #1 + 'charptr :=
     { charptr #0 >
-      x charptr len substring$ y = not
+      text charptr len substring$ find = not
       and
     }
     { charptr #1 - 'charptr := }
@@ -754,22 +898,188 @@ FUNCTION {contains}
 %    \begin{macrocode}
 STRINGS { s t }
 
+FUNCTION {add.period}
+{ "2025" control.punct.style =
+  "2015" control.punct.style = or
+  "halfwidth" control.punct.style = or
+    'add.period$
+    { is.lang.cjk
+        { "．" * }
+        'add.period$
+      if$
+    }
+  if$
+}
+
+FUNCTION {add.comma}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { "，" * }
+    { ", " * }
+  if$
+}
+
+FUNCTION {add.colon}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { "：" * }
+    { ": " * }
+  if$
+}
+
+FUNCTION {add.colon.by.language}
+{ is.lang.cjk
+    { "：" * }
+    { ": " * }
+  if$
+}
+
+FUNCTION {bbl.pages.colon}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { "：" }
+    { control.space.before.pages
+        { ": " }
+        { ":\allowbreak " }
+      if$
+    }
+  if$
+}
+
+FUNCTION {after.period.space}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+    { "" }
+    { " " }
+  if$
+}
+
+FUNCTION {make.parentheses}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { "（" }
+    { "(" }
+  if$
+  swap$ *
+  is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { "）" }
+    { ")" }
+  if$
+  *
+}
+
+FUNCTION {make.brackets}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+    { "［" swap$ * "］" * }
+    { "[" swap$ * "]" * }
+  if$
+}
+
+INTEGERS { find_length }
+FUNCTION { find.replace }
+{ 'replace :=
+  'find :=
+  'text :=
+  find string.length 'find_length :=
+  ""
+    { text empty$ not }
+    { text #1 find_length substring$ find =
+        { replace *
+          text #1 find_length + global.max$ substring$ 'text :=
+        }
+        { text #1 #1 substring$ *
+          text #2 global.max$ substring$ 'text :=
+        }
+      if$
+    }
+  while$
+}
+
+FUNCTION {format.punctuations}
+{ is.lang.cjk
+  "bylanguage" control.punct.style = and
+  "2015" control.punct.style = or
+  "2025" control.punct.style = or
+    { ", " "，" find.replace
+      ": " "：" find.replace
+      "; " "；" find.replace
+      " (" "（" find.replace
+      "(" "（" find.replace
+      ") " "）" find.replace
+      ")" "）" find.replace
+      "2025" control.punct.style =
+        'skip$
+        { " [" "［" find.replace
+          "[" "［" find.replace
+          "] " "］" find.replace
+          "]" "］" find.replace
+        }
+      if$
+    }
+    { "，" ", " find.replace
+      "：" ": " find.replace
+    }
+  if$
+  is.lang.cjk
+    { "---" "—" find.replace
+      "--" "—" find.replace
+    }
+    { "“" "``" find.replace
+      "”" "''" find.replace
+      "‘" "`" find.replace
+      "’" "'" find.replace
+      "—" "---" find.replace
+      "–" "--" find.replace
+    }
+  if$
+}
+
+STRINGS { output.punct }
+
+% FUNCTION {set.unit}
+% { output.state before.all =
+%     'pop$
+%     { pop$ }
+%   if$
+% }
+
+FUNCTION {set.punct.check}
+{ output.state mid.sentence =
+  output.state after.punct = or
+    { 'output.punct :=
+      after.punct 'output.state :=
+    }
+    'pop$
+  if$
+}
+
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
-    { ", " * write$ }
+    { add.comma write$ }
     { output.state after.block =
-        { add.period$ write$
+        { add.period write$
           newline$
           "\newblock " write$
         }
         { output.state before.all =
             'write$
-            { output.state after.slash =
-                { bbl.slash * write$
-                  newline$
-                }
-                { add.period$ " " * write$ }
+            { output.state after.punct =
+                { output.punct * write$ }
+                { add.period after.period.space * write$ }
               if$
             }
           if$
@@ -788,40 +1098,15 @@ FUNCTION {output}
   if$
 }
 
-FUNCTION {output.after}
-{ 't :=
-  duplicate$ empty$
-    'pop$
-    { 's :=
-      output.state mid.sentence =
-        { t * write$ }
-        { output.state after.block =
-            { add.period$ write$
-              newline$
-              "\newblock " write$
-            }
-            { output.state before.all =
-                'write$
-                { output.state after.slash =
-                    { bbl.slash * write$ }
-                    { add.period$ " " * write$ }
-                  if$
-                }
-              if$
-            }
-          if$
-          mid.sentence 'output.state :=
-        }
-      if$
-      s
-    }
-  if$
-}
-
 FUNCTION {output.check}
 { 't :=
   duplicate$ empty$
-    { pop$ "empty " t * " in " * cite$ * warning$ }
+    { pop$
+      control.warn.empty.field
+        { "empty " t * " in " * cite$ * warning$ }
+        'skip$
+      if$
+    }
     'output.nonnull
   if$
 }
@@ -832,28 +1117,18 @@ FUNCTION {output.check}
 %
 %    \begin{macrocode}
 FUNCTION {fin.entry}
-{ end.with.period
-    'add.period$
+{ control.end.dot
+    'add.period
     'skip$
   if$
   write$
-  show.english.translation entry.lang lang.zh = and
-    { ")"
-      write$
-    }
-    'skip$
-  if$
   newline$
 }
 
 FUNCTION {new.block}
 { output.state before.all =
-    'skip$
-    { output.state after.slash =
         'skip$
         { after.block 'output.state := }
-      if$
-    }
   if$
 }
 
@@ -861,12 +1136,8 @@ FUNCTION {new.sentence}
 { output.state after.block =
     'skip$
     { output.state before.all =
-        'skip$
-        { output.state after.slash =
             'skip$
             { after.sentence 'output.state := }
-          if$
-        }
       if$
     }
   if$
@@ -875,22 +1146,13 @@ FUNCTION {new.sentence}
 FUNCTION {new.slash}
 { output.state before.all =
     'skip$
-    { component.part.label "slash" =
-        { after.slash 'output.state := }
-        { new.block
-          component.part.label "in" =
-            { entry.lang lang.en =
-                { "In: " output
-                  write$
-                  ""
-                  before.all 'output.state :=
-                }
-                'skip$
-              if$
-            }
-            'skip$
-          if$
+    { control.component.part.delim "slash" =
+        { bbl.double.slash * write$
+          newline$
+          ""
+          before.all 'output.state :=
         }
+        { new.block }
       if$
     }
   if$
@@ -947,7 +1209,7 @@ FUNCTION {new.sentence.checkb}
 % variables.  Exceptions are made for some unary functions, where it is
 % convenient for the callee to do so.
 %    \begin{macrocode}
-INTEGERS { b }
+INTEGERS { a b }
 
 %    \end{macrocode}
 %
@@ -957,8 +1219,7 @@ INTEGERS { b }
 % codepoint: int, a: int, b: int -> bool
 % variable used: b
 FUNCTION {is.int.in.range}
-{
-  'b :=
+{ 'b :=
   #1 +
   b >
     { #1 - b < }
@@ -972,10 +1233,8 @@ FUNCTION {is.int.in.range}
 %    \begin{macrocode}
 % m: int, n: int -> int
 FUNCTION {mult.power2}
-{
-  { duplicate$ #0 > }
-    {
-      swap$
+{ { duplicate$ #0 > }
+    { swap$
       duplicate$ +
       swap$ #1 -
     }
@@ -994,18 +1253,14 @@ FUNCTION {mult.power2}
 % "{", str -> subtoken: str, rest: str
 % variables used: s, t
 FUNCTION {find.match.brace}
-{
-  's :=
+{ 's :=
   't :=
-
   #1
   { duplicate$ #0 >
     s empty$ not and }
-    {
-      s #1 #1 substring$ "{" =
+    { s #1 #1 substring$ "{" =
         { #1 + }
-        {
-          s #1 #1 substring$ "}" =
+        { s #1 #1 substring$ "}" =
             { #1 - }
             'skip$
           if$
@@ -1017,11 +1272,9 @@ FUNCTION {find.match.brace}
   while$
 
   duplicate$ #0 >
-    {
-      "Unbalanced brace(s): one or more closing braces are missing" warning$
+    { "Unbalanced brace(s): one or more closing braces are missing" warning$
       { duplicate$ #0 > }
-        {
-          t "}" * 't :=
+        { t "}" * 't :=
           #1 -
         }
       while$
@@ -1041,32 +1294,23 @@ FUNCTION {find.match.brace}
 %    \begin{macrocode}
 % str -> str, char
 FUNCTION {split.first.char.from.str}
-{
-  duplicate$ "" =
-    {
-      "split.first.char.from.str: Trying to split an empty string!" warning$
+{ duplicate$ "" =
+    { "split.first.char.from.str: Trying to split an empty string!" warning$
       ""
     }
-    {
-      duplicate$ #1 #1 substring$ chr.to.int$ #128 <
-        {
-          duplicate$ #1 #1 substring$ swap$
+    { duplicate$ #1 #1 substring$ chr.to.int$ #128 <
+        { duplicate$ #1 #1 substring$ swap$
           #2 global.max$ substring$ swap$
         }
-        {
-          duplicate$ #1 #1 substring$ chr.to.int$ #224 <
-            {
-              duplicate$ #1 #2 substring$ swap$
+        { duplicate$ #1 #1 substring$ chr.to.int$ #224 <
+            { duplicate$ #1 #2 substring$ swap$
               #3 global.max$ substring$ swap$
             }
-            {
-              duplicate$ #1 #1 substring$ chr.to.int$ #240 <
-                {
-                  duplicate$ #1 #3 substring$ swap$
+            { duplicate$ #1 #1 substring$ chr.to.int$ #240 <
+                { duplicate$ #1 #3 substring$ swap$
                   #4 global.max$ substring$ swap$
                 }
-                {
-                  duplicate$ #1 #4 substring$ swap$
+                { duplicate$ #1 #4 substring$ swap$
                   #5 global.max$ substring$ swap$
                 }
               if$
@@ -1085,9 +1329,7 @@ FUNCTION {split.first.char.from.str}
 %    \begin{macrocode}
 % str -> char
 FUNCTION {get.first.char.from.str}
-{
-  split.first.char.from.str swap$ pop$
-}
+{ split.first.char.from.str swap$ pop$ }
 
 %    \end{macrocode}
 %
@@ -1098,10 +1340,8 @@ FUNCTION {get.first.char.from.str}
 %    \begin{macrocode}
 % str -> rest: str, texchar
 FUNCTION {split.first.tex.char.from.str}
-{
-  duplicate$ #1 #1 substring$ "{" =
-    {
-      split.first.char.from.str swap$
+{ duplicate$ #1 #1 substring$ "{" =
+    { split.first.char.from.str swap$
       find.match.brace swap$
     }
     'split.first.char.from.str
@@ -1117,30 +1357,23 @@ FUNCTION {split.first.tex.char.from.str}
 %    \begin{macrocode}
 % char -> int
 FUNCTION {char.to.unicode}
-{
-  duplicate$ #4 #1 substring$ "" =
-    {
-      duplicate$ #3 #1 substring$ "" =
-        {
-          duplicate$ #2 #1 substring$ "" =
-            {
-              duplicate$ "" =
-                {
-                  "Empty string is not a char!" warning$
+{ duplicate$ #4 #1 substring$ "" =
+    { duplicate$ #3 #1 substring$ "" =
+        { duplicate$ #2 #1 substring$ "" =
+            { duplicate$ "" =
+                { "Empty string is not a char!" warning$
                   pop$ #-1
                 }
                 { #1 #1 substring$ chr.to.int$ }
               if$
             }
-            {
-              duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
+            { duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
               #1 #1 substring$ chr.to.int$ #192 -
               #6 mult.power2 +
             }
           if$
         }
-        {
-          duplicate$ #3 #1 substring$ chr.to.int$ #128 - swap$
+        { duplicate$ #3 #1 substring$ chr.to.int$ #128 - swap$
           duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
           #1 #1 substring$ chr.to.int$ #224 -
           #6 mult.power2 +
@@ -1148,8 +1381,7 @@ FUNCTION {char.to.unicode}
         }
       if$
     }
-    {
-      duplicate$ #4 #1 substring$ chr.to.int$ #128 - swap$
+    { duplicate$ #4 #1 substring$ chr.to.int$ #128 - swap$
       duplicate$ #3 #1 substring$ chr.to.int$ #128 - swap$
       duplicate$ #2 #1 substring$ chr.to.int$ #128 - swap$
       #1 #1 substring$ chr.to.int$ #240 -
@@ -1171,9 +1403,7 @@ FUNCTION {char.to.unicode}
 % str, char -> bool
 % variable used: t
 FUNCTION {is.char.in.str}
-{
-  't :=
-
+{ 't :=
   t "" =
     { "is.char.in.str: Empty string is not a char!" warning$ }
     'skip$
@@ -1181,8 +1411,7 @@ FUNCTION {is.char.in.str}
 
   #0 swap$
   { duplicate$ "" = not }
-    {
-      split.first.char.from.str t =
+    { split.first.char.from.str t =
         { pop$ pop$ #1 "" }
         'skip$
       if$
@@ -1199,9 +1428,7 @@ FUNCTION {is.char.in.str}
 % char -> bool
 % variable used: b
 FUNCTION {is.upper.ascii}
-{
-  char.to.unicode #65 swap$ #90 swap$ is.int.in.range
-}
+{ char.to.unicode #65 swap$ #90 swap$ is.int.in.range }
 
 %    \end{macrocode}
 %
@@ -1211,8 +1438,7 @@ FUNCTION {is.upper.ascii}
 % char -> bool
 % variable used: b
 FUNCTION {is.upper}
-{
-  duplicate$ is.upper.ascii
+{ duplicate$ is.upper.ascii
     { pop$ #1 }
     { latin.upper swap$ is.char.in.str }
   if$
@@ -1226,9 +1452,7 @@ FUNCTION {is.upper}
 % char -> bool
 % variable used: b
 FUNCTION {is.lower.ascii}
-{
-  char.to.unicode #97 swap$ #122 swap$ is.int.in.range
-}
+{ char.to.unicode #97 swap$ #122 swap$ is.int.in.range }
 
 %    \end{macrocode}
 %
@@ -1238,8 +1462,7 @@ FUNCTION {is.lower.ascii}
 % char -> bool
 % variable used: b
 FUNCTION {is.lower}
-{
-  duplicate$ is.lower.ascii
+{ duplicate$ is.lower.ascii
     { pop$ #1 }
     { latin.lower swap$ is.char.in.str }
   if$
@@ -1253,9 +1476,7 @@ FUNCTION {is.lower}
 % char -> bool
 % variable used: b
 FUNCTION {is.printable.ascii}
-{
-  char.to.unicode #32 swap$ #126 swap$ is.int.in.range
-}
+{ char.to.unicode #32 swap$ #126 swap$ is.int.in.range }
 
 %    \end{macrocode}
 %
@@ -1265,9 +1486,7 @@ FUNCTION {is.printable.ascii}
 % char -> bool
 % variable used: b
 FUNCTION {is.letter.ascii}
-{
-  duplicate$ is.upper.ascii swap$ is.lower.ascii or
-}
+{ duplicate$ is.upper.ascii swap$ is.lower.ascii or }
 
 %    \end{macrocode}
 %
@@ -1277,9 +1496,7 @@ FUNCTION {is.letter.ascii}
 % char -> bool
 % variable used: b
 FUNCTION {is.symbol.ascii}
-{
-  duplicate$ is.printable.ascii swap$ is.letter.ascii not and
-}
+{ duplicate$ is.printable.ascii swap$ is.letter.ascii not and }
 
 %    \end{macrocode}
 %
@@ -1290,11 +1507,9 @@ FUNCTION {is.symbol.ascii}
 % variable used: b
 % return true if str is empty
 FUNCTION {is.all.lower}
-{
-  #1 swap$
+{ #1 swap$
   { duplicate$ "" = not }
-    {
-      split.first.char.from.str is.lower
+    { split.first.char.from.str is.lower
         'skip$
         { pop$ pop$ #0 "" }
       if$
@@ -1306,29 +1521,27 @@ FUNCTION {is.all.lower}
 % str -> bool
 % variable used: b
 FUNCTION {is.tex.str.in.title.case}
-{
-  duplicate$ "" =
+{ duplicate$ "" =
     { pop$ #0 }
-    {
-      split.first.tex.char.from.str purify$
+    { split.first.tex.char.from.str purify$
       duplicate$ "" =
         { pop$ pop$ #0 }
-        {
-          split.first.char.from.str is.upper
-            {
-              duplicate$ is.all.lower
-                {
-                  empty$
-                    {
-                      duplicate$ "" =
-                        { pop$ #0 }
+        { split.first.char.from.str is.upper
+            { duplicate$ "" =  % single-letter word
+                { pop$ pop$ #1 }
+                { duplicate$ is.all.lower
+                    { empty$
+                        { duplicate$ "" =
+                            { pop$ #0 }
+                            'is.all.lower
+                          if$
+                        }
                         'is.all.lower
                       if$
                     }
-                    'is.all.lower
+                    { pop$ pop$ #0 }
                   if$
                 }
-                { pop$ pop$ #0 }
               if$
             }
             { pop$ pop$ #0}
@@ -1342,11 +1555,9 @@ FUNCTION {is.tex.str.in.title.case}
 % char, int -> bool
 % variables used: t, b
 FUNCTION {is.in.inter.token.chars}
-{
-  duplicate$ #0 =
+{ duplicate$ #0 =
     { pop$ " " = }
-    {
-      #1 =
+    { #1 =
         { " " range.delimiters * swap$ is.char.in.str }
         'is.letter.ascii
       if$
@@ -1357,14 +1568,12 @@ FUNCTION {is.in.inter.token.chars}
 % str, int -> intertoken: str, rest: str
 % variable used: t, b
 FUNCTION {skip.inter.token.chars.by}
-{
-  'b :=
+{ 'b :=
   't :=
 
   "" t
   { duplicate$ "" = not }
-    {
-      split.first.char.from.str
+    { split.first.char.from.str
       duplicate$ b is.in.inter.token.chars
         { swap$ 't := * t }
         { swap$ * 't := "" }
@@ -1378,18 +1587,14 @@ FUNCTION {skip.inter.token.chars.by}
 % str -> intertoken: str, rest: str
 % variable used: t, b
 FUNCTION {skip.inter.token.chars}
-{
-  #0 skip.inter.token.chars.by
-}
+{ #0 skip.inter.token.chars.by }
 
 % str -> intertoken: str, rest: str
 % variable used: t, b
 FUNCTION {skip.inter.token.command}
-{
-  duplicate$ "" =
+{ duplicate$ "" =
     { "" }
-    {
-      duplicate$ #1 #1 substring$ is.symbol.ascii
+    { duplicate$ #1 #1 substring$ is.symbol.ascii
         { split.first.char.from.str swap$ }
         { #2 skip.inter.token.chars.by }
      if$
@@ -1399,9 +1604,7 @@ FUNCTION {skip.inter.token.command}
 
 % cmdstr -> cmdstr
 FUNCTION {is.special.char.command}
-{
-  #2 global.max$ substring$ skip.inter.token.command
-
+{ #2 global.max$ substring$ skip.inter.token.command
   empty$
     'skip$
     { "is.special.char.command: cmdstr has extra components!" warning$ }
@@ -1420,15 +1623,12 @@ FUNCTION {is.special.char.command}
 % str, str, char -> char
 % variable used: t
 FUNCTION {map.char}
-{
-  't :=
+{ 't :=
   split.first.char.from.str
   { swap$ duplicate$ "" = not }
-    {
-      swap$ t =
+    { swap$ t =
         { pop$ "" t }
-        {
-          swap$ split.first.char.from.str pop$ swap$
+        { swap$ split.first.char.from.str pop$ swap$
           split.first.char.from.str
         }
       if$
@@ -1443,8 +1643,7 @@ FUNCTION {map.char}
 % char -> char
 % variables used: t, b
 FUNCTION {to.lower}
-{
-  duplicate$ is.upper.ascii
+{ duplicate$ is.upper.ascii
     { chr.to.int$ #32 + int.to.chr$ }
     { latin.lower swap$ latin.upper swap$ map.char }
   if$
@@ -1453,8 +1652,7 @@ FUNCTION {to.lower}
 % char -> char
 % variables used: t, b
 FUNCTION {to.upper}
-{
-  duplicate$ is.lower.ascii
+{ duplicate$ is.lower.ascii
     { chr.to.int$ #32 - int.to.chr$ }
     { latin.upper swap$ latin.lower swap$ map.char }
   if$
@@ -1463,8 +1661,7 @@ FUNCTION {to.upper}
 % str -> str
 % variables used: t, b
 FUNCTION {all.to.lower}
-{
-  "" swap$
+{ "" swap$
   { duplicate$ empty$ not }
     { split.first.char.from.str to.lower swap$ 't := * t }
   while$
@@ -1474,13 +1671,10 @@ FUNCTION {all.to.lower}
 % texchar -> texchar
 % variables used: t, b
 FUNCTION {command.to.lower}
-{
-  duplicate$ "" =
+{ duplicate$ "" =
     { "command.to.lower: Empty string is not a texchar!" warning$ }
-    {
-      duplicate$ #1 #1 substring$ #92 int.to.chr$ =
-        {
-          duplicate$ is.special.char.command
+    { duplicate$ #1 #1 substring$ #92 int.to.chr$ =
+        { duplicate$ is.special.char.command
             'all.to.lower
             'skip$
           if$
@@ -1494,16 +1688,12 @@ FUNCTION {command.to.lower}
 % texchar -> texchar
 % variables used: t, b
 FUNCTION {tex.to.lower}
-{
-  duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
-    {
-      "" swap$
+{ duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
+    { "" swap$
       { duplicate$ "" = not }
-        {
-          split.first.char.from.str
+        { split.first.char.from.str
           duplicate$ #92 int.to.chr$ =
-            {
-              swap$ skip.inter.token.command 't := * t
+            { swap$ skip.inter.token.command 't := * t
               swap$ command.to.lower
             }
             'to.lower
@@ -1513,8 +1703,7 @@ FUNCTION {tex.to.lower}
       while$
       pop$
     }
-    {
-      duplicate$ #1 #1 substring$ "{" =
+    { duplicate$ #1 #1 substring$ "{" =
         { split.first.char.from.str swap$ find.match.brace pop$ }
         'command.to.lower
       if$
@@ -1525,8 +1714,7 @@ FUNCTION {tex.to.lower}
 % str -> str
 % variables used: t, b
 FUNCTION {all.to.upper}
-{
-  "" swap$
+{ "" swap$
   { duplicate$ empty$ not }
     { split.first.char.from.str to.upper swap$ 't := * t }
   while$
@@ -1536,13 +1724,10 @@ FUNCTION {all.to.upper}
 % texchar -> texchar
 % variables used: t, b
 FUNCTION {command.to.upper}
-{
-  duplicate$ "" =
+{ duplicate$ "" =
     { "command.to.lower: Empty string is not a texchar!" warning$ }
-    {
-      duplicate$ #1 #1 substring$ #92 int.to.chr$ =
-        {
-           duplicate$ is.special.char.command
+    { duplicate$ #1 #1 substring$ #92 int.to.chr$ =
+        { duplicate$ is.special.char.command
              'all.to.upper
              'skip$
            if$
@@ -1556,16 +1741,12 @@ FUNCTION {command.to.upper}
 % texchar -> texchar
 % variables used: t, b
 FUNCTION {tex.to.upper}
-{
-  duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
-    {
-      "" swap$
+{ duplicate$ #1 #2 substring$ "{" #92 int.to.chr$ * =
+    { "" swap$
       { duplicate$ "" = not }
-      {
-        split.first.char.from.str
+      { split.first.char.from.str
         duplicate$ #92 int.to.chr$ =
-          {
-            swap$ skip.inter.token.command 't := * t
+          { swap$ skip.inter.token.command 't := * t
             swap$ command.to.upper
           }
           'to.upper
@@ -1575,8 +1756,7 @@ FUNCTION {tex.to.upper}
       while$
       pop$
     }
-    {
-      duplicate$ #1 #1 substring$ "{" =
+    { duplicate$ #1 #1 substring$ "{" =
         { split.first.char.from.str swap$ find.match.brace pop$ }
         'command.to.upper
       if$
@@ -1587,8 +1767,7 @@ FUNCTION {tex.to.upper}
 % texstr -> texstr
 % variable used: t, b
 FUNCTION {lower.token.if.in.title.case}
-{
-  duplicate$ is.tex.str.in.title.case
+{ duplicate$ is.tex.str.in.title.case
     { split.first.tex.char.from.str tex.to.lower swap$ * }
     'skip$
   if$
@@ -1596,8 +1775,7 @@ FUNCTION {lower.token.if.in.title.case}
 
 % int -> str
 FUNCTION {self.tokens}
-{
-  #0 =
+{ #0 =
     'default.self.tokens
     'range.delimiters
   if$
@@ -1606,28 +1784,22 @@ FUNCTION {self.tokens}
 % str, int -> token: str, rest: str
 % variables used: s, t, b
 FUNCTION {tokenize.by}
-{
-  'b :=
+{ 'b :=
   's :=
 
   s "" =
     { "" "" }
-    {
-      s split.first.char.from.str
+    { s split.first.char.from.str
       duplicate$ b self.tokens swap$ is.char.in.str
         'swap$
-        {
-          duplicate$ #92 int.to.chr$ =
+        { duplicate$ #92 int.to.chr$ =
             { swap$ skip.inter.token.command 's := * s }
-            {
-              pop$ pop$ "" s
+            { pop$ pop$ "" s
               { duplicate$ "" = not }
-                {
-                  split.first.char.from.str
+                { split.first.char.from.str
                   duplicate$ "\ " b self.tokens * swap$ is.char.in.str
                     { pop$ pop$ "" }
-                    {
-                      duplicate$ "{" =
+                    { duplicate$ "{" =
                         { swap$ find.match.brace }
                         'swap$
                       if$
@@ -1648,33 +1820,23 @@ FUNCTION {tokenize.by}
 % str -> str
 % variables used: s, t, b
 FUNCTION {tokenize}
-{
-  #0 tokenize.by
-}
+{ #0 tokenize.by }
 
 % str -> str
 % variables used: s, t, b
 FUNCTION {smart.sentence.case}
-{
-  tokenize 's :=
+{ tokenize 's :=
 
   { s "" = not }
-    {
-      s skip.inter.token.chars 's := * s
+    { s skip.inter.token.chars 's := * s
       tokenize swap$
       duplicate$ ":" =
-        {
-          swap$ 's := *
+        { swap$ 's := *
           s skip.inter.token.chars 's := * s
           tokenize swap$
-          lowercase.word.after.colon
-            {
-              duplicate$ "A" =
-                { pop$ "a" }
-                'lower.token.if.in.title.case
-              if$
-            }
+          control.capitalize.subtitle
             'skip$
+            { lower.token.if.in.title.case }
           if$
         }
         'lower.token.if.in.title.case
@@ -1687,20 +1849,16 @@ FUNCTION {smart.sentence.case}
 % str -> str
 % variables used: s, t, b
 FUNCTION {smart.upper.case}
-{
-  s swap$ t swap$
+{ s swap$ t swap$
 
   "" swap$
   { duplicate$ "" = not }
-    {
-      tokenize swap$
+    { tokenize swap$
       duplicate$ #1 #1 substring$ #92 int.to.chr$ =
         'command.to.upper
-        {
-          "" swap$
+        { "" swap$
           { duplicate$ "" = not }
-            {
-              split.first.tex.char.from.str tex.to.upper
+            { split.first.tex.char.from.str tex.to.upper
               swap$ 't := * t
             }
           while$
@@ -1772,9 +1930,9 @@ FUNCTION {emphasize}
   if$
 }
 
-FUNCTION {format.btitle}
-{ italic.book.title
-  entry.lang lang.en = and
+FUNCTION {emphasize.book.title}
+{ control.emph.booktitle
+  is.lang.cjk not and
     'emphasize
     'skip$
   if$
@@ -1784,129 +1942,133 @@ FUNCTION {format.btitle}
 %
 % \subsubsection{Detect Language}
 %    \begin{macrocode}
-INTEGERS { byte second.byte }
+INTEGERS { codepoint tmp.lang }
 
-INTEGERS { char.lang tmp.lang }
-
-STRINGS { tmp.str }
-
-FUNCTION {get.str.lang}
-{ 'tmp.str :=
-  lang.other 'tmp.lang :=
-  #1 'charptr :=
-  tmp.str text.length$ #1 + 'len :=
-    { charptr len < }
-    { tmp.str charptr #1 substring$ chr.to.int$ 'byte :=
-      byte #128 <
-        { charptr #1 + 'charptr :=
-          byte #64 > byte #91 < and byte #96 > byte #123 < and or
-            { lang.en 'char.lang := }
-            { lang.other 'char.lang := }
-          if$
-        }
-        { tmp.str charptr #1 + #1 substring$ chr.to.int$ 'second.byte :=
-          byte #224 <
+FUNCTION {get.codepoint.lang}
+{ 'codepoint :=
+  codepoint #128 <
+    { codepoint #64 > codepoint #91 < and codepoint #96 > codepoint #123 < and or
+        { lang.en }
+        { lang.other }
+      if$
+    }
 %    \end{macrocode}
-% 俄文西里尔字母：U+0400 到 U+052F，对应 UTF-8 从 D0 80 到 D4 AF。
+% 俄文西里尔字母：U+0400 到 U+052F，1024--1328。
 %    \begin{macrocode}
-            { charptr #2 + 'charptr :=
-              byte #207 > byte #212 < and
-              byte #212 = second.byte #176 < and or
-                { lang.ru 'char.lang := }
-                { lang.other 'char.lang := }
-              if$
-            }
-            { byte #240 <
+    { codepoint #1023 > codepoint #1328 < and
+        { lang.ru }
 %    \end{macrocode}
-% CJK Unified Ideographs: U+4E00--U+9FFF; UTF-8: E4 B8 80--E9 BF BF.
+% CJK Unified Ideographs: U+4E00--U+9FFF; 19968--40959.
 %    \begin{macrocode}
-                { charptr #3 + 'charptr :=
-                  byte #227 > byte #234 < and
-                    { lang.zh 'char.lang := }
+        { codepoint #19967 > codepoint #40960 < and
+            { lang.zh }
 %    \end{macrocode}
-% CJK Unified Ideographs Extension A: U+3400--U+4DBF; UTF-8: E3 90 80--E4 B6 BF.
+% CJK Unified Ideographs Extension A: U+3400--U+4DBF; 13312--19903.
 %    \begin{macrocode}
-                    { byte #227 =
-                        { second.byte #143 >
-                            { lang.zh 'char.lang := }
+            { codepoint #13311 > codepoint #19904 < and
+                { lang.zh }
 %    \end{macrocode}
-% 日语假名：U+3040--U+30FF, UTF-8: E3 81 80--E3 83 BF.
+% 日语假名：U+3040--U+30FF, 12352--12543.
 %    \begin{macrocode}
-                            { second.byte #128 > second.byte #132 < and
-                                { lang.ja 'char.lang := }
-                                { lang.other 'char.lang := }
-                              if$
-                            }
-                          if$
-                        }
+                { codepoint #12351 > codepoint #12544 < and
+                    { lang.ja }
 %    \end{macrocode}
-% CJK Compatibility Ideographs: U+F900--U+FAFF, UTF-8: EF A4 80--EF AB BF.
+% 韩语谚文音节：U+AC00--U+D7AF, 44032--55215.
 %    \begin{macrocode}
-                        { byte #239 =
-                          second.byte #163 > second.byte #172 < and and
-                            { lang.zh 'char.lang := }
-                            { lang.other 'char.lang := }
-                          if$
-                        }
+                    { codepoint #44031 > codepoint #55216 < and
+                        { lang.ko }
+                        { lang.other }
                       if$
                     }
                   if$
                 }
-%    \end{macrocode}
-% CJK Unified Ideographs Extension B--F: U+20000--U+2EBEF,
-% UTF-8: F0 A0 80 80--F0 AE AF AF.
-% CJK Compatibility Ideographs Supplement: U+2F800--U+2FA1F,
-% UTF-8: F0 AF A0 80--F0 AF A8 9F.
-%    \begin{macrocode}
-                { charptr #4 + 'charptr :=
-                  byte #240 = second.byte #159 > and
-                    { lang.zh 'char.lang := }
-                    { lang.other 'char.lang := }
-                  if$
-                }
               if$
             }
           if$
         }
       if$
-      char.lang tmp.lang >
-        { char.lang 'tmp.lang := }
-        'skip$
+    }
+  if$
+}
+
+FUNCTION {get.str.lang}
+{ lang.other 'tmp.lang :=
+    { duplicate$ empty$ not }
+    { split.first.char.from.str
+      char.to.unicode
+      get.codepoint.lang
+      duplicate$ tmp.lang >
+        { 'tmp.lang := }
+        'pop$
       if$
     }
   while$
+  duplicate$ empty$
+    { pop$ }
+    { "non-empty string " quote$ swap$ * quote$ " left" warning$ }
+  if$
   tmp.lang
 }
 
 FUNCTION {check.entry.lang}
-{ author field.or.null
-  title field.or.null *
+{ title field.or.null
+  duplicate$ empty$
+    { author field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { journal field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { journaltitle field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { booktitle field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { address field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { location field.or.null * }
+    'skip$
+  if$
+  duplicate$ empty$
+    { publisher field.or.null * }
+    'skip$
+  if$
   get.str.lang
 }
 
-STRINGS { entry.langid }
-
 FUNCTION {set.entry.lang}
-{ "" 'entry.langid :=
-  language empty$ not
-    { language 'entry.langid := }
-    'skip$
+{ langid empty$
+    { language empty$
+        { "" }
+        { language }
+      if$
+    }
+    { langid }
   if$
-  langid empty$ not
-    { langid 'entry.langid := }
-    'skip$
-  if$
-  entry.langid empty$
+  "l" change.case$
+  's :=
+  s empty$
     { check.entry.lang }
-    { entry.langid "english" = entry.langid "american" = or entry.langid "british" = or
+    { s "english" = s "american" = or s "british" = or
         { lang.en }
-        { entry.langid "chinese" =
+        { s "chinese" =
             { lang.zh }
-            { entry.langid "japanese" =
+            { s "japanese" =
                 { lang.ja }
-                { entry.langid "russian" =
-                    { lang.ru }
-                    { check.entry.lang }
+                { s "korean" =
+                    { lang.ko }
+                    { s "russian" =
+                        { lang.ru }
+                        { lang.other }
+                      if$
+                    }
                   if$
                 }
               if$
@@ -1917,11 +2079,25 @@ FUNCTION {set.entry.lang}
     }
   if$
   'entry.lang :=
+  #0 'is.lang.cjk :=
+  entry.lang lang.zh =
+  entry.lang lang.ja = or
+  entry.lang lang.ko = or
+    { #1 'is.lang.cjk := }
+    'skip$
+  if$
 }
 
 FUNCTION {set.entry.numbered}
-{ type$ "patent" =
+{ type$ "archive" =
+  type$ "letter" = or
+  type$ "legislation" = or
+  type$ "patent" = or
+  type$ "regulation" = or
+  type$ "report" = or
+%<*2005|2015>
   type$ "standard" = or
+%</2005|2015>
   type$ "techreport" = or
     { #1 'entry.numbered := }
     { #0 'entry.numbered := }
@@ -2006,22 +2182,140 @@ FUNCTION {set.entry.numbered}
 %    \begin{macrocode}
 INTEGERS { nameptr namesleft numnames name.lang }
 
-FUNCTION {format.name}
-{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t "others" =
-    { bbl.et.al }
-    { t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}{ f{~}}" format.name$
-          uppercase.name
-            'smart.upper.case
-            'skip$
+FUNCTION {is.lowercase.letter}
+{ #1
+    { #0 > }
+    { duplicate$ #1 #1 substring$ chr.to.int$
+      duplicate$ #96 >
+      swap$      #123 <
+      and
+        { #2 global.max$ substring$
+          duplicate$ empty$
+            { #0 }
+            { #1 }
           if$
-          t #1 "{, jj}" format.name$ *
         }
-        { t #1 "{ll}{ff}" format.name$ }
+        { #0 }
       if$
     }
+  while$
+  empty$
+}
+
+% Assume already changed to lowercase
+FUNCTION {is.single.pinyin}
+{ " " swap$ * " " *
+  pinyin.table swap$ contains
+}
+
+% Check if the word is pinyin of one or two characters.
+% Assume already changed to lowercase.
+FUNCTION {is.double.pinyin}
+{ duplicate$ string.length 'a :=
+  #1
+    { a #0 > and }
+    { duplicate$ #1 a substring$ is.single.pinyin
+        { duplicate$ a #1 + global.max$ substring$
+          duplicate$ empty$
+            { pop$ #0 }
+            { is.single.pinyin
+                { #0 }
+                { a #1 - 'a :=
+                  #1
+                }
+              if$
+            }
+          if$
+        }
+        { a #1 - 'a :=
+          #1
+        }
+      if$
+    }
+  while$
+  pop$
+  a #0 >
+}
+
+FUNCTION {format.latin.given.name}
+{ s nameptr "{ f.}" format.name$
+  control.initialize.with.hyphen
+    'skip$
+    { duplicate$ "-" contains
+        { "-" " " find.replace
+          "u" change.case$
+        }
+        'skip$
+      if$
+    }
+  if$
+  s nameptr "{, jj}" format.name$ *
+}
+
+FUNCTION {format.latin.name}
+{ s nameptr "{vv~}{ll}" format.name$
+  control.uppercase.family
+    'smart.upper.case
+    'skip$
+  if$
+  control.check.pinyin
+    { s nameptr "{vv~}{ll}{ff}{, jj}" format.name$
+      "l" change.case$ is.lowercase.letter
+        { s nameptr "{ll}" format.name$ "l" change.case$ is.single.pinyin
+            { s nameptr "{ff}" format.name$
+              duplicate$ "l" change.case$
+              is.double.pinyin
+                { " " swap$ * }
+                { pop$
+                  s nameptr "{ f.}" format.name$
+                }
+              if$
+            }
+            { s nameptr "{ f.}" format.name$ }
+          if$
+        }
+        { format.latin.given.name }
+      if$
+    }
+    { format.latin.given.name }
+  if$
+  "." "" find.replace
+  *
+}
+
+FUNCTION {format.name}
+{ s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
+  get.str.lang
+  duplicate$
+  duplicate$ lang.zh = swap$ lang.ja = or
+    { pop$
+      s nameptr "{vv~}{ll}" format.name$
+      s nameptr "{ff}{, jj}" format.name$
+      duplicate$ get.str.lang
+      duplicate$ lang.zh = swap$ lang.ja = or
+        { * }
+        { pop$ }
+      if$
+    }
+    { lang.ru =
+        { s nameptr "{vv~}{ll}" format.name$
+          s nameptr "{ff}{, jj}" format.name$
+          "." "" find.replace
+          duplicate$ empty$
+            'pop$
+            { " " swap$ * * }
+          if$
+        }
+        { format.latin.name }
+      if$
+    }
+  if$
+}
+
+FUNCTION {inter.word.space}
+{ is.lang.cjk
+    { "" }
+    { " " }
   if$
 }
 
@@ -2029,100 +2323,37 @@ FUNCTION {format.names}
 { 's :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
-  ""
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr format.name bbl.et.al =
-      numnames bibliography.et.al.min #1 - > nameptr bibliography.et.al.use.first > and or
-        { ", " *
-          bbl.et.al *
-          #1 'namesleft :=
-        }
-        { nameptr #1 >
-            { namesleft #1 = bbl.and "" = not and
-                { bbl.and * }
-                { ", " * }
-              if$
+    { format.name 't :=
+      nameptr #1 >
+        { numnames control.max.bib.names >
+          nameptr control.min.bib.names > and
+            { "others" 't :=
+              #1 'namesleft :=
             }
             'skip$
           if$
-          s nameptr format.name *
-        }
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
-
-FUNCTION {format.key}
-{ empty$
-    { key field.or.null }
-    { "" }
-  if$
-}
-
-FUNCTION {format.authors}
-{ author empty$ not
-    { author format.names }
-    { "empty author in " cite$ * warning$
-%<*author-year>
-      bbl.anonymous
-%</author-year>
-%<*numerical>
-      ""
-%</numerical>
-    }
-  if$
-}
-
-FUNCTION {format.editors}
-{ editor empty$
-    { "" }
-    { editor format.names }
-  if$
-}
-
-FUNCTION {format.translators}
-{ translator empty$
-    { "" }
-    { translator format.names
-      entry.lang lang.zh =
-        { translator num.names$ #3 >
-            { "译" * }
-            { ", 译" * }
-          if$
-        }
-        'skip$
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.full.names}
-{'s :=
-  #1 'nameptr :=
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-      t get.str.lang 'name.lang :=
-      name.lang lang.en =
-        { t #1 "{vv~}{ll}" format.name$ 't := }
-        { t #1 "{ll}{ff}" format.name$ 't := }
-      if$
-      nameptr #1 >
-        {
           namesleft #1 >
-            { ", " * t * }
-            {
-              numnames #2 >
-                { "," * }
-                'skip$
-              if$
-              t "others" =
-                { " et~al." * }
-                { " and " * t * }
+            { add.comma t * }
+            { t "l" change.case$ "others" =
+                { nameptr #2 >
+                    { add.comma }
+                    { inter.word.space * }
+                  if$
+                  bbl.et.al *
+                }
+                { control.bib.final.and
+                    { is.lang.cjk not nameptr #2 > and
+                        { add.comma }
+                        { inter.word.space * }
+                      if$
+                      bbl.and * inter.word.space *
+                    }
+                    { add.comma }
+                  if$
+                  t *
+                }
               if$
             }
           if$
@@ -2133,6 +2364,122 @@ FUNCTION {format.full.names}
       namesleft #1 - 'namesleft :=
     }
   while$
+  format.punctuations
+}
+
+FUNCTION {warn.empty.field}
+{ control.warn.empty.field
+    { "empty " swap$ * " in " * cite$ * warning$ }
+    'pop$
+  if$
+}
+
+FUNCTION {format.anonymous}
+{
+%<*authoryear>
+  bbl.anonymous
+%</authoryear>
+%<*numeric>
+  ""
+%</numeric>
+}
+
+FUNCTION {format.authors}
+{ author empty$
+    { "author" warn.empty.field
+      format.anonymous
+    }
+    { author format.names }
+  if$
+}
+
+FUNCTION {format.editors}
+{ editor empty$
+    { "editor" warn.empty.field
+      format.anonymous
+    }
+    { editor format.names }
+  if$
+}
+
+FUNCTION {format.authors.editors}
+{ author empty$
+    { editor empty$
+        { "author and editor" warn.empty.field
+          format.anonymous
+        }
+        { editor format.names }
+      if$
+    }
+    { author format.names }
+  if$
+}
+
+FUNCTION {format.translators}
+{ translator empty$
+    { "" }
+    { translator format.names
+      add.comma bbl.translator *
+    }
+  if$
+}
+
+FUNCTION {format.lab.name}
+{ s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
+  get.str.lang
+  duplicate$ lang.zh =
+  swap$ lang.ja = or
+    { s nameptr "{vv~}{ll}" format.name$
+      s nameptr "{ff}{, jj}" format.name$
+      duplicate$ get.str.lang
+      duplicate$ lang.zh = swap$ lang.ja = or
+        { * }
+        'pop$
+      if$
+    }
+    { s nameptr "{vv~}{ll}" format.name$ }
+  if$
+}
+
+FUNCTION {format.full.names}
+{ 's :=
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { format.lab.name 't :=
+      nameptr #1 >
+        { namesleft #1 >
+            { add.comma t * }
+            { t "l" change.case$ "others" =
+                { nameptr #2 >
+                    { add.comma }
+                    { inter.word.space * }
+                  if$
+                  cite.et.al *
+                }
+                { control.cite.final.and
+                    { is.lang.cjk not nameptr #2 > and
+                        { add.comma }
+                        { inter.word.space * }
+                      if$
+                      cite.and * inter.word.space *
+                    }
+                    { add.comma }
+                  if$
+                  t *
+                }
+              if$
+            }
+          if$
+        }
+        't
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
+  format.punctuations
 }
 
 FUNCTION {author.editor.full}
@@ -2160,6 +2507,17 @@ FUNCTION {editor.full}
   if$
 }
 
+FUNCTION {holder.author.full}
+{ holder empty$
+    { author empty$
+        { "" }
+        { author format.full.names }
+      if$
+    }
+    { holder format.full.names }
+  if$
+}
+
 FUNCTION {make.full.names}
 { type$ "book" =
   type$ "inbook" = booktitle empty$ not and
@@ -2169,7 +2527,11 @@ FUNCTION {make.full.names}
       type$ "proceedings" =
       or
         'editor.full
-        'author.full
+        { type$ "patent" =
+            'holder.author.full
+            'author.full
+          if$
+        }
       if$
     }
   if$
@@ -2206,6 +2568,25 @@ FUNCTION {output.bibitem}
 % and hope the user has brace-surrounded words that need to stay capitilized;
 % for some styles, however, we leave it as it is in the database.
 %    \begin{macrocode}
+FUNCTION {format.title.subtitle.titleaddon}
+{ title empty$
+    { "" }
+    { title
+      subtitle empty$
+        'skip$
+        { add.colon.by.language subtitle * }
+      if$
+      titleaddon empty$
+        'skip$
+        { add.colon.by.language titleaddon * }
+      if$
+    }
+  if$
+}
+
+% 只有英文转为 sentence case，
+% 其他语言通常不使用 title case，所以应按照 sentence case 保存，
+% 不需要转为 sentence case。
 FUNCTION {change.sentence.case}
 { entry.lang lang.en =
     'smart.sentence.case
@@ -2224,40 +2605,101 @@ FUNCTION {add.link}
   if$
 }
 
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title
-      sentence.case.title
-        'change.sentence.case
-        'skip$
-      if$
-      entry.numbered number empty$ not and
-        { bbl.colon *
-          type$ "patent" = show.patent.country and
-            { address empty$ not
-                { address * ", " * }
-                { location empty$ not
-                    { location * ", " * }
-                    { entry.lang lang.zh =
-                        { "中国" * ", " * }
-                        'skip$
+FUNCTION {format.tr.number}
+{ ""
+  number empty$
+    'skip$
+    { type$ "patent" = control.patent.country and
+        { country empty$ not
+            { country * }
+            { nationality empty$ not
+                { nationality * }
+                { address empty$ not
+                    { address * }
+                    { location empty$ not
+                        { location * }
+                        { "" }
+                        { entry.lang lang.zh =
+                            { "中国" * }
+                            'skip$
+                          if$
+                        }
                       if$
                     }
                   if$
                 }
               if$
             }
-            'skip$
           if$
-          number *
         }
         'skip$
       if$
-      link.title
+      duplicate$ empty$
+        'skip$
+        'add.comma
+      if$
+      number
+      duplicate$ get.str.lang lang.zh =
+        'format.punctuations
+        'skip$
+      if$
+      *
+    }
+  if$
+}
+
+FUNCTION {format.entry.type.id}
+{ control.entry.type.id
+    { entry.type.id
+      control.entry.medium.id
+        { entrymediumid empty$
+            { medium empty$
+                { is.online
+                    { "/OL" * }
+                    'skip$
+                  if$
+                }
+                { "The field 'medium' for entry medium ID is deprecated. Use 'entrymediumid' instead." warning$
+                  "/" * medium *
+                }
+              if$
+            }
+            { "/" * entrymediumid * }
+          if$
+        }
+        'skip$
+      if$
+      make.brackets
+      control.space.before.type.id
+        { " " }
+        { "\allowbreak" }
+      if$
+      swap$ *
+    }
+    { "" }
+  if$
+}
+
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { format.title.subtitle.titleaddon
+      control.sentence.case.title
+        'change.sentence.case
+        'skip$
+      if$
+      format.punctuations
+      control.link.title
         'add.link
         'skip$
       if$
+      entry.numbered number empty$ not and
+        { add.colon
+          format.tr.number *
+        }
+        'skip$
+      if$
+      format.entry.type.id *
     }
   if$
 }
@@ -2343,124 +2785,161 @@ FUNCTION {is.digit}
 }
 
 FUNCTION {is.number}
-{ 's :=
-  s empty$
-    { #0 }
-    { s text.length$ 'charptr :=
-        { charptr #0 >
-          s charptr #1 substring$ is.digit
-          and
+{ #1
+    { #0 > }
+    { duplicate$ #1 #1 substring$ chr.to.int$
+      duplicate$ #47 >
+      swap$      #58 <
+      and
+        { #2 global.max$ substring$
+          duplicate$ empty$
+            { #0 }
+            { #1 }
+          if$
         }
-        { charptr #1 - 'charptr := }
-      while$
-      charptr not
+        { #0 }
+      if$
     }
-  if$
+  while$
+  empty$
 }
 
-FUNCTION {format.volume}
-{ volume empty$ not
+FUNCTION {format.bvolume}
+{ volume empty$
+    { "" }
     { volume is.number
         { entry.lang lang.zh =
-            { "第 " volume * " 卷" * }
-            { "Vol." volume tie.or.space.connect }
+            { "第" volume tie.or.space.connect " 卷" * }
+            { entry.lang lang.ko =
+                { "제" volume tie.or.space.connect " 권" * }
+                { "v." volume * }
+              if$
+            }
           if$
         }
         { volume }
       if$
     }
-    { "" }
   if$
 }
 
-FUNCTION {format.number}
-{ number empty$ not
-    { number is.number
-        { entry.lang lang.zh =
-            { "第 " number * " 册" * }
-            { "No." number tie.or.space.connect }
-          if$
+FUNCTION {format.maintitle}
+{ maintitle empty$
+    { "" }
+    { mainsubtitle empty$
+        'skip$
+        { add.colon.by.language mainsubtitle * }
+      if$
+      maintitleaddon empty$
+        'skip$
+        { add.colon.by.language maintitleaddon * }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.maintitle.volume}
+{ maintitle empty$
+    { "" }
+    { maintitle
+      volume empty$
+        'skip$
+        { add.colon.by.language
+          format.bvolume *
         }
-        { number }
       if$
     }
+  if$
+}
+
+FUNCTION {format.title.volume}
+{ title empty$
     { "" }
-  if$
-}
-
-FUNCTION {format.volume.number}
-{ volume empty$ not
-    { format.volume }
-    { format.number }
-  if$
-}
-
-FUNCTION {format.title.vol.num}
-{ title
-  sentence.case.title
-    'change.sentence.case
-    'skip$
-  if$
-  entry.numbered
-    { number empty$ not
-        { bbl.colon * number * }
+    { format.title.subtitle.titleaddon
+      volume empty$
         'skip$
-      if$
-    }
-    { format.volume.number 's :=
-      s empty$ not
-        { bbl.colon * s * }
-        'skip$
+        { add.colon.by.language
+          format.bvolume *
+        }
       if$
     }
   if$
 }
 
-FUNCTION {format.series.vol.num.title}
-{ format.volume.number 's :=
-  series empty$ not
+FUNCTION {format.series.volume}
+{ series empty$
+    { "" }
     { series
-      sentence.case.title
-        'change.sentence.case
+      volume empty$
         'skip$
+        { add.colon.by.language
+          format.bvolume *
+        }
       if$
-      entry.numbered
-        { bbl.wide.space * }
-        { bbl.colon *
-          s empty$ not
-            { s * bbl.wide.space * }
-            'skip$
+    }
+  if$
+}
+
+FUNCTION {format.btitle}
+{ maintitle empty$
+    { series empty$
+        { format.title.volume }
+        { volume empty$
+            { format.title.volume }
+            { format.series.volume
+              entry.numbered
+                'skip$
+                { "volume and number" number either.or.check }
+              if$
+              bbl.wide.space *
+              format.title.subtitle.titleaddon
+              *
+            }
           if$
         }
       if$
-      title *
-      sentence.case.title
+    }
+    { volume empty$
+        { format.maintitle
+          add.colon.by.language
+          format.title.subtitle.titleaddon *
+        }
+        { format.maintitle.volume
+          bbl.wide.space *
+          format.title.subtitle.titleaddon
+          *
+        }
+      if$
+    }
+  if$
+  duplicate$ empty$
+    'skip$
+    { control.sentence.case.title
         'change.sentence.case
+        'skip$
+      if$
+      format.punctuations
+      emphasize.book.title
+      control.link.title
+        'add.link
         'skip$
       if$
       entry.numbered number empty$ not and
-        { bbl.colon * number * }
+        { add.colon format.tr.number * }
         'skip$
       if$
-    }
-    { format.title.vol.num }
-  if$
-  format.btitle
-  link.title
-    'add.link
-    'skip$
-  if$
-}
-
-FUNCTION {format.booktitle.vol.num}
-{ booktitle
-  entry.numbered
-    'skip$
-    { format.volume.number 's :=
-      s empty$ not
-        { bbl.colon * s * }
+      type$ "map" =
+      scale empty$ not and
+        { add.period
+          duplicate$ #-1 #1 substring$ "." =
+            { " " * }
+            'skip$
+          if$
+          scale *
+        }
         'skip$
       if$
+      format.entry.type.id *
     }
   if$
 }
@@ -2468,74 +2947,166 @@ FUNCTION {format.booktitle.vol.num}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-FUNCTION {format.series.vol.num.booktitle}
-{ format.volume.number 's :=
-  series empty$ not
-    { series bbl.colon *
-      entry.numbered not s empty$ not and
-        { s * bbl.wide.space * }
+FUNCTION {format.booktitle}
+{ booktitle empty$
+    { "" }
+    { booktitle
+      control.sentence.case.booktitle
+        'change.sentence.case
         'skip$
       if$
-      booktitle *
+      booksubtitle empty$
+        'skip$
+        { add.colon
+          booksubtitle
+          control.sentence.case.booktitle
+            { "l" change.case$ }
+            'skip$
+          if$
+          *
+        }
+      if$
+      emphasize.book.title
+      booktitleaddon empty$
+        'skip$
+        { add.colon
+          booktitleaddon
+          control.sentence.case.booktitle
+            { "l" change.case$ }
+            'skip$
+          if$
+          *
+        }
+      if$
+      format.punctuations
     }
-    { format.booktitle.vol.num }
   if$
-  format.btitle
 }
 
-FUNCTION {remove.period}
-{ 't :=
-  "" 's :=
-    { t empty$ not }
-    { t #1 #1 substring$ 'tmp.str :=
-      tmp.str "." = not
-        { s tmp.str * 's := }
-        'skip$
+FUNCTION {format.series.volume.booktitle}
+{ series empty$
+    { maintitle empty$
+        { format.booktitle
+          volume empty$
+            'skip$
+            { add.colon
+              format.bvolume *
+            }
+          if$
+        }
+        { format.maintitle.volume
+          bbl.wide.space *
+          format.booktitle *
+        }
       if$
-      t #2 global.max$ substring$ 't :=
+    }
+    { volume empty$
+        { format.booktitle }
+        { format.series.volume
+          bbl.wide.space *
+          format.booktitle *
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.in.ed.booktitle}
+{ booktitle empty$
+    { "" }
+    { control.in
+        { bbl.in add.colon }
+        { "" }
+      if$
+      editor empty$
+        'skip$
+        { format.editors * output new.block "" }
+      if$
+      format.series.volume.booktitle *
+    }
+  if$
+}
+
+FUNCTION {remove.dots}
+{ 's :=
+  ""
+    { s empty$ not }
+    { s #1 #1 substring$
+      duplicate$ "." =
+        'pop$
+        { * }
+      if$
+      s #2 global.max$ substring$ 's :=
     }
   while$
-  s
 }
 
-FUNCTION {abbreviate}
-{ remove.period
-  't :=
-  t "l" change.case$ 's :=
-  ""
-  s "physical review letters" =
-    { "Phys Rev Lett" }
+FUNCTION {format.journal.title}
+{ journal empty$
+    { journaltitle empty$
+        { "" }
+        { journaltitle }
+      if$
+    }
+    { journal }
+  if$
+  journalsubtitle empty$
+    'skip$
+    { duplicate$ empty$
+        'skip$
+        'add.colon.by.language
+      if$
+      journalsubtitle *
+    }
+  if$
+  journaltitleaddon empty$
+    'skip$
+    { duplicate$ empty$
+        'skip$
+        'add.colon.by.language
+      if$
+      journaltitleaddon *
+    }
+  if$
+  control.sentence.case.journal
+    'change.sentence.case
     'skip$
   if$
-  's :=
-  s empty$
-    { t }
-    { pop$ s }
+}
+
+FUNCTION {format.short.journal}
+{ shortjournal empty$
+    { format.journal.title
+      duplicate$ field.or.null " " contains  % The journal title is not a single word
+      is.lang.cjk not and
+        { "shortjournal" warn.empty.field }
+        'skip$
+      if$
+    }
+    { shortjournal
+      control.dotless.journal
+        'remove.dots
+        'skip$
+      if$
+    }
   if$
 }
 
 FUNCTION {get.journal.title}
-{ short.journal
-    { shortjournal empty$ not
-        { shortjournal }
-        { journal empty$ not
-            { journal abbreviate }
-            { journaltitle empty$ not
-                { journaltitle abbreviate }
-                { "" }
-              if$
-            }
+{ control.short.journal
+    'format.short.journal
+    { format.journal.title
+      duplicate$ empty$
+        { shortjournal empty$
+            { "journal" warn.empty.field }
+            { pop$ format.short.journal }
           if$
         }
-      if$
-    }
-    { journal empty$ not
-        { journal }
-        { journaltitle empty$ not
-            { journaltitle }
-            { shortjournal empty$ not
-                { shortjournal }
-                { "" }
+        { shortjournal empty$ control.dotless.journal and
+            'remove.dots
+            { duplicate$ shortjournal = control.dotless.journal and
+                'remove.dots
+                'skip$
               if$
             }
           if$
@@ -2547,57 +3118,53 @@ FUNCTION {get.journal.title}
 
 FUNCTION {check.arxiv.preprint}
 { "l" change.case$
-  duplicate$
-  "arxiv:" 'y :=
-  'x :=
-  y text.length$ 'len :=
-  x text.length$ len - #1 + 'charptr :=
-    { charptr #0 >
-      x charptr len substring$ y = not
-      and
-    }
-    { charptr #1 - 'charptr := }
-  while$
-  charptr #0 >
-    { x charptr #6 + global.max$ substring$ 'x :=
-      x text.length$ #1 + 'len :=
-      #1 'charptr :=
-        { charptr len <
-          x charptr #1 substring$ " " = not and
-          x charptr #1 substring$ "[" = not and
+  duplicate$ #1 #5 substring$ "arxiv" =
+    { 'x :=
+      "arxiv:" 'y :=
+      y text.length$ 'len :=
+      x text.length$ len - #1 + 'charptr :=
+        { charptr #0 >
+          x charptr len substring$ y = not
+          and
         }
-        { charptr #1 + 'charptr := }
+        { charptr #1 - 'charptr := }
       while$
-      x #1 charptr substring$
-      duplicate$ empty$
-        { pop$ }
-        { "https://arxiv.org/abs/" swap$ * 'entry.url :=
-          #1 'entry.is.electronic :=
-          #1 'is.pure.electronic :=
+      charptr #0 >
+        { x charptr #6 + global.max$ substring$ 'x :=
+          x string.length #1 + 'len :=
+          #1 'charptr :=
+            { charptr len <
+              x charptr #1 substring$ " " = not and
+              x charptr #1 substring$ "[" = not and
+            }
+            { charptr #1 + 'charptr := }
+          while$
+          x #1 charptr substring$
+          duplicate$ empty$
+            'pop$
+            { "https://arxiv.org/abs/" swap$ * 'entry.url :=
+              #1 'is.online :=
+            }
+          if$
         }
+        'skip$
       if$
+      #1
     }
-    'skip$
-  if$
-  purify$ #1 #5 substring$ "arxiv" =
-    { #1 }
-    { #0 }
+    { pop$ #0 }
   if$
 }
 
 FUNCTION {format.journal}
 { get.journal.title
-  duplicate$ empty$ not
-    { italic.journal entry.lang lang.en = and
+  duplicate$ empty$
+    'skip$
+    { format.punctuations
+      control.emph.journal is.lang.cjk not and
         'emphasize
         'skip$
       if$
-      link.journal
-        'add.link
-        'skip$
-      if$
     }
-    'skip$
   if$
 }
 
@@ -2606,40 +3173,53 @@ FUNCTION {format.journal}
 % \subsubsection{Format entry type mark}
 %
 %    \begin{macrocode}
-FUNCTION {set.entry.mark}
-{ entry.mark empty$ not
-    'pop$
-    { mark empty$ not
-        { pop$ mark 'entry.mark := }
-        { 'entry.mark := }
-      if$
-    }
-  if$
-}
-
-FUNCTION {format.mark}
-{ show.mark
-    { entry.mark
-      show.medium.type
-        { medium empty$ not
-            { "/" * medium * }
-            { entry.is.electronic
-                { "/OL" * }
-                'skip$
+FUNCTION {set.entry.type.id}
+{ entry.type.id empty$
+    { entrytypeid empty$
+        { entrysubtype empty$
+            { mark empty$
+                { 'entry.type.id := }
+                { pop$
+                  "The field 'mark' for entry type ID is deprecated. Use 'entrytypeid' instead." warning$
+                  mark 'entry.type.id :=
+                }
+              if$
+            }
+            { entrysubtype "newspaper" =
+                { pop$ "N" 'entry.type.id := }
+                { entrysubtype "inproceedings" =
+                    { pop$ "C" 'entry.type.id := }
+                    { entrysubtype "report" =
+                        { pop$ "R" 'entry.type.id := }
+                        { entrysubtype "techreport" =
+                            { pop$ "R" 'entry.type.id := }
+                            { entrysubtype "standard" =
+                                { pop$ "S" 'entry.type.id := }
+                                { entrysubtype "patent" =
+                                    { pop$ "P" 'entry.type.id := }
+                                    { entrysubtype "dataset" =
+                                        { pop$ "DS" 'entry.type.id := }
+                                        { 'entry.type.id := }
+                                      if$
+                                    }
+                                  if$
+                                }
+                              if$
+                            }
+                          if$
+                        }
+                      if$
+                    }
+                  if$
+                }
               if$
             }
           if$
         }
-        'skip$
+        { pop$ entrytypeid 'entry.type.id := }
       if$
-      'entry.mark :=
-      space.before.mark
-        { " " }
-        { "\allowbreak" }
-      if$
-      "[" * entry.mark * "]" *
     }
-    { "" }
+    'pop$
   if$
 }
 
@@ -2652,15 +3232,21 @@ FUNCTION {format.mark}
 % this doesn't start a sentence.
 %    \begin{macrocode}
 FUNCTION {num.to.ordinal}
-{ duplicate$ text.length$ 'charptr :=
-  duplicate$ charptr #1 substring$ 's :=
-  s "1" =
-    { "st" * }
-    { s "2" =
-        { "nd" * }
-        { s "3" =
-            { "rd" * }
-            { "th" * }
+{ is.lang.cjk
+    'skip$
+    { duplicate$ #-2 #1 substring$ "1" =
+        { "th" * }
+        { duplicate$ #-1 #1 substring$ "1" =
+            { "st" * }
+            { duplicate$ #-1 #1 substring$ "2" =
+                { "nd" * }
+                { duplicate$ #-1 #1 substring$ "3" =
+                    { "rd" * }
+                    { "th" * }
+                  if$
+                }
+              if$
+            }
           if$
         }
       if$
@@ -2668,27 +3254,132 @@ FUNCTION {num.to.ordinal}
   if$
 }
 
+
+% If the string on the top of the stack begins with a number,
+% (e.g., 11th) then replace the string with the leading number
+% it contains. Otherwise retain the string as-is. s holds the
+% extracted number, t holds the part of the string that remains
+% to be scanned.
+FUNCTION {extract.num}
+{ duplicate$ 't :=
+  "" 's :=
+  { t empty$ not }
+  { t #1 #1 substring$
+    t #2 global.max$ substring$ 't :=
+    duplicate$ is.digit
+      { s swap$ * 's := }
+      { pop$ "" 't := }
+    if$
+  }
+  while$
+  s empty$
+    'skip$
+    { pop$ s }
+  if$
+}
+
+% Converts the word number string on the top of the stack to
+% Arabic string form. Will be successful up to "tenth".
+FUNCTION {word.to.num}
+{ duplicate$ "l" change.case$ 's :=
+  s "first" =
+    { pop$ "1" }
+    'skip$
+  if$
+  s "second" =
+    { pop$ "2" }
+    'skip$
+  if$
+  s "third" =
+    { pop$ "3" }
+    'skip$
+  if$
+  s "fourth" =
+    { pop$ "4" }
+    'skip$
+  if$
+  s "fifth" =
+    { pop$ "5" }
+    'skip$
+  if$
+  s "sixth" =
+    { pop$ "6" }
+    'skip$
+  if$
+  s "seventh" =
+    { pop$ "7" }
+    'skip$
+  if$
+  s "eighth" =
+    { pop$ "8" }
+    'skip$
+  if$
+  s "ninth" =
+    { pop$ "9" }
+    'skip$
+  if$
+  s "tenth" =
+    { pop$ "10" }
+    'skip$
+  if$
+  s "revised edition" =
+    { pop$ "Rev. ed." }
+    'skip$
+  if$
+  s "revised ed." =
+    { pop$ "Rev. ed." }
+    'skip$
+  if$
+  s "revised" =
+    { pop$ "Rev. ed." }
+    'skip$
+  if$
+  s "rev." =
+    { pop$ "Rev. ed." }
+    'skip$
+  if$
+  s "修订版" =
+    { pop$ "修订版" }
+    'skip$
+  if$
+  s "修订" =
+    { pop$ "修订版" }
+    'skip$
+  if$
+}
+
+
 FUNCTION {format.edition}
 { edition empty$
     { "" }
-    { edition is.number
-        { edition "1" = not
-            { entry.lang lang.zh =
-                { edition " 版" * }
-                { edition num.to.ordinal " ed." * }
-              if$
+    { edition
+      duplicate$ #1 #1 substring$ is.digit
+        'extract.num
+        'word.to.num
+      if$
+      duplicate$ "1" =
+        { pop$ "" }
+        { duplicate$ #1 #1 substring$ is.digit
+            { num.to.ordinal
+              " " * bbl.edition *
             }
-            { "" }
+            'skip$
           if$
         }
-        { entry.lang lang.en =
-            { edition change.sentence.case 's :=
-              s "Revised" = s "Revised edition" = or
-                { "Rev. ed." }
-                { s " ed." * }
-              if$
-            }
-            { edition }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.version}
+{ version empty$
+    { "" }
+    { version #1 #1 substring$
+      duplicate$ "V" =
+        { pop$ version }
+        { "v" =
+            { "V" version #2 global.max$ substring$ * }
+            { "V" version * }
           if$
         }
       if$
@@ -2703,48 +3394,46 @@ FUNCTION {format.edition}
 % 出版地址和出版社会有 “[S.l.: s.n.]” 的情况，所以必须一起处理。
 %    \begin{macrocode}
 FUNCTION {format.publisher}
-{ publisher empty$ not
-    { publisher }
-    { school empty$ not
-        { school }
-        { organization empty$ not
-            { organization }
-            { institution empty$ not
-                { institution }
-                { "" }
-              if$
-            }
+{ publisher empty$
+    { institution empty$
+        { school empty$
+            { "" }
+            { school }
           if$
         }
+        { institution }
       if$
     }
+    { publisher }
   if$
+  format.punctuations
 }
 
 FUNCTION {format.address.publisher}
-{ address empty$ not
-    { address }
-    { location empty$ not
-        { location }
+{ address empty$
+    { location empty$
         { "" }
+        { location }
       if$
     }
+    { address }
   if$
+  format.punctuations
   duplicate$ empty$ not
     { format.publisher empty$ not
-        { bbl.colon * format.publisher * }
-        { entry.is.electronic not show.missing.address.publisher and
-            { bbl.colon * bbl.sine.nomine * }
+        { add.colon format.publisher * }
+        { is.online not control.unknown.publisher and
+            { add.colon bbl.sine.nomine make.brackets * }
             'skip$
           if$
         }
       if$
     }
     { pop$
-      entry.is.electronic not show.missing.address.publisher and
+      is.online not control.unknown.publisher and
         { format.publisher empty$ not
-            { bbl.sine.loco bbl.colon * format.publisher * }
-            { bbl.sine.loco.sine.nomine }
+            { bbl.sine.loco make.brackets add.colon format.publisher * }
+            { bbl.sine.loco.sine.nomine make.brackets }
           if$
         }
         { format.publisher empty$ not
@@ -2754,6 +3443,13 @@ FUNCTION {format.address.publisher}
         }
       if$
     }
+  if$
+}
+
+FUNCTION {format.eventtitle}
+{ eventtitle empty$
+    { "" }
+    { eventtitle format.punctuations }
   if$
 }
 
@@ -2773,7 +3469,7 @@ FUNCTION {extract.before.dash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'len :=
+      s string.length #1 + 'len :=
         { charptr len <
           s charptr #1 substring$ "-" = not
           and
@@ -2790,7 +3486,7 @@ FUNCTION {extract.after.dash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'len :=
+      s string.length #1 + 'len :=
         { charptr len <
           s charptr #1 substring$ "-" = not
           and
@@ -2813,7 +3509,7 @@ FUNCTION {extract.before.slash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'len :=
+      s string.length #1 + 'len :=
         { charptr len <
           s charptr #1 substring$ "/" = not
           and
@@ -2830,7 +3526,7 @@ FUNCTION {extract.after.slash}
     { pop$ "" }
     { 's :=
       #1 'charptr :=
-      s text.length$ #1 + 'len :=
+      s string.length #1 + 'len :=
         { charptr len <
           s charptr #1 substring$ "-" = not
           and
@@ -2852,74 +3548,76 @@ FUNCTION {extract.after.slash}
   if$
 }
 
-%    \end{macrocode}
-%
-% 著者-出版年制必须提取出年份
-%    \begin{macrocode}
-FUNCTION {format.year}
-{ year empty$ not
-    { year extra.label * }
-    { date empty$ not
-        { date extract.before.dash extra.label * }
-        { entry.is.electronic not
-            { "empty year in " cite$ * warning$ }
-            'skip$
-          if$
-          urldate empty$ not
-            { "[" urldate extract.before.dash * extra.label * "]" * }
-            { "" }
-          if$
+FUNCTION {normalize.year.dash}
+{ "2025" control.punct.style =
+  "bylanguage" control.punct.style = is.lang.cjk and or
+    { "---" "—" find.replace
+      "--" "—" find.replace
+      "–" "—" find.replace
+      "-" "—" find.replace
+    }
+    { "2015" control.punct.style =
+      "halfwidth" control.punct.style = or
+        { "---" "—" find.replace
+          "--" "—" find.replace
+          "–" "—" find.replace
+          "—" "-" find.replace
         }
+        'skip$
       if$
     }
   if$
 }
 
-FUNCTION {format.periodical.year}
-{ year empty$ not
-    { year extract.before.slash
-      "--" *
-      year extract.after.slash
-      duplicate$ empty$
-        'pop$
-        { * }
-      if$
-    }
-    { date empty$ not
-        { date extract.before.dash }
-        { "empty year in " cite$ * warning$
-          urldate empty$ not
-            { "[" urldate extract.before.dash * "]" * }
-            { "" }
-          if$
-        }
-      if$
-    }
-  if$
-}
-
-%    \end{macrocode}
-%
-% 专利和报纸都是使用日期而不是年
-%    \begin{macrocode}
 FUNCTION {format.date}
-{ date empty$ not
-    { type$ "patent" = type$ "newspaper" = or
-        { date }
-        { entrysubtype empty$ not
-            { type$ "article" = entrysubtype "newspaper" = and
-                { date }
-                { format.year }
+{ year empty$
+    { date empty$
+        { is.online
+            { "" }
+            { "year" warn.empty.field
+              urldate empty$
+                { "" }
+                { urldate extract.before.dash extra.label * make.brackets }
               if$
             }
-            { format.year }
           if$
+        }
+        { date extract.before.slash extract.before.dash
+          date "/" contains
+            { "-" normalize.year.dash *
+              date extract.after.slash extract.before.dash *
+            }
+            'skip$
+          if$
+          extra.label *
         }
       if$
     }
-    { year empty$ not
-        { format.year }
-        { "" }
+    { year normalize.year.dash
+      extra.label *
+    }
+  if$
+%<*authoryear>
+  control.year.before.title
+    { pop$ "" }
+    'skip$
+  if$
+%</authoryear>
+}
+
+%    \end{macrocode}
+%
+% 专利和报纸都是使用完整日期
+%    \begin{macrocode}
+FUNCTION {format.full.date}
+{ date empty$
+    { year }
+    { control.year.before.title
+        { date }
+        { date #1 #4 substring$
+          extra.label *
+          date #5 global.max$ substring$ *
+        }
       if$
     }
   if$
@@ -2927,25 +3625,104 @@ FUNCTION {format.date}
 
 %    \end{macrocode}
 %
-% 更新、修改日期只用于电子资源 electronic
+% 正文中的引用标注的出版年，若为空则显示“无日期”或“n.d.”，需要带消歧的小写字后缀。
 %    \begin{macrocode}
-FUNCTION {format.editdate}
-{ date empty$ not
-    { "\allowbreak(" date * ")" * }
+FUNCTION {format.lab.date}
+{ year empty$
+    { date empty$
+        { urldate empty$
+            { bbl.no.date
+              extra.label empty$
+                'skip$
+                { "-" * extra.label *}
+              if$
+            }
+            { urldate extract.before.dash extra.label * make.brackets }
+          if$
+        }
+        { date extract.before.slash extract.before.dash
+          date "/" contains
+            { "-" normalize.year.dash *
+              date extract.after.slash extract.before.dash *
+            }
+            'skip$
+          if$
+          extra.label *
+        }
+      if$
+    }
+    { year normalize.year.dash extra.label * }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 著者-出版年制的出版年应置于题名前、著者姓名后。
+% 需要根据以下选项控制格式：
+%   - \opt{control.year.before.title} 出版年是否置于题名前；
+%   - \opt{control.name.year.delim} 著者姓名与出版年之间的分隔符；
+%    \begin{macrocode}
+%<*authoryear>
+FUNCTION {format.date.before.title}
+{ control.year.before.title
+    { "period" control.name.year.delim =
+        'new.sentence
+        'skip$
+      if$
+      format.lab.date
+    }
     { "" }
   if$
 }
 
+%</authoryear>
 %    \end{macrocode}
 %
-% 国标中的“引用日期”都是与 URL 同时出现的，所以其实为 urldate，这个虽然
-% 不是 \BibTeX{} 标准的域，但是实际中很常见。
+% 更新、修改日期只用于电子资源 electronic
+%    \begin{macrocode}
+FUNCTION {format.modification.date}
+{ date empty$
+    {
+%<*2025>
+      year empty$
+        { "" }
+        { year}
+      if$
+%</2025>
+%<*!2025>
+      ""
+%</!2025>
+    }
+    { date }
+  if$
+  duplicate$ empty$
+    'skip$
+    { make.parentheses
+      "\allowbreak " swap$ *
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% 2025 版的引用日期对于以下文献类型是必备：网站、网页、数据集、预印本类型，
+% 其余类型不需要著录。
+% 2005、2015 版只有电子资源著录 URL/DOI 时才著录引用日期。
 %    \begin{macrocode}
 FUNCTION {format.urldate}
-{ show.urldate show.url and entry.url empty$ not and
-  is.pure.electronic or
-  urldate empty$ not and
-    { "\allowbreak[" urldate * "]" * }
+{
+%<*2025>
+  control.urldate urldate empty$ not and
+%</2025>
+%<*!2025>
+  control.url require.url or entry.url empty$ not and
+  control.doi
+  doi empty$ not
+  cstr empty$ not or
+  and or
+  control.urldate urldate empty$ not and and
+%</!2025>
+    { "\allowbreak" urldate make.brackets * }
     { "" }
   if$
 }
@@ -2999,14 +3776,12 @@ FUNCTION {format.urldate}
 % str -> str
 % variable used: s, t, b
 FUNCTION {normalize.page.range}
-{
-  "" swap$
+{ "" swap$
   { duplicate$ empty$ not }
-    {
-      #1 skip.inter.token.chars.by 't :=
+    { #1 skip.inter.token.chars.by 't :=
       empty$
         { "" }
-        'page.range.delimiter
+        'control.page.range.delim
       if$
       * t
       #1 tokenize.by 't :=
@@ -3022,18 +3797,23 @@ FUNCTION {normalize.page.range}
 % Other functions that use this should keep that in mind.
 %    \begin{macrocode}
 FUNCTION {format.pages}
-{
-  pages normalize.page.range
-}
-
-FUNCTION {format.extracted.pages}
 { pages empty$
     { "" }
     { pages
-      only.start.page
-        { #1 tokenize.by pop$ }
+      control.page.ranges
         'normalize.page.range
+        { #1 tokenize.by pop$ }
       if$
+    }
+  if$
+}
+
+FUNCTION {format.dimensions}
+{ dimensions empty$
+    { "" }
+    { dimensions
+      "x" "$\times$" find.replace
+      "×" "$\times$" find.replace
     }
   if$
 }
@@ -3047,65 +3827,38 @@ FUNCTION {format.extracted.pages}
 % 报纸在卷号缺失时，期号与前面的日期直接相连，所以必须拆开输出。
 %    \begin{macrocode}
 FUNCTION {format.journal.volume}
-{ volume empty$ not
-    { bold.journal.volume
+{ volume empty$
+    { "" }
+    { control.bold.volume
         { "\textbf{" volume * "}" * }
         { volume }
       if$
     }
-    { "" }
   if$
 }
 
 FUNCTION {format.journal.number}
-{ number empty$ not
-    { "\allowbreak (" number * ")" * }
+{ number empty$
     { "" }
+    { "\allowbreak " number make.parentheses * }
   if$
 }
 
 FUNCTION {format.journal.pages}
 { pages empty$
-    { "" }
-    { format.extracted.pages }
+    { eid empty$
+        { "" }
+        { eid }
+      if$
+    }
+    { format.pages }
   if$
 }
 
-%    \end{macrocode}
-%
-% 连续出版物的年卷期有起止范围，需要特殊处理
-%    \begin{macrocode}
-FUNCTION {format.periodical.year.volume.number}
-{ year empty$ not
-    { year extract.before.slash }
-    { "empty year in periodical " cite$ * warning$ }
-  if$
-  volume empty$ not
-    { ", " * volume extract.before.dash * }
-    'skip$
-  if$
-  number empty$ not
-    { "\allowbreak (" * number extract.before.dash * ")" * }
-    'skip$
-  if$
-  "--" *
-  year extract.after.slash empty$
-  volume extract.after.dash empty$ and
-  number extract.after.dash empty$ and not
-    { year extract.after.slash empty$ not
-        { year extract.after.slash * }
-        { year extract.before.slash * }
-      if$
-      volume empty$ not
-        { ", " * volume extract.after.dash * }
-        'skip$
-      if$
-      number empty$ not
-        { "\allowbreak (" * number extract.after.dash * ")" * }
-        'skip$
-      if$
-    }
-    'skip$
+FUNCTION {format.newspaper.pages}
+{ pages empty$
+    { "" }
+    { "\allowbreak " format.pages make.parentheses * }
   if$
 }
 
@@ -3116,45 +3869,52 @@ FUNCTION {format.periodical.year.volume.number}
 % 传统的 \BibTeX{} 习惯使用 howpublished 著录 url，这里提供支持。
 %    \begin{macrocode}
 FUNCTION {check.url}
-{ url empty$ not
-    { url 'entry.url :=
-      #1 'entry.is.electronic :=
-    }
-    { howpublished empty$ not
-        { howpublished #1 #5 substring$ "\url{" =
-            { howpublished 'entry.url :=
-              #1 'entry.is.electronic :=
+{ entry.url empty$
+    { url empty$
+        { require.url control.doi not or cstr empty$ not and
+            { "https://cstr.cn/" cstr * 'entry.url :=
+              #1 'is.online :=
             }
-            'skip$
-          if$
-        }
-        { note empty$ not
-            { note #1 #5 substring$ "\url{" =
-                { note 'entry.url :=
-                  #1 'entry.is.electronic :=
+            { require.url control.doi not or doi empty$ not and
+                { "https://doi.org/" doi * 'entry.url :=
+                  #1 'is.online :=
                 }
-                'skip$
+                { howpublished field.or.null #1 #5 substring$ "\url{" =
+                    { howpublished 'entry.url :=
+                      #1 'is.online :=
+                    }
+                    { note field.or.null #1 #5 substring$ "\url{" =
+                        { note 'entry.url :=
+                          #1 'is.online :=
+                        }
+                        'skip$
+                      if$
+                    }
+                  if$
+                }
               if$
             }
-            'skip$
           if$
+        }
+        { url 'entry.url :=
+          #1 'is.online :=
         }
       if$
     }
+    'skip$
   if$
 }
 
-FUNCTION {output.url}
-{ show.url is.pure.electronic or
+FUNCTION {format.url}
+{ control.url require.url or
   entry.url empty$ not and
     { new.block
       entry.url #1 #5 substring$ "\url{" =
         { entry.url }
         { "\url{" entry.url * "}" * }
       if$
-      output
     }
-    'skip$
+    { "" }
   if$
 }
 
@@ -3163,81 +3923,50 @@ FUNCTION {output.url}
 % 需要检测 DOI 是否已经包含在 URL 中。
 %    \begin{macrocode}
 FUNCTION {check.doi}
-{ doi empty$ not
-    { #1 'entry.is.electronic := }
+{ cstr empty$ doi empty$ and
     'skip$
+    { #1 'is.online := }
   if$
 }
 
-FUNCTION {is.in.url}
-{ 's :=
-  s empty$
-    { #1 }
-    { entry.url empty$
-        { #0 }
-        { s text.length$ 'len :=
-          entry.url "l" change.case$ text.length$ 'charptr :=
-            { entry.url "l" change.case$ charptr len substring$ s "l" change.case$ = not
-              charptr #0 >
-              and
-            }
-            { charptr #1 - 'charptr := }
-          while$
-          charptr
-        }
+FUNCTION {either.or}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      duplicate$ empty$
+        { pop$ "" }
+        'skip$
       if$
     }
+    { swap$ pop$ }
   if$
 }
 
 FUNCTION {format.doi}
-{ ""
-  doi empty$ not
-    { "" 's :=
-      doi 't :=
-      #0 'numnames :=
-        { t empty$ not}
-        { t #1 #1 substring$ 'tmp.str :=
-          tmp.str "," = tmp.str " " = or t #2 #1 substring$ empty$ or
-            { t #2 #1 substring$ empty$
-                { s tmp.str * 's := }
-                'skip$
+{ control.doi
+    { cstr empty$
+        { doi empty$
+            { "" }
+            { entry.url doi contains
+                { "" }
+                { new.block "DOI:\doi{" doi * "}" * }
               if$
-              s empty$ s is.in.url or
-                'skip$
-                { numnames #1 + 'numnames :=
-                  numnames #1 >
-                    { ", " * }
-                    { "DOI: " * }
-                  if$
-                  "\doi{" s * "}" * *
-                }
-              if$
-              "" 's :=
             }
-            { s tmp.str * 's := }
           if$
-          t #2 global.max$ substring$ 't :=
         }
-      while$
+        { entry.url cstr contains
+            { "" }
+            { new.block "CSTR:\cstr{" cstr * "}" * }
+          if$
+        }
+      if$
     }
-    'skip$
-  if$
-}
-
-FUNCTION {output.doi}
-{ doi empty$ not show.doi and
-  show.english.translation entry.lang lang.zh = and not and
-    { new.block
-      format.doi output
-    }
-    'skip$
+    { "" }
   if$
 }
 
 FUNCTION {check.electronic}
-{ "" 'entry.url :=
-  #0 'entry.is.electronic :=
+{ control.doi
     'check.doi
     'skip$
   if$
@@ -3246,7 +3975,7 @@ FUNCTION {check.electronic}
   if$
   medium empty$ not
     { medium "MT" = medium "DK" = or medium "CD" = or medium "OL" = or
-        { #1 'entry.is.electronic := }
+        { #1 'is.online := }
         'skip$
       if$
     }
@@ -3254,49 +3983,51 @@ FUNCTION {check.electronic}
   if$
 }
 
-FUNCTION {format.eprinttype}
-{ archivePrefix empty$ not
-    { archivePrefix }
-    { eprinttype empty$ not
-        { eprinttype }
-        { type$ "article" = get.journal.title check.arxiv.preprint and
-            { "arXiv" }
-            { "" }
-          if$
+FUNCTION {format.eprint}
+{ archiveprefix eprinttype either.or
+  duplicate$ empty$
+    { pop$
+      journal journaltitle either.or shortjournal either.or
+      #1 #5 substring$ "l" change.case$ "arxiv" =
+        { "arXiv" }
+        { "" }
+      if$
+    }
+    { duplicate$ "arxiv" =
+        { pop$ "arXiv" }
+        { duplicate$ "pubmed" =
+            { pop$ "PubMed" }
+            'skip$
+        if$
         }
       if$
     }
+  if$
+  entry.url empty$
+    { duplicate$ "l" change.case$ "arxiv" = entry.eprint empty$ not and
+        { "https://arxiv.org/abs/" entry.eprint * 'entry.url :=
+          #1 'is.online :=
+        }
+        'skip$
+      if$
+    }
+    'skip$
+  if$
+  control.eprint eprint empty$ not and
+    { duplicate$ empty$
+        'skip$
+        { ":" * }
+      if$
+      eprint *
+    }
+    'skip$
   if$
 }
 
 FUNCTION {format.note}
-{ note empty$ not show.note and
+{ note empty$ not control.note and
     { note }
     { "" }
-  if$
-}
-
-FUNCTION {output.translation}
-{ show.english.translation entry.lang lang.zh = and
-    { translation empty$ not
-        { translation }
-        { "[English translation missing!]" }
-      if$
-      " (in Chinese)" * output
-      write$
-      format.doi duplicate$ empty$ not
-        { newline$
-          write$
-        }
-        'pop$
-      if$
-      " \\" write$
-      newline$
-      "(" write$
-      ""
-      before.all 'output.state :=
-    }
-    'skip$
   if$
 }
 
@@ -3315,8 +4046,43 @@ FUNCTION {empty.misc.check}
   if$
 }
 
+FUNCTION {link.open}
+{ control.link.journal
+    { url empty$
+        { doi empty$
+            { "" }
+            { "\href{https://doi.org/" doi * "}{" * }
+          if$
+        }
+        { "\href{" url * "}{" * }
+      if$
+      duplicate$ empty$
+        { pop$ }
+        { "" set.punct.check
+          output
+          before.all 'output.state :=
+        }
+      if$
+    }
+    'skip$
+  if$
+}
+
+FUNCTION {link.close}
+{ control.link.journal
+    { url empty$ doi empty$ and
+        'skip$
+        { "" set.punct.check
+          "}" output
+          before.all 'output.state :=
+        }
+      if$
+    }
+    'skip$
+  if$
+}
+
 %    \end{macrocode}
-%
 %
 % \subsection{Functions for all entry types}
 %
@@ -3327,157 +4093,8 @@ FUNCTION {empty.misc.check}
 % style designer should have a function `default.type' for unknown types.
 % Note: The fields (within each list) are listed in order of appearance,
 % except as described for an `inbook' or a `proceedings'.
-%
-% \subsubsection{专著}
-%
 %    \begin{macrocode}
-FUNCTION {monograph}
-{ output.bibitem
-  output.translation
-  author empty$ not
-    { format.authors }
-    { editor empty$ not
-        { format.editors }
-        { "empty author and editor in " cite$ * warning$
-%<*author-year>
-          bbl.anonymous
-%</author-year>
-%<*numerical>
-          ""
-%</numerical>
-        }
-      if$
-    }
-  if$
-  output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
-    }
-    'skip$
-  if$
-  new.block
-  format.series.vol.num.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.sentence
-  format.edition output
-  new.block
-  format.address.publisher output
-  year.after.author not
-    { format.year "year" output.check }
-    'skip$
-  if$
-  format.pages bbl.pages.colon output.after
-  format.urldate "" output.after
-  output.url
-  output.doi
-  new.block
-  format.note output
-  fin.entry
-}
-
-%    \end{macrocode}
-%
-% \subsubsection{专著中的析出文献}
-%
-% An incollection is like inbook, but where there is a separate title
-% for the referenced thing (and perhaps an editor for the whole).
-% An incollection may CROSSREF a book.
-%
-%       Required: author, title, booktitle, publisher, year
-%
-%       Optional: editor, volume or number, series, type, chapter, pages,
-%                       address, edition, month, note
 %    \begin{macrocode}
-FUNCTION {incollection}
-{ output.bibitem
-  output.translation
-  format.authors output
-  author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
-    }
-    'skip$
-  if$
-  new.block
-  format.title "title" output.check
-  "M" set.entry.mark
-  format.mark "" output.after
-  new.block
-  format.translators output
-  new.slash
-  format.editors output
-  new.block
-  format.series.vol.num.booktitle "booktitle" output.check
-  new.block
-  format.edition output
-  new.block
-  format.address.publisher output
-  year.after.author not
-    { format.year "year" output.check }
-    'skip$
-  if$
-  format.extracted.pages bbl.pages.colon output.after
-  format.urldate "" output.after
-  output.url
-  output.doi
-  new.block
-  format.note output
-  fin.entry
-}
-
-%    \end{macrocode}
-%
-% \subsubsection{连续出版物}
-%
-%    \begin{macrocode}
-FUNCTION {periodical}
-{ output.bibitem
-  output.translation
-  format.authors output
-  author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
-    }
-    'skip$
-  if$
-  new.block
-  format.title "title" output.check
-  "J" set.entry.mark
-  format.mark "" output.after
-  new.block
-  format.periodical.year.volume.number output
-  new.block
-  format.address.publisher output
-  year.after.author not
-    { format.periodical.year "year" output.check }
-    'skip$
-  if$
-  format.urldate "" output.after
-  output.url
-  output.doi
-  new.block
-  format.note output
-  fin.entry
-}
-
-%    \end{macrocode}
-%
-% \subsubsection{连续出版物中的析出文献}
 %
 % The article function is for an article in a journal.  An article may
 % CROSSREF another article.
@@ -3489,52 +4106,344 @@ FUNCTION {periodical}
 % The other entry functions are all quite similar, so no "comment version"
 % will be given for them.
 %    \begin{macrocode}
-FUNCTION {journal.article}
-{ output.bibitem
-  output.translation
+FUNCTION {article.journal}
+{ "J" set.entry.type.id
+  output.bibitem
   format.authors output
-  author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  control.article.title
+    { new.block
+      format.title "title" output.check
     }
     'skip$
   if$
   new.block
-  title.in.journal
-    { format.title "title" output.check
-      entrysubtype empty$ not
-        {
-          entrysubtype "newspaper" =
-            { "N" set.entry.mark }
-            { "J" set.entry.mark }
-          if$
-        }
-        { "J" set.entry.mark }
-      if$
-      format.mark "" output.after
-      new.block
-    }
-    'skip$
-  if$
+  format.translators output
+  new.block
+  link.open
   format.journal "journal" output.check
-  year.after.author not
-    { format.date "year" output.check }
-    'skip$
+  entry.type.id "N" =
+    { format.full.date "year" output.check
+      "" set.punct.check
+      format.newspaper.pages output
+    }
+    {
+%<*2025>
+      volume empty$ number empty$ and
+%    \end{macrocode}
+% 卷次和期号均为空时视为在线出版，使用完整日期。
+%    \begin{macrocode}
+        { format.full.date "year" output.check }
+        { format.date output }
+      if$
+%</2025>
+%<*!2025>
+      format.date output
+%</!2025>
+      format.journal.volume output
+      "" set.punct.check
+      format.journal.number output
+      bbl.pages.colon set.punct.check
+      format.journal.pages output
+    }
   if$
-  format.journal.volume output
-  format.journal.number "" output.after
-  format.journal.pages bbl.pages.colon output.after
-  format.urldate "" output.after
-  output.url
-  output.doi
+  link.close
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
   new.block
   format.note output
   fin.entry
 }
+
+FUNCTION {archive}
+{ "A" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  % new.block
+  % format.translators output
+  new.block
+  format.address.publisher output
+%<*2025>
+  format.full.date "year" output.check
+  bbl.pages.colon set.punct.check
+  format.pages output
+%</2025>
+%<*!2025>
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+  "" set.punct.check
+  format.modification.date output
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+%
+% The book function is for a whole book.  A book may CROSSREF another book.
+%
+%       Required fields: author or editor, title, publisher, year
+%
+%       Optional fields: volume or number, series, address, edition, month,
+%                       note
+%    \begin{macrocode}
+FUNCTION {book}
+{ "M" set.entry.type.id
+  output.bibitem
+  format.authors.editors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  new.block
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  format.address.publisher output
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+FUNCTION {letter} { archive }
+
+FUNCTION {dataset}
+{ "DS" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  new.block
+  format.version output
+  new.block
+  publisher "publisher" output.check
+  "" set.punct.check
+  format.modification.date output
+  "" set.punct.check
+%<*2025>
+  format.urldate "urldate" output.check
+%</2025>
+%<*!2025>
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+FUNCTION {database}
+{ "DB" set.entry.type.id
+  dataset
+}
+
+%    \end{macrocode}
+%
+% An inbook is a piece of a book: either a chapter and/or a page range.
+% It may CROSSREF a book.  If there's no volume field, the type field
+% will come before number and series.
+%
+%       Required: author or editor, title, chapter and/or pages, publisher,year
+%
+%       Optional: volume or number, series, type, address, edition, month, note
+%
+% 原生 BibTeX 的数据模型中 \texttt{@inbook} 不含 \texttt{booktitle} ，
+% 按照“专著”处理。而 biblatex 的 \texttt{@inbook} 跟 \texttt{incollection} 一样。
+% 按照“专著的析出文献”处理。
+%    \begin{macrocode}
+FUNCTION {inbook}
+{ "M" set.entry.type.id
+  booktitle empty$
+    'book
+    { output.bibitem
+      format.authors output
+%<*authoryear>
+      format.date.before.title output
+%</authoryear>
+      control.article.title
+        { new.block
+          format.title "title" output.check
+        }
+        'skip$
+      if$
+      new.block
+      format.translators output
+      new.slash
+      booktitle empty$
+        { "" }
+        { control.in
+            { bbl.in add.colon }
+            { "" }
+          if$
+          bookauthor empty$
+            { editor empty$
+                'skip$
+                { format.editors * output new.block "" }
+              if$
+            }
+            { bookauthor format.names * output new.block "" }
+          if$
+          format.series.volume.booktitle *
+        }
+      if$
+      "booktitle" output.check
+      new.block
+      format.edition output
+      new.block
+      format.address.publisher output
+      format.date output
+      bbl.pages.colon set.punct.check
+      format.pages output
+%<*!2025>
+      "" set.punct.check
+      format.urldate output
+%</!2025>
+      format.url output
+      format.doi output
+      new.block
+      format.note output
+      fin.entry
+    }
+  if$
+}
+
+%    \end{macrocode}
+%
+% \subsubsection{图书中的析出文献}
+%
+% An incollection is like inbook, but where there is a separate title
+% for the referenced thing (and perhaps an editor for the whole).
+% An incollection may CROSSREF a book.
+%
+%       Required: author, title, booktitle, publisher, year
+%
+%       Optional: editor, volume or number, series, type, chapter, pages,
+%                       address, edition, month, note
+%    \begin{macrocode}
+FUNCTION {incollection}
+{ "M" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  control.article.title
+    { new.block
+      format.title "title" output.check
+    }
+    'skip$
+  if$
+  new.block
+  format.translators output
+  new.slash
+  format.in.ed.booktitle "booktitle" output.check
+  new.block
+  format.edition output
+  new.block
+  format.address.publisher output
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% An inproceedings is an article in a conference proceedings, and it may
+% CROSSREF a proceedings.  If there's no address field, the month (\& year)
+% will appear just before note.
+%
+%       Required: author, title, booktitle, year
+%
+%       Optional: editor, volume or number, series, pages, address, month,
+%                       organization, publisher, note
+%
+% 以图书中的析出文献的形式出版的会议论文，按照 @incollection 处理，使用“//”符号。
+% 未正式出版的会议论文使用下的格式，不使用“//”符号。
+%    \begin{macrocode}
+FUNCTION {inproceedings}
+{ "C" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  control.article.title
+    { new.block
+      format.title "title" output.check
+    }
+    'skip$
+  if$
+  new.slash
+  booktitle empty$
+    { format.eventtitle "eventtitle" output.check }
+    { format.in.ed.booktitle "booktitle" output.check
+      new.block
+      format.edition output
+      new.block
+      format.address.publisher output
+    }
+  if$
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% The conference function is included for Scribe compatibility.
+%    \begin{macrocode}
+FUNCTION {conference} { inproceedings }
 
 %    \end{macrocode}
 %
@@ -3543,28 +4452,33 @@ FUNCTION {journal.article}
 % number 域也可以用来表示专利号。
 %    \begin{macrocode}
 FUNCTION {patent}
-{ output.bibitem
-  output.translation
-  format.authors output
-  author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
+{ "P" set.entry.type.id
+  output.bibitem
+  holder empty$
+    { format.authors "holder and author" output.check }
+    { holder format.names output.nonnull }
+  if$
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  control.article.title
+    { new.block
+      format.title "title" output.check
     }
     'skip$
   if$
   new.block
-  format.title "title" output.check
-  "P" set.entry.mark
-  format.mark "" output.after
-  new.block
-  format.date "year" output.check
-  format.urldate "" output.after
-  output.url
-  output.doi
+  format.full.date "year" output.check
+%<*2025>
+  bbl.pages.colon set.punct.check
+  format.pages output
+%</2025>
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
   new.block
   format.note output
   fin.entry
@@ -3572,44 +4486,80 @@ FUNCTION {patent}
 
 %    \end{macrocode}
 %
-% \subsubsection{电子资源}
+% \subsubsection{连续出版物}
+%
 %    \begin{macrocode}
-FUNCTION {electronic}
-{ #1 #1 check.electronic
-  #1 'entry.is.electronic :=
-  #1 'is.pure.electronic :=
-  output.bibitem
-  output.translation
-  format.authors output
-  author format.key output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
+FUNCTION {format.periodical.volume}
+{ volume number either.or
+  duplicate$ empty$
+    { pop$ "" }
+    { format.punctuations
+      normalize.year.dash
     }
-    'skip$
   if$
+}
+
+FUNCTION {periodical}
+{ "J" set.entry.type.id
+  output.bibitem
+  format.editors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
   new.block
-  format.series.vol.num.title "title" output.check
-  "EB" set.entry.mark
-  format.mark "" output.after
+  format.title "title" output.check
+  new.block
+  format.periodical.volume output
   new.block
   format.address.publisher output
-  year.after.author not
-    { date empty$
-        { format.date output }
-        'skip$
-      if$
-    }
-    'skip$
-  if$
-  format.pages bbl.pages.colon output.after
-  format.editdate "" output.after
-  format.urldate "" output.after
-  output.url
-  output.doi
+  format.date output
+%<*2005|2015>
+  "" set.punct.check
+  format.urldate output
+%</2005|2015>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% A proceedings is a conference proceedings.
+% If there is an organization but no editor field, the organization will
+% appear as the first optional field (we try to make the first block nonempty);
+% if there's no address field, the month (\& year) will appear just before note.
+%
+%       Required: title, year
+%
+%       Optional: editor, volume or number, series, address, month,
+%                       organization, publisher, note
+%    \begin{macrocode}
+FUNCTION {proceedings}
+{ "C" set.entry.type.id
+  output.bibitem
+  format.editors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  new.block
+  format.translators output
+  new.sentence
+  format.edition output
+  new.block
+  format.address.publisher output
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
   new.block
   format.note output
   fin.entry
@@ -3621,84 +4571,188 @@ FUNCTION {electronic}
 %
 %    \begin{macrocode}
 FUNCTION {preprint}
-{ url empty$ not
-    { url 'entry.url :=
-      #1 'entry.is.electronic :=
-      #1 'is.pure.electronic :=
-    }
-    { eprint empty$
-        'skip$
-        { archivePrefix empty$
-            { eprinttype field.or.null }
-            { archivePrefix }
-          if$
-          "l" change.case$ "arxiv" =
-            { "https://arxiv.org/abs/" eprint * 'entry.url :=
-              #1 'entry.is.electronic :=
-              #1 'is.pure.electronic :=
-            }
-            'skip$
-          if$
-        }
-      if$
-    }
-  if$
-  output.bibitem
-  output.translation
-  author empty$ not
-    { format.authors }
-    { editor empty$ not
-        { format.editors }
-        { "empty author and editor in " cite$ * warning$
-%<*author-year>
-          bbl.anonymous
-%</author-year>
-%<*numerical>
-          ""
-%</numerical>
-        }
-      if$
-    }
-  if$
-  output
-  year.after.author
-    { period.after.author
-        'new.sentence
-        'skip$
-      if$
-      format.year "year" output.check
-    }
-    'skip$
-  if$
-  new.block
-  title.in.journal
-    { format.series.vol.num.title "title" output.check
+{ #1 'require.url :=
+  #1 check.electronic
+%<*2025>
+  "PP" set.entry.type.id
+%</2025>
 %<*2015>
-      "A" set.entry.mark
+  "A" set.entry.type.id
 %</2015>
-%<*!2015>
-      "Z" set.entry.mark
-%</!2015>
-      format.mark "" output.after
-      new.block
+%<*!(2015|2025)>
+  "Z" set.entry.type.id
+%</!(2015|2025)>
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  control.article.title
+    { new.block
+      format.title "title" output.check
     }
     'skip$
   if$
-  format.edition output
   new.block
-  format.eprinttype output
-  date empty$ not
-    { "(" date * ")" * }
-    { year empty$ not
-        { "(" year * ")" * }
-        { "" }
-      if$
+  format.version output
+  new.block
+  format.eprint output
+  "" set.punct.check
+  format.modification.date output
+  "" set.punct.check
+  format.urldate "urldate" output.check
+  format.url "url" output.check
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+%    \end{macrocode}
+%
+% A phdthesis is like a mastersthesis.
+%
+%       Required: author, title, school, year
+%
+%       Optional: type, address, month, note
+%    \begin{macrocode}
+FUNCTION {thesis}
+{ "D" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  new.block
+  format.address.publisher output
+  format.date output
+  bbl.pages.colon set.punct.check
+  format.pages output
+%<*!2025>
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+FUNCTION {phdthesis} { thesis }
+
+%    \end{macrocode}
+%
+% A mastersthesis is a Master's thesis.
+%
+%       Required: author, title, school, year
+%
+%       Optional: type, address, month, note
+%    \begin{macrocode}
+FUNCTION {mastersthesis} { thesis }
+
+%    \end{macrocode}
+%
+% A techreport is a technical report.
+%
+%       Required: author, title, institution, year
+%
+%       Optional: type, number, address, month, note
+%    \begin{macrocode}
+FUNCTION {techreport}
+{ "R" set.entry.type.id
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  format.btitle "title" output.check
+  % new.block
+  % format.translators output
+  new.block
+%<*2025>
+  institution empty$ publisher empty$ and
+    { format.full.date "year" output.check
+      bbl.pages.colon set.punct.check
+      format.pages output
+    }
+    { format.address.publisher output
+      format.date output
+      bbl.pages.colon set.punct.check
+      format.pages output
     }
   if$
-  " " output.after
-  format.urldate "" output.after
-  output.url
-  output.doi
+%</2025>
+%<*!2025>
+  institution empty$
+  pages empty$ and
+  control.url and
+  entry.url empty$ not and
+    'skip$
+    { format.address.publisher output
+      format.date output
+      bbl.pages.colon set.punct.check
+      format.pages output
+    }
+  if$
+  "" set.punct.check
+  format.modification.date output
+  "" set.punct.check
+  format.urldate output
+%</!2025>
+  format.url output
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+}
+
+FUNCTION {report} { techreport }
+
+%    \end{macrocode}
+%
+% A manual is technical documentation.
+%
+%       Required: title
+%
+%       Optional: author, organization, address, edition, month, year, note
+%    \begin{macrocode}
+FUNCTION {manual} { techreport }
+
+%    \end{macrocode}
+%
+% \subsubsection{电子资源}
+%    \begin{macrocode}
+FUNCTION {webpage}
+{ #1 'is.online :=
+  #1 'require.url :=
+  #1 check.electronic
+  output.bibitem
+  format.authors output
+%<*authoryear>
+  format.date.before.title output
+%</authoryear>
+  new.block
+  "EB" set.entry.type.id
+  format.btitle "title" output.check
+  new.block
+  publisher empty$
+    'skip$
+    { format.address.publisher output
+      format.date output
+      bbl.pages.colon set.punct.check
+      format.pages output
+      "" set.punct.check
+    }
+  if$
+  format.modification.date output
+  "" set.punct.check
+  format.urldate "urldate" output.check
+  format.url "url" output.check
+  format.doi output
   new.block
   format.note output
   fin.entry
@@ -3717,33 +4771,22 @@ FUNCTION {preprint}
 % Misc 用来自动判断类型。
 %    \begin{macrocode}
 FUNCTION {misc}
-{ get.journal.title
-  duplicate$ empty$ not
-    { check.arxiv.preprint
+{ booktitle empty$ not
+    'incollection
+    { eprint empty$ not archiveprefix empty$ not or eprinttype empty$ not or
         'preprint
-        'journal.article
-      if$
-    }
-    { pop$
-      booktitle empty$ not
-        'incollection
-        { archivePrefix empty$ not
-          eprinttype empty$ not or
-            'preprint
-            { publisher empty$ not
-                'monograph
-                { entry.is.electronic
-                    'electronic
-                    {
+        { publisher empty$ not
+            'book
+            { is.online
+                'webpage
+                {
 %<*!2005>
-                      "Z" set.entry.mark
+                  "Z" set.entry.type.id
 %</!2005>
 %<*2005>
-                      "M" set.entry.mark
+                  "M" set.entry.type.id
 %</2005>
-                      monograph
-                    }
-                  if$
+                  book
                 }
               if$
             }
@@ -3755,23 +4798,28 @@ FUNCTION {misc}
   empty.misc.check
 }
 
-FUNCTION {archive}
-{ "A" set.entry.mark
-  misc
+FUNCTION {article}
+{ entrysubtype field.or.null "l" change.case$ "newspaper" =
+    { "N" set.entry.type.id
+      article.journal
+    }
+    { journal journaltitle either.or shortjournal either.or
+      duplicate$ empty$
+        { pop$
+          archiveprefix eprinttype either.or eprint either.or empty$
+            'article.journal
+            'preprint
+          if$
+        }
+        { check.arxiv.preprint
+            'preprint
+            'article.journal
+          if$
+        }
+      if$
+    }
+  if$
 }
-
-FUNCTION {article} { misc }
-
-%    \end{macrocode}
-%
-% The book function is for a whole book.  A book may CROSSREF another book.
-%
-%       Required fields: author or editor, title, publisher, year
-%
-%       Optional fields: volume or number, series, address, edition, month,
-%                       note
-%    \begin{macrocode}
-FUNCTION {book} { monograph }
 
 %    \end{macrocode}
 %
@@ -3784,154 +4832,97 @@ FUNCTION {book} { monograph }
 FUNCTION {booklet} { book }
 
 FUNCTION {collection}
-{ "G" set.entry.mark
-  monograph
+{ "G" set.entry.type.id
+  book
 }
 
-FUNCTION {database}
-{ "DB" set.entry.mark
-  electronic
-}
-
-FUNCTION {dataset}
-{ "DS" set.entry.mark
-  electronic
-}
-
-%    \end{macrocode}
-%
-% An inbook is a piece of a book: either a chapter and/or a page range.
-% It may CROSSREF a book.  If there's no volume field, the type field
-% will come before number and series.
-%
-%       Required: author or editor, title, chapter and/or pages, publisher,year
-%
-%       Optional: volume or number, series, type, address, edition, month, note
-%
-% 原生 BibTeX 的数据模型中 \texttt{@inbook} 不含 \texttt{booktitle} ，
-% 按照“专著”处理。而 biblatex 的 \texttt{@inbook} 跟 \texttt{incollection} 一样。
-% 按照“专著的析出文献”处理。
-%    \begin{macrocode}
-FUNCTION {inbook} {
-  booktitle empty$
-    'book
-    'incollection
-  if$
-}
-
-%    \end{macrocode}
-%
-% An inproceedings is an article in a conference proceedings, and it may
-% CROSSREF a proceedings.  If there's no address field, the month (\& year)
-% will appear just before note.
-%
-%       Required: author, title, booktitle, year
-%
-%       Optional: editor, volume or number, series, pages, address, month,
-%                       organization, publisher, note
-%    \begin{macrocode}
-FUNCTION {inproceedings}
-{ "C" set.entry.mark
-  incollection
-}
-
-%    \end{macrocode}
-%
-% The conference function is included for Scribe compatibility.
-%    \begin{macrocode}
-FUNCTION {conference} { inproceedings }
+FUNCTION {image} { misc }
 
 FUNCTION {legislation} { archive }
 
 
 FUNCTION {map}
-{ "CM" set.entry.mark
-  misc
-}
-
-%    \end{macrocode}
-%
-% A manual is technical documentation.
-%
-%       Required: title
-%
-%       Optional: author, organization, address, edition, month, year, note
-%    \begin{macrocode}
-FUNCTION {manual} { monograph }
-
-%    \end{macrocode}
-%
-% A mastersthesis is a Master's thesis.
-%
-%       Required: author, title, school, year
-%
-%       Optional: type, address, month, note
-%    \begin{macrocode}
-FUNCTION {mastersthesis}
-{ "D" set.entry.mark
-  monograph
+{ "CM" set.entry.type.id
+  booktitle empty$ not
+    { incollection }
+    { output.bibitem
+      format.authors output
+%<*authoryear>
+      format.date.before.title output
+%</authoryear>
+      new.block
+      format.btitle "title" output.check
+      new.block
+      format.edition output
+      new.block
+      format.address.publisher output
+      format.date output
+      bbl.pages.colon set.punct.check
+      format.pages output
+%<*!(2005|2015)>
+      new.block
+      format.dimensions output
+%</!(2005|2015)>
+%<*2005|2015>
+      "" set.punct.check
+      format.modification.date output
+      "" set.punct.check
+      format.urldate output
+%</2005|2015>
+      format.url output
+      format.doi output
+      new.block
+      format.note output
+      fin.entry
+    }
+  if$
 }
 
 FUNCTION {newspaper}
-{ "N" set.entry.mark
-  article
+{ "N" set.entry.type.id
+  article.journal
 }
 
 FUNCTION {online}
-{ "EB" set.entry.mark
-  electronic
-}
-
-%    \end{macrocode}
-%
-% A phdthesis is like a mastersthesis.
-%
-%       Required: author, title, school, year
-%
-%       Optional: type, address, month, note
-%    \begin{macrocode}
-FUNCTION {phdthesis} { mastersthesis }
-
-FUNCTION {thesis} { mastersthesis }
-
-%    \end{macrocode}
-%
-% A proceedings is a conference proceedings.
-% If there is an organization but no editor field, the organization will
-% appear as the first optional field (we try to make the first block nonempty);
-% if there's no address field, the month (\& year) will appear just before note.
-%
-%       Required: title, year
-%
-%       Optional: editor, volume or number, series, address, month,
-%                       organization, publisher, note
-%    \begin{macrocode}
-FUNCTION {proceedings}
-{ "C" set.entry.mark
-  monograph
+{ eprint empty$
+  archiveprefix empty$ and
+  eprinttype empty$ and
+    { webpage }
+    { preprint }
+  if$
 }
 
 FUNCTION {software}
-{ "CP" set.entry.mark
-  electronic
+{ "CP" set.entry.type.id
+  webpage
 }
 
 FUNCTION {standard}
-{ "S" set.entry.mark
+{ "S" set.entry.type.id
+%<*!(2005|2015)>
+  output.bibitem
+%<*authoryear>
+  format.authors.editors output
+  format.date.before.title output
+  new.block
+%</authoryear>
+  number field.or.null output
+  is.lang.cjk
+    { "\quad " set.punct.check }
+    { " " set.punct.check }
+  if$
+  format.btitle "title" output.check
+  new.block
+  format.url output
+  new.block
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
+%</!(2005|2015)>
+%<*2005|2015>
   misc
-}
-
-%    \end{macrocode}
-%
-% A techreport is a technical report.
-%
-%       Required: author, title, institution, year
-%
-%       Optional: type, number, address, month, note
-%    \begin{macrocode}
-FUNCTION {techreport}
-{ "R" set.entry.mark
-  misc
+%</2005|2015>
 }
 
 %    \end{macrocode}
@@ -3944,11 +4935,291 @@ FUNCTION {techreport}
 %    \begin{macrocode}
 FUNCTION {unpublished} { misc }
 
+FUNCTION {video} { misc }
+
 %    \end{macrocode}
 %
 % We use entry type `misc' for an unknown type; BibTeX gives a warning.
 %    \begin{macrocode}
 FUNCTION {default.type} { misc }
+
+%    \end{macrocode}
+%
+% The following is taken from ttb.pdf.
+%    \begin{macrocode}
+FUNCTION {mult}
+{ 'a :=                        %% we store the first value
+ 'b :=                        %% we store the second value
+
+ b #0 <                       %% We remember the sign of b, and
+    {#-1 #0 b - 'b :=}        %% then consider its absolute value.
+    {#1}                      %%
+ if$                          %%
+
+ #0                           %% Put 0 on the stack.
+ {b #0 >}                     %% While b is strictly positive,
+ {                            %% we add a to the value on the stack
+   a +                        %% and decrement b.
+   b #1 - 'b :=               %%
+ }                            %%
+ while$                       %%
+
+ swap$                        %% Last, we take the opposite
+   'skip$                     %% if b was negative.
+   {#0 swap$ -}               %%
+ if$                          %%
+}
+
+FUNCTION {chr.to.value}       %% The ASCII code of a character
+{ chr.to.int$ #48 -           %% ASCII value of "0" -> 48
+  duplicate$ duplicate$       %%                "1" -> 49
+  #0 < swap$ #9 > or          %%                   ...
+  {                           %%                "9" -> 57
+      #48 + int.to.chr$
+      " is not a number..." *
+      warning$                %% Return 0 if it is not a number
+      pop$ #0                 %%
+    }
+  {}
+  if$
+}
+
+FUNCTION {str.to.int.aux}     %% The auxiliary function
+{ { duplicate$ empty$ not }     %% While the string is not empty
+    {                              %% consider its first char
+      swap$ #10 mult 'a :=    %% and ``add'' it at the end of
+      duplicate$ #1 #1 substring$   %% the result.
+      chr.to.value a +
+      swap$
+      #2 global.max$ substring$
+    }
+  while$
+  pop$
+}
+
+FUNCTION {str.to.int}
+{                             %% Handling negative values
+  duplicate$ #1 #1 substring$ "-" =
+    {#1 swap$ #2 global.max$ substring$}
+    {#0 swap$}
+  if$
+                              %% Initialization, and then
+  #0 swap$ str.to.int.aux     %% call to the aux. funtion
+  swap$
+    {#0 swap$ -}              %% And handle the sign.
+    {}
+  if$
+}
+
+FUNCTION {boolean.to.int}
+{ "l" change.case$ duplicate$
+    "true" =
+    { pop$ #1 }
+    { duplicate$ "false" =
+        { pop$ #0 }
+        { "unknown boolean " quote$ * swap$ * quote$ *
+          " in " * cite$ * warning$
+          #0
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {GBT7714BSTCTL}
+{ CTL_punct_style empty$
+    'skip$
+    { CTL_punct_style 'control.punct.style := }
+  if$
+  CTL_max_bib_names empty$
+    'skip$
+    { CTL_max_bib_names str.to.int 'control.max.bib.names := }
+  if$
+  CTL_min_bib_names empty$
+    'skip$
+    { CTL_min_bib_names str.to.int 'control.min.bib.names := }
+  if$
+  CTL_max_cite_names empty$
+    'skip$
+    { CTL_max_cite_names str.to.int 'control.max.cite.names := }
+  if$
+  CTL_min_cite_names empty$
+    'skip$
+    { CTL_min_cite_names str.to.int 'control.min.cite.names := }
+  if$
+  CTL_uppercase_family empty$
+    'skip$
+    { CTL_uppercase_family boolean.to.int 'control.uppercase.family := }
+  if$
+  CTL_initialize_with_hyphen empty$
+    'skip$
+    { CTL_initialize_with_hyphen boolean.to.int 'control.initialize.with.hyphen := }
+  if$
+  CTL_check_pinyin empty$
+    'skip$
+    { CTL_check_pinyin boolean.to.int 'control.check.pinyin := }
+  if$
+  CTL_bib_final_and empty$
+    'skip$
+    { CTL_bib_final_and boolean.to.int 'control.bib.final.and := }
+  if$
+  CTL_cite_final_and empty$
+    'skip$
+    { CTL_cite_final_and boolean.to.int 'control.cite.final.and := }
+  if$
+  CTL_cite_lang empty$
+    'skip$
+    { CTL_cite_lang 'control.cite.lang := }
+  if$
+  CTL_space_before_et_al empty$
+    'skip$
+    { CTL_space_before_et_al boolean.to.int 'control.space.before.et.al := }
+  if$
+  CTL_year_before_title empty$
+    'skip$
+    { CTL_year_before_title boolean.to.int 'control.year.before.title := }
+  if$
+  CTL_name_year_delim empty$
+    'skip$
+    { CTL_name_year_delim 'control.name.year.delim := }
+  if$
+  CTL_sentence_case empty$
+    'skip$
+    { CTL_sentence_case boolean.to.int 'control.sentence.case.title :=
+      CTL_sentence_case boolean.to.int 'control.sentence.case.booktitle :=
+%<*2005|2015>
+      CTL_sentence_case boolean.to.int 'control.sentence.case.journal :=
+%</2005|2015>
+    }
+  if$
+  CTL_sentence_case_title empty$
+    'skip$
+    { CTL_sentence_case_title boolean.to.int 'control.sentence.case.title := }
+  if$
+  CTL_sentence_case_booktitle empty$
+    'skip$
+    { CTL_sentence_case_booktitle boolean.to.int 'control.sentence.case.booktitle := }
+  if$
+  CTL_sentence_case_journal empty$
+    'skip$
+    { CTL_sentence_case_journal boolean.to.int 'control.sentence.case.journal := }
+  if$
+  CTL_capitalize_subtitle empty$
+    'skip$
+    { CTL_capitalize_subtitle boolean.to.int 'control.capitalize.subtitle := }
+  if$
+  CTL_link_title empty$
+    'skip$
+    { CTL_link_title boolean.to.int 'control.link.title := }
+  if$
+  CTL_article_title empty$
+    'skip$
+    { CTL_article_title boolean.to.int 'control.article.title := }
+  if$
+  CTL_patent_country empty$
+    'skip$
+    { CTL_patent_country boolean.to.int 'control.patent.country := }
+  if$
+  CTL_entry_type_id empty$
+    'skip$
+    { CTL_entry_type_id boolean.to.int 'control.entry.type.id := }
+  if$
+  CTL_space_before_type_id empty$
+    'skip$
+    { CTL_space_before_type_id boolean.to.int 'control.space.before.type.id := }
+  if$
+  CTL_entry_medium_id empty$
+    'skip$
+    { CTL_entry_medium_id boolean.to.int 'control.entry.medium.id := }
+  if$
+  CTL_component_part_delim empty$
+    'skip$
+    { CTL_component_part_delim 'control.component.part.delim := }
+  if$
+  CTL_in empty$
+    'skip$
+    { CTL_in boolean.to.int 'control.in := }
+  if$
+  CTL_emph_booktitle empty$
+    'skip$
+    { CTL_emph_booktitle boolean.to.int 'control.emph.booktitle := }
+  if$
+  CTL_emph_journal empty$
+    'skip$
+    { CTL_emph_journal boolean.to.int 'control.emph.journal := }
+  if$
+  CTL_short_journal empty$
+    'skip$
+    { CTL_short_journal boolean.to.int 'control.short.journal := }
+  if$
+  CTL_dotless_journal empty$
+    'skip$
+    { CTL_dotless_journal boolean.to.int 'control.dotless.journal := }
+  if$
+  CTL_link_journal empty$
+    'skip$
+    { CTL_link_journal boolean.to.int 'control.link.journal := }
+  if$
+  CTL_bold_volume empty$
+    'skip$
+    { CTL_bold_volume boolean.to.int 'control.bold.volume := }
+  if$
+  CTL_unknown_publisher empty$
+    'skip$
+    { CTL_unknown_publisher boolean.to.int 'control.unknown.publisher := }
+  if$
+  CTL_space_before_pages empty$
+    'skip$
+    { CTL_space_before_pages boolean.to.int 'control.space.before.pages := }
+  if$
+  CTL_page_ranges empty$
+    'skip$
+    { CTL_page_ranges boolean.to.int 'control.page.ranges := }
+  if$
+  CTL_page_range_delim empty$
+    'skip$
+    { CTL_page_range_delim 'control.page.range.delim := }
+  if$
+  CTL_urldate empty$
+    'skip$
+    { CTL_urldate boolean.to.int 'control.urldate := }
+  if$
+  CTL_url empty$
+    'skip$
+    { CTL_url boolean.to.int 'control.url := }
+  if$
+  CTL_doi empty$
+    'skip$
+    { CTL_doi boolean.to.int 'control.doi := }
+  if$
+  CTL_eprint empty$
+    'skip$
+    { CTL_eprint boolean.to.int 'control.eprint := }
+  if$
+  CTL_note empty$
+    'skip$
+    { CTL_note boolean.to.int 'control.note := }
+  if$
+  CTL_end_dot empty$
+    'skip$
+    { CTL_end_dot boolean.to.int 'control.end.dot := }
+  if$
+  CTL_warn_empty_field empty$
+    'skip$
+    { CTL_warn_empty_field boolean.to.int 'control.warn.empty.field := }
+  if$
+}
+
+FUNCTION {control.pass}
+{ type$ "gbt7714bstctl" =
+    'GBT7714BSTCTL
+    'skip$
+  if$
+}
+
+FUNCTION {control.check}
+{ % TODO
+}
 
 %    \end{macrocode}
 %
@@ -4160,59 +5431,57 @@ FUNCTION {chop.word}
 %  END
 % \end{pseudocode}
 %    \begin{macrocode}
-FUNCTION {format.lab.name}
-{ "{vv~}{ll}{, jj}{, ff}" format.name$ 't :=
-  t "others" =
-    { citation.et.al }
-    { t get.str.lang 'name.lang :=
-      name.lang lang.zh = name.lang lang.ja = or
-        { t #1 "{ll}{ff}" format.name$ }
-        { t #1 "{vv~}{ll}" format.name$ }
-      if$
-    }
-  if$
-}
-
-%    \end{macrocode}
-%
-%    \begin{macrocode}
 FUNCTION {format.lab.names}
 { 's :=
   #1 'nameptr :=
   s num.names$ 'numnames :=
-  ""
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr format.lab.name citation.et.al =
-      numnames citation.et.al.min #1 - > nameptr citation.et.al.use.first > and or
-        { bbl.space *
-          citation.et.al *
-          #1 'namesleft :=
-        }
-        { nameptr #1 >
-            { namesleft #1 = citation.and "" = not and
-                { citation.and * }
-                { ", " * }
-              if$
+    { format.lab.name 't :=
+      nameptr #1 >
+        { numnames control.max.cite.names >
+          nameptr control.min.cite.names > and
+            { "others" 't :=
+              #1 'namesleft :=
             }
             'skip$
           if$
-          s nameptr format.lab.name *
+          namesleft #1 >
+            { add.comma t * }
+            { t "others" =
+                { nameptr #2 >
+                    { add.comma }
+                    { space.precedes.et.al * }
+                  if$
+                  cite.et.al *
+                }
+                { control.cite.final.and
+                    { is.lang.cjk not nameptr #2 > and
+                        { add.comma }
+                        { inter.word.space * }
+                      if$
+                      cite.and * inter.word.space *
+                    }
+                    { add.comma }
+                  if$
+                  t *
+                }
+              if$
+            }
+          if$
         }
+        't
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
     }
   while$
+  format.punctuations
 }
 
 FUNCTION {author.key.label}
 { author empty$
-    { key empty$
-        { cite$ #1 #3 substring$ }
-        'key
-      if$
-    }
+    { bbl.anonymous }
     { author format.lab.names }
   if$
 }
@@ -4220,11 +5489,7 @@ FUNCTION {author.key.label}
 FUNCTION {author.editor.key.label}
 { author empty$
     { editor empty$
-        { key empty$
-            { cite$ #1 #3 substring$ }
-            'key
-          if$
-        }
+        { bbl.anonymous }
         { editor format.lab.names }
       if$
     }
@@ -4234,13 +5499,9 @@ FUNCTION {author.editor.key.label}
 
 FUNCTION {author.key.organization.label}
 { author empty$
-    { key empty$
-        { organization empty$
-            { cite$ #1 #3 substring$ }
-            { "The " #4 organization chop.word #3 text.prefix$ }
-          if$
-        }
-        'key
+    { organization empty$
+        { bbl.anonymous }
+        { "The " #4 organization chop.word #3 text.prefix$ }
       if$
     }
     { author format.lab.names }
@@ -4249,16 +5510,23 @@ FUNCTION {author.key.organization.label}
 
 FUNCTION {editor.key.organization.label}
 { editor empty$
-    { key empty$
-        { organization empty$
-            { cite$ #1 #3 substring$ }
-            { "The " #4 organization chop.word #3 text.prefix$ }
-          if$
-        }
-        'key
+    { organization empty$
+        { bbl.anonymous }
+        { "The " #4 organization chop.word #3 text.prefix$ }
       if$
     }
     { editor format.lab.names }
+  if$
+}
+
+FUNCTION {holder.author.label}
+{ holder empty$
+    { author empty$
+        { bbl.anonymous }
+        { author format.lab.names }
+      if$
+    }
+    { holder format.lab.names }
   if$
 }
 
@@ -4270,12 +5538,18 @@ FUNCTION {calc.short.authors}
     { type$ "collection" =
       type$ "proceedings" =
       or
+      type$ "periodical" =
+      or
         { editor empty$ not
             'editor.key.organization.label
             'author.key.organization.label
           if$
         }
-        'author.key.label
+        { type$ "patent" =
+            'holder.author.label
+            'author.key.label
+          if$
+        }
       if$
     }
   if$
@@ -4290,17 +5564,14 @@ FUNCTION {calc.short.authors}
 %    \begin{macrocode}
 FUNCTION {calc.label}
 { calc.short.authors
-  short.list "]" contains
-    { "{" short.list * "}" * }
-    { short.list }
+  short.list
+  duplicate$ "]" contains
+    { "{" swap$ * "}" * }
+    'skip$
   if$
   "("
   *
-  format.year duplicate$ empty$
-  short.list key field.or.null = or
-     { pop$ "" }
-     'skip$
-  if$
+  format.lab.date
   duplicate$ "]" contains
     { "{" swap$ * "}" * }
     'skip$
@@ -4336,7 +5607,7 @@ FUNCTION {calc.label}
 % names in the format described above.  The function is almost the same
 % as format.names.
 %    \begin{macrocode}
-%<*author-year>
+%<*authoryear>
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
     { lang.zh.order }
@@ -4365,11 +5636,9 @@ FUNCTION {sort.format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    {
-      s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
+    { s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
       nameptr #1 >
-        {
-          "   "  *
+        { "   "  *
           namesleft #1 = t "others" = and
             { "zzzzz" * }
             { numnames #2 > nameptr #2 = and
@@ -4420,8 +5689,8 @@ FUNCTION {anonymous.sort}
 }
 
 FUNCTION {warn.empty.key}
-{ entry.lang lang.zh =
-    { "empty key in " cite$ * warning$ }
+{ is.lang.cjk
+    { "key" warn.empty.field }
     'skip$
   if$
 }
@@ -4486,12 +5755,12 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-%</author-year>
+%</authoryear>
 %    \end{macrocode}
 %
 % 顺序编码制的排序要简单得多
 %    \begin{macrocode}
-%<*numerical>
+%<*numeric>
 INTEGERS { seq.num }
 
 FUNCTION {init.seq}
@@ -4502,7 +5771,7 @@ FUNCTION {int.to.fix}
   #-1 #10 substring$
 }
 
-%</numerical>
+%</numeric>
 %    \end{macrocode}
 %
 % There is a limit, |entry.max$|, on the length of an entry string variable
@@ -4511,45 +5780,60 @@ FUNCTION {int.to.fix}
 % to that many characters!
 %    \begin{macrocode}
 FUNCTION {presort}
-{ set.entry.lang
-  set.entry.numbered
-  show.url show.doi check.electronic
-  #0 'is.pure.electronic :=
-  calc.label
-  label sortify
-  "    "
-  *
-%<*author-year>
-  sort.language.label
-  "    "
-  *
-  type$ "book" =
-  type$ "inbook" = booktitle empty$ not and
-  or
-    'author.editor.sort
-    { type$ "collection" =
-      type$ "proceedings" =
+{ type$ "gbt7714bstctl" =
+    {
+%<*authoryear>
+      "_"
+      "    "
+%</authoryear>
+%<*numeric>
+      "_    "
+      seq.num  int.to.fix
+%</numeric>
+    }
+    { set.entry.lang
+      set.entry.numbered
+      "" 'entry.url :=
+      #0 'is.online :=
+      #0 'require.url :=
+      control.url check.electronic
+      calc.label
+      label sortify
+      "    "
+      *
+%<*authoryear>
+      sort.language.label
+      "    "
+      *
+      type$ "book" =
+      type$ "inbook" = booktitle empty$ not and
       or
-        'editor.organization.sort
-        'author.sort
+        'author.editor.sort
+        { type$ "collection" =
+          type$ "proceedings" =
+          or
+            'editor.organization.sort
+            'author.sort
+          if$
+        }
       if$
+      *
+      "    "
+      *
+      year field.or.null sortify
+      *
+      "    "
+      *
+      cite$
+      *
+      #1 entry.max$ substring$
+%</authoryear>
+%<*numeric>
+      seq.num #1 + 'seq.num :=
+      seq.num  int.to.fix
+%</numeric>
     }
   if$
-  *
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  cite$
-  *
-  #1 entry.max$ substring$
-%</author-year>
-%<*numerical>
-  seq.num #1 + 'seq.num :=
-  seq.num  int.to.fix
-%</numerical>
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
@@ -4619,58 +5903,65 @@ FUNCTION {initialize.longest.label}
 }
 
 FUNCTION {forward.pass}
-{
-%<*author-year>
-  last.label label =
-    { "" 'extra.label :=
-      last.extra.label text.length$ 'charptr :=
-        { last.extra.label charptr #1 substring$ "z" =
-          charptr #0 > and
+{ type$ "gbt7714bstctl" =
+    'skip$
+    {
+%<*authoryear>
+      last.label label =
+        { "" 'extra.label :=
+          last.extra.label text.length$ 'charptr :=
+            { last.extra.label charptr #1 substring$ "z" =
+              charptr #0 > and
+            }
+            { "a" extra.label * 'extra.label :=
+              charptr #1 - 'charptr :=
+            }
+          while$
+          charptr #0 >
+            { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
+              extra.label * 'extra.label :=
+              last.extra.label #1 charptr #1 - substring$
+              extra.label * 'extra.label :=
+            }
+            { "a" extra.label * 'extra.label := }
+          if$
+          extra.label 'last.extra.label :=
         }
-        { "a" extra.label * 'extra.label :=
-          charptr #1 - 'charptr :=
+        { "a" 'last.extra.label :=
+          "" 'extra.label :=
+          label 'last.label :=
         }
-      while$
-      charptr #0 >
-        { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-          extra.label * 'extra.label :=
-          last.extra.label #1 charptr #1 - substring$
-          extra.label * 'extra.label :=
-        }
-        { "a" extra.label * 'extra.label := }
       if$
-      extra.label 'last.extra.label :=
-    }
-    { "a" 'last.extra.label :=
-      "" 'extra.label :=
-      label 'last.label :=
+%</authoryear>
+      number.label #1 + 'number.label :=
     }
   if$
-%</author-year>
-  number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
-{
-%<*author-year>
-  next.extra "b" =
-    { "a" 'extra.label := }
+{ type$ "gbt7714bstctl" =
     'skip$
+    {
+%<*authoryear>
+      next.extra "b" =
+        { "a" 'extra.label := }
+        'skip$
+      if$
+      extra.label 'next.extra :=
+      extra.label
+      duplicate$ empty$
+        'skip$
+        { "{\natexlab{" swap$ * "}}" * }
+      if$
+      'extra.label :=
+%</authoryear>
+      label extra.label * 'label :=
+    }
   if$
-  extra.label 'next.extra :=
-  extra.label
-  duplicate$ empty$
-    'skip$
-    { "{\natexlab{" swap$ * "}}" * }
-  if$
-  'extra.label :=
-%</author-year>
-  label extra.label * 'label :=
 }
 
 FUNCTION {bib.sort.order}
-{ sort.label  'sort.key$ :=
-}
+{ sort.label  'sort.key$ := }
 
 %    \end{macrocode}
 %
@@ -4693,7 +5984,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  terms.in.macro
+  control.cite.lang "macro" =
     { "\providecommand{\biband}{和}"
       write$ newline$
       "\providecommand{\bibetal}{等}"
@@ -4709,21 +6000,49 @@ FUNCTION {begin.bib}
   write$ newline$
   "  \urlstyle{same}\fi"
   write$ newline$
-  "\expandafter\ifx\csname href\endcsname\relax"
-  write$ newline$
-  "  \DeclareUrlCommand\doi{\urlstyle{rm}}"
-  write$ newline$
-  "  \def\eprint#1#2{#2}"
+  control.doi control.eprint or
+    { "\expandafter\ifx\csname href\endcsname\relax"
       write$ newline$
-  "\else"
-  write$ newline$
-  "  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}"
-  write$ newline$
-  "  \let\eprint\href"
+      control.doi
+        { "  \def\doi{\begingroup \urlstyle{same}\Url}"
+          write$ newline$
+%<*2025>
+          "  \def\cstr{\begingroup \urlstyle{same}\Url}"
+          write$ newline$
+%</2025>
+        }
+        'skip$
+      if$
+      control.eprint
+        { "  \def\eprint#1#2{#2}"
+          write$ newline$
+        }
+        'skip$
+      if$
+      "\else"
       write$ newline$
-  "\fi"
+      control.doi
+        { "  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}"
+          write$ newline$
+%<*2025>
+          "  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}"
+          write$ newline$
+%</2025>
+        }
+        'skip$
+      if$
+      control.eprint
+        { "  \let\eprint\href"
+          write$ newline$
+        }
+        'skip$
+      if$
+      "\fi"
       write$ newline$
     }
+    'skip$
+  if$
+}
 
 %    \end{macrocode}
 %
@@ -4747,10 +6066,14 @@ EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
 
-%<*numerical>
+ITERATE {control.pass}
+
+EXECUTE {control.check}
+
+%<*numeric>
 EXECUTE {init.seq}
 
-%</numerical>
+%</numeric>
 ITERATE {presort}
 
 %    \end{macrocode}
@@ -4778,6 +6101,4 @@ EXECUTE {begin.bib}
 ITERATE {call.type$}
 
 EXECUTE {end.bib}
-%</author-year|numerical>
 %    \end{macrocode}
-%
