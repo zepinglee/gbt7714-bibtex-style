@@ -1,16 +1,37 @@
 \input{regression-test.tex}
-\documentclass{article}
-\pagestyle{empty}
-\usepackage{gbt7714}
-\usepackage{bibunits}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexrep}
+
+\begin{filecontents}[noheader, overwrite]{chapter1.tex}
+\begin{bibunit}[gbt7714-numerical]
+\chapter{Foo}
+Foo\cite{4.1.2:1, 4.1.2:2}
+\putbib[gbt7714-examples]
+\end{bibunit}
+\end{filecontents}
+
+\begin{filecontents}[noheader, overwrite]{chapter2.tex}
+\chapter{Bar}
+\begin{bibunit}[gbt7714-author-year]
+Bar\cite{4.1.2:1, 4.1.2:3}
+\putbib[gbt7714-examples]
+\end{bibunit}
+\end{filecontents}
+
+
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
+\usepackage[sectionbib]{gbt7714}
 \citestyle{super}
+\usepackage{bibunits}  % Should be loaded after natbib or gbt7714
+
+\pagestyle{empty}
+
 
 \begin{document}
 \START
 \showoutput
 
-\include{section1}
-\include{section2}
+\include{chapter1}
+\include{chapter2}
 
 \clearpage
 \OMIT

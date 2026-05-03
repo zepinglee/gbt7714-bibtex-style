@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/thu/thuthesis-numeric.bst',
+%% This is file `variants/thuthesis-numeric.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,thu,numerical')
+%% gbt7714-bst.dtx  (with options: `2015,thu,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style

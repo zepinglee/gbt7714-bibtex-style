@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt7714-2005-numerical.bst',
+%% This is file `variants/gbt7714-2005-numeric.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2005,numerical')
+%% gbt7714-bst.dtx  (with options: `2005,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style

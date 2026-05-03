@@ -1,6 +1,8 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-(section1.tex (bu1.aux)
+(chapter1.tex
+Chapter 1
+(bu1.aux)
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -18,34 +20,71 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 448.54112fil
+..\vbox(550.0+0.0)x345.0, glue set 283.56523fil
 ...\write-{}
 ...\write-{}
-...\glue(\topskip) 0.1936
-...\hbox(9.8064+0.08638)x345.0, glue set 297.00482fil
-....\hbox(9.4464+0.0)x22.50719
-.....\glue 0.0
-.....\TU/lmr/bx/n/14.4 1
-.....\glue 14.4
-....\TU/lmr/bx/n/14.4 Foo
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {1}Foo}{\thepage }{}\protected@file@percent }}
+...\write-{}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 1}Foo}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\glue(\topskip) 10.0
+...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 9.913 plus 0.86198
+...\glue 50.0
+...\glue 0.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.0347
-...\hbox(8.87892+0.10999)x345.0, glue set 318.015fil
+...\glue(\lineskip) 1.0
+...\hbox(14.47652+4.02354)x345.0, glue set 121.07516fil
+....\TU/lmr/bx/n/20.74 Chapter
+....\glue 7.7775 plus 3.88875 minus 2.5925
+....\TU/lmr/bx/n/20.74 1
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 20.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 9.03317
+...\hbox(16.94328+0.14926)x345.0, glue set 150.4812fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/24.88 Foo
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 40.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.97182
+...\hbox(8.87892+0.10999)x345.0, glue set 311.33699fil
 ....\TU/lmr/m/n/10 Foo
+....\kern -0.0002
+....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(5.25+1.74998)x9.005, shifted -3.62892
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
 .....\TU/lmr/m/n/7 [
 .....\hbox(4.648+0.0)x3.983
 ......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 -
+.....\kern -0.00023
+.....\kern 0.00023
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+......\kern -0.0002
+......\kern 0.0002
 .....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
 ....\mathoff
 ....\kern 1.0
 ....\penalty 10000
@@ -55,11 +94,12 @@ Completed box being shipped out [1]
 ...\glue 15.08499 plus 4.31 minus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.81001
-...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
+...\glue(\baselineskip) 7.89642
+...\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
 ....\hbox(0.0+0.0)x0.0
-.....\glue 0.0
-....\TU/lmr/bx/n/14.4 References
+....\TU/lmr/bx/n/14.4 Bibliography
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -67,8 +107,8 @@ Completed box being shipped out [1]
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 4.32721
-...\hbox(7.5+2.49998)x329.44, glue set 0.01685, shifted 15.56
+...\glue(\baselineskip) 1.32562
+...\hbox(7.78+2.49998)x329.44, glue set 78.07999fil, shifted 15.56
 ....\hbox(7.5+2.49998)x0.0
 .....\glue 0.0
 .....\glue -10.56
@@ -77,53 +117,165 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\TU/lmr/m/n/10 [1]
+......\kern -0.0002
+......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
-....\TU/lmr/m/n/10 PEEBLES
-....\glue 3.33 plus 1.66331 minus 1.1111
-....\TU/lmr/m/n/10 P
-....\penalty 10000
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Z,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Jr.
+....\TU/FandolSong-Regular(0)/m/n/10 陈
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 登
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 原
+....\TU/lmr/m/n/10 .
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Probability,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 random
+....\TU/FandolSong-Regular(0)/m/n/10 国
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 史
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 旧
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 闻
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 第
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 variables,
-....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 and
+....\TU/lmr/m/n/10 1
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 random
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 signal
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 prin-
-....\glue(\rightskip) 0.0
-...\penalty 14100
-...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.49998)x329.44, glue set 112.60999fil, shifted 15.56
-....\TU/lmr/m/n/10 ciples
+....\TU/FandolSong-Regular(0)/m/n/10 卷
+....\kern -0.00017
+....\kern 0.00017
 ....\penalty 0
 ....\TU/lmr/m/n/10 [M].
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 4th
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 ed.
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 华
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 书
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 局
+....\TU/lmr/m/n/10 ,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 2000:
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/lmr/m/n/10 29.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.63002
+...\hbox(7.87+2.49998)x329.44, glue set - 0.02202, shifted 15.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -10.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x10.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\TU/lmr/m/n/10 [2]
+......\kern -0.0002
+......\kern 0.0002
+......\glue 0.0 plus 1.0fill
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 哈
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 里
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 森
+....\penalty 10000
+....\glue 0.0 plus 0.46875
+....\glue 4.48 minus 2.24
+....\rule(0.0+0.0)x-4.48
+....\TU/FandolSong-Regular(0)/m/n/10 ^^b7
+....\rule(0.0+0.0)x-4.48
+....\glue 4.48 minus 2.24
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 沃
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 尔
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 德
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 伦
+....\TU/lmr/m/n/10 .
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 New
+....\TU/FandolSong-Regular(0)/m/n/10 经
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 济
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 数
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 与
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 金
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 融
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 数
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [M].
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 York:
-....\glue 4.44 plus 3.32999 minus 0.555
-....\TU/lmr/m/n/10 McGraw-Hill,
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 谢
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 远
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 涛
+....\TU/lmr/m/n/10 ,
 ....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 2001.
+....\TU/FandolSong-Regular(0)/m/n/10 译
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 国
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 人
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 民
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 大
+....\glue(\rightskip) 0.0
+...\penalty 4150
+...\glue(\baselineskip) 1.80002
+...\hbox(7.7+1.92998)x329.44, glue set 220.0fil, shifted 15.56
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 出
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 版
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 社
+....\TU/lmr/m/n/10 ,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 2012:
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/lmr/m/n/10 235-236.
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -133,10 +285,17 @@ Completed box being shipped out [1]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 30.0
-..\hbox(0.0+0.0)x345.0
-...\hbox(0.0+0.0)x345.0
-(section2.tex (bu2.aux)
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 1
+....\kern -0.0002
+....\kern 0.0002
+....\glue 0.0 plus 1.0fil
+(chapter2.tex
+Chapter 2
+(bu2.aux)
 (bu2.bbl) (bu2.aux)
 No file bu.aux.
 )
@@ -150,39 +309,72 @@ Completed box being shipped out [2]
 ....\hbox(0.0+0.0)x345.0
 ..\glue 25.0
 ..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 440.54198fil
+..\vbox(550.0+0.0)x345.0, glue set 282.99529fil
 ...\write-{}
 ...\write-{}
 ...\write-{}
-...\glue(\topskip) 0.1216
-...\hbox(9.8784+0.08638)x345.0, glue set 296.47203fil
-....\hbox(9.4464+0.0)x22.50719
-.....\glue 0.0
-.....\TU/lmr/bx/n/14.4 2
-.....\glue 14.4
-....\TU/lmr/bx/n/14.4 Bar
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0
-...\write2{\@writefile{toc}{\protect \contentsline {section}{\protect \numberline {2}Bar}{\thepage }{}\protected@file@percent }}
+...\write-{}
+...\write2{\@writefile{toc}{\protect \contentsline {chapter}{\protect \numberline {Chapter 2}Bar}{\thepage }{}\protected@file@percent }}
+...\write2{\@writefile{lof}{\protect \addvspace {10.0pt}}}
+...\write2{\@writefile{lot}{\protect \addvspace {10.0pt}}}
+...\glue(\topskip) 10.0
+...\rule(0.0+0.0)x*
 ...\penalty 10000
-...\glue 9.913 plus 0.86198
+...\glue 50.0
+...\glue 0.0
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 3.0347
-...\hbox(8.87892+0.10999)x345.0, glue set 311.31699fil
+...\glue(\lineskip) 1.0
+...\hbox(14.47652+4.02354)x345.0, glue set 121.07516fil
+....\TU/lmr/bx/n/20.74 Chapter
+....\glue 7.7775 plus 3.88875 minus 2.5925
+....\TU/lmr/bx/n/20.74 2
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 20.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 8.90877
+...\hbox(17.06769+0.14926)x345.0, glue set 150.02092fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/24.88 Bar
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0 plus 1.0fil
+...\penalty 10000
+...\glue 40.0
+...\glue(\parskip) 0.0 plus 1.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.97182
+...\hbox(8.87892+0.10999)x345.0, glue set 311.75099fil
 ....\TU/lmr/m/n/10 Bar
+....\kern -0.0002
+....\kern 0.0002
 ....\kern 1.0
 ....\mathon
-....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+....\hbox(5.25+1.74998)x15.24901, shifted -3.62892
 .....\TU/lmr/m/n/7 [
 .....\hbox(4.648+0.0)x3.983
-......\TU/lmr/m/n/7 1
-.....\TU/lmr/m/n/7 -
+......\TU/lmr/m/n/7 2
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ,
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 1000
 .....\hbox(4.648+0.0)x3.983
-......\TU/lmr/m/n/7 2
+......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
 .....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
 ....\mathoff
 ....\kern 1.0
 ....\penalty 10000
@@ -192,11 +384,12 @@ Completed box being shipped out [2]
 ...\glue 15.08499 plus 4.31 minus 0.86198
 ...\glue(\parskip) 0.0 plus 1.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 7.81001
-...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
+...\glue(\baselineskip) 7.89642
+...\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
 ....\hbox(0.0+0.0)x0.0
-.....\glue 0.0
-....\TU/lmr/bx/n/14.4 References
+....\TU/lmr/bx/n/14.4 Bibliography
+....\kern -0.0002
+....\kern 0.0002
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -204,8 +397,8 @@ Completed box being shipped out [2]
 ...\glue 9.913 plus 0.86198
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 4.32721
-...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+...\glue(\baselineskip) 1.26563
+...\hbox(7.84+2.49998)x329.44, glue set 0.00047, shifted 15.56
 ....\hbox(7.5+2.49998)x0.0
 .....\glue 0.0
 .....\glue -10.56
@@ -214,24 +407,113 @@ Completed box being shipped out [2]
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\TU/lmr/m/n/10 [1]
+......\kern -0.0002
+......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
-....\TU/lmr/m/n/10 JONES,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 BAKER,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 WILLIAMS.
-....\glue 3.33 plus 1.665 minus 1.11
-....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Title
-....\penalty 0
-....\TU/lmr/m/n/10 [J].
-....\glue 3.33 plus 1.665 minus 1.11
-....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Journal,
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 市
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 政
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 协
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 民
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 族
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 和
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 宗
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 教
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 委
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 员
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 会
+....\TU/lmr/m/n/10 ,
 ....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 1991.
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 联
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 合
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 大
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 民
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 族
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 与
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 宗
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 教
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 研
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 究
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 所
+....\TU/lmr/m/n/10 ,
+....\glue 3.33 plus 2.08124 minus 0.888
+....\TU/lmr/m/n/10 2012.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 历
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 代
+....\glue(\rightskip) 0.0
+...\penalty 14000
+...\glue(\baselineskip) 1.66002
+...\hbox(7.84+2.49998)x329.44, glue set 135.28fil, shifted 15.56
+....\TU/FandolSong-Regular(0)/m/n/10 王
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 朝
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 与
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 民
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 族
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 宗
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 教
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [M].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 民
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 族
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 出
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 版
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 社
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/lmr/m/n/10 112.
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -239,8 +521,8 @@ Completed box being shipped out [2]
 ...\glue 8.0 plus 4.0 minus 2.0
 ...\glue(\parskip) 0.0
 ...\glue(\parskip) 0.0
-...\glue(\baselineskip) 2.00002
-...\hbox(7.5+2.49998)x329.44, glue set 87.58998fil, shifted 15.56
+...\glue(\baselineskip) 1.72002
+...\hbox(7.78+2.49998)x329.44, glue set 78.07999fil, shifted 15.56
 ....\hbox(7.5+2.49998)x0.0
 .....\glue 0.0
 .....\glue -10.56
@@ -249,24 +531,56 @@ Completed box being shipped out [2]
 ......\glue 0.0 plus 1.0fil
 ......\glue 0.0 plus 1.0fil
 ......\TU/lmr/m/n/10 [2]
+......\kern -0.0002
+......\kern 0.0002
 ......\glue 0.0 plus 1.0fill
 .....\glue 5.0
 ....\penalty 0
-....\TU/lmr/m/n/10 JONES,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 BAKER,
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 WILLIAMS.
-....\glue 3.33 plus 1.665 minus 1.11
-....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Title
-....\penalty 0
-....\TU/lmr/m/n/10 [J].
-....\glue 3.33 plus 1.665 minus 1.11
-....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Journal,
+....\TU/FandolSong-Regular(0)/m/n/10 陈
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 登
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 原
+....\TU/lmr/m/n/10 ,
 ....\glue 3.33 plus 2.08124 minus 0.888
-....\TU/lmr/m/n/10 1992.
+....\TU/lmr/m/n/10 2000.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 国
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 史
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 旧
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 闻
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 第
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 1
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/FandolSong-Regular(0)/m/n/10 卷
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [M].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 华
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 书
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 局
+....\TU/lmr/m/n/10 :
+....\glue 4.44 plus 3.32999 minus 0.555
+....\TU/lmr/m/n/10 29.
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -276,6 +590,11 @@ Completed box being shipped out [2]
 ...\glue 0.0 plus 1.0fil
 ...\glue 0.0
 ...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 30.0
-..\hbox(0.0+0.0)x345.0
-...\hbox(0.0+0.0)x345.0
+..\glue(\baselineskip) 23.34
+..\hbox(6.66+0.0)x345.0
+...\hbox(6.66+0.0)x345.0, glue set 170.0fil
+....\glue 0.0 plus 1.0fil
+....\TU/lmr/m/n/10 2
+....\kern -0.0002
+....\kern 0.0002
+....\glue 0.0 plus 1.0fil

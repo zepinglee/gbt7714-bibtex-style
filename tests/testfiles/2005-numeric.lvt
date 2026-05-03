@@ -11,9 +11,9 @@
 \askforoverwritefalse
 \nopostamble
 \generate{
-  \file{test.aux}{\from{\jobname.dtx}{aux}}
-  \file{test.bst}{\from{gbt7714.dtx}{2005,numerical}}
-  \file{test.bib}{\from{\jobname.dtx}{bib}}
+  \file{test.aux}{\from{\jobname.lvt}{aux}}
+  \file{test.bst}{\from{gbt7714-bst.dtx}{2005,numerical}}
+  \file{test.bib}{\from{\jobname.lvt}{bib}}
 }
 \endbatchfile
 %</install>
@@ -21,7 +21,7 @@
 \fi
 %</internal>
 %<*driver>
-\ProvidesFile{\jobname.dtx}
+\ProvidesFile{\jobname.lvt}
 %</driver>
 % \fi
 %
@@ -29,7 +29,7 @@
 %<*aux>
 \bibstyle{test}
 \citation{*}
-\bibdata{test,standard}
+\bibdata{test,gbt7714-examples}
 %</aux>
 %    \end{macrocode}
 %
