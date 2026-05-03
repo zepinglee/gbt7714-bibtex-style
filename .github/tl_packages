@@ -36,12 +36,15 @@ colortbl
 csquotes
 enumitem
 fancyvrb
-hologo
 hypdoc
+hologo
 latexmk
 listings
 makeindex
+pdfcol
 psnfss
+tcolorbox
 tex-gyre
+threeparttable
+tikzfill
 underscore
-xcolor

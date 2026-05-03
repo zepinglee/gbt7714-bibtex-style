@@ -1,12 +1,42 @@
-\documentclass{ctexart}
+% !TEX encoding = UTF-8
+% !TEX program = xelatex
+% !TEX spellcheck = en_US
 
-\usepackage[sort]{gbt7714}
+\documentclass[UTF8]{ctexart}
+
+\usepackage[bibwarn=false]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+\pagestyle{empty}
+
+\IfFontExistsTF{SimSun}{
+  \setmainfont{Times New Roman}
+  \setsansfont{Arial}
+  \setmonofont{Courier New}
+  \setCJKmainfont{SimSun}
+  \setCJKsansfont{SimHei}
+  \setCJKmonofont{SimFang}
+}{}
+
+\usepackage{hyperref}
+
+\title{GB/T 7714—2025《信息与文献\quad 参考文献著录规则》示例文献}
+\author{Zeping Lee}
+\date{}
 
 
 \begin{document}
 
+\maketitle
+
+下列文献是 GB/T 7714—2025《信息与文献\quad 参考文献著录规则》
+的全部示例文献。
+
+The following entries are all the sample references of GB/T 7714—2025
+\emph{Information and documentation—Rules for bibliographic references and
+citations to information resources}.
+
 \nocite{*}
-\bibliographystyle{gbt7714-numeric}
-\bibliography{standard}
+\bibliography{gbt7714-examples}
 
 \end{document}

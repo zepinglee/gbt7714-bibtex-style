@@ -21,6 +21,11 @@ jobs:
         with:
           package_file: .github/tl_packages
 
+      # - name: Install TeX Live
+      #   uses: TeX-Live/setup-texlive-action@v4
+      #   with:
+      #     package-file: .github/tl_packages
+
       - name: Test
         run: make test
 

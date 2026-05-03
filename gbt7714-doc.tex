@@ -1,465 +1,2480 @@
+% !TEX encoding = UTF-8
+% !TEX program = xelatex
+% !TEX spellcheck = en_US
 
 \documentclass[a4paper]{l3doc}
-\usepackage{hypdoc}
-\usepackage[UTF8]{ctex}
+
 \usepackage{fontspec}
-\usepackage{caption}
+\IfFontExistsTF{SimSun}{\PassOptionsToPackage{fontset=windows}{ctex}}{}
+\usepackage[UTF8, scheme=plain, autoindent=true]{ctex}
 \usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
 \usepackage{gbt7714}
-\usepackage{hologo}
-\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage[listings, breakable, skins]{tcolorbox}%
+\usepackage{threeparttable}
+
+% \EnableCrossrefs
+% \CodelineIndex
+\NewDocElement[macrolike = false ,
+                idxtype   = opt.  ,
+                idxgroup  = options ,
+                printtype = \textit{opt.}
+               ]{Opt}{OptionEnv}
+
+\renewcommand\contentsname{目次}
+\renewcommand\tablename{表}
+\renewcommand\refname{参考文献}
+\setcounter{tocdepth}{2}
+\bibliographystyle{gbt7714-2025-numeric}
+
+\setmainfont{texgyrepagella}[
+  Extension      = .otf,
+  UprightFont    = *-regular,
+  BoldFont       = *-bold,
+  ItalicFont     = *-italic,
+  BoldItalicFont = *-bolditalic,
+]%
+% \setsansfont{texgyreheros}[
+%   Extension      = .otf,
+%   UprightFont    = *-regular,
+%   BoldFont       = *-bold,
+%   ItalicFont     = *-italic,
+%   BoldItalicFont = *-bolditalic,
+% ]%
+% \setmonofont{texgyrecursor}[
+%   Extension      = .otf,
+%   UprightFont    = *-regular,
+%   BoldFont       = *-bold,
+%   ItalicFont     = *-italic,
+%   BoldItalicFont = *-bolditalic,
+%   Scale          = MatchLowercase,
+%   Ligatures      = CommonOff,
+% ]%
+
+\setlist{nosep}
+
+\NewDocumentCommand\email{m}{\nolinkurl{#1}}
+\NewDocumentCommand\opt{m}{\texttt{#1}}
+\NewDocumentCommand\entrytype{m}{\texttt{@#1}}
+\NewDocumentCommand\entrykey{m}{\texttt{#1}}
+\NewDocumentCommand\field{m}{\texttt{#1}}
+\def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+\def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+
 \makeatletter
-\hypersetup{allcolors=blue}
-\setmainfont{texgyretermes}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-]%
-\setsansfont{texgyreheros}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-]%
-\setmonofont{texgyrecursor}[
-  Extension      = .otf,
-  UprightFont    = *-regular,
-  BoldFont       = *-bold,
-  ItalicFont     = *-italic,
-  BoldItalicFont = *-bolditalic,
-  Scale          = MatchLowercase,
-  Ligatures      = CommonOff,
-]%
-\citestyle{super}
-\lstnewenvironment{latex}{%
-  \lstset{
-    basicstyle = \ttfamily\small,
-    language = [LaTeX]TeX,
-    gobble = 2,
-    frame = single,
-  }%
-}{}
-\lstnewenvironment{pseudocode}{%
-  \lstset{
-    basicstyle=\ttfamily\small,
-    language=bash,
-    gobble=2,
-    frame=single,
-  }%
-}{}
-\DeclareRobustCommand\file{\nolinkurl}
-\DeclareRobustCommand\env{\texttt}
-\DeclareRobustCommand\pkg{\textsf}
-\DeclareRobustCommand\cls{\textsf}
-\DeclareRobustCommand\opt{\texttt}
-\setlength\partopsep{\z@}
-\def\@listi{\leftmargin\leftmargini
-            \parsep \z@
-            \topsep 5\p@ \@plus2\p@ \@minus3\p@
-        \itemsep\z@}
-\let\@listI\@listi
-\@listi
+\NewDocumentCommand\kvopt{mm}{{%
+  \ttfamily#1\penalty\@M
+  \hskip 0em plus 0.15em\relax
+  =\penalty\hyphenpenalty
+  \hskip 0em plus 0.15em\relax #2}}
 \makeatother
-\EnableCrossrefs
-\CodelineIndex
-% \OnlyDescription
+
+\pdfstringdefDisableCommands{%
+  \def\file#1{#1}%
+  \def\field#1{#1}%
+  \def\BibTeX{B}%
+}
+
+\NewDocumentCommand{\optsyntax}{o m m}{%
+  \begin{syntax}%
+    % #2
+    \texttt{= #3}%
+    \IfValueT{#1}{%
+      \hfill default: \texttt{#1}%
+    }%
+  \end{syntax}
+}
+
+\NewDocumentCommand{\boolsyntax}{O{false} m}{%
+  \optsyntax[#1]{#2}{true, false}
+}
+
+\NewDocumentCommand{\intsyntax}{o m}{%
+  \begin{syntax}%
+    % #2
+    \texttt{= #2}%
+    \IfValueT{#1}{%
+      \hfill default: \texttt{#1}%
+    }%
+  \end{syntax}
+}
+
+\NewDocumentCommand{\valsyntax}{o m}{%
+  \begin{syntax}%
+    % #2
+    \texttt{= #2}%
+    \IfValueT{#1}{%
+      \hfill default: \texttt{#1}%
+    }%
+  \end{syntax}
+}
+
+\newcommand*{\highlighta}[1]{\textcolor{highlight1}{#1}}
+\newcommand*{\highlightb}[1]{\textcolor{highlight2}{#1}}
+
+\definecolor{highlight1}{RGB}{240, 0, 0}
+\definecolor{highlight2}{RGB}{0,153, 153}
+\definecolor{spot}{rgb}{0,0.2,0.6}
+
+\lstdefinelanguage{BibTeX}{
+  % entry types:
+  morekeywords = {
+    % regular types:
+    @article,
+    @book,@mvbook,@inbook,@bookinbook,@suppbook,@booklet,
+    @collection,@mvcollection,@incollection,@suppcollection,
+    @manual,
+    @misc,
+    @online,
+    @patent,
+    @periodical,
+    @suppperiodical,
+    @proceedings,@mvproceedings,@inproceedings,
+    @reference,@mvreference,@inreference,
+    @report,
+    @set,
+    @thesis,
+    @unpublished,
+    @xdata,
+    @customa,@customb,@customc,@customd,@custome,@customf,
+    % type aliases:
+    @conference,
+    @electronic,
+    @mastersthesis,
+    @phdthesis,
+    @techreport,
+    @www,
+    % unsupported types:
+    @artwork,
+    @audiobibnote,
+    @commentary,
+    @image,
+    @jurisdiction,
+    @legislation,
+    @legal,
+    @letter,
+    @movie,
+    @music
+    @performance,
+    @review,
+    @software,
+    @standard,
+    @video,
+    % cnltx types:
+    @bundle,
+    @class,
+    @package,
+  } ,
+  % entry fields:
+  morekeywords = [2]{
+    % data fields:
+    abstract, addendum, afterword, annotation, annotator, author, authortype,
+    bookauthor, bookpagination, booksubtitle, booktitle, booktitleaddon,
+    chapter, commentator, date, doi, edition, editor,editora,editorb,editorc,
+    editortype, editoratype,editorbtype,editorctype, eid, entrysubtype, eprint,
+    eprintclass, eprinttype, eventdate, eventtitle, eventtitleaddon, file,
+    foreword, holder, howpublished, indextitle, institution, introduction,
+    isan, isbn, ismn, isrn, issn, issue, issuesubtitle, issuetitle, iswc,
+    journalsubtitle, journaltitle, label, language, library, location,
+    mainsubtitle, maintitle, maintitleaddon, month, nameaddon, note, number,
+    organization, origdate, origlanguage, origlocation, origpublisher,
+    origtitle, pages, pagetotal, pagination, part, publisher, pubstate,
+    reprinttitle, series, shortauthor, shorteditor, shorthand, shorthandintro,
+    shortjournal, shortseries, shorttitle, subtitle, title, titleaddon,
+    translator, type, url, urldate, venue, version, volume, volumes, year,
+    % special fields:
+    crossref, entryset, execute, gender, hyphenation, ids, indexsorttitle,
+    keywords, options, presort, related, relatedoptions, relatedtype,
+    relatedstring, sortkey, sortname, sortshorthand, sorttitle, sortyear,
+    xdata, xref,
+    % custom fields:
+    namea,nameb,namec, nameatype,namebtype,namectype,
+    lista,listb,listc,listd,liste,listf,
+    usera,userb,userc,userd,usere,userf,
+    verba,verbb,verbc,
+    % field aliases:
+    address, annote, archiveprefix, journal, key, pdf, primaryclass, school,
+    % cnltx fields:
+    maintainer
+  } ,
+  morestring = [b]{"} ,
+  morecomment = [l]{\%} ,
+  sensitive = false
+}
+
+\lstdefinestyle{gbt7714stylegeneral}{%
+  basicstyle = \ttfamily\small\linespread{1}\selectfont,
+  basewidth  = 0.51em,
+  gobble     = 2,
+  aboveskip    = {0\p@ \@plus 6\p@},
+  belowskip    = {0\p@ \@plus 6\p@},
+  % tabsize      = 2,
+  breaklines   = true,
+  % breakatwhitespace = true,
+  keepspaces   = true,
+  % escapeinside = {(*@}{@*)},
+  % moredelim    = {[is][\ttfamily\bfseries\color{highlight1}]{|}{|}},
+  % moredelim    = {[is][\ttfamily\bfseries\color{highlight1}]{|1}{1|}},
+  % moredelim    = {[is][\ttfamily\bfseries\color{highlight2}]{|2}{2|}},
+}
+
+\lstdefinestyle{gbt7714stylelatex}{%
+  language  = {[LaTeX]TeX},
+  style     = {gbt7714stylegeneral},
+  moretexcs = {
+    dimexpr,gbtsetup},
+}
+
+\lstdefinestyle{gbt7714stylebibtex}{%
+  language  = {BibTeX},
+  style     = {gbt7714stylegeneral},
+}
+
+\newtcblisting{LaTeXdemo}{enhanced,
+                             colframe=black!75!white, colback=black!5!white,
+                             listing only,
+                             frame hidden,
+                             breakable,
+                             listing style=gbt7714stylelatex}
+
+\newtcblisting{BibTeXdemo}{enhanced,
+                           colframe=black!75!white, colback=black!5!white,
+                           listing only,
+                           frame hidden,
+                           breakable,
+                           listing style = gbt7714stylebibtex}
+
+\newtcolorbox{citeexample}[1][]{enhanced,
+                               colframe=spot!75!black, colback=spot!5!white,
+                               before title=\raggedright,
+                               #1}
+
+\newtcolorbox{bibexamplecolorbox}[1][]{enhanced,
+                               colframe=spot!75!black, colback=spot!5!white,
+                               before title=\raggedright,
+                               #1}
+
+\makeatletter
+\ExplSyntaxOn
+\tl_new:N \l__gbt_bib_example_title_tl
+\keys_define:nn { gbt7714 / bibexample }
+  {
+    style .choice: ,
+    style / numeric .code:n = { \citestyle { numeric } },
+    style / authoryear .code:n = { \citestyle { authoryear } },
+    title .tl_set:N = \l__gbt_bib_example_title_tl ,
+  }
+
+\newenvironment{bibexample}[1][]{%
+  \keys_set:nn { gbt7714 / bibexample } { style = numeric }
+  \keys_set:nn { gbt7714 / bibexample } { #1 }
+  \begin{bibexamplecolorbox}[title={\l__gbt_bib_example_title_tl}]%
+    \def\doi{\begingroup \urlstyle{same}\Url}
+    \let\@lbibitem\gbt@biblist@lbibitem
+    % \setcitestyle{numbers}%
+    \begin{biblist}%
+}{%
+    \end{biblist}%
+  \end{bibexamplecolorbox}%
+}
+\ExplSyntaxOff
+
+% Modified from natbib's thebibliography environment
+\newenvironment{biblist}{%
+  %  \bibsection
+  \par
+  \parindent\z@
+  \bibpreamble
+  % 参考文献表的设置
+  \gbt@bib@setup
+  \hypersetup{hidelinks}%
+  \bibfont
+  \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{88}\global\c@NAT@ctr\z@}%
+  \ifNAT@openbib
+    \renewcommand\newblock{\par}%
+  \else
+    \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+  \fi
+  % \sloppy\clubpenalty4000\widowpenalty4000
+  \sfcode`\.\@m
+  \let\NAT@bibitem@first@sw\@firstoftwo
+     \let\citeN\cite \let\shortcite\cite
+     \let\citeasnoun\cite
+}{%
+  \bibitem@fin
+  \bibpostamble
+  \def\@noitemerr{%
+   \PackageWarning{natbib}{Empty `thebibliography' environment}%
+  }%
+  \endlist
+  \bibcleanup
+}
+
+\def\gbt@biblist@lbibitem[#1]#2{%
+  \if\relax\@extra@b@citeb\relax\else
+    \@ifundefined{br@#2\@extra@b@citeb}{}{%
+     \@namedef{br@#2}{\@nameuse{br@#2\@extra@b@citeb}}%
+    }%
+  \fi
+  \@ifundefined{b@#2\@extra@b@citeb}{%
+   \def\NAT@num{}%
+  }{%
+   \NAT@parse{#2}%
+  }%
+  \def\NAT@tmp{#1}%
+  \expandafter\let\expandafter\bibitemOpen\csname NAT@b@open@#2\endcsname
+  \expandafter\let\expandafter\bibitemShut\csname NAT@b@shut@#2\endcsname
+  \@ifnum{\NAT@merge>\@ne}{%
+   \NAT@bibitem@first@sw{%
+    \@firstoftwo
+   }{%
+    \@ifundefined{NAT@b*@#2}{%
+     \@firstoftwo
+    }{%
+     \expandafter\def\expandafter\NAT@num\expandafter{\the\c@NAT@ctr}%
+     \@secondoftwo
+    }%
+   }%
+  }{%
+   \@firstoftwo
+  }%
+  {%
+   \global\advance\c@NAT@ctr\@ne
+   \@ifx{\NAT@tmp\@empty}{\@firstoftwo}{%
+    \@secondoftwo
+   }%
+   {%
+    \expandafter\def\expandafter\NAT@num\expandafter{\the\c@NAT@ctr}%
+    \global\NAT@stdbsttrue
+   }{}%
+   % Use the \c@NAT@ctr as the bib number
+   \@ifx{\NAT@num\@empty}{%
+     % \expandafter\def\expandafter\NAT@num\expandafter{\the\c@NAT@ctr}%
+     \edef\NAT@num{\the\c@NAT@ctr}%
+   }{}%
+   \bibitem@fin
+   \item[\hfil\NAT@anchor{#2}{\NAT@num}]%
+   \global\let\NAT@bibitem@first@sw\@secondoftwo
+   \NAT@bibitem@init
+  }%
+  {%
+   \NAT@anchor{#2}{}%
+   \NAT@bibitem@cont
+   \bibitem@fin
+  }%
+  % Do not write `\bibcite` to aux file
+  % \@ifx{\NAT@tmp\@empty}{%
+  %   \NAT@wrout{\the\c@NAT@ctr}{}{}{}{#2}%
+  % }{%
+  %   \expandafter\NAT@ifcmd\NAT@tmp(@)(@)\@nil{#2}%
+  % }%
+}%
+
+\makeatother
+\begin{filecontents}[overwrite]{\jobname.bib}
+@standard{gbt7714-2025,
+  type = {国家标准},
+  title = {信息与文献\quad 参考文献著录规则},
+  author = {{全国信息与文献标准化技术委员会}},
+  date = {2025-12-02},
+  number = {GB/T 7714—2025},
+  url = {https://std.samr.gov.cn/gb/search/gbDetailed?id=4507EFE13D37CB6AE06397BE0A0A601F},
+  urldate = {2025-12-02},
+  langid = {chinese},
+}
+
+@software{natbib,
+  title = {Natural Sciences Citations and References},
+  author = {Daly, Patrick W.},
+  date = {2010-09-13},
+  url = {https://ctan.org/pkg/natbib},
+  urldate = {2026-04-28},
+  version = {8.31b},
+}
+
+@article{chen2015,
+  title = {GB/T 7714新标准对旧标准的主要修改及实施要点提示},
+  author = {{陈浩元}},
+  date = {2015-08},
+  journaltitle = {编辑学报},
+  volume = {27},
+  number = {4},
+  pages = {339--343},
+  doi = {10.16811/j.cnki.1001-4314.2015.04.015},
+  url = {http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20150411&flag=1},
+  urldate = {2025-03-22},
+  langid = {chinese},
+}
+
+@article{liu2024,
+  title = {GB/T 7714—2015《信息与文献 参考文献著录规则》修订研究},
+  author = {{刘孝平} and {张耀蕾} and {刘霞}},
+  date = {2024-12},
+  journaltitle = {数字图书馆论坛},
+  volume = {20},
+  number = {12},
+  pages = {28--34},
+  issn = {1673-2286},
+  doi = {10.3772/j.issn.1673-2286.2024.12.004},
+  url = {https://journals.istic.ac.cn/dlf/ch/reader/view_abstract.aspx?file_no=202412004&flag=1},
+  urldate = {2026-04-07},
+  langid = {chinese},
+}
+@article{chen2024,
+  title = {对GB/T 7714—2015的标识符号问题咨询的答复},
+  author = {{陈浩元}},
+  date = {2024-05-11},
+  journaltitle = {编辑学报},
+  volume = {36},
+  number = {2},
+  pages = {139},
+  url = {http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20240205&flag=1},
+  urldate = {2025-03-22},
+  langid = {chinese},
+}
+
+@online{apa2022,
+  title = {Sentence Case Capitalization},
+  author = {{American Psychological Association}},
+  date = {2022-07},
+  url = {https://apastyle.apa.org/style-grammar-guidelines/capitalization/sentence-case},
+  urldate = {2026-04-30},
+  langid = {american},
+}
+
+@software{hu2026,
+  title = {符合 GB/T 7714—2015 标准的 Biblatex 参考文献样式},
+  author = {{胡振震}},
+  date = {2026-04-11},
+  url = {https://www.ctan.org/pkg/biblatex-gb7714-2015},
+  urldate = {2026-04-28},
+  version = {1.1w},
+  langid = {chinese},
+}
+\end{filecontents}
 
 
 \begin{document}
 
 \GetFileInfo{gbt7714.sty}
 
-\title{GB/T 7714 \hologo{BibTeX} style}
-\author{Zeping Lee\thanks{zepinglee AT gmail.com}}
-\date{\filedate\qquad\fileversion}
+\title{%
+  \pkg{gbt7714} -- A \BibTeX{} implementation of Chinese National Standard
+  GB/T 7714%
+}
+
+\author{Zeping Lee}
+
+\date{\fileversion\quad\filedate}
+
 \maketitle
 
-
-
 \begin{abstract}
-The \pkg{gbt7714} package provides a \BibTeX{} implementation for the China's
-national bibliography style standard GB/T 7714.
-It consists of \file{.bst} files for numeric and author-date styles as well as a
-\LaTeX{} package which provides the citation style defined in the standard.
-It is compatible with \pkg{natbib} and supports language detection (Chinese
-and English) for each biblilography entry.
+The \pkg{gbt7714} package provides a comprehensive and configurable \BibTeX{}
+implementation of the Chinese National Standard GB/T 7714, ``Information and
+doc\-u\-men\-ta\-tion---Rules for bibliographic references and citations to
+information resources.''
+It features a suite of \BibTeX{} styles supporting both numeric and author-year
+citation systems while maintaining full compatibility with the \pkg{natbib}
+package for advanced citation commands and formatting.
+The \BibTeX{} styles are designed to automatically detect the language (Chinese
+or English) of each bibliographic entry and apply the appropriate localization.
+Additionally, the package exposes a range of configuration options, allowing
+users to easily adapt the output to the requirements of specific academic
+journals or institutions.
 \end{abstract}
+
+\tableofcontents
+\clearpage
+
+\begin{documentation}
+
+\linespread{1.25}\selectfont
 
 \section{简介}
 
-GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt7714-2015}
-（以下简称“国标”）是中国的参考文献格式推荐标准。
-国内的绝大部分学术期刊、学位论文都使用了基于该标准的格式。
-本宏包是国标的 \BibTeX{}\cite{bibtex} 实现，具有以下特性：
-\begin{itemize}
-  \item 兼容 \pkg{natbib} 宏包\cite{natbib}。
-  \item 支持“顺序编码制”和“著者-出版年制”两种风格。
-  \item 自动识别语言并进行相应处理。
-  \item 提供了简单的接口供用户修改样式。
-  \item 同时提供了 2005 版的 \file{.bst} 文件。
-\end{itemize}
+GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt7714-2025}
+（以下简称“国标”）是中国的参考文献格式推荐性标准，
+广泛应用于国内的学术期刊、学位论文等。
+\pkg{gbt7714} 宏包旨在提供一套全面且高度可配置的 \BibTeX{} 实现，严格遵循国标的格式要求。
+该宏包的 \BibTeX{} 样式，不仅支持顺序编码制和著者-出版年制两种引用体系，
+还与 \pkg{natbib} 宏包完全兼容，从而支持更高级的引用命令和格式。
+这些样式能够自动识别参考文献条目的中/英文语言，并进行相应的处理。
+此外，该宏包还提供了丰富的配置选项，方便用户根据特定学术期刊或机构的具体要求，
+对参考文献的输出格式进行调整。
+
 本宏包的主页：\url{https://github.com/zepinglee/gbt7714-bibtex-style}。
 
 
-\section{版本 v2.0 的重要修改}
+\section{使用说明}
+\label{sec:usage}
 
-从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 \cs{biblilographystyle} 命令选择参考文献样式，
-如 \opt{gbt7714-numeric} 或 \opt{gbt7714-authoryear}。
-在早期的版本中，选择文献样式的方法是将 \opt{numbers} 或 \opt{super} 等参数传递给
-\pkg{gbt7714}，
-而不能使用 \cs{bibliographystyle}。
-这跟标准的 LaTeX 接口不一致，所以将被弃用。
+下面是 \pkg{gbt7714} 宏包的一个简单示例。
 
-
-\section{使用方法}
-
-以下是 \pkg{gbt7714} 宏包的一个简单示例。
-\begin{latex}
-  \documentclass{ctexart}
-  \usepackage{gbt7714}
+\begin{LaTeXdemo}
+  \documentclass[UTF8]{ctexart}
+  \usepackage[sort]{gbt7714}
   \bibliographystyle{gbt7714-numeric}
   \begin{document}
-    \cite{...}
-    ...
-    \bibliography{bibfile}
+  \cite{citekey}
+  \bibliography{bibfile}
   \end{document}
-\end{latex}
+\end{LaTeXdemo}
+
+在导言区调用 \pkg{gbt7714} 宏包时即可设置选项，
+也可以在调用宏包后通过 \cs{gbtsetup} 命令设置（见第~\ref{sec:options} 节）。
+
+\cs{bibliographystyle} 命令用于选择参考文献表的样式文件。
+按照国标的规定，参考文献的引用体系分为顺序编码制（-numeric）
+和著者-出版年制（-authoryear）。
+\pkg{gbt7714} 提供的全部样式见第~\ref{sec:bib-styles} 节。
+
+正文中，用户可以使用 \cs{cite} 命令进行引用，
+其中 \entrykey{citekey} 是文献的标识符（key），
+对应 \BibTeX{} 数据库中的文献条目。
+另外，\pkg{gbt7714} 所依赖的 \pkg{natbib} 宏包提供了丰富的高级命令，
+详见第~\ref{sec:cite} 节。
+
+文末的参考文献表使用 \cs{bibliography} 命令生成。
+示例中调用了 \file{bibfile.bib} 的 \BibTeX{} 数据库。
+\file{.bib} 文件的格式及本宏包的填写要求见第~\ref{sec:bibfile} 节。
+
+
+\section{参考文献样式}
+\label{sec:bib-styles}
 
 按照国标的规定，参考文献的标注体系分为“顺序编码制”和
 “著者-出版年制”。
 用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
-命令选择参考文献表的样式，比如：
-\begin{latex}
+命令选择参考文献表的样式，例如：
+\begin{LaTeXdemo}
   \bibliographystyle{gbt7714-numeric}  % 顺序编码制
-\end{latex}
+\end{LaTeXdemo}
 或者
-\begin{latex}
+\begin{LaTeXdemo}
   \bibliographystyle{gbt7714-authoryear}  % 著者-出版年制
-\end{latex}
-此外还可以使用 2005 版的格式 \file{gbt7714-2005-numeric} 和
-\file{gbt7714-2005-authoryear}。
+\end{LaTeXdemo}
 
-注意，版本 v2.0 更改了设置参考文献表样式的方法，
-要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
-而且更改了 \file{bst} 的文件名。
+样式名中不含年份的版本对应现行 GB/T 7714。
+用户也可以指定带年份的版本，如 \texttt{gbt7714-2025-numeric}。
+下面列举了可用的参考文献表样式文件：
 
-\begin{function}{\citestyle}
-  \begin{syntax}
-    |\citestyle|\Arg{citation style}
-  \end{syntax}
-可选：\opt{super}, \opt{numbers}, \opt{authoryear}。
-使用 \cs{bibliography} 选择参考文献表的样式时会自动设置对应的引用样式。
-顺序编码制的引用标注默认使用角标式（\opt{super}），
-如“张三\textsuperscript{[2]}提出”。
-如果要使用正文模式，如“文献 [3] 中说明”，
-可以使用 \cs{citestyle} 命令切换为数字式（\opt{numbers}）。
-\begin{latex}
-  \citestyle{numbers}
-\end{latex}
-著者-出版年制通常不需要修改引用样式。
-\end{function}
-
-\DescribeOption{sort\&compress}
-同一处引用多篇文献时，应当将各篇文献的 key 一同写在 \cs{cite} 命令中。
-如遇连续编号，默认会自动转为起讫序号并用短横线连接
-（见\pkg{natbib} 的 \opt{compress} 选项）。
-如果要对引用的编号进行自动排序，需要在调用 \pkg{gbt7714} 时加
-\opt{sort\&compress} 参数，
-这些参数会传给 \pkg{natbib} 处理。
-\begin{latex}
-  \usepackage[sort&compress]{gbt7714}
-\end{latex}
-注意国标中要求 2 个或以上的连续编号用连接号，不同于 \pkg{natbib} 默认的 3 个或以上。
-宏包中已经作了修改。
-
-若需要标出引文的页码，可以标在 \cs{cite} 的可选参数中，如
-|\cite[42]{knuth84}|。
-更多的引用标注方法可以参考 \pkg{natbib} 宏包的使用说明\cite{natbib}。
-
-\DescribeOption{locator-inside-brackets}
-国标要求在括号外以角标的形式著录引文页码。
-如果要将页码置于括号内，可以在调用宏包时设置 \opt{locator-inside-brackets=true}。
-\begin{latex}
-  \usepackage[locator-inside-brackets=true]{gbt7714}
-\end{latex}
-
-使用时需要注意以下几点：
 \begin{itemize}
-  \item \file{.bib} 数据库应使用 UTF-8 编码。
-  \item 使用著者-出版年制参考文献表时，中文的文献\emph{必须}
-        在 key 域填写作者姓名的拼音，才能按照拼音排序，
-        详见第~\ref{sec:sort}~节。
+  \item \file{gbt7714-numeric}
+  \item \file{gbt7714-authoryear}
+  \item \file{gbt7714-2025-numeric}
+  \item \file{gbt7714-2025-authoryear}
+  \item \file{gbt7714-2015-numeric}
+  \item \file{gbt7714-2015-authoryear}
+  \item \file{gbt7714-2005-numeric}
+  \item \file{gbt7714-2005-authoryear}
 \end{itemize}
 
+注意，\pkg{gbt7714} 宏包在 v2.2.0 版本将样式名称的后缀
+\file{-numerical} 和 \file{-author-year} 分别改为
+\file{-numeric} 和 \file{-authoryear}。
+这样与其他 Bib(La)TeX 的样式名称更一致。
+旧版的样式名称仍然可以使用，但是会警告样式名称已过时。
 
-\section{文献类型}
 
-国标中规定了 16 种参考文献类型，
+\section{正文中的引用命令}
+\label{sec:cite}
+
+\DescribeMacro{\cite}
+在正文中进行引用时，
+\cs{cite} 是 \LaTeX{} 提供的基础命令，
+但是这还不能满足国标规定的两种参考文献标引体系的各种格式。
+\pkg{gbt7714} 在内部调用了 \pkg{natbib} 宏包来处理正文中的引用标注，
+因此用户可以使用 \pkg{natbib} 提供的各种引用命令，
+详见该宏包的文档\cite{natbib}。
+
+\subsection{顺序编码制}
+
+\begin{quote}
+  \linespread{1}\selectfont
+  \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+    |\cite{key}| & \textsuperscript{[235]} \\
+    |\cite{key1,key2}| & \textsuperscript{[235,83]} \\
+    |\cite[326-329]{key}| & \textsuperscript{[2]326-329} \\
+    |\citet{key}| & 张三\textsuperscript{[570]} \\
+    |\parencite[15]{key}| & [10]\textsuperscript{15} \\
+  \end{tabular}
+\end{quote}
+
+顺序编码制是一种按文献在正文中被引用的先后次序，以序号进行标注的引用体系。
+国标要求将序号置于方括号“[ ]”中，在示例中均使用上标的格式著录。
+用户在调用 \pkg{gbt7714} 宏包的 \file{-numeric} 样式后，
+\cs{cite} 命令自动生成这种格式。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  第三系褶皱的控制\cite{key}
+  \end{lstlisting}
+  \tcblower
+  第三系褶皱的控制\textsuperscript{[235]}
+\end{citeexample}
+
+同一处引用多篇文献时，将各篇文献的 key 一同写在 \cs{cite} 命令中，
+如 \texttt{\cs{cite}\{key1,\allowbreak key2,key3\}}。
+默认情况下，序号按照 \cs{cite} 命令中的顺序排列。
+
+\DescribeOption{sort}
+有时由于重复引用，序号不一定按照从小到大的顺序排列。
+实际上，国标是允许这样引用的。
+用户如果需要将引用的序号从小到大排序，
+可以在调用宏包时或使用 \cs{gbtsetup} 命令设置 \opt{sort} 选项。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  同一处引用多篇文献\cite{key3,key2,key1}
+  \end{lstlisting}
+  \tcblower
+  同一处引用多篇文献\textsuperscript{[3,2,1]}
+\end{citeexample}
+
+\DescribeOption{mincompress}
+如遇连续序号，\pkg{gbt7714} 会自动在起讫序号间并用短横线连接。
+\pkg{natbib} 默认三个或以上的连续序号才会压缩为起讫序号，
+\pkg{gbt7714} 修改为两个或以上连续序号就要压缩，以符合国标的要求。
+用户也可以使用 \opt{mincompress} 选项设置最小数量，见第 \ref{opt:mincompress} 节。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  连续序号\cite{key1,key3,key4,key6,key7,key8}
+  \end{lstlisting}
+  \tcblower
+  连续序号\textsuperscript{[1,3-4,6-8]}
+\end{citeexample}
+
+多次引用同一文献时，国标要求在序号的方括号“[ ]”外著录引文页码。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  引文页码\cite[260]{key}
+  \end{lstlisting}
+  \tcblower
+  引文页码\textsuperscript{[2]260}
+\end{citeexample}
+
+\DescribeMacro{\citet}
+使用 \cs{citet} 命令可以生成主要责任者和序号。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  \citet{key}提出……
+  \end{lstlisting}
+  \tcblower
+  张三\textsuperscript{[570]}提出……
+\end{citeexample}
+
+\DescribeMacro{\parencite}
+\DescribeOption{inline}
+在有些情况下，序号也可作为行文语句的组成部分\cite[341]{chen2015}。
+作者可以使用 \cs{parencite} 命令将序号与正文平排，
+引文页码默认仍然以上标的形式著录在序号的方括号外。
+如果全文统一采用这种格式，可以在调用宏包或使用 \cs{gbtsetup}
+命令设置 \opt{inline=true} 选项。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  推导过程见文献\parencite{key6}。按文献\parencite[16]{key10}提供的参数设计样机
+  \end{lstlisting}
+  \tcblower
+  推导过程见文献 [6]。按文献[10]\textsuperscript{15}提供的参数设计样机
+\end{citeexample}
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  \gbtsetup{inline = true}
+  推导过程见文献\cite{key6}。按文献\cite[16]{key10}提供的参数设计出样机
+  \end{lstlisting}
+  \tcblower
+  推导过程见文献 [6]。按文献[10]\textsuperscript{15}提供的参数设计出样机
+\end{citeexample}
+
+
+\subsection{著者-出版年制}
+
+\begin{quote}
+  \linespread{1}\selectfont
+  \begin{tabular}{l@{\quad$\Rightarrow$\quad}l}
+    |\cite{key}| & 张三（1984）\\
+    |\citet{key}| & 张三（1984）\\
+    |\citep{key}| & （张三，1984）\\
+    |\citep[260]{key}| & （张三，1984）\textsuperscript{260}\\
+    |\citep[参见][]{key}| & （参见张三，1984）\\
+    |\citep[参见][260]{key}| & （参见张三，1984）\textsuperscript{260}\\
+    |\citeauthor{key}| & 张三\\
+    |\citeyearpar[260]{key}| & （1984）\textsuperscript{260}\\
+  \end{tabular}
+\end{quote}
+
+\DescribeMacro{\citep}
+\DescribeMacro{\citet}
+著者-出版年制是一种以著者姓名和出版年份为标识的参考文献引用体系。
+\pkg{natbib} 宏包提供了 \cs{citep} 和 \cs{citet} 两个命令
+分别用于括号内和行文中的引用，
+前者将著者和年份一起置于括号“（ \ \  ）”内，
+后者将著者作为行文的一部分，年份置于括号内。
+用户如果调用了 \pkg{gbt7714} 的 \file{-authoryear} 样式，
+\cs{cite} 命令等同于 \cs{citet}。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  \citep{zhang}，\citet{doe}提出……
+  \end{lstlisting}
+  \tcblower
+  （张三，1984），Doe（2012）提出……
+\end{citeexample}
+
+\DescribeMacro{\citeauthor}
+\DescribeMacro{\citeyearpar}
+倘若正文中提及著者姓名，其后的括号在分开的位置，
+可以使用 \cs{citeauthor} 命令著录著者姓名，
+再使用 \cs{citeyearpar} 命令著录括号和出版年。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  \citeauthor{zhang}提出……模型\citeyearpar{zhang}
+  \end{lstlisting}
+  \tcblower
+  张三提出……模型（1984）
+\end{citeexample}
+
+\DescribeOption{locator-in-brackets}
+多次引用同一文献时，国标要求在括号外以角标的形式著录引文页码。
+用户可以设置 \opt{locator-in-brackets} 选项控制引文页码是否在括号外
+（见第 \ref{sec:options} 节）。
+
+\begin{citeexample}
+  \begin{lstlisting}[style=gbt7714stylelatex]
+  \citep[260]{zhang}
+  \end{lstlisting}
+  \tcblower
+  （张三，1984）\textsuperscript{260}
+\end{citeexample}
+
+
+\section{配置选项}
+\label{sec:options}
+
+\pkg{gbt7714} 宏包提供了一些选项供用户设置正文中引用标注的格式细节。
+用户可在调用宏包时以可选参数的形式设置，
+也可以在调用宏包后使用 \cs{gbtsetup} 命令进行设置。
+下面两种设置方式是等效。
+
+\begin{LaTeXdemo}
+  \usepackage[inline]{gbt7714}
+  \gbtsetup{inline = true}
+\end{LaTeXdemo}
+
+使用 \cs{usepackage} 调用宏包时，
+未识别的选项将传给 \pkg{natbib} 宏包处理。
+
+
+\subsection{\LaTeX{} 宏选项}
+
+下面这些选项只控制内部的 \LaTeX{} 宏，
+不控制 \BibTeX{} 调用 BST 样式生成的 \file{.bbl} 文件格式。
+
+\begin{variable}{align}
+  \optsyntax[left]{align}{left, right}
+  控制参考文献表的标签对齐方式。
+
+  \begin{bibexample}[title={\kvopt{align}{left}}]
+    \setcounter{NAT@ctr}{8}
+    \def\bibnumfmt#1{\highlighta{[#1]}\hfill}
+    \bibitem[张伯伟(2002)]{gbt7714.8.1:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考\allowbreak[M].
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak
+    许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+  \end{bibexample}
+
+  \gbtsetup{align=right}
+  \begin{bibexample}[title={\kvopt{align}{right}}]
+    \setcounter{NAT@ctr}{8}
+    \def\bibnumfmt#1{\highlightb{[#1]}}
+    \bibitem[张伯伟(2002)]{gbt7714.8.1:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考\allowbreak[M].
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak
+    许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+  \end{bibexample}
+  \gbtsetup{align=left}
+\end{variable}
+
+\begin{variable}{citepunct}
+  % TODO: v3.0.0 将默认值改为 auto。
+  \optsyntax[half]{citepunct}{full, half}
+  控制著者-出版年制下，正文中引用标注的标点符号样式。
+  该选项不影响顺序编码制。
+  \begin{citeexample}[title={\kvopt{citepunct}{full}}]
+    \highlighta{（}张三\highlighta{，}1984\highlighta{）}\textsuperscript{260}
+    \qquad \highlighta{（}Doe\highlighta{，}2012\highlighta{）}\textsuperscript{42}
+  \end{citeexample}
+  \begin{citeexample}[title={\kvopt{citepunct}{half}}]
+    \highlightb{(}张三\highlightb{,} 1984\highlightb{)}\textsuperscript{260}
+    \qquad \highlightb{(}Doe\highlightb{,} 2012\highlightb{)}\textsuperscript{42}
+  \end{citeexample}
+\end{variable}
+
+\begin{variable}{inline}
+  \boolsyntax{inline}
+  在顺序编码制下，引用标注默认采用上标形式，也允许将序号作为行文语句的一部分。
+  如果全文统一采用后者，可以设置 \opt{inline=true} 选项。
+  \begin{citeexample}[title={\kvopt{inline}{false}}]
+    第三系褶皱的控制\textsuperscript{\highlighta{[2]}260}
+  \end{citeexample}
+  \begin{citeexample}[title={\kvopt{inline}{true}}]
+    第三系褶皱的控制 \highlightb{[2]}\textsuperscript{260}
+  \end{citeexample}
+\end{variable}
+
+\begin{variable}{locator-in-brackets}
+  \boolsyntax[false]{locator-in-brackets}
+  国标要求引文页码在括号外以角标的形式著录。
+  选项控制引文页码是否在括号内著录。
+  \begin{citeexample}[title={\kvopt{locator-in-brackets}{false}}]
+    |\citep[260]{key}|
+    \tcblower
+    \textsuperscript{[20]\highlighta{260}} \qquad
+    （张三，1984）\textsuperscript{\highlighta{260}}
+  \end{citeexample}
+  \begin{citeexample}[title={\kvopt{locator-in-brackets}{true}}]
+    |\citep[p. 260]{key}|
+    \tcblower
+    \textsuperscript{[20, \highlightb{p. 260}]} \qquad
+    （张三，1984，\highlightb{p. 260}）
+  \end{citeexample}
+\end{variable}
+
+\begin{variable}{mincompress}
+  \label{opt:mincompress}
+  \optsyntax[2]{mincompress}{2, 3}
+  默认设置同国标的示例一样，两个或以上的连续序号时，起讫序号用短横线连接。
+  该选项可以恢复为 \pkg{natbib} 的原始设置：
+  三个或以上的连续序号才用短横线连接。
+  \begin{citeexample}[title={\kvopt{mincompress}{2}}]
+    \textsuperscript{[1\highlighta{-}2,4-6]}
+  \end{citeexample}
+  \begin{citeexample}[title={\kvopt{mincompress}{3}}]
+    \textsuperscript{[1\highlightb{,}2,4-6]}
+  \end{citeexample}
+\end{variable}
+
+\begin{variable}{sort}
+  \boolsyntax{sort}
+  国标没有规定正文中引用标注的序号必须按顺序排列。
+  实际上，国标 9.2.1.3 节的示例“[570,83]”没有按照顺序列。
+  所以 \pkg{gbt7714} 默认情况下不对引用的序号进行排序。
+  不过，用户可以设置 \opt{sort} 选项将引用的序号从小到大排序。
+
+  \begin{citeexample}[title={\kvopt{sort}{false}}]
+    \textsuperscript{[\highlighta{4,1,5,3}]}
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{sort}{true}}]
+    \textsuperscript{[\highlightb{1,3-5}]}
+  \end{citeexample}
+\end{variable}
+
+
+\subsection{BST 控制选项}
+
+\DescribeMacro{\gbtsetup}
+本宏包提供了设置选项用于控制参考文献列表的格式细节。
+这主要是为了满足不同期刊/学校在国标参考文献格式基础上的修改。
+用户需要使用 \cs{gbtsetup} 命令来设置选项。
+本节详细介绍各个选项的功能和用法。
+
+\begin{LaTeXdemo}
+\gbtsetup{
+  bibpunct        = half,
+  maxbibnames     = 3,
+  uppercasefamily = false,
+}
+\end{LaTeXdemo}
+
+目前 \BibTeX{} 不支持直接传递控制参数，
+\LaTeX{} 中设置的格式选项无法直接作用于 \BibTeX{} 样式文件（\file{.bst}）。
+本宏包参考了 \pkg{IEEEtran} 和 \pkg{RevTeX} 等模板的做法，
+修改后的 \cs{bibliography} 命令会自动生成一个带 \file{-BSTcontrol}
+后缀的 \file{.bib} 文件，
+并将格式控制选项以特殊类型“条目”（\entrytype{GBT7714BSTCTL}）的形式写入该文件中。
+
+\begin{BibTeXdemo}
+@GBT7714BSTCTL{GBT7714:BSTcontrol,
+  CTL_bib_punct = {GB},
+  CTL_max_bib_names = {3},
+  CTL_uppercase_family = {false},
+}
+\end{BibTeXdemo}
+
+宏包会在 \file{.aux} 调用 \file{-BSTcontrol.bib} 文件，
+并“引用” \field{GBT7714:BSTcontrol}，
+这样 \BibTeX{} 就能读取该条目的内容。
+本宏包的 \file{.bst} 样式会根据 \field{GBT7714:BSTcontrol} 的字段信息设置内部参数。
+
+% \subsubsection{全角/半角符号}
+
+\begin{variable}{bibpunct}
+  \label{opt:bibpunct}
+  % TODO: v3.0.0 将默认值改为 GB。
+  \optsyntax[GB (2025), half (2015, 2005)]{bibpunct}{GB, half, bylanguage}
+  选择半角/全角符号。
+
+  2025 版国标第~6 节列出了全部的标识符号，但未明确说明这些符号是全角还是半角。
+  从文献示例来看，句点、斜线、连接号是半角符号，冒号、逗号、分号、圆括号都是全角符号，
+  但方括号很难辨认是半角“[”（U+005B）、“]”（U+005D）
+  还是全角“［”（U+FF3B）、“］”（U+FF3D）。
+  在实践中，不同期刊编辑对符号的理解也不尽相同，形成不同流派。
+  这种不明确的状态在实际应用中也造成了许多困惑和争议。\cite[33]{liu2024}
+  2015 版国标起草人在答复\cite{chen2024}中指出：“除‘.’外均借用了中文符号”，
+  并强调“方括号是中文的符号”，但并未明确说明方括号是半角（中文字体）还是全角符号。
+
+  用户可以使用 \opt{bibpunct} 选项选择符号样式。
+  \begin{description}
+    \item[\opt{GB}] “.”“[ ]”“/”“-”用半角符号，其他标识符号用全角符号（默认）。
+    \item[\opt{half}] 统一使用半角符号（例如清华大学学位论文）。
+    \item[\opt{bylanguage}] 中文文献使用全角符号（包括全角句点 U+FF0E“．”）、西文文献使用半角符号。
+      人文社科类期刊更多采用这种格式。
+  \end{description}
+
+  \begin{bibexample}[title={\kvopt{bibpunct}{GB}}]
+    \bibitem[张群\ 等(2024)张群，程志宝和石志飞]{gbt7714.8.5.3:5}
+    张群\highlighta{，}程志宝\highlighta{，}石志飞\highlightb{.}
+    \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak\highlightb{[}J\highlightb{]}\highlightb{.}
+    \newblock 铁道学报\highlighta{，}2024\highlighta{，}46\allowbreak\highlighta{（}8\highlighta{）}\highlighta{：}102-111\highlightb{.}
+
+    \bibitem[Frese et~al.(2013)Frese，Katus，and Meder]{gbt7714.b.4:16}
+    Frese K~S\highlighta{，}Katus H~A\highlighta{，}Meder B\highlightb{.}
+    \newblock Next-generation sequencing\highlighta{：}from understanding biology
+      to personalized medicine\allowbreak\highlightb{[}J\highlightb{]}\highlightb{.}
+    \newblock Biology\highlighta{，}2013\highlighta{，}2\allowbreak \highlighta{（}1\highlighta{）}\highlighta{：}378-398\highlightb{.}
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{bibpunct}{half}}]
+    \bibitem[张群\ 等(2024)张群，程志宝和石志飞]{gbt7714.8.5.3:5}
+    张群\highlightb{,} 程志宝\highlightb{,} 石志飞\highlightb{.}
+    \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak\highlightb{[}J\highlightb{]}\highlightb{.}
+    \newblock 铁道学报\highlightb{,} 2024\highlightb{,} 46\allowbreak\highlightb{(}8\highlightb{):} 102-111\highlightb{.}
+
+    \bibitem[Frese et~al.(2013)Frese, Katus, and Meder]{gbt7714.b.4:16}
+    Frese K~S\highlightb{,} Katus H~A\highlightb{,} Meder B\highlightb{.}
+    \newblock Next-generation sequencing\highlightb{:} from understanding biology
+      to personalized medicine\allowbreak\highlightb{[}J\highlightb{]}\highlightb{.}
+    \newblock Biology\highlightb{,} 2013\highlightb{,} 2\allowbreak \highlightb{(}1\highlightb{)}\highlightb{:} 378-398\highlightb{.}
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{bibpunct}{bylanguage}}]
+    \bibitem[张群\ 等(2024)张群，程志宝和石志飞]{gbt7714.8.5.3:5}
+    张群\highlighta{，}程志宝\highlighta{，}石志飞\highlighta{．}
+    \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak\highlighta{［}J\highlighta{］}\highlighta{．}
+    \newblock 铁道学报\highlighta{，}2024\highlighta{，}46\allowbreak\highlighta{（}8\highlighta{）}\highlighta{：}102-111\highlightb{．}
+
+    \bibitem[Frese et~al.(2013)Frese, Katus, and Meder]{gbt7714.b.4:16}
+    Frese K~S\highlightb{,} Katus H~A\highlightb{,} Meder B\highlightb{.}
+    \newblock Next-generation sequencing\highlightb{:} from understanding biology
+      to personalized medicine\allowbreak\highlightb{[}J\highlightb{]}\highlightb{.}
+    \newblock Biology\highlightb{,} 2013\highlightb{,} 2\allowbreak \highlightb{(}1\highlightb{)}\highlightb{:} 378-398\highlightb{.}
+  \end{bibexample}
+\end{variable}
+
+
+\begin{variable}{convertpunct}
+  \label{opt:convertpunct}
+  \boolsyntax[true]{convertpunct}
+  控制是否转换题名内符号的全角/半角形式。
+
+  国标的示例中，除了录项目间的符号使用固定的全角、半角形式，
+  还会把题名内的符号转换为全角。
+
+  \begin{bibexample}[title={\kvopt{convertpunct}{true}}]
+    \bibitem[Kinchy(2012)]{gbt7714.b.1:21}
+    Kinchy A.
+    \newblock Seeds\highlighta{，}sciences\highlighta{，}and struggle\highlighta{：}the global politics of transgenic crops\allowbreak[M/OL].
+    \newblock Cambridge\highlighta{，}Mass.：MIT Press，2012：50.
+    \newblock \url{http://lib.myilibrary.com?ID=381443}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{convertpunct}{false}}]
+    \bibitem[Kinchy(2012)]{gbt7714.b.1:21}
+    Kinchy A.
+    \newblock Seeds\highlightb{,} sciences\highlightb{,} and struggle\highlightb{:} the global politics of transgenic crops\allowbreak[M/OL].
+    \newblock Cambridge\highlightb{,} Mass.：MIT Press，2012：50.
+    \newblock \url{http://lib.myilibrary.com?ID=381443}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{著录著者数量}
+
+\begin{variable}{maxbibnames, minbibnames}
+  \begin{syntax}
+    \texttt{ = }\meta{integer}\hfill default: 3
+    \texttt{ = }\meta{integer}\hfill default: 3
+  \end{syntax}
+  参考文献表中如果责任者的姓名数量超过 \opt{maxbibnames}，则会根据 \opt{minbibnames}
+  选项的设置自动截断列表，其后加“，等”或与之相应的词。
+  如果 \opt{maxbibnames} 为 0 则全部照录不省略。
+  默认为国标要求：超过 3 个时，著录前 3 个责任者。
+
+  \begin{bibexample}[title={\kvopt{maxbibnames}{3}, \kvopt{minbibnames}{3}}]
+    \bibitem[牛永敢\ 等(2019)牛永敢，孔晓，王阳和斯楼斌]{gbt7714.8.2.2:8}
+    牛永敢，孔晓，王阳，\highlighta{等}.
+    \newblock 鼻整形应用解剖学\allowbreak[M].
+    \newblock 北京：人民卫生出版社，2019：65-66.
+
+    \bibitem[Sadock et~al.(2009)Sadock，Sadock，Ruiz，and Kaplan]{gbt7714.8.2.2:14}
+    Sadock B~J，Sadock V~A，Ruiz P，\highlighta{et~al.}
+    \newblock Kaplan \& {Sadock's} comprehensive textbook of psychiatry：v.~1\allowbreak[M].
+    \newblock 9th ed.
+    \newblock Philadelphia：Wolters Kluwer Health/Lippincott Williams \& Wilkins，2009.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{maxbibnames}{0}, \kvopt{minbibnames}{0}}]
+    \bibitem[牛永敢\ 等(2019)牛永敢，孔晓，王阳和斯楼斌]{gbt7714.8.2.2:8}
+    牛永敢，孔晓，王阳，\highlightb{斯楼斌}.
+    \newblock 鼻整形应用解剖学\allowbreak[M].
+    \newblock 北京：人民卫生出版社，2019：65-66.
+
+    \bibitem[Sadock et~al.(2009)Sadock，Sadock，Ruiz，and Kaplan]{gbt7714.8.2.2:14}
+    Sadock B~J，Sadock V~A，Ruiz P，\highlightb{Kaplan H~I}.
+    \newblock Kaplan \& {Sadock's} comprehensive textbook of psychiatry：v.~1\allowbreak[M].
+    \newblock 9th ed.
+    \newblock Philadelphia：Wolters Kluwer Health/Lippincott Williams \& Wilkins，2009.
+  \end{bibexample}
+\end{variable}
+
+\begin{variable}{maxcitenames, mincitenames}
+  \begin{syntax}
+    \texttt{ = }\meta{integer}\hfill default: 1
+    \texttt{ = }\meta{integer}\hfill default: 1
+  \end{syntax}
+  正文引用的文献采用著者-出版年制时，如果责任者的姓名数量超过 \opt{maxcitenames}，则会根据 \opt{mincitenames}
+  选项的设置自动截断列表，其后加“等”或与之相应的词。
+  如果 \opt{maxcitenames} 为 0 则全部照录不省略。
+  默认为国标要求：正文中引用多著者文献时，只需标注第一个著者。
+
+  \begin{citeexample}[title={\kvopt{maxcitenames}{1}, \kvopt{mincitenames}{1}}]
+    （战德臣~\highlighta{等}，2019）（Kennedy \highlighta{et al.}，1975）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{maxcitenames}{2}, \kvopt{mincitenames}{1}}]
+    （战德臣\highlightb{和张丽杰}，2019）（Kennedy \highlightb{and Garrison}，1975）
+  \end{citeexample}
+\end{variable}
+
+
+% \subsubsection{姓全大写}
+
+\begin{variable}{uppercasefamily}
+  \boolsyntax[false (2025), true (2015, 2005)]{uppercasefamily}
+  控制姓氏是否全大写。
+
+  2005 和 2015 版国标要求：用西文或汉语拼音字母著录个人作者，姓应全部著录，字母全大写。
+  2025 版取消全大写的要求。
+
+  \begin{bibexample}[title={\kvopt{uppercasefamily}{false}}]
+    \bibitem[Peebles(2001)]{gbt7714.8.2.2:13}
+    \highlighta{Peebles} P~Z，Jr.
+    \newblock Probability，random variables，and random signal principles\allowbreak[M].
+    \newblock 4th ed.
+    \newblock New York：McGraw-Hill，2001.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{uppercasefamily}{true}}]
+    \bibitem[Peebles(2001)]{gbt7714.8.2.2:13}
+    \highlightb{PEEBLES} P~Z，Jr.
+    \newblock Probability，random variables，and random signal principles\allowbreak[M].
+    \newblock 4th ed.
+    \newblock New York：McGraw-Hill，2001.
+  \end{bibexample}
+\end{variable}
+
+
+\begin{variable}{initializewithhyphen}
+  \boolsyntax[true (2025), false (2015, 2005)]{initializewithhyphen}
+  控制姓名缩写时是否保留连字符。
+
+  \begin{citeexample}[title={\kvopt{initializewithhyphen}{true}}]
+    Park J\highlighta{-}R.
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{initializewithhyphen}{false}}]
+    Park J R.
+  \end{citeexample}
+\end{variable}
+
+
+\begin{variable}{checkpinyin}
+  \boolsyntax[true]{checkpinyin}
+  控制是否检查姓名为汉语拼音，并进行特殊处理，
+  如 2025 版国标要求汉语拼音人名宜用全称。
+  该功能较为耗时，如果处理大量文献时建议关掉，如本项目的测试。
+
+  \begin{citeexample}[title={\kvopt{checkpinyin}{true}}]
+    Yu \highlighta{Yang}，Pan \highlighta{Erting}，Wang \highlighta{Xinya}，et~al.
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{checkpinyin}{false}}]
+    Yu \highlightb{Y}，Pan \highlightb{E}，Wang \highlightb{X}，et~al.
+  \end{citeexample}
+\end{variable}
+
+
+\begin{variable}{initializepinyin}
+  \boolsyntax[false (2025), true (2015, 2005)]{initializepinyin}
+  控制汉语拼音姓名是否缩写为首字母。
+
+  \begin{citeexample}[title={\kvopt{initializepinyin}{false}}]
+    Yu \highlighta{Yang}，Pan \highlighta{Erting}，Wang \highlighta{Xinya}，et~al.
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{initializepinyin}{true}}]
+    Yu \highlightb{Y}，Pan \highlightb{E T}，Wang \highlightb{X Y}，et~al.
+  \end{citeexample}
+\end{variable}
+
+
+% \subsubsection{姓名使用“和”或“and”}
+
+\begin{variable}{bibfinaland}
+  \boolsyntax{bibfinaland}
+  控制参考文献表中多个责任者的最后两个姓名之间是否使用“和”或“and”连接。
+
+  \begin{bibexample}[title={\kvopt{bibfinaland}{false}}]
+    \bibitem[张群\ 等(2024)张群，程志宝，石志飞]{gbt7714.8.5.3:5}
+    张群，程志宝\highlighta{，}石志飞.
+    \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J].
+    \newblock 铁道学报，2024，46\allowbreak （8）：102-111.
+
+    \bibitem[Abadía et~al.(2024)Abadía，Conkey，and McDonald]{gbt7714.8.2.2:8}
+    Abadía O~M，Conkey M~W，McDonald J.
+    \newblock Deep-time images in the age of globalization：rock art in the 21st century\allowbreak[M/OL].
+    \newblock Springer Cham，2024.
+    \newblock \url{https://doi.org/10.1007/978-3-031-54638-9}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{bibfinaland}{true}}]
+    \bibitem[张群\ 等(2024)张群，程志宝和石志飞]{gbt7714.8.5.3:5}
+    张群，程志宝\highlightb{和}石志飞.
+    \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J].
+    \newblock 铁道学报，2024，46\allowbreak （8）：102-111.
+
+    \bibitem[Abadía et~al.(2024)Abadía，Conkey，and McDonald]{gbt7714.8.2.2:8}
+    Abadía O~M，Conkey M~W，\highlightb{and} McDonald J.
+    \newblock Deep-time images in the age of globalization：rock art in the 21st century\allowbreak[M/OL].
+    \newblock Springer Cham，2024.
+    \newblock \url{https://doi.org/10.1007/978-3-031-54638-9}.
+  \end{bibexample}
+\end{variable}
+
+\begin{variable}{citefinaland}
+  \boolsyntax[true]{citefinaland}
+  控正文引用中多个责任者姓名的最后两个姓名之间使用“和”或“and”连接。
+  注意需要将 \opt{maxcitenames} 设置为大于 1 的值才能看到效果。
+  该选项仅对著者-出版年制有效。
+
+  \begin{citeexample}[title={\kvopt{citefinaland}{true}, \kvopt{maxcitenames}{2}}]
+    （扬奎斯特\highlighta{和}萨金特，2010）（Weinstein \highlighta{and} Swartz，1974）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{citefinaland}{false}, \kvopt{maxcitenames}{2}}]
+    （扬奎斯特\highlightb{，}萨金特，2010）（Weinstein\highlightb{，}Swartz，1974）
+  \end{citeexample}
+\end{variable}
+
+
+% \subsubsection{引注的本地化字符串}
+
+\begin{variable}{citelang}
+  \optsyntax[byentry]{citelang}{byentry, macro, chinese, english}
+  控制引注中“and”、“et al.”的语言。
+  \begin{description}
+    \item[\opt{byentry}] 根据文献的语言自动选择。
+    \item[\opt{macro}] 使用宏 \cs{biband}、\cs{bibetal}，供用户自定义。
+    \item[\opt{chinese}] 总是使用中文。
+    \item[\opt{english}] 总是使用英文。
+  \end{description}
+
+  \begin{citeexample}[title={\kvopt{citelang}{byentry}, \kvopt{maxcitenames}{2}}]
+    （战德臣\highlighta{和}张丽杰，2019）
+    （牛永敢~\highlighta{等}，2019） \\
+    （Kennedy \highlighta{and} Garrison，1975）
+    （Sadock \highlighta{et~al.}， 2009）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{citelang}{macro}, \kvopt{maxcitenames}{2}}]
+    \begin{lstlisting}[style=gbt7714stylelatex]
+    \newcommand\biband{和}
+    \newcommand\bibetal{等}
+    \end{lstlisting}
+    \tcblower
+    （战德臣\highlighta{和}张丽杰，2019）
+    （牛永敢~\highlighta{等}，2019） \\
+    （Kennedy \highlightb{和} Garrison，1975）
+    （Sadock \highlightb{等}， 2009）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{citelang}{chinese}, \kvopt{maxcitenames}{2}}]
+    （战德臣\highlighta{和}张丽杰，2019）
+    （牛永敢~\highlighta{等}，2019） \\
+    （Kennedy \highlightb{和} Garrison，1975）
+    （Sadock \highlightb{等}， 2009）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{citelang}{english}, \kvopt{maxcitenames}{2}}]
+    （战德臣 \highlightb{and} 张丽杰，2019）
+    （牛永敢 \highlightb{et al.}，2019） \\
+    （Kennedy \highlighta{and} Garrison，1975）
+    （Sadock \highlighta{et~al.}， 2009）
+  \end{citeexample}
+\end{variable}
+
+
+% \subsubsection{姓名与“等”的空隙}
+
+\begin{variable}{spacebeforeetal}
+  \boolsyntax[true]{spacebeforeetal}
+  国标要求著者-出版年制正文的引注中，姓氏与“et al.”“等”之间留适当空隙。
+  该选项可以取消中文文献的“等”字前空隙，不影响英文的“et al.”。
+  \begin{citeexample}[title={\kvopt{spacebeforeetal}{true}}]
+    （于潇~\highlighta{等}，2012）（Abadía~\highlighta{et al.}，2024）
+  \end{citeexample}
+
+  \begin{citeexample}[title={\kvopt{spacebeforeetal}{false}}]
+    （于潇\highlightb{等}，2012）（Abadía~\highlighta{et al.}，2025）
+  \end{citeexample}
+\end{variable}
+
+
+% \subsubsection{出版年置于题名前}
+
+\begin{variable}{yearbeforetitle}
+  \boolsyntax[true]{yearbeforetitle}
+  采用著者-出版年制时，参考文献表中出版年应置于题名前，
+  区别于顺序编码制。
+  然而实践中仍有不少期刊/学校要求将出版年置于题名之后。
+
+  该选项不影响顺序编码制。
+
+  \begin{bibexample}[title={\kvopt{yearbeforetitle}{true}}, style=authoryear]
+    \bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
+    杨宗英，\highlighta{1996}.
+    \newblock 电子图书馆的现实模型\allowbreak[J].
+    \newblock 中国图书馆学报\allowbreak（2）：24-29.
+
+    \bibitem[Baker et~al.(1995)Baker and Jackson]{gbt7714.9.2.2:1}
+    Baker S~K，Jackson M~E，\highlighta{1995}.
+    \newblock The future of resource sharing\allowbreak[M].
+    \newblock New York：The Haworth Press.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{yearbeforetitle}{false}}]
+    \bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
+    杨宗英.
+    \newblock 电子图书馆的现实模型\allowbreak[J].
+    \newblock 中国图书馆学报，\highlightb{1996}\allowbreak（2）：24-29.
+
+    \bibitem[Baker et~al.(1995)Baker and Jackson]{gbt7714.9.2.2:1}
+    Baker S~K，Jackson M~E.
+    \newblock The future of resource sharing\allowbreak[M].
+    \newblock New York：The Haworth Press，\highlightb{1995}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{著者和出版年的分隔符}
+
+\begin{variable}{nameyeardelim}
+  \optsyntax[comma]{nameyeardelim}{comma, period}
+  采用著者-出版年制时，参考文献表中出版年前的符号自 2015 版国标改为逗号。
+  在著录实践中，仍存在不少使用句点的。
+  该选项不影响顺序编码制。
+
+  \begin{bibexample}[title={\kvopt{nameyeardelim}{comma}}, style=authoryear]
+    \bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
+    杨宗英\highlighta{，}1996.
+    \newblock 电子图书馆的现实模型\allowbreak[J].
+    \newblock 中国图书馆学报\allowbreak（2）：24-29.
+
+    \bibitem[Baker et~al.(1995)Baker and Jackson]{gbt7714.9.2.2:1}
+    Baker S~K，Jackson M~E\highlighta{，}1995.
+    \newblock The future of resource sharing\allowbreak[M].
+    \newblock New York：The Haworth Press.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{nameyeardelim}{period}}, style=authoryear]
+    \bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
+    杨宗英\highlightb{.} 1996.
+    \newblock 电子图书馆的现实模型\allowbreak[J].
+    \newblock 中国图书馆学报\allowbreak（2）：24-29.
+
+    \bibitem[Baker et~al.(1995)Baker and Jackson]{gbt7714.9.2.2:1}
+    Baker S~K，Jackson M~E\highlightb{.} 1995.
+    \newblock The future of resource sharing\allowbreak[M].
+    \newblock New York：The Haworth Press.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{标题大小写}
+
+\begin{variable}{sentencecase}
+  \label{opt:sentence-case}
+  \boolsyntax[true]{sentencecase}
+  国标的示例中均采用 sentence case 著录英文题名，即句首和专有名词首字母大写，其余小写。
+  这与另一种 title case 风格不同，后者要求句首及实词首字母均大写。
+
+  在 \BibTeX{} 数据库中著录题名时，正确的方法是使用 title case，
+  并专有名词用大括号保护起来。
+  这样可以使 \BibTeX{} 根据引注样式控制转换为 sentence case，
+  并且避免错误地将专有名词转换为小写。
+\end{variable}
+
+\begin{BibTeXdemo}
+@book{intro-latex,
+  title = {An Introduction to {LaTeX}},
+}
+\end{BibTeXdemo}
+
+选项 \opt{sentencecase} 可用统一控制题名、析出文献的图书题名是否转为 sentence case，
+即同时设置 \opt{sentencecasetitle}、\opt{sentencecasebooktitle} 这两个选项。
+使用 2005 或 2015 版国标时，该选项还会额外设置 \opt{sentencecasejournal} 值。
+
+
+\begin{variable}{sentencecasetitle}
+  \boolsyntax[true]{sentencecasetitle}
+  控制题名（\field{title}）是否转为 sentence case。
+
+  \begin{bibexample}[title={\kvopt{sentencecasetitle}{true}}]
+    \bibitem[Peebles(2001)]{gbt7714.8.2.2:6}
+    Peebles P~Z，Jr.
+    \newblock \highlighta{Probability，random variable，and random signal principles}\allowbreak[M].
+    \newblock 4th ed.
+    \newblock New York：McGraw-Hill，2001.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{sentencecasetitle}{false}}]
+    \bibitem[Peebles(2001)]{gbt7714.8.2.2:6}
+    Peebles P~Z，Jr.
+    \newblock \highlightb{Probability，Random Variable，and Random Signal Principles}\allowbreak[M].
+    \newblock 4th ed.
+    \newblock New York：McGraw-Hill，2001.
+  \end{bibexample}
+\end{variable}
+
+
+\begin{variable}{sentencecasebooktitle}
+  \boolsyntax[true]{sentencecasebooktitle}
+  控制析出文献的图书题名（\field{booktitle}）是否转为 sentence case。
+  图书题名包括会议论文集的题名，但不包括会议名称（\field{eventtitle}）。
+
+  \begin{bibexample}[title={\kvopt{sentencecasebooktitle}{true}}]
+    \bibitem[Weinstein et~al.(1974)Weinstein and Swartz]{gbt7714.8.3.2:4}
+    Weinstein L，Swartz M~N.
+    \newblock Pathogenic properties of invading microorganisms\allowbreak[M]//\allowbreak
+    Sodeman W~A，Jr，Sodeman W~A.
+    \newblock \highlighta{Pathologic physiology：mechanisms of disease}.
+    \newblock 5th ed.
+    \newblock Philadelphia：Saunders，1974：457-472.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{sentencecasebooktitle}{false}}]
+    \bibitem[Weinstein et~al.(1974)Weinstein and Swartz]{gbt7714.8.3.2:4}
+    Weinstein L，Swartz M~N.
+    \newblock Pathogenic properties of invading microorganisms\allowbreak[M]//\allowbreak
+    Sodeman W~A，Jr，Sodeman W~A.
+    \newblock \highlightb{Pathologic Physiology：Mechanisms of Disease}.
+    \newblock 5th ed.
+    \newblock Philadelphia：Saunders，1974：457-472.
+  \end{bibexample}
+\end{variable}
+
+
+\begin{variable}{sentencecasejournal}
+  % TODO: v3.0.0: 将默认值设为“false (2025), true (2015, 2005)”
+  \boolsyntax[false]{sentencecasejournal}
+  控制刊名是否转为 sentence case。
+  使用 2025 版国标的样式时，该选项默认为 false。
+  如果使用 2005 或 2015 版国标样式，该选项默认为 true。
+
+  \begin{bibexample}[title={\kvopt{sentencecasejournal}{false}}]
+    \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlighta{The Public-Access Computer Systems Review}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{sentencecasejournal}{true}}]
+    \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlightb{The public-access computer systems review}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{冒号后大小写}
+
+\begin{variable}{capitalizesubtitle}
+  \label{opt:capitalizesubtitle}
+  \boolsyntax[false]{capitalizesubtitle}
+  国标示例中，英文文献题名的冒号后首字母小写。
+  部分国外体例（如 APA、IEEE）要求冒号后首字母大写。
+  该选项仅影响转换为 sentence case 的题名（参考第~\ref{opt:sentence-case} 节）。
+
+  \begin{bibexample}[title={\kvopt{capitalizesubtitle}{false}}]
+    \bibitem[Abadía et~al.(2024)Abadía，Conkey，and McDonald]{gbt7714.8.2.2:8}
+    Abadía O~M，Conkey M~W，McDonald J.
+    \newblock Deep-time images in the age of globalization：\highlighta{rock} art in the 21st century\allowbreak[M/OL].
+    \newblock Springer Cham，2024.
+    \newblock \url{https://doi.org/10.1007/978-3-031-54638-9}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{capitalizesubtitle}{true}}]
+    \bibitem[Abadía et~al.(2024)Abadía，Conkey，and McDonald]{gbt7714.8.2.2:8}
+    Abadía O~M，Conkey M~W，McDonald J.
+    \newblock Deep-time images in the age of globalization：\highlightb{Rock} art in the 21st century\allowbreak[M/OL].
+    \newblock Springer Cham，2024.
+    \newblock \url{https://doi.org/10.1007/978-3-031-54638-9}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{期刊文章著录题名}
+
+\begin{variable}{articletitle}
+  \boolsyntax[true]{articletitle}
+  控制是否著录期刊文章的题名（例如 APS 的样式）。
+  注意：该选项也会影响图书的析出文献（\entrytype{incollection}）、
+  会议论文（\entrytype{inproceedings}）的题名。
+
+  \begin{bibexample}[title={\kvopt{articletitle}{true}}]
+    \bibitem[于潇\ 等(2012)于潇，刘义，柴跃廷和孙宏波]{gbt7714.8.5.3:3}
+    于潇，刘义，柴跃廷，等.
+    \newblock \highlighta{互联网药品可信交易环境中主体资质审核备案模式\allowbreak[J].}
+    \newblock 清华大学学报（自然科学版），2012，52\allowbreak（11）：1518-1523.
+
+    \bibitem[Caplan(1993)]{gbt7714.8.5.3:10}
+    Caplan P.
+    \newblock \highlighta{Cataloging internet resources\allowbreak[J].}
+    \newblock The Public-Access Computer Systems Review，1993，4\allowbreak（2）：61-66.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{articletitle}{false}}]
+    \bibitem[于潇\ 等(2012)于潇，刘义，柴跃廷和孙宏波]{gbt7714.8.5.3:3}
+    于潇，刘义，柴跃廷，等.
+    \newblock 清华大学学报（自然科学版），2012，52\allowbreak（11）：1518-1523.
+
+    \bibitem[Caplan(1993)]{gbt7714.8.5.3:10}
+    Caplan P.
+    \newblock The Public-Access Computer Systems Review，1993，4\allowbreak（2）：61-66.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{专利国别}
+
+\begin{variable}{patentcountry}
+  \boolsyntax[false]{patentcountry}
+  控制是否著录专利国别。
+
+  2025 版国标的专利示例中，专利号本身已包含国家代码前缀，因此通常无需再额外著录专利国别。
+
+  % \begin{bibexample}[title={\kvopt{patentcountry}{false}}]
+  %   \bibitem[邓一刚(2008)]{gbt7714.8.10.2:1}
+  %   邓一刚.
+  %   \newblock 全智能节电器：CN200610171314.3\allowbreak[P].
+  %   \newblock 2008-01-16：8-9.
+  % \end{bibexample}
+
+  % \begin{bibexample}[title={\kvopt{patentcountry}{true}}]
+  %   \bibitem[邓一刚(2008)]{gbt7714.8.10.2:1}
+  %   邓一刚.
+  %   \newblock 全智能节电器：中国，CN200610171314.3\allowbreak[P].
+  %   \newblock 2008-01-16：8-9.
+  % \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{文献类型标识}
+
+\begin{variable}{entrytypeid}
+  \boolsyntax[true]{entrytypeid}
+  控制是否著录文献类型标识（含文献载体标识）。
+
+  \begin{bibexample}[title={\kvopt{entrytypeid}{true}}]
+    \bibitem[张伯伟(2002)]{gbt7714.8.2.2:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考\allowbreak\highlighta{[M]}.
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[Myburg et~al.(2014)Myburg，Grattapaglia，Tuskan，Hellsten，Hayes，Grimwood，Jenkins，Lindquist，Tice，Bauer，Goodstein，Dubchak，Poliakov，Mizrachi，Kullan，Hussey，Pinard，van~der Merwe，Singh，van Jaarsveld，Silva-Junior，Togawa，Pappas，Faria，Sansaloni，Petroli，Yang，Ranjan，Tschaplinski，Ye，Li，Sterck，Vanneste，Murat，Soler，Clemente，Saidi，Cassan-Wang，Dunand，Hefer，Bornberg-Bauer，Kersting，Vining，Amarasinghe，Ranik，Naithani，Elser，Boyd，Liston，Spatafora，Dharmwardhana，Raja，Sullivan，Romanel，Alves-Ferreira，Külheim，Foley，Carocha，Paiva，Kudrna，Brommonschenkel，Pasquali，Byrne，Rigault，Tibbits，Spokevicius，Jones，Steane，Vaillancourt，Potts，Joubert，Barry，Pappas，Strauss，Jaiswal，Grima-Pettenati，Salse，Van~de Peer，Rokhsar，and Schmutz]{gbt7714.8.5.3:9}
+    Myburg A~A，Grattapaglia D，Tuskan G~A，et~al.
+    \newblock The genome of {{\em Eucalyptus grandis}}\allowbreak\highlighta{[J/OL]}.
+    \newblock Nature，2014，510：356-362.
+    \newblock \url{https://www.nature.com/articles/nature13308.pdf}.
+    \newblock DOI:\doi{10.1038/nature13308}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{entrytypeid}{false}}]
+    \bibitem[张伯伟(2002)]{gbt7714.8.2.2:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考.
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[Myburg et~al.(2014)Myburg，Grattapaglia，Tuskan，Hellsten，Hayes，Grimwood，Jenkins，Lindquist，Tice，Bauer，Goodstein，Dubchak，Poliakov，Mizrachi，Kullan，Hussey，Pinard，van~der Merwe，Singh，van Jaarsveld，Silva-Junior，Togawa，Pappas，Faria，Sansaloni，Petroli，Yang，Ranjan，Tschaplinski，Ye，Li，Sterck，Vanneste，Murat，Soler，Clemente，Saidi，Cassan-Wang，Dunand，Hefer，Bornberg-Bauer，Kersting，Vining，Amarasinghe，Ranik，Naithani，Elser，Boyd，Liston，Spatafora，Dharmwardhana，Raja，Sullivan，Romanel，Alves-Ferreira，Külheim，Foley，Carocha，Paiva，Kudrna，Brommonschenkel，Pasquali，Byrne，Rigault，Tibbits，Spokevicius，Jones，Steane，Vaillancourt，Potts，Joubert，Barry，Pappas，Strauss，Jaiswal，Grima-Pettenati，Salse，Van~de Peer，Rokhsar，and Schmutz]{gbt7714.8.5.3:9}
+    Myburg A~A，Grattapaglia D，Tuskan G~A，et~al.
+    \newblock The genome of {{\em Eucalyptus grandis}}.
+    \newblock Nature，2014，510：356-362.
+    \newblock \url{https://www.nature.com/articles/nature13308.pdf}.
+    \newblock DOI:\doi{10.1038/nature13308}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{文献类型标识前的空格}
+
+\begin{variable}{spacebeforetypeid}
+  \boolsyntax{spacebeforetypeid}
+  控制题名与文献类型标识之间是否有空格。
+  国标示例中无此空格，但按西文习惯，文献类型标识应作为独立词语与题名分隔。
+  该选项不影响中文文献。
+
+  \begin{bibexample}[title={\kvopt{spacebeforetypeid}{false}}]
+    \bibitem[张伯伟(2002)]{gbt7714.8.2.2:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考\allowbreak\highlighta{[M]}.
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak\highlighta{[J]}.
+    \newblock The Public-Access Computer Systems Review，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{spacebeforetypeid}{true}}]
+    \bibitem[张伯伟(2002)]{gbt7714.8.2.2:1}
+    张伯伟.
+    \newblock 全唐五代诗格汇考\allowbreak\highlighta{[M]}.
+    \newblock 南京：江苏古籍出版社，2002：288.
+
+    \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+    Caplan P.
+    \newblock Cataloging internet resources \highlightb{[J]}.
+    \newblock The Public-Access Computer Systems Review，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+\end{variable}
+
+% \subsubsection{文献载体标识}
+
+\begin{variable}{entrymediumid}
+  \boolsyntax[true]{entrymediumid}
+  控制是否著录文献载体标识。
+
+  国标的示例中，文献载体标识“/OL”都是与 URL 或永久标识符同时出现的。
+  当设置 \opt{url=false} 和 \opt{doi=false} 选项时，
+  除电子资源（如网页、数据集等）外自动不著录文献载体标识。
+
+  \begin{bibexample}[title={\kvopt{entrymediumid}{true}}]
+    \bibitem[赵学功(2001)]{gbt7714.b.1:14}
+    赵学功.
+    \newblock 当代美国外交\allowbreak[M/OL].
+    \newblock 北京：社会科学文献出版社，2001.
+    \newblock \url{http://www.cadal.zju.edu.cn/book/trySinglePage/33023884/1}.
+
+    \bibitem[Anon({[2020]})]{gbt7714.8.11.2.2:2}
+    {Library of Congress}\allowbreak[EB/OL].
+    \newblock \allowbreak[2020-06-12].
+    \newblock \url{https://www.loc.gov/}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{entrymediumid}{false}}]
+    \bibitem[赵学功(2001)]{gbt7714.b.1:14}
+    赵学功.
+    \newblock 当代美国外交\allowbreak[M].
+    \newblock 北京：社会科学文献出版社，2001.
+    \newblock \url{http://www.cadal.zju.edu.cn/book/trySinglePage/33023884/1}.
+
+    \bibitem[Anon({[2020]})]{gbt7714.8.11.2.2:2}
+    {Library of Congress}\allowbreak[EB].
+    \newblock \allowbreak[2020-06-12].
+    \newblock \url{https://www.loc.gov/}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{析出文献分隔符}
+
+\begin{variable}{slash}
+  \boolsyntax[true]{slash}
+  控制论文集、会议录中析出文献的出处（以及会议名称）前的分隔符。
+  默认为 \opt{slash} “//”。
+
+  \begin{bibexample}[title={\kvopt{slash}{true}}]
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]\highlighta{//}\allowbreak
+    许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+
+    \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
+    Wang Shanshan.
+    \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]\highlighta{//}\allowbreak
+    2022 6th {Asian Conference} on {Artificial Intelligence Technology}（{ACAIT}），2022：2.
+    \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
+    \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{slash}{false}}]
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]\highlightb{.}
+    \newblock 许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+
+    \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
+    Wang Shanshan.
+    \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]\highlightb{.}
+    \newblock 2022 6th {Asian Conference} on {Artificial Intelligence Technology}（{ACAIT}），2022：2.
+    \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
+    \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{析出文献著录“见”或“In”}
+
+\begin{variable}{in}
+  \boolsyntax[false]{in}
+  控制论文集、会议录的析出文献出处（包括会议名称前）是否著录“见：”或“In:”。
+
+  \begin{bibexample}[title={\kvopt{in}{false}}]
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak
+    许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+
+    \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
+    Wang Shanshan.
+    \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
+    2022 6th {Asian Conference} on {Artificial Intelligence Technology}（{ACAIT}），2022：2.
+    \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
+    \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{in}{true}}]
+    \bibitem[程根伟(1999)]{gbt7714.8.1:2}
+    程根伟.
+    \newblock 1998年长江洪水的成因与减灾对策\allowbreak[M]//\allowbreak
+    \highlightb{见：}许厚泽，赵其国.
+    \newblock 长江流域洪涝灾害与科技对策.
+    \newblock 北京：科学出版社，1999：32-36.
+
+    \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
+    Wang Shanshan.
+    \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
+    \highlightb{In:} 2022 6th {Asian Conference} on {Artificial Intelligence Technology}（{ACAIT}），2022：2.
+    \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
+    \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
+  \end{bibexample}
+\end{variable}
+
+% \subsubsection{刊名斜体}
+
+\begin{variable}{emphjournal}
+  \boolsyntax[false]{emphjournal}
+  控制刊名是否使用斜体。
+  该选项不影响中文文献。
+
+  \begin{bibexample}[title={\kvopt{emphjournal}{false}}]
+    \bibitem[Caplan(1993)]{gbt7714.b.4:12}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlighta{The Public-Access Computer Systems Review}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{emphjournal}{true}}]
+    \bibitem[Caplan(1993)]{gbt7714.b.4:12}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlightb{\emph{The Public-Access Computer Systems Review}}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{刊名缩写}
+
+\begin{variable}{shortjournal}
+  \boolsyntax[false]{shortjournal}
+  控制刊名是否使用缩写。需要在 \field{shortjournal} 字段填写刊名缩写。
+\end{variable}
+
+\begin{BibTeXdemo}
+@article{gbt7714.b.4:12,
+  journal       = {The Public-Access Computer Systems Review},
+  shortjournal  = {Public-Access Comput. Syst. Rev.},
+  ...
+}
+\end{BibTeXdemo}
+
+\begin{bibexample}[title={\kvopt{shortjournal}{false}}]
+  \bibitem[Caplan(1993)]{gbt7714.b.4:12}
+  Caplan P.
+  \newblock Cataloging internet resources\allowbreak[J].
+  \newblock \highlighta{The Public-Access Computer Systems Review}，1993，4\allowbreak （2）：61-66.
+\end{bibexample}
+
+\begin{bibexample}[title={\kvopt{shortjournal}{true}}]
+  \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+  Caplan P.
+  \newblock Cataloging internet resources\allowbreak[J].
+  \newblock \highlightb{Public-Access Comput Syst Rev}，1993，4\allowbreak （2）：61-66.
+\end{bibexample}
+
+
+% \subsubsection{刊名移除缩写点}
+
+\begin{variable}{journaldots}
+  \boolsyntax[false]{journaldots}
+  控制刊名是否使用缩写。需要在 \field{shortjournal} 字段填写刊名缩写。
+
+  \begin{bibexample}[title={\kvopt{shortjournal}{true}, \kvopt{journaldots}{false}}]
+    \bibitem[Caplan(1993)]{gbt7714.b.4:12}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlighta{Public-Access Comput Syst Rev}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{shortjournal}{true}, \kvopt{journaldots}{false}}]
+    \bibitem[Caplan(1993)]{gbt7714.8.1:4}
+    Caplan P.
+    \newblock Cataloging internet resources\allowbreak[J].
+    \newblock \highlightb{Public-Access Comput. Syst. Rev.}，1993，4\allowbreak （2）：61-66.
+  \end{bibexample}
+\end{variable}
+
+% \subsubsection{\opt{linktitle} 控制刊名是否有超链接}
+
+
+% \subsubsection{无出版地、无出版者}
+
+\begin{variable}{unknownpublisher}
+  \boolsyntax[false]{unknownpublisher}
+  控制无出版地或无出版者时是否著录“出版地不详”、“S.l.”、“出版者不详”、“s.n.”等内容。
+
+  \begin{bibexample}[title={\kvopt{unknownpublisher}{false}}]
+    \bibitem[王夫之(1865（清同治四年）)]{gbt7714.8.2.2:2}
+    王夫之.
+    \newblock 宋论\allowbreak[M].
+    \newblock 刻本.
+    \newblock 金陵，1865（清同治四年）.
+
+    \bibitem[Praetzellis(2011)]{gbt7714.b.1:22}
+    Praetzellis A.
+    \newblock Death by theory：a tale of mystery and archaeological theory\allowbreak[M/OL].
+    \newblock Rev. ed.
+    \newblock Rowman \& Littlefield Publishing Group，Inc.，2011：13.
+    \newblock \url{http://lib.myilibrary.com/Open.aspx?id=293666}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{unknownpublisher}{true}}]
+    \bibitem[王夫之(1865（清同治四年）)]{gbt7714.8.2.2:2}
+    王夫之.
+    \newblock 宋论\allowbreak[M].
+    \newblock 刻本.
+    \newblock 金陵：\highlightb{[出版者不详]}，1865（清同治四年）.
+
+    \bibitem[Praetzellis(2011)]{gbt7714.b.1:22}
+    Praetzellis A.
+    \newblock Death by theory：a tale of mystery and archaeological theory\allowbreak[M/OL].
+    \newblock Rev. ed.
+    \newblock \highlightb{[S.l.]}：Rowman \& Littlefield Publishing Group，Inc.，2011：13.
+    \newblock \url{http://lib.myilibrary.com/Open.aspx?id=293666}.
+  \end{bibexample}
+\end{variable}
+
+% \subsubsection{\opt{spacebeforepages} 控制页码前是否有空格}
+
+
+% \subsubsection{起止页码}
+
+\begin{variable}{pageranges}
+  \boolsyntax[true]{pageranges}
+  控制页码著录起止区间(“15-18”)或起始页(“15”)。
+\end{variable}
+
+
+% \subsubsection{页码分隔符}
+
+\begin{variable}{pagerangedelim}
+  \valsyntax[-]{pagerangedelim}{分隔符}
+  控制起止页码之间的分隔符，默认为短横线“-”。
+  常见的选择还有 en dash “--”、一字线“—”、波浪线“～”。
+\end{variable}
+
+
+% \subsubsection{\opt{urldate} 控制是否著录引用日期}
+
+
+% \subsubsection{纸质文献著录 URL}
+
+\begin{variable}{url}
+  \boolsyntax[true]{url}
+  如果设为 \opt{false}，纸质文献（如图书、期刊文章等）不再著录 URL。
+  但是电子资源（如网页、数据集、预印本）不受影响。
+
+  \begin{bibexample}[title={\kvopt{url}{true}}]
+    \bibitem[赵学功(2001)]{gbt7714.b.1:14}
+    赵学功.
+    \newblock 当代美国外交\allowbreak[M/OL].
+    \newblock 北京：社会科学文献出版社，2001.
+    \newblock \highlighta{\url{http://www.cadal.zju.edu.cn/book/trySinglePage/33023884/1}}.
+
+    \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
+    Jenkins S~D，Ruostekoski J.
+    \newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+    \newblock V2.
+    \newblock arXiv\allowbreak （2012-03-18）\allowbreak[2020-06-24].
+    \newblock \highlighta{\url{https://doi.org/10.48550/arXiv.1112.6136}}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{url}{true}}]
+    \bibitem[赵学功(2001)]{gbt7714.b.1:14}
+    赵学功.
+    \newblock 当代美国外交\allowbreak[M/OL].
+    \newblock 北京：社会科学文献出版社，2001.
+
+    \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
+    Jenkins S~D，Ruostekoski J.
+    \newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+    \newblock V2.
+    \newblock arXiv\allowbreak （2012-03-18）\allowbreak[2020-06-24].
+    \newblock \highlighta{\url{https://doi.org/10.48550/arXiv.1112.6136}}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{DOI}
+
+\begin{variable}{doi}
+  \boolsyntax[true]{doi}
+  控制是否著录 DOI。此选项还同时控制是否著录其他永久标识符（如 \href{https://cstr.cn/}{CSTR}）。
+
+  \begin{bibexample}[title={\kvopt{doi}{true}}]
+    \bibitem[肖玲\ 等(2024)肖玲，张雪和王永]{gbt7714.8.15.2:1}
+    肖玲，张雪，王永.
+    \newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
+    \newblock PSSXiv\allowbreak （2024-07-02）\allowbreak[2024-09-30].
+    \newblock \url{https://zsyyb.cn/abs/202408.01096}.
+    \newblock \highlighta{CSTR:\cstr{32012.36.PSSXiv.202408.01096}}.
+
+    \bibitem[Frese et~al.(2013)Frese，Katus，and Meder]{gbt7714.b.4:16}
+    Frese K~S，Katus H~A，Meder B.
+    \newblock Next-generation sequencing：from understanding biology to personalized medicine\allowbreak[J/OL].
+    \newblock Biology，2013，2\allowbreak （1）：378-398.
+    \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
+    \newblock \highlighta{DOI:\doi{10.3390/biology2010378}}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{doi}{false}}]
+    \bibitem[肖玲\ 等(2024)肖玲，张雪和王永]{gbt7714.8.15.2:1}
+    肖玲，张雪，王永.
+    \newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
+    \newblock PSSXiv\allowbreak （2024-07-02）\allowbreak[2024-09-30].
+    \newblock \url{https://zsyyb.cn/abs/202408.01096}.
+
+    \bibitem[Frese et~al.(2013)Frese，Katus，and Meder]{gbt7714.b.4:16}
+    Frese K~S，Katus H~A，Meder B.
+    \newblock Next-generation sequencing：from understanding biology to personalized medicine\allowbreak[J/OL].
+    \newblock Biology，2013，2\allowbreak （1）：378-398.
+    \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{预印本标识符}
+
+\begin{variable}{eprint}
+  \boolsyntax[false]{eprint}
+  控制是否著录预印本的标识符（\field{eprint} 字段）。
+
+  \begin{bibexample}[title={\kvopt{eprint}{false}}]
+    \bibitem[肖玲\ 等(2024)肖玲，张雪和王永]{gbt7714.8.15.2:1}
+    肖玲，张雪，王永.
+    \newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
+    \newblock PSSXiv\allowbreak （2024-07-02）\allowbreak[2024-09-30].
+    \newblock \url{https://zsyyb.cn/abs/202408.01096}.
+    \newblock CSTR:\cstr{32012.36.PSSXiv.202408.01096}.
+
+    \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
+    Jenkins S~D，Ruostekoski J.
+    \newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+    \newblock V2.
+    \newblock arXiv\allowbreak （2012-03-18）\allowbreak[2020-06-24].
+    \newblock \url{https://doi.org/10.48550/arXiv.1112.6136}.
+  \end{bibexample}
+
+  \begin{bibexample}[title={\kvopt{eprint}{true}}]
+    \bibitem[肖玲\ 等(2024)肖玲，张雪和王永]{gbt7714.8.15.2:1}
+    肖玲，张雪，王永.
+    \newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
+    \newblock PSSXiv\highlightb{:\nolinkurl{202408.01096}}\allowbreak （2024-07-02）\allowbreak[2024-09-30].
+    \newblock \url{https://zsyyb.cn/abs/202408.01096}.
+    \newblock CSTR:\cstr{32012.36.PSSXiv.202408.01096}.
+
+    \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
+    Jenkins S~D，Ruostekoski J.
+    \newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+    \newblock V2.
+    \newblock arXiv\highlightb{:1112.6136}\allowbreak （2012-03-18）\allowbreak[2020-06-24].
+    \newblock \url{https://doi.org/10.48550/arXiv.1112.6136}.
+  \end{bibexample}
+\end{variable}
+
+
+% \subsubsection{著录补充信息}
+
+\begin{variable}{note}
+  \boolsyntax[false]{note}
+  控制是否著录补充信息（\field{note} 字段）。
+\end{variable}
+
+
+% \subsubsection{文献结尾句点}
+
+\begin{variable}{enddot}
+  \boolsyntax[true]{enddot}
+  控制每一条文献结尾是否用“.”号标识。
+\end{variable}
+
+
+\section{\BibTeX{} 数据库指南}
+\label{sec:bibfile}
+
+\pkg{gbt7714} 要求 \BibTeX{} 数据库必须使用 UTF-8 编码。
+
+本节列举了 2025 版国标规定的 14 类文献所对应的 \BibTeX{} 数据库条目示例，
+并说明了各类文献在填写时的注意事项。
+国标全部示例文献的 \BibTeX{} 数据库见
+\href{https://github.com/zepinglee/gbt7714-bibtex-style}{GitHub 仓库}
+的
+\href{https://github.com/zepinglee/gbt7714-bibtex-style/blob/master/gbt7714-examples.bib}{gbt7714-examples.bib}
+文件。
+
+如果作者使用 Zotero 等文献管理软件导出 \BibTeX{} 数据库，
+建议使用 Better BibTeX 插件选择导出为 \opt{Better BibLaTeX} 格式。
+\pkg{biblatex} 在 \BibTeX{} 标准的基础上添加了一些文献类型和字段，
+比 \BibTeX{} 标准更加丰富。
+
+国标中规定了 14 种参考文献类型，
 表~\ref{tab:entry-types} 列举了 \file{bib} 数据库中对应的文献类型。
-这些尽可能兼容 \BibTeX{} 和 \pkg{biblatex} 的标准类型，但是新增了若干文献类型（带 * 号）。
+其中部分类型超出了 \BibTeX{} 标准的范围，
+所以使用了 \pkg{biblatex} 新增的条目类型。
+% 这些尽可能兼容 \BibTeX{} 和 \pkg{biblatex} 的标准类型，但是新增了若干文献类型（带 * 号）。
 
 \begin{table}[htb]
   \centering\small
-  \caption{全部文献类型}
-  \label{tab:entry-types}
-  \begin{tabular}{lcl}
-    \toprule
-    文献类型         & 标识代码 & Entry Type                  \\
-    \midrule
-    普通图书         & M        & book                        \\
-    图书的析出文献   & M        & incollection                \\
-    会议录           & C        & proceedings                 \\
-    会议录的析出文献 & C        & inproceedings 或 conference \\
-    汇编             & G        & collection*                 \\
-    报纸             & N        & newspaper*                  \\
-    期刊的析出文献   & J        & article                     \\
-    学位论文         & D        & mastersthesis 或 phdthesis  \\
-    报告             & R        & techreport                  \\
-    标准             & S        & standard*                   \\
-    专利             & P        & patent*                     \\
-    数据库           & DB       & database*                   \\
-    计算机程序       & CP       & software*                   \\
-    电子公告         & EB       & online*                     \\
-    档案             & A        & archive*                    \\
-    舆图             & CM       & map*                        \\
-    数据集           & DS       & dataset*                    \\
-    其他             & Z        & misc                        \\
-    \bottomrule
-  \end{tabular}
+  \begin{threeparttable}[b]
+    \caption{各文献类型对应的 \BibTeX{} 条目类型}
+    \label{tab:entry-types}
+    \begin{tabular}{clcl}
+      \toprule
+      章节 & 文献类型         & 标识代码 & \BibTeX{} entry type                  \\
+      \midrule
+      8.2  & 图书         & M        & \entrytype{book}                        \\
+      8.3  & 图书的析出文献   & M        & \entrytype{incollection} 或 \entrytype{inbook}            \\
+      8.4  & 连续出版物           & J        & \entrytype{periodical}\tnote{a}                 \\
+      8.5  & 连续出版物的析出文献           & J        & \entrytype{article}                 \\
+      8.5  & 报纸中析出的文献          & N        & \entrytype{article}, \field{entrysubtype = \{newspaper\}}                \\
+      8.6  & 会议录           & C        & \entrytype{proceedings}                 \\
+      8.6  & 会议录的析出文献 & C        & \entrytype{inproceedings} 或 \entrytype{conference} \\
+      8.7  & 学位论文         & D        & \entrytype{mastersthesis} 或 \entrytype{phdthesis}  \\
+      8.8  & 报告             & R        & \entrytype{techreport}                  \\
+      8.9  & 标准             & S        & \entrytype{standard}\tnote{a}                   \\
+      8.10 & 专利             & P        & \entrytype{patent}\tnote{a}                     \\
+      8.11 & 网站、网页         & EB       & \entrytype{online}\tnote{a}                     \\
+      8.12 & 档案             & A        & \entrytype{archive}\tnote{b}                    \\
+      8.13 & 地图             & CM       & \entrytype{map}\tnote{a}                        \\
+      8.14 & 数据集           & DS       & \entrytype{dataset}\tnote{a}                    \\
+      8.15 & 预印本           & PP       & \entrytype{preprint}\tnote{b}                   \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \item[a] \pkg{biblatex} 的条目类型。
+      \item[b] \pkg{gbt7714} 新增的条目类型。
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 
 
-\section{著录项目}
+\subsection{条目字段}
 
-由于国标中规定的著录项目多于 \BibTeX{} 的标准域，
-必须新增一些著录项目（带 * 号），
-这些新增的类型在设计时参考了 BibLaTeX，如 date 和 urldate。
-本宏包支持的全部域如下：
-\begin{description}
-  \item[author]       主要责任者
-  \item[title]        题名
-  \item[mark*]        文献类型标识
-  \item[medium*]      载体类型标识
-  \item[translator*]  译者
-  \item[editor]       编辑
-  \item[organization] 组织（用于会议）
-  \item[booktitle]    图书题名
-  \item[series]       系列
-  \item[journal]      期刊题名
-  \item[edition]      版本
-  \item[address]      出版地
-  \item[publisher]    出版者
-  \item[school]       学校（用于 \texttt{@phdthesis}）
-  \item[institution]  机构（用于 \texttt{@techreport}）
-  \item[year]         出版年
-  \item[volume]       卷
-  \item[number]       期（或者专利号）
-  \item[pages]        引文页码
-  \item[date*]        更新或修改日期
-  \item[urldate*]     引用日期
-  \item[url]          获取和访问路径
-  \item[doi]          数字对象唯一标识符
-  \item[langid*]      语言
-  \item[key]          拼音（用于排序）
-\end{description}
-不支持的 \BibTeX{} 标准著录项目有 annote, chapter, crossref, month, type。
+\subsubsection{条目语言 \field{langid}}
 
-本宏包默认情况下可以自动识别文献语言，并自动处理文献类型和载体类型标识，
-但是在少数情况下需要用户手动指定，如：
-\begin{latex}
-  @misc{citekey,
-    langid = {japanese},
-    mark   = {Z},
-    medium = {DK},
-    ...
-  }
-\end{latex}
-可选的语言有 english, chinese, japanese, russian。
+\pkg{gbt7714} 的 \BibTeX{} 样式会自动根据题名 \field{title} 的内容判断文献的语言
+（中文和英文），用户也可以手动指定文献的语言，填写在 \field{langid} 字段中。
+
+\subsubsection{题名大小写}
+
+英文题名的大小写方式分为两种：sentence case 和 title case。
+前者为第一个词的首字母大写，除专有名词外的其他词均小写，
+后者为实词的首字母大写。
+实践中，不同体例还有一些细微的差别，
+比如 APA 的 sentence case 还要求冒号、破折号后的首字母大写\cite{apa2022}
+（见 \hyperref[opt:capitalizesubtitle]{capitalizesubtitle} 选项）。
+
+国标中没有明确规定西文题名的大小写方式，
+但其中示例的题名使用 sentence case，包括文献题名和析出文献的图书题名，
+刊名则使用 title case。
+这也是 \pkg{gbt7714} 的默认设置。
+
+在使用 \BibTeX{} 数据库时，正确的著录方式是在题名字段使用 title case，
+并将专有名词用大括号保护起来。
+这样可以使 \BibTeX{} 根据引注样式控制是否转换为 sentence case，
+并且避免错误地将专有名词转换为小写。
+下面的例子中带大括号的“LaTeX”是专有名词，
+\BibTeX{} 转为 sentence case 时会忽略大括号内的内容，
+生成“An introduction to {LaTeX}”。
+
+\begin{BibTeXdemo}
+@book{intro-latex,
+  title = {An Introduction to {LaTeX}},
+}
+\end{BibTeXdemo}
 
 
-\section{文献列表的排序}
-\label{sec:sort}
+\subsubsection{刊名缩写}
 
-国标规定参考文献表采用著者-出版年制组织时，各篇文献首先按文种集中，
-然后按著者字顺和出版年排列；
-中文文献可以按著者汉语拼音字顺排列，也可以按著者的笔画笔顺排列。
-然而由于 \BibTeX{} 功能的局限性，无法自动获取著者姓名的拼音或笔画笔顺，
-所以\emph{必须}在 bib 数据库中的 key 域手动录入著者姓名的拼音用于排序，如：
-\begin{latex}
-  @book{capital,
-    author = {马克思 and 恩格斯},
-    key    = {ma3 ke4 si1 & en1 ge2 si1},
-    ...
-  }
-\end{latex}
+国标中的刊名示例大部分使用全称，但也少部分示例使用了缩写，并省略缩写点，
+如“J Math \& Phys”和“Br Med J”。
+实践中，不同期刊/学校采用刊名全称和缩写的情况都有，
+是否省略缩写点也不统一。
 
-对于著者-出版年的样式，如果中文文献较多时更推荐使用 \pkg{biblatex} 宏包，
-其后端 \file{biber} 可以自动处理中文按照拼音排序，无须手动填写拼音。
+用户在 \BibTeX{} 数据库中著录刊名时，建议将全称填写在 \field{journal} 字段
+（或者 \pkg{biblatex} 的 \field{journaltitle}）中，
+并将刊名缩写填写在 \field{shortjournal} 字段，并保留缩写点。
+这样可以用 \BibTeX{} 样式控制是否使用缩写，以及是否省略缩写点。
+
+\pkg{gbt7714} 的刊名默认按照国标的多数示例使用全称。
+用户可以使用 \kvopt{shortjournal}{true} 选项启用缩写，
+并使用 \kvopt{journaldots}{false} 选项省略缩写点。
 
 
-\section{自定义样式}
+\subsubsection{卷次 \field{volume}}
 
-\BibTeX{} 对自定义样式的支持比较有限，
-所以用户只能通过修改 \file{bst} 文件来修改文献列表的格式。
-本宏包提供了一些接口供用户更方便地修改。
-
-在 \file{bst} 文件开始处的 |load.config| 函数中，
-有一组配置参数用来控制样式，表~\ref{tab:config} 列出了每一项的默认值和功能。
-若变量被设为 |#1| 则表示该项被启用，设为 |#0| 则不启用。
-默认的值是严格遵循国标的配置。
-
-\begin{table}[htb]
-\centering\small
-\caption{参考文献表样式的配置参数}
-\label{tab:config}
-\begin{tabular}{lcl}
-  \toprule
-  参数值                         & 默认值 & 功能                           \\
-  \midrule
-  uppercase.name                 & |#1|   & 将著者姓名转为大写             \\
-  max.num.authors                & |#3|   & 输出著者的最多数量             \\
-  year.after.author              & |#0|   & 年份置于著者之后               \\
-  period.after.author            & |#0|   & 著者和年份之间使用句点连接     \\
-  italic.book.title              & |#0|   & 西文书籍名使用斜体             \\
-  sentence.case.title            & |#1|   & 将西文的题名转为 sentence case \\
-  link.title                     & |#0|   & 在题名上添加 url 的超链接      \\
-  title.in.journal               & |#1|   & 期刊是否显示标题               \\
-  show.patent.country            & |#0|   & 专利题名是否含国别             \\
-  space.before.mark              & |#0|   & 文献类型标识前是否有空格       \\
-  show.mark                      & |#1|   & 显示文献类型标识               \\
-  show.medium.type               & |#1|   & 显示载体类型标识               \\
-  component.part.label           & |"slash"| & 表示析出文献的符号，可选：|"in"|, |"none"| \\
-  italic.journal                 & |#0|   & 西文期刊名使用斜体             \\
-  link.journal                   & |#0|   & 在期刊题名上添加 url 的超链接      \\
-  show.missing.address.publisher & |#0|   & 出版项缺失时显示“出版者不详”   \\
-  space.before.pages             & |#1|   & 页码与前面的冒号之间有空格     \\
-  only.start.page                & |#0|   & 只显示起始页码                 \\
-  page.range.delimiter           & |"-"|  & 起止页码中的连接号             \\
-  show.urldate                   & |#1|   & 显示引用日期 urldate           \\
-  show.url                       & |#1|   & 显示 url                       \\
-  show.doi                       & |#1|   & 显示 DOI                       \\
-  show.note                      & |#0|   & 显示 note 域的信息             \\
-  end.with.period                & |#1|   & 结尾加句点                     \\
-  lowercase.word.after.colon     & |#1|   & 将冒号后的单词变成小写 \\
-  \bottomrule
-\end{tabular}
-\end{table}
-
-若用户需要定制更多内容，可以学习 \file{bst} 文件的语法并修改
-\cite{btxhak,ttb,tlc2}，或者联系作者。
+图书的卷次推荐使用阿拉伯数字的形式填写在 \field{volume} 字段中，
+\pkg{gbt7714} 的 \BibTeX{} 样式会自动将其转换成“第 4 卷”、“v.1”这样的格式。
+其他格式的卷次需要将完整内容填写在字段中
+如“第 1 册”、“美国卷”、“第二卷”。
 
 
-\section{相关工作}
+\subsubsection{版本 \field{edition}、\field{version}}
 
-TeX 社区也有其他关于 GB/T 7714 系列参考文献标准的工作。
-2005 年吴凯\cite{wk2006}发布了基于 GB/T 7714—2005 的 \BibTeX{} 样式，
-支持顺序编码制和著者出版年制两种风格。
-李志奇\cite{lqz2013}发布了严格遵循 GB/T 7714—2005 的 BibLaTeX 的样式。
-胡海星\cite{hhx2013}提供了另一个 \BibTeX{} 实现，
-还给每行 bst 代码写了 java 语言注释。
-沈周\cite{sz2016}基于 \pkg{biblatex-caspervector}\cite{vector2012} 进行修改，
-以符合国标的格式。
-胡振震发布了符合 GB/T 7714—2015 标准的 BibLaTeX 参考文献样式\cite{hzz2016}，
-并进行了比较完善的持续维护。
+图书的版本填写在 \field{edition} 字段，
+推荐使用阿拉伯数字的方式填写，
+也兼容 \BibTeX{} 标准的序数词形式（如“Second”），
+本宏包会自动将其转换为“3 版”、“5th ed.”这样的格式
+其他格式的版本需要将完整内容填写在字段中，
+需要包含“版”或对应的词，
+如“新 1 版”、“明刻本”、“Rev. ed.”。
 
+数据集和预印本的版本填写在 \field{version} 字段，不带前缀“V”。
 
-\begin{thebibliography}{12}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{#1}
-\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
-  \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
-
-\bibitem[{中国国家标准化委员会}(2015)]{gbt7714-2015}
-{中国国家标准化委员会}.
-\newblock 信息与文献\quad 参考文献著录规则: GB/T
-  7714—2015[S].
-\newblock 北京: 中国标准出版社, 2015.
-
-\bibitem[Patashnik(1988{\natexlab{a}})]{bibtex}
-PATASHNIK~O.
-\newblock {\BibTeX}ing[M/OL].
-\newblock 1988{\natexlab{a}}.
-\newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxdoc.pdf}.
-
-\bibitem[Daly(1999)]{natbib}
-DALY~P~W.
-\newblock Natural sciences citations and references[M/OL].
-\newblock 1999.
-\newblock \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natbib.pdf}.
-
-\bibitem[Patashnik(1988{\natexlab{b}})]{btxhak}
-PATASHNIK~O.
-\newblock Designing {\BibTeX} styles[M/OL].
-\newblock 1988{\natexlab{b}}.
-\newblock \url{http://mirrors.ctan.org/biblio/bibtex/base/btxhak.pdf}.
-
-\bibitem[Markey(2003)]{ttb}
-MARKEY~N.
-\newblock Tame the beast[M/OL].
-\newblock 2003.
-\newblock \url{http://mirrors.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf}.
-
-\bibitem[Mittelbach et~al.(2004)Mittelbach, Goossens, Braams, Carlisle, and
-  Rowley]{tlc2}
-MITTELBACH~F, GOOSSENS~M, BRAAMS~J, et~al.
-\newblock The {\LaTeX} companion[M].
-\newblock 2nd ed.
-\newblock Reading, MA, USA: Addison-Wesley, 2004.
-
-\bibitem[吴凯(2006)]{wk2006}
-吴凯.
-\newblock 发布GBT7714-2005.bst version1 Beta版[EB/OL].
-\newblock 2006.
-\newblock CTeX 论坛（已关闭）.
-
-\bibitem[李志奇(2013)]{lqz2013}
-李志奇.
-\newblock
-  基于biblatex的符合GBT7714—2005的中文文献生成工具[EB/OL].
-\newblock 2013.
-\newblock CTeX 论坛（已关闭）.
-
-\bibitem[胡海星(2013)]{hhx2013}
-胡海星.
-\newblock A GB/T 7714—2005 national standard compliant BibTeX
-  style[EB/OL].
-\newblock 2013.
-\newblock \url{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style}.
-
-\bibitem[沈周(2016)]{sz2016}
-沈周.
-\newblock 基于caspervector改写的符合GB/T
-  7714—2005标准的参考文献格式[EB/OL].
-\newblock 2016.
-\newblock \url{https://github.com/szsdk/biblatex-gbt77142005}.
-
-\bibitem[Vector(2012)]{vector2012}
-VECTOR~C~T.
-\newblock biblatex 参考文献和引用样式: caspervector[M/OL].
-\newblock 2012.
-\newblock
-  \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-caspervector/doc/caspervector.pdf}.
-
-\bibitem[胡振震(2016)]{hzz2016}
-胡振震.
-\newblock 符合 GB/T 7714—2015 标准的 biblatex
-  参考文献样式[M/OL].
-\newblock 2016.
-\newblock
-  \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/biblatex-gb7714-2015/biblatex-gb7714-2015.pdf}.
-
-\end{thebibliography}
+\begin{BibTeXdemo}
+  version = {1.0},
+\end{BibTeXdemo}
 
 
+\subsection{条目类型}
+
+\subsubsection{图书}
+
+\begin{BibTeXdemo}
+@book{gbt7714.8.2.2:5,
+  author        = {扬奎斯特 and 萨金特},
+  title         = {递归宏观经济理论},
+  translator    = {杨斌 and 王忠玉 and 陈彦斌 and 严高剑},
+  series        = {经济科学译库},
+  edition       = {2},
+  address       = {北京},
+  publisher     = {中国人民大学出版社},
+  year          = {2010},
+  pages         = {798},
+  langid        = {chinese},
+}
+\end{BibTeXdemo}
 
 
-\clearpage
-\appendix
-\StopEventually{}
+\subsubsection{图书中的析出文献}
+
+\begin{BibTeXdemo}
+@incollection{gbt7714.8.3.2:1,
+  author        = {阿扬},
+  title         = {谈谈记忆：与诺贝尔获奖得者埃里克·坎德尔的问答},
+  translator    = {姜海伦},
+  editor        = {{《环球科学》杂志社}},
+  booktitle     = {认识记忆力：关于学习、思考与遗忘的脑科学},
+  address       = {北京},
+  publisher     = {机械工业出版社},
+  year          = {2023},
+  pages         = {15--18},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{连续出版物}
+
+连续出版物的“年卷期或其他标识”著录在 \field{volume} 字段中。
+
+\begin{BibTeXdemo}
+@periodical{gbt7714.8.4.2:1,
+  editor        = {中华医学会湖北分会},
+  title         = {临床内科杂志},
+  volume        = {1984, 1(1)-},
+  address       = {武汉},
+  publisher     = {中华医学会湖北分会},
+  year          = {1984-},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{连续出版物中的析出文献}
+
+\begin{BibTeXdemo}
+@article{gbt7714.8.5.3:3,
+  author        = {于潇 and 刘义 and 柴跃廷 and 孙宏波},
+  title         = {互联网药品可信交易环境中主体资质审核备案模式},
+  journal       = {清华大学学报（自然科学版）},
+  year          = {2012},
+  volume        = {52},
+  number        = {11},
+  pages         = {1518--1523},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+报纸使用 \entrytype{article} 类型，
+但需要著录 \field{entrysubtype = \{newspaper\}} 字段以区分报纸和期刊文章，
+并且将出版日期和版次分别填写在 \field{date} 和 \field{pages} 字段中。
+
+\begin{BibTeXdemo}
+@article{gbt7714.8.5.3:1,
+  entrysubtype  = {newspaper},
+  author        = {丁文详},
+  title         = {数字革命与竞争国际化},
+  journal       = {中国青年报},
+  date          = {2000-11-20},
+  pages         = {15},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+在线出版（或称为“网络首发”、“advance online publication”）的文章没有卷次和期号，
+但需要著录出版日期（\field{date}）。
+\begin{BibTeXdemo}
+@article{gbt7714.8.5.3:4,
+  author        = {张群 and 程志宝 and 石志飞},
+  title         = {惯性增强动力吸振器-浮置板轨道低频减振性能研究},
+  journal       = {铁道学报},
+  date          = {2024-05-09},
+  urldate       = {2025-02-28},
+  url           = {http://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+文章编号著录在 \field{eid} 字段中。
+\begin{BibTeXdemo}
+@article{gbt7714.8.5.3:7,
+  author        = {王利平 and 王福新 and 刘洪},
+  title         = {过冷大水滴环境粒径分布模拟方法研究进展},
+  journal       = {航空学报},
+  year          = {2024},
+  volume        = {45},
+  number        = {增刊1},
+  eid           = {730570},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{会议录}
+
+以图书形式出版的会议录，使用 \entrytype{proceedings} 类型，其余与图书一致。
+\begin{BibTeXdemo}
+@proceedings{gbt7714.8.6.1:1,
+  editor        = {牛志明 and Swingland, Ian R. and 雷光春},
+  title         = {综合湿地管理：综合湿地管理国际研讨会论文集},
+  address       = {北京},
+  publisher     = {海洋出版社},
+  year          = {2012},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+以图书中的析出文献出现的会议论文，使用 \entrytype{inproceedings} 类型，
+字段填写方式与 \entrytype{incollection} 一致。
+
+\begin{BibTeXdemo}
+@inproceedings{gbt7714.8.6.1:2,
+  author        = {汪学军},
+  title         = {中国农业转基因生物研发进展与安全管理},
+  editor        = {国家环境保护总局生物安全管理办公室},
+  booktitle     = {中国国家生物安全框架实施国际合作项目研讨会论文集},
+  address       = {北京},
+  publisher     = {中国环境科学出版社},
+  year          = {2005},
+  pages         = {22--25},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+其余形式的会议论文将会议名称著录在 \field{eventtitle} 字段中。
+
+\begin{BibTeXdemo}
+@inproceedings{gbt7714.8.6.3:1,
+  author        = {李妍 and 王莹},
+  title         = {医疗机构保洁人员“一前五后”手卫生干预效果研究},
+  eventtitle    = {中华预防医学会医院感染控制分会第31次全国医院感染学术年会},
+  year          = {2022},
+  pages         = {2},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{学位论文}
+
+\begin{BibTeXdemo}
+@phdthesis{gbt7714.8.7.2:1,
+  author        = {王琦},
+  title         = {融合星载GNSS-R和SAR数据的高时空分辨率土壤湿度反演方法研究},
+  type          = {博士学位论文},
+  address       = {武汉},
+  school        = {武汉大学},
+  year          = {2022},
+  pages         = {87},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{报告}
+
+报告需要将编号和日期分别填写在 \field{number} 和 \field{date} 字段中。
+
+\begin{BibTeXdemo}
+@techreport{gbt7714.8.8.3:1,
+  author        = {汤万金 and 杨跃翔 and 刘文 and 郑建国 and 王赟松},
+  title         = {人体安全重要技术标准研制最终报告},
+  number        = {7178999X-2006BAK04A10/10.2013},
+  date          = {2013-09-30},
+  urldate       = {2014-06-24},
+  url           = {http://www.nstrs.cn/xiangxiBG.aspx?id=41707},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{标准}
+
+\begin{BibTeXdemo}
+@standard{gbt7714.8.9.2:1,
+  author        = {全国信息与文献标准化技术委员会},
+  number        = {GB/T 3792—2021},
+  title         = {信息与文献\quad 资源描述},
+  year          = {2021},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{专利}
+
+国标要求专利文献优先使用申请者/所有者（\field{holder}），而非发明者。
+另外，应将专利申请号填写在 \field{number} 字段，而不是专利的公开号。
+但是日期应使用公告/公开日期，不是申请日期。
+
+2005 版国标要求著录专利国别，可以填写在 \field{address} 字段中。
+最新版取消了该著录项目，这可能是因为专利申请号均带有国家代码前缀（如 “CN”），
+没有必要再单独著录国别。
+
+\begin{BibTeXdemo}
+@patent{gbt7714.8.10.2:2,
+  author        = {石顺祥 and 许海平 and 孙艳玲 and 陈利菊 and 李家立 and 刘继芳},
+  holder        = {西安电子科技大学},
+  title         = {光折变自适应光外差探测方法},
+  address       = {中国},
+  number        = {CN01128777.2},
+  date          = {2002-03-06},
+  urldate       = {2002-05-28},
+  url           = {http://211.152.9.47/sipoasp/zljs/hyjs-yx-new.asp?recid=01128777.2&leixin=0},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{网站和网页}
+
+\begin{BibTeXdemo}
+@online{gbt7714.8.11.2.2:1,
+  title         = {中国国家博物馆},
+  urldate       = {2025-05-06},
+  url           = {https://www.chnmuseum.cn/},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{档案}
+
+档案文献使用 \entrytype{archive} 类型，
+档号和收藏者分别填写在 \field{number} 和 \field{institution} 字段。
+书信类文献也可以使用 \entrytype{letter} 类型。
+
+\begin{BibTeXdemo}
+@archive{gbt7714.8.12.3:2,
+  author        = {湖北省建设厅},
+  title         = {湖北省建设厅关于检发实业部农工矿业团体登记规则的布告、训令及湖北省政府的训令},
+  number        = {LS031-001-0001-001},
+  address       = {武汉},
+  institution   = {湖北省档案馆},
+  date          = {1931-11-07},
+  urldate       = {2025-02-28},
+  url           = {https://www.hbda.gov.cn/pdf/LS031-001-0001-001.PDF.PDF},
+  langid        = {chinese}
+}
+
+@letter{gbt7714.8.12.3:4,
+  author        = {Fitzwilliam, Hugh},
+  recipient     = {{Bess of Hardwick}},
+  title         = {[{Letter} to {Bess of Hardwick}]},
+  date          = {1570-07-28},
+  urldate       = {2025-02-28},
+  url           = {https://www.bessofhardwick.org/letter.jsp?letter=25},
+  langid        = {british}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{地图}
+
+地图的比例尺和尺寸分别填写在 \field{scale} 和 \field{dimensions} 字段。
+
+\begin{BibTeXdemo}
+@map{gbt7714.8.13.3:1,
+  author        = {胡健民},
+  title         = {东南极拉斯曼丘陵地区地质图},
+  scale         = {1:25000},
+  address       = {北京},
+  publisher     = {科学出版社},
+  year          = {2021},
+  dimensions    = {128cm×84cm},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{数据集}
+
+\begin{BibTeXdemo}
+@dataset{gbt7714.8.14.3:1,
+  author        = {周壮 and 李盛阳 and 吴薇 and 郭威龙 and 李轩 and 夏桂松 and 赵子飞},
+  title         = {天宫二号遥感图像自然景物分类数据集},
+  version       = {1.0},
+  publisher     = {国家基础学科公共科学数据中心},
+  year          = {2023},
+  date          = {2023-09-10},
+  urldate       = {2025-07-15},
+  url           = {https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf},
+  cstr          = {16666.11.nbsdc.tfpbwtqf},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+
+\subsubsection{预印本}
+
+预印本推荐使用 \entrytype{preprint} 类型。
+出版平台填写在 \field{archiveprefix} 字段中，
+
+\begin{BibTeXdemo}
+@preprint{gbt7714.8.15.2:1,
+  author        = {肖玲 and 张雪 and 王永},
+  title         = {数据要素的统计测算方法探究},
+  archiveprefix = {PSSXiv},
+  eprint        = {202408.01096},
+  date          = {2024-07-02},
+  urldate       = {2024-09-30},
+  url           = {https://zsyyb.cn/abs/202408.01096},
+  cstr          = {32012.36.PSSXiv.202408.01096},
+  langid        = {chinese}
+}
+\end{BibTeXdemo}
+
+\pkg{gbt7714} 兼容 \pkg{biblatex} 的 \field{eprinttype} 字段，
+同时兼容 arXiv 和 Google Scholar 导出的预印本格式，
+
+\begin{BibTeXdemo}
+@misc{jenkins2012controlledmanipulationlightcooperative,
+      title={Controlled manipulation of light by cooperative response of atoms in an optical lattice},
+      author={Stewart D. Jenkins and Janne Ruostekoski},
+      year={2012},
+      eprint={1112.6136},
+      archivePrefix={arXiv},
+      primaryClass={physics.optics},
+      doi={https://doi.org/10.1103/PhysRevA.86.031602},
+      url={https://arxiv.org/abs/1112.6136},
+}
+\end{BibTeXdemo}
+
+
+\section{局限性}
+\label{sec:limitations}
+
+\pkg{gbt7714} 仍然存在一些局限性，主要是由于 \BibTeX{} 的设计限制导致的。
+
+\begin{enumerate}
+  \item 无法自动按照拼音排序。
+    国标要求著者-出版年制的参考文献表的中文文献按照责任者的拼音字顺或笔画笔顺排序，
+    但是 \BibTeX{} 无法实现 Unicode 排序。
+    用户需要在 \field{key} 字段手动著录作者姓名的拼音，才能正确排序，
+    如 \texttt{key = \{zhang1 san1  li3 si4\}}。
+    如果文章中有较多中文文献，推荐使用 \pkg{biblatex-gb7714-2015} 宏包\cite{hu2026}。
+
+  \item 带变音符号的拉丁字母无法使用 Unicode，必须使用 \TeX{} 命令输入。
+    如“é”必须输入为 |{\'e}|。
+\end{enumerate}
+
+
+\bibliography{\jobname}
+
+\end{documentation}
+
+% \PrintIndex
 
 \end{document}

@@ -544,18 +544,45 @@
         %
         % 将页码放在括号外边，并且置于上标。
         \ifgbt@locator@in@brackets
-          \NAT@mbox{%
-            \@ifnum{\NAT@ctype=\z@}{%
-              \if*#2*\else\NAT@cmt#2\fi
-            }{}%
-            \NAT@@close}%
+          % \citeauthor 也会使用此命令生成，
+          % 但是在 super 模式下会生成空的 \textsuperscript{}
+          % 由于其底层是用数学实现的，导致后续的汉字前会插入多余空白。
+          % <https://github.com/zepinglee/gbt7714-bibtex-style/issues/120>
+          % 这里判断放入上标的是否为空。
+          \edef\NAT@tmp{%
+            \@ifnum{\NAT@ctype=\z@}{#2}{}%
+            \NAT@@close
+          }%
+          \if*\NAT@tmp*\else
+            \NAT@mbox{%
+              \@ifnum{\NAT@ctype=\z@}{%
+                \if*#2*\else\NAT@cmt#2\fi
+              }{}%
+              \NAT@@close}%
+          \fi
         \else
-          \NAT@mbox{\NAT@@close}%
-          \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else
-              \textsuperscript{#2}%
+          \ifNAT@super
+            \edef\NAT@tmp{%
+              \NAT@@close
+              \@ifnum{\NAT@ctype=\z@}{#2}{}%
+            }%
+            \if*\NAT@tmp*\else
+              \NAT@mbox{%
+                \NAT@@close
+                \@ifnum{\NAT@ctype=\z@}{#2}{}%
+              }%
             \fi
-          }{}%
+          \else
+            \ifNAT@par
+              \NAT@mbox{\NAT@@close}%
+            \fi
+            \@ifnum{\NAT@ctype=\z@}{%
+              \if*#2*\else
+                % 仿照 super 模式的 \NAT@mbox
+                \unskip\nobreak\textsuperscript{#2}%
+              \fi
+            }{}%
+          \fi
         \fi
       \fi
   }{#1}{#2}%

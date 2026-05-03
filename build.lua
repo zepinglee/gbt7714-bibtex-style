@@ -10,6 +10,7 @@ testsuppdir = "./tests/support"
 supportdir = "."
 checksuppfiles = { "*-examples.bib" }
 
+bibfiles = { "gbt7714-examples.bib" }
 sourcefiles = { "*.dtx", "*.ins", "*.sty" }
 installfiles = { "*.sty", "*.bst" }
 tagfiles = {
@@ -113,9 +114,9 @@ uploadconfig = {
   license = "lppl1.3c",
   uploader = mydata.name or "Zeping Lee",
   email = mydata.email,
-  summary = "BibTeX implementation of China’s bibliography style standard GB/T 7714—2015",
+  summary = "A BibTeX implementation of Chinese National Standard GB/T 7714",
   description =
-  [[The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714—2015. It consists of two bst files for numeric and author-year styles as well as a LaTeX package which provides the citation style defined in the standard. The package is compatible with natbib and supports language detection (Chinese and English) for each biblilography entry.]],
+  [[The gbt7714 package provides a comprehensive and configurable BibTeX implementation of the Chinese National Standard GB/T 7714, "Information and documentation---Rules for bibliographic references and citations to information resources." The BibTeX styles included in the package support both numeric and author-year citation systems, and are fully compatible with the natbib package for advanced citation commands and formatting. These styles are designed to automatically detect the language (Chinese or English) of each bibliographic entry and apply the appropriate localization. Additionally, the package exposes a range of configuration options, allowing users to easily adapt the output to the requirements of specific academic journals or institutions.]],
   ctanPath = "/biblio/bibtex/contrib/gbt7714",
   repository = package_repository,
   bugtracker = package_repository .. "/issues",

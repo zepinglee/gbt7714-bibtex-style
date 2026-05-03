@@ -376,7 +376,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 262.19899fil
+....\hbox(8.87892+1.77998)x345.0, glue set 262.69899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -404,14 +404,8 @@ Completed box being shipped out [1]
 .....\mathoff
 .....\penalty 10000
 .....\mathon
-.....\hbox(5.25+1.74998)x2.761, shifted -3.62892
-......\TU/lmr/m/n/7 ]
-......\kern -0.0002
-......\kern 0.0002
-.....\mathoff
-.....\mathon
-.....\hbox(4.718+0.0)x8.466, shifted -3.62892
-......\TU/lmr/m/n/7 42
+.....\hbox(5.25+1.74998)x10.727, shifted -3.62892
+......\TU/lmr/m/n/7 ]42
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
@@ -461,7 +455,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+1.77998)x345.0, glue set 281.17fil
+....\hbox(7.64+1.77998)x345.0, glue set 285.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -475,11 +469,6 @@ Completed box being shipped out [1]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\penalty 10000
-.....\mathon
-.....\hbox(0.0+0.0)x0.5, shifted -3.62892
-.....\mathoff
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -836,7 +825,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 249.22899fil
+....\hbox(8.87892+0.21999)x345.0, glue set 249.72899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -860,14 +849,8 @@ Completed box being shipped out [1]
 .....\mathoff
 .....\penalty 10000
 .....\mathon
-.....\hbox(5.25+1.74998)x2.761, shifted -3.62892
-......\TU/lmr/m/n/7 ]
-......\kern -0.0002
-......\kern 0.0002
-.....\mathoff
-.....\mathon
-.....\hbox(4.718+0.0)x8.466, shifted -3.62892
-......\TU/lmr/m/n/7 42
+.....\hbox(5.25+1.74998)x10.727, shifted -3.62892
+......\TU/lmr/m/n/7 ]42
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
@@ -911,7 +894,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.00002
-....\hbox(7.5+2.49998)x345.0, glue set 260.42fil
+....\hbox(7.5+2.49998)x345.0, glue set 260.92fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -921,10 +904,6 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\penalty 10000
-.....\mathon
-.....\hbox(0.0+0.0)x0.5, shifted -3.62892
-.....\mathoff
 .....\TU/lmr/m/n/10 )
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
