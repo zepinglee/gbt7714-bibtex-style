@@ -1,8 +1,9 @@
 \input{regression-test.tex}
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
 \usepackage{gbt7714}
-\bibliographystyle{gbt7714-authoryear}
+\bibliographystyle{gbt7714-2025-authoryear}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -76,6 +77,8 @@
 \START
 \showoutput
 
+\gbtsetup{citepunct = full}
+
 % 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
 % 并置于“（）“内。
 引用\citep{zhang1984}测试\par
@@ -110,6 +113,7 @@
 
 % 半角符号测试
 \null\par
+\gbtsetup{citepunct = half}
 
 % 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
 % 并置于“（）“内。
@@ -181,6 +185,7 @@ Citation \citet[see][42]{doe1984} test\par
 
 
 % 断行测试
+\gbtsetup{citepunct = full}
 \fbox{
   \parbox{14em}{%
     劳伦衣普桑，劳伦\citep{zhang1984}衣普桑。\par

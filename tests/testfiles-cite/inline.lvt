@@ -1,9 +1,9 @@
 \input{regression-test.tex}
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
-\usepackage{gbt7714}
-\citestyle{numbers}
-\bibliographystyle{gbt7714-numeric}
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
+\usepackage[inline]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}

@@ -1,40 +1,13 @@
-%<*internal>
-\begingroup
-  \def\nameoflatex{LaTeX2e}
-\expandafter\endgroup\ifx\nameoflatexe\fmtname\else
-\csname fi\endcsname
-%</internal>
-%<*install>
-\input docstrip.tex
-\nopreamble
-\keepsilent
-\askforoverwritefalse
-\nopostamble
-\generate{
-  \file{test.aux}{\from{\jobname.lvt}{aux}}
-  \file{test.bst}{\from{gbt7714-bst.dtx}{ustc,2015,authoryear}}
-  \file{test.bib}{\from{\jobname.lvt}{bib}}
-}
-\endbatchfile
-%</install>
-%<*internal>
-\fi
-%</internal>
-%<*driver>
-\ProvidesFile{\jobname.lvt}
-%</driver>
-% \fi
-%
-%    \begin{macrocode}
-%<*aux>
-\bibstyle{test}
-\citation{*}
-\bibdata{gbt7714-examples}
-%</aux>
-%    \end{macrocode}
-%
-%    \begin{macrocode}
-%<*bib>
-%</bib>
-%    \end{macrocode}
-\endinput
+\documentclass{article}
+
+\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{ustcthesis-authoryear}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{gbt7714-examples}
+
+\end{document}

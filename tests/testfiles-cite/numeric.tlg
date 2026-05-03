@@ -30,14 +30,14 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x345.0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 299.96796fil
+...\vbox(550.0+0.0)x345.0, glue set 275.97052fil
 ....\write-{}
 ....\special{pdf:majorversion 1}
 ....\special{pdf:minorversion 7}
 ....\special{pdf:docview<</OpenAction[@page1/Fit]/PageMode/UseOutlines>>}
 ....\special{pdf:dest (Doc-Start) [@thispage /XYZ @xpos @ypos null]}
 ....\glue(\topskip) 1.12108
-....\hbox(8.87892+1.77998)x345.0, glue set 293.995fil
+....\hbox(8.87892+1.77998)x345.0, glue set 291.665fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -58,7 +58,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -70,7 +70,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 272.995fil
+....\hbox(8.87892+1.77998)x345.0, glue set 270.665fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -103,7 +103,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -115,7 +115,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 287.31699fil
+....\hbox(8.87892+1.77998)x345.0, glue set 284.98698fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -146,7 +146,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -158,7 +158,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 287.75099fil
+....\hbox(8.87892+1.77998)x345.0, glue set 285.42099fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -189,7 +189,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -201,7 +201,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 265.75099fil
+....\hbox(8.87892+1.77998)x345.0, glue set 263.42099fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -250,7 +250,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -262,7 +262,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.92998)x345.0, glue set 222.54999fil
+....\hbox(8.87892+1.92998)x345.0, glue set 220.21999fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -331,7 +331,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -343,7 +343,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.1911
-....\hbox(8.87892+1.77998)x345.0, glue set 286.02899fil
+....\hbox(8.87892+1.77998)x345.0, glue set 283.69899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -364,7 +364,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -376,7 +376,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 264.52899fil
+....\hbox(8.87892+1.77998)x345.0, glue set 262.19899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -415,7 +415,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -426,8 +426,42 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 2.58002
-....\hbox(7.64+1.77998)x345.0, glue set 283.5fil
+....\glue(\baselineskip) 1.8731
+....\hbox(8.34692+2.49998)x345.0, glue set 279.314fil
+.....\hbox(0.0+0.0)x0.0
+.....\TU/FandolSong-Regular(0)/m/n/10 引
+.....\glue 0.0 plus 0.46875
+.....\TU/FandolSong-Regular(0)/m/n/10 用
+.....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/lmr/m/n/10 [
+.....\hbox(6.66+0.0)x5.0
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+......\TU/lmr/m/n/10 1
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\TU/lmr/m/n/10 ]
+.....\kern -0.0002
+.....\kern 0.0002
+.....\mathon
+.....\hbox(4.718+0.0)x8.466, shifted -3.62892
+......\TU/lmr/m/n/7 42
+......\kern -0.0002
+......\kern 0.0002
+.....\mathoff
+.....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/FandolSong-Regular(0)/m/n/10 测
+.....\glue 0.0 plus 0.46875
+.....\TU/FandolSong-Regular(0)/m/n/10 试
+.....\kern -0.00017
+.....\kern 0.00017
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 1.86002
+....\hbox(7.64+1.77998)x345.0, glue set 281.17fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -445,7 +479,7 @@ Completed box being shipped out [1]
 .....\mathon
 .....\hbox(0.0+0.0)x0.5, shifted -3.62892
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -457,7 +491,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.77998)x345.0, glue set 266.02899fil
+....\hbox(8.87892+1.77998)x345.0, glue set 263.69899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -482,7 +516,7 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -496,7 +530,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 3.12108
-....\hbox(8.87892+0.21999)x345.0, glue set 278.385fil
+....\hbox(8.87892+0.21999)x345.0, glue set 279.385fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\kern -0.0002
@@ -515,7 +549,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -526,7 +559,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 256.69499fil
+....\hbox(8.87892+0.21999)x345.0, glue set 257.69499fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -555,7 +588,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -566,7 +598,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 271.70699fil
+....\hbox(8.87892+0.21999)x345.0, glue set 272.70699fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\kern -0.0002
@@ -595,7 +627,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -606,7 +637,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 272.14099fil
+....\hbox(8.87892+0.21999)x345.0, glue set 273.14099fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\kern -0.0002
@@ -635,7 +666,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -646,7 +676,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 249.45099fil
+....\hbox(8.87892+0.21999)x345.0, glue set 250.45099fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -691,7 +721,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -702,7 +731,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+1.92998)x345.0, glue set 196.66998fil
+....\hbox(8.87892+1.92998)x345.0, glue set 197.66998fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -768,7 +797,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -779,7 +807,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.1911
-....\hbox(8.87892+0.21999)x345.0, glue set 270.41899fil
+....\hbox(8.87892+0.21999)x345.0, glue set 271.41899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\kern -0.0002
@@ -798,7 +826,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -809,7 +836,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9011
-....\hbox(8.87892+0.21999)x345.0, glue set 248.22899fil
+....\hbox(8.87892+0.21999)x345.0, glue set 249.22899fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -844,7 +871,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -854,8 +880,38 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 4.28001
-....\hbox(7.5+2.49998)x345.0, glue set 259.42fil
+....\glue(\baselineskip) 3.43309
+....\hbox(8.34692+2.49998)x345.0, glue set 267.034fil
+.....\hbox(0.0+0.0)x0.0
+.....\TU/lmr/m/n/10 Citation
+.....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/lmr/m/n/10 [
+.....\hbox(6.77+0.0)x5.0
+......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.doe1984)>>>>}
+......\TU/lmr/m/n/10 4
+......\kern -0.0002
+......\kern 0.0002
+......\special{pdf:eann}
+.....\TU/lmr/m/n/10 ]
+.....\kern -0.0002
+.....\kern 0.0002
+.....\mathon
+.....\hbox(4.718+0.0)x8.466, shifted -3.62892
+......\TU/lmr/m/n/7 42
+......\kern -0.0002
+......\kern 0.0002
+.....\mathoff
+.....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/lmr/m/n/10 test
+.....\kern -0.0002
+.....\kern 0.0002
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.00002
+....\hbox(7.5+2.49998)x345.0, glue set 260.42fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -869,7 +925,6 @@ Completed box being shipped out [1]
 .....\mathon
 .....\hbox(0.0+0.0)x0.5, shifted -3.62892
 .....\mathoff
-.....\kern 1.0
 .....\TU/lmr/m/n/10 )
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
@@ -881,7 +936,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 0.6211
-....\hbox(8.87892+0.21999)x345.0, glue set 254.26898fil
+....\hbox(8.87892+0.21999)x345.0, glue set 255.26898fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -902,7 +957,6 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 .....\mathoff
-.....\kern 1.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -918,26 +972,6 @@ Completed box being shipped out [1]
 ...\hbox(0.0+0.0)x345.0
 ....\hbox(0.0+0.0)x345.0
 .\kern 0.0
-Underfull \hbox (badness 10000) in paragraph at lines ...
-[]\TU/FandolSong-Regular(0)/m/n/10 劳 伦 衣 普 桑，|  劳
-\hbox(7.76+1.92998)x90.0, glue set 8.53334
-.\hbox(0.0+0.0)x0.0
-.\TU/FandolSong-Regular(0)/m/n/10 劳
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 伦
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 衣
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 普
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 桑
-.\penalty 10000
-.\TU/FandolSong-Regular(0)/m/n/10 ，
-.\rule(0.0+0.0)x-6.92
-.\glue 6.92 minus 5.0
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 劳
-.\glue(\rightskip) 0.0
 Underfull \hbox (badness 4492) in paragraph at lines ...
 []\TU/FandolSong-Regular(0)/m/n/10 劳 伦 衣 普 桑，|  劳 伦
 \hbox(7.76+1.92998)x90.0, glue set 3.55556
@@ -981,23 +1015,6 @@ Underfull \hbox (badness 4492) in paragraph at lines ...
 .\TU/FandolSong-Regular(0)/m/n/10 劳
 .\glue 0.0 plus 0.46875
 .\TU/FandolSong-Regular(0)/m/n/10 伦
-.\glue(\rightskip) 0.0
-Underfull \hbox (badness 5939) in paragraph at lines ...
-[]\TU/FandolSong-Regular(0)/m/n/10 劳 伦： “衣 普 桑
-\hbox(7.76+1.89998)x90.0, glue set 3.90244
-.\hbox(0.0+0.0)x0.0
-.\TU/FandolSong-Regular(0)/m/n/10 劳
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 伦
-.\penalty 10000
-.\TU/FandolSong-Regular(0)/m/n/10 ：
-.\penalty 10000
-.\glue -5.0 plus 5.0 minus 5.85
-.\TU/FandolSong-Regular(0)/m/n/10 “衣
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 普
-.\glue 0.0 plus 0.46875
-.\TU/FandolSong-Regular(0)/m/n/10 桑
 .\glue(\rightskip) 0.0
 Underfull \hbox (badness 1038) in paragraph at lines ...
 []\TU/FandolSong-Regular(0)/m/n/10 劳 伦： “衣 普 桑 劳
@@ -1042,25 +1059,25 @@ Completed box being shipped out [2]
 .....\hbox(0.0+0.0)x345.0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 406.49663fil
+...\vbox(550.0+0.0)x345.0, glue set 405.3778fil
 ....\write-{}
 ....\glue(\topskip) 0.0
-....\hbox(76.72998+71.72998)x345.0, glue set 241.54001fil
+....\hbox(77.28944+72.28944)x345.0, glue set 241.54001fil
 .....\hbox(0.0+0.0)x0.0
-.....\hbox(76.72998+71.72998)x103.45999
-......\hbox(148.45996+0.0)x103.45999, shifted 71.72998
-.......\vbox(148.45996+0.0)x103.45999
+.....\hbox(77.28944+72.28944)x103.45999
+......\hbox(149.57889+0.0)x103.45999, shifted 72.28944
+.......\vbox(149.57889+0.0)x103.45999
 ........\rule(0.4+0.0)x*
-........\hbox(147.65997+0.0)x103.45999
+........\hbox(148.7789+0.0)x103.45999
 .........\rule(*+*)x0.4
-.........\vbox(147.65997+0.0)x102.66
+.........\vbox(148.7789+0.0)x102.66
 ..........\glue 3.0
-..........\hbox(73.32999+68.32999)x102.66
+..........\hbox(73.88945+68.88945)x102.66
 ...........\kern 3.0
 ...........\glue 3.33 plus 1.665 minus 1.11
 ...........\mathon
-...........\vbox(73.32999+68.32999)x90.0
-............\hbox(7.76+1.92998)x90.0, glue set 8.53334
+...........\vbox(73.88945+68.88945)x90.0
+............\hbox(8.87892+1.92998)x90.0, glue set - 0.001
 .............\hbox(0.0+0.0)x0.0
 .............\TU/FandolSong-Regular(0)/m/n/10 劳
 .............\glue 0.0 plus 0.46875
@@ -1077,10 +1094,7 @@ Completed box being shipped out [2]
 .............\glue 6.92 minus 5.0
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 劳
-.............\glue(\rightskip) 0.0
-............\penalty 300
-............\glue(\baselineskip) 1.1911
-............\hbox(8.87892+1.89998)x90.0, glue set 35.435fil
+.............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 伦
 .............\kern -0.00017
 .............\kern 0.00017
@@ -1098,7 +1112,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
+.............\glue(\rightskip) 0.0
+............\penalty 300
+............\glue(\baselineskip) 2.31003
+............\hbox(7.76+1.89998)x90.0, glue set 56.44fil
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 普
@@ -1139,7 +1156,7 @@ Completed box being shipped out [2]
 .............\glue(\rightskip) 0.0
 ............\penalty 300
 ............\glue(\baselineskip) 1.1911
-............\hbox(8.87892+1.89998)x90.0, glue set 45.435fil
+............\hbox(8.87892+1.89998)x90.0, glue set 43.105fil
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
 .............\kern -0.00017
 .............\kern 0.00017
@@ -1157,7 +1174,7 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
+.............\glue 3.33 plus 1.665 minus 1.11
 .............\TU/FandolSong-Regular(0)/m/n/10 普
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 桑
@@ -1174,7 +1191,7 @@ Completed box being shipped out [2]
 ............\glue(\parskip) 0.0
 ............\glue(\parskip) 0.0
 ............\glue(\baselineskip) 1.2211
-............\hbox(8.87892+1.92998)x90.0, glue set - 0.913
+............\hbox(8.87892+1.92998)x90.0, glue set - 0.713
 .............\hbox(0.0+0.0)x0.0
 .............\TU/FandolSong-Regular(0)/m/n/10 劳
 .............\glue 0.0 plus 0.46875
@@ -1209,7 +1226,6 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
 .............\penalty 10000
 .............\TU/FandolSong-Regular(0)/m/n/10 。
 .............\rule(0.0+0.0)x-6.44
@@ -1257,7 +1273,7 @@ Completed box being shipped out [2]
 .............\glue(\rightskip) 0.0
 ............\penalty 300
 ............\glue(\baselineskip) 1.1911
-............\hbox(8.87892+1.89998)x90.0, glue set 35.435fil
+............\hbox(8.87892+1.89998)x90.0, glue set 36.435fil
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
 .............\kern -0.00017
 .............\kern 0.00017
@@ -1275,7 +1291,6 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
 .............\penalty 10000
 .............\TU/FandolSong-Regular(0)/m/n/10 。
 .............\rule(0.0+0.0)x-6.44
@@ -1296,8 +1311,8 @@ Completed box being shipped out [2]
 .............\glue(\rightskip) 0.0
 ............\glue(\parskip) 0.0
 ............\glue(\parskip) 0.0
-............\glue(\baselineskip) 2.34003
-............\hbox(7.76+1.89998)x90.0, glue set 3.90244
+............\glue(\baselineskip) 1.2211
+............\hbox(8.87892+1.89998)x90.0, glue set - 0.62015
 .............\hbox(0.0+0.0)x0.0
 .............\TU/FandolSong-Regular(0)/m/n/10 劳
 .............\glue 0.0 plus 0.46875
@@ -1311,10 +1326,7 @@ Completed box being shipped out [2]
 .............\TU/FandolSong-Regular(0)/m/n/10 普
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 桑
-.............\glue(\rightskip) 0.0
-............\penalty 300
-............\glue(\baselineskip) 1.2211
-............\hbox(8.87892+1.89998)x90.0, glue set 16.285fil
+.............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 劳
 .............\penalty 10000
 .............\TU/FandolSong-Regular(0)/m/n/10 。
@@ -1340,7 +1352,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
+.............\glue(\rightskip) 0.0
+............\penalty 300
+............\glue(\baselineskip) 2.34003
+............\hbox(7.76+1.89998)x90.0, glue set 46.44fil
 .............\TU/FandolSong-Regular(0)/m/n/10 伦
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
@@ -1380,7 +1395,7 @@ Completed box being shipped out [2]
 .............\glue(\rightskip) 0.0
 ............\penalty 300
 ............\glue(\baselineskip) 1.2211
-............\hbox(8.87892+1.89998)x90.0, glue set 26.285fil
+............\hbox(8.87892+1.89998)x90.0, glue set 23.955fil
 .............\TU/FandolSong-Regular(0)/m/n/10 伦
 .............\penalty 10000
 .............\TU/FandolSong-Regular(0)/m/n/10 。
@@ -1406,7 +1421,7 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 .............\mathoff
-.............\kern 1.0
+.............\glue 3.33 plus 1.665 minus 1.11
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
 .............\glue 0.0 plus 0.46875
 .............\TU/FandolSong-Regular(0)/m/n/10 普

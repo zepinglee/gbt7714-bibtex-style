@@ -1,0 +1,26 @@
+% <https://github.com/ustctug/ustcthesis/issues/495>
+
+\documentclass{article}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+@misc{amd_epyc_2025,
+	title = {{AMD} {EPYC}™ 9965},
+	url = {https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html},
+	language = {en},
+	urldate = {2025-04-14},
+	publisher = {AMD},
+	year = {2025},
+}
+\end{filecontents}
+
+\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
+\usepackage[url=false]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

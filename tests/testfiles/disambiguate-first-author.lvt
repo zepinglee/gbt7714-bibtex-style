@@ -1,0 +1,37 @@
+% “Zwicker”和“Zwicker et al.”并不是同一著者，所以无须加年份后缀 a, b
+% <https://github.com/zepinglee/gbt7714-bibtex-style/issues/176>
+
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@article{Zwicker2022,
+	title        = {The intertwined physics of active chemical reactions and phase separation},
+	author       = {David Zwicker},
+	year         = {2022},
+	journal      = {Current Opinion in Colloid and Interface Science},
+	volume       = {61},
+	pages        = {101606}
+}
+
+@article{Zwicker2022PNAS,
+	title        = {Evolved interactions stabilize many coexisting phases in multicomponent liquids},
+	author       = {David Zwicker and Liedewij Laan},
+	year         = {2022},
+	journal      = {Proceedings of the National Academy of Sciences},
+	volume       = {119},
+	number       = {28},
+	pages        = {e2201250119}
+}
+\end{filecontents}
+
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

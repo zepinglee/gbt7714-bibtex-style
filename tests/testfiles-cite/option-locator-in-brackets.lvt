@@ -18,8 +18,8 @@
 \end{filecontents}
 
 \PassOptionsToPackage{checkpinyin=false}{gbt7714}
-\usepackage[locator-inside-brackets]{gbt7714}
-\bibliographystyle{gbt7714-numeric}
+\usepackage[locator-in-brackets]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
 
 \pagestyle{empty}
 
@@ -27,6 +27,8 @@
 \begin{document}
 \START
 \showoutput
+
+\gbtsetup{citepunct = full}
 
 \citestyle{super}
 引用\citep[p. 42]{zhang1984}测试\par
@@ -52,6 +54,7 @@
 
 % 英文测试
 \null\par
+\gbtsetup{citepunct = half}
 
 \citestyle{super}
 Citation \citep[p. 42]{doe1984} test\par
