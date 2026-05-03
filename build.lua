@@ -127,7 +127,7 @@ uploadconfig = {
 
 function runtest_tasks(name)
   -- return "bibtex " .. name
-  return "bibtex test"
+  return "bibtex -terse test"
 end
 
 function update_tag(file, content, tagname, tagdate)

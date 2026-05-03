@@ -4,7 +4,7 @@
 \begin{filecontents}[noheader, overwrite]{chapter1.tex}
 \begin{bibunit}[gbt7714-numeric]
 \chapter{Foo}
-Foo\cite{4.1.2:1, 4.1.2:2}
+Foo\cite{gbt7714.8.1:1, gbt7714.8.1:2}
 \putbib[gbt7714-examples]
 \end{bibunit}
 \end{filecontents}
@@ -12,7 +12,7 @@ Foo\cite{4.1.2:1, 4.1.2:2}
 \begin{filecontents}[noheader, overwrite]{chapter2.tex}
 \chapter{Bar}
 \begin{bibunit}[gbt7714-authoryear]
-Bar\cite{4.1.2:1, 4.1.2:3}
+Bar\cite{gbt7714.8.1:1, gbt7714.8.1:3}
 \putbib[gbt7714-examples]
 \end{bibunit}
 \end{filecontents}

@@ -3,14 +3,14 @@
 
 \begin{filecontents}[noheader, overwrite]{chapter1.tex}
 \chapter{Foo}
-Foo\cite{4.1.2:1, 4.1.2:2}
+Foo\cite{gbt7714.8.1:1, gbt7714.8.1:2}
 \bibliographystyle{gbt7714-numeric}
 \bibliography{gbt7714-examples}
 \end{filecontents}
 
 \begin{filecontents}[noheader, overwrite]{chapter2.tex}
 \chapter{Bar}
-Bar\cite{4.1.2:1, 4.1.2:3}
+Bar\cite{gbt7714.8.1:1, gbt7714.8.1:3}
 \bibliographystyle{gbt7714-authoryear}
 \bibliography{gbt7714-examples}
 \end{filecontents}
