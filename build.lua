@@ -21,6 +21,7 @@ tagfiles = {
   "*-doc.tex",
   "*.bst",
   "variants/*.ins",
+  "variants/*.bst",
 }
 typesetdemofiles = { "*-example.tex" }
 typesetfiles = { "*-doc.tex" }
@@ -93,7 +94,7 @@ test_types = {
 
 test_order = { "bbl" }
 
-local version_pattern = "[%d%l.-]+"
+local version_pattern = "[%d.]+[%l%d.-]*"
 
 local f = assert(io.open("CHANGELOG.md", "r"))
 local changelog_content = f:read("*all")
@@ -134,11 +135,10 @@ end
 
 function update_tag(file, content, tagname, tagdate)
   local version = string.gsub(tagname, "^v", "")
-  local date = string.gsub(tagdate, "%-", "/")
 
   content = string.gsub(content,
     "Copyright %([Cc]%) (%d%d%d%d)%-+%d%d%d%d",
-    "Copyright (c) %1-" .. os.date("%Y"))
+    "Copyright (C) %1-" .. os.date("%Y"))
 
   if file == "CHANGELOG.md" then
     local previous = string.match(content, "/compare/v(" .. version_pattern .. ")%.%.%.HEAD")
@@ -151,9 +151,13 @@ function update_tag(file, content, tagname, tagdate)
         "v" .. version .. "...HEAD\n[" .. version .. "]: " .. package_repository .. "/compare/v" .. previous
         .. "...v" .. version)
     end
-  elseif string.match(file, "%.dtx$") or string.match(file, "%.ins$") then
-    content = string.gsub(content, "%d%d%d%d/%d%d/%d%d v" .. version_pattern,
-      date .. " v" .. version)
+  elseif string.match(file, "%.sty$") then
+    content = string.gsub(content,
+      "\\ProvidesExplPackage {gbt7714} {%d%d%d%d%-%d%d%-%d%d} {" .. version_pattern .. "}",
+      "\\ProvidesExplPackage {gbt7714} {" .. tagdate .. "} {" .. version .. "}")
+  elseif string.match(file, "%.ins$") or string.match(file, "%.bst$") then
+    content = string.gsub(content, "%d%d%d%d%-%d%d%-%d%d v" .. version_pattern,
+      tagdate .. " v" .. version)
   end
   return content
 end
