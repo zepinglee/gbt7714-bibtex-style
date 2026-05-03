@@ -3,7 +3,7 @@
 
 \usepackage{gbt7714}
 \citestyle{numbers}
-\bibliographystyle{gbt7714-numerical}
+\bibliographystyle{gbt7714-numeric}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}

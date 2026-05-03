@@ -12,7 +12,7 @@
 \nopostamble
 \generate{
   \file{test.aux}{\from{\jobname.lvt}{aux}}
-  \file{test.bst}{\from{gbt7714-bst.dtx}{ustc,2015,author-year}}
+  \file{test.bst}{\from{gbt7714-bst.dtx}{ustc,2015,authoryear}}
   \file{test.bib}{\from{\jobname.lvt}{bib}}
 }
 \endbatchfile

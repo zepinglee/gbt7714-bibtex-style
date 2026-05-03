@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 更改 `bst` 样式名称的后缀为 `-numeric` 和 `-authoryear`，与其他 Bib(La)TeX 样式保持一致。
+
 ## [2.1.9] - 2026-01-15
 
 ### Added
