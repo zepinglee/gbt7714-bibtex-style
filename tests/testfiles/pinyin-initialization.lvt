@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage[initializepinyin]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+% 下列示例取自 GB/T 28039—2011《中国人名汉语拼音字母拼写规则》
+\begin{filecontents}[overwrite]{\jobname.bib}
+@book{yang,
+  author = {Yang, Weiming}
+}
+
+% This currently doesn't work because the time cost is too high.
+@book{sima,
+  author = {Sima, Xiangnan}
+}
+
+@book{zhao,
+  author = {Zhao, Ping'an}
+}
+
+% 5.1.2 由双姓组合（并列姓氏）作为姓氏部分，双姓中间加连接号。
+@book{zheng-li,
+  author = {Zheng-Li, Shufang}
+}
+
+% The Unicode character doesn't work.
+@book{lü,
+  author = {Lü, Heping}
+}
+
+@book{lyu,
+  author = {Lyu, Heping}
+}
+\end{filecontents}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

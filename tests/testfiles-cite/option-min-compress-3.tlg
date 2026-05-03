@@ -1,0 +1,69 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 539.94232fil
+...\write-{}
+...\glue(\topskip) 1.12108
+...\hbox(8.87892+0.0)x345.0, glue set 313.06798fil
+....\hbox(0.0+0.0)x0.0
+....\mathon
+....\hbox(5.25+1.74998)x15.24901, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ,
+.....\kern -0.0002
+.....\kern 0.0002
+.....\penalty 1000
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 2
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\kern 1.0
+....\mathon
+....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+.....\TU/lmr/m/n/7 [
+.....\hbox(4.648+0.0)x3.983
+......\TU/lmr/m/n/7 1
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 -
+.....\kern -0.00023
+.....\kern 0.00023
+.....\penalty 1000
+.....\hbox(4.648+0.13998)x3.983
+......\TU/lmr/m/n/7 3
+......\kern -0.0002
+......\kern 0.0002
+.....\TU/lmr/m/n/7 ]
+.....\kern -0.0002
+.....\kern 0.0002
+....\mathoff
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0

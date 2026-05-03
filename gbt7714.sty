@@ -1,130 +1,422 @@
-%%
-%% This is file `gbt7714.sty',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% gbt7714.dtx  (with options: `package')
-%% -------------------------------------------------------------------
-%% GB/T 7714 BibTeX Style
-%% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026/01/15 v2.1.9
-%% -------------------------------------------------------------------
-%% Copyright (C) 2016--2026 by Zeping Lee <zepinglee AT gmail.com>
-%% -------------------------------------------------------------------
-%% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3c
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    https://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2008 or later.
-%% -------------------------------------------------------------------
-\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-\ProvidesPackage{gbt7714}
-  [2026/01/15 v2.1.9 GB/T 7714 BibTeX Style]
+%
+% Copyright (c) 2016-2026 Zeping Lee
+% Released under the LaTeX Project Public License v1.3c or later versions.
+% Repository: https://github.com/zepinglee/gbt7714-bibtex-style
+%
 
-% 兼容过时的接口
-%<*package>
-\newif\ifgbt@legacy@interface
-\newif\ifgbt@mmxv
-\newif\ifgbt@numeric
-\newif\ifgbt@super
-\newcommand\gbt@obsolete@option[1]{%
-  \PackageWarning{gbt7714}{The option "#1" is obsolete}%
-}
-\DeclareKeys[gbt7714]{
-  2015 .code = {%
-    \gbt@obsolete@option{2015}%
-    \gbt@legacy@interfacetrue
-    \gbt@mmxvtrue
-  },
-  2005 .code = {%
-    \gbt@obsolete@option{2005}%
-    \gbt@legacy@interfacetrue
-    \gbt@mmxvfalse
-  },
-  super .code = {%
-    \gbt@obsolete@option{super}%
-    \gbt@legacy@interfacetrue
-    \gbt@numerictrue
-    \gbt@supertrue
-  },
-  numbers .code = {%
-    \gbt@obsolete@option{numbers}%
-    \gbt@legacy@interfacetrue
-    \gbt@numerictrue
-    \gbt@superfalse
-  },
-  authoryear .code = {%
-    \gbt@obsolete@option{authoryear}%
-    \gbt@legacy@interfacetrue
-    \gbt@numericfalse
-  },
-}
+\NeedsTeXFormat{LaTeX2e}[2020-10-01]
+
+% 检查 LaTeXe kernel 版本
+\providecommand\IfFormatAtLeastTF{\@ifl@t@r\fmtversion}
+\IfFormatAtLeastTF{2020-10-01}{}
+  {\PackageError{gbt7714}{TeX Live 2021 or later version is required.}{}}
+
+\ProvidesExplPackage{gbt7714}{2026-01-15}{2.1.9}{GB/T 7714 BibTeX Style}
+
+% 控制著者-出版年的符号使用全角/半角
+\newif \ifgbt@cite@punct@full
+
+% 控制连续两个序号是否使用连接号。
+\newif \ifgbt@min@compress@two
+
+% 控制引注的样式，true 为上标式，false 为行内式。
+\bool_new:N \l__gbt_cite_inline_bool
+\cs_new:Npn \__gbt_set_cite_inline: { }
 
 % 控制引注的页码在括号内还是在括号外。
-\DeclareKeys[gbt7714]{
-  locator-inside-brackets .if = @gbt@locator@inside@affixes ,
-}
-\SetKeys[gbt7714]{
-  locator-inside-brackets = false ,
-}
+\newif \ifgbt@locator@in@brackets
 
-% 将选项传递给 \pkg{natbib}
-\DeclareUnknownKeyHandler[gbt7714]{\PassOptionsToPackage{#1}{natbib}}
-\ProcessKeyOptions[gbt7714]
+\bool_new:N \l__gbt_align_left_bool
 
-% 调用宏包，注意只需要 \opt{compress} 不需要 \opt{sort}。
-\RequirePackage{natbib}
-\RequirePackage{url}
+% 控制 bst 的格式。
+\prop_new:N \l__gbt_bst_control_prop
 
-% 如果将 \opt{compress} 传给 \pkg{natbib} 容易导致 option clash。
-% 这里直接修改内部命令。
-\def\NAT@cmprs{\@ne}
+% 用于兼容 v1.x.x 过时的接口
+% TODO: v3.0.0 remove these
+\bool_new:N \l__gbt_legacy_interface_bool
+\bool_new:N \l__gbt_legacy_mmxv_bool
+\bool_new:N \l__gbt_legacy_numeric_bool
+\bool_new:N \l__gbt_legacy_super_bool
 
-% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numeric}
+\bool_set_false:N \l__gbt_legacy_interface_bool
+\bool_set_true:N \l__gbt_legacy_mmxv_bool
+\bool_set_true:N \l__gbt_legacy_numeric_bool
+\bool_set_true:N \l__gbt_legacy_super_bool
+
+% 设置选项
+\NewDocumentCommand \gbtsetup { m }
+  { \keys_set:nn { gbt7714 } { #1 } }
+
+% 参考文献列表的标签左对齐
+\keys_define:nn { gbt7714 }
+  {
+    citepunct .choice: ,
+    citepunct / full .code:n = { \gbt@cite@punct@fulltrue } ,
+    citepunct / half .code:n = { \gbt@cite@punct@fullfalse } ,
+    mincompress .choice: ,
+    mincompress / 2 .code:n = { \gbt@min@compress@twotrue } ,
+    mincompress / 3 .code:n = { \gbt@min@compress@twofalse } ,
+    inline .choice: ,
+    inline / true .code:n =
+      {
+        \bool_set_true:N \l__gbt_cite_inline_bool
+        \__gbt_set_cite_inline:
+      } ,
+    inline / false .code:n =
+      {
+        \bool_set_false:N \l__gbt_cite_inline_bool
+        \__gbt_set_cite_inline:
+      } ,
+    inline .default:n = true ,
+    locator-in-brackets .choice: ,
+    locator-in-brackets / true .code:n = { \gbt@locator@in@bracketstrue } ,
+    locator-in-brackets / false .code:n = { \gbt@locator@in@bracketsfalse } ,
+    locator-in-brackets .default:n = true ,
+    % For compatibility
+    locator-inside-brackets .choice: ,
+    locator-inside-brackets / true .code:n = { \gbt@locator@in@bracketstrue } ,
+    locator-inside-brackets / false .code:n = { \gbt@locator@in@bracketsfalse } ,
+    locator-inside-brackets .default:n = true ,
+    %
+    % 参考文献表的选项
+    align .choice: ,
+    align / left .code:n = { \bool_set_true:N \l__gbt_align_left_bool } ,
+    align / right .code:n = { \bool_set_false:N \l__gbt_align_left_bool } ,
+    %
+    % 控制 .bst 的选项
+    bibpunct .choice: ,
+    bibpunct / GB .code:n =
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bib_punct } { GB }
+      } ,
+    bibpunct / half .code:n =
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bib_punct } { half }
+      } ,
+    bibpunct / bylanguage .code:n =
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bib_punct } { bylanguage }
+      } ,
+    convertpunct .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_convert_punct } \l_keys_choice_tl } ,
+    convertpunct .default:n = true ,
+    maxbibnames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} } ,
+    minbibnames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_bib_names } {#1} } ,
+    maxcitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_cite_names } {#1} } ,
+    mincitenames .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_cite_names } {#1} } ,
+    uppercasefamily .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_uppercase_family } \l_keys_choice_tl } ,
+    uppercasefamily .default:n = true ,
+    initializewithhyphen .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_initialize_with_hyphen } \l_keys_choice_tl } ,
+    initializewithhyphen .default:n = true ,
+    checkpinyin .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_check_pinyin } \l_keys_choice_tl } ,
+    checkpinyin .default:n = true ,
+    initializepinyin .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_initialize_pinyin } \l_keys_choice_tl } ,
+    initializepinyin .default:n = true ,
+    bibfinaland .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bib_final_and } \l_keys_choice_tl } ,
+    bibfinaland .default:n = true ,
+    citefinaland .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_final_and } \l_keys_choice_tl } ,
+    citefinaland .default:n = true ,
+    citelang .choices:nn = { byentry, macro, chinese, english }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_lang } \l_keys_choice_tl } ,
+    spacebeforeetal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_et_al } \l_keys_choice_tl } ,
+    spacebeforeetal .default:n = true ,
+    yearbeforetitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_year_before_title } \l_keys_choice_tl } ,
+    yearbeforetitle .default:n = true ,
+    nameyeardelim .choices:nn = { comma , period }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_name_year_delim } \l_keys_choice_tl } ,
+    sentencecase .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case } \l_keys_choice_tl } ,
+    sentencecase .default:n = true ,
+    sentencecasetitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_title } \l_keys_choice_tl } ,
+    sentencecasetitle .default:n = true ,
+    sentencecasebooktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_booktitle } \l_keys_choice_tl } ,
+    sentencecasebooktitle .default:n = true ,
+    sentencecasejournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_journal } \l_keys_choice_tl } ,
+    sentencecasejournal .default:n = true ,
+    capitalizesubtitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_capitalize_subtitle } \l_keys_choice_tl } ,
+    capitalizesubtitle .default:n = true ,
+    linktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_title } \l_keys_choice_tl } ,
+    linktitle .default:n = true ,
+    articletitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_article_title } \l_keys_choice_tl } ,
+    articletitle .default:n = true ,
+    patentcountry .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_patent_country } \l_keys_choice_tl } ,
+    patentcountry .default:n = true ,
+    entrytypeid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_type_id } \l_keys_choice_tl } ,
+    entrytypeid .default:n = true ,
+    spacebeforetypeid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_type_id } \l_keys_choice_tl } ,
+    spacebeforetypeid .default:n = true ,
+    entrymediumid .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_medium_id } \l_keys_choice_tl } ,
+    entrymediumid .default:n = true ,
+    slash .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_slash } \l_keys_choice_tl } ,
+    slash .default:n = true ,
+    in .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_in } \l_keys_choice_tl } ,
+    in .default:n = true ,
+    emphbooktitle .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_booktitle } \l_keys_choice_tl } ,
+    emphbooktitle .default:n = true ,
+    emphjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_journal } \l_keys_choice_tl } ,
+    emphjournal .default:n = true ,
+    shortjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_short_journal } \l_keys_choice_tl } ,
+    shortjournal .default:n = true ,
+    journaldots .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_journal_dots } \l_keys_choice_tl } ,
+    journaldots .default:n = true ,
+    linkjournal .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_journal } \l_keys_choice_tl } ,
+    linkjournal .default:n = true ,
+    boldvolume .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bold_volume } \l_keys_choice_tl } ,
+    boldvolume .default:n = true ,
+    unknownpublisher .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_unknown_publisher } \l_keys_choice_tl } ,
+    unknownpublisher .default:n = true ,
+    spacebeforepages .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_pages } \l_keys_choice_tl } ,
+    spacebeforepages .default:n = true ,
+    pageranges .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_page_ranges } \l_keys_choice_tl } ,
+    pageranges .default:n = true ,
+    pagerangedelim .code:n =
+      { \prop_put:Nne \l__gbt_bst_control_prop { CTL_page_range_delim } {#1} } ,
+    urldate .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_urldate } \l_keys_choice_tl } ,
+    urldate .default:n = true ,
+    url .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_url } \l_keys_choice_tl } ,
+    url .default:n = true ,
+    doi .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_doi } \l_keys_choice_tl } ,
+    doi .default:n = true ,
+    eprint .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_eprint } \l_keys_choice_tl } ,
+    eprint .default:n = true ,
+    note .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_note } \l_keys_choice_tl } ,
+    note .default:n = true ,
+    enddot .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_end_dot } \l_keys_choice_tl } ,
+    enddot .default:n = true ,
+    bibwarn .choices:nn = { true, false }
+      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_warn_empty_field } \l_keys_choice_tl } ,
+    bibwarn .default:n = true ,
+    %
+    % 兼容 v1.x.x 过时的接口
+    % TODO: v3.0.0 remove these
+    2015 .code:n =
+      {
+        \msg_warning:nnn { gbt7714 } { obsolete-option } { 2015 }
+        \bool_set_true:N \l__gbt_legacy_interface_bool
+        \bool_set_true:N \l__gbt_legacy_mmxv_bool
+      } ,
+    2005 .code:n =
+      {
+        \msg_warning:nnn { gbt7714 } { obsolete-option } { 2005 }
+        \bool_set_true:N \l__gbt_legacy_interface_bool
+        \bool_set_false:N \l__gbt_legacy_mmxv_bool
+      } ,
+    super .code:n =
+      {
+        \msg_warning:nnn { gbt7714 } { obsolete-option } { super }
+        \bool_set_true:N \l__gbt_legacy_interface_bool
+        \bool_set_true:N \l__gbt_legacy_numeric_bool
+        \bool_set_true:N \l__gbt_legacy_super_bool
+      } ,
+    numbers .code:n =
+      {
+        \msg_warning:nnn { gbt7714 } { obsolete-option } { numbers }
+        \bool_set_true:N \l__gbt_legacy_interface_bool
+        \bool_set_true:N \l__gbt_legacy_numeric_bool
+        \bool_set_false:N \l__gbt_legacy_super_bool
+      } ,
+    authoryear .code:n =
+      {
+        \msg_warning:nnn { gbt7714 } { obsolete-option } { authoryear }
+        \bool_set_true:N \l__gbt_legacy_interface_bool
+        \bool_set_false:N \l__gbt_legacy_numeric_bool
+      } ,
+    % 将选项传递给 \pkg{natbib}
+    unknown .code:n = { \PassOptionsToPackage { \CurrentOption } { natbib } } ,
+  }
+
+\msg_new:nnn { gbt7714 } { obsolete-option }
+  { The~ option~ "#1"~ is~ obsolete. }
+
+\keys_set:nn { gbt7714 }
+  {
+    % TODO: v3.0.0 将默认值改为 auto。
+    citepunct = half ,
+    mincompress = 2 ,
+    locator-in-brackets = false ,
+    align = left ,
+  }
+
+\PassOptionsToPackage { compress } { natbib }
+
+\ProcessKeyOptions [ gbt7714 ]
+
+\keys_define:nn { gbt7714 } { unknown .undefine: }
+
+% 调用宏包。
+\RequirePackage { natbib }
+\RequirePackage { url }
+
+% 处理过时的样式名称
+\cs_set_eq:NN \__gbt_original_bib_style:n \bibliographystyle
+
+\prop_const_from_keyval:Nn \c__gbt_deprecated_style_name_prop
+  {
+    gbt7714-2005-author-year = gbt7714-2005-authoryear ,
+    gbt7714-2005-numerical = gbt7714-2005-numeric ,
+    gbt7714-author-year = gbt7714-authoryear ,
+    gbt7714-numerical = gbt7714-numeric ,
+  }
+
+\cs_set_nopar:Npn \bibliographystyle #1
+  {
+    \prop_get:NnNTF \c__gbt_deprecated_style_name_prop {#1} \l_tmpa_tl
+      {
+        \msg_warning:nnnV { gbt7714 } { deprecated-style-name } {#1} \l_tmpa_tl
+        \file_if_exist:nTF { #1 .bst }
+          { \__gbt_original_bib_style:n {#1} }
+          { \exp_args:NV \__gbt_original_bib_style:n \l_tmpa_tl }
+      }
+      { \__gbt_original_bib_style:n {#1} }
+  }
+
+\msg_new:nnn { gbt7714 } { deprecated-style-name }
+  { Bibliography~ style~ name~ '#1'~ is~ deprecated.~ Use~ '#2'~ instead. }
+
+
+% 默认使用顺序编码制
+\NAT@numberstrue
+\NAT@supertrue
+\cs_gset_nopar:Npn \NAT@open { [ }
+\cs_gset_nopar:Npn \NAT@close { ] }
+\cs_gset_nopar:Npn \NAT@sep { , }
+\cs_gset_nopar:Npn \NAT@aysep { , }
+\cs_gset_nopar:Npn \NAT@yrsep { \textsuperscript { , } }
+
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
-\renewcommand\newblock{\space}
-\newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
-\newcommand\bibstyle@numbers{\bibpunct{[}{]}{,}{n}{,}{,}}
-\newcommand\bibstyle@authoryear{\bibpunct{(}{)}{;}{a}{,}{,}}
-\newcommand\bibstyle@inline{\bibstyle@numbers}
+\cs_new:Npn \bibstyle@super
+  {
+    \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } }
+    \cs_set:Npn \NAT@spacechar { \  }
+  }
+\cs_new:Npn \bibstyle@inline
+  {
+    \bibpunct { [ } { ] } { , } { n } { , } { , }
+    \cs_set:Npn \NAT@spacechar { \  }
+  }
+\cs_new:Npn \bibstyle@authoryear
+  {
+    \bibpunct
+      % \NAT@cmt: The delimiter preceding a post-note
+      [ \ifgbt@cite@punct@full ， \else ,~ \fi ]
+      { \ifgbt@cite@punct@full （ \else ( \fi }
+      { \ifgbt@cite@punct@full ） \else ) \fi }
+      % \NAT@sep: The delimiter between multiple cites
+      { \ifgbt@cite@punct@full ； \else ; \fi }
+      { a }
+      % \NAT@aysep: The delimiter between author and year
+      { \ifgbt@cite@punct@full ， \else , \fi }
+      % \NAT@yrsep: The delimiter between years with same author
+      { \ifgbt@cite@punct@full ， \else , \fi }
+    \cs_set:Npn \NAT@spacechar { \ifgbt@cite@punct@full \else \  \fi }
+  }
+
+\cs_new:Npn \bibstyle@numeric
+  {
+    \bool_if:NTF \l__gbt_cite_inline_bool
+      { \bibstyle@inline }
+      { \bibstyle@super }
+  }
+\cs_new:Npn \bibstyle@numbers { \bibstyle@inline }
+
+\AtBeginDocument
+  {
+    \cs_set:Npn \__gbt_set_cite_inline:
+      {
+        \ifNAT@numbers
+          \bool_if:NTF \l__gbt_cite_inline_bool
+            { \bibstyle@inline }
+            { \bibstyle@super }
+        \fi
+      }
+  }
 
 % 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
-\@namedef{bibstyle@gbt7714-numeric}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-authoryear}{\bibstyle@authoryear}
-\@namedef{bibstyle@gbt7714-2005-numeric}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-2005-authoryear}{\bibstyle@authoryear}
+\cs_new:cpn { bibstyle@gbt7714-numeric } { \bibstyle@numeric }
+\cs_new:cpn { bibstyle@gbt7714-authoryear } { \bibstyle@authoryear }
+\cs_new:cpn { bibstyle@gbt7714-2025-numeric } { \bibstyle@numeric }
+\cs_new:cpn { bibstyle@gbt7714-2025-authoryear } { \bibstyle@authoryear }
+\cs_new:cpn { bibstyle@gbt7714-2015-numeric } { \bibstyle@numeric }
+\cs_new:cpn { bibstyle@gbt7714-2015-authoryear } { \bibstyle@authoryear }
+\cs_new:cpn { bibstyle@gbt7714-2005-numeric } { \bibstyle@numeric }
+\cs_new:cpn { bibstyle@gbt7714-2005-authoryear } { \bibstyle@authoryear }
+% 兼容过时的样式名称
+\cs_new:cpn { bibstyle@gbt7714-numerical } { \bibstyle@numeric }
+\cs_new:cpn { bibstyle@gbt7714-author-year } { \bibstyle@authoryear }
 
 % 下面修改 \pkg{natbib} 的引用格式。
 % 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
 
-% Super 样式的 \cs{citep} 的页码也为上标。
-% 另外加上 |\kern\p@| 去掉上标式引用后与中文之间多余的空格，
-% 参考 \href{https://github.com/tuna/thuthesis/issues/624}{tuna/thuthesis\#624}。
+\cs_new_nopar:Npn \bibrangedash { - }
+\cs_new_nopar:Npn \multiciterangedelim { \bibrangedash }
+
+\ExplSyntaxOff
+
+% 顺序编码制的页码在方括号外。
+% TODO: 最好处理上标式后与中文之间多余的空格，以及断行规则。
+% <https://github.com/tuna/thuthesis/issues/624>
+% <https://github.com/CTeX-org/forum/issues/338>
 \renewcommand\NAT@citesuper[3]{%
   \ifNAT@swa
     \if*#2*\else
       #2\NAT@spacechar
     \fi
     \unskip\kern\p@
+    % \textsuperscript{\NAT@@open#1\NAT@@close}%
+    % \if*#3*\else\NAT@spacechar#3\fi
     \textsuperscript{%
       \NAT@@open
       #1%
-      \if@gbt@locator@inside@affixes
+      \ifgbt@locator@in@brackets
         \if*#3*\else
           \NAT@cmt#3%
         \fi
         \NAT@@close
       \else
         \NAT@@close
-        \if*#3*\else
-          #3%
-        \fi
+        #3%
       \fi
     }%
-    \kern\p@
   \else
     #1%
   \fi
@@ -139,8 +431,12 @@
       #2\NAT@spacechar
     \fi
     #1%
-    \if@gbt@locator@inside@affixes
-      \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    % \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    \ifgbt@locator@in@brackets
+      \if*#3*\else
+        \NAT@cmt#3%
+      \fi
+      \NAT@@close
     \else
       \NAT@@close
       \if*#3*\else
@@ -153,7 +449,7 @@
   \endgroup
 }
 
-% Numeric 模式的 \cs{citet} 的页码：
+% Numeric 的 \cs{@citex}
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -192,16 +488,24 @@
          }{%
            \advance\@tempcnta by\@ne
            \@ifnum{\NAT@nm=\@tempcnta}{%
-%
-% 在顺序编码制下，\pkg{natbib} 只有在三个以上连续文献引用才会使用连接号，
-% 这里修改为允许两个引用使用连接号。
-% 参考 \url{https://tex.stackexchange.com/a/86991/82731}。
              % \ifx\NAT@last@yr\relax
              %   \def@NAT@last@yr{\@citea}%
              % \else
              %   \def@NAT@last@yr{--\NAT@penalty}%
              % \fi
-             \def@NAT@last@yr{-\NAT@penalty}%
+             %
+             % \pkg{natbib} 默认在三个以上连续序号才会使用连接号，
+             % 按照国标要求改为连续两个序号使用连接号。
+             % 参考 \url{https://tex.stackexchange.com/a/86991/82731}。
+             \ifgbt@min@compress@two
+               \def@NAT@last@yr{\multiciterangedelim\NAT@penalty}%
+             \else
+               \ifx\NAT@last@yr\relax
+                 \def@NAT@last@yr{\@citea}%
+               \else
+                 \def@NAT@last@yr{\multiciterangedelim\NAT@penalty}%
+               \fi
+             \fi
            }{%
              \NAT@last@yr@mbox
            }%
@@ -233,13 +537,18 @@
     }%
       \@ifnum{\NAT@cmprs>\z@}{\NAT@last@yr}{}%
       \ifNAT@swa\else
-%
-% 将页码放在括号外边，并且置于上标。
-        \if@gbt@locator@inside@affixes
-          \@ifnum{\NAT@ctype=\z@}{%
-            \if*#2*\else\NAT@cmt#2\fi
-          }{}%
-          \NAT@mbox{\NAT@@close}%
+        % \@ifnum{\NAT@ctype=\z@}{%
+        %   \if*#2*\else\NAT@cmt#2\fi
+        % }{}%
+        % \NAT@mbox{\NAT@@close}%
+        %
+        % 将页码放在括号外边，并且置于上标。
+        \ifgbt@locator@in@brackets
+          \NAT@mbox{%
+            \@ifnum{\NAT@ctype=\z@}{%
+              \if*#2*\else\NAT@cmt#2\fi
+            }{}%
+            \NAT@@close}%
         \else
           \NAT@mbox{\NAT@@close}%
           \@ifnum{\NAT@ctype=\z@}{%
@@ -247,22 +556,32 @@
               \textsuperscript{#2}%
             \fi
           }{}%
-          \NAT@super@kern
         \fi
       \fi
   }{#1}{#2}%
 }%
 
-% Author-year 模式的 \cs{citep} 的页码：
-\renewcommand\NAT@cite%
-    [3]{\ifNAT@swa\NAT@@open\if*#2*\else#2\NAT@spacechar\fi
-        #1%
-        \if@gbt@locator@inside@affixes
-          \if*#3*\else\NAT@cmt#3\fi\NAT@@close
-        \else
-          \NAT@@close\if*#3*\else\textsuperscript{#3}\fi
-        \fi
-        \else#1\fi\endgroup}
+% Author-year 模式以角标的形式著录引文页码。
+\renewcommand\NAT@cite[3]{%
+  \ifNAT@swa
+    \NAT@@open
+    \if*#2*\else#2\NAT@spacechar\fi
+    #1%
+    % \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    \ifgbt@locator@in@brackets
+      \if*#3*\else\NAT@cmt#3\fi\NAT@@close
+    \else
+      \NAT@@close
+      \if*#3*\else
+        \unskip\kern\p@
+        \textsuperscript{#3}%
+      \fi
+    \fi
+  \else
+    #1%
+  \fi
+  \endgroup
+}
 
 % Author-year 模式的 \cs{citet} 的页码：
 \def\NAT@citex%
@@ -299,7 +618,14 @@
                year\MessageBreak without distinguishing extra
                letter,\MessageBreak appears as question mark}\fi
               \NAT@hyper@{\NAT@exlab}%
-            \else\unskip\NAT@spacechar
+            \else
+              % \unskip
+              %
+              % 如果用全角符号，\unksip 会破坏“（张三，1984，1985）” 年份之间逗号后的空白
+              \ifgbt@cite@punct@full\else
+                \unskip
+              \fi
+              \NAT@spacechar
               \NAT@hyper@{\NAT@date}%
             \fi
          \else
@@ -330,7 +656,13 @@
                letter,\MessageBreak appears as question mark}\fi
               \NAT@hyper@{\NAT@exlab}%
             \else
-              \unskip\NAT@spacechar
+              % \unskip
+              %
+              % 如果用全角符号，\unksip 会破坏“张三（1984，1985）” 年份之间逗号后的空白
+              \ifgbt@cite@punct@full\else
+                \unskip
+              \fi
+              \NAT@spacechar
               \NAT@hyper@{\NAT@date}%
             \fi
          \else
@@ -352,20 +684,283 @@
          \NAT@def@citea@close
        \fi
      \fi
-     }}\ifNAT@swa\else
-%
-% 将页码放在括号外边，并且置于上标。
-       \if@gbt@locator@inside@affixes
+     }}%
+     \ifNAT@swa\else
+       % \if*#2*\else\NAT@cmt#2\fi
+       % \if\relax\NAT@date\relax\else\NAT@@close\fi
+       %
+       % 在括号外边，以上标的形式著录引文页码。
+       \ifgbt@locator@in@brackets
          \if*#2*\else\NAT@cmt#2\fi
          \if\relax\NAT@date\relax\else\NAT@@close\fi
        \else
-         \if\relax\NAT@date\relax\else\NAT@@close\fi
-         \if*#2*\else\textsuperscript{#2}\fi
+         \if\relax\NAT@date\relax\else
+           \NAT@@close
+         \fi
+         \if*#2*\else
+           \unskip\kern\p@
+           \textsuperscript{#2}%
+         \fi
        \fi
      \fi}{#1}{#2}}
 
-% 参考文献列表的标签左对齐
-\renewcommand\@biblabel[1]{[#1]\hfill}
+% 如果使用全角符号则不加空格
+\def\NAT@spacechar{\ifgbt@cite@punct@full\else\ \fi}%
+
+\DeclareRobustCommand\parencite
+   {\begingroup\NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+      \NAT@superfalse
+      \let\NAT@mbox=\mbox
+      \let\@cite\NAT@citenum
+      \let\NAT@space\NAT@spacechar
+      \let\NAT@super@kern\relax
+         \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+% 兼容 RevTeX 的 \cs{onlinecite} 命令。
+\DeclareRobustCommand\onlinecite
+   {\begingroup\NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+      \NAT@superfalse
+      \let\NAT@mbox=\mbox
+      \let\@cite\NAT@citenum
+      \let\NAT@space\NAT@spacechar
+      \let\NAT@super@kern\relax
+         \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+\DeclareRobustCommand\inlinecite
+   {\begingroup\NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+      \NAT@superfalse
+      \let\NAT@mbox=\mbox
+      \let\@cite\NAT@citenum
+      \let\NAT@space\NAT@spacechar
+      \let\NAT@super@kern\relax
+         \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+\DeclareRobustCommand\textcite
+   {\begingroup\NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+     \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+
+
+% 控制参考文献表的格式
+\renewenvironment{thebibliography}[1]{%
+ \bibsection
+ \parindent\z@
+ \bibpreamble
+ % 参考文献表的设置
+ \gbt@bib@setup
+ \bibfont
+ \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
+ \ifNAT@openbib
+   \renewcommand\newblock{\par}%
+ \else
+   \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+ \fi
+ % \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.\@m
+ \let\NAT@bibitem@first@sw\@firstoftwo
+    \let\citeN\cite \let\shortcite\cite
+    \let\citeasnoun\cite
+}{%
+ \bibitem@fin
+ \bibpostamble
+ \def\@noitemerr{%
+  \PackageWarning{natbib}{Empty `thebibliography' environment}%
+ }%
+ \endlist
+ \bibcleanup
+}
+
+\ExplSyntaxOn
+
+% 控制参考文献表的标签格式对齐方式
+\cs_set_nopar:Npn \@biblabel #1
+  {
+    \hbox:n { [ #1 ] }
+    \bool_if:NT \l__gbt_align_left_bool
+      { \hfill }
+  }
+
+\cs_new:Npn \gbt@bib@setup
+  {
+    % \__gbt_set_square_bracket_font:
+    \__gbt_bib_url_setup:
+  }
+
+% % 设置半角方括号使用中文字体。
+% \cs_new:Npn \__gbt_set_square_bracket_font: { }
+
+% \hook_gput_code:nnn { begindocument / before } { . }
+%   {
+%     \@ifpackageloaded { xeCJK }
+%       {
+%         \cs_set:Npn \__gbt_set_square_bracket_font:
+%           {
+%             \xeCJKDeclareCharClass { FullLeft } { "005B }
+%             \xeCJKDeclareCharClass { FullRight } { "005D }
+%           }
+%       }
+%       {
+%         % TODO: LuaTeXja 应该如何处理？
+%         % \@ifpackageloaded { luatexja }
+%         %   {
+%         %     \cs_set:Npn \__gbt_set_square_bracket_font:
+%         %       {
+%         %         \ltjdefcharrange { 6 } { "005B }
+%         %       }
+%         %   }
+%         %   { }
+%       }
+%   }
+
+
+% 设置参考文献表的 URL 断行
+% 参考 `biblatex` 的 \biburlsetup
+% <https://github.com/plk/biblatex/blob/dev/tex/latex/biblatex/biblatex.def>
+
+\int_new:N \l__gbt_url_num_penalty_int
+\int_new:N \l__gbt_url_uc_penalty_int
+\int_new:N \l__gbt_url_lc_penalty_int
+
+\int_set:Nn \l__gbt_url_num_penalty_int { 9000 }
+\int_set:Nn \l__gbt_url_uc_penalty_int { 9000 }
+\int_set:Nn \l__gbt_url_lc_penalty_int { 9000 }
+
+\cs_new:Npn \__gbt_bib_url_setup:
+  {
+    \urlstyle { same }
+    \muskip_set:Nn \Urlmuskip { 0 mu plus 3 mu }
+    \mathchardef \UrlBigBreakPenalty = 100 \relax
+    \mathchardef \UrlBreakPenalty = 200 \relax
+    \cs_set_nopar:Npn \UrlBigBreaks { \do \: \do \- }
+    \cs_set_nopar:Npn \UrlBreaks
+      {
+        \do \. \do \@ \do \/ \do \\ \do \! \do \_ \do \| \do \; \do \> \do \]
+        \do \) \do \} \do \, \do \? \do \' \do \+ \do \= \do \# \do \$ \do \&
+        \do \* \do \^ \do \"
+      }
+    \int_compare:nNnT { \l__gbt_url_num_penalty_int } > { 0 }
+      {
+        \clist_map_inline:nn
+          { \1 , \2 , \3 , \4 , \5 , \6 , \7 , \8 , \9 , \0 }
+          {
+            \tl_put_right:Nn \UrlSpecials
+              {
+                \do ##1
+                  {
+                    \mathchar `##1
+                    \mskip 0 mu \relax
+                    \penalty \l__gbt_url_num_penalty_int
+                  }
+              }
+          }
+      }
+    \int_compare:nNnT { \l__gbt_url_uc_penalty_int } > { 0 }
+      {
+        \clist_map_inline:nn
+          {
+            \A , \B , \C , \D , \E , \F , \G , \H , \I , \J ,
+            \K , \L , \M , \N , \O , \P , \Q , \R , \S , \T ,
+            \U , \V , \W , \X , \Y , \Z
+          }
+          {
+            \tl_put_right:Nn \UrlSpecials
+              {
+                \do ##1
+                  {
+                    \mathchar `##1
+                    \mskip 0 mu \relax
+                    \penalty \l__gbt_url_uc_penalty_int
+                  }
+              }
+          }
+      }
+    \int_compare:nNnT { \l__gbt_url_lc_penalty_int } > { 0 }
+      {
+        \clist_map_inline:nn
+          {
+            \a , \b , \c , \d , \e , \f , \g , \h , \i , \j ,
+            \k , \l , \m , \n , \o , \p , \q , \r , \s , \t ,
+            \u , \v , \w , \x , \y , \z
+          }
+          {
+            \tl_put_right:Nn \UrlSpecials
+              {
+                \do ##1
+                  {
+                    \mathchar`##1
+                    \mskip 0 mu \relax
+                    \penalty \l__gbt_url_lc_penalty_int
+                  }
+              }
+          }
+      }
+    \cs_set_eq:NN \do \exp_not:N
+  }
+
+
+% 修改 \cs{bibliography} 以处理 bst 格式控制文件。
+\cs_set_eq:NN \__gbt_original_bibliography:n \bibliography
+
+\cs_set:Npn \bibliography #1
+  {
+    \prop_if_empty:NTF \l__gbt_bst_control_prop
+      { \__gbt_original_bibliography:n {#1} }
+      {
+        \__gbt_write_bst_control_file:
+        \tl_set:Ne \l_tmpa_tl { \jobname \c__gbt_bst_control_file_suffix_tl }
+        \tl_put_right:Nn \l_tmpa_tl { , #1 }
+        \exp_args:NV \__gbt_original_bibliography:n \l_tmpa_tl
+      }
+  }
+
+\tl_const:Nn \c__gbt_bst_control_file_suffix_tl { -BSTcontrol }
+\tl_const:Nn \c__gbt_bst_control_entry_type_tl { GBT7714BSTCTL }
+\tl_const:Nn \c__gbt_bst_control_entry_key_tl { GBT7714:BSTcontrol }
+\iow_new:N \l__gbt_bst_control_iow
+
+\cs_new:Npn \__gbt_write_bst_control_file:
+  {
+    \iow_open:Nn \l__gbt_bst_control_iow
+      { \jobname \c__gbt_bst_control_file_suffix_tl .bib }
+    \iow_now:Ne \l__gbt_bst_control_iow
+      {
+        @ \c__gbt_bst_control_entry_type_tl \c_left_brace_str
+        \c__gbt_bst_control_entry_key_tl ,
+      }
+    \prop_map_inline:Nn \l__gbt_bst_control_prop
+      {
+        \iow_now:Ne \l__gbt_bst_control_iow
+          { \c_space_tl \c_space_tl ##1 \c_space_tl = \c_space_tl {##2} , }
+      }
+    \iow_now:Ne \l__gbt_bst_control_iow { \c_right_brace_str }
+    \iow_close:N \l__gbt_bst_control_iow
+    \if@filesw
+      \iow_now:Ne \@auxout
+        { \token_to_str:N \citation { \c__gbt_bst_control_entry_key_tl } }
+    \fi
+  }
+
+
+% 兼容 v1.x.x 过时的接口：
+% TODO: v3.0.0 remove these
+\bool_if:NT \l__gbt_legacy_interface_bool
+  {
+    \foo
+    \bool_if:NTF \l__gbt_legacy_mmxv_bool
+      { \tl_set:Nn \l_tmpa_tl { 2015 } }
+      { \tl_set:Nn \l_tmpa_tl { 2005 } }
+    \bool_if:NTF \l__gbt_legacy_numeric_bool
+      {
+        \tl_set:Nn \l_tmpb_tl { numeric }
+        \bool_if:NF \l__gbt_legacy_super_bool
+          { \gbtsetup { inline = true } }
+      }
+      { \tl_set:Nn \l_tmpb_tl { authoryear } }
+    \exp_args:Ne \bibliographystyle
+      { gbt7714- \tl_use:N \l_tmpa_tl - \tl_use:N \l_tmpb_tl }
+  }
+
+\ExplSyntaxOff
+
 
 % Patch \pkg{natbib} 内部命令，以支持 \cs{noopsort}。
 % 参考 \url{https://tex.stackexchange.com/a/39718/82731}。
@@ -373,45 +968,3 @@
 \def\NAT@bare#1(#2){%
  \begingroup\edef\x{\endgroup
    \unexpanded{\NAT@bare@aux#1}(\@firstofone#2)}\x}
-
-% 使用 \pkg{xurl} 宏包的方法，增加 URL 可断行的位置。
-\g@addto@macro\UrlBreaks{%
-  \do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
-  \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
-  \do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z
-  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m
-  \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
-}
-\Urlmuskip=0mu plus 0.1mu
-
-% 兼容 v2.0 前过时的接口：
-\newif\ifgbt@bib@style@written
-\@ifpackageloaded{chapterbib}{}{%
-  \def\bibliography#1{%
-    \ifgbt@bib@style@written\else
-      \bibliographystyle{gbt7714-numeric}%
-    \fi
-    \if@filesw
-      \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
-    \fi
-    \@input@{\jobname.bbl}}
-  \def\bibliographystyle#1{%
-    \gbt@bib@style@writtentrue
-    \ifx\@begindocumenthook\@undefined\else
-      \expandafter\AtBeginDocument
-    \fi
-      {\if@filesw
-        \immediate\write\@auxout{\string\bibstyle{#1}}%
-      \fi}%
-  }%
-}
-\ifgbt@legacy@interface
-  \ifgbt@numeric
-    \ifgbt@super\else
-      \citestyle{numbers}
-    \fi
-    \bibliographystyle{gbt7714-numeric}
-  \else
-    \bibliographystyle{gbt7714-authoryear}
-  \fi
-\fi

@@ -1,0 +1,2942 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+(option-align-right.bbl
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+)
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0
+.\glue 16.0
+.\vbox(617.0+0.0)x345.0, shifted 62.0
+..\vbox(12.0+0.0)x345.0, glue set 12.0fil
+...\glue 0.0 plus 1.0fil
+...\hbox(0.0+0.0)x345.0
+....\hbox(0.0+0.0)x345.0
+..\glue 25.0
+..\glue(\lineskip) 0.0
+..\vbox(550.0+0.0)x345.0, glue set 83.4981fil
+...\write-{}
+...\glue(\topskip) 0.0
+...\hbox(10.08+0.17279)x345.0, glue set 269.19843fil
+....\hbox(0.0+0.0)x0.0
+....\TU/lmr/bx/n/14.4 References
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty 10000
+...\glue 9.913 plus 0.86198
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.82721
+...\hbox(8.0+2.49998)x324.44, glue set 27.51999fil, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [1]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 丁
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 文
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 详
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 数
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 字
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 革
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 命
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 与
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 竞
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 争
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 国
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 际
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 化
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [N].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 国
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 青
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 年
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 ....-..-..
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 15
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\rule(0.0+0.0)x-6.34
+....\glue 6.34 minus 5.0
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.64001
+...\hbox(7.86+2.49998)x324.44, glue set - 0.07889, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [2]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 久
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 保
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 智
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 康
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 花
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 枝
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 蝶
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 鸟
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 方
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 镜
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 的
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 镜
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 范
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 以
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 平
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 安
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 后
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 期
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 的
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 铜
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 镜
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 制
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 作
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 工
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 艺
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 为
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 心
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 顾
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+1.99998)x324.44, glue set 151.12fil, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 幼
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 静
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 译
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 东
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 方
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 博
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 物
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2009
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 1
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 85-92.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.13002
+...\hbox(7.87+2.49998)x324.44, glue set - 0.16478, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [3]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 于
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 潇
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 刘
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 义
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 柴
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 跃
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 廷
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 等
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 互
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 联
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 网
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 药
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 品
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 可
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 信
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 交
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 易
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 环
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 境
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 主
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 体
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 资
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 质
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 审
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 核
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 备
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 案
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 模
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.49998)x324.44, glue set 40.42fil, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 式
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 清
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 华
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 大
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\glue 0.0 plus 0.46875
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （自
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 然
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 科
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 版
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2012
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 52
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 11
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 1518-1523.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.68001
+...\hbox(7.82+2.49998)x324.44, glue set 0.22737, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [4]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 张
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 群
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 程
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 志
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 宝
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 石
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 志
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 飞
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 惯
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 性
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 增
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 强
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 动
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 力
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 吸
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 振
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 器
+....\TU/lmr/m/n/10 -
+....\discretionary
+....\TU/FandolSong-Regular(0)/m/n/10 浮
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 置
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 板
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 轨
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 道
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 低
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 频
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 减
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 振
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 性
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 能
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 研
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 1.70001
+...\hbox(7.8+2.5)x324.44, glue set 0.3165, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 究
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J/OL].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 铁
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 道
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 ....-..-...
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\mathon
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#44
+....\penalty 100
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#70
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#70
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#70
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.56
+...\hbox(6.94+0.22)x324.44, glue set 186.64001fil, shifted 20.56
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 3.95999
+...\hbox(7.82+2.49998)x324.44, glue set 0.22737, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [5]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 张
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 群
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 程
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 志
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 宝
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 石
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 志
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 飞
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 惯
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 性
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 增
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 强
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 动
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 力
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 吸
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 振
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 器
+....\TU/lmr/m/n/10 -
+....\discretionary
+....\TU/FandolSong-Regular(0)/m/n/10 浮
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 置
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 板
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 轨
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 道
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 低
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 频
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 减
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 振
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 性
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 能
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 研
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.49998)x324.44, glue set 140.42fil, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 究
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 铁
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 道
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2024
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 46
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 8
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 102-111.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 1.69002
+...\hbox(7.81+2.49998)x324.44, glue set 0.21353, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [6]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 徐
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 建
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 委
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 历
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 史
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 的
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 起
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 点
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 5.45
+....\TU/FandolSong-Regular(0)/m/n/10 《史
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 记
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 》
+....\rule(0.0+0.0)x-5.46
+....\glue 5.46 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 中
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 的
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 时
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 间
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 设
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 置
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 及
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 其
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 意
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 义
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J/OL].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 北
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 京
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 大
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.5)x324.44, glue set 0.1653, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\glue 0.0 plus 0.46875
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （哲
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 社
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 会
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 科
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 版
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2025
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 62
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 2
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 117-127.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\mathon
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#44
+....\penalty 100
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#71
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.5)x324.44, glue set 0.164, shifted 20.56
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#55
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#92
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#34
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#67
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#46
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#115
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#115
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#34
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#119
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#115
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#97
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#62
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#69
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#115
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#34
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#29
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#108
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#104
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.05)x324.44, glue set 0.03372, shifted 20.56
+....\TU/lmr/m/n/10 glyph#29
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#68
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#29
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#34
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#46
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#42
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.45
+...\hbox(7.5+2.06)x324.44, glue set 0.3598, shifted 20.56
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#49
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#34
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#29
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#112
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#29
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#104
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#29
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.44
+...\hbox(7.5+2.06)x324.44, glue set 0.2644, shifted 20.56
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#108
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#52
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#27
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#68
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.44
+...\hbox(7.5+2.06)x324.44, glue set 36.38fil, shifted 20.56
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#54
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#46
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#115
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#112
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#46
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#104
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#118
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#87
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#56
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#46
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.1
+...\hbox(7.84+2.49998)x324.44, glue set - 0.04993, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [7]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/FandolSong-Regular(0)/m/n/10 王
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 利
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 平
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 王
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 福
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 新
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 刘
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 洪
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 过
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 冷
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 大
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 水
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 滴
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 环
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 境
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 粒
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 径
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 分
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 布
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 模
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 拟
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 方
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 法
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 研
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 究
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 进
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 展
+....\kern -0.00017
+....\kern 0.00017
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/FandolSong-Regular(0)/m/n/10 航
+....\glue(\rightskip) 0.0
+...\penalty 300
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+1.99998)x324.44, glue set 158.33fil, shifted 20.56
+....\TU/FandolSong-Regular(0)/m/n/10 空
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 学
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 报
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2024
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 45
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （增
+....\glue 0.0 plus 0.46875
+....\TU/FandolSong-Regular(0)/m/n/10 刊
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 1
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 730570.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.50002
+...\hbox(7.5+2.49998)x324.44, glue set - 0.39272, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [8]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 Saito
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 M
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Miyazaki
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 K.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Jadeite-bearing
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 metagabbro
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 in
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 serpentinite
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 melange
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.45001
+...\hbox(7.05+2.05998)x324.44, glue set 0.70871, shifted 20.56
+....\TU/lmr/m/n/10 of
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 the
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 “Kurosegawa
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Belt
+....\kern -0.0002
+....\kern 0.0002
+....\TU/lmr/m/n/10 ”
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 in
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Izumi
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Town
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\kern 0.00043
+....\kern -0.00043
+....\kern -0.99628
+....\kern 0.99628
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Yatsushiro
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 City
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\kern 0.00043
+....\kern -0.00043
+....\kern -0.99628
+....\kern 0.99628
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Kumamoto
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.44002
+...\hbox(7.5+2.49998)x324.44, glue set - 0.26749, shifted 20.56
+....\TU/lmr/m/n/10 Prefecture
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 central
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Kyushu
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\TU/lmr/m/n/10 [J].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Bulletin
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 of
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 the
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Geological
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Survey
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 of
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Japan
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.49998)x324.44, glue set 208.33fil, shifted 20.56
+....\TU/lmr/m/n/10 2006
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 57
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 5/6
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 169-176.
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.00002
+...\hbox(7.5+2.49998)x324.44, glue set - 0.87462, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56, glue set 2.5fil
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x10.56
+.......\TU/lmr/m/n/10 [9]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 Myburg
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 A
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 A
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Grattapaglia
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 D
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Tuskan
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 G
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 A
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 al.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 The
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 genome
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 of
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/it/10 Eucalyptus
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.00002
+...\hbox(7.5+2.5)x324.44, glue set 0.25511, shifted 20.56
+....\TU/lmr/m/it/10 grandis
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\TU/lmr/m/n/10 [J/OL].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Nature
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2014
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 510
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 356-362.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\mathon
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#44
+....\penalty 100
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#114
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#114
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#114
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.5)x324.44, glue set 94.97002fil, shifted 20.56
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#55
+....\glue 0.0
+....\penalty 9000
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 DOI:
+....\kern -0.0002
+....\kern 0.0002
+....\mathon
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#28
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#96
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#51
+....\glue 0.0
+....\penalty 9000
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 8.0 plus 4.0 minus 2.0
+...\glue(\parskip) 0.0
+...\glue(\parskip) 0.0
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.49998)x324.44, glue set 0.32344, shifted 20.56
+....\hbox(7.5+2.49998)x0.0
+.....\glue 0.0
+.....\glue -15.56
+.....\glue -5.0
+.....\hbox(7.5+2.49998)x15.56
+......\glue 0.0 plus 1.0fil
+......\glue 0.0 plus 1.0fil
+......\hbox(7.5+2.49998)x15.56
+.......\TU/lmr/m/n/10 [10]
+.......\kern -0.0002
+.......\kern 0.0002
+.....\glue 5.0
+....\penalty 0
+....\TU/lmr/m/n/10 Veen
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 P
+....\glue 3.33 plus 1.66331 minus 1.1111
+....\TU/lmr/m/n/10 H
+....\glue 3.33 plus 1.66331 minus 1.1111
+....\TU/lmr/m/n/10 v
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 d
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Muller
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 M
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 Vincken
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 K
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 L
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 et
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 10000
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 al.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Longitudinal
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 changes
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 in
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.45001
+...\hbox(7.05+1.93999)x324.44, glue set - 0.75308, shifted 20.56
+....\TU/lmr/m/n/10 brain
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 volumes
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 and
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 cerebrovascular
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 lesions
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 on
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 MRI
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.33 plus 1.66331 minus 1.1111
+....\TU/lmr/m/n/10 in
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 patients
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 with
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 manifest
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 2.56001
+...\hbox(7.5+2.49998)x324.44, glue set - 0.54784, shifted 20.56
+....\TU/lmr/m/n/10 arterial
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 disease
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 the
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 SMART-MR
+....\kern -0.0002
+....\kern 0.0002
+....\glue 3.33 plus 1.66331 minus 1.1111
+....\TU/lmr/m/n/10 study
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\TU/lmr/m/n/10 [J/OL].
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 Journal
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 of
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 the
+....\glue 3.33 plus 1.665 minus 1.11
+....\TU/lmr/m/n/10 Neurological
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.5)x324.44, glue set 0.07462, shifted 20.56
+....\TU/lmr/m/n/10 Sciences
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 2014
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ，
+....\rule(0.0+0.0)x-6.92
+....\glue 6.92 minus 5.0
+....\TU/lmr/m/n/10 337
+....\kern -0.0002
+....\kern 0.0002
+....\penalty 0
+....\glue 6.34 minus 5.0
+....\rule(0.0+0.0)x-6.34
+....\TU/FandolSong-Regular(0)/m/n/10 （
+....\penalty 10000
+....\glue 0.0
+....\TU/lmr/m/n/10 1/2
+....\penalty 10000
+....\TU/FandolSong-Regular(0)/m/n/10 ）
+....\penalty 10000
+....\glue -5.0 plus 5.0 minus 1.34
+....\TU/FandolSong-Regular(0)/m/n/10 ：
+....\rule(0.0+0.0)x-6.97
+....\glue 6.97 minus 5.0
+....\TU/lmr/m/n/10 112-118.
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\mathon
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#105
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#44
+....\penalty 100
+....\glue(\thickmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#84
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#109
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#35
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#50
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#47
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#43
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#35
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#72
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#75
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#66
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#63
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#59
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#81
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#112
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\rightskip) 0.0
+...\penalty 150
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.5)x324.44, glue set 138.12001fil, shifted 20.56
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#57
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#100
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#102
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\glue 3.33 plus 1.665 minus 1.11
+....\glue 1.1 plus 3.30002 minus 0.70007
+....\TU/lmr/m/n/10 DOI:
+....\kern -0.0002
+....\kern 0.0002
+....\mathon
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#101
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#102
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#68
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#68
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#77
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#98
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#106
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#82
+....\glue 0.0
+....\penalty 9000
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#88
+....\penalty 200
+....\glue(\medmuskip) 0.0 plus 1.66663
+....\TU/lmr/m/n/10 glyph#121
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#107
+....\glue 0.0
+....\penalty 9000
+....\TU/lmr/m/n/10 glyph#78
+....\glue 0.0
+....\penalty 9000
+....\mathoff
+....\TU/lmr/m/n/10 .
+....\penalty 10000
+....\glue(\parfillskip) 0.0 plus 1.0fil
+....\glue(\rightskip) 0.0
+...\penalty -51
+...\glue 10.0 plus 3.0 minus 5.0
+...\glue -10.0 plus -3.0 minus -5.0
+...\glue 0.0 plus 1.0fil
+...\glue 0.0
+...\glue 0.0 plus 0.0001fil
+..\glue(\baselineskip) 30.0
+..\hbox(0.0+0.0)x345.0
+...\hbox(0.0+0.0)x345.0

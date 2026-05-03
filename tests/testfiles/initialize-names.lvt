@@ -1,0 +1,46 @@
+% 不同预印本平台导出的 .bib 格式差异很大，尽可能做一些兼容。
+
+\documentclass{article}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@book{ITEM-1,
+  author        = {Li, Jiangning},
+}
+
+@book{ITEM-2,
+  author        = {Li, Jiang Ning},
+}
+
+@book{ITEM-3,
+  author        = {Li, Jiang-Ning},
+}
+
+@book{ITEM-4,
+  author        = {Li, Jiang-ning},
+}
+
+@book{ITEM-5,
+  author        = {Ouyang, Wen},
+}
+
+@book{ITEM-6,
+  author        = {Zhao, Ping'an},
+}
+
+% 双姓组合（并列姓氏）
+@book{ITEM-7,
+  author        = {Zheng-Zhang, Shangfang},
+}
+\end{filecontents}
+
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
+\usepackage[checkpinyin]{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

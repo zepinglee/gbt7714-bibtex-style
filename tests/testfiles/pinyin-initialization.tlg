@@ -1,0 +1,32 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Yang(n.d.)]{yang}
+Yang W M.
+
+\bibitem[Sima(n.d.)]{sima}
+Sima X.
+
+\bibitem[Zhao(n.d.)]{zhao}
+Zhao P A.
+
+\bibitem[Zheng-Li(n.d.)]{zheng-li}
+Zheng-Li S F.
+
+\bibitem[Lü(n.d.)]{lü}
+Lü H.
+
+\bibitem[Lyu(n.d.)]{lyu}
+Lyu H P.
+
+\end{thebibliography}

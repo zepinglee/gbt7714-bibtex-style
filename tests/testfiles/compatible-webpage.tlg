@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Anon(2025)]{amd_epyc_2025}
+{AMD} {EPYC}™ 9965\allowbreak[EB/OL].
+\newblock AMD，2025\allowbreak （2025）\allowbreak[2025-04-14].
+\newblock \url{https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html}.
+
+\end{thebibliography}

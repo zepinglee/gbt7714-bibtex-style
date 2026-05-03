@@ -1,8 +1,9 @@
 \input{regression-test.tex}
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
 \usepackage{gbt7714}
-\bibliographystyle{gbt7714-numeric}
+\bibliographystyle{gbt7714-2025-numeric}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
@@ -76,7 +77,7 @@
 
 % 《GB/T 7714 新标准对旧标准的主要修改及实施要点提示》3.2.4)
 % 在有些特殊情况下，序号也可作为行文语句的组成部分。
-% 引用\parencite[42]{zhang1984}测试\par
+引用\parencite[42]{zhang1984}测试\par
 
 % 测试 \citeauthor 与后续文字的间隙
 % <https://github.com/zepinglee/gbt7714-bibtex-style/issues/120>
@@ -106,7 +107,7 @@ Citation \citet[42]{doe1984} test\par
 
 % 《GB/T 7714 新标准对旧标准的主要修改及实施要点提示》3.2.4)
 % 在有些特殊情况下，序号也可作为行文语句的组成部分。
-% Citation \parencite[42]{doe1984} test\par
+Citation \parencite[42]{doe1984} test\par
 
 Citation (\citeauthor{doe1984}) test\par
 

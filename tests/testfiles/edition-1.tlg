@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Marx et~al.(2009)Marx and Hutter]{marx_ab_2009}
+Marx D，Hutter J.
+\newblock Ab {Initio} {Molecular} {Dynamics}：{Basic} {Theory} and {Advanced} {Methods}\allowbreak[M/OL].
+\newblock Cambridge University Press，2009.
+\newblock \url{https://www.cambridge.org/core/product/identifier/9780511609633/type/book}.
+\newblock DOI:\doi{10.1017/CBO9780511609633}.
+
+\end{thebibliography}

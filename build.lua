@@ -11,7 +11,7 @@ supportdir = "."
 checksuppfiles = { "*-examples.bib" }
 
 sourcefiles = { "*.dtx", "*.ins", "*.sty" }
-installfiles = { "*.dtx", "*.sty", "*.bst" }
+installfiles = { "*.sty", "*.bst" }
 tagfiles = {
   "CHANGELOG.md",
   "*.dtx",
@@ -69,8 +69,6 @@ test_types = {
     reference = ".tlg",
     -- compare = compare_tlg,
     rewrite = function(source, result, engine, errlevels)
-      source = dirname(source) .. "/test.bbl"
-
       local file = assert(io.open(source, "rb"))
       local content = string.gsub(file:read("a"), "\r\n", "\n")
       file:close()
@@ -125,9 +123,12 @@ uploadconfig = {
   update = true,
 }
 
-function runtest_tasks(name)
-  -- return "bibtex " .. name
-  return "bibtex -terse test"
+function runtest_tasks(name, run)
+  if run == 1 then
+    return "bibtex -terse " .. name
+  else
+    return ""
+  end
 end
 
 function update_tag(file, content, tagname, tagdate)

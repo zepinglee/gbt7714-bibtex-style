@@ -7,9 +7,77 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 新增 2025 版国标样式 `gbt7714-2025-numeric`、`gbt7714-2025-authoryear`。
+- 新增命令 `\parencite`、`\inlinecite`、`\onlinecite` 使序号作为行文语句的组成部分。
+- 新增选项 `align = left / right` 控制参考文献表的标签对齐方式。
+- 新增选项 `citepunct = full / half` 控制著者-出版年的引用使用全角/半角符号。
+- 新增选项 `inline` 控制序号是否作为行文语句的组成部分。
+- 新增选项 `mincompress` 控制连续两个序号是否使用短横线连接。
+- 新增选项 `bibpunct = GB / half / bylanguage` 控制参考文献表的符号。
+- 新增选项 `convertpunct` 控制是否转换题名内部的全角/半角符号。
+- 新增选项 `maxbibnames` 和 `minbibnames` 控制参考文献表中显示姓名的数量。
+- 新增选项 `maxcitenames` 和 `mincitenames` 控制引注显示姓名的数量。
+- 新增选项 `uppercasefamily` 控制西文姓是否大写。
+- 新增选项 `initializewithhyphen` 控制名字缩写时是否保留连字符。
+- 新增选项 `checkpinyin` 控制是否检测姓名为拼音。
+- 新增选项 `initializepinyin` 控制拼音姓名是否缩写。
+- 新增选项 `bibfinaland` 和 `citefinaland` 控制姓名列表的结尾使用“和”或“and”连接。
+- 新增选项 `citelang` 控制引注中“and”、“et al.”的语言。
+- 新增选项 `spacebeforeetal` 控制引注的中文姓名与“等”之间是否有空格。
+- 新增选项 `yearbeforetitle` 控制著者-出版年制出版年是否置于题名前。
+- 新增选项 `nameyeardelim` 控制著者-出版年制姓名和出版年之间的分隔符。
+- 新增选项 `sentencecase`、`sentencecasetitle`、`sentencecasejournal`、`sentencecasebooktitle` 控制是否将对应题名转为 sentence case。
+- 新增选项 `capitalizesubtitle` 控制 sentence case 题名冒号后是否大写。
+- 新增选项 `linktitle` 控制题名是否有超链接。
+- 新增选项 `articletitle` 控制期刊文章是否显示题名。
+- 新增选项 `patentcountry` 控制是否显示专利国别。
+- 新增选项 `entrytypeid` 控制是否著录文献类型标识。
+- 新增选项 `spacebeforetypeid` 控制题名与文献类型标识之间是否有空格。
+- 新增选项 `entrymediumid` 控制是否著录文献载体标识。
+- 新增选项 `slash` 控制析出文献的出处是否使用"//"。
+- 新增选项 `in` 控制专著的析出文献是否著录“In:”或“见：”。
+- 新增选项 `emphbooktitle` 控制析出文献的图书题名是否使用斜体。
+- 新增选项 `shortjournal` 控制刊名是否使用缩写。
+- 新增选项 `journaldots` 控制刊名缩写是否移除句点。
+- 新增选项 `emphjournal` 控制刊名是否使用斜体。
+- 新增选项 `linkjournal` 控制刊名是否有超链接。
+- 新增选项 `unknownpublisher` 控制无出版地或无出版者时是否著录“出版地不详”、“S.l.”、“出版者不详”、“s.n.”等内容。
+- 新增选项 `spacebeforepages` 控制页码前是否有空格。
+- 新增选项 `pageranges` 控制页码著录起止范围或首页。
+- 新增选项 `pagerangedelim` 起止页码的分隔符。
+- 新增选项 `urldate` 控制是否著录引用日期。
+- 新增选项 `url` 控制纸质文献是否著录 URL。
+- 新增选项 `doi` 控制是否著录 DOI。
+- 新增选项 `eprint` 控制预印本是否著录标识符。
+- 新增选项 `note` 控制是否著录附注。
+- 新增选项 `enddot` 控制参考文献的结尾是否用“.”号标识。
+
 ### Changed
 
 - 更改 `bst` 样式名称的后缀为 `-numeric` 和 `-authoryear`，与其他 Bib(La)TeX 样式保持一致。
+- 文献类型标识的字段改为 `entrytypeid`。
+- 文献载体标识的字段改为 `entrymediumid`。
+- 更新预印本的格式。
+- 选项 `locator-inside-brackets` 的名称改为 `locator-in-brackets`。
+- 按照 `biblatex` 的方式处理 URL 的断行。
+
+### Deprecated
+
+- 文献类型标识的字段 `mark` 已过时。
+- 文献载体标识的字段 `medium` 已过时。
+- 带 `-numerical` 和 `-author-year` 后缀的 `bst` 样式名称已过时。
+- 选项 `locator-inside-brackets` 已过时。
+
+### Fixed
+
+- DOI 的前缀“DOI: ”去掉空格。
+- 报纸的版次修正为使用 `pages` 字段，不再使用 `number` 字段。
+- 专利 `@patent` 优先使用专利申请者/所有者 `holder`，再使用发明者 `author`。
+- 修正英文文献的译者缺失“, trans.”的问题。
+- 按照语言习惯输出 `\citet*` 和 `\citep*` 完整姓名列表的格式。
+
 
 ## [2.1.9] - 2026-01-15
 
@@ -60,7 +128,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-`@inbook` 改为按照是否有 `booktitle` 选择“专著”或“专著的吸出文献”格式（[tuna/thuthesis#930](https://github.com/tuna/thuthesis/issues/930)）。
+`@inbook` 改为按照是否有 `booktitle` 选择“专著”或“专著的析出文献”格式（[tuna/thuthesis#930](https://github.com/tuna/thuthesis/issues/930)）。
 
 ## Fixed
 

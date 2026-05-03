@@ -1,0 +1,24 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Zwicker(2022)]{Zwicker2022}
+Zwicker D.
+\newblock The intertwined physics of active chemical reactions and phase separation\allowbreak[J].
+\newblock Current Opinion in Colloid and Interface Science，2022，61：101606.
+
+\bibitem[Zwicker et~al.(2022)Zwicker and Laan]{Zwicker2022PNAS}
+Zwicker D，Laan L.
+\newblock Evolved interactions stabilize many coexisting phases in multicomponent liquids\allowbreak[J].
+\newblock Proceedings of the National Academy of Sciences，2022，119\allowbreak （28）：e2201250119.
+
+\end{thebibliography}
