@@ -1,0 +1,47 @@
+{
+    "[latex-expl3]": {
+        "editor.tabSize": 2
+    },
+    "[latex]": {
+        "editor.tabSize": 2
+    },
+    "[lua]": {
+        "editor.tabSize": 2
+    },
+    "files.associations": {
+        "*-bst.dtx": "bibtex-style",
+        "*.aux": "latex",
+        "*.bbl": "latex",
+        "*.ins": "latex",
+        "*.lvt": "latex",
+        "*.sty": "latex-expl3",
+        "*.tlg": "latex-expl3",
+        "DEPENDS.txt": "shellscript"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "xelatexmk"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ]
+}
