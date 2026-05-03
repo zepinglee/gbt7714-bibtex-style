@@ -3,7 +3,7 @@
 [![CTAN](https://img.shields.io/ctan/v/gbt7714.svg)](https://ctan.org/pkg/gbt7714)
 [![GitHub release](https://img.shields.io/github/release/zepinglee/gbt7714-bibtex-style/all.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/zepinglee/gbt7714-bibtex-style/latest.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/commits/master)
-[![Build](https://github.com/zepinglee/gbt7714-bibtex-style/workflows/build/badge.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/actions)
+[![Build](https://github.com/zepinglee/gbt7714-bibtex-style/actions/workflows/test.yml/badge.svg)](https://github.com/zepinglee/gbt7714-bibtex-style/actions)
 
 
 ## Introduction
