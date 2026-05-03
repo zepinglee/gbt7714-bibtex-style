@@ -77,6 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 专利 `@patent` 优先使用专利申请者/所有者 `holder`，再使用发明者 `author`。
 - 修正英文文献的译者缺失“, trans.”的问题。
 - 按照语言习惯输出 `\citet*` 和 `\citep*` 完整姓名列表的格式。
+- 修正上标模式 `\citeauthor` 后多余的空白（[#120](https://github.com/zepinglee/gbt7714-bibtex-style/issues/120)）。
 
 
 ## [2.1.9] - 2026-01-15

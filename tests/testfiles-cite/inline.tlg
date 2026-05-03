@@ -338,6 +338,7 @@ Completed box being shipped out [1]
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\penalty 10000
 .....\mathon
 .....\hbox(4.718+0.0)x8.466, shifted -3.62892
 ......\TU/lmr/m/n/7 42
@@ -370,7 +371,6 @@ Completed box being shipped out [1]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -697,6 +697,7 @@ Completed box being shipped out [1]
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\penalty 10000
 .....\mathon
 .....\hbox(4.718+0.0)x8.466, shifted -3.62892
 ......\TU/lmr/m/n/7 42
@@ -723,7 +724,6 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
-.....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/m/n/10 )
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
