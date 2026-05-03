@@ -117,7 +117,7 @@ uploadconfig = {
   email = mydata.email,
   summary = "BibTeX implementation of China’s bibliography style standard GB/T 7714—2015",
   description =
-  [[The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714—2015. It consists of two bst files for numerical and author-year styles as well as a LaTeX package which provides the citation style defined in the standard. The package is compatible with natbib and supports language detection (Chinese and English) for each biblilography entry.]],
+  [[The package provides a BibTeX implementation for the Chinese national bibliography style standard GB/T 7714—2015. It consists of two bst files for numeric and author-year styles as well as a LaTeX package which provides the citation style defined in the standard. The package is compatible with natbib and supports language detection (Chinese and English) for each biblilography entry.]],
   ctanPath = "/biblio/bibtex/contrib/gbt7714",
   repository = package_repository,
   bugtracker = package_repository .. "/issues",

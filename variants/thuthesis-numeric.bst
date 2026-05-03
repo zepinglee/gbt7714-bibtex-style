@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714-bst.dtx  (with options: `2015,thu,numerical')
+%% gbt7714-bst.dtx  (with options: `2015,thu,numeric')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style

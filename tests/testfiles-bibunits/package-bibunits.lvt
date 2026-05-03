@@ -2,7 +2,7 @@
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexrep}
 
 \begin{filecontents}[noheader, overwrite]{chapter1.tex}
-\begin{bibunit}[gbt7714-numerical]
+\begin{bibunit}[gbt7714-numeric]
 \chapter{Foo}
 Foo\cite{4.1.2:1, 4.1.2:2}
 \putbib[gbt7714-examples]
@@ -11,7 +11,7 @@ Foo\cite{4.1.2:1, 4.1.2:2}
 
 \begin{filecontents}[noheader, overwrite]{chapter2.tex}
 \chapter{Bar}
-\begin{bibunit}[gbt7714-author-year]
+\begin{bibunit}[gbt7714-authoryear]
 Bar\cite{4.1.2:1, 4.1.2:3}
 \putbib[gbt7714-examples]
 \end{bibunit}

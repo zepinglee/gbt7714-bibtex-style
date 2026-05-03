@@ -107,7 +107,7 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 \section{版本 v2.0 的重要修改}
 
 从 v2.0 版本开始（2020-03-04），用户必须在文档中使用 \cs{biblilographystyle} 命令选择参考文献样式，
-如 \opt{gbt7714-numerical} 或 \opt{gbt7714-author-year}。
+如 \opt{gbt7714-numeric} 或 \opt{gbt7714-authoryear}。
 在早期的版本中，选择文献样式的方法是将 \opt{numbers} 或 \opt{super} 等参数传递给
 \pkg{gbt7714}，
 而不能使用 \cs{bibliographystyle}。
@@ -120,7 +120,7 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 \begin{latex}
   \documentclass{ctexart}
   \usepackage{gbt7714}
-  \bibliographystyle{gbt7714-numerical}
+  \bibliographystyle{gbt7714-numeric}
   \begin{document}
     \cite{...}
     ...
@@ -133,14 +133,14 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 用户应在导言区调用宏包 \pkg{gbt7714}，并且使用 \cs{bibliographystyle}
 命令选择参考文献表的样式，比如：
 \begin{latex}
-  \bibliographystyle{gbt7714-numerical}  % 顺序编码制
+  \bibliographystyle{gbt7714-numeric}  % 顺序编码制
 \end{latex}
 或者
 \begin{latex}
-  \bibliographystyle{gbt7714-author-year}  % 著者-出版年制
+  \bibliographystyle{gbt7714-authoryear}  % 著者-出版年制
 \end{latex}
-此外还可以使用 2005 版的格式 \file{gbt7714-2005-numerical} 和
-\file{gbt7714-2005-author-year}。
+此外还可以使用 2005 版的格式 \file{gbt7714-2005-numeric} 和
+\file{gbt7714-2005-authoryear}。
 
 注意，版本 v2.0 更改了设置参考文献表样式的方法，
 要求直接使用 \cs{bibliographystyle}，不再使用宏包的参数，
@@ -150,7 +150,7 @@ GB/T 7714—2015 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   \begin{syntax}
     |\citestyle|\Arg{citation style}
   \end{syntax}
-可选：\opt{super}, \opt{numbers}, \opt{author-year}。
+可选：\opt{super}, \opt{numbers}, \opt{authoryear}。
 使用 \cs{bibliography} 选择参考文献表的样式时会自动设置对应的引用样式。
 顺序编码制的引用标注默认使用角标式（\opt{super}），
 如“张三\textsuperscript{[2]}提出”。

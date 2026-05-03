@@ -2,7 +2,7 @@
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
 \usepackage{gbt7714}
-\bibliographystyle{gbt7714-author-year}
+\bibliographystyle{gbt7714-authoryear}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}

@@ -28,7 +28,7 @@
 %<*package>
 \newif\ifgbt@legacy@interface
 \newif\ifgbt@mmxv
-\newif\ifgbt@numerical
+\newif\ifgbt@numeric
 \newif\ifgbt@super
 \newcommand\gbt@obsolete@option[1]{%
   \PackageWarning{gbt7714}{The option "#1" is obsolete}%
@@ -47,19 +47,19 @@
   super .code = {%
     \gbt@obsolete@option{super}%
     \gbt@legacy@interfacetrue
-    \gbt@numericaltrue
+    \gbt@numerictrue
     \gbt@supertrue
   },
   numbers .code = {%
     \gbt@obsolete@option{numbers}%
     \gbt@legacy@interfacetrue
-    \gbt@numericaltrue
+    \gbt@numerictrue
     \gbt@superfalse
   },
   authoryear .code = {%
     \gbt@obsolete@option{authoryear}%
     \gbt@legacy@interfacetrue
-    \gbt@numericalfalse
+    \gbt@numericfalse
   },
 }
 
@@ -83,7 +83,7 @@
 % 这里直接修改内部命令。
 \def\NAT@cmprs{\@ne}
 
-% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
+% 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numeric}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
 \renewcommand\newblock{\space}
 \newcommand\bibstyle@super{\bibpunct{[}{]}{,}{s}{,}{\textsuperscript{,}}}
@@ -92,10 +92,10 @@
 \newcommand\bibstyle@inline{\bibstyle@numbers}
 
 % 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
-\@namedef{bibstyle@gbt7714-numerical}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-author-year}{\bibstyle@authoryear}
-\@namedef{bibstyle@gbt7714-2005-numerical}{\bibstyle@super}
-\@namedef{bibstyle@gbt7714-2005-author-year}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-authoryear}{\bibstyle@authoryear}
+\@namedef{bibstyle@gbt7714-2005-numeric}{\bibstyle@super}
+\@namedef{bibstyle@gbt7714-2005-authoryear}{\bibstyle@authoryear}
 
 % 下面修改 \pkg{natbib} 的引用格式。
 % 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
@@ -153,7 +153,7 @@
   \endgroup
 }
 
-% Numerical 模式的 \cs{citet} 的页码：
+% Numeric 模式的 \cs{citet} 的页码：
 \def\NAT@citexnum[#1][#2]#3{%
   \NAT@reset@parser
   \NAT@sort@cites{#3}%
@@ -389,7 +389,7 @@
 \@ifpackageloaded{chapterbib}{}{%
   \def\bibliography#1{%
     \ifgbt@bib@style@written\else
-      \bibliographystyle{gbt7714-numerical}%
+      \bibliographystyle{gbt7714-numeric}%
     \fi
     \if@filesw
       \immediate\write\@auxout{\string\bibdata{\zap@space#1 \@empty}}%
@@ -406,12 +406,12 @@
   }%
 }
 \ifgbt@legacy@interface
-  \ifgbt@numerical
+  \ifgbt@numeric
     \ifgbt@super\else
       \citestyle{numbers}
     \fi
-    \bibliographystyle{gbt7714-numerical}
+    \bibliographystyle{gbt7714-numeric}
   \else
-    \bibliographystyle{gbt7714-author-year}
+    \bibliographystyle{gbt7714-authoryear}
   \fi
 \fi

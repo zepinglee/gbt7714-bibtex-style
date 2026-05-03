@@ -19,7 +19,7 @@
 % 这里定义了一些变量用于定制样式，
 % 可以在下面的 |load.config| 函数中选择是否启用。
 %    \begin{macrocode}
-%<*author-year|numerical>
+%<*authoryear|numeric>
 INTEGERS {
   citation.et.al.min
   citation.et.al.use.first
@@ -51,13 +51,13 @@ INTEGERS {
   show.english.translation
   end.with.period
   lowercase.word.after.colon
-%<*author-year>
+%<*authoryear>
   lang.zh.order
   lang.ja.order
   lang.en.order
   lang.ru.order
   lang.other.order
-%</author-year>
+%</authoryear>
 }
 
 STRINGS {
@@ -111,27 +111,27 @@ FUNCTION {load.config}
 %
 % 将年份置于著者后面（著者-出版年制默认）
 %    \begin{macrocode}
-%<*numerical|ucas>
+%<*numeric|ucas>
   #0 'year.after.author :=
-%</numerical|ucas>
-%<*author-year&!ucas>
+%</numeric|ucas>
+%<*authoryear&!ucas>
   #1 'year.after.author :=
-%</author-year&!ucas>
+%</authoryear&!ucas>
 %    \end{macrocode}
 %
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
-%<*numerical>
+%<*numeric>
   #1 'period.after.author :=
-%</numerical>
-%<*author-year>
+%</numeric>
+%<*authoryear>
 %<*2015&!(period)>
   #0 'period.after.author :=
 %</2015&!(period)>
 %<*period|2005>
   #1 'period.after.author :=
 %</period|2005>
-%</author-year>
+%</authoryear>
 %    \end{macrocode}
 %
 % 书名使用斜体：
@@ -372,13 +372,13 @@ FUNCTION {load.config}
 %
 % 参考文献表按照“著者-出版年”组织时，各个文种的顺序：
 %    \begin{macrocode}
-%<*author-year>
+%<*authoryear>
   #1 'lang.zh.order :=
   #2 'lang.ja.order :=
   #3 'lang.en.order :=
   #4 'lang.ru.order :=
   #5 'lang.other.order :=
-%</author-year>
+%</authoryear>
 }
 
 %    \end{macrocode}
@@ -2073,12 +2073,12 @@ FUNCTION {format.authors}
 { author empty$ not
     { author format.names }
     { "empty author in " cite$ * warning$
-%<*author-year>
+%<*authoryear>
       bbl.anonymous
-%</author-year>
-%<*numerical>
+%</authoryear>
+%<*numeric>
       ""
-%</numerical>
+%</numeric>
     }
   if$
 }
@@ -3346,12 +3346,12 @@ FUNCTION {monograph}
     { editor empty$ not
         { format.editors }
         { "empty author and editor in " cite$ * warning$
-%<*author-year>
+%<*authoryear>
           bbl.anonymous
-%</author-year>
-%<*numerical>
+%</authoryear>
+%<*numeric>
           ""
-%</numerical>
+%</numeric>
         }
       if$
     }
@@ -3657,12 +3657,12 @@ FUNCTION {preprint}
     { editor empty$ not
         { format.editors }
         { "empty author and editor in " cite$ * warning$
-%<*author-year>
+%<*authoryear>
           bbl.anonymous
-%</author-year>
-%<*numerical>
+%</authoryear>
+%<*numeric>
           ""
-%</numerical>
+%</numeric>
         }
       if$
     }
@@ -4343,7 +4343,7 @@ FUNCTION {calc.label}
 % names in the format described above.  The function is almost the same
 % as format.names.
 %    \begin{macrocode}
-%<*author-year>
+%<*authoryear>
 FUNCTION {sort.language.label}
 { entry.lang lang.zh =
     { lang.zh.order }
@@ -4493,12 +4493,12 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-%</author-year>
+%</authoryear>
 %    \end{macrocode}
 %
 % 顺序编码制的排序要简单得多
 %    \begin{macrocode}
-%<*numerical>
+%<*numeric>
 INTEGERS { seq.num }
 
 FUNCTION {init.seq}
@@ -4509,7 +4509,7 @@ FUNCTION {int.to.fix}
   #-1 #10 substring$
 }
 
-%</numerical>
+%</numeric>
 %    \end{macrocode}
 %
 % There is a limit, |entry.max$|, on the length of an entry string variable
@@ -4526,7 +4526,7 @@ FUNCTION {presort}
   label sortify
   "    "
   *
-%<*author-year>
+%<*authoryear>
   sort.language.label
   "    "
   *
@@ -4552,11 +4552,11 @@ FUNCTION {presort}
   cite$
   *
   #1 entry.max$ substring$
-%</author-year>
-%<*numerical>
+%</authoryear>
+%<*numeric>
   seq.num #1 + 'seq.num :=
   seq.num  int.to.fix
-%</numerical>
+%</numeric>
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
@@ -4627,7 +4627,7 @@ FUNCTION {initialize.longest.label}
 
 FUNCTION {forward.pass}
 {
-%<*author-year>
+%<*authoryear>
   last.label label =
     { "" 'extra.label :=
       last.extra.label text.length$ 'charptr :=
@@ -4653,13 +4653,13 @@ FUNCTION {forward.pass}
       label 'last.label :=
     }
   if$
-%</author-year>
+%</authoryear>
   number.label #1 + 'number.label :=
 }
 
 FUNCTION {reverse.pass}
 {
-%<*author-year>
+%<*authoryear>
   next.extra "b" =
     { "a" 'extra.label := }
     'skip$
@@ -4671,7 +4671,7 @@ FUNCTION {reverse.pass}
     { "{\natexlab{" swap$ * "}}" * }
   if$
   'extra.label :=
-%</author-year>
+%</authoryear>
   label extra.label * 'label :=
 }
 
@@ -4754,10 +4754,10 @@ EXECUTE {init.state.consts}
 
 EXECUTE {load.config}
 
-%<*numerical>
+%<*numeric>
 EXECUTE {init.seq}
 
-%</numerical>
+%</numeric>
 ITERATE {presort}
 
 %    \end{macrocode}
@@ -4785,7 +4785,7 @@ EXECUTE {begin.bib}
 ITERATE {call.type$}
 
 EXECUTE {end.bib}
-%</author-year|numerical>
+%</authoryear|numeric>
 %    \end{macrocode}
 %
 % \Finale
