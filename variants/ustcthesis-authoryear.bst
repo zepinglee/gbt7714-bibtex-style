@@ -1543,7 +1543,7 @@ FUNCTION {format.volume.number}
 }
 
 FUNCTION {format.title.vol.num}
-{ title
+{ title field.or.null
   sentence.case.title
     'change.sentence.case
     'skip$
