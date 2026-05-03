@@ -1,44 +1,51 @@
-testfiledir="test/testbst"
-testsuppdir="$testfiledir/support"
-unpackdir="build/unpacked";
-testdir="build/test";
-texoptions="-file-line-error -halt-on-error -interaction=nonstopmode"
-unpackexe="xetex $texoptions"
-checkexe="xelatex $texoptions -no-pdf"
-bibtexexe="bibtex"
+save_file () {
+    test="$1";
+    for config in main variants cite bibunits chapterbib; do
+        if [[ "$config" == "main" ]]; then
+            test_dir="tests/testfiles";
+        else
+            test_dir="tests/testfiles-$config";
+        fi
+        file_path="$test_dir/$test.lvt";
+        if [ -f "$file_path" ]; then
+            if [[ "$config" == "main" ]]; then
+                l3build save "$test" || exit 1;
+            else
+                l3build save --config "tests/config-$config" "$test" || exit 1;
+            fi
+            break;
+        fi
+    done
+}
 
-
-if [ ! -d "$unpackdir" ]; then
-    mkdir -p "$unpackdir";
-fi
-cp -f "gbt7714.dtx" "$unpackdir";
-
-
-if [ ! -d "$testdir" ]; then
-    mkdir -p "$testdir";
-fi
-cp -f "$testfiledir/support/test.aux" "$testdir";
-cp -f "$testfiledir/support/standard.bib" "$testdir";
-
-
-echo "Saving bbl";
-
-for file in $testfiledir/*.dtx; do
-    filename=$(basename $file);
-    testname=$(basename $filename .dtx);
-    echo "  $testname";
-
-    cp -f "$file" "$unpackdir";  # test bib file
-
-    ( cd "$unpackdir"; $unpackexe $filename > /dev/null; )
-    cp -f "$unpackdir/test.bst" "$testdir"
-    cp -f "$unpackdir/test.bib" "$testdir"
-
-    ( cd $testdir; $bibtexexe test > /dev/null; )
-
-    bblfile="$testdir/test.bbl";
-    stdfile="$testfiledir/$testname.bbl";
-    if ! diff -q "$bblfile" "$stdfile" > /dev/null; then
-        cp -f "$bblfile" "$stdfile";
+save_config () {
+    config="$1";
+    if [[ "$config" == "main" ]]; then
+        for testfile in tests/testfiles/*.lvt; do
+            test="$(basename "$testfile" .lvt)";
+            l3build save "$test" || exit 1;
+        done
+    else
+        for testfile in "tests/testfiles-$config"/*.lvt ; do
+            test="$(basename "$testfile" .lvt)";
+            l3build save --config "tests/config-$config" "$test" || exit 1;
+        done
     fi
-done
+}
+
+
+if [[ $# -eq 0 ]]; then
+    for config in main variants cite bibunits chapterbib; do
+        save_config $config;
+    done
+else
+    case $1 in
+        main|variants|cite|bibunits|chapterbib)
+            save_config "$1";
+            ;;
+
+        *)
+            save_file "$1";
+            ;;
+    esac
+fi

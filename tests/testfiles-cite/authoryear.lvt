@@ -1,72 +1,211 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
-\pagestyle{empty}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
 \usepackage{gbt7714}
+\bibliographystyle{gbt7714-author-year}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+@article{zhang1984,
+  author  = {张三},
+  key     = {zhang1 san1},
+  title   = {题名},
+  journal = {期刊},
+  year    = {1984},
+}
+
+@article{zhang1985,
+  author  = {张三 and 李四 and 王五},
+  key     = {zhang1 san1   li3 si4   wang3 wu3},
+  title   = {题名},
+  journal = {期刊},
+  year    = {1985},
+}
+
+@article{zhang1986a,
+  author  = {张三},
+  key     = {zhang1 san1},
+  title   = {题名},
+  journal = {期刊},
+  year    = {1986},
+}
+
+@article{zhang1986b,
+  author  = {张三},
+  key     = {zhang1 san1},
+  title   = {题名乙},
+  journal = {期刊},
+  year    = {1986},
+}
+
+@article{doe1984,
+  author  = {Doe, John},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1984},
+}
+
+@article{doe1985,
+  author  = {Doe, John and Smith, Jane and Brown, Bob},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1985},
+}
+
+@article{doe1986a,
+  author  = {Doe, John},
+  title   = {Title A},
+  journal = {Journal},
+  year    = {1986},
+}
+
+@article{doe1986b,
+  author  = {Doe, John},
+  title   = {Title B},
+  journal = {Journal},
+  year    = {1986},
+}
+\end{filecontents}
+
+
 \begin{document}
 \START
 \showoutput
 
-Citation \cite{jon88} test\par
-Citation \cite{jon89} test\par
-Citation \cite{jon90} test\par
+% 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
+% 并置于“（）“内。
+引用\citep{zhang1984}测试\par
+% 倘若正文中已提及责任者姓名，则在其后的“（）“内只著录出版年。
+引用\citet{zhang1984}测试\par
+引用\citeauthor{zhang1984}测试\par
+引用\citeyearpar{zhang1984}测试\par
 
-引用\cite{lzp1}测试\par
-引用\cite{lzp2}测试\par
-引用\cite{lzp3}测试\par
+% 9.3.1.2 正文中引用多责任者文献时，对欧美责任者只需标注第一个责任者的姓，其后附“et al.“；
+% 对于中国责任者应标注第一责任者的姓名，其后附”等”字。
+引用\citep{zhang1985}测试\par
+引用\citet{zhang1985}测试\par
 
-% Basic Citation Commands
-Citation \citet{jon90} test\par
-Citation \citet{jon90}.\par
-Citation \citet[42]{jon90} test\par
-Citation \citet[42]{jon90}.\par
-Citation \citep{jon90} test\par
-Citation \citep{jon90}.\par
-Citation \citep[42]{jon90} test\par
-Citation \citep[42]{jon90}.\par
-Citation \citep[see][]{jon90} test\par
-Citation \citep[see][42]{jon90} test\par
-Citation \citet*{jon90} test\par
-Citation \citep*{jon90} test\par
+% 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
+% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+引用\citep{zhang1986a}、\citep{zhang1986b}测试\par
+引用\citet{zhang1986a}、\citet{zhang1986b}测试\par
 
-引用\citet{lzp3}测试\par
-引用\citet{lzp3}。\par
-引用\citet[42]{lzp3}测试\par
-引用\citet[42]{lzp3}。\par
-引用\citep{lzp3}测试\par
-引用\citep{lzp3}。\par
-引用\citep[42]{lzp3}测试\par
-引用\citep[42]{lzp3}。\par
-引用\citep[见][]{lzp3}测试\par
-引用\citep[见][42]{lzp3}测试\par
-引用\citet*{lzp3}测试\par
-引用\citep*{lzp3}测试\par
+% 9.3.1.4 多次引用同一责任者的同一文献，在正文中标注责任者与出版年，
+% 并在“（）“外以角标的形式著录引文页码。
+引用\citep[42]{zhang1984}测试\par
+引用\citet[42]{zhang1984}测试\par
+引用\citeyearpar[42]{zhang1984}测试\par
 
-% Multi Citations
-Citation \citet{jon90,jam91} test\par
-Citation \citet{jon90,jon91} test\par
-Citation \citet{jon92a,jon92b} test\par
-Citation \citep{jon90,jam91} test\par
-Citation \citep{jon90,jon91} test\par
-Citation \citep{jon92a,jon92b} test\par
+% 同一处引用多篇文献
+引用\citep{zhang1984, zhang1985}测试\par
+引用\citet{zhang1984, zhang1985}测试\par
 
-% Extended Citation Commands
-Citation \citealt{jon90} Test\par
-Citation \citealt*{jon90} Test\par
-Citation \citealp{jon90} Test\par
-Citation \citealp*{jon90} Test\par
-Citation \citealp{jon90,jam91} Test\par
-Citation \citealp[42]{jon90} Test\par
-Citation \citenum{jon90} Test\par
-Citation \citetext{priv.\ comm.} Test\par
+引用\citep[参见][42]{zhang1984}测试\par
+引用\citet[参见][42]{zhang1984}测试\par
 
-Citation \citeauthor{jon90} Test\par
-Citation \citeauthor*{jon90} Test\par
-Citation \citeyear{jon90} Test\par
-Citation \citeyearpar{jon90} Test\par
 
+% 半角符号测试
+\null\par
+
+% 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
+% 并置于“（）“内。
+引用 \citep{zhang1984} 测试\par
+% 倘若正文中已提及责任者姓名，则在其后的“（）“内只著录出版年。
+引用 \citet{zhang1984} 测试\par
+引用 \citeauthor{zhang1984} 测试\par
+引用 \citeyearpar{zhang1984} 测试\par
+
+% 9.3.1.2 正文中引用多责任者文献时，对欧美责任者只需标注第一个责任者的姓，其后附“et al.“；
+% 对于中国责任者应标注第一责任者的姓名，其后附”等”字。
+引用 \citep{zhang1985} 测试\par
+引用 \citet{zhang1985} 测试\par
+
+% 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
+% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+引用 \citep{zhang1986a}、\citep{zhang1986b} 测试\par
+引用 \citet{zhang1986a}、\citet{zhang1986b} 测试\par
+
+% 9.3.1.4 多次引用同一责任者的同一文献，在正文中标注责任者与出版年，
+% 并在“（）“外以角标的形式著录引文页码。
+引用 \citep[42]{zhang1984}测试\par
+引用 \citet[42]{zhang1984}测试\par
+引用 \citeyearpar[42]{zhang1984}测试\par
+
+% 同一处引用多篇文献
+引用 \citep{zhang1984, zhang1985} 测试\par
+引用 \citet{zhang1984, zhang1985} 测试\par
+
+引用 \citep[参见][42]{zhang1984}测试\par
+引用 \citet[参见][42]{zhang1984}测试\par
+
+
+% 英文测试
+\clearpage
+
+% 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
+% 并置于“（）“内。
+Citation \citep{doe1984} test\par
+% 倘若正文中已提及责任者姓名，则在其后的“（）“内只著录出版年。
+Citation \citet{doe1984} test\par
+Citation \citeauthor{doe1984} test\par
+Citation \citeyearpar{doe1984} test\par
+
+% 9.3.1.2 正文中引用多责任者文献时，对欧美责任者只需标注第一个责任者的姓，其后附“et al.“；
+% 对于中国责任者应标注第一责任者的姓名，其后附”等”字。
+Citation \citep{doe1985} test\par
+Citation \citet{doe1985} test\par
+
+% 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
+% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+Citation \citep{doe1986a} and \citep{doe1986b} test\par
+Citation \citet{doe1986a} and \citet{doe1986b} test\par
+
+% 9.3.1.4 多次引用同一责任者的同一文献，在正文中标注责任者与出版年，
+% 并在“（）“外以角标的形式著录引文页码。
+Citation \citep[42]{doe1984} test\par
+Citation \citet[42]{doe1984} test\par
+Citation \citeyearpar[42]{doe1984} test\par
+
+% 同一处引用多篇文献
+Citation \citep{doe1984, doe1985} test\par
+Citation \citet{doe1984, doe1985} test\par
+
+Citation \citep[see][42]{doe1984} test\par
+Citation \citet[see][42]{doe1984} test\par
 
 \clearpage
+
+
+% 断行测试
+\fbox{
+  \parbox{14em}{%
+    劳伦衣普桑，劳伦\citep{zhang1984}衣普桑。\par
+    劳伦衣普桑，劳伦衣\citep{zhang1984}普桑。\par
+    劳伦衣普桑，劳伦衣普\citep{zhang1984}桑。\par
+    劳伦衣普桑，劳伦衣普桑劳\citep{zhang1984}。\par
+    劳伦衣普桑，劳伦衣普桑劳伦\citep{zhang1984}。\par
+    劳伦衣普桑，劳伦衣普桑劳伦衣\citep{zhang1984}。\par
+    劳伦衣普桑，劳\citep{zhang1984}。伦衣普桑。\par
+    劳伦衣普桑，劳伦\citep{zhang1984}。衣普桑。\par
+    劳伦衣普桑，劳伦衣\citep{zhang1984}。普桑。\par
+  }
+}\par
+\fbox{
+  \parbox{14em}{%
+    劳伦衣普桑，劳\citep[42]{zhang1984}伦衣普桑。\par
+    劳伦衣普桑，劳伦\citep[42]{zhang1984}衣普桑。\par
+    劳伦衣普桑，劳伦衣\citep[42]{zhang1984}普桑。\par
+    劳伦衣普桑，劳\citep[42]{zhang1984}。伦衣普桑。\par
+    劳伦衣普桑，劳伦\citep[42]{zhang1984}。衣普桑。\par
+    劳伦衣普桑，劳伦衣\citep[42]{zhang1984}。普桑。\par
+  }
+}
+\clearpage
+
 \OMIT
-\bibliographystyle{gbt7714-author-year}
-\bibliography{refs}
+\bibliography{\jobname}
 \end{document}

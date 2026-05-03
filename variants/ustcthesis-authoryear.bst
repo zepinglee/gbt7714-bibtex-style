@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/ustc/ustcthesis-authoryear.bst',
+%% This is file `variants/ustcthesis-authoryear.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,ustc,author-year')
+%% gbt7714-bst.dtx  (with options: `2015,ustc,author-year')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style

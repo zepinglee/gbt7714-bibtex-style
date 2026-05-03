@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/ustc/ustcthesis-numerical.bst',
+%% This is file `variants/ustcthesis-numeric.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,ustc,numerical')
+%% gbt7714-bst.dtx  (with options: `2015,ustc,numerical')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style

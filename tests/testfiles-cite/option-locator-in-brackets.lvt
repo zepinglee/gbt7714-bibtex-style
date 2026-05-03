@@ -1,31 +1,80 @@
 \input{regression-test.tex}
-\documentclass[UTF8,scheme=plain,fontset=fandol]{ctexart}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+@article{zhang1984,
+  author  = {张三},
+  title   = {题名},
+  journal = {期刊},
+  year    = {1984},
+}
+
+@article{doe1984,
+  author  = {Doe, John},
+  title   = {Title},
+  journal = {Journal},
+  year    = {1984},
+}
+\end{filecontents}
+
+\PassOptionsToPackage{checkpinyin=false}{gbt7714}
+\usepackage[locator-inside-brackets]{gbt7714}
+\bibliographystyle{gbt7714-numerical}
+
 \pagestyle{empty}
-\usepackage[locator-inside-brackets=true]{gbt7714}
+
+
 \begin{document}
 \START
 \showoutput
 
 \citestyle{super}
-Citation \citet[42]{jon89} test\par
-Citation \citet[42]{jon89}.\par
-Citation \citep[42]{jon89} test\par
-Citation \citep[42]{jon89}.\par
+引用\citep[p. 42]{zhang1984}测试\par
+引用\citet[p. 42]{zhang1984}测试\par
+引用\parencite[p. 42]{zhang1984}测试\par
+引用\citeauthor{zhang1984}测试\par
+引用\citep[参见][p. 42]{zhang1984}测试\par
 
 \citestyle{numbers}
-Citation \citet[42]{jon89} test\par
-Citation \citet[42]{jon89}.\par
-Citation \citep[42]{jon89} test\par
-Citation \citep[42]{jon89}.\par
+引用\citep[p. 42]{zhang1984}测试\par
+引用\citet[p. 42]{zhang1984}测试\par
+引用\citeauthor{zhang1984}测试\par
+引用\citep[参见][p. 42]{zhang1984}测试\par
 
 \citestyle{authoryear}
-Citation \citet[42]{jon89} test\par
-Citation \citet[42]{jon89}.\par
-Citation \citep[42]{jon89} test\par
-Citation \citep[42]{jon89}.\par
+引用\citep[p. 42]{zhang1984}测试\par
+引用\citet[p. 42]{zhang1984}测试\par
+引用\citeauthor{zhang1984}测试\par
+引用\citeyearpar[p. 42]{zhang1984}测试\par
+引用\citep[参见][p. 42]{zhang1984}测试\par
+引用\citet[参见][p. 42]{zhang1984}测试\par
+
+
+% 英文测试
+\null\par
+
+\citestyle{super}
+Citation \citep[p. 42]{doe1984} test\par
+Citation \citet[p. 42]{doe1984} test\par
+Citation \parencite[p. 42]{doe1984} test\par
+Citation \citeauthor{doe1984} test\par
+Citation \citep[see][p. 42]{doe1984} test\par
+
+\citestyle{numbers}
+Citation \citep[p. 42]{doe1984} test\par
+Citation \citet[p. 42]{doe1984} test\par
+Citation \citeauthor{doe1984} test\par
+Citation \citep[see][p. 42]{doe1984} test\par
+
+\citestyle{authoryear}
+Citation \citep[p. 42]{doe1984} test\par
+Citation \citet[p. 42]{doe1984} test\par
+Citation \citeauthor{doe1984} test\par
+Citation \citeyearpar[p. 42]{doe1984} test\par
+Citation \citep[see][p. 42]{doe1984} test\par
+Citation \citet[see][p. 42]{doe1984} test\par
 
 \clearpage
 \OMIT
-\bibliographystyle{gbt7714-author-year}
-\bibliography{refs}
+\bibliography{\jobname}
 \end{document}
