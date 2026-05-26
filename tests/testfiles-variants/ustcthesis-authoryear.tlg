@@ -1115,8 +1115,8 @@ Abadía O~M, Conkey M~W, McDonald J, 2024.
 \bibitem[{American Chemical Society}(n.d.)]{gbt7714.7.1.4:3}
 {American Chemical Society}, n.d.
 
-\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(n.d.)]{gbt7714.b.8:8}
-{American Institute of Aeronautics and Astronautics (AIAA)}, n.d.
+\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(2022)]{gbt7714.b.8:8}
+{American Institute of Aeronautics and Astronautics (AIAA)}, 2022.
 \newblock Guide to lithium battery safety for space applications: AIAA G-136-2022\allowbreak[S].
 
 \bibitem[Anon(n.d.{\natexlab{a}})]{gbt7714.7.2.1:6}
@@ -1178,10 +1178,6 @@ Anon, [2020{\natexlab{b}}].
 \newblock {Library of Congress}\allowbreak[EB/OL].
 \newblock \allowbreak[2020-06-12].
 \newblock \url{https://www.loc.gov/}.
-
-\bibitem[Anon(n.d.{\natexlab{m}})]{gbt7714.b.8:9}
-Anon, n.d.-{\natexlab{m}}.
-\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
 
 \bibitem[{American Association for the Advancement of Science}(1883-{\natexlab{a}})]{gbt7714.8.4.2:3}
 {American Association for the Advancement of Science}, 1883-{\natexlab{a}}.
@@ -1457,6 +1453,10 @@ Gross O, 2016.
 \newblock \allowbreak[2020-10-06].
 \newblock \url{https://www.iso.org/home.html}.
 
+\bibitem[{ISO}(2016{\natexlab{a}})]{gbt7714.b.8:9}
+{ISO}, 2016{\natexlab{a}}.
+\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+
 \bibitem[{ISO}(2019{\natexlab{a}})]{gbt7714.8.9.2:4}
 {ISO}, 2019{\natexlab{a}}.
 \newblock Audit data collection: ISO 21378:2019\allowbreak[S].
@@ -1648,12 +1648,12 @@ Veen P H v~d, Muller M, Vincken K~L, et~al., 2014{\natexlab{b}}.
 \bibitem[Wang(2022{\natexlab{a}})]{gbt7714.8.6.3:2}
 Wang S, 2022{\natexlab{a}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}): 2.
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}: 2.
 
 \bibitem[Wang(2022{\natexlab{b}})]{gbt7714.b.5:8}
 Wang S, 2022{\natexlab{b}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}): 2.
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}: 2.
 
 \bibitem[Weinstein et~al.(1974{\natexlab{a}})Weinstein and Swartz]{gbt7714.8.3.2:4}
 Weinstein L, Swartz M~N, 1974{\natexlab{a}}.
@@ -1701,7 +1701,7 @@ Zhong X, Yan Q, Li G, 2022.
 
 \bibitem[{Zotero}({[2024]}{\natexlab{a}})]{gbt7714.8.11.3.2:5}
 {Zotero}, [2024{\natexlab{a}}].
-\newblock Zotero download\allowbreak[CP/OL].
+\newblock [{Zotero} download]\allowbreak[CP/OL].
 \newblock \allowbreak[2024-04-08].
 \newblock \url{https://www.zotero.org/download/}.
 
@@ -1716,10 +1716,6 @@ Zhong X, Yan Q, Li G, 2022.
 \newblock Молибден-медно-золото-порфировое месторождение Рябиновое\allowbreak[J].
 \newblock Отечественная геология\allowbreak (7): 50-58.
 
-\bibitem[Anon(n.d.{\natexlab{n}})]{gbt7714.b.8:10}
-Anon, n.d.-{\natexlab{n}}.
-\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
-
 \bibitem[António et~al.(2019{\natexlab{a}})António and Pepper]{gbt7714.8.11.3.2:4}
 António M, Pepper L, 2019{\natexlab{a}}.
 \newblock Histórias de Portugal: livros caídos\allowbreak[EB/OL].
@@ -1731,5 +1727,9 @@ António M, Pepper L, 2019{\natexlab{b}}.
 \newblock Histórias de Portugal: livros caídos\allowbreak[EB/OL].
 \newblock \allowbreak (2019-07-13)\allowbreak[2025-01-02].
 \newblock \url{https://arquivo.pt/wayback/20190905210731/http://publico.pt/2019/07/13/sociedade/noticia/podcast-historias-portugal-cuidadores-1879731}.
+
+\bibitem[{ISO}(2016{\natexlab{b}})]{gbt7714.b.8:10}
+{ISO}, 2016{\natexlab{b}}.
+\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
 
 \end{thebibliography}

@@ -150,13 +150,13 @@
 
 \bibitem[佚名(1962{\natexlab{a}})]{gbt7714.8.2.2:4}
 佚名, 1962{\natexlab{a}}.
-\newblock 康熙字典: 巳集上\quad 水部\allowbreak[M].
+\newblock 康熙字典: 巳集上~水部\allowbreak[M].
 \newblock 同文书局影印本.
 \newblock 北京: 中华书局: 50.
 
 \bibitem[佚名(1962{\natexlab{b}})]{gbt7714.b.1:8}
 佚名, 1962{\natexlab{b}}.
-\newblock 康熙字典: 巳集上\quad 水部\allowbreak[M].
+\newblock 康熙字典: 巳集上~水部\allowbreak[M].
 \newblock 同文书局影印本.
 \newblock 北京: 中华书局: 50.
 
@@ -428,7 +428,7 @@
 全国信息技术标准化技术委员会, 2016{\natexlab{a}}.
 \newblock 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频: GB/T 20090.16—2016\allowbreak[S/OL].
 \newblock \allowbreak[2025-12-02].
-\newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=1D4AC2D455C8DE7E0AA286CA7649300}.
+\newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=1D4AC2D4256C8DE7E0AA286CA7649300}.
 
 \bibitem[全国信息技术标准化技术委员会(2016{\natexlab{b}})]{gbt7714.b.8:2}
 全国信息技术标准化技术委员会, 2016{\natexlab{b}}.
@@ -594,7 +594,7 @@
 张群, 程志宝, 石志飞, 2024{\natexlab{a}}.
 \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J/OL].
 \newblock 铁道学报\allowbreak[2025-02-28].
-\newblock \url{http://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
+\newblock \url{https://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
 
 \bibitem[张群\ 等(2024{\natexlab{b}})张群, 程志宝和石志飞]{gbt7714.8.5.3:5}
 张群, 程志宝, 石志飞, 2024{\natexlab{b}}.
@@ -967,8 +967,8 @@
 \newblock 中国历史地图集: 第2册\allowbreak[CM].
 \newblock 北京: 地图出版社: 6.
 
-\bibitem[贵州省土穰普查办公室(无日期)]{gbt7714.7.1.4:2}
-贵州省土穰普查办公室, 无日期.
+\bibitem[贵州省土壤普查办公室(无日期)]{gbt7714.7.1.4:2}
+贵州省土壤普查办公室, 无日期.
 
 \bibitem[贾东琴\ 等(2011)贾东琴和柯平]{gbt7714.b.5:6}
 贾东琴, 柯平, 2011.
@@ -1136,14 +1136,14 @@
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024{\natexlab{a}})]{gbt7714.8.14.3:2}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}, 2024{\natexlab{a}}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS/OL].
-\newblock 国家地理资源科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 \newblock \url{https://loess.geodata.cn/data/datadetails.html?dataguid=58691800703558}.
 \newblock DOI:\doi{10.12041/geodata.58691800703558.ver1.db}.
 
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024{\natexlab{b}})]{gbt7714.b.13:5}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}, 2024{\natexlab{b}}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS/OL].
-\newblock 国家地理资源科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 \newblock \url{https://loess.geodata.cn/data/datadetails.html?dataguid=58691800703558}.
 \newblock DOI:\doi{10.12041/geodata.58691800703558.ver1.db}.
 
@@ -1178,8 +1178,8 @@ Abadía O~M, Conkey M~W, McDonald J, 2024.
 \bibitem[{American Chemical Society}(n.d.)]{gbt7714.7.1.4:3}
 {American Chemical Society}, n.d.
 
-\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(n.d.)]{gbt7714.b.8:8}
-{American Institute of Aeronautics and Astronautics (AIAA)}, n.d.
+\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(2022)]{gbt7714.b.8:8}
+{American Institute of Aeronautics and Astronautics (AIAA)}, 2022.
 \newblock Guide to lithium battery safety for space applications: AIAA G-136-2022\allowbreak[S].
 
 \bibitem[Anon(n.d.{\natexlab{a}})]{gbt7714.7.2.1:6}
@@ -1241,10 +1241,6 @@ Anon, [2020{\natexlab{b}}].
 \newblock {Library of Congress}\allowbreak[EB/OL].
 \newblock \allowbreak[2020-06-12].
 \newblock \url{https://www.loc.gov/}.
-
-\bibitem[Anon(n.d.{\natexlab{m}})]{gbt7714.b.8:9}
-Anon, n.d.-{\natexlab{m}}.
-\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
 
 \bibitem[{American Association for the Advancement of Science}(1883-{\natexlab{a}})]{gbt7714.8.4.2:3}
 {American Association for the Advancement of Science}, 1883-{\natexlab{a}}.
@@ -1354,12 +1350,12 @@ Boobier T, 2020{\natexlab{b}}.
 \bibitem[Cairns(1965{\natexlab{a}})]{gbt7714.8.7.2:4}
 Cairns B~R, 1965{\natexlab{a}}.
 \newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
-\newblock Berkeley: University of California: 15.
+\newblock Berkeley: University of California, Berkeley: 15.
 
 \bibitem[Cairns(1965{\natexlab{b}})]{gbt7714.b.6:5}
 Cairns B~R, 1965{\natexlab{b}}.
 \newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
-\newblock Berkeley: University of California: 15.
+\newblock Berkeley: University of California, Berkeley: 15.
 
 \bibitem[Calkin et~al.(2011{\natexlab{a}})Calkin, Ager, and Thompson]{gbt7714.8.8.3:3}
 Calkin D~E, Ager A~A, Thompson M~P, 2011{\natexlab{a}}.
@@ -1433,13 +1429,13 @@ Des~Marais D~J, Strauss H, Summons R~E, et~al., 1992.
 Deverell W, Igler D, 2013{\natexlab{a}}.
 \newblock A companion to {California} history\allowbreak[M/OL].
 \newblock New York: John Wiley \& Sons: 21-22\allowbreak[2014-06-24].
-\newblock \url{http://onlinelibrary.wiley.com/doi/10.1002/9781444305036/summary}.
+\newblock \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781444305036}.
 
 \bibitem[Deverell et~al.(2013{\natexlab{b}})Deverell and Igler]{gbt7714.b.1:25}
 Deverell W, Igler D, 2013{\natexlab{b}}.
 \newblock A companion to {California} history\allowbreak[M/OL].
 \newblock New York: John Wiley \& Sons: 21-22\allowbreak[2014-06-24].
-\newblock \url{http://onlinelibrary.wiley.com/doi/10.1002/9781444305036/summary}.
+\newblock \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781444305036}.
 
 \bibitem[Dowler(1995)]{gbt7714.9.2.2:6}
 Dowler L, 1995.
@@ -1472,8 +1468,8 @@ Fitzwilliam H, 1570{\natexlab{b}}.
 \newblock \allowbreak (1570-07-28)\allowbreak[2025-02-28].
 \newblock \url{https://www.bessofhardwick.org/letter.jsp?letter=25}.
 
-\bibitem[Fordham et~al.(n.d.)Fordham, Ali, Truner, and Charters]{gbt7714.7.1.2:4}
-Fordham E~W, Ali A, Truner D~A, et~al., n.d.
+\bibitem[Fordham et~al.(n.d.)Fordham, Ali, Turner, and Charters]{gbt7714.7.1.2:4}
+Fordham E~W, Ali A, Turner D~A, et~al., n.d.
 
 \bibitem[Fourney(1971{\natexlab{a}})]{gbt7714.8.6.1:5}
 Fourney M~E, 1971{\natexlab{a}}.
@@ -1517,8 +1513,8 @@ Gross O, 2016.
 \newblock Global Health Data Exchange\allowbreak[2024-11-25].
 \newblock \url{https://ghdx.healthdata.org/gbd-2019}.
 
-\bibitem[{Institute For Art And Architecture} et~al.(2023){Institute For Art And Architecture} and {Academy Of Fine Arts Vienna}]{gbt7714.b.1:20}
-{Institute For Art And Architecture}, {Academy Of Fine Arts Vienna}, 2023.
+\bibitem[{Institute for Art and Architecture, Academy of Fine Arts Vienna}(2023)]{gbt7714.b.1:20}
+{Institute for Art and Architecture, Academy of Fine Arts Vienna}, 2023.
 \newblock Wiener {Hitze}: architecture and storytelling in times of heat\allowbreak[M].
 \newblock Zürich: Park Books: 78.
 
@@ -1537,6 +1533,10 @@ Gross O, 2016.
 \newblock {ISO} homepage\allowbreak[EB/OL].
 \newblock \allowbreak[2020-10-06].
 \newblock \url{https://www.iso.org/home.html}.
+
+\bibitem[{ISO}(2016{\natexlab{a}})]{gbt7714.b.8:9}
+{ISO}, 2016{\natexlab{a}}.
+\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
 
 \bibitem[{ISO}(2019{\natexlab{a}})]{gbt7714.8.9.2:4}
 {ISO}, 2019{\natexlab{a}}.
@@ -1704,13 +1704,13 @@ Sunstein C~R, 1996.
 Torres L, Salisbury F, Yazbeck B, et~al., 2021{\natexlab{a}}.
 \newblock Connecting the library to the curriculum\allowbreak[M/OL].
 \newblock Singapore: Springer Nature: 97\allowbreak[2025-12-02].
-\newblock \url{https://link.springer.com/10.1007/978-981-16-3868-8}.
+\newblock \url{https://link.springer.com/book/10.1007/978-981-16-3868-8}.
 
 \bibitem[Torres et~al.(2021{\natexlab{b}})Torres, Salisbury, Yazbeck, Karasmanis, Pinder, and Ondracek]{gbt7714.b.1:23}
 Torres L, Salisbury F, Yazbeck B, et~al., 2021{\natexlab{b}}.
 \newblock Connecting the library to the curriculum\allowbreak[M/OL].
 \newblock Singapore: Springer Nature: 97\allowbreak[2025-12-02].
-\newblock \url{https://link.springer.com/10.1007/978-981-16-3868-8}.
+\newblock \url{https://link.springer.com/book/10.1007/978-981-16-3868-8}.
 
 \bibitem[{Trisco ICAP Pty Ltd}(2022{\natexlab{a}})]{gbt7714.8.10.2:4}
 {Trisco ICAP Pty Ltd}, 2022{\natexlab{a}}.
@@ -1757,14 +1757,14 @@ Veen P H v~d, Muller M, Vincken K~L, et~al., 2014{\natexlab{b}}.
 \bibitem[Wang(2022{\natexlab{a}})]{gbt7714.8.6.3:2}
 Wang S, 2022{\natexlab{a}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}): 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
 \bibitem[Wang(2022{\natexlab{b}})]{gbt7714.b.5:8}
 Wang S, 2022{\natexlab{b}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}): 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
@@ -1811,13 +1811,13 @@ Yufin S~A, 2000{\natexlab{b}}.
 
 \bibitem[Zhong et~al.(2022)Zhong, Yan, and Li]{gbt7714.b.13:8}
 Zhong X, Yan Q, Li G, 2022.
-\newblock Long time series nighttime light dataset of {China} (2000-2020)\allowbreak[DS/OL].
+\newblock Long time series nighttime light dataset of {China}: 2000--2020\allowbreak[DS/OL].
 \newblock Global Change Research Data Publishing \& Repository\allowbreak[2024-11-25].
 \newblock \url{https://www.geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.
 
 \bibitem[{Zotero}({[2024]}{\natexlab{a}})]{gbt7714.8.11.3.2:5}
 {Zotero}, [2024{\natexlab{a}}].
-\newblock Zotero download\allowbreak[CP/OL].
+\newblock [{Zotero} download]\allowbreak[CP/OL].
 \newblock \allowbreak[2024-04-08].
 \newblock \url{https://www.zotero.org/download/}.
 
@@ -1832,10 +1832,6 @@ Zhong X, Yan Q, Li G, 2022.
 \newblock Молибден-медно-золото-порфировое месторождение Рябиновое\allowbreak[J].
 \newblock Отечественная геология\allowbreak (7): 50-58.
 
-\bibitem[Anon(n.d.{\natexlab{n}})]{gbt7714.b.8:10}
-Anon, n.d.-{\natexlab{n}}.
-\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
-
 \bibitem[António et~al.(2019{\natexlab{a}})António and Pepper]{gbt7714.8.11.3.2:4}
 António M, Pepper L, 2019{\natexlab{a}}.
 \newblock Histórias de Portugal: livros caídos\allowbreak[EB/OL].
@@ -1847,5 +1843,9 @@ António M, Pepper L, 2019{\natexlab{b}}.
 \newblock Histórias de Portugal: livros caídos\allowbreak[EB/OL].
 \newblock \allowbreak (2019-07-13)\allowbreak[2025-01-02].
 \newblock \url{https://arquivo.pt/wayback/20190905210731/http://publico.pt/2019/07/13/sociedade/noticia/podcast-historias-portugal-cuidadores-1879731}.
+
+\bibitem[{ISO}(2016{\natexlab{b}})]{gbt7714.b.8:10}
+{ISO}, 2016{\natexlab{b}}.
+\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
 
 \end{thebibliography}

@@ -592,7 +592,7 @@ GOTTENBERG W~G.
 \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
 WANG S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}), 2022: 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
@@ -737,7 +737,7 @@ ANTÓNIO M, PEPPER L.
 
 \bibitem[{Zotero}({[2024]})]{gbt7714.8.11.3.2:5}
 {Zotero}.
-\newblock Zotero download\allowbreak[CP/OL].
+\newblock [{Zotero} download]\allowbreak[CP/OL].
 \newblock \allowbreak[2024-04-08].
 \newblock \url{https://www.zotero.org/download/}.
 
@@ -1351,7 +1351,7 @@ VEEN P H v~d, MULLER M, VINCKEN K~L, et~al.
 \bibitem[Wang(2022)]{gbt7714.b.5:8}
 WANG S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}), 2022: 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
@@ -1482,15 +1482,20 @@ CALKIN D~E, AGER A~A, THOMPSON M~P.
 {IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11: wireless {LAN Medium Access Control} ({MAC}) and {Physical Layer} ({PHY}) specifications amendment 3: wake-up radio operation: IEEE P802.11ba/D8.0-2020\allowbreak[S].
 \newblock New York: IEEE, 2020.
 
-\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(n.d.)]{gbt7714.b.8:8}
+\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(2022)]{gbt7714.b.8:8}
 {American Institute of Aeronautics and Astronautics (AIAA)}.
 \newblock Guide to lithium battery safety for space applications: AIAA G-136-2022\allowbreak[S].
+\newblock 2022.
 
-\bibitem[Anon(n.d.)]{gbt7714.b.8:9}
-Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+\bibitem[{ISO}(2016)]{gbt7714.b.8:9}
+{ISO}.
+\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+\newblock 2016.
 
-\bibitem[Anon(n.d.)]{gbt7714.b.8:10}
-Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
+\bibitem[{ISO}(2016)]{gbt7714.b.8:10}
+{ISO}.
+\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
+\newblock 2016.
 
 \bibitem[邓一刚(2008)]{gbt7714.b.9:1}
 邓一刚.

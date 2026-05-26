@@ -258,8 +258,8 @@ Godard J L.
 \bibitem[印森林\ 等(无日期)印森林, 吴胜和, 李俊飞和冯文杰]{gbt7714.7.1.2:3}
 印森林, 吴胜和, 李俊飞, 等.
 
-\bibitem[Fordham et~al.(n.d.)Fordham, Ali, Truner, and Charters]{gbt7714.7.1.2:4}
-Fordham E~W, Ali A, Truner D~A, et~al.
+\bibitem[Fordham et~al.(n.d.)Fordham, Ali, Turner, and Charters]{gbt7714.7.1.2:4}
+Fordham E~W, Ali A, Turner D~A, et~al.
 
 \bibitem[佚名(2023)]{gbt7714.7.1.3:1}
 人物龙凤帛画\allowbreak[J].
@@ -272,8 +272,8 @@ Coffee drinking and cancer of the pancreas\allowbreak[J].
 \bibitem[中国科学院物理研究所(无日期)]{gbt7714.7.1.4:1}
 中国科学院物理研究所.
 
-\bibitem[贵州省土穰普查办公室(无日期)]{gbt7714.7.1.4:2}
-贵州省土穰普查办公室.
+\bibitem[贵州省土壤普查办公室(无日期)]{gbt7714.7.1.4:2}
+贵州省土壤普查办公室.
 
 \bibitem[{American Chemical Society}(n.d.)]{gbt7714.7.1.4:3}
 {American Chemical Society}.
@@ -494,13 +494,13 @@ Maurya A, Szymanski M, Karlowski W~M.
 Torres L, Salisbury F, Yazbeck B, et~al.
 \newblock Connecting the library to the curriculum\allowbreak[M/OL].
 \newblock Singapore: Springer Nature, 2021: 97\allowbreak[2025-12-02].
-\newblock \url{https://link.springer.com/10.1007/978-981-16-3868-8}.
+\newblock \url{https://link.springer.com/book/10.1007/978-981-16-3868-8}.
 
 \bibitem[Deverell et~al.(2013)Deverell and Igler]{gbt7714.7.9.1:1}
 Deverell W, Igler D.
 \newblock A companion to {California} history\allowbreak[M/OL].
 \newblock New York: John Wiley \& Sons, 2013: 21-22\allowbreak[2014-06-24].
-\newblock \url{http://onlinelibrary.wiley.com/doi/10.1002/9781444305036/summary}.
+\newblock \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781444305036}.
 
 \bibitem[Gross(2016)]{gbt7714.7.9.1:2}
 Gross O.
@@ -560,7 +560,7 @@ Christou A.
 \newblock 北京: 北京古籍出版社, 1980.
 
 \bibitem[佚名(1962)]{gbt7714.8.2.2:4}
-康熙字典: 巳集上\quad 水部\allowbreak[M].
+康熙字典: 巳集上~水部\allowbreak[M].
 \newblock 同文书局影印本.
 \newblock 北京: 中华书局, 1962: 50.
 
@@ -703,7 +703,7 @@ Public library quarterly\allowbreak[J/OL].
 张群, 程志宝, 石志飞.
 \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J/OL].
 \newblock 铁道学报, 2024\allowbreak[2025-02-28].
-\newblock \url{http://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
+\newblock \url{https://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
 
 \bibitem[张群\ 等(2024)张群, 程志宝和石志飞]{gbt7714.8.5.3:5}
 张群, 程志宝, 石志飞.
@@ -778,7 +778,7 @@ Gottenberg W~G.
 \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
 Wang S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}), 2022: 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
@@ -808,7 +808,7 @@ Yu Y, Pan E, Wang X, et~al.
 \bibitem[Cairns(1965)]{gbt7714.8.7.2:4}
 Cairns B~R.
 \newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
-\newblock Berkeley: University of California, 1965: 15.
+\newblock Berkeley: University of California, Berkeley, 1965: 15.
 
 \bibitem[Christou(2024)]{gbt7714.8.7.2:5}
 Christou A.
@@ -853,7 +853,7 @@ Calkin D~E, Ager A~A, Thompson M~P.
 全国信息技术标准化技术委员会.
 \newblock 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频: GB/T 20090.16—2016\allowbreak[S/OL].
 \newblock 2016\allowbreak[2025-12-02].
-\newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=1D4AC2D455C8DE7E0AA286CA7649300}.
+\newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=1D4AC2D4256C8DE7E0AA286CA7649300}.
 
 \bibitem[{ISO}(2019)]{gbt7714.8.9.2:4}
 {ISO}.
@@ -923,7 +923,7 @@ António M, Pepper L.
 
 \bibitem[{Zotero}({[2024]})]{gbt7714.8.11.3.2:5}
 {Zotero}.
-\newblock Zotero download\allowbreak[CP/OL].
+\newblock [{Zotero} download]\allowbreak[CP/OL].
 \newblock \allowbreak[2024-04-08].
 \newblock \url{https://www.zotero.org/download/}.
 
@@ -996,7 +996,7 @@ Coastal erosion and mitigation in east and southeast asia.
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024)]{gbt7714.8.14.3:2}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS/OL].
-\newblock 国家地理资源科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 \newblock \url{https://loess.geodata.cn/data/datadetails.html?dataguid=58691800703558}.
 \newblock DOI:\doi{10.12041/geodata.58691800703558.ver1.db}.
 
@@ -1174,7 +1174,7 @@ Falout J, Elwood J, Hood M.
 \newblock 北京: 首都师范大学出版社, 2008: 第1版自序.
 
 \bibitem[佚名(1962)]{gbt7714.b.1:8}
-康熙字典: 巳集上\quad 水部\allowbreak[M].
+康熙字典: 巳集上~水部\allowbreak[M].
 \newblock 同文书局影印本.
 \newblock 北京: 中华书局, 1962: 50.
 
@@ -1241,8 +1241,8 @@ Sadock B~J, Sadock V~A, Ruiz P, et~al.
 \newblock 9th ed.
 \newblock Philadelphia: Wolters Kluwer Health/Lippincott Williams \& Wilkins, 2009.
 
-\bibitem[{Institute For Art And Architecture} et~al.(2023){Institute For Art And Architecture} and {Academy Of Fine Arts Vienna}]{gbt7714.b.1:20}
-{Institute For Art And Architecture}, {Academy Of Fine Arts Vienna}.
+\bibitem[{Institute for Art and Architecture, Academy of Fine Arts Vienna}(2023)]{gbt7714.b.1:20}
+{Institute for Art and Architecture, Academy of Fine Arts Vienna}.
 \newblock Wiener {Hitze}: architecture and storytelling in times of heat\allowbreak[M].
 \newblock Zürich: Park Books, 2023: 78.
 
@@ -1263,7 +1263,7 @@ Praetzellis A.
 Torres L, Salisbury F, Yazbeck B, et~al.
 \newblock Connecting the library to the curriculum\allowbreak[M/OL].
 \newblock Singapore: Springer Nature, 2021: 97\allowbreak[2025-12-02].
-\newblock \url{https://link.springer.com/10.1007/978-981-16-3868-8}.
+\newblock \url{https://link.springer.com/book/10.1007/978-981-16-3868-8}.
 
 \bibitem[Boobier(2020)]{gbt7714.b.1:24}
 Boobier T.
@@ -1274,7 +1274,7 @@ Boobier T.
 Deverell W, Igler D.
 \newblock A companion to {California} history\allowbreak[M/OL].
 \newblock New York: John Wiley \& Sons, 2013: 21-22\allowbreak[2014-06-24].
-\newblock \url{http://onlinelibrary.wiley.com/doi/10.1002/9781444305036/summary}.
+\newblock \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781444305036}.
 
 \bibitem[阿扬(2023)]{gbt7714.b.2:1}
 阿扬.
@@ -1537,7 +1537,7 @@ Veen P H v~d, Muller M, Vincken K~L, et~al.
 \bibitem[Wang(2022)]{gbt7714.b.5:8}
 Wang S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
-2022 6th {Asian Conference} on {Artificial Intelligence Technology} ({ACAIT}), 2022: 2\allowbreak[2025-12-02].
+2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
@@ -1590,7 +1590,7 @@ Gottenberg W~G.
 \bibitem[Cairns(1965)]{gbt7714.b.6:5}
 Cairns B~R.
 \newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
-\newblock Berkeley: University of California, 1965: 15.
+\newblock Berkeley: University of California, Berkeley, 1965: 15.
 
 \bibitem[Christou(2024)]{gbt7714.b.6:6}
 Christou A.
@@ -1668,15 +1668,20 @@ Calkin D~E, Ager A~A, Thompson M~P.
 {IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11: wireless {LAN Medium Access Control} ({MAC}) and {Physical Layer} ({PHY}) specifications amendment 3: wake-up radio operation: IEEE P802.11ba/D8.0-2020\allowbreak[S].
 \newblock New York: IEEE, 2020.
 
-\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(n.d.)]{gbt7714.b.8:8}
+\bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(2022)]{gbt7714.b.8:8}
 {American Institute of Aeronautics and Astronautics (AIAA)}.
 \newblock Guide to lithium battery safety for space applications: AIAA G-136-2022\allowbreak[S].
+\newblock 2022.
 
-\bibitem[Anon(n.d.)]{gbt7714.b.8:9}
-Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+\bibitem[{ISO}(2016)]{gbt7714.b.8:9}
+{ISO}.
+\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+\newblock 2016.
 
-\bibitem[Anon(n.d.)]{gbt7714.b.8:10}
-Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
+\bibitem[{ISO}(2016)]{gbt7714.b.8:10}
+{ISO}.
+\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
+\newblock 2016.
 
 \bibitem[邓一刚(2008)]{gbt7714.b.9:1}
 邓一刚.
@@ -1905,7 +1910,7 @@ Coastal erosion and mitigation in east and southeast asia.
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024)]{gbt7714.b.13:5}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS/OL].
-\newblock 国家地理资源科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 \newblock \url{https://loess.geodata.cn/data/datadetails.html?dataguid=58691800703558}.
 \newblock DOI:\doi{10.12041/geodata.58691800703558.ver1.db}.
 
@@ -1925,7 +1930,7 @@ Sugarman L, Markham S.
 
 \bibitem[Zhong et~al.(2022)Zhong, Yan, and Li]{gbt7714.b.13:8}
 Zhong X, Yan Q, Li G.
-\newblock Long time series nighttime light dataset of {China} (2000-2020)\allowbreak[DS/OL].
+\newblock Long time series nighttime light dataset of {China}: 2000--2020\allowbreak[DS/OL].
 \newblock Global Change Research Data Publishing \& Repository\allowbreak[2024-11-25].
 \newblock \url{https://www.geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.
 

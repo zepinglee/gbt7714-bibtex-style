@@ -2384,8 +2384,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 on
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
-....\glue(\baselineskip) 1.50002
-....\hbox(8.0+2.5)x329.44, glue set 0.18771, shifted 15.56
+....\glue(\baselineskip) 2.00002
+....\hbox(7.5+2.5)x329.44, glue set 0.60228, shifted 15.56
 .....\TU/lmr/m/n/10 Artificial
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Intelligence
@@ -2393,22 +2393,7 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 Technology
 .....\kern -0.0002
 .....\kern 0.0002
-.....\glue 6.34 minus 5.0
-.....\rule(0.0+0.0)x-6.34
-.....\TU/FandolSong-Regular(0)/m/n/10 （
-.....\kern 0.00008
-.....\kern -0.00008
-.....\kern -0.99622
-.....\kern 0.99622
 .....\penalty 10000
-.....\glue 0.0
-.....\TU/lmr/m/n/10 ACAIT
-.....\kern -0.0002
-.....\kern 0.0002
-.....\penalty 10000
-.....\TU/FandolSong-Regular(0)/m/n/10 ）
-.....\penalty 10000
-.....\glue -5.0 plus 5.0 minus 1.34
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
 .....\glue 6.92 minus 5.0
@@ -2479,10 +2464,7 @@ Completed box being shipped out [1]
 .....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#88
 .....\penalty 200
-.....\glue(\rightskip) 0.0
-....\penalty 20000
-....\glue(\baselineskip) 2.0
-....\hbox(7.5+2.5)x329.44, glue set 10.67fil, shifted 15.56
+.....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#66
 .....\glue 0.0
 .....\penalty 250
@@ -2511,7 +2493,10 @@ Completed box being shipped out [1]
 .....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#102
 .....\penalty 200
-.....\glue(\medmuskip) 0.0 plus 1.66663
+.....\glue(\rightskip) 0.0
+....\penalty 20000
+....\glue(\baselineskip) 2.0
+....\hbox(7.5+2.5)x329.44, glue set 48.47fil, shifted 15.56
 .....\TU/lmr/m/n/10 glyph#47
 .....\glue 0.0
 .....\penalty 250
