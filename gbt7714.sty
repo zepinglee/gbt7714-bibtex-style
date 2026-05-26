@@ -20,6 +20,9 @@
 % 控制连续两个序号是否使用连接号。
 \newif \ifgbt@min@compress@two
 
+\bool_new:N \l__gbt_compress_bool
+\bool_new:N \l__gbt_sort_bool
+
 \bool_new:N \l__gbt_entry_break_bool
 
 % 控制引注的样式，true 为上标式，false 为行内式。
@@ -56,6 +59,7 @@
     citepunct .choice: ,
     citepunct / full .code:n = { \gbt@cite@punct@fulltrue } ,
     citepunct / half .code:n = { \gbt@cite@punct@fullfalse } ,
+    compress .bool_set:N = \l__gbt_compress_bool ,
     mincompress .choice: ,
     mincompress / 2 .code:n = { \gbt@min@compress@twotrue } ,
     mincompress / 3 .code:n = { \gbt@min@compress@twofalse } ,
@@ -81,6 +85,7 @@
     locator-inside-brackets / true .code:n = { \gbt@locator@in@bracketstrue } ,
     locator-inside-brackets / false .code:n = { \gbt@locator@in@bracketsfalse } ,
     locator-inside-brackets .default:n = true ,
+    sort .bool_set:N = \l__gbt_sort_bool ,
     %
     % 参考文献表的选项
     align .choice: ,
@@ -275,17 +280,33 @@
   {
     % TODO: v3.0.0 将默认值改为 auto。
     citepunct = half ,
+    compress = true ,
     mincompress = 2 ,
     locator-in-brackets = false ,
     align = left ,
     entrybreak = true ,
+    sort = false ,
   }
-
-\PassOptionsToPackage { compress } { natbib }
 
 \ProcessKeyOptions [ gbt7714 ]
 
-\keys_define:nn { gbt7714 } { unknown .undefine: }
+\bool_if:NT \l__gbt_compress_bool
+  { \PassOptionsToPackage { compress } { natbib } }
+\bool_if:NT \l__gbt_sort_bool
+  { \PassOptionsToPackage { sort } { natbib } }
+
+\keys_define:nn { gbt7714 }
+  {
+    compress .choice: ,
+    compress / true .code:n = { \cs_set_nopar:Npn \NAT@cmprs { \@ne } } ,
+    compress / false .code:n = { \cs_set_nopar:Npn \NAT@cmprs { \z@ } } ,
+    compress .default:n = true ,
+    sort .choice: ,
+    sort / true .code:n = { \cs_set_nopar:Npn \NAT@sort { \@ne } } ,
+    sort / false .code:n = { \cs_set_nopar:Npn \NAT@sort { \z@ } } ,
+    sort .default:n = true ,
+    unknown .undefine: ,
+  }
 
 % 调用宏包。
 \RequirePackage { natbib }

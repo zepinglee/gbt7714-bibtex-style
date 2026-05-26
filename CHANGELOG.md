@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 新增选项 `entrybreak` 控制是否允许参考文献表在一条文献中间分页。
+- 新增选项 `compress = true / false` 控制是否用短横线连接起讫序号（[200](https://github.com/zepinglee/gbt7714-bibtex-style/issues/200)）。
 
 ## [2.2.0] - 2026-05-03
 
