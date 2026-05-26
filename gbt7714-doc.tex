@@ -833,6 +833,12 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   \end{citeexample}
 \end{variable}
 
+\begin{variable}{entrybreak}
+  \boolsyntax[true]{entrybreak}
+  控制是否允许在一条文献中间分页。
+  如果设为 \opt{false} 禁止分页，建议将 \cs{bibsep} 的弹性距离调大一些。
+\end{variable}
+
 \begin{variable}{inline}
   \boolsyntax{inline}
   在顺序编码制下，引用标注默认采用上标形式，也允许将序号作为行文语句的一部分。

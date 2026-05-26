@@ -1,0 +1,24 @@
+\input{regression-test.tex}
+\documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
+
+\PassOptionsToPackage{checkpinyin=false, entrybreak=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-2025-numeric}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\usepackage{hyperref}
+
+
+\begin{document}
+\START
+\showoutput
+
+\nocite{gbt7714.8.3.2:5, gbt7714.8.5.3:6, gbt7714.8.5.3:8, gbt7714.8.5.3:10,
+  gbt7714.8.6.1:4, gbt7714.8.6.1:5, gbt7714.8.6.3:2, gbt7714.8.6.3:3, gbt7714.8.14.3:2}
+
+\bibliography{gbt7714-examples}
+
+\OMIT
+\end{document}

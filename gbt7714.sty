@@ -20,6 +20,8 @@
 % 控制连续两个序号是否使用连接号。
 \newif \ifgbt@min@compress@two
 
+\bool_new:N \l__gbt_entry_break_bool
+
 % 控制引注的样式，true 为上标式，false 为行内式。
 \bool_new:N \l__gbt_cite_inline_bool
 \cs_new:Npn \__gbt_set_cite_inline: { }
@@ -57,6 +59,7 @@
     mincompress .choice: ,
     mincompress / 2 .code:n = { \gbt@min@compress@twotrue } ,
     mincompress / 3 .code:n = { \gbt@min@compress@twofalse } ,
+    entrybreak .bool_set:N =  \l__gbt_entry_break_bool ,
     inline .choice: ,
     inline / true .code:n =
       {
@@ -275,6 +278,7 @@
     mincompress = 2 ,
     locator-in-brackets = false ,
     align = left ,
+    entrybreak = true ,
   }
 
 \PassOptionsToPackage { compress } { natbib }
@@ -773,7 +777,7 @@
  \bibsection
  \parindent\z@
  \bibpreamble
- % 参考文献表的设置
+ % 参考文献表的设置。放在 \bibfont 前允许用户在其中修改。
  \gbt@bib@setup
  \bibfont
  \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
@@ -782,7 +786,9 @@
  \else
    \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
  \fi
- \sloppy\clubpenalty4000\widowpenalty4000
+ \sloppy
+ % \clubpenalty4000\widowpenalty4000
+ \gbt@bib@list@setup
  \sfcode`\.\@m
  \let\NAT@bibitem@first@sw\@firstoftwo
     \let\citeN\cite \let\shortcite\cite
@@ -811,6 +817,22 @@
   {
     % \__gbt_set_square_bracket_font:
     \__gbt_bib_url_setup:
+  }
+
+\cs_new:Npn \gbt@bib@list@setup
+  {
+    \bool_if:NTF \l__gbt_entry_break_bool
+      {
+        \int_set:Nn \clubpenalty { 4000 }
+        % \int_set_eq:NN \@clubpenalty \clubpenalty
+        \int_set:Nn \widowpenalty { 4000 }
+      }
+      {
+        \int_set:Nn \interlinepenalty { 10000 }
+        \int_set:Nn \clubpenalty { 10000 }
+        % \int_set_eq:NN \@clubpenalty \clubpenalty
+        \int_set:Nn \widowpenalty { 10000 }
+      }
   }
 
 % % 设置半角方括号使用中文字体。

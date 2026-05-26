@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 新增选项 `entrybreak` 控制是否允许参考文献表在一条文献中间分页。
+
 ## [2.2.0] - 2026-05-03
 
 ### Added
