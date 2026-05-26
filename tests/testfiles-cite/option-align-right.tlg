@@ -198,7 +198,7 @@ Completed box being shipped out [1]
 ....\glue 1.1 plus 3.30002 minus 0.70007
 ....\TU/FandolSong-Regular(0)/m/n/10 顾
 ....\glue(\rightskip) 0.0
-...\penalty 300
+...\penalty 4150
 ...\glue(\baselineskip) 1.50002
 ...\hbox(8.0+1.99998)x324.44, glue set 151.12fil, shifted 20.56
 ....\TU/FandolSong-Regular(0)/m/n/10 幼
@@ -336,7 +336,7 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 模
 ....\glue(\rightskip) 0.0
-...\penalty 300
+...\penalty 4150
 ...\glue(\baselineskip) 1.50002
 ...\hbox(8.0+2.49998)x324.44, glue set 40.42fil, shifted 20.56
 ....\TU/FandolSong-Regular(0)/m/n/10 式
@@ -629,7 +629,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 glyph#88
 ....\penalty 200
 ....\glue(\rightskip) 0.0
-...\penalty 150
+...\penalty 4000
 ...\glue(\baselineskip) 2.56
 ...\hbox(6.94+0.22)x324.44, glue set 186.64001fil, shifted 20.56
 ....\TU/lmr/m/n/10 glyph#107
@@ -817,7 +817,7 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 0.46875
 ....\TU/FandolSong-Regular(0)/m/n/10 研
 ....\glue(\rightskip) 0.0
-...\penalty 300
+...\penalty 4150
 ...\glue(\baselineskip) 1.50002
 ...\hbox(8.0+2.49998)x324.44, glue set 140.42fil, shifted 20.56
 ....\TU/FandolSong-Regular(0)/m/n/10 究
@@ -1790,7 +1790,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 glyph#87
 ....\penalty 200
 ....\glue(\rightskip) 0.0
-...\penalty 150
+...\penalty 4000
 ...\glue(\baselineskip) 2.44
 ...\hbox(7.5+2.06)x324.44, glue set 36.38fil, shifted 20.56
 ....\TU/lmr/m/n/10 glyph#107
@@ -2046,7 +2046,7 @@ Completed box being shipped out [1]
 ....\glue 1.1 plus 3.30002 minus 0.70007
 ....\TU/FandolSong-Regular(0)/m/n/10 航
 ....\glue(\rightskip) 0.0
-...\penalty 300
+...\penalty 4150
 ...\glue(\baselineskip) 1.50002
 ...\hbox(8.0+1.99998)x324.44, glue set 158.33fil, shifted 20.56
 ....\TU/FandolSong-Regular(0)/m/n/10 空
@@ -2205,7 +2205,7 @@ Completed box being shipped out [1]
 ....\TU/FandolSong-Regular(0)/m/n/10 ，
 ....\rule(0.0+0.0)x-6.92
 ....\glue(\rightskip) 0.0
-...\penalty 150
+...\penalty 4000
 ...\glue(\baselineskip) 1.50002
 ...\hbox(8.0+2.49998)x324.44, glue set 208.33fil, shifted 20.56
 ....\TU/lmr/m/n/10 2006
@@ -2401,7 +2401,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 glyph#102
 ....\penalty 200
 ....\glue(\rightskip) 0.0
-...\penalty 150
+...\penalty 4000
 ...\glue(\baselineskip) 2.0
 ...\hbox(7.5+2.5)x324.44, glue set 94.97002fil, shifted 20.56
 ....\TU/lmr/m/n/10 glyph#28
@@ -2809,7 +2809,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 glyph#102
 ....\penalty 200
 ....\glue(\rightskip) 0.0
-...\penalty 150
+...\penalty 4000
 ...\glue(\baselineskip) 2.0
 ...\hbox(7.5+2.5)x324.44, glue set 138.12001fil, shifted 20.56
 ....\TU/lmr/m/n/10 glyph#107
