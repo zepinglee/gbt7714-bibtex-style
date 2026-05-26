@@ -833,6 +833,17 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   \end{citeexample}
 \end{variable}
 
+\begin{variable}{compress}
+  \boolsyntax[true]{compress}
+  控制是否用短横线连接起讫序号。
+  \begin{citeexample}[title={\kvopt{compress}{true}}]
+    \textsuperscript{[\highlighta{1-3,5}]}
+  \end{citeexample}
+  \begin{citeexample}[title={\kvopt{compress}{false}}]
+    \textsuperscript{[\highlightb{1,2,3,5}]}
+  \end{citeexample}
+\end{variable}
+
 \begin{variable}{entrybreak}
   \boolsyntax[true]{entrybreak}
   控制是否允许在一条文献中间分页。
