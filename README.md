@@ -9,9 +9,9 @@
 ## Introduction
 
 The `gbt7714` package provides a comprehensive and configurable BibTeX
-implementation of the Chinese National Standard GB/T 7714, "Information and
+implementation of the Chinese National Standard GB/T 7714 *Information and
 documentation---Rules for bibliographic references and citations to information
-resources."
+resources*.
 The BibTeX styles included in the package support both numeric and author-year
 citation systems, and are fully compatible with the natbib package for
 advanced citation commands and formatting.
@@ -77,18 +77,7 @@ xelatex main
 
 ## 相关讨论
 
-1. 陈浩元（标准起草人）. GB/T 7714 新标准对旧标准的主要修改及实施要点提示\[J/OL\]. 编辑学报，2015，27（4）：339-343. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20150411&flag=1>. DOI:[10.16811/j.cnki.1001-4314.2015.04.015](https://doi.org/10.16811/j.cnki.1001-4314.2015.04.015).
-2. 陈浩元. 关于 GB/T 7714—2015 编校失误答同人问\[J/OL\]. 编辑学报，2016，28（1）：2. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20160138&flag=1>.
-3. 陈浩元. 怎样著录著者-出版年制联机网络文献的“出版年”？\[J/OL\]. 编辑学报，2023，35（5）：590. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20230528&flag=1>.
-4. 陈浩元. 对 GB/T 7714—2015 的标识符号问题咨询的答复\[J/OL\]. 编辑学报，2024，36（2）：139. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20240205&flag=1>.
-5. 刘孝平，张耀蕾，刘霞. GB/T 7714—2015《信息与文献 参考文献著录规则》修订研究\[J/OL\]. 数字图书馆论坛，2024，20（12）：28-34. <https://journals.istic.ac.cn/dlf/ch/reader/view_abstract.aspx?file_no=202412004&flag=1>. DOI:[10.3772/j.issn.1673-2286.2024.12.004](https://doi.org/10.3772/j.issn.1673-2286.2024.12.004).
-
-
-## 相关项目
-
-- 胡振震 [hushidong/biblatex-gb7714-2015](https://github.com/hushidong/biblatex-gb7714-2015)
-- 沈周 [szsdk/biblatex-gbt77142005](https://github.com/szsdk/biblatex-gbt77142005)
-- 胡海星 [Haixing-Hu/GBT7714-2005-BibTeX-Style](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
-- 李志奇 基于biblatex的符合GBT7714-2005的中文文献生成工具
-- Casper Ti. Vector [CasperVector/biblatex-caspervector](https://github.com/CasperVector/biblatex-caspervector)
-- 吴凯 发布GBT7714-2005.bst version1 Beta版
+1. 陈浩元. GB/T 7714—2025《信息与文献参考文献著录规则》的修订亮点、规则新点及实施疑点\[J/OL\]. 编辑学报，2026，38（2）：150-158. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20260206&flag=1>.
+2. 刘孝平，张耀蕾，刘霞. GB/T 7714—2015《信息与文献 参考文献著录规则》修订研究\[J/OL\]. 数字图书馆论坛，2024，20（12）：28-34. <https://journals.istic.ac.cn/dlf/ch/reader/view_abstract.aspx?file_no=202412004&flag=1>. DOI:[10.3772/j.issn.1673-2286.2024.12.004](https://doi.org/10.3772/j.issn.1673-2286.2024.12.004).
+3. 陈浩元. 对 GB/T 7714—2015 的标识符号问题咨询的答复\[J/OL\]. 编辑学报，2024，36（2）：139. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20240205&flag=1>.
+4. 陈浩元. 怎样著录著者-出版年制联机网络文献的“出版年”？\[J/OL\]. 编辑学报，2023，35（5）：590. <http://bjxb.cessp.org.cn/ch/reader/view_abstract.aspx?file_no=20230528&flag=1>.

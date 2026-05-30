@@ -8,11 +8,11 @@ module = "gbt7714"
 testfiledir = "./tests/testfiles"
 testsuppdir = "./tests/support"
 supportdir = "."
-checksuppfiles = { "*-examples.bib" }
+checksuppfiles = {"*-examples.bib"}
 
-bibfiles = { "gbt7714-examples.bib" }
-sourcefiles = { "*.dtx", "*.ins", "*.sty" }
-installfiles = { "*.sty", "*.bst" }
+bibfiles = {"gbt7714-examples.bib"}
+sourcefiles = {"*.dtx", "*.ins", "*.sty"}
+installfiles = {"*.sty", "*.bst"}
 tagfiles = {
   "CHANGELOG.md",
   "*.dtx",
@@ -23,12 +23,12 @@ tagfiles = {
   "variants/*.ins",
   "variants/*.bst",
 }
-typesetdemofiles = { "*-example.tex" }
-typesetfiles = { "*-doc.tex" }
+typesetdemofiles = {"*-example.tex"}
+typesetfiles = {"*-doc.tex"}
 
 -- includetests = {}
 
-checkengines = { "xetex" }
+checkengines = {"xetex"}
 stdengine = "xetex"
 
 checkconfigs = {
@@ -92,7 +92,7 @@ test_types = {
   },
 }
 
-test_order = { "bbl" }
+test_order = {"bbl"}
 
 local version_pattern = "[%d.]+[%l%d.-]*"
 
@@ -117,11 +117,11 @@ uploadconfig = {
   email = mydata.email,
   summary = "A BibTeX implementation of Chinese National Standard GB/T 7714",
   description =
-  [[The gbt7714 package provides a comprehensive and configurable BibTeX implementation of the Chinese National Standard GB/T 7714, “Information and documentation---Rules for bibliographic references and citations to information resources.” The BibTeX styles included in the package support both numeric and author-year citation systems, and are fully compatible with the natbib package for advanced citation commands and formatting. These styles are designed to automatically detect the language (Chinese or English) of each bibliographic entry and apply the appropriate localization. Additionally, the package exposes a range of configuration options, allowing users to easily adapt the output to the requirements of specific academic journals or institutions.]],
+  [[The gbt7714 package provides a comprehensive and configurable BibTeX implementation of the Chinese National Standard GB/T 7714, *Information and documentation---Rules for bibliographic references and citations to information resources*. The BibTeX styles included in the package support both numeric and author-year citation systems, and are fully compatible with the natbib package for advanced citation commands and formatting. These styles are designed to automatically detect the language (Chinese or English) of each bibliographic entry and apply the appropriate localization. Additionally, the package exposes a range of configuration options, allowing users to easily adapt the output to the requirements of specific academic journals or institutions.]],
   ctanPath = "/biblio/bibtex/contrib/gbt7714",
   repository = package_repository,
   bugtracker = package_repository .. "/issues",
-  topic = { "bibtex-supp", "chinese", "std-conform" },
+  topic = {"bibtex-supp", "chinese", "std-conform"},
   update = true,
 }
 
