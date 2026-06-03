@@ -67,8 +67,7 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\kern 1.0
-....\mathon
-....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+....\hbox(5.25+1.74998)x15.18301, shifted -3.62892
 .....\TU/lmr/m/n/7 [
 .....\hbox(4.648+0.0)x3.983
 ......\TU/lmr/m/n/7 1
@@ -85,7 +84,9 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/7 ]
 .....\kern -0.0002
 .....\kern 0.0002
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
@@ -385,8 +386,7 @@ Completed box being shipped out [2]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\kern 1.0
-....\mathon
-....\hbox(5.25+1.74998)x15.68301, shifted -3.62892
+....\hbox(5.25+1.74998)x15.18301, shifted -3.62892
 .....\TU/lmr/m/n/7 [
 .....\hbox(4.648+0.0)x3.983
 ......\TU/lmr/m/n/7 1
@@ -403,7 +403,9 @@ Completed box being shipped out [2]
 .....\TU/lmr/m/n/7 ]
 .....\kern -0.0002
 .....\kern 0.0002
-....\mathoff
+....\penalty 10000
+....\glue 0.5
+....\kern 0.0
 ....\penalty 10000
 ....\glue(\parfillskip) 0.0 plus 1.0fil
 ....\glue(\rightskip) 0.0
