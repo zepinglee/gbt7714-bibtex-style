@@ -235,7 +235,7 @@ INTEGERS { lang.zh lang.ja lang.ko lang.en lang.ru lang.other }
 
 INTEGERS { charptr len }
 
-STRINGS { pinyin.table }
+STRINGS { pinyin.table1 pinyin.table2 pinyin.table3 }
 
 FUNCTION {init.state.consts}
 { #0 'before.all :=
@@ -258,7 +258,8 @@ FUNCTION {init.state.consts}
   "ga gai gan gang gao ge gei gen geng gong gou gu gua guai guan guang gui gun guo " *
   "ha hai han hang hao he hei hen heng hong hou hu hua huai huan huang hui hun huo " *
   "ji jia jian jiang jiao jie jin jing jiong jiu ju juan jue jun " *
-  "ka kai kan kang kao ke ken keng kong kou ku kua kuai kuan kuang kui kun kuo " *
+  'pinyin.table1 :=
+  "ka kai kan kang kao ke ken keng kong kou ku kua kuai kuan kuang kui kun kuo "
   "la lai lan lang lao le lei leng li lia lian liang liao lie lin ling liu long lou lu luan lun luo lü lüe lyu lyue " *
   "ma mai man mang mao me mei men meng mi mian miao mie min ming miu mo mou mu " *
   "na nai nan nang nao ne nei nen neng ni nian niang niao nie nin ning niu nong nu nuan nuo nü nüe nyu nyue " *
@@ -266,13 +267,14 @@ FUNCTION {init.state.consts}
   "pa pai pan pang pao pei pen peng pi pian piao pie pin ping po pou pu " *
   "qi qia qian qiang qiao qie qin qing qiong qiu qu quan que qun " *
   "ran rang rao re ren reng ri rong rou ru ruan rui run ruo " *
-  "sa sai san sang sao se sen seng sha shai shan shang shao she shei shen sheng shi shou shu shua shuai shuan shuang shui shun shuo si song sou su suan sui sun suo " *
+  'pinyin.table2 :=
+  "sa sai san sang sao se sen seng sha shai shan shang shao she shei shen sheng shi shou shu shua shuai shuan shuang shui shun shuo si song sou su suan sui sun suo "
   "ta tai tan tang tao te teng ti tian tiao tie ting tong tou tu tuan tui tun tuo " *
   "wa wai wan wang wei wen weng wo wu " *
   "xi xia xian xiang xiao xie xin xing xiong xiu xu xuan xue xun " *
   "ya yan yang yao ye yi yin ying yong you yu yuan yue yun " *
   "za zai zan zang zao ze zei zen zeng zha zhai zhan zhang zhao zhe zhei zhen zheng zhi zhong zhou zhu zhua zhuai zhuan zhuang zhui zhun zhuo zi zong zou zu zuan zui zun zuo " *
-  'pinyin.table :=
+  'pinyin.table3 :=
 }
 
 FUNCTION {bbl.anonymous}
@@ -1471,7 +1473,16 @@ FUNCTION {is.lowercase.word}
 
 FUNCTION {is.single.pinyin}
 { " " swap$ * " " *
-  pinyin.table swap$ contains
+  duplicate$
+  pinyin.table1 swap$ contains
+    { pop$ #1 }
+    { duplicate$
+      pinyin.table2 swap$ contains
+        { pop$ #1 }
+        { pinyin.table3 swap$ contains }
+      if$
+    }
+  if$
 }
 
 FUNCTION {is.single.pinyin.word}

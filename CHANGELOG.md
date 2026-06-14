@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- 修正拼音表过长超出限制的问题（[#203](https://github.com/zepinglee/gbt7714-bibtex-style/issues/203)）。
+
 ## [2.3.0] - 2026-05-26
 
 ### Added
