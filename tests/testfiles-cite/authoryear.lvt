@@ -93,7 +93,7 @@
 引用\citet{zhang1985}测试\par
 
 % 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
-% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+% 出版年后应用小写字母 a, b, c……区别，并置于“（）”内。
 引用\citep{zhang1986a}、\citep{zhang1986b}测试\par
 引用\citet{zhang1986a}、\citet{zhang1986b}测试\par
 
@@ -129,7 +129,7 @@
 引用 \citet{zhang1985} 测试\par
 
 % 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
-% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+% 出版年后应用小写字母 a, b, c……区别，并置于“（）”内。
 引用 \citep{zhang1986a}、\citep{zhang1986b} 测试\par
 引用 \citet{zhang1986a}、\citet{zhang1986b} 测试\par
 
@@ -164,7 +164,7 @@ Citation \citep{doe1985} test\par
 Citation \citet{doe1985} test\par
 
 % 9.3.1.3 著录同一责任者在同一年出版的多篇文献时，在正文中标注责任者与出版年，
-% 出版年后应用小写字母 a,b,c……区别，并置于“（）”内。
+% 出版年后应用小写字母 a, b, c……区别，并置于“（）”内。
 Citation \citep{doe1986a} and \citep{doe1986b} test\par
 Citation \citet{doe1986a} and \citet{doe1986b} test\par
 

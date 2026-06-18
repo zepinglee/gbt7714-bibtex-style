@@ -75,8 +75,8 @@
 引用\citep[42]{zhang1984}测试\par
 引用\citet[42]{zhang1984}测试\par
 
-% 《GB/T 7714 新标准对旧标准的主要修改及实施要点提示》3.2.4)
-% 在有些特殊情况下，序号也可作为行文语句的组成部分。
+% 《GB/T 7714—2025〈信息与文献参考文献著录规则〉的修订亮点、规则新点及实施疑点》3.6.6)
+% 序号也可作为行文语句的组成部分。
 引用\parencite[42]{zhang1984}测试\par
 
 % 测试 \citeauthor 与后续文字的间隙
@@ -105,8 +105,8 @@ Citation \citet{doe1986, doe1984} test\par
 Citation\citep[42]{doe1984} test\par
 Citation \citet[42]{doe1984} test\par
 
-% 《GB/T 7714 新标准对旧标准的主要修改及实施要点提示》3.2.4)
-% 在有些特殊情况下，序号也可作为行文语句的组成部分。
+% 《GB/T 7714—2025〈信息与文献参考文献著录规则〉的修订亮点、规则新点及实施疑点》3.6.6)
+% 序号也可作为行文语句的组成部分。
 Citation \parencite[42]{doe1984} test\par
 
 Citation (\citeauthor{doe1984}) test\par
