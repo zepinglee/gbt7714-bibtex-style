@@ -56,7 +56,7 @@ De~Morgan A.
 Li J.
 
 \bibitem[Godard(n.d.)]{gbt7714.7.1.1:11}
-Godard J L.
+Godard J-L.
 
 \bibitem[钱学森\ 等(无日期)钱学森和刘再复]{gbt7714.7.1.2:1}
 钱学森, 刘再复.
@@ -187,7 +187,7 @@ New York: Academic Press, 2012.
 武汉: 武汉大学, 2022.
 
 \bibitem[佚名(1931)]{gbt7714.7.5.1:4}
-沈阳: 辽宁省档案馆, 1931\allowbreak (1931-11-07).
+沈阳: 辽宁省档案馆, 1931-11-07.
 
 \bibitem[Anon(n.d.)]{gbt7714.7.5.2.1:1}
 Cambridge, Eng.
@@ -466,7 +466,7 @@ Public library quarterly\allowbreak[J].
 2023, 267: 147370.
 
 \bibitem[佚名(2024)]{gbt7714.8.5.1.1:7}
-2024.
+2024-05-09.
 
 \bibitem[佚名(2001)]{gbt7714.8.5.1.2:1}
 2001\allowbreak (8/9/10): 36-39.
@@ -496,7 +496,7 @@ Public library quarterly\allowbreak[J].
 \bibitem[张群\ 等(2024)张群, 程志宝和石志飞]{gbt7714.8.5.3:4}
 张群, 程志宝, 石志飞.
 \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J/OL].
-\newblock 铁道学报, 2024\allowbreak[2025-02-28].
+\newblock 铁道学报, 2024-05-09.
 \newblock \url{https://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
 
 \bibitem[张群\ 等(2024)张群, 程志宝和石志飞]{gbt7714.8.5.3:5}
@@ -602,12 +602,12 @@ Christou A.
 \bibitem[汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, 郑建国和王赟松]{gbt7714.8.8.3:1}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告: 7178999X-2006BAK04A10/10.2013\allowbreak[R].
-\newblock 2013\allowbreak (2013-09-30).
+\newblock 2013-09-30.
 
 \bibitem[中国信息通信研究院\ 等(2023)中国信息通信研究院, 中国电信股份有限公司研究院, 中国移动通信研究院和中国联合网络通信有限公司研究院]{gbt7714.8.8.3:2}
 中国信息通信研究院, 中国电信股份有限公司研究院, 中国移动通信研究院, 等.
 \newblock 电信业发展白皮书: 2023: 新时代高质量发展探索\allowbreak[R].
-\newblock 2023\allowbreak (2023-12-28).
+\newblock 2023-12-28.
 
 \bibitem[Calkin et~al.(2011)Calkin, Ager, and Thompson]{gbt7714.8.8.3:3}
 Calkin D~E, Ager A~A, Thompson M~P.
@@ -620,34 +620,24 @@ Calkin D~E, Ager A~A, Thompson M~P.
 \newblock Springfield: U.S. Department of Commerce National Information Service, 1990: 25.
 
 \bibitem[全国信息与文献标准化技术委员会(2021)]{gbt7714.8.9.2:1}
-全国信息与文献标准化技术委员会.
-\newblock 信息与文献\quad 资源描述: GB/T 3792—2021\allowbreak[S].
-\newblock 2021.
+GB/T 3792—2021\quad 信息与文献\quad 资源描述\allowbreak[S].
 
 \bibitem[国家能源局(2020)]{gbt7714.8.9.2:2}
-国家能源局.
-\newblock 水电工程水温实时监测系统技术规范: NB/T 10386—2020\allowbreak[S].
-\newblock 2020.
+NB/T 10386—2020\quad 水电工程水温实时监测系统技术规范\allowbreak[S].
 
 \bibitem[全国信息技术标准化技术委员会(2016)]{gbt7714.8.9.2:3}
-全国信息技术标准化技术委员会.
-\newblock 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频: GB/T 20090.16—2016\allowbreak[S].
-\newblock 2016.
+GB/T 20090.16—2016\quad 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频\allowbreak[S].
 
 \bibitem[{ISO}(2019)]{gbt7714.8.9.2:4}
-{ISO}.
-\newblock Audit data collection: ISO 21378:2019\allowbreak[S].
-\newblock 2019.
+ISO 21378:2019 Audit data collection\allowbreak[S].
 
 \bibitem[{International Electrotechnical Commission (IEC)}(2021)]{gbt7714.8.9.2:5}
-{International Electrotechnical Commission (IEC)}.
-\newblock Software interface for maintenance information collection and analysis ({SIMICA}): exchanging test results and session information via the {eXtensible Markup Language} ({XML}): IEC/IEEE 61636-1:2021\allowbreak[S].
-\newblock New York: IEEE, 2021.
+IEC/IEEE 61636-1:2021 Software interface for maintenance information collection and analysis ({SIMICA}): exchanging test results and session information via the {eXtensible Markup Language} ({XML})\allowbreak[S].
 
 \bibitem[邓一刚(2008)]{gbt7714.8.10.2:1}
 邓一刚.
 \newblock 全智能节电器: CN200610171314.3\allowbreak[P].
-\newblock 2008-01-16.
+\newblock 2008-01-16: 8-9.
 
 \bibitem[西安电子科技大学(2002)]{gbt7714.8.10.2:2}
 西安电子科技大学.
@@ -711,7 +701,7 @@ António M, Pepper L.
 \bibitem[湖北省建设厅(1931)]{gbt7714.8.12.3:2}
 湖北省建设厅.
 \newblock 湖北省建设厅关于检发实业部农工矿业团体登记规则的布告、训令及湖北省政府的训令: LS031-001-0001-001\allowbreak[A].
-\newblock 武汉: 湖北省档案馆, 1931\allowbreak (1931-11-07).
+\newblock 武汉: 湖北省档案馆, 1931-11-07.
 
 \bibitem[佚名(1949（中华民国三十八年八月）)]{gbt7714.8.12.3:3}
 中国人民解放军武汉市军事管制委员会接管国立武汉大学的文告\allowbreak[A].
@@ -720,7 +710,7 @@ António M, Pepper L.
 \bibitem[Fitzwilliam(1570)]{gbt7714.8.12.3:4}
 Fitzwilliam H.
 \newblock [{Letter} to {Bess of Hardwick}]\allowbreak[A].
-\newblock 1570\allowbreak (1570-07-28).
+\newblock 1570-07-28.
 
 \bibitem[訾冬梅\ 等(2006)訾冬梅和高秀静]{gbt7714.8.13.1:1}
 訾冬梅, 高秀静.
@@ -747,11 +737,13 @@ Coastal erosion and mitigation in east and southeast asia.
 胡健民.
 \newblock 东南极拉斯曼丘陵地区地质图. 1:25000\allowbreak[CM].
 \newblock 北京: 科学出版社, 2021.
+\newblock 128cm$\times$84cm.
 
 \bibitem[刘祥沈(2016)]{gbt7714.8.13.3:2}
 刘祥沈.
 \newblock 沈阳市政区图. 1:170000\allowbreak[CM].
 \newblock 武汉: 武汉大学出版社, 2016.
+\newblock 138cm$\times$96cm.
 
 \bibitem[国家测绘地理信息局({[2025]})]{gbt7714.8.13.3:3}
 国家测绘地理信息局.
@@ -762,33 +754,33 @@ Coastal erosion and mitigation in east and southeast asia.
 周壮, 李盛阳, 吴薇, 等.
 \newblock 天宫二号遥感图像自然景物分类数据集\allowbreak[DS].
 \newblock V1.0.
-\newblock 国家基础学科公共科学数据中心\allowbreak (2023-09-10).
+\newblock 国家基础学科公共科学数据中心\allowbreak (2023-09-10)\allowbreak[2025-07-15].
 
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024)]{gbt7714.8.14.3:2}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS].
-\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25).
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 
 \bibitem[{IHME}(2021)]{gbt7714.8.14.3:3}
 {IHME}.
 \newblock Global {Burden} of {Disease Study} 2019 ({GBD2019}) data resources\allowbreak[DS].
-\newblock Global Health Data Exchange.
+\newblock Global Health Data Exchange\allowbreak (2021)\allowbreak[2025-07-15].
 
 \bibitem[肖玲\ 等(2024)肖玲, 张雪和王永]{gbt7714.8.15.2:1}
 肖玲, 张雪, 王永.
-\newblock 数据要素的统计测算方法探究\allowbreak[A/OL].
+\newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
 \newblock PSSXiv\allowbreak (2024-07-02)\allowbreak[2024-09-30].
 \newblock \url{https://zsyyb.cn/abs/202408.01096}.
 
 \bibitem[方向明\ 等(2023)方向明和曹迎杰]{gbt7714.8.15.2:2}
 方向明, 曹迎杰.
-\newblock 元宇宙在图书馆的应用: 理论研究与实践进展\allowbreak[A/OL].
+\newblock 元宇宙在图书馆的应用: 理论研究与实践进展\allowbreak[PP/OL].
 \newblock ChinaXiv\allowbreak (2023-03-03)\allowbreak[2024-09-30].
 \newblock \url{http://www.chinaxiv.org/abs/202303.00020}.
 
 \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
 Jenkins S~D, Ruostekoski J.
-\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[A/OL].
+\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
 \newblock V2.
 \newblock arXiv\allowbreak (2012-03-18)\allowbreak[2020-06-24].
 \newblock \url{https://doi.org/10.48550/arXiv.1112.6136}.
@@ -1170,7 +1162,7 @@ Public library quarterly\allowbreak[J].
 \bibitem[张群\ 等(2024)张群, 程志宝和石志飞]{gbt7714.b.4:8}
 张群, 程志宝, 石志飞.
 \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J/OL].
-\newblock 铁道学报, 2024\allowbreak[2025-02-28].
+\newblock 铁道学报, 2024-05-09.
 \newblock \url{http://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html}.
 
 \bibitem[张群\ 等(2024)张群, 程志宝和石志飞]{gbt7714.b.4:9}
@@ -1204,7 +1196,7 @@ Des~Marais D~J, Strauss H, Summons R~E, et~al.
 \newblock Nature, 1992, 359: 605-609.
 
 \bibitem[Park et~al.(2010)Park and Tosaka]{gbt7714.b.4:15}
-Park J R, Tosaka Y.
+Park J-R, Tosaka Y.
 \newblock Metadata quality control in digital repositories and collections: criteria, semantics, and mechanisms\allowbreak[J].
 \newblock Cataloging \& Classification Quarterly, 2010, 48\allowbreak (8): 696-715.
 
@@ -1333,17 +1325,17 @@ Christou A.
 \bibitem[中国互联网络信息中心(2012)]{gbt7714.b.7:1}
 中国互联网络信息中心.
 \newblock 第29次中国互联网络发展状况统计报告\allowbreak[R].
-\newblock 2012\allowbreak (2012-01-16).
+\newblock 2012-01-16.
 
 \bibitem[汤万金\ 等(2013)汤万金, 杨跃翔, 刘文, 郑建国和王赟松]{gbt7714.b.7:2}
 汤万金, 杨跃翔, 刘文, 等.
 \newblock 人体安全重要技术标准研制最终报告: 7178999X-2006BAK04A10/10.2013\allowbreak[R].
-\newblock 2013\allowbreak (2013-09-30).
+\newblock 2013-09-30.
 
 \bibitem[中国信息通信研究院\ 等(2023)中国信息通信研究院, 中国电信股份有限公司研究院, 中国移动通信研究院和中国联合网络通信有限公司研究院]{gbt7714.b.7:3}
 中国信息通信研究院, 中国电信股份有限公司研究院, 中国移动通信研究院, 等.
 \newblock 电信业发展白皮书: 2023: 新时代高质量发展探索\allowbreak[R].
-\newblock 2023\allowbreak (2023-12-28).
+\newblock 2023-12-28.
 
 \bibitem[Calkin et~al.(2011)Calkin, Ager, and Thompson]{gbt7714.b.7:4}
 Calkin D~E, Ager A~A, Thompson M~P.
@@ -1358,61 +1350,41 @@ Calkin D~E, Ager A~A, Thompson M~P.
 \bibitem[{United Nations Department of Economic and Social Affairs}({[2025]})]{gbt7714.b.7:6}
 {United Nations Department of Economic and Social Affairs}.
 \newblock {United Nations} e-government survey 2024: accelerating digital transformation for sustainable development\allowbreak[R].
-\newblock [2025].
 
 \bibitem[全国信息与文献标准化技术委员会(2021)]{gbt7714.b.8:1}
-全国信息与文献标准化技术委员会.
-\newblock 信息与文献\quad 资源描述: GB/T 3792—2021\allowbreak[S].
-\newblock 2021.
+GB/T 3792—2021\quad 信息与文献\quad 资源描述\allowbreak[S].
 
 \bibitem[全国信息技术标准化技术委员会(2016)]{gbt7714.b.8:2}
-全国信息技术标准化技术委员会.
-\newblock 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频: GB/T 20090.16—2016\allowbreak[S].
-\newblock 2016.
+GB/T 20090.16—2016\quad 信息技术\quad 先进音视频编码\quad 第16部分: 广播电视视频\allowbreak[S].
 
 \bibitem[工业和信息化部(2022)]{gbt7714.b.8:3}
-工业和信息化部.
-\newblock 信息技术 中文编码字符集: GB 18030—2022\allowbreak[S].
-\newblock 2022.
+GB 18030—2022\quad 信息技术 中文编码字符集\allowbreak[S].
 
 \bibitem[国家能源局(2020)]{gbt7714.b.8:4}
-国家能源局.
-\newblock 水电工程水温实时监测系统技术规范: NB/T 10386—2020\allowbreak[S].
-\newblock 2020.
+NB/T 10386—2020\quad 水电工程水温实时监测系统技术规范\allowbreak[S].
 
 \bibitem[{ISO}(2019)]{gbt7714.b.8:5}
-{ISO}.
-\newblock Audit data collection: ISO 21378:2019\allowbreak[S].
-\newblock 2019.
+ISO 21378:2019 Audit data collection\allowbreak[S].
 
 \bibitem[{International Electrotechnical Commission (IEC)}(2021)]{gbt7714.b.8:6}
-{International Electrotechnical Commission (IEC)}.
-\newblock Software interface for maintenance information collection and analysis ({SIMICA}): exchanging test results and session information via the {eXtensible Markup Language} ({XML}): IEC/IEEE 61636-1:2021\allowbreak[S].
-\newblock New York: IEEE, 2021.
+IEC/IEEE 61636-1:2021 Software interface for maintenance information collection and analysis ({SIMICA}): exchanging test results and session information via the {eXtensible Markup Language} ({XML})\allowbreak[S].
 
 \bibitem[Anon(2020)]{gbt7714.b.8:7}
-{IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11: wireless {LAN Medium Access Control} ({MAC}) and {Physical Layer} ({PHY}) specifications amendment 3: wake-up radio operation: IEEE P802.11ba/D8.0-2020\allowbreak[S].
-\newblock New York: IEEE, 2020.
+IEEE P802.11ba/D8.0-2020 {IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11: wireless {LAN Medium Access Control} ({MAC}) and {Physical Layer} ({PHY}) specifications amendment 3: wake-up radio operation\allowbreak[S].
 
 \bibitem[{American Institute of Aeronautics and Astronautics (AIAA)}(2022)]{gbt7714.b.8:8}
-{American Institute of Aeronautics and Astronautics (AIAA)}.
-\newblock Guide to lithium battery safety for space applications: AIAA G-136-2022\allowbreak[S].
-\newblock 2022.
+AIAA G-136-2022 Guide to lithium battery safety for space applications\allowbreak[S].
 
 \bibitem[{ISO}(2016)]{gbt7714.b.8:9}
-{ISO}.
-\newblock Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods: ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
-\newblock 2016.
+ISO/IEC 80079-20-2:2016(en) Explosive atmospheres --- {Part} 20-2: {Material} characteristics --- {Combustible} dusts test methods\allowbreak[S].
 
 \bibitem[{ISO}(2016)]{gbt7714.b.8:10}
-{ISO}.
-\newblock Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles: ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
-\newblock 2016.
+ISO/IEC 80079-20-2:2016(fr) Atmosphères explosives --- Partie 20-2: Caractéristiques des produits --- Méthodes d'essai des poussières combustibles\allowbreak[S].
 
 \bibitem[邓一刚(2008)]{gbt7714.b.9:1}
 邓一刚.
 \newblock 全智能节电器: CN200610171314.3\allowbreak[P].
-\newblock 2008-01-16.
+\newblock 2008-01-16: 8-9.
 
 \bibitem[张凯军(2013)]{gbt7714.b.9:2}
 张凯军.
@@ -1532,7 +1504,7 @@ Bevington D, Brown J~R.
 \bibitem[湖北省建设厅(1931)]{gbt7714.b.11:2}
 湖北省建设厅.
 \newblock 湖北省建设厅关于检发实业部农工矿业团体登记规则的布告、训令及湖北省政府的训令: LS031-001-0001-001\allowbreak[A].
-\newblock 武汉: 湖北省档案馆, 1931\allowbreak (1931-11-07).
+\newblock 武汉: 湖北省档案馆, 1931-11-07.
 
 \bibitem[佚名(1949（中华民国三十八年八月）)]{gbt7714.b.11:3}
 中国人民解放军武汉市军事管制委员会接管国立武汉大学的文告\allowbreak[A].
@@ -1541,27 +1513,31 @@ Bevington D, Brown J~R.
 \bibitem[Fitzwilliam(1570)]{gbt7714.b.11:4}
 Fitzwilliam H.
 \newblock [{Letter} to {Bess of Hardwick}]\allowbreak[A].
-\newblock 1570\allowbreak (1570-07-28).
+\newblock 1570-07-28.
 
 \bibitem[胡健民(2021)]{gbt7714.b.12:1}
 胡健民.
 \newblock 东南极拉斯曼丘陵地区地质图. 1:25000\allowbreak[CM].
 \newblock 北京: 科学出版社, 2021.
+\newblock 128cm$\times$84cm.
 
 \bibitem[刘祥沈(2016)]{gbt7714.b.12:2}
 刘祥沈.
 \newblock 沈阳市政区图. 1:170000\allowbreak[CM].
 \newblock 武汉: 武汉大学出版社, 2016.
+\newblock 138cm$\times$96cm.
 
 \bibitem[中工武大设计研究有限公司(2019)]{gbt7714.b.12:3}
 中工武大设计研究有限公司.
 \newblock 阳新县标准地名图\allowbreak[CM].
 \newblock 武汉: 武汉大学出版社, 2019.
+\newblock 97cm$\times$67cm.
 
 \bibitem[吴自银\ 等(2019)吴自银和温珍河]{gbt7714.b.12:4}
 吴自银, 温珍河.
 \newblock 中国南部海域海底地形图. 1:3000000\allowbreak[CM].
 \newblock 北京: 科学出版社, 2019.
+\newblock 100cm$\times$70cm.
 
 \bibitem[国家测绘地理信息局({[2025]})]{gbt7714.b.12:5}
 国家测绘地理信息局.
@@ -1597,73 +1573,73 @@ Coastal erosion and mitigation in east and southeast asia.
 \bibitem[彭守璋(2024)]{gbt7714.b.13:1}
 彭守璋.
 \newblock 1901—2023年中国1km分辨率逐月降水量数据集\allowbreak[DS].
-\newblock 西北农林科技大学水土保持研究所\allowbreak (2024-07-19).
+\newblock 西北农林科技大学水土保持研究所\allowbreak (2024-07-19)\allowbreak[2024-11-25].
 
 \bibitem[刘时银\ 等(2012)刘时银, 郭万钦和许君利]{gbt7714.b.13:2}
 刘时银, 郭万钦, 许君利.
 \newblock 中国第二次水川编目科学数据: 2006-2011\allowbreak[DS].
 \newblock V1.0.
-\newblock 中国科学院寒区早区环境与工程研究所冰冻圈科学国家重点实验室.
+\newblock 中国科学院寒区早区环境与工程研究所冰冻圈科学国家重点实验室\allowbreak (2012)\allowbreak[2024-11-25].
 
 \bibitem[周壮\ 等(2023)周壮, 李盛阳, 吴薇, 郭威龙, 李轩, 夏桂松和赵子飞]{gbt7714.b.13:3}
 周壮, 李盛阳, 吴薇, 等.
 \newblock 天宫二号遥感图像自然景物分类数据集\allowbreak[DS].
 \newblock V1.0.
-\newblock 国家基础学科公共科学数据中心\allowbreak (2023-09-10).
+\newblock 国家基础学科公共科学数据中心\allowbreak (2023-09-10)\allowbreak[2025-07-15].
 
 \bibitem[郑涵\ 等(2018)郑涵, 于贵瑞, 朱先进, 王秋凤, 张雷明, 陈智, 孙晓敏, 何洪林, 苏文, 王艳芬, 韩士杰, 周国逸, 赵新全, 王辉民, 欧阳竹, 张宪洲, 张扬建, 石培礼, 李英年, 赵亮, 张一平, 闫俊华, 王安志, 张军辉, 郝彦斌, 赵风华, 张法伟, 周广胜, 林光辉, 陈世苹, 刘绍民, 赵斌, 贾根锁, 张旭东, 张玉翠, 古松, 刘文兆, 李彦, 王文杰, 杨大文, 张劲松, 张志强, 赵仲辉, 周石硚, 郭海强, 沈彦俊, 徐自为, 黄辉和孟平]{gbt7714.b.13:4}
 郑涵, 于贵瑞, 朱先进, 等.
 \newblock 2000—2010年中国典型陆地生态系统实际蒸散量和水分利用效率数据\allowbreak[DS].
 \newblock V1.
-\newblock Science Data Bank.
+\newblock Science Data Bank\allowbreak (2018)\allowbreak[2025-02-14].
 
 \bibitem[{黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}(2024)]{gbt7714.b.13:5}
 {黄土高原科学数据中心 (西北农林科技大学水土保持研究所)}.
 \newblock 青海省县域教育、卫生发展指标 (2001—2022年)\allowbreak[DS].
-\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25).
+\newblock 国家地球系统科学数据中心-黄土高原分中心\allowbreak (2024-12-25)\allowbreak[2025-07-10].
 
 \bibitem[王继民\ 等(2025)王继民, 罗鹏程, 赵常煜, 郭鑫, 王世奇和高正]{gbt7714.b.13:6}
 王继民, 罗鹏程, 赵常煜, 等.
 \newblock 人文社会科学数据集检索方法研究的数据集\allowbreak[DS].
 \newblock V2.2.
-\newblock 北京大学开放研究数据平台\allowbreak (2025-06-11).
+\newblock 北京大学开放研究数据平台\allowbreak (2025-06-11)\allowbreak[2025-07-10].
 
 \bibitem[Sugarman et~al.(1980)Sugarman and Markham]{gbt7714.b.13:7}
 Sugarman L, Markham S.
 \newblock Students in a selective high school: some vocationally oriented data\allowbreak[DS].
-\newblock UK Data Service.
+\newblock UK Data Service\allowbreak (1980)\allowbreak[2025-07-10].
 
 \bibitem[Zhong et~al.(2022)Zhong, Yan, and Li]{gbt7714.b.13:8}
 Zhong X, Yan Q, Li G.
 \newblock Long time series nighttime light dataset of {China}: 2000--2020\allowbreak[DS].
-\newblock Global Change Research Data Publishing \& Repository.
+\newblock Global Change Research Data Publishing \& Repository\allowbreak (2022)\allowbreak[2024-11-25].
 
 \bibitem[{IHME}(2021)]{gbt7714.b.13:9}
 {IHME}.
 \newblock Global {Burden} of {Disease Study} 2019 ({GBD2019}) data resources\allowbreak[DS].
-\newblock Global Health Data Exchange.
+\newblock Global Health Data Exchange\allowbreak (2021)\allowbreak[2024-11-25].
 
 \bibitem[方向明\ 等(2023)方向明和曹迎杰]{gbt7714.b.14:1}
 方向明, 曹迎杰.
-\newblock 元宇宙在图书馆的应用: 理论研究与实践进展\allowbreak[A/OL].
+\newblock 元宇宙在图书馆的应用: 理论研究与实践进展\allowbreak[PP/OL].
 \newblock ChinaXiv\allowbreak (2023-03-03)\allowbreak[2024-09-30].
 \newblock \url{http://www.chinaxiv.org/abs/202303.00020}.
 
 \bibitem[肖玲\ 等(2024)肖玲, 张雪和王永]{gbt7714.b.14:2}
 肖玲, 张雪, 王永.
-\newblock 数据要素的统计测算方法探究\allowbreak[A/OL].
+\newblock 数据要素的统计测算方法探究\allowbreak[PP/OL].
 \newblock PSSXiv\allowbreak (2024-07-02)\allowbreak[2024-09-30].
 \newblock \url{https://zsyyb.cn/abs/202408.01096}.
 
 \bibitem[Bloss et~al.(2015)Bloss, Wineinger, Peters, Boeldt, Ariniello, Kim, Sheard, Komatireddy, Barrett, and Topol]{gbt7714.b.14:3}
 Bloss C~S, Wineinger N~E, Peters M, et~al.
-\newblock A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors\allowbreak[A/OL].
+\newblock A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors\allowbreak[PP/OL].
 \newblock bioRxiv\allowbreak (2015-10-28)\allowbreak[2018-07-12].
 \newblock \url{https://doi.org/10.1101/029983}.
 
 \bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.b.14:4}
 Jenkins S~D, Ruostekoski J.
-\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[A/OL].
+\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
 \newblock V2.
 \newblock arXiv\allowbreak (2012-03-18)\allowbreak[2020-06-24].
 \newblock \url{https://doi.org/10.48550/arXiv.1112.6136}.
