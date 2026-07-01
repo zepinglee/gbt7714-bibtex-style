@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% gbt7714-bst.dtx  (with options: `2015,authoryear')
+%% gbt7714-bst.dtx  (with options: `2025,authoryear')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -79,7 +79,7 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  "half" 'control.bib.punct :=  % GB / half / bylanguage
+  "GB" 'control.bib.punct :=  % GB / half / bylanguage
   #1 'control.convert.punct :=
   #3 'control.max.bib.names :=
   #3 'control.min.bib.names :=
@@ -88,10 +88,10 @@ FUNCTION {load.config}
   #0 'control.bib.final.and :=
   #1 'control.cite.final.and :=
   #1 'control.space.before.et.al :=
-  #1 'control.uppercase.family :=
-  #0 'control.initialize.with.hyphen :=
+  #0 'control.uppercase.family :=
+  #1 'control.initialize.with.hyphen :=
   #1 'control.check.pinyin :=
-  #1 'control.initialize.pinyin :=
+  #0 'control.initialize.pinyin :=
   "byentry" 'control.cite.lang :=  % byentry / chinese / english / macro
   #1 'control.year.before.title :=
   "comma" 'control.name.year.delim :=  % comma / period
@@ -120,7 +120,7 @@ FUNCTION {load.config}
   #1 'control.urldate :=
   #1 'control.url :=
   #1 'control.doi :=
-  #0 'control.cstr :=
+  #1 'control.cstr :=
   #0 'control.eprint :=
   #0 'control.note :=
   #1 'control.end.dot :=
@@ -1453,7 +1453,6 @@ FUNCTION {set.entry.numbered}
   type$ "patent" = or
   type$ "regulation" = or
   type$ "report" = or
-  type$ "standard" = or
   type$ "techreport" = or
     { #1 'entry.numbered := }
     { #0 'entry.numbered := }
@@ -2748,10 +2747,20 @@ FUNCTION {format.eventtitle}
 
 FUNCTION {normalize.year.dash}
 {
-  "---" "-" find.replace
-  "--" "-" find.replace
-  "–" "-" find.replace
-  "—" "-" find.replace
+  "bylanguage" control.bib.punct =
+  is.lang.cjk and
+  "GB" control.bib.punct = or
+    { "---" "—" find.replace
+      "--" "—" find.replace
+      "–" "—" find.replace
+      "-" "—" find.replace
+    }
+    { "---" "-" find.replace
+      "--" "-" find.replace
+      "–" "-" find.replace
+      "—" "-" find.replace
+    }
+  if$
 }
 
 FUNCTION {format.date}
@@ -2845,7 +2854,10 @@ FUNCTION {format.date.before.title}
 FUNCTION {format.creation.modification.date}
 { date empty$
     {
-      ""
+      year empty$
+        { "" }
+        { year}
+      if$
     }
     { date }
   if$
@@ -2859,8 +2871,7 @@ FUNCTION {format.creation.modification.date}
 
 FUNCTION {format.urldate}
 {
-  entry.has.url.or.doi
-  control.urldate urldate empty$ not and and
+  control.urldate urldate empty$ not and
     { "\allowbreak" urldate make.brackets * }
     { "" }
   if$
@@ -3146,7 +3157,10 @@ FUNCTION {article.journal}
       format.newspaper.pages output
     }
     {
-      format.date output
+      volume empty$ number empty$ and date field.or.null text.length$ #9 > and
+        { format.full.date "date" output.check }
+        { format.date "year" output.check  }
+      if$
       format.journal.volume output
       "" set.punct
       format.journal.number output
@@ -3155,8 +3169,6 @@ FUNCTION {article.journal}
     }
   if$
   link.close
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3175,13 +3187,9 @@ FUNCTION {archive}
   % format.translators output
   new.block
   format.address.publisher output
-  format.date output
+  format.full.date "year" output.check
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.creation.modification.date output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3205,8 +3213,6 @@ FUNCTION {book}
   format.date output
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3230,7 +3236,7 @@ FUNCTION {dataset}
   "" set.punct
   format.creation.modification.date output
   "" set.punct
-  format.urldate output
+  format.urldate "urldate" output.check
   format.url output
   format.doi output
   new.block
@@ -3284,8 +3290,6 @@ FUNCTION {inbook}
       format.date output
       bbl.pages.colon set.punct
       format.pages output
-      "" set.punct
-      format.urldate output
       format.url output
       format.doi output
       new.block
@@ -3317,8 +3321,6 @@ FUNCTION {incollection}
   format.date output
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3350,8 +3352,6 @@ FUNCTION {inproceedings}
   format.date output
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3377,8 +3377,8 @@ FUNCTION {patent}
   if$
   new.block
   format.full.date "year" output.check
-  "" set.punct
-  format.urldate output
+  bbl.pages.colon set.punct
+  format.pages output
   format.url output
   format.doi output
   new.block
@@ -3408,8 +3408,6 @@ FUNCTION {periodical}
   new.block
   format.address.publisher output
   format.date output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3433,8 +3431,6 @@ FUNCTION {proceedings}
   format.date output
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3444,7 +3440,7 @@ FUNCTION {proceedings}
 
 FUNCTION {preprint}
 { #1 'require.url :=
-  "A" set.entry.type.id
+  "PP" set.entry.type.id
   output.bibitem
   format.authors output
   format.date.before.title output
@@ -3481,8 +3477,6 @@ FUNCTION {thesis}
   format.date output
   bbl.pages.colon set.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3504,21 +3498,17 @@ FUNCTION {techreport}
   % new.block
   % format.translators output
   new.block
-  institution empty$
-  pages empty$ and
-  control.url and
-  entry.url empty$ not and
-    'skip$
+  institution empty$ publisher empty$ and
+    { format.full.date "year" output.check
+      bbl.pages.colon set.punct
+      format.pages output
+    }
     { format.address.publisher output
       format.date output
       bbl.pages.colon set.punct
       format.pages output
     }
   if$
-  "" set.punct
-  format.creation.modification.date output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3623,10 +3613,8 @@ FUNCTION {map}
       format.date output
       bbl.pages.colon set.punct
       format.pages output
-      "" set.punct
-      format.creation.modification.date output
-      "" set.punct
-      format.urldate output
+      new.block
+      format.dimensions output
       format.url output
       format.doi output
       new.block
@@ -3657,10 +3645,23 @@ FUNCTION {software}
 
 FUNCTION {standard}
 { "S" set.entry.type.id
-  booktitle empty$
-    'book
-    'incollection
+  output.bibitem
+  format.authors.editors output
+  format.date.before.title output
+  new.block
+  number field.or.null output
+  is.lang.cjk
+    { "\quad " set.punct }
+    { " " set.punct }
   if$
+  format.btitle "title" output.check
+  new.block
+  format.url output
+  new.block
+  format.doi output
+  new.block
+  format.note output
+  fin.entry
 }
 
 FUNCTION {unpublished} { misc }
@@ -3817,7 +3818,6 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_sentence_case boolean.to.int 'control.sentence.case.title :=
       CTL_sentence_case boolean.to.int 'control.sentence.case.booktitle :=
-      CTL_sentence_case boolean.to.int 'control.sentence.case.journal :=
     }
   if$
   CTL_sentence_case_title empty$

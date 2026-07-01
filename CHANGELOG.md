@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 更新样式的默认版本为 2025。
+
 ## [2.3.1] - 2026-06-14
 
 ### Fixed

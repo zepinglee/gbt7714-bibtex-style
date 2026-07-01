@@ -2,7 +2,7 @@
 
 \PassOptionsToPackage{bibwarn=false}{gbt7714}
 \usepackage[initializepinyin]{gbt7714}
-\bibliographystyle{gbt7714-2025-numeric}
+\bibliographystyle{gbt7714-numeric}
 
 % 下列示例取自 GB/T 28039—2011《中国人名汉语拼音字母拼写规则》
 \begin{filecontents}[overwrite]{\jobname.bib}

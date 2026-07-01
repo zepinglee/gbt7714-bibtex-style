@@ -2,7 +2,7 @@
 
 \PassOptionsToPackage{bibwarn=false}{gbt7714}
 \usepackage[checkpinyin]{gbt7714}
-\bibliographystyle{gbt7714-2025-numeric}
+\bibliographystyle{gbt7714-numeric}
 
 
 \begin{document}

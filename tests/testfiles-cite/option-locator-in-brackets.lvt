@@ -19,7 +19,7 @@
 
 \PassOptionsToPackage{checkpinyin=false}{gbt7714}
 \usepackage[locator-in-brackets]{gbt7714}
-\bibliographystyle{gbt7714-2025-numeric}
+\bibliographystyle{gbt7714-numeric}
 
 \pagestyle{empty}
 
