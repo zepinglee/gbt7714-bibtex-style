@@ -353,12 +353,12 @@
 \cs_new:Npn \bibstyle@super
   {
     \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } }
-    \cs_set:Npn \NAT@spacechar { \  }
+    \cs_gset:Npn \NAT@spacechar { \  }
   }
 \cs_new:Npn \bibstyle@inline
   {
     \bibpunct { [ } { ] } { , } { n } { , } { , }
-    \cs_set:Npn \NAT@spacechar { \  }
+    \cs_gset:Npn \NAT@spacechar { \  }
   }
 \cs_new:Npn \bibstyle@authoryear
   {
@@ -374,7 +374,7 @@
       { \ifgbt@cite@punct@full ， \else , \fi }
       % \NAT@yrsep: The delimiter between years with same author
       { \ifgbt@cite@punct@full ， \else , \fi }
-    \cs_set:Npn \NAT@spacechar { \ifgbt@cite@punct@full \else \  \fi }
+    \cs_gset:Npn \NAT@spacechar { \ifgbt@cite@punct@full \else \  \fi }
   }
 
 \cs_new:Npn \bibstyle@numeric
@@ -756,9 +756,6 @@
          \fi
        \fi
      \fi}{#1}{#2}}
-
-% 如果使用全角符号则不加空格
-\def\NAT@spacechar{\ifgbt@cite@punct@full\else\ \fi}%
 
 \DeclareRobustCommand\parencite
    {\begingroup\NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
