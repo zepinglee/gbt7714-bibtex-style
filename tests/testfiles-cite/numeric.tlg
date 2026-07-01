@@ -268,7 +268,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.3411
-....\hbox(8.87892+1.92998)x345.0, glue set 223.54999fil
+....\hbox(8.87892+1.92998)x345.0, glue set 226.87999fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -277,9 +277,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
@@ -473,15 +471,15 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试

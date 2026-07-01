@@ -93,9 +93,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -137,15 +136,15 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -253,9 +252,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1985)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -395,9 +393,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1986a)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -539,9 +536,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -634,7 +630,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.00002
-....\hbox(8.0+1.99998)x345.0, glue set 161.67fil
+....\hbox(8.0+1.99998)x345.0, glue set 165.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -681,9 +677,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
@@ -717,14 +711,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.00002
-....\hbox(8.0+1.99998)x345.0, glue set 166.67fil
+....\hbox(8.0+1.99998)x345.0, glue set 170.0fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -760,9 +753,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
@@ -808,9 +799,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 （参
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 见
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -856,14 +846,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.65309
-....\hbox(8.34692+1.99998)x345.0, glue set 221.874fil
+....\hbox(8.34692+1.99998)x345.0, glue set 218.54399fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -875,9 +864,8 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 （参
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 见
-.....\kern -0.00017
-.....\kern 0.00017
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 1984
 .....\kern -0.0002
 .....\kern 0.0002
@@ -915,8 +903,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -950,15 +936,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+2.49998)x345.0, glue set 247.23fil
+....\hbox(7.64+2.49998)x345.0, glue set 250.56fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -987,15 +971,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+1.77998)x345.0, glue set 278.34fil
+....\hbox(7.64+1.77998)x345.0, glue set 281.67fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -1019,8 +1001,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -1048,8 +1028,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1985)>>>>}
@@ -1087,15 +1065,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.68001
-....\hbox(7.82+2.49998)x345.0, glue set 233.9fil
+....\hbox(7.82+2.49998)x345.0, glue set 237.23fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1985)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -1133,8 +1109,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1986a)>>>>}
@@ -1202,15 +1176,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+2.49998)x345.0, glue set 175.56fil
+....\hbox(7.64+2.49998)x345.0, glue set 178.89fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1986a)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -1275,8 +1247,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -1317,15 +1287,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.15309
-....\hbox(8.34692+2.49998)x345.0, glue set 241.094fil
+....\hbox(8.34692+2.49998)x345.0, glue set 244.424fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -1366,8 +1334,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -1397,13 +1363,11 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.68001
-....\hbox(7.82+2.49998)x345.0, glue set 178.9fil
+....\hbox(7.82+2.49998)x345.0, glue set 182.23fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -1430,9 +1394,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
@@ -1461,15 +1423,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.68001
-....\hbox(7.82+2.49998)x345.0, glue set 176.68fil
+....\hbox(7.82+2.49998)x345.0, glue set 183.34fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
@@ -1491,9 +1451,7 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
@@ -1525,8 +1483,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 (
 .....\TU/FandolSong-Regular(0)/m/n/10 参
@@ -1573,15 +1529,13 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.15309
-....\hbox(8.34692+2.49998)x345.0, glue set 217.76399fil
+....\hbox(8.34692+2.49998)x345.0, glue set 221.094fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 用
-.....\kern -0.00018
-.....\kern 0.00018
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
+.....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
