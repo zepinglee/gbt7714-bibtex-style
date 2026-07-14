@@ -3310,3 +3310,5 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0
 .\kern 0.0
 )
+Package rerunfilecheck Info: File `option-entry-break-false.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
