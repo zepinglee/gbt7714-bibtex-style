@@ -2417,7 +2417,7 @@ FUNCTION {get.journal.title}
         }
         { shortjournal empty$ control.journal.dots not and
             'remove.dots
-            { duplicate$ shortjournal = control.journal.dots not and
+            { duplicate$ shortjournal field.or.null = control.journal.dots not and
                 'remove.dots
                 'skip$
               if$

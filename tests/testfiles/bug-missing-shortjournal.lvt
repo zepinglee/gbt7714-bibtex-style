@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[bibpunct=half, journaldots]{gbt7714}
+\bibliographystyle{gbt7714-numeric}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@article{einstein_1905,
+  title = {\"Uber Einen Die Erzeugung Und Verwandlung Des Lichtes Betreffenden Heuristischen Gesichtspunkt},
+  author = {Einstein, A.},
+  year = 1905,
+  volume = {322},
+  number = {6},
+  pages = {132--148},
+  publisher = {John Wiley \& Sons, Ltd},
+  doi = {10.1002/andp.19053220607},
+  urldate = {2026-04-12},
+  langid = {english},
+  journal = {Ann. Phys.}
+}
+\end{filecontents}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

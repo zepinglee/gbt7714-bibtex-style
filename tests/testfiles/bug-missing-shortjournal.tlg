@@ -1,0 +1,20 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[Einstein(1905)]{einstein_1905}
+Einstein A.
+\newblock \"uber einen die erzeugung und verwandlung des lichtes betreffenden heuristischen gesichtspunkt\allowbreak[J/OL].
+\newblock Ann. Phys., 1905, 322\allowbreak (6): 132-148.
+\newblock DOI:\doi{10.1002/andp.19053220607}.
+
+\end{thebibliography}
