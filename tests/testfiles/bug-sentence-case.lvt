@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage[bibpunct=half]{gbt7714}
+\bibliographystyle{gbt7714-numeric}
+
+\begin{filecontents}[overwrite, noheader]{\jobname.bib}
+@inproceedings{perez2018film,
+  title={Film: visual reasoning with a general conditioning layer},
+  author={Perez, Ethan and Strub, Florian and De Vries, Harm and Dumoulin, Vincent and Courville, Aaron},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={32},
+  pages={3942 - 3951},
+  number={1},
+  year={2018}
+}
+
+@inproceedings{chen2016xgboost,
+  title={Xgboost: a scalable tree boosting system},
+  author={Chen, Tianqi and Guestrin, Carlos},
+  booktitle={Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages={785--794},
+  year={2016}
+}
+\end{filecontents}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}

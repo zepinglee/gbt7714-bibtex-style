@@ -1,3 +1,4 @@
+% <https://github.com/ustctug/ustcthesis/issues/511>
 \documentclass{article}
 
 \usepackage[bibpunct=half, journaldots]{gbt7714}
