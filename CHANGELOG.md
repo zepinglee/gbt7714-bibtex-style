@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-07-20
+
 ### Fixed
 
 - 修正 `shortjournal` 缺失时的报错（[ustctug/ustcthesis#511](https://github.com/ustctug/ustcthesis/issues/511)）。
@@ -387,7 +389,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.3.1...v3.0.0
 [2.3.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.2.0...v2.3.0
