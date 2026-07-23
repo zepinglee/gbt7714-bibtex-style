@@ -334,6 +334,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -1436,6 +1438,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -1896,6 +1900,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 glyph#102
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\glue 1.1 plus 3.30002 minus 0.70007
@@ -1985,6 +1991,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -2552,6 +2560,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\glue 1.1 plus 3.30002 minus 0.70007
@@ -2660,6 +2670,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -3299,6 +3311,8 @@ Completed box being shipped out [1]
 .....\penalty 250
 .....\mathoff
 .....\special{pdf:eann}
+.....\kern -0.00026
+.....\kern 0.00026
 .....\TU/lmr/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -3310,5 +3324,3 @@ Completed box being shipped out [1]
 ....\hbox(0.0+0.0)x345.0
 .\kern 0.0
 )
-Package rerunfilecheck Info: File `option-entry-break-false.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.

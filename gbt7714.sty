@@ -83,7 +83,8 @@
     % For compatibility
     locator-inside-brackets .choice: ,
     locator-inside-brackets / true .code:n = { \gbt@locator@in@bracketstrue } ,
-    locator-inside-brackets / false .code:n = { \gbt@locator@in@bracketsfalse } ,
+    locator-inside-brackets / false .code:n =
+      { \gbt@locator@in@bracketsfalse } ,
     locator-inside-brackets .default:n = true ,
     sort .bool_set:N = \l__gbt_sort_bool ,
     %
@@ -107,7 +108,7 @@
         \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bib_punct } { bylanguage }
       } ,
     convertpunct .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_convert_punct } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_convert_punct } {#1} } ,
     convertpunct .default:n = true ,
     maxbibnames .code:n =
       { \prop_put:Nne \l__gbt_bst_control_prop { CTL_max_bib_names } {#1} } ,
@@ -118,121 +119,147 @@
     mincitenames .code:n =
       { \prop_put:Nne \l__gbt_bst_control_prop { CTL_min_cite_names } {#1} } ,
     uppercasefamily .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_uppercase_family } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_uppercase_family } {#1} } ,
     uppercasefamily .default:n = true ,
     initializewithhyphen .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_initialize_with_hyphen } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_initialize_with_hyphen }
+          {#1}
+      } ,
     initializewithhyphen .default:n = true ,
     checkpinyin .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_check_pinyin } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_check_pinyin } {#1} } ,
     checkpinyin .default:n = true ,
     initializepinyin .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_initialize_pinyin } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_initialize_pinyin } {#1}
+      } ,
     initializepinyin .default:n = true ,
     bibfinaland .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bib_final_and } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bib_final_and } {#1} } ,
     bibfinaland .default:n = true ,
     citefinaland .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_final_and } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_cite_final_and } {#1} } ,
     citefinaland .default:n = true ,
     citelang .choices:nn = { byentry, macro, chinese, english }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_cite_lang } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_cite_lang } {#1} } ,
     spacebeforeetal .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_et_al } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_space_before_et_al } {#1}
+      } ,
     spacebeforeetal .default:n = true ,
     yearbeforetitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_year_before_title } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_year_before_title } {#1}
+      } ,
     yearbeforetitle .default:n = true ,
     nameyeardelim .choices:nn = { comma , period }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_name_year_delim } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_name_year_delim } {#1} } ,
     sentencecase .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_sentence_case } {#1} } ,
     sentencecase .default:n = true ,
     sentencecasetitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_title } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_sentence_case_title } {#1}
+      } ,
     sentencecasetitle .default:n = true ,
     sentencecasebooktitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_booktitle } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_sentence_case_booktitle }
+          {#1}
+      } ,
     sentencecasebooktitle .default:n = true ,
     sentencecasejournal .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_sentence_case_journal } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_sentence_case_journal }
+          {#1}
+      } ,
     sentencecasejournal .default:n = true ,
     capitalizesubtitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_capitalize_subtitle } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_capitalize_subtitle } {#1}
+      } ,
     capitalizesubtitle .default:n = true ,
     linktitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_title } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_link_title } {#1} } ,
     linktitle .default:n = true ,
     articletitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_article_title } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_article_title } {#1} } ,
     articletitle .default:n = true ,
     patentcountry .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_patent_country } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_patent_country } {#1} } ,
     patentcountry .default:n = true ,
     entrytypeid .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_type_id } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_entry_type_id } {#1} } ,
     entrytypeid .default:n = true ,
     spacebeforetypeid .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_type_id } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_space_before_type_id }
+          {#1}
+      } ,
     spacebeforetypeid .default:n = true ,
     entrymediumid .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_entry_medium_id } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_entry_medium_id } {#1} } ,
     entrymediumid .default:n = true ,
     slash .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_slash } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_slash } {#1} } ,
     slash .default:n = true ,
     in .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_in } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_in } {#1} } ,
     in .default:n = true ,
     emphbooktitle .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_booktitle } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_emph_booktitle } {#1} } ,
     emphbooktitle .default:n = true ,
     emphjournal .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_emph_journal } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_emph_journal } {#1} } ,
     emphjournal .default:n = true ,
     shortjournal .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_short_journal } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_short_journal } {#1} } ,
     shortjournal .default:n = true ,
     journaldots .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_journal_dots } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_journal_dots } {#1} } ,
     journaldots .default:n = true ,
     linkjournal .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_link_journal } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_link_journal } {#1} } ,
     linkjournal .default:n = true ,
     boldvolume .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_bold_volume } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_bold_volume } {#1} } ,
     boldvolume .default:n = true ,
     unknownpublisher .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_unknown_publisher } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_unknown_publisher } {#1}
+      } ,
     unknownpublisher .default:n = true ,
     spacebeforepages .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_space_before_pages } \l_keys_choice_tl } ,
+      {
+        \prop_put:Nnn \l__gbt_bst_control_prop { CTL_space_before_pages } {#1}
+      } ,
     spacebeforepages .default:n = true ,
     pageranges .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_page_ranges } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_page_ranges } {#1} } ,
     pageranges .default:n = true ,
     pagerangedelim .code:n =
       { \prop_put:Nne \l__gbt_bst_control_prop { CTL_page_range_delim } {#1} } ,
     urldate .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_urldate } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_urldate } {#1} } ,
     urldate .default:n = true ,
     url .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_url } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_url } {#1} } ,
     url .default:n = true ,
     doi .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_doi } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_doi } {#1} } ,
     doi .default:n = true ,
     eprint .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_eprint } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_eprint } {#1} } ,
     eprint .default:n = true ,
     note .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_note } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_note } {#1} } ,
     note .default:n = true ,
     enddot .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_end_dot } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_end_dot } {#1} } ,
     enddot .default:n = true ,
     bibwarn .choices:nn = { true, false }
-      { \prop_put:NnV \l__gbt_bst_control_prop { CTL_warn_empty_field } \l_keys_choice_tl } ,
+      { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_warn_empty_field } {#1} } ,
     bibwarn .default:n = true ,
     %
     % 兼容 v1.x.x 过时的接口
@@ -323,7 +350,7 @@
     gbt7714-numerical = gbt7714-numeric ,
   }
 
-\cs_set_nopar:Npn \bibliographystyle #1
+\cs_set_protected_nopar:Npn \bibliographystyle #1
   {
     \prop_get:NnNTF \c__gbt_deprecated_style_name_prop {#1} \l_tmpa_tl
       {
@@ -350,17 +377,17 @@
 
 % 定义接口切换引用文献的标注法，可用 \cs{citestyle} 调用 \opt{numerical}
 % 或 \opt{authoryear}，参见 \pkg{natbib}。
-\cs_new:Npn \bibstyle@super
+\cs_new_protected:Npn \bibstyle@super
   {
     \bibpunct { [ } { ] } { , } { s } { , } { \textsuperscript { , } }
     \cs_gset:Npn \NAT@spacechar { \  }
   }
-\cs_new:Npn \bibstyle@inline
+\cs_new_protected:Npn \bibstyle@inline
   {
     \bibpunct { [ } { ] } { , } { n } { , } { , }
     \cs_gset:Npn \NAT@spacechar { \  }
   }
-\cs_new:Npn \bibstyle@authoryear
+\cs_new_protected:Npn \bibstyle@authoryear
   {
     \bibpunct
       % \NAT@cmt: The delimiter preceding a post-note
@@ -383,7 +410,7 @@
       { \bibstyle@inline }
       { \bibstyle@super }
   }
-\cs_new:Npn \bibstyle@numbers { \bibstyle@inline }
+\cs_new_protected:Npn \bibstyle@numbers { \bibstyle@inline }
 
 \AtBeginDocument
   {
@@ -398,17 +425,20 @@
   }
 
 % 在使用 \cs{bibliographystyle} 时自动切换引用文献的标注的样式。
-\cs_new:cpn { bibstyle@gbt7714-numeric } { \bibstyle@numeric }
-\cs_new:cpn { bibstyle@gbt7714-authoryear } { \bibstyle@authoryear }
-\cs_new:cpn { bibstyle@gbt7714-2025-numeric } { \bibstyle@numeric }
-\cs_new:cpn { bibstyle@gbt7714-2025-authoryear } { \bibstyle@authoryear }
-\cs_new:cpn { bibstyle@gbt7714-2015-numeric } { \bibstyle@numeric }
-\cs_new:cpn { bibstyle@gbt7714-2015-authoryear } { \bibstyle@authoryear }
-\cs_new:cpn { bibstyle@gbt7714-2005-numeric } { \bibstyle@numeric }
-\cs_new:cpn { bibstyle@gbt7714-2005-authoryear } { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-numeric } { \bibstyle@numeric }
+\cs_new_protected:cpn { bibstyle@gbt7714-authoryear } { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-2025-numeric } { \bibstyle@numeric }
+\cs_new_protected:cpn { bibstyle@gbt7714-2025-authoryear }
+  { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-2015-numeric } { \bibstyle@numeric }
+\cs_new_protected:cpn { bibstyle@gbt7714-2015-authoryear }
+  { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-2005-numeric } { \bibstyle@numeric }
+\cs_new_protected:cpn { bibstyle@gbt7714-2005-authoryear }
+  { \bibstyle@authoryear }
 % 兼容过时的样式名称
-\cs_new:cpn { bibstyle@gbt7714-numerical } { \bibstyle@numeric }
-\cs_new:cpn { bibstyle@gbt7714-author-year } { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-numerical } { \bibstyle@numeric }
+\cs_new_protected:cpn { bibstyle@gbt7714-author-year } { \bibstyle@authoryear }
 
 % 下面修改 \pkg{natbib} 的引用格式。
 % 为了减少依赖的宏包，这里直接重定义命令不使用 \pkg{etoolbox} 的 \cs{patchcmd}。
@@ -824,14 +854,14 @@
 \ExplSyntaxOn
 
 % 控制参考文献表的标签格式对齐方式
-\cs_set_nopar:Npn \@biblabel #1
+\cs_set_protected_nopar:Npn \@biblabel #1
   {
     \hbox:n { [ #1 ] }
     \bool_if:NT \l__gbt_align_left_bool
       { \hfill }
   }
 
-\cs_new:Npn \gbt@bib@setup
+\cs_new_protected:Npn \gbt@bib@setup
   {
     % \__gbt_set_square_bracket_font:
     \__gbt_bib_url_setup:
@@ -892,14 +922,14 @@
 \int_set:Nn \l__gbt_url_uc_penalty_int { 250 }
 \int_set:Nn \l__gbt_url_lc_penalty_int { 250 }
 
-\cs_new:Npn \__gbt_bib_url_setup:
+\cs_new_protected:Npn \__gbt_bib_url_setup:
   {
     \urlstyle { same }
     \muskip_set:Nn \Urlmuskip { 0 mu plus 3 mu }
     \mathchardef \UrlBigBreakPenalty = 100 \relax
     \mathchardef \UrlBreakPenalty = 200 \relax
-    \cs_set_nopar:Npn \UrlBigBreaks { \do \: \do \- }
-    \cs_set_nopar:Npn \UrlBreaks
+    \cs_set_protected_nopar:Npn \UrlBigBreaks { \do \: \do \- }
+    \cs_set_protected_nopar:Npn \UrlBreaks
       {
         \do \. \do \@ \do \/ \do \\ \do \! \do \_ \do \| \do \; \do \> \do \]
         \do \) \do \} \do \, \do \? \do \' \do \+ \do \= \do \# \do \$ \do \&
@@ -985,7 +1015,7 @@
 \tl_const:Nn \c__gbt_bst_control_entry_key_tl { GBT7714:BSTcontrol }
 \iow_new:N \l__gbt_bst_control_iow
 
-\cs_new:Npn \__gbt_write_bst_control_file:
+\cs_new_protected:Npn \__gbt_write_bst_control_file:
   {
     \iow_open:Nn \l__gbt_bst_control_iow
       { \jobname \c__gbt_bst_control_file_suffix_tl .bib }
