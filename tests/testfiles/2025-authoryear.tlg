@@ -69,7 +69,7 @@
 
 \bibitem[佚名(无日期{\natexlab{o}})]{gbt7714.7.3:2}
 佚名，无日期-{\natexlab{o}}.
-\newblock 环境司法制度改革对企业绿色创新的影响：实质性绿色创新还是漂绿？——基于公益诉讼试点的证据\allowbreak[M].
+\newblock 环境司法制度改革对企业绿色创新的影响：实质性绿色创新还是漂绿？：基于公益诉讼试点的证据\allowbreak[J].
 
 \bibitem[佚名(无日期{\natexlab{p}})]{gbt7714.7.3:3}
 佚名，无日期-{\natexlab{p}}.
@@ -152,13 +152,13 @@
 
 \bibitem[佚名(1962{\natexlab{a}})]{gbt7714.8.2.2:4}
 佚名，1962{\natexlab{a}}.
-\newblock 康熙字典：巳集上~水部\allowbreak[M].
+\newblock 康熙字典：巳集上：水部\allowbreak[M].
 \newblock 影印本.
 \newblock 北京：中华书局：50.
 
 \bibitem[佚名(1962{\natexlab{b}})]{gbt7714.b.1:8}
 佚名，1962{\natexlab{b}}.
-\newblock 康熙字典：巳集上~水部\allowbreak[M].
+\newblock 康熙字典：巳集上：水部\allowbreak[M].
 \newblock 影印本.
 \newblock 北京：中华书局：50.
 
@@ -246,6 +246,18 @@
 佚名，2014.
 \newblock 510：356-363.
 
+\bibitem[佚名(2015{\natexlab{a}})]{gbt7714.8.11.3.2:2}
+佚名，2015{\natexlab{a}}.
+\newblock [《昨日之歌》图书封面]\allowbreak[EB/OL].
+\newblock \allowbreak （2015-09-18）\allowbreak[2023-03-06].
+\newblock \url{http://www.luxunmuseum.com.cn/uploads/allimg/150813/1-150Q31952110-L.jpg}.
+
+\bibitem[佚名(2015{\natexlab{b}})]{gbt7714.b.10:6}
+佚名，2015{\natexlab{b}}.
+\newblock [《昨日之歌》图书封面]\allowbreak[EB/OL].
+\newblock \allowbreak （2015-09-18）\allowbreak[2023-03-06].
+\newblock \url{http://www.luxunmuseum.com.cn/uploads/allimg/150813/1-150Q31952110-L.jpg}.
+
 \bibitem[佚名(2020)]{gbt7714.b.2:7}
 佚名，2020.
 \newblock 大黄\allowbreak[M]//\allowbreak
@@ -263,24 +275,12 @@
 \newblock 人物龙凤帛画\allowbreak[J].
 \newblock 中国书法\allowbreak （3）：5.
 
-\bibitem[佚名(2023{\natexlab{b}})]{gbt7714.8.11.3.2:2}
+\bibitem[佚名(2023{\natexlab{b}})]{gbt7714.8.5.1.1:6}
 佚名，2023{\natexlab{b}}.
-\newblock [《昨日之歌》图书封面]\allowbreak[EB/OL].
-\newblock \allowbreak （2023-03-06）\allowbreak[2025-06-22].
-\newblock \url{http://www.luxunmuseum.com.cn/uploads/allimg/150813/1-150Q31952110-L.jpg}.
-
-\bibitem[佚名(2023{\natexlab{c}})]{gbt7714.8.5.1.1:6}
-佚名，2023{\natexlab{c}}.
 \newblock 267：147370.
 
-\bibitem[佚名(2023{\natexlab{d}})]{gbt7714.b.10:6}
-佚名，2023{\natexlab{d}}.
-\newblock [《昨日之歌》图书封面]\allowbreak[EB/OL].
-\newblock \allowbreak （2023-03-06）\allowbreak[2025-06-22].
-\newblock \url{http://www.luxunmuseum.com.cn/uploads/allimg/150813/1-150Q31952110-L.jpg}.
-
-\bibitem[佚名(2023{\natexlab{e}})]{gbt7714.b.10:8}
-佚名，2023{\natexlab{e}}.
+\bibitem[佚名(2023{\natexlab{c}})]{gbt7714.b.10:8}
+佚名，2023{\natexlab{c}}.
 \newblock 西黄丸\allowbreak[EB/OL].
 \newblock \allowbreak （2023-10-07）\allowbreak[2025-08-26].
 \newblock \url{https://ydz.chp.org.cn/#/item?bookId=1&entryId=1154}.
@@ -292,6 +292,18 @@
 \bibitem[佚名(2024{\natexlab{b}})]{gbt7714.8.5.1.1:7}
 佚名，2024{\natexlab{b}}.
 \newblock 2024-05-09.
+
+\bibitem[佚名(2025{\natexlab{a}})]{gbt7714.8.11.3.2:3}
+佚名，2025{\natexlab{a}}.
+\newblock 许振超：“好好干，当一个好工人”\allowbreak[EB/OL].
+\newblock \allowbreak （2025-02-17）\allowbreak[2025-06-22].
+\newblock \url{http://cpc.people.com.cn/n1/2025/0217/c443712-40419790.html}.
+
+\bibitem[佚名(2025{\natexlab{b}})]{gbt7714.b.10:5}
+佚名，2025{\natexlab{b}}.
+\newblock 许振超：“好好干，当一个好工人”\allowbreak[EB/OL].
+\newblock \allowbreak （2025-02-17）\allowbreak[2025-06-22].
+\newblock \url{http://cpc.people.com.cn/n1/2025/0217/c443712-40419790.html}.
 
 \bibitem[佚名(c1988)]{gbt7714.7.5.4.3:1}
 佚名，c1988.
@@ -354,7 +366,7 @@
 中工武大设计研究有限公司，2019.
 \newblock 阳新县标准地名图\allowbreak[CM].
 \newblock 武汉：武汉大学出版社.
-\newblock 97cm$\times$67cm.
+\newblock 97\,cm$\times$67\,cm.
 
 \bibitem[丸山敏秋(无日期)]{gbt7714.7.1.1:5}
 丸山敏秋，无日期.
@@ -469,14 +481,14 @@
 
 \bibitem[刘彻东(1998)]{gbt7714.9.3.1.4:3}
 刘彻东，1998.
-\newblock 中国的青年刊物：个性特色为本仁\allowbreak[J].
+\newblock 中国的青年刊物：个性特色为本\allowbreak[J].
 \newblock 中国出版\allowbreak （5）：38-39.
 
 \bibitem[刘时银\ 等(2012)刘时银，郭万钦和许君利]{gbt7714.b.13:2}
 刘时银，郭万钦，许君利，2012.
-\newblock 中国第二次水川编目科学数据：2006-2011\allowbreak[DS/OL].
+\newblock 中国第二次冰川编目数据集：2006—2011\allowbreak[DS/OL].
 \newblock V1.0.
-\newblock 中国科学院寒区早区环境与工程研究所冰冻圈科学国家重点实验室\allowbreak （2012）\allowbreak[2024-11-25].
+\newblock 国家青藏高原科学数据中心\allowbreak （2012）\allowbreak[2025-07-15].
 \newblock \url{https://data.tpdc.ac.cn/zh-hans/data/f92a4346-a33f-497d-9470-2b357ccb4246/}.
 \newblock DOI:\doi{10.3972/glacier.001.2013.db}.
 
@@ -484,16 +496,16 @@
 刘祥沈，2016{\natexlab{a}}.
 \newblock 沈阳市政区图. 1:170000\allowbreak[CM].
 \newblock 武汉：武汉大学出版社.
-\newblock 138cm$\times$96cm.
+\newblock 138\,cm$\times$96\,cm.
 
 \bibitem[刘祥沈(2016{\natexlab{b}})]{gbt7714.b.12:2}
 刘祥沈，2016{\natexlab{b}}.
 \newblock 沈阳市政区图. 1:170000\allowbreak[CM].
 \newblock 武汉：武汉大学出版社.
-\newblock 138cm$\times$96cm.
+\newblock 138\,cm$\times$96\,cm.
 
-\bibitem[北京鲁迅博物馆(2021)]{gbt7714.b.10:2}
-北京鲁迅博物馆，2021.
+\bibitem[{北京鲁迅博物馆（北京新文化运动纪念馆）}(2021)]{gbt7714.b.10:2}
+{北京鲁迅博物馆（北京新文化运动纪念馆）}，2021.
 \newblock 北京鲁迅博物馆志愿服务章程\allowbreak[EB/OL].
 \newblock \allowbreak （2021-04-21）\allowbreak[2023-05-02].
 \newblock \url{http://www.luxunmuseum.com.cn/html/202104/a11310.htm}.
@@ -517,7 +529,7 @@
 吴自银，温珍河，2019.
 \newblock 中国南部海域海底地形图. 1:3000000\allowbreak[CM].
 \newblock 北京：科学出版社.
-\newblock 100cm$\times$70cm.
+\newblock 100\,cm$\times$70\,cm.
 
 \bibitem[周壮\ 等(2023{\natexlab{a}})周壮，李盛阳，吴薇，郭威龙，李轩，夏桂松和赵子飞]{gbt7714.8.14.3:1}
 周壮，李盛阳，吴薇，等，2023{\natexlab{a}}.
@@ -565,7 +577,7 @@
 
 \bibitem[工业和信息化部(2022)]{gbt7714.b.8:3}
 工业和信息化部，2022.
-\newblock GB 18030—2022\quad 信息技术 中文编码字符集\allowbreak[S/OL].
+\newblock GB 18030—2022\quad 信息技术\quad 中文编码字符集\allowbreak[S/OL].
 \newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=A1931A578FE14957104988029B0833D3}.
 
 \bibitem[张伯伟(2002{\natexlab{a}})]{gbt7714.8.1:1}
@@ -617,10 +629,10 @@
 \newblock 惯性增强动力吸振器-浮置板轨道低频减振性能研究\allowbreak[J].
 \newblock 铁道学报，46\allowbreak （8）：102-111.
 
-\bibitem[彭守璋(2024)]{gbt7714.b.13:1}
-彭守璋，2024.
-\newblock 1901—2023年中国1km分辨率逐月降水量数据集\allowbreak[DS/OL].
-\newblock 西北农林科技大学水土保持研究所\allowbreak （2024-07-19）\allowbreak[2024-11-25].
+\bibitem[彭守璋(2025)]{gbt7714.b.13:1}
+彭守璋，2025.
+\newblock 1901—2024年中国1km分辨率逐月降水量数据集\allowbreak[DS/OL].
+\newblock 国家地球系统科学数据中心\allowbreak （2025-07-07）\allowbreak[2025-07-15].
 \newblock \url{https://www.geodata.cn/main/face_science_detail?guid=192891852410344&typeName=face_science}.
 
 \bibitem[徐建委(2025{\natexlab{a}})]{gbt7714.8.5.3:6}
@@ -687,7 +699,7 @@
 李华，王昊，康佐，2023.
 \newblock 一种拼接式桥梁模型：CN202222658126.0\allowbreak[P/OL].
 \newblock 2023-01-03.
-\newblock \url{http://patentscope2.wipo.int/search/en/detail.jsf?docId=CN390029302&_cid=JP1-MAY1P5-04922-1}.
+\newblock \url{https://patentscope2.wipo.int/search/en/detail.jsf?docId=CN390029302&_cid=JP1-MAY1P5-04922-1}.
 
 \bibitem[李四光\ 等(无日期)李四光，华罗庚和茅以升]{gbt7714.7.1.2:2}
 李四光，华罗庚，茅以升，无日期.
@@ -706,7 +718,7 @@
 李幼平，王莉，2010.
 \newblock 循证医学研究方法：附视频\allowbreak[J/OL].
 \newblock 中华移植杂志（电子版），4\allowbreak （3）：225-228.
-\newblock \url{http://www.cqvip.com/Read/Read.aspx?id=36658332}.
+\newblock \url{https://qikan.cqvip.com/Qikan/Article/Detail?id=36658332&from=Qikan_Search_Index}.
 
 \bibitem[李时珍(无日期)]{gbt7714.7.1.1:1}
 李时珍，无日期.
@@ -858,8 +870,8 @@
 王继民，罗鹏程，赵常煜，等，2025.
 \newblock 人文社会科学数据集检索方法研究的数据集\allowbreak[DS/OL].
 \newblock V2.2.
-\newblock 北京大学开放研究数据平台\allowbreak （2025-06-11）\allowbreak[2025-07-10].
-\newblock \url{http://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/R96MSN}.
+\newblock 北京大学开放研究数据平台\allowbreak （2025-06-11）\allowbreak[2025-07-11].
+\newblock \url{https://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/R96MSN}.
 
 \bibitem[西安电子科技大学(2002{\natexlab{a}})]{gbt7714.8.10.2:2}
 西安电子科技大学，2002{\natexlab{a}}.
@@ -929,13 +941,13 @@
 胡健民，2021{\natexlab{a}}.
 \newblock 东南极拉斯曼丘陵地区地质图. 1:25000\allowbreak[CM].
 \newblock 北京：科学出版社.
-\newblock 128cm$\times$84cm.
+\newblock 128\,cm$\times$84\,cm.
 
 \bibitem[胡健民(2021{\natexlab{b}})]{gbt7714.b.12:1}
 胡健民，2021{\natexlab{b}}.
 \newblock 东南极拉斯曼丘陵地区地质图. 1:25000\allowbreak[CM].
 \newblock 北京：科学出版社.
-\newblock 128cm$\times$84cm.
+\newblock 128\,cm$\times$84\,cm.
 
 \bibitem[裴丽生(1981)]{gbt7714.9.3.1.4:4}
 裴丽生，1981.
@@ -955,18 +967,6 @@
 \newblock 内蒙古自治区地图册\allowbreak[CM].
 \newblock 新版.
 \newblock 北京：中国地图出版社.
-
-\bibitem[许振超(2025{\natexlab{a}})]{gbt7714.8.11.3.2:3}
-许振超，2025{\natexlab{a}}.
-\newblock “好好干，当一个好工人”\allowbreak[EB/OL].
-\newblock \allowbreak （2025-02-17）\allowbreak[2025-06-22].
-\newblock \url{https://cpc.people.com.cn/n1/2025/0217/c443712-40419790.html}.
-
-\bibitem[许振超(2025{\natexlab{b}})]{gbt7714.b.10:5}
-许振超，2025{\natexlab{b}}.
-\newblock “好好干，当一个好工人”\allowbreak[EB/OL].
-\newblock \allowbreak （2025-02-17）\allowbreak[2025-06-22].
-\newblock \url{https://cpc.people.com.cn/n1/2025/0217/c443712-40419790.html}.
 
 \bibitem[谭其骧(1982{\natexlab{a}})]{gbt7714.8.13.1:2}
 谭其骧，1982{\natexlab{a}}.
@@ -1012,21 +1012,21 @@
 
 \bibitem[邱均平(2000{\natexlab{b}})]{gbt7714.9.3.1.3:2}
 邱均平，2000{\natexlab{b}}.
-\newblock 信息计量学（四）：第四讲文献信息离散分布规律——布拉德福定律\allowbreak[J/OL].
+\newblock 信息计量学（四）：第四讲文献信息离散分布规律：布拉德福定律\allowbreak[J/OL].
 \newblock 情报理论与实践，23\allowbreak （4）：315-320.
 \newblock DOI:\doi{10.16353/j.cnki.1000-7490.2000.04.028}.
 
 \bibitem[邱均平(2000{\natexlab{c}})]{gbt7714.9.3.1.3:3}
 邱均平，2000{\natexlab{c}}.
-\newblock 信息计量学（六）：第六讲文献信息作者分布规律——洛特卡定律\allowbreak[J/OL].
+\newblock 信息计量学（六）：第六讲文献信息作者分布规律：洛特卡定律\allowbreak[J/OL].
 \newblock 情报理论与实践，23\allowbreak （6）：475-478.
 \newblock DOI:\doi{10.16353/j.cnki.1000-7490.2000.06.026}.
 
 \bibitem[郑涵\ 等(2018)郑涵，于贵瑞，朱先进，王秋凤，张雷明，陈智，孙晓敏，何洪林，苏文，王艳芬，韩士杰，周国逸，赵新全，王辉民，欧阳竹，张宪洲，张扬建，石培礼，李英年，赵亮，张一平，闫俊华，王安志，张军辉，郝彦斌，赵风华，张法伟，周广胜，林光辉，陈世苹，刘绍民，赵斌，贾根锁，张旭东，张玉翠，古松，刘文兆，李彦，王文杰，杨大文，张劲松，张志强，赵仲辉，周石硚，郭海强，沈彦俊，徐自为，黄辉和孟平]{gbt7714.b.13:4}
 郑涵，于贵瑞，朱先进，等，2018.
-\newblock 2000—2010年中国典型陆地生态系统实际蒸散量和水分利用效率数据\allowbreak[DS/OL].
+\newblock 2000—2010年中国典型陆地生态系统实际蒸散量和水分利用效率数据集\allowbreak[DS/OL].
 \newblock V1.
-\newblock Science Data Bank\allowbreak （2018）\allowbreak[2025-02-14].
+\newblock Science Data Bank\allowbreak （2018-05-26）\allowbreak[2025-02-14].
 \newblock \url{https://cstr.cn/31253.11.sciencedb.610}.
 
 \bibitem[金燕萍(2020{\natexlab{a}})]{gbt7714.8.7.2:2}
@@ -1056,7 +1056,7 @@
 
 \bibitem[阿扬(2023{\natexlab{a}})]{gbt7714.8.3.2:1}
 阿扬，2023{\natexlab{a}}.
-\newblock 谈谈记忆：与诺贝尔获奖得者埃里克·坎德尔的问答\allowbreak[M].
+\newblock 谈谈记忆：与诺贝尔奖获得者埃里克·坎德尔的问答\allowbreak[M].
 \newblock 姜海伦，译//\allowbreak
 {《环球科学》杂志社}.
 \newblock 认识记忆力：关于学习、思考与遗忘的脑科学.
@@ -1064,7 +1064,7 @@
 
 \bibitem[阿扬(2023{\natexlab{b}})]{gbt7714.b.2:1}
 阿扬，2023{\natexlab{b}}.
-\newblock 谈谈记忆：与诺贝尔获奖得者埃里克·坎德尔的问答\allowbreak[M].
+\newblock 谈谈记忆：与诺贝尔奖获得者埃里克·坎德尔的问答\allowbreak[M].
 \newblock 姜海伦，译//\allowbreak
 {《环球科学》杂志社}.
 \newblock 认识记忆力：关于学习、思考与遗忘的脑科学.
@@ -1074,7 +1074,7 @@
 陈建军，2010.
 \newblock 从数字地球到智慧地球\allowbreak[J/OL].
 \newblock 国土资源导刊，7\allowbreak （10）：93.
-\newblock \url{http://d.g.wanfangdata.com.cn/Periodical_hunandz201010038.aspx}.
+\newblock \url{https://d.wanfangdata.com.cn/Periodical/hunandz201010038}.
 \newblock DOI:\doi{10.3969/j.issn.1672-5603.2010.10.038}.
 
 \bibitem[陈志勇(2011)]{gbt7714.b.5:7}
@@ -1104,7 +1104,7 @@
 陈缮真，2022.
 \newblock 探索微观世界的无穷奥秘（科技大观）\allowbreak[N/OL].
 \newblock 人民日报，2022-08-16\allowbreak （17）.
-\newblock \url{http://paper.people.com.cn/rmrb/html/2022-08/16/nw.D110000renmrb_20220816_3-17.htm}.
+\newblock \url{http://paper.people.com.cn/rmrb/html/2022-08/16/nw.D110000renmrb_20220816_317.htm}.
 
 \bibitem[顾炎武(1980{\natexlab{a}})]{gbt7714.8.2.2:3}
 顾炎武，1980{\natexlab{a}}.
@@ -1172,12 +1172,12 @@
 
 \bibitem[図書館用語辞典編集委員会(2004{\natexlab{a}})]{gbt7714.5.1:2}
 図書館用語辞典編集委員会，2004{\natexlab{a}}.
-\newblock 最新図書館用語大辭典\allowbreak[M].
+\newblock 最新図書館用語大辞典\allowbreak[M].
 \newblock 東京：柏書房株式會社：154.
 
 \bibitem[図書館用語辞典編集委員会(2004{\natexlab{b}})]{gbt7714.b.1:17}
 図書館用語辞典編集委員会，2004{\natexlab{b}}.
-\newblock 最新図書館用語大辭典\allowbreak[M].
+\newblock 最新図書館用語大辞典\allowbreak[M].
 \newblock 東京：柏書房株式會社：154.
 
 \bibitem[Abadía et~al.(2024)Abadía，Conkey，and McDonald]{gbt7714.8.2.2:8}
@@ -1245,13 +1245,13 @@ Anon，n.d.-{\natexlab{l}}.
 Anon，[2020{\natexlab{a}}].
 \newblock {Library of Congress}\allowbreak[EB/OL].
 \newblock \allowbreak[2020-06-12].
-\newblock \url{https://www.loc.gov/}.
+\newblock \url{https://www.loc.gov}.
 
 \bibitem[Anon({[2020]}{\natexlab{b}})]{gbt7714.b.10:9}
 Anon，[2020{\natexlab{b}}].
 \newblock {Library of Congress}\allowbreak[EB/OL].
 \newblock \allowbreak[2020-06-12].
-\newblock \url{https://www.loc.gov/}.
+\newblock \url{https://www.loc.gov}.
 
 \bibitem[{American Association for the Advancement of Science}(1883—{\natexlab{a}})]{gbt7714.8.4.2:3}
 {American Association for the Advancement of Science}，1883—{\natexlab{a}}.
@@ -1282,14 +1282,14 @@ Anon，1979—{\natexlab{a}}.
 \newblock Public library quarterly\allowbreak[J/OL].
 \newblock 1979，1（1）—.
 \newblock Philadelphia：Taylor \& Francis.
-\newblock \url{http://www.tandfonline.com/loi/wplq}.
+\newblock \url{http://www.tandfonline.com/journals/wplq20}.
 
 \bibitem[Anon(1979—{\natexlab{b}})]{gbt7714.b.3:4}
 Anon，1979—{\natexlab{b}}.
 \newblock Public library quarterly\allowbreak[J/OL].
 \newblock 1979，1（1）—.
 \newblock Philadelphia：Taylor \& Francis.
-\newblock \url{http://www.tandfonline.com/loi/wplq}.
+\newblock \url{http://www.tandfonline.com/journals/wplq20}.
 
 \bibitem[Anon(1981)]{gbt7714.7.1.3:2}
 Anon，1981.
@@ -1359,22 +1359,22 @@ Boobier T，2020{\natexlab{b}}.
 
 \bibitem[Cairns(1965{\natexlab{a}})]{gbt7714.8.7.2:4}
 Cairns B~R，1965{\natexlab{a}}.
-\newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
+\newblock Infrared spectroscopic studies of solid oxygen\allowbreak[D].
 \newblock Berkeley：University of California，Berkeley：15.
 
 \bibitem[Cairns(1965{\natexlab{b}})]{gbt7714.b.6:5}
 Cairns B~R，1965{\natexlab{b}}.
-\newblock Infrared spectroscopic studies on solid oxygen\allowbreak[D].
+\newblock Infrared spectroscopic studies of solid oxygen\allowbreak[D].
 \newblock Berkeley：University of California，Berkeley：15.
 
-\bibitem[Calkin et~al.(2011{\natexlab{a}})Calkin，Ager，and Thompson]{gbt7714.8.8.3:3}
-Calkin D~E，Ager A~A，Thompson M~P，2011{\natexlab{a}}.
+\bibitem[Calkin et~al.(2011{\natexlab{a}})Calkin，Ager，Thompson，Finney，Lee，Quigley，McHugh，Riley，and Gilbertson-Day]{gbt7714.8.8.3:3}
+Calkin D~E，Ager A~A，Thompson M~P，et~al.，2011{\natexlab{a}}.
 \newblock A comparative risk assessment framework for wildland fire management：the 2010 cohesive strategy science report：RMRS-GTR-262\allowbreak[R/OL].
 \newblock 2011：8-9.
 \newblock \url{https://www.fs.usda.gov/rm/pubs/rmrs_gtr262.pdf}.
 
-\bibitem[Calkin et~al.(2011{\natexlab{b}})Calkin，Ager，and Thompson]{gbt7714.b.7:4}
-Calkin D~E，Ager A~A，Thompson M~P，2011{\natexlab{b}}.
+\bibitem[Calkin et~al.(2011{\natexlab{b}})Calkin，Ager，Thompson，Finney，Lee，Quigley，McHugh，Riley，and Gilbertson-Day]{gbt7714.b.7:4}
+Calkin D~E，Ager A~A，Thompson M~P，et~al.，2011{\natexlab{b}}.
 \newblock A comparative risk assessment framework for wildland fire management：the 2010 cohesive strategy science report：RMRS-GTR-262\allowbreak[R/OL].
 \newblock 2011：8-9.
 \newblock \url{https://www.fs.usda.gov/rm/pubs/rmrs_gtr262.pdf}.
@@ -1671,14 +1671,14 @@ Saito M，Miyazaki K，2006{\natexlab{b}}.
 \bibitem[Santer et~al.(2025)Santer and Akanyeti]{gbt7714.b.4:18}
 Santer R~D，Akanyeti O，2025.
 \newblock Using artificial neural networks to explain the attraction of jewel beetles（{Coleoptera}：{Buprestidae}）to colored traps\allowbreak[J/OL].
-\newblock Insect science.
+\newblock Insect Science.
 \newblock \url{https://webofscience.clarivate.cn/wos/woscc/full-record/WOS:001398099800001}.
 \newblock DOI:\doi{10.1111/1744-7917.13496}.
 
 \bibitem[Shinotsuka et~al.(2023)Shinotsuka，Nagata，Siriwardana，Yoshikawa，Shouno，and Okada]{gbt7714.b.4:19}
 Shinotsuka H，Nagata K，Siriwardana M，et~al.，2023.
 \newblock Sample structure prediction from measured {XPS} data using {Bayesian} estimation and {SESSA} simulator\allowbreak[J/OL].
-\newblock Journal of electron spectroscopy and related phenomena，267：147370.
+\newblock Journal of Electron Spectroscopy and Related Phenomena，267：147370.
 \newblock \url{https://doi.org/10.1016/j.elspec.2023.147370}.
 
 \bibitem[{Stanford University. Department of Civil Engineering}(n.d.)]{gbt7714.7.1.4:4}
@@ -1702,10 +1702,10 @@ Sunstein C~R，1996.
 \newblock Columbia Law Review，96：903.
 \newblock \url{http://www.heinonline.org/HOL/Page?handle=hein.journals/clr96&id=913&collection=journals&index=journals/clr}.
 
-\bibitem[{IBM}(2001)]{gbt7714.b.9:7}
-{IBM}，2001.
+\bibitem[{IBM}(2002)]{gbt7714.b.9:7}
+{IBM}，2002.
 \newblock Electronic watermarking method and system：US89404301A\allowbreak[P/OL].
-\newblock 2001-06-28.
+\newblock 2002-05-23.
 \newblock \url{https://worldwide.espacenet.com/patent/search/family/018694900/publication/US2002061118A1?q=US89404301A}.
 
 \bibitem[Torres et~al.(2021{\natexlab{a}})Torres，Salisbury，Yazbeck，Karasmanis，Pinder，and Ondracek]{gbt7714.7.8:2}
@@ -1739,25 +1739,25 @@ Torres L，Salisbury F，Yazbeck B，et~al.，2021{\natexlab{b}}.
 
 \bibitem[{U.S. Department of Transportation Federal Highway Administration}(1990{\natexlab{a}})]{gbt7714.8.8.3:4}
 {U.S. Department of Transportation Federal Highway Administration}，1990{\natexlab{a}}.
-\newblock Guidelines for handling excavated acid-producing material：PB 91-194001\allowbreak[R].
+\newblock Guidelines for handling excavated acid-producing materials：PB 91-194001\allowbreak[R].
 \newblock Springfield：U.S. Department of Commerce National Information Service：25.
 
 \bibitem[{U.S. Department of Transportation Federal Highway Administration}(1990{\natexlab{b}})]{gbt7714.b.7:5}
 {U.S. Department of Transportation Federal Highway Administration}，1990{\natexlab{b}}.
-\newblock Guidelines for handling excavated acid-producing material：PB 91-194001\allowbreak[R].
+\newblock Guidelines for handling excavated acid-producing materials：PB 91-194001\allowbreak[R].
 \newblock Springfield：U.S. Department of Commerce National Information Service：25.
 
 \bibitem[Veen et~al.(2014{\natexlab{a}})Veen，Muller，Vincken，Witkamp，Mali，Graaf，Geerlings，and {SMART-MR Study Group}]{gbt7714.8.5.3:10}
 Veen P H v~d，Muller M，Vincken K~L，et~al.，2014{\natexlab{a}}.
 \newblock Longitudinal changes in brain volumes and cerebrovascular lesions on {MRI} in patients with manifest arterial disease：the {SMART-MR} study\allowbreak[J/OL].
-\newblock Journal of the Neurological Sciences，337\allowbreak （1/2）：112-118.
+\newblock J Neurol Sci，337\allowbreak （1/2）：112-118.
 \newblock \url{https://pubmed.ncbi.nlm.nih.gov/24314719/}.
 \newblock DOI:\doi{10.1016/j.jns.2013.11.029}.
 
 \bibitem[Veen et~al.(2014{\natexlab{b}})Veen，Muller，Vincken，Witkamp，Mali，Graaf，Geerlings，and {SMART-MR Study Group}]{gbt7714.b.4:20}
 Veen P H v~d，Muller M，Vincken K~L，et~al.，2014{\natexlab{b}}.
 \newblock Longitudinal changes in brain volumes and cerebrovascular lesions on {MRI} in patients with manifest arterial disease：the {SMART-MR} study\allowbreak[J/OL].
-\newblock Journal of the Neurological Sciences，337\allowbreak （1/2）：112-118.
+\newblock J Neurol Sci，337\allowbreak （1/2）：112-118.
 \newblock \url{https://pubmed.ncbi.nlm.nih.gov/24314719/}.
 \newblock DOI:\doi{10.1016/j.jns.2013.11.029}.
 
@@ -1808,19 +1808,19 @@ Yu Y，Pan E，Wang X，et~al.，2024{\natexlab{b}}.
 
 \bibitem[Yufin(2000{\natexlab{a}})]{gbt7714.8.6.1:4}
 Yufin S~A，2000{\natexlab{a}}.
-\newblock Geoecology and computers：proceedings of the {Third International Conference} on {Advances} of {Computer Methods} in {Geotechnical} and {Geoenvironmental Engineering}，{Moscow}，{Russia}，1-4 {February} 2000\allowbreak[C].
+\newblock Geoecology and computers：proceedings of the {Third International Conference} on {Advances} of {Computer Methods} in {Geotechnical} and {Geoenvironmental Engineering}，{Moscow}，{Russia}，{February} 1-4，2000\allowbreak[C].
 \newblock Rotterdam：A. A. Balkema.
 
 \bibitem[Yufin(2000{\natexlab{b}})]{gbt7714.b.5:10}
 Yufin S~A，2000{\natexlab{b}}.
-\newblock Geoecology and computers：proceedings of the {Third International Conference} on {Advances} of {Computer Methods} in {Geotechnical} and {Geoenvironmental Engineering}，{Moscow}，{Russia}，1-4 {February} 2000\allowbreak[C].
+\newblock Geoecology and computers：proceedings of the {Third International Conference} on {Advances} of {Computer Methods} in {Geotechnical} and {Geoenvironmental Engineering}，{Moscow}，{Russia}，{February} 1-4，2000\allowbreak[C].
 \newblock Rotterdam：A. A. Balkema.
 
 \bibitem[Zhong et~al.(2022)Zhong，Yan，and Li]{gbt7714.b.13:8}
 Zhong X，Yan Q，Li G，2022.
 \newblock Long time series nighttime light dataset of {China}：2000--2020\allowbreak[DS/OL].
 \newblock Global Change Research Data Publishing \& Repository\allowbreak （2022）\allowbreak[2024-11-25].
-\newblock \url{https://www.geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.
+\newblock \url{https://geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.
 
 \bibitem[{Zotero}({[2024]}{\natexlab{a}})]{gbt7714.8.11.3.2:5}
 {Zotero}，[2024{\natexlab{a}}].

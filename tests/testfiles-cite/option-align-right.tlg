@@ -2652,7 +2652,7 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 manifest
 ....\glue(\rightskip) 0.0
 ...\glue(\baselineskip) 2.56001
-...\hbox(7.5+2.49998)x324.44, glue set - 0.54784, shifted 20.56
+...\hbox(7.5+2.49998)x324.44, glue set 0.22128, shifted 20.56
 ....\TU/lmr/m/n/10 arterial
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\TU/lmr/m/n/10 disease
@@ -2673,17 +2673,11 @@ Completed box being shipped out [1]
 ....\TU/lmr/m/n/10 [J/OL].
 ....\glue 3.33 plus 1.665 minus 1.11
 ....\glue 1.1 plus 3.30002 minus 0.70007
-....\TU/lmr/m/n/10 Journal
+....\TU/lmr/m/n/10 J
+....\glue 3.33 plus 1.66331 minus 1.1111
+....\TU/lmr/m/n/10 Neurol
 ....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 of
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 the
-....\glue 3.33 plus 1.665 minus 1.11
-....\TU/lmr/m/n/10 Neurological
-....\glue(\rightskip) 0.0
-...\glue(\baselineskip) 1.50002
-...\hbox(8.0+2.5)x324.44, glue set 0.07462, shifted 20.56
-....\TU/lmr/m/n/10 Sciences
+....\TU/lmr/m/n/10 Sci
 ....\penalty 10000
 ....\TU/FandolSong-Regular(0)/m/n/10 ，
 ....\rule(0.0+0.0)x-6.92
@@ -2697,7 +2691,9 @@ Completed box being shipped out [1]
 ....\kern -0.0002
 ....\kern 0.0002
 ....\penalty 0
-....\glue 6.34 minus 5.0
+....\glue(\rightskip) 0.0
+...\glue(\baselineskip) 1.50002
+...\hbox(8.0+2.5)x324.44, glue set 0.31305, shifted 20.56
 ....\rule(0.0+0.0)x-6.34
 ....\TU/FandolSong-Regular(0)/m/n/10 （
 ....\penalty 10000
@@ -2814,10 +2810,7 @@ Completed box being shipped out [1]
 ....\glue(\medmuskip) 0.0 plus 1.66663
 ....\TU/lmr/m/n/10 glyph#102
 ....\penalty 200
-....\glue(\rightskip) 0.0
-...\penalty 4000
-...\glue(\baselineskip) 2.0
-...\hbox(7.5+2.5)x324.44, glue set 138.12001fil, shifted 20.56
+....\glue(\medmuskip) 0.0 plus 1.66663
 ....\TU/lmr/m/n/10 glyph#107
 ....\glue 0.0
 ....\penalty 250
@@ -2860,7 +2853,10 @@ Completed box being shipped out [1]
 ....\glue(\medmuskip) 0.0 plus 1.66663
 ....\TU/lmr/m/n/10 glyph#88
 ....\penalty 200
-....\glue(\medmuskip) 0.0 plus 1.66663
+....\glue(\rightskip) 0.0
+...\penalty 4000
+...\glue(\baselineskip) 2.0
+...\hbox(7.5+2.5)x324.44, glue set 224.92001fil, shifted 20.56
 ....\TU/lmr/m/n/10 glyph#82
 ....\glue 0.0
 ....\penalty 250

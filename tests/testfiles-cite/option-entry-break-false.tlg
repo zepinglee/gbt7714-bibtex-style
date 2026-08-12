@@ -1709,7 +1709,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
 ....\glue(\baselineskip) 2.56001
-....\hbox(7.5+2.49998)x329.44, glue set - 0.17667, shifted 15.56
+....\hbox(7.5+2.49998)x329.44, glue set 0.5976, shifted 15.56
 .....\TU/lmr/m/n/10 arterial
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 disease
@@ -1730,18 +1730,11 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 [J/OL].
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\glue 1.1 plus 3.30002 minus 0.70007
-.....\TU/lmr/m/n/10 Journal
+.....\TU/lmr/m/n/10 J
+.....\glue 3.33 plus 1.66331 minus 1.1111
+.....\TU/lmr/m/n/10 Neurol
 .....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 of
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 the
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 Neurological
-.....\glue(\rightskip) 0.0
-....\penalty 10000
-....\glue(\baselineskip) 1.50002
-....\hbox(8.0+2.5)x329.44, glue set 0.23268, shifted 15.56
-.....\TU/lmr/m/n/10 Sciences
+.....\TU/lmr/m/n/10 Sci
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
@@ -1755,7 +1748,10 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\penalty 0
-.....\glue 6.34 minus 5.0
+.....\glue(\rightskip) 0.0
+....\penalty 10000
+....\glue(\baselineskip) 1.50002
+....\hbox(8.0+2.5)x329.44, glue set 0.43828, shifted 15.56
 .....\rule(0.0+0.0)x-6.34
 .....\TU/FandolSong-Regular(0)/m/n/10 （
 .....\penalty 10000
@@ -1873,10 +1869,7 @@ Completed box being shipped out [1]
 .....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#102
 .....\penalty 200
-.....\glue(\rightskip) 0.0
-....\penalty 20000
-....\glue(\baselineskip) 2.0
-....\hbox(7.5+2.5)x329.44, glue set 143.12001fil, shifted 15.56
+.....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#107
 .....\glue 0.0
 .....\penalty 250
@@ -1923,7 +1916,10 @@ Completed box being shipped out [1]
 .....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#88
 .....\penalty 200
-.....\glue(\medmuskip) 0.0 plus 1.66663
+.....\glue(\rightskip) 0.0
+....\penalty 20000
+....\glue(\baselineskip) 2.0
+....\hbox(7.5+2.5)x329.44, glue set 229.92001fil, shifted 15.56
 .....\TU/lmr/m/n/10 glyph#82
 .....\glue 0.0
 .....\penalty 250
@@ -2092,7 +2088,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
 ....\glue(\baselineskip) 2.56001
-....\hbox(7.5+2.49998)x329.44, glue set - 0.84508, shifted 15.56
+....\hbox(7.5+2.49998)x329.44, glue set 0.09608, shifted 15.56
 .....\TU/lmr/m/n/10 Geoenvironmental
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Engineering
@@ -2123,26 +2119,30 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
+.....\kern 0.00043
+.....\kern -0.00043
+.....\kern -0.99628
+.....\kern 0.99628
 .....\glue 6.92 minus 5.0
-.....\TU/lmr/m/n/10 1-4
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 February
 .....\kern -0.0002
 .....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/lmr/m/n/10 1-4
+.....\penalty 10000
+.....\TU/FandolSong-Regular(0)/m/n/10 ，
+.....\rule(0.0+0.0)x-6.92
+.....\glue 6.92 minus 5.0
 .....\TU/lmr/m/n/10 2000
 .....\kern -0.0002
 .....\kern 0.0002
 .....\penalty 0
 .....\TU/lmr/m/n/10 [C].
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\glue 1.1 plus 3.30002 minus 0.70007
-.....\TU/lmr/m/n/10 Rot-
 .....\glue(\rightskip) 0.0
-....\penalty 20100
+....\penalty 20000
 ....\glue(\baselineskip) 2.34001
-....\hbox(7.16+1.92998)x329.44, glue set 190.67fil, shifted 15.56
-.....\TU/lmr/m/n/10 terdam
+....\hbox(7.16+1.92998)x329.44, glue set 174.42fil, shifted 15.56
+.....\TU/lmr/m/n/10 Rotterdam
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ：
 .....\rule(0.0+0.0)x-6.97
