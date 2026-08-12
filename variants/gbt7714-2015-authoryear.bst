@@ -2797,7 +2797,11 @@ FUNCTION {format.date}
         { date "/" extract.before "-" extract.before
           date "/" contains
             { "-" normalize.year.dash *
-              date "/" extract.after "-" extract.before *
+              date "/" extract.after "-" extract.before
+              duplicate$ #1 #1 substring$ is.digit  % EDTF: 1984/..
+                { * }
+                'pop$
+              if$
             }
             'skip$
           if$
@@ -2845,7 +2849,11 @@ FUNCTION {format.lab.date}
         { date "/" extract.before "-" extract.before
           date "/" contains
             { "-" normalize.year.dash *
-              date "/" extract.after "-" extract.before *
+              date "/" extract.after "-" extract.before
+              duplicate$ #1 #1 substring$ is.digit
+                { * }
+                'pop$
+              if$
             }
             'skip$
           if$
