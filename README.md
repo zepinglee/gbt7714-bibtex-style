@@ -72,7 +72,7 @@ xelatex main
 
 ## 参考文献著录标准
 
-- [`GB/T 7714—2025 信息与文献 参考文献著录规则.pdf`](https://publishmedia.cbpt.cnki.net/portal/minio/webs/hbxy/media/web/2026/01/20/GBT%207714—2025%20信息与文献%20参考文献著录规则.pdf)
+- [`GB/T 7714—2025 信息与文献 参考文献著录规则.pdf`](https://github.com/user-attachments/files/30688752/GB_T.7714.2025.-2026.pdf)
 
 
 ## 相关讨论
