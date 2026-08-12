@@ -71,7 +71,6 @@
 }
 \end{filecontents}
 
-\PassOptionsToPackage{checkpinyin=false}{gbt7714}
 \usepackage{gbt7714}
 \bibliographystyle{gbt7714-numeric}
 

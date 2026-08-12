@@ -15,7 +15,6 @@ Bar\cite{gbt7714.8.1:1, gbt7714.8.1:3}
 \bibliography{gbt7714-examples}
 \end{filecontents}
 
-\PassOptionsToPackage{checkpinyin=false}{gbt7714}
 \usepackage[sectionbib]{gbt7714}  % Add the `sectionbib` option to natbib
 \usepackage{chapterbib}  % The loading order of the two packages is not important.
 

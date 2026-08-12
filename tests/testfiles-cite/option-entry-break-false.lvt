@@ -1,8 +1,7 @@
 \input{regression-test.tex}
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
-\PassOptionsToPackage{checkpinyin=false, entrybreak=false}{gbt7714}
-\usepackage{gbt7714}
+\usepackage[entrybreak=false]{gbt7714}
 \bibliographystyle{gbt7714-numeric}
 
 \pagestyle{empty}

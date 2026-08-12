@@ -17,3 +17,6 @@
 \newblock \url{https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html}.
 
 \end{thebibliography}
+
+% Warning--empty author in amd_epyc_2025
+% (There was 1 warning)

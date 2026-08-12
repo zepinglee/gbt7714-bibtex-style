@@ -277,8 +277,7 @@
 }
 \end{filecontents}
 
-\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
-\usepackage{gbt7714}
+\usepackage[bibwarn=false]{gbt7714}
 \bibliographystyle{gbt7714-authoryear}
 
 

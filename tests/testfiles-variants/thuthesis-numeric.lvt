@@ -316,7 +316,7 @@
 }
 \end{filecontents}
 
-\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
+\PassOptionsToPackage{bibwarn=false}{gbt7714}
 \usepackage{gbt7714}
 \bibliographystyle{thuthesis-numeric}
 

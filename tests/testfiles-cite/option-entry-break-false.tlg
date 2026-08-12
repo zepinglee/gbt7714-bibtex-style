@@ -1,6 +1,5 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-\l__gbt_bst_control_iow=\write...
 (option-entry-break-false.bbl
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
@@ -2324,7 +2323,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.57002
-....\hbox(7.5+2.49998)x329.44, glue set 0.6206, shifted 15.56
+....\hbox(7.5+2.49998)x329.44, glue set - 0.61546, shifted 15.56
 .....\hbox(7.5+2.49998)x0.0
 ......\glue 0.0
 ......\glue -10.56
@@ -2346,7 +2345,7 @@ Completed box being shipped out [1]
 .....\penalty 0
 .....\TU/lmr/m/n/10 Wang
 .....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 S.
+.....\TU/lmr/m/n/10 Shanshan.
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\glue 1.1 plus 3.30002 minus 0.70007
 .....\TU/lmr/m/n/10 Application
@@ -2366,13 +2365,11 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 in
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 intelligent
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 au-
 .....\glue(\rightskip) 0.0
-....\penalty 10250
+....\penalty 10150
 ....\glue(\baselineskip) 2.00002
-....\hbox(7.5+2.49998)x329.44, glue set 0.05405, shifted 15.56
-.....\TU/lmr/m/n/10 diting
+....\hbox(7.5+2.49998)x329.44, glue set 0.3475, shifted 15.56
+.....\TU/lmr/m/n/10 auditing
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 of
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -2396,13 +2393,13 @@ Completed box being shipped out [1]
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Conference
 .....\kern -0.0002
-.....\kern 0.0002
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 on
+.....\kern 0.0
 .....\glue(\rightskip) 0.0
 ....\penalty 10000
 ....\glue(\baselineskip) 2.00002
-....\hbox(7.5+2.5)x329.44, glue set 0.60228, shifted 15.56
+....\hbox(7.5+2.5)x329.44, glue set 0.00562, shifted 15.56
+.....\TU/lmr/m/n/10 on
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Artificial
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Intelligence
@@ -2693,7 +2690,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.0
-....\hbox(7.5+2.49998)x329.44, glue set - 0.86543, shifted 15.56
+....\hbox(7.5+2.49998)x329.44, glue set 1.0478, shifted 15.56
 .....\hbox(7.5+2.49998)x0.0
 ......\glue 0.0
 ......\glue -10.56
@@ -2715,21 +2712,21 @@ Completed box being shipped out [1]
 .....\penalty 0
 .....\TU/lmr/m/n/10 Yu
 .....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 Y
+.....\TU/lmr/m/n/10 Yang
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
 .....\glue 6.92 minus 5.0
 .....\TU/lmr/m/n/10 Pan
 .....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 E
+.....\TU/lmr/m/n/10 Erting
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
 .....\glue 6.92 minus 5.0
 .....\TU/lmr/m/n/10 Wang
 .....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 X
+.....\TU/lmr/m/n/10 Xinya
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92
@@ -2752,14 +2749,14 @@ Completed box being shipped out [1]
 .....\rule(0.0+0.0)x-6.97
 .....\glue 6.97 minus 5.0
 .....\TU/lmr/m/n/10 a
-.....\glue 3.33 plus 1.665 minus 1.11
+.....\glue(\rightskip) 0.0
+....\penalty 10150
+....\glue(\baselineskip) 2.45001
+....\hbox(7.05+2.05998)x329.44, glue set 0.28429, shifted 15.56
 .....\TU/lmr/m/n/10 generalized
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 paradigm
-.....\glue(\rightskip) 0.0
-....\penalty 10150
-....\glue(\baselineskip) 2.00002
-....\hbox(7.5+2.49998)x329.44, glue set - 0.5, shifted 15.56
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 for
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 multi-source-based
@@ -2772,6 +2769,10 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\penalty 0
+.....\glue(\rightskip) 0.0
+....\penalty 10000
+....\glue(\baselineskip) 2.44002
+....\hbox(7.5+2.5)x329.44, glue set 0.39417, shifted 15.56
 .....\TU/lmr/m/n/10 [C/OL]//
 .....\kern -0.00023
 .....\kern 0.00023
@@ -2787,10 +2788,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ：
 .....\rule(0.0+0.0)x-6.97
-.....\glue(\rightskip) 0.0
-....\penalty 10000
-....\glue(\baselineskip) 2.00002
-....\hbox(7.5+2.5)x329.44, glue set 0.82942, shifted 15.56
+.....\glue 6.97 minus 5.0
 .....\TU/lmr/m/n/10 4.
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\glue 1.1 plus 3.30002 minus 0.70007
@@ -2923,6 +2921,10 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 glyph#83
 .....\glue 0.0
 .....\penalty 250
+.....\glue(\rightskip) 0.0
+....\penalty 10000
+....\glue(\baselineskip) 2.0
+....\hbox(7.5+2.5)x329.44, glue set 0.16765, shifted 15.56
 .....\TU/lmr/m/n/10 glyph#95
 .....\glue 0.0
 .....\penalty 250
@@ -2974,10 +2976,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 glyph#77
 .....\glue 0.0
 .....\penalty 250
-.....\glue(\rightskip) 0.0
-....\penalty 10000
-....\glue(\baselineskip) 2.34
-....\hbox(7.16+2.06)x329.44, glue set 0.56648, shifted 15.56
 .....\TU/lmr/m/n/10 glyph#75
 .....\glue 0.0
 .....\penalty 250
@@ -3115,7 +3113,10 @@ Completed box being shipped out [1]
 .....\glue(\medmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#110
 .....\penalty 200
-.....\glue(\medmuskip) 0.0 plus 1.66663
+.....\glue(\rightskip) 0.0
+....\penalty 20000
+....\glue(\baselineskip) 2.45
+....\hbox(7.05+2.06)x329.44, glue set 0.66002fil, shifted 15.56
 .....\TU/lmr/m/n/10 glyph#55
 .....\glue 0.0
 .....\penalty 250
@@ -3173,10 +3174,7 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x0.5, shifted 1.49998
 ......\kern0.0
 .....\penalty 100
-.....\glue(\rightskip) 0.0
-....\penalty 20000
-....\glue(\baselineskip) 2.89
-....\hbox(7.05+2.06)x329.44, glue set 80.90001fil, shifted 15.56
+.....\glue(\thickmuskip) 0.0 plus 1.66663
 .....\TU/lmr/m/n/10 glyph#35
 .....\glue 0.0
 .....\penalty 250

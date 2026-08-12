@@ -1,7 +1,6 @@
 \documentclass{article}
 
-\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
-\usepackage{gbt7714}
+\usepackage[bibwarn=false]{gbt7714}
 \bibliographystyle{gbt7714-2015-numeric}
 
 
