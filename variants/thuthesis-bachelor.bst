@@ -2690,12 +2690,15 @@ FUNCTION {format.edition}
 FUNCTION {format.version}
 { version empty$
     { "" }
-    { version #1 #1 substring$
-      duplicate$ "V" =
-        { pop$ version }
+    { version #1 #1 substring$ "l" change.case$
+      duplicate$ is.digit
+        { pop$
+          "V" version *
+        }
         { "v" =
+          version #2 #1 substring$ is.digit and
             { "V" version #2 global.max$ substring$ * }
-            { "V" version * }
+            { version }
           if$
         }
       if$

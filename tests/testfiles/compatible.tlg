@@ -1,0 +1,35 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\doi{\begingroup \urlstyle{same}\Url}
+  \def\cstr{\begingroup \urlstyle{same}\Url}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
+\fi
+
+\bibitem[李时珍(无日期)]{splitted-name}
+李时珍.
+
+\bibitem[佚名(无日期)]{version-with-prefix}
+V1.0.
+
+\bibitem[佚名(无日期)]{non-numeric-version}
+beta.
+
+\end{thebibliography}
+
+% Warning--empty title in splitted-name
+% Warning--empty year in splitted-name
+% Warning--empty author in version-with-prefix
+% Warning--empty title in version-with-prefix
+% Warning--empty publisher in version-with-prefix
+% Warning--empty urldate in version-with-prefix
+% Warning--empty author in non-numeric-version
+% Warning--empty title in non-numeric-version
+% Warning--empty publisher in non-numeric-version
+% Warning--empty urldate in non-numeric-version
+% (There were 10 warnings)

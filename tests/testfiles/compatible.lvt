@@ -1,0 +1,32 @@
+% 兼容字段的其他格式
+
+\documentclass{article}
+
+\begin{filecontents}[noheader, overwrite]{\jobname.bib}
+% 拆分的姓名
+@book{splitted-name,
+  author        = {李, 时珍},
+  langid        = {chinese}
+}
+
+% 版本号带有前缀
+@dataset{version-with-prefix,
+  version       = {v1.0},
+  langid        = {chinese}
+}
+
+@dataset{non-numeric-version,
+  version       = {beta},
+  langid        = {chinese}
+}
+\end{filecontents}
+
+\bibliographystyle{gbt7714-numeric}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{\jobname}
+
+\end{document}
