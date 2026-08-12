@@ -124,6 +124,7 @@ FUNCTION {load.config}
 
 ENTRY
   { address
+    applicationnumber
     archiveprefix
     author
     bookauthor
@@ -1960,46 +1961,61 @@ FUNCTION {add.link}
   if$
 }
 
-FUNCTION {format.tr.number}
-{ ""
-  number empty$
-    'skip$
-    { type$ "patent" = control.patent.country and
-        { country empty$ not
-            { country * }
-            { nationality empty$ not
-                { nationality * }
-                { address empty$ not
-                    { address * }
-                    { location empty$ not
-                        { location * }
+FUNCTION {format.patent.country}
+{ control.patent.country
+    { country empty$
+        { nationality empty$
+            { address empty$
+                { location empty$
+                    { entry.lang lang.zh =
+                        { "中国" }
                         { "" }
-                        { entry.lang lang.zh =
-                            { "中国" * }
-                            'skip$
-                          if$
-                        }
                       if$
                     }
+                    { location }
                   if$
                 }
+                { address }
               if$
             }
+            { nationality }
           if$
         }
-        'skip$
+        { country }
       if$
-      duplicate$ empty$
-        'skip$
-        'add.comma
-      if$
-      number
-      duplicate$ get.str.lang lang.zh =
-        'format.punctuations
-        'skip$
-      if$
-      *
     }
+    { "" }
+  if$
+}
+
+FUNCTION {either.or}
+{ swap$
+  duplicate$ empty$
+    { pop$
+      duplicate$ empty$
+        { pop$ "" }
+        'skip$
+      if$
+    }
+    { swap$ pop$ }
+  if$
+}
+
+FUNCTION {format.tr.number}
+{ type$ "patent" =
+    { format.patent.country
+      applicationnumber number either.or
+      duplicate$ empty$
+        'pop$
+        { swap$
+          duplicate$ empty$
+            'pop$
+            { add.comma swap$ * }
+          if$
+        }
+      if$
+    }
+    { number field.or.null }
   if$
 }
 
@@ -2057,9 +2073,14 @@ FUNCTION {format.title}
         'add.link
         'skip$
       if$
-      entry.numbered number empty$ not and
-        { add.colon
-          format.tr.number *
+      entry.numbered
+        { format.tr.number
+          duplicate$ empty$
+            'pop$
+            { swap$ add.colon
+              swap$ *
+            }
+          if$
         }
         'skip$
       if$
@@ -2239,8 +2260,15 @@ FUNCTION {format.btitle}
         'add.link
         'skip$
       if$
-      entry.numbered number empty$ not and
-        { add.colon format.tr.number * }
+      entry.numbered
+        { format.tr.number
+          duplicate$ empty$
+            'pop$
+            { swap$ add.colon
+              swap$ *
+            }
+          if$
+        }
         'skip$
       if$
       type$ "map" =
@@ -2958,19 +2986,6 @@ FUNCTION {format.url}
       if$
     }
     { "" }
-  if$
-}
-
-FUNCTION {either.or}
-{ swap$
-  duplicate$ empty$
-    { pop$
-      duplicate$ empty$
-        { pop$ "" }
-        'skip$
-      if$
-    }
-    { swap$ pop$ }
   if$
 }
 

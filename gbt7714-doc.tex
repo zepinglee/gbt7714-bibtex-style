@@ -2331,9 +2331,9 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 
 \subsubsection{专利}
 
-国标要求专利文献优先使用申请者/所有者（\field{holder}），而非发明者。
-另外，应将专利申请号填写在 \field{number} 字段，而不是专利的公开号。
-但是日期应使用公告/公开日期，不是申请日期。
+国标的专利文献要求优先著录申请者/所有者（\field{holder}），而非发明者（\field{author}）；
+优先著录申请号（\field{applicationnumber}），而不是公开号或公告号（\field{number}），
+优先著录公告日期或公开日期（\field{date}），而不是申请日期（\field{origdate}）。
 
 2005 版国标要求著录专利国别，可以填写在 \field{address} 字段中。
 最新版取消了该著录项目，这可能是因为专利申请号均带有国家代码前缀（如 “CN”），
@@ -2345,8 +2345,11 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   holder        = {西安电子科技大学},
   title         = {光折变自适应光外差探测方法},
   address       = {中国},
-  number        = {CN01128777.2},
+  applicationnumber = {CN01128777.2},
+  number        = {CN1338652A},
+  year          = {2002},
   date          = {2002-03-06},
+  origdate      = {2001-09-05},
   urldate       = {2002-05-28},
   url           = {http://211.152.9.47/sipoasp/zljs/hyjs-yx-new.asp?recid=01128777.2&leixin=0},
   langid        = {chinese}

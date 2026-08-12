@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.1] - 2026-07-20
 
+### Added
+
+- 新增专利的申请号字段 `applicationnumber`，用于区分公开号或公告号。
+
 ### Fixed
 
 - 修正 `shortjournal` 缺失时的报错（[ustctug/ustcthesis#511](https://github.com/ustctug/ustcthesis/issues/511)）。
