@@ -50,6 +50,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
@@ -63,7 +67,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+2.49998)x345.0, glue set 271.11fil
+....\hbox(7.64+2.49998)x345.0, glue set 267.78fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -72,8 +76,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -83,10 +85,13 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -111,6 +116,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 -
 .....\discretionary
 .....\kern -0.00023
@@ -122,6 +131,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
@@ -148,6 +161,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -159,6 +176,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
@@ -172,7 +193,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.86002
-....\hbox(7.64+2.49998)x345.0, glue set 260.0fil
+....\hbox(7.64+2.49998)x345.0, glue set 256.67fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -181,8 +202,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -192,6 +211,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -203,10 +226,13 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -218,7 +244,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 1.68001
-....\hbox(7.82+2.49998)x345.0, glue set 221.11fil
+....\hbox(7.82+2.49998)x345.0, glue set 214.45fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/FandolSong-Regular(0)/m/n/10 引
 .....\glue 0.0 plus 0.46875
@@ -227,10 +253,10 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\glue 0.0 plus 0.46875
-.....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\kern -0.00017
 .....\kern 0.00017
+.....\glue 3.33 plus 1.665 minus 1.11
+.....\TU/FandolSong-Regular(0)/m/n/10 等
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -240,10 +266,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -252,8 +282,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -263,10 +291,13 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 测
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 试
@@ -291,6 +322,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -321,8 +356,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 张
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 三
-.....\kern -0.00017
-.....\kern 0.00017
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -332,10 +365,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\hbox(4.718+0.0)x7.966, shifted -3.62892
 ......\TU/lmr/m/n/7 42
@@ -390,8 +427,6 @@ Completed box being shipped out [1]
 .....\TU/FandolSong-Regular(0)/m/n/10 参
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 见
-.....\kern -0.00017
-.....\kern 0.00017
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(6.66+0.0)x5.0
 ......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.zhang1984)>>>>}
@@ -399,6 +434,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -433,6 +472,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -451,8 +494,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Doe
-.....\kern -0.0002
-.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -462,10 +503,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -487,6 +532,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 -
 .....\discretionary
 .....\kern -0.00023
@@ -498,6 +547,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -522,6 +575,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -533,6 +590,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -551,8 +612,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Doe
-.....\kern -0.0002
-.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -562,6 +621,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
@@ -573,10 +636,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -610,18 +677,20 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ,
 .....\kern -0.0002
 .....\kern 0.0002
 .....\penalty 1000
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Doe
-.....\kern -0.0002
-.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -631,10 +700,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
 .....\kern -0.0002
@@ -656,6 +729,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -681,8 +758,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Doe
-.....\kern -0.0002
-.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 [
@@ -692,10 +767,14 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
 .....\hbox(7.5+2.49998)x2.78
 ......\TU/lmr/m/n/10 ]
 ......\kern -0.0002
 ......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\hbox(4.718+0.0)x7.966, shifted -3.62892
 ......\TU/lmr/m/n/7 42
@@ -724,6 +803,8 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 )
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
@@ -740,8 +821,6 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 Citation
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 [see
-.....\kern -0.0002
-.....\kern 0.0002
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\hbox(6.77+0.0)x5.0
 ......\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.doe1984)>>>>}
@@ -749,6 +828,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -938,6 +1021,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\glue(\rightskip) 0.0
 ............\penalty 300
@@ -993,6 +1080,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\glue 3.33 plus 1.665 minus 1.11
 .............\TU/FandolSong-Regular(0)/m/n/10 桑
@@ -1036,6 +1127,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1096,6 +1191,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1154,6 +1253,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\glue(\rightskip) 0.0
 ............\penalty 300
@@ -1218,6 +1321,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\glue 3.33 plus 1.665 minus 1.11
 .............\TU/FandolSong-Regular(0)/m/n/10 衣
@@ -1240,6 +1347,8 @@ Completed box being shipped out [2]
 ..........\glue 3.0
 .........\rule(*+*)x0.4
 ........\rule(0.4+0.0)x*
+.....\kern -0.00017
+.....\kern 0.00017
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
@@ -1290,6 +1399,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1350,6 +1463,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1401,6 +1518,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1465,6 +1586,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1532,6 +1657,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1595,6 +1724,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1667,6 +1800,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1736,6 +1873,10 @@ Completed box being shipped out [2]
 ..............\kern -0.0002
 ..............\kern 0.0002
 ..............\special{pdf:eann}
+..............\kern -0.0002
+..............\kern 0.0002
+.............\kern -0.0002
+.............\kern 0.0002
 .............\TU/lmr/m/n/10 ]
 .............\kern -0.0002
 .............\kern 0.0002
@@ -1766,6 +1907,8 @@ Completed box being shipped out [2]
 ..........\glue 3.0
 .........\rule(*+*)x0.4
 ........\rule(0.4+0.0)x*
+.....\kern -0.00017
+.....\kern 0.00017
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0

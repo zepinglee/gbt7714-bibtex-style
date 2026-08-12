@@ -445,6 +445,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -907,6 +911,10 @@ Completed box being shipped out [1]
 ......\kern -0.0002
 ......\kern 0.0002
 ......\special{pdf:eann}
+......\kern -0.0002
+......\kern 0.0002
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 ]
 .....\kern -0.0002
 .....\kern 0.0002
@@ -937,6 +945,8 @@ Completed box being shipped out [1]
 .....\kern -0.0002
 .....\kern 0.0002
 .....\special{pdf:eann}
+.....\kern -0.0002
+.....\kern 0.0002
 .....\TU/lmr/m/n/10 )
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 test
@@ -1493,6 +1503,8 @@ Completed box being shipped out [2]
 ..........\glue 3.0
 .........\rule(*+*)x0.4
 ........\rule(0.4+0.0)x*
+.....\kern -0.00017
+.....\kern 0.00017
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
