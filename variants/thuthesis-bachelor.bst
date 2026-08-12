@@ -2064,9 +2064,17 @@ FUNCTION {format.title}
 { title empty$
     { "" }
     { format.title.subtitle.titleaddon
-      control.sentence.case.title
-        'change.sentence.case
-        'skip$
+      type$ "periodical" =
+        { control.sentence.case.journal
+            'change.sentence.case
+            'skip$
+          if$
+        }
+        { control.sentence.case.title
+            'change.sentence.case
+            'skip$
+          if$
+        }
       if$
       format.punctuations
       control.link.title
