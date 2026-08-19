@@ -192,13 +192,12 @@ FUNCTION {load.config}
 %    \begin{macrocode}
   #1 'control.sentence.case.title :=
   #1 'control.sentence.case.booktitle :=
-%<*!(2005|2015)|thu|ustc>
+%<*!(2005|2015)|thu>
   #0 'control.sentence.case.journal :=
-%</!(2005|2015)|thu|ustc>
-% TODO: v3.0.0 set this to #1 after implementation of GB/T 7714—2025
-%<*(2005|2015)&!(thu|ustc)>
-  #0 'control.sentence.case.journal :=
-%</(2005|2015)&!(thu|ustc)>
+%</!(2005|2015)|thu>
+%<*(2005|2015)&!thu>
+  #1 'control.sentence.case.journal :=
+%</(2005|2015)&!thu>
 %    \end{macrocode}
 %
 % Sentence case 的标题在冒号后是否大写：
@@ -2886,7 +2885,8 @@ FUNCTION {format.title}
     { "" }
     { format.title.subtitle.titleaddon
       type$ "periodical" =
-        { control.sentence.case.journal
+        { duplicate$ "." contains not
+          control.sentence.case.journal and
             'change.sentence.case
             'skip$
           if$
@@ -3289,7 +3289,8 @@ FUNCTION {format.journal.title}
       journaltitleaddon *
     }
   if$
-  control.sentence.case.journal
+  duplicate$ "." contains not
+  control.sentence.case.journal and
     'change.sentence.case
     'skip$
   if$

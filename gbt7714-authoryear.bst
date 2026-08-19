@@ -2074,7 +2074,8 @@ FUNCTION {format.title}
     { "" }
     { format.title.subtitle.titleaddon
       type$ "periodical" =
-        { control.sentence.case.journal
+        { duplicate$ "." contains not
+          control.sentence.case.journal and
             'change.sentence.case
             'skip$
           if$
@@ -2425,7 +2426,8 @@ FUNCTION {format.journal.title}
       journaltitleaddon *
     }
   if$
-  control.sentence.case.journal
+  duplicate$ "." contains not
+  control.sentence.case.journal and
     'change.sentence.case
     'skip$
   if$

@@ -97,7 +97,7 @@ FUNCTION {load.config}
   "period" 'control.name.year.delim :=  % comma / period
   #1 'control.sentence.case.title :=
   #1 'control.sentence.case.booktitle :=
-  #0 'control.sentence.case.journal :=
+  #1 'control.sentence.case.journal :=
   #0 'control.capitalize.subtitle :=
   #0 'control.link.title :=
   #1 'control.article.title :=
@@ -2075,7 +2075,8 @@ FUNCTION {format.title}
     { "" }
     { format.title.subtitle.titleaddon
       type$ "periodical" =
-        { control.sentence.case.journal
+        { duplicate$ "." contains not
+          control.sentence.case.journal and
             'change.sentence.case
             'skip$
           if$
@@ -2426,7 +2427,8 @@ FUNCTION {format.journal.title}
       journaltitleaddon *
     }
   if$
-  control.sentence.case.journal
+  duplicate$ "." contains not
+  control.sentence.case.journal and
     'change.sentence.case
     'skip$
   if$
