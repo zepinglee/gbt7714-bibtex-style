@@ -2,6 +2,9 @@
 
 \documentclass{article}
 
+\usepackage[bibwarn=false]{gbt7714}
+\bibliographystyle{gbt7714-authoryear}
+
 \begin{filecontents}[overwrite, noheader]{\jobname.bib}
 @misc{ch9-1,
     title        = {ELIOS 2},
@@ -276,9 +279,6 @@
     howpublished = {https://www.airbus.com/innovation/zero-emission/urban-air-mobility/cityairbus.html\#ove}
 }
 \end{filecontents}
-
-\usepackage[bibwarn=false]{gbt7714}
-\bibliographystyle{gbt7714-authoryear}
 
 
 \begin{document}

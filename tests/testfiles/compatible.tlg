@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -11,25 +11,102 @@
   \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
 \fi
 
-\bibitem[李时珍(无日期)]{splitted-name}
-李时珍.
+\bibitem[张伯伟(2002)]{splitted-name}
+张伯伟.
+\newblock 全唐五代诗格汇考\allowbreak[M].
+\newblock 南京：江苏古籍出版社，2002.
 
-\bibitem[佚名(无日期)]{version-with-prefix}
-V1.0.
+\bibitem[Zwicker(2022)]{Zwicker2022}
+Zwicker D.
+\newblock The intertwined physics of active chemical reactions and phase separation\allowbreak[J].
+\newblock Current Opinion in Colloid and Interface Science，2022，61：101606.
 
-\bibitem[佚名(无日期)]{non-numeric-version}
-beta.
+\bibitem[Zwicker et~al.(2022)Zwicker and Laan]{Zwicker2022PNAS}
+Zwicker D，Laan L.
+\newblock Evolved interactions stabilize many coexisting phases in multicomponent liquids\allowbreak[J].
+\newblock Proceedings of the National Academy of Sciences，2022，119\allowbreak （28）：e2201250119.
+
+\bibitem[Marx et~al.(2009)Marx and Hutter]{marx_ab_2009}
+Marx D，Hutter J.
+\newblock Ab {Initio} {Molecular} {Dynamics}：{Basic} {Theory} and {Advanced} {Methods}\allowbreak[M].
+\newblock Cambridge University Press，2009.
+
+\bibitem[Caplan(1993)]{missing-journal}
+Caplan P.
+\newblock Cataloging internet resources\allowbreak[J].
+\newblock Public-Access Comput Syst Rev，1993，4\allowbreak （2）：61-66.
+
+\bibitem[Einstein(1905)]{einstein_1905}
+Einstein A.
+\newblock \"uber einen die erzeugung und verwandlung des lichtes betreffenden heuristischen gesichtspunkt\allowbreak[J].
+\newblock Ann Phys，1905，322\allowbreak （6）：132-148.
+
+\bibitem[Anon(2025)]{amd_epyc_2025}
+{AMD} {EPYC}™ 9965\allowbreak[EB/OL].
+\newblock AMD，2025\allowbreak （2025）\allowbreak[2025-04-14].
+\newblock \url{https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html}.
+
+\bibitem[周壮\ 等(2023)周壮，李盛阳，吴薇，郭威龙，李轩，夏桂松和赵子飞]{version-with-prefix}
+周壮，李盛阳，吴薇，等.
+\newblock 天宫二号遥感图像自然景物分类数据集\allowbreak[DS/OL].
+\newblock V1.0.
+\newblock 国家基础学科公共科学数据中心\allowbreak （2023-09-10）\allowbreak[2025-07-15].
+\newblock \url{https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf}.
+
+\bibitem[周壮\ 等(2023)周壮，李盛阳，吴薇，郭威龙，李轩，夏桂松和赵子飞]{non-numeric-version}
+周壮，李盛阳，吴薇，等.
+\newblock 天宫二号遥感图像自然景物分类数据集\allowbreak[DS/OL].
+\newblock beta.
+\newblock 国家基础学科公共科学数据中心\allowbreak （2023-09-10）\allowbreak[2025-07-15].
+\newblock \url{https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf}.
+
+\bibitem[方向明\ 等(无日期)方向明和曹迎杰]{fang2023yuanyuzhou}
+方向明，曹迎杰.
+\newblock 元宇宙在图书馆的应用：理论研究与实践进展\allowbreak[J/OL].
+\newblock \url{https://chinaxiv.org/abs/202303.00020}.
+\newblock DOI:\doi{10.12074/202303.00020V1}.
+
+\bibitem[肖玲\ 等(无日期)肖玲，张雪和王永]{xiao2025shuju}
+肖玲，张雪，王永.
+\newblock 数据要素的统计测算方法探究\allowbreak[J/OL].
+\newblock \url{https://zsyyb.cn/abs/202408.01096}.
+\newblock DOI:\doi{10.12451/202408.01096}.
+
+\bibitem[Bloss et~al.(2015)Bloss，Wineinger，Peters，Boeldt，Ariniello，Kim，Sheard，Komatireddy，Barrett，and Topol]{Bloss029983}
+Bloss C~S，Wineinger N~E，Peters M，et~al.
+\newblock A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors\allowbreak[J/OL].
+\newblock bioRxiv，2015.
+\newblock \url{https://www.biorxiv.org/content/early/2015/10/28/029983}.
+\newblock DOI:\doi{10.1101/029983}.
+
+\bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{jenkins2012controlledmanipulationlightcooperative}
+Jenkins S~D，Ruostekoski J.
+\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Bai et~al.(2025)Bai，Chen，Liu，Wang，Ge，Song，Dang，Wang，Wang，Tang，et~al.]{bai2025qwen2}
+Bai Shuai，Chen Keqin，Liu Xuejing，et~al.
+\newblock Qwen2. 5-vl technical report\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2025）.
+\newblock \url{https://arxiv.org/abs/2502.13923}.
+
+\bibitem[Cimini et~al.(2025)Cimini，Sohoni，Presutti，Malia，Ma，Yanagimoto，Wang，Onodera，Wright，and McMahon]{Cimini2025}
+Cimini V，Sohoni M~M，Presutti F，et~al.
+\newblock Large-scale quantum reservoir computing using a gaussian boson sampler\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2025）.
+\newblock \url{https://doi.org/10.48550/ARXIV.2505.13695}.
 
 \end{thebibliography}
 
-% Warning--empty title in splitted-name
-% Warning--empty year in splitted-name
-% Warning--empty author in version-with-prefix
-% Warning--empty title in version-with-prefix
-% Warning--empty publisher in version-with-prefix
-% Warning--empty urldate in version-with-prefix
-% Warning--empty author in non-numeric-version
-% Warning--empty title in non-numeric-version
-% Warning--empty publisher in non-numeric-version
-% Warning--empty urldate in non-numeric-version
+% Warning--empty author in amd_epyc_2025
+% Warning--empty journal in fang2023yuanyuzhou
+% Warning--empty journal in fang2023yuanyuzhou
+% Warning--empty year in fang2023yuanyuzhou
+% Warning--empty journal in xiao2025shuju
+% Warning--empty journal in xiao2025shuju
+% Warning--empty year in xiao2025shuju
+% Warning--empty urldate in jenkins2012controlledmanipulationlightcooperative
+% Warning--empty urldate in bai2025qwen2
+% Warning--empty urldate in Cimini2025
 % (There were 10 warnings)

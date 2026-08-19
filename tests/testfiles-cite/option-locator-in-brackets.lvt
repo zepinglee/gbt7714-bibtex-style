@@ -1,6 +1,11 @@
 \input{regression-test.tex}
 \documentclass[UTF8, scheme=plain, fontset=fandol]{ctexart}
 
+\usepackage[locator-in-brackets]{gbt7714}
+\bibliographystyle{gbt7714-numeric}
+
+\pagestyle{empty}
+
 \begin{filecontents}[noheader, overwrite]{\jobname.bib}
 @article{zhang1984,
   author  = {张三},
@@ -16,11 +21,6 @@
   year    = {1984},
 }
 \end{filecontents}
-
-\usepackage[locator-in-brackets]{gbt7714}
-\bibliographystyle{gbt7714-numeric}
-
-\pagestyle{empty}
 
 
 \begin{document}

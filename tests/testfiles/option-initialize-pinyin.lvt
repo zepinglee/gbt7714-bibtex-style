@@ -4,8 +4,24 @@
 \usepackage[initializepinyin]{gbt7714}
 \bibliographystyle{gbt7714-numeric}
 
-% 下列示例取自 GB/T 28039—2011《中国人名汉语拼音字母拼写规则》
 \begin{filecontents}[overwrite]{\jobname.bib}
+@book{ITEM-1,
+  author        = {Li, Jiangning},
+}
+
+@book{ITEM-2,
+  author        = {Li, Jiang Ning},
+}
+
+@book{ITEM-3,
+  author        = {Li, Jiang-Ning},
+}
+
+@book{ITEM-4,
+  author        = {Li, Jiang-ning},
+}
+
+% 下列示例取自 GB/T 28039—2011《中国人名汉语拼音字母拼写规则》
 @book{yang,
   author = {Yang, Weiming}
 }

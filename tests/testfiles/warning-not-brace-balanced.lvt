@@ -2,6 +2,9 @@
 
 \documentclass{article}
 
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-numeric}
+
 \begin{filecontents}[overwrite, noheader]{\jobname.bib}
 @STRING{IEEE_M_WC         = "{IEEE} Wireless Communications"}
 
@@ -16,9 +19,6 @@
   year          = "2019"
 }
 \end{filecontents}
-
-\usepackage{gbt7714}
-\bibliographystyle{gbt7714-numeric}
 
 
 \begin{document}

@@ -11,16 +11,16 @@
   \def\cstr#1{\href{https://cstr.cn/#1}{\nolinkurl{#1}}}
 \fi
 
-\bibitem[Perez et~al.(2018)Perez, Strub, De~Vries, Dumoulin, and Courville]{perez2018film}
-Perez E, Strub F, De~Vries H, et~al.
-\newblock Film: visual reasoning with a general conditioning layer\allowbreak[C]//\allowbreak
-Proceedings of the AAAI conference on artificial intelligence: v.32.
-\newblock 2018: 3942-3951.
+\bibitem[Perez et~al.(2018)Perez，Strub，De~Vries，Dumoulin，and Courville]{perez2018film}
+Perez E，Strub F，De~Vries H，et~al.
+\newblock Film：visual reasoning with a general conditioning layer\allowbreak[C]//\allowbreak
+Proceedings of the AAAI conference on artificial intelligence：v.32.
+\newblock 2018：3942-3951.
 
 \bibitem[Chen et~al.(2016)Chen and Guestrin]{chen2016xgboost}
-Chen Tianqi, Guestrin C.
-\newblock Xgboost: a scalable tree boosting system\allowbreak[C]//\allowbreak
+Chen Tianqi，Guestrin C.
+\newblock Xgboost：a scalable tree boosting system\allowbreak[C]//\allowbreak
 Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining.
-\newblock 2016: 785-794.
+\newblock 2016：785-794.
 
 \end{thebibliography}

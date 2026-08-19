@@ -2,26 +2,181 @@
 
 \documentclass{article}
 
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-numeric}
+
 \begin{filecontents}[noheader, overwrite]{\jobname.bib}
 % 拆分的姓名
 @book{splitted-name,
-  author        = {李, 时珍},
+  author        = {张, 伯伟},
+  title         = {全唐五代诗格汇考},
+  address       = {南京},
+  publisher     = {江苏古籍出版社},
+  year          = {2002},
   langid        = {chinese}
 }
 
-% 版本号带有前缀
+% “Zwicker”和“Zwicker et al.”并不是同一著者，所以无须加年份后缀 a, b
+% <https://github.com/zepinglee/gbt7714-bibtex-style/issues/176>
+@article{Zwicker2022,
+  title        = {The intertwined physics of active chemical reactions and phase separation},
+  author       = {David Zwicker},
+  year         = {2022},
+  journal      = {Current Opinion in Colloid and Interface Science},
+  volume       = {61},
+  pages        = {101606}
+}
+
+@article{Zwicker2022PNAS,
+  title        = {Evolved interactions stabilize many coexisting phases in multicomponent liquids},
+  author       = {David Zwicker and Liedewij Laan},
+  year         = {2022},
+  journal      = {Proceedings of the National Academy of Sciences},
+  volume       = {119},
+  number       = {28},
+  pages        = {e2201250119}
+}
+
+% 第 1 版不著录
+% <https://github.com/ustctug/ustcthesis/issues/476>
+@book{marx_ab_2009,
+  edition = {1},
+  title = {Ab {Initio} {Molecular} {Dynamics}: {Basic} {Theory} and {Advanced} {Methods}},
+  place = {Cambridge},
+  publisher = {Cambridge University Press},
+  author = {Marx, Dominik and Hutter, Jürg},
+  year = {2009},
+}
+
+% 缺少 journal 字段
+@article{missing-journal,
+  author        = {Caplan, Priscilla},
+  title         = {Cataloging Internet Resources},
+  shortjournal  = {Public-Access Comput. Syst. Rev.},
+  year          = {1993},
+  volume        = {4},
+  number        = {2},
+  pages         = {61--66},
+  issn          = {1048-6542},
+  langid        = {american}
+}
+
+% 缺少 shortjournal 字段
+% <https://github.com/ustctug/ustcthesis/issues/511>
+@article{einstein_1905,
+  title = {\"Uber Einen Die Erzeugung Und Verwandlung Des Lichtes Betreffenden Heuristischen Gesichtspunkt},
+  author = {Einstein, A.},
+  year = 1905,
+  volume = {322},
+  number = {6},
+  pages = {132--148},
+  langid = {english},
+  journal = {Ann. Phys.}
+}
+
+% 网页 misc 有 publisher 字段
+% <https://github.com/ustctug/ustcthesis/issues/495>
+@misc{amd_epyc_2025,
+  title = {{AMD} {EPYC}™ 9965},
+  url = {https://www.amd.com/en/products/processors/server/epyc/9005-series/amd-epyc-9965.html},
+  language = {en},
+  urldate = {2025-04-14},
+  publisher = {AMD},
+  year = {2025},
+}
+
+% 版本号带有前缀“v”
 @dataset{version-with-prefix,
+  author        = {周壮 and 李盛阳 and 吴薇 and 郭威龙 and 李轩 and 夏桂松 and 赵子飞},
+  title         = {天宫二号遥感图像自然景物分类数据集},
   version       = {v1.0},
+  publisher     = {国家基础学科公共科学数据中心},
+  date          = {2023-09-10},
+  urldate       = {2025-07-15},
+  url           = {https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf},
   langid        = {chinese}
 }
 
+% 版本号非数字形式
 @dataset{non-numeric-version,
+  author        = {周壮 and 李盛阳 and 吴薇 and 郭威龙 and 李轩 and 夏桂松 and 赵子飞},
+  title         = {天宫二号遥感图像自然景物分类数据集},
   version       = {beta},
+  publisher     = {国家基础学科公共科学数据中心},
+  date          = {2023-09-10},
+  urldate       = {2025-07-15},
+  url           = {https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf},
   langid        = {chinese}
+}
+
+% 预印本的各种格式
+% Exported from <https://chinaxiv.org/abs/202303.00020V1>
+@article{fang2023yuanyuzhou,
+  author = {方向明 and 曹迎杰},
+  title = {元宇宙在图书馆的应用：理论研究与实践进展},
+  keywords = {元宇宙；智慧图书馆；底层技术；虚拟现实},
+  doi = {10.12074/202303.00020V1},
+  url = {https://chinaxiv.org/abs/202303.00020},
+  timestamp = {2025-12-02},
+}
+
+% Exported from <https://zsyyb.cn/abs/202408.01096>
+@article{xiao2025shuju,
+  author = {肖玲 and 张雪 and 王永},
+  title = {数据要素的统计测算方法探究},
+  keywords = {数据要素化；数据要素结构化；数据要素关系模式},
+  doi = {10.12451/202408.01096},
+  url = {https://zsyyb.cn/abs/202408.01096},
+  timestamp = {2025-12-02},
+}
+
+% Exported from <https://www.biorxiv.org/content/10.1101/029983v1>
+@article {Bloss029983,
+  author = {Bloss, Cinnamon S. and Wineinger, Nathan E. and Peters, Melissa and Boeldt, Debra L. and Ariniello, Lauren and Kim, Ju Young and Sheard, Judy and Komatireddy, Ravi and Barrett, Paddy and Topol, Eric J.},
+  title = {A prospective randomized trial examining health care utilization in individuals using multiple smartphone-enabled biosensors},
+  elocation-id = {029983},
+  year = {2015},
+  doi = {10.1101/029983},
+  publisher = {Cold Spring Harbor Laboratory},
+  URL = {https://www.biorxiv.org/content/early/2015/10/28/029983},
+  eprint = {https://www.biorxiv.org/content/early/2015/10/28/029983.full.pdf},
+  journal = {bioRxiv}
+}
+
+% Exported from <https://arxiv.org/abs/2409.12186>
+@misc{jenkins2012controlledmanipulationlightcooperative,
+      title={Controlled manipulation of light by cooperative response of atoms in an optical lattice},
+      author={Stewart D. Jenkins and Janne Ruostekoski},
+      year={2012},
+      eprint={1112.6136},
+      archivePrefix={arXiv},
+      primaryClass={physics.optics},
+      url={https://arxiv.org/abs/1112.6136},
+}
+
+% Exported from Google Scholar
+% <https://github.com/ustctug/ustcthesis/issues/488>
+@article{bai2025qwen2,
+  title={Qwen2. 5-vl technical report},
+  author={Bai, Shuai and Chen, Keqin and Liu, Xuejing and Wang, Jialin and Ge, Wenbin and Song, Sibo and Dang, Kai and Wang, Peng and Wang, Shijie and Tang, Jun and others},
+  journal={arXiv preprint arXiv:2502.13923},
+  year={2025}
+}
+
+% 预印本未指定 url
+% <https://github.com/ustctug/ustcthesis/issues/490>
+@Article{Cimini2025,
+  author        = {Cimini, Valeria and Sohoni, Mandar M. and Presutti, Federico and Malia, Benjamin K. and Ma, Shi-Yuan and Yanagimoto, Ryotatsu and Wang, Tianyu and Onodera, Tatsuhiro and Wright, Logan G. and McMahon, Peter L.},
+  title         = {Large-scale quantum reservoir computing using a Gaussian Boson Sampler},
+  year          = {2025},
+  archiveprefix = {arXiv},
+  copyright     = {Creative Commons Attribution 4.0 International},
+  doi           = {10.48550/ARXIV.2505.13695},
+  eprint        = {2505.13695},
+  keywords      = {Quantum Physics (quant-ph), FOS: Physical sciences, FOS: Physical sciences},
+  publisher     = {arXiv},
 }
 \end{filecontents}
-
-\bibliographystyle{gbt7714-numeric}
 
 
 \begin{document}
