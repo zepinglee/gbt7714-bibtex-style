@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- 2015 和 2005 版的符号改为 `GB`，与 2025 版一致。
+
 ## [3.0.1] - 2026-07-20
 
 ### Added

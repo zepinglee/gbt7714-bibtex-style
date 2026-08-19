@@ -80,14 +80,13 @@ FUNCTION {load.config}
 {
 %    \end{macrocode}
 %
-% TODO: v3.0.0 将 2015、2005 版默认值改为 GB。
 %    \begin{macrocode}
-%<*!(2015|2005|halfwidth|thu|ucas|ustc)>
+%<*!(halfwidth|thu|ucas|ustc)>
   "GB" 'control.bib.punct :=  % GB / half / bylanguage
-%</!(2015|2005|halfwidth|thu|ucas|ustc)>
-%<*2015|2005|halfwidth|thu|ucas|ustc>
+%</!(halfwidth|thu|ucas|ustc)>
+%<*halfwidth|thu|ucas|ustc>
   "half" 'control.bib.punct :=  % GB / half / bylanguage
-%</2015|2005|halfwidth|thu|ucas|ustc>
+%</halfwidth|thu|ucas|ustc>
 %    \end{macrocode}
 %
 % 控制是否转换标题内部的标点。

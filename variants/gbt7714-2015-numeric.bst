@@ -74,7 +74,7 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  "half" 'control.bib.punct :=  % GB / half / bylanguage
+  "GB" 'control.bib.punct :=  % GB / half / bylanguage
   #1 'control.convert.punct :=
   #3 'control.max.bib.names :=
   #3 'control.min.bib.names :=
