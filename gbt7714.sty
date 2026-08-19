@@ -37,18 +37,6 @@
 % 控制 bst 的格式。
 \prop_new:N \l__gbt_bst_control_prop
 
-% 用于兼容 v1.x.x 过时的接口
-% TODO: v3.0.0 remove these
-\bool_new:N \l__gbt_legacy_interface_bool
-\bool_new:N \l__gbt_legacy_mmxv_bool
-\bool_new:N \l__gbt_legacy_numeric_bool
-\bool_new:N \l__gbt_legacy_super_bool
-
-\bool_set_false:N \l__gbt_legacy_interface_bool
-\bool_set_true:N \l__gbt_legacy_mmxv_bool
-\bool_set_true:N \l__gbt_legacy_numeric_bool
-\bool_set_true:N \l__gbt_legacy_super_bool
-
 % 设置选项
 \NewDocumentCommand \gbtsetup { m }
   { \keys_set:nn { gbt7714 } { #1 } }
@@ -263,46 +251,9 @@
       { \prop_put:Nnn \l__gbt_bst_control_prop { CTL_warn_empty_field } {#1} } ,
     bibwarn .default:n = true ,
     %
-    % 兼容 v1.x.x 过时的接口
-    % TODO: v3.0.0 remove these
-    2015 .code:n =
-      {
-        \msg_warning:nnn { gbt7714 } { obsolete-option } { 2015 }
-        \bool_set_true:N \l__gbt_legacy_interface_bool
-        \bool_set_true:N \l__gbt_legacy_mmxv_bool
-      } ,
-    2005 .code:n =
-      {
-        \msg_warning:nnn { gbt7714 } { obsolete-option } { 2005 }
-        \bool_set_true:N \l__gbt_legacy_interface_bool
-        \bool_set_false:N \l__gbt_legacy_mmxv_bool
-      } ,
-    super .code:n =
-      {
-        \msg_warning:nnn { gbt7714 } { obsolete-option } { super }
-        \bool_set_true:N \l__gbt_legacy_interface_bool
-        \bool_set_true:N \l__gbt_legacy_numeric_bool
-        \bool_set_true:N \l__gbt_legacy_super_bool
-      } ,
-    numbers .code:n =
-      {
-        \msg_warning:nnn { gbt7714 } { obsolete-option } { numbers }
-        \bool_set_true:N \l__gbt_legacy_interface_bool
-        \bool_set_true:N \l__gbt_legacy_numeric_bool
-        \bool_set_false:N \l__gbt_legacy_super_bool
-      } ,
-    authoryear .code:n =
-      {
-        \msg_warning:nnn { gbt7714 } { obsolete-option } { authoryear }
-        \bool_set_true:N \l__gbt_legacy_interface_bool
-        \bool_set_false:N \l__gbt_legacy_numeric_bool
-      } ,
     % 将选项传递给 \pkg{natbib}
     unknown .code:n = { \PassOptionsToPackage { \CurrentOption } { natbib } } ,
   }
-
-\msg_new:nnn { gbt7714 } { obsolete-option }
-  { The~ option~ "#1"~ is~ obsolete. }
 
 \keys_set:nn { gbt7714 }
   {
@@ -897,7 +848,7 @@
 %           }
 %       }
 %       {
-%         % TODO: LuaTeXja 应该如何处理？
+%         % LuaTeXja 应该如何处理？
 %         % \@ifpackageloaded { luatexja }
 %         %   {
 %         %     \cs_set:Npn \__gbt_set_square_bracket_font:
@@ -1035,26 +986,6 @@
       \iow_now:Ne \@auxout
         { \token_to_str:N \citation { \c__gbt_bst_control_entry_key_tl } }
     \fi
-  }
-
-
-% 兼容 v1.x.x 过时的接口：
-% TODO: v3.0.0 remove these
-\bool_if:NT \l__gbt_legacy_interface_bool
-  {
-    \foo
-    \bool_if:NTF \l__gbt_legacy_mmxv_bool
-      { \tl_set:Nn \l_tmpa_tl { 2015 } }
-      { \tl_set:Nn \l_tmpa_tl { 2005 } }
-    \bool_if:NTF \l__gbt_legacy_numeric_bool
-      {
-        \tl_set:Nn \l_tmpb_tl { numeric }
-        \bool_if:NF \l__gbt_legacy_super_bool
-          { \gbtsetup { inline = true } }
-      }
-      { \tl_set:Nn \l_tmpb_tl { authoryear } }
-    \exp_args:Ne \bibliographystyle
-      { gbt7714- \tl_use:N \l_tmpa_tl - \tl_use:N \l_tmpb_tl }
   }
 
 \ExplSyntaxOff

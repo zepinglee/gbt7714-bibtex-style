@@ -3964,10 +3964,6 @@ FUNCTION {control.pass}
   if$
 }
 
-FUNCTION {control.check}
-{ % TODO
-}
-
 MACRO {jan} {"January"}
 
 MACRO {feb} {"February"}
@@ -4525,8 +4521,6 @@ EXECUTE {init.state.consts}
 EXECUTE {load.config}
 
 ITERATE {control.pass}
-
-EXECUTE {control.check}
 
 ITERATE {presort}
 
