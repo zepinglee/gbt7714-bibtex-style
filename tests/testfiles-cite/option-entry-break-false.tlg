@@ -1572,6 +1572,8 @@ Completed box being shipped out [1]
 .....\TU/lmr/m/n/10 of
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/lmr/m/n/10 Japan
+.....\kern -0.0002
+.....\kern 0.0002
 .....\penalty 10000
 .....\TU/FandolSong-Regular(0)/m/n/10 ，
 .....\rule(0.0+0.0)x-6.92

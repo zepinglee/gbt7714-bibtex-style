@@ -4,6 +4,34 @@
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
   \urlstyle{same}\fi
 
+\bibitem[刘彻东(1998)]{gbt7714.9.3.1.4:3}
+刘彻东, 1998.
+\newblock 中国的青年刊物: 个性特色为本\allowbreak[J].
+\newblock 中国出版\allowbreak (5): 38-39.
+
+\bibitem[尼葛洛庞帝(1996)]{gbt7714.9.2.2:3}
+尼葛洛庞帝, 1996.
+\newblock 数字化生存\allowbreak[M].
+\newblock 胡泳, 范海燕, 译.
+\newblock 海口: 海南出版社.
+
+\bibitem[裴丽生(1981)]{gbt7714.9.3.1.4:4}
+裴丽生, 1981.
+\newblock 在中国科协学术期刊编辑工作经验交流会上的讲话\allowbreak[C]//\allowbreak
+中国科学技术协会.
+\newblock 中国科协学术期刊编辑工作经验交流会资料选.
+\newblock 北京: 中国科学技术协会学会工作部: 2-10.
+
+\bibitem[汪冰(1997)]{gbt7714.9.2.2:4}
+汪冰, 1997.
+\newblock 电子图书馆理论与实践研究\allowbreak[M].
+\newblock 北京: 北京图书馆出版社: 16.
+
+\bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
+杨宗英, 1996.
+\newblock 电子图书馆的现实模型\allowbreak[J].
+\newblock 中国图书馆学报\allowbreak (2): 24-29.
+
 \bibitem[佚名(无日期{\natexlab{a}})]{gbt7714.7.2.1:1}
 佚名, 无日期-{\natexlab{a}}.
 \newblock 《西游记》词汇对《汉语大词典》书证研究\allowbreak[M].
@@ -299,6 +327,19 @@
 \bibitem[佚名(c1988)]{gbt7714.7.5.4.3:1}
 佚名, c1988.
 
+\bibitem[张忠智(1997)]{gbt7714.9.3.1.4:1}
+张忠智, 1997.
+\newblock 科技书刊的总编 (主编) 的角色要求\allowbreak[C]//\allowbreak
+中国科学技术期刊编辑学会.
+\newblock 中国科学技术期刊编辑学会建会十周年学术研讨会论文汇编.
+\newblock 北京: 中国科学技术期刊编辑学会学术委员会: 33-34.
+
+\bibitem[中国社会科学院语言研究所词典编辑室(1996)]{gbt7714.9.3.1.4:2}
+中国社会科学院语言研究所词典编辑室, 1996.
+\newblock 现代汉语词典\allowbreak[M].
+\newblock 修订本.
+\newblock 北京: 商务印书馆.
+
 \bibitem[丁文详(2000{\natexlab{a}})]{gbt7714.8.5.3:1}
 丁文详, 2000{\natexlab{a}}.
 \newblock 数字革命与竞争国际化\allowbreak[N].
@@ -328,12 +369,6 @@
 中国社会科学院台湾史研究中心, 2012.
 \newblock 台湾光复六十五周年暨抗战史实学术研讨会论文集\allowbreak[C].
 \newblock 北京: 九州出版社.
-
-\bibitem[中国社会科学院语言研究所词典编辑室(1996)]{gbt7714.9.3.1.4:2}
-中国社会科学院语言研究所词典编辑室, 1996.
-\newblock 现代汉语词典\allowbreak[M].
-\newblock 修订本.
-\newblock 北京: 商务印书馆.
 
 \bibitem[中国科学院文献情报中心({[2025]})]{gbt7714.b.10:1}
 中国科学院文献情报中心, [2025].
@@ -455,11 +490,6 @@
 \newblock 生物质材料热解失重动力学及其分析方法研究\allowbreak[D].
 \newblock 合肥: 中国科学技术大学: 17-18.
 
-\bibitem[刘彻东(1998)]{gbt7714.9.3.1.4:3}
-刘彻东, 1998.
-\newblock 中国的青年刊物: 个性特色为本\allowbreak[J].
-\newblock 中国出版\allowbreak (5): 38-39.
-
 \bibitem[刘时银\ 等(2012)刘时银, 郭万钦和许君利]{gbt7714.b.13:2}
 刘时银, 郭万钦, 许君利, 2012.
 \newblock 中国第二次冰川编目数据集: 2006—2011\allowbreak[DS].
@@ -539,12 +569,6 @@
 国家能源局, 2020{\natexlab{b}}.
 \newblock NB/T 10386—2020\quad 水电工程水温实时监测系统技术规范\allowbreak[S].
 
-\bibitem[尼葛洛庞帝(1996)]{gbt7714.9.2.2:3}
-尼葛洛庞帝, 1996.
-\newblock 数字化生存\allowbreak[M].
-\newblock 胡泳, 范海燕, 译.
-\newblock 海口: 海南出版社.
-
 \bibitem[工业和信息化部(2022)]{gbt7714.b.8:3}
 工业和信息化部, 2022.
 \newblock GB 18030—2022\quad 信息技术\quad 中文编码字符集\allowbreak[S].
@@ -568,13 +592,6 @@
 张凯军, 2013.
 \newblock 轨道火车及高速轨道火车紧急安全制动辅助装置: CN201220158825.2\allowbreak[P].
 \newblock 2013-03-27.
-
-\bibitem[张忠智(1997)]{gbt7714.9.3.1.4:1}
-张忠智, 1997.
-\newblock 科技书刊的总编 (主编) 的角色要求\allowbreak[C]//\allowbreak
-中国科学技术期刊编辑学会.
-\newblock 中国科学技术期刊编辑学会建会十周年学术研讨会论文汇编.
-\newblock 北京: 中国科学技术期刊编辑学会学术委员会: 33-34.
 
 \bibitem[张群\ 等(2024{\natexlab{a}})张群, 程志宝和石志飞]{gbt7714.8.5.3:4}
 张群, 程志宝, 石志飞, 2024{\natexlab{a}}.
@@ -709,11 +726,6 @@
 \newblock 奏请上海道库洋务外销要款无款可筹仍拨药厘接济事: 04-01-35-0399-039\allowbreak[A].
 \newblock 北京: 中国第一历史档案馆, 1887（光绪十三年三月十三日）.
 
-\bibitem[杨宗英(1996)]{gbt7714.9.2.2:5}
-杨宗英, 1996.
-\newblock 电子图书馆的现实模型\allowbreak[J].
-\newblock 中国图书馆学报\allowbreak (2): 24-29.
-
 \bibitem[杨洪升(2013{\natexlab{a}})]{gbt7714.8.1:3}
 杨洪升, 2013{\natexlab{a}}.
 \newblock 四库馆私家抄校书考略\allowbreak[J].
@@ -746,11 +758,6 @@
 汤万金, 杨跃翔, 刘文, 等, 2013{\natexlab{b}}.
 \newblock 人体安全重要技术标准研制最终报告: 7178999X-2006BAK04A10/10.2013\allowbreak[R].
 \newblock 2013-09-30.
-
-\bibitem[汪冰(1997)]{gbt7714.9.2.2:4}
-汪冰, 1997.
-\newblock 电子图书馆理论与实践研究\allowbreak[M].
-\newblock 北京: 北京图书馆出版社: 16.
 
 \bibitem[汪学军(2005{\natexlab{a}})]{gbt7714.8.6.1:2}
 汪学军, 2005{\natexlab{a}}.
@@ -899,13 +906,6 @@
 \newblock 东南极拉斯曼丘陵地区地质图. 1:25000\allowbreak[CM].
 \newblock 北京: 科学出版社.
 \newblock 128\,cm$\times$84\,cm.
-
-\bibitem[裴丽生(1981)]{gbt7714.9.3.1.4:4}
-裴丽生, 1981.
-\newblock 在中国科协学术期刊编辑工作经验交流会上的讲话\allowbreak[C]//\allowbreak
-中国科学技术协会.
-\newblock 中国科协学术期刊编辑工作经验交流会资料选.
-\newblock 北京: 中国科学技术协会学会工作部: 2-10.
 
 \bibitem[訾冬梅\ 等(2006{\natexlab{a}})訾冬梅和高秀静]{gbt7714.8.13.1:1}
 訾冬梅, 高秀静, 2006{\natexlab{a}}.
@@ -1378,7 +1378,7 @@ Dowler L, 1995.
 \bibitem[Dunbar et~al.(2013)Dunbar and Mitchell]{gbt7714.7.7:5}
 Dunbar K~L, Mitchell D~A, 2013.
 \newblock Revealing nature's synthetic potential through the study of ribosomal natural product biosynthesis\allowbreak[J].
-\newblock ACS Chemical Biology, 8\allowbreak (3): 473-487.
+\newblock {ACS} Chemical Biology, 8\allowbreak (3): 473-487.
 
 \bibitem[Einstein(n.d.)]{gbt7714.7.1.1:7}
 Einstein A, n.d.
@@ -1565,12 +1565,12 @@ Sadock B~J, Sadock V~A, Ruiz P, et~al., 2009.
 \bibitem[Saito et~al.(2006{\natexlab{a}})Saito and Miyazaki]{gbt7714.8.5.3:8}
 Saito M, Miyazaki K, 2006{\natexlab{a}}.
 \newblock Jadeite-bearing metagabbro in serpentinite melange of the ``{Kurosegawa Belt}'' in {Izumi Town}, {Yatsushiro City}, {Kumamoto Prefecture}, central {Kyushu}\allowbreak[J].
-\newblock Bulletin of the Geological Survey of Japan, 57\allowbreak (5/6): 169-176.
+\newblock Bulletin of the Geological Survey of {Japan}, 57\allowbreak (5/6): 169-176.
 
 \bibitem[Saito et~al.(2006{\natexlab{b}})Saito and Miyazaki]{gbt7714.b.4:13}
 Saito M, Miyazaki K, 2006{\natexlab{b}}.
 \newblock Jadeite-bearing metagabbro in serpentinite melange of the ``{Kurosegawa Belt}'' in {Izumi Town}, {Yatsushiro City}, {Kumamoto Prefecture}, central {Kyushu}\allowbreak[J].
-\newblock Bulletin of the Geological Survey of Japan, 57\allowbreak (5/6): 169-176.
+\newblock Bulletin of the Geological Survey of {Japan}, 57\allowbreak (5/6): 169-176.
 
 \bibitem[Santer et~al.(2025)Santer and Akanyeti]{gbt7714.b.4:18}
 Santer R~D, Akanyeti O, 2025.
