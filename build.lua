@@ -36,6 +36,7 @@ checkconfigs = {
   "tests/config-cite",
   "tests/config-chapterbib",
   "tests/config-bibunits",
+  "tests/config-variants",
 }
 
 typesetexe = "xelatex"

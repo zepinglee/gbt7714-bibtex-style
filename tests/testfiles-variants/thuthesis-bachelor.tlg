@@ -58,7 +58,7 @@ WILLIAMS-ELLIS A.
 DE~MORGAN A.
 
 \bibitem[Li(n.d.)]{gbt7714.7.1.1:10}
-LI J.
+LI J N.
 
 \bibitem[Godard(n.d.)]{gbt7714.7.1.1:11}
 GODARD J L.
@@ -429,7 +429,7 @@ ABADÍA O~M, CONKEY M~W, MCDONALD J.
 \bibitem[Weinstein et~al.(1974)Weinstein and Swartz]{gbt7714.8.3.2:4}
 WEINSTEIN L, SWARTZ M~N.
 \newblock Pathogenic properties of invading microorganisms\allowbreak[M]//\allowbreak
-Sodeman W~A Jr, SODEMAN W~A.
+SODEMAN W~A, Jr, SODEMAN W~A.
 \newblock Pathologic physiology: mechanisms of disease.
 \newblock 5th ed.
 \newblock Philadelphia: Saunders, 1974: 457-472.
@@ -590,14 +590,14 @@ GOTTENBERG W~G.
 中华预防医学会医院感染控制分会第31次全国医院感染学术年会, 2022: 2.
 
 \bibitem[Wang(2022)]{gbt7714.8.6.3:2}
-WANG S.
+WANG S S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
 2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
 \bibitem[Yu et~al.(2024)Yu, Pan, Wang, Wu, Mei, and Ma]{gbt7714.8.6.3:3}
-YU Y, PAN E, WANG X, et~al.
+YU Y, PAN E T, WANG X Y, et~al.
 \newblock Unmixing before fusion: a generalized paradigm for multi-source-based hyperspectral image synthesis\allowbreak[C/OL]//\allowbreak
 {CVPR}, 2024: 4\allowbreak[2025-12-02].
 \newblock \url{https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html}.
@@ -642,7 +642,7 @@ CHRISTOU A.
 \newblock \allowbreak (2023-12-28)\allowbreak[2025-12-02].
 \newblock \url{http://www.caict.ac.cn/kxyj/qwfb/bps/202312/P020240326615399026294.pdf}.
 
-\bibitem[Calkin et~al.(2011)Calkin, Ager, Thompson, Finney, Lee, {Thomas M. Quigley}, McHugh, Riley, and {Julie Gilbertson-Day}]{gbt7714.8.8.3:3}
+\bibitem[Calkin et~al.(2011)Calkin, Ager, Thompson, Finney, Lee, Quigley, McHugh, Riley, and Gilbertson-Day]{gbt7714.8.8.3:3}
 CALKIN D~E, AGER A~A, THOMPSON M~P, et~al.
 \newblock A comparative risk assessment framework for wildland fire management: the 2010 cohesive strategy science report: RMRS-GTR-262\allowbreak[R/OL].
 \newblock 2011: 8-9\allowbreak[2025-12-02].
@@ -1151,7 +1151,7 @@ DEVERELL W, IGLER D.
 \bibitem[Weinstein et~al.(1974)Weinstein and Swartz]{gbt7714.b.2:9}
 WEINSTEIN L, SWARTZ M~N.
 \newblock Pathogenic properties of invading microorganisms\allowbreak[M]//\allowbreak
-Sodeman W~A Jr, SODEMAN W~A.
+SODEMAN W~A, Jr, SODEMAN W~A.
 \newblock Pathologic physiology: mechanisms of disease.
 \newblock 5th ed.
 \newblock Philadelphia: Saunders, 1974: 457-472.
@@ -1348,14 +1348,14 @@ VEEN P H v~d, MULLER M, VINCKEN K~L, et~al.
 \newblock \url{http://apabi.lib.pku.edu.cn/usp/pku/pub.mvc?pid=book.detail&metaid=m.20110628-BPO-889-0135&cult=CN}.
 
 \bibitem[Wang(2022)]{gbt7714.b.5:8}
-WANG S.
+WANG S S.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
 2022 6th {Asian Conference} on {Artificial Intelligence Technology}, 2022: 2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
 \bibitem[Yu et~al.(2024)Yu, Pan, Wang, Wu, Mei, and Ma]{gbt7714.b.5:9}
-YU Y, PAN E, WANG X, et~al.
+YU Y, PAN E T, WANG X Y, et~al.
 \newblock Unmixing before fusion: a generalized paradigm for multi-source-based hyperspectral image synthesis\allowbreak[C/OL]//\allowbreak
 {CVPR}, 2024: 4\allowbreak[2025-12-02].
 \newblock \url{https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html}.
@@ -1742,7 +1742,7 @@ SUGARMAN L, MARKHAM S.
 \newblock DOI:\doi{10.5255/UKDA-SN-996-1}.
 
 \bibitem[Zhong et~al.(2022)Zhong, Yan, and Li]{gbt7714.b.13:8}
-ZHONG X, YAN Q, LI G.
+ZHONG X Y, YAN Q W, LI G E.
 \newblock Long time series nighttime light dataset of {China}: 2000--2020\allowbreak[DS/OL].
 \newblock Global Change Research Data Publishing \& Repository\allowbreak[2024-11-25].
 \newblock \url{https://geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.

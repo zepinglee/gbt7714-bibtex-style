@@ -1,14 +1,14 @@
 save_file () {
     test="$1";
-    for config in main variants cite bibunits chapterbib; do
-        if [[ "$config" == "main" ]]; then
+    for config in build cite bibunits chapterbib variants ; do
+        if [[ "$config" == "build" ]]; then
             test_dir="tests/testfiles";
         else
             test_dir="tests/testfiles-$config";
         fi
         file_path="$test_dir/$test.lvt";
         if [ -f "$file_path" ]; then
-            if [[ "$config" == "main" ]]; then
+            if [[ "$config" == "build" ]]; then
                 l3build save "$test" || exit 1;
             else
                 l3build save --config "tests/config-$config" "$test" || exit 1;
@@ -20,7 +20,7 @@ save_file () {
 
 save_config () {
     config="$1";
-    if [[ "$config" == "main" ]]; then
+    if [[ "$config" == "build" ]]; then
         for testfile in tests/testfiles/*.lvt; do
             test="$(basename "$testfile" .lvt)";
             l3build save "$test" || exit 1;
@@ -35,12 +35,12 @@ save_config () {
 
 
 if [[ $# -eq 0 ]]; then
-    for config in main variants cite bibunits chapterbib; do
+    for config in build cite bibunits chapterbib variants; do
         save_config $config;
     done
 else
     case $1 in
-        main|variants|cite|bibunits|chapterbib)
+        build|cite|bibunits|chapterbib|variants)
             save_config "$1";
             ;;
 

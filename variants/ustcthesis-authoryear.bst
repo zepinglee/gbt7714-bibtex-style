@@ -1587,7 +1587,7 @@ FUNCTION {format.western.given.name}
       if$
     }
   if$
-  s nameptr "{, jj}" format.name$ *
+  s nameptr "{ jj}" format.name$ *
   "." "" find.replace
 }
 
@@ -1673,7 +1673,7 @@ FUNCTION {format.name}
   duplicate$ lang.zh = swap$ lang.ja = or
     { pop$
       s nameptr "{vv~}{ll}" format.name$
-      s nameptr "{ff}{, jj}" format.name$
+          s nameptr "{ff}{ jj}" format.name$
       duplicate$ get.str.lang
       duplicate$ lang.zh = swap$ lang.ja = or
         { * }
@@ -1682,7 +1682,7 @@ FUNCTION {format.name}
     }
     { lang.ru =
         { s nameptr "{vv~}{ll}" format.name$
-          s nameptr "{ff}{, jj}" format.name$
+          s nameptr "{ff}{ jj}" format.name$
           "." "" find.replace
           duplicate$ empty$
             'pop$
