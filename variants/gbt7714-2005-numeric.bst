@@ -2086,8 +2086,20 @@ FUNCTION {format.title}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }
@@ -2273,8 +2285,20 @@ FUNCTION {format.btitle}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }

@@ -1453,6 +1453,7 @@ FUNCTION {set.entry.numbered}
   type$ "patent" = or
   type$ "regulation" = or
   type$ "report" = or
+  type$ "standard" = or
   type$ "techreport" = or
     { #1 'entry.numbered := }
     { #0 'entry.numbered := }
@@ -2095,8 +2096,20 @@ FUNCTION {format.title}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }
@@ -2282,8 +2295,20 @@ FUNCTION {format.btitle}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }
@@ -3648,11 +3673,6 @@ FUNCTION {standard}
   format.authors.editors output
   format.date.before.title output
   new.block
-  number field.or.null output
-  is.lang.cjk
-    { "\quad " set.punct }
-    { " " set.punct }
-  if$
   format.btitle "title" output.check
   new.block
   format.url output

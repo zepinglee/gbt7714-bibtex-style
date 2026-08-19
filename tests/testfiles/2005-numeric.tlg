@@ -17,7 +17,7 @@
 
 \bibitem[全国文献工作标准化技术委员会第七分委员会(1986)]{gbt7714-2005.4.1.2:3}
 全国文献工作标准化技术委员会第七分委员会.
-\newblock 中国标准书号：GB/T 5795—1986\allowbreak[S].
+\newblock GB/T 5795—1986\quad 中国标准书号\allowbreak[S].
 \newblock 北京：中国标准出版社，1986.
 
 \bibitem[辛希孟(1994)]{gbt7714-2005.4.1.2:4}
@@ -541,7 +541,7 @@ KOSEKI A，MOMOSE H，KAWAHITO M，et~al.
 
 \bibitem[国家标准局信息分类编码研究所(1988)]{gbt7714-2005.a.6:1}
 国家标准局信息分类编码研究所.
-\newblock 世界各国和地区名称代码：GB/T 2659—1986\allowbreak[S]//\allowbreak
+\newblock GB/T 2659—1986\quad 世界各国和地区名称代码\allowbreak[S]//\allowbreak
 全国文献工作标准化技术委员会.
 \newblock 文献工作国家标准汇编：3.
 \newblock 北京：中国标准出版社，1988：59-92.
@@ -1286,28 +1286,28 @@ CALKIN D~E，AGER A~A，THOMPSON M~P，et~al.
 
 \bibitem[全国信息与文献标准化技术委员会(2021)]{gbt7714.8.9.2:1}
 全国信息与文献标准化技术委员会.
-\newblock 信息与文献\quad 资源描述：GB/T 3792—2021\allowbreak[S].
+\newblock GB/T 3792—2021\quad 信息与文献\quad 资源描述\allowbreak[S].
 \newblock 2021.
 
 \bibitem[国家能源局(2020)]{gbt7714.8.9.2:2}
 国家能源局.
-\newblock 水电工程水温实时监测系统技术规范：NB/T 10386—2020\allowbreak[S].
+\newblock NB/T 10386—2020\quad 水电工程水温实时监测系统技术规范\allowbreak[S].
 \newblock 2020.
 
 \bibitem[全国信息技术标准化技术委员会(2016)]{gbt7714.8.9.2:3}
 全国信息技术标准化技术委员会.
-\newblock 信息技术\quad 先进音视频编码\quad 第16部分：广播电视视频：GB/T 20090.16—2016\allowbreak[S/OL].
+\newblock GB/T 20090.16—2016\quad 信息技术\quad 先进音视频编码\quad 第16部分：广播电视视频\allowbreak[S/OL].
 \newblock 2016\allowbreak[2025-12-02].
 \newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=1D4AC2D4256C8DE7E0AA286CA7649300}.
 
 \bibitem[{ISO}(2019)]{gbt7714.8.9.2:4}
 {ISO}.
-\newblock Audit data collection：ISO 21378:2019\allowbreak[S].
+\newblock ISO 21378:2019 Audit data collection\allowbreak[S].
 \newblock 2019.
 
 \bibitem[{International Electrotechnical Commission（IEC）}(2021)]{gbt7714.8.9.2:5}
 {International Electrotechnical Commission（IEC）}.
-\newblock Software interface for maintenance information collection and analysis（{SIMICA}）：exchanging test results and session information via the {eXtensible Markup Language}（{XML}）：IEC/IEEE 61636-1:2021\allowbreak[S].
+\newblock IEC/IEEE 61636-1:2021 Software interface for maintenance information collection and analysis（{SIMICA}）：exchanging test results and session information via the {eXtensible Markup Language}（{XML}）\allowbreak[S].
 \newblock New York：IEEE，2021.
 
 \bibitem[邓一刚(2008)]{gbt7714.8.10.2:1}
@@ -2072,52 +2072,52 @@ CALKIN D~E，AGER A~A，THOMPSON M~P，et~al.
 
 \bibitem[全国信息与文献标准化技术委员会(2021)]{gbt7714.b.8:1}
 全国信息与文献标准化技术委员会.
-\newblock 信息与文献\quad 资源描述：GB/T 3792—2021\allowbreak[S].
+\newblock GB/T 3792—2021\quad 信息与文献\quad 资源描述\allowbreak[S].
 \newblock 2021.
 
 \bibitem[全国信息技术标准化技术委员会(2016)]{gbt7714.b.8:2}
 全国信息技术标准化技术委员会.
-\newblock 信息技术\quad 先进音视频编码\quad 第16部分：广播电视视频：GB/T 20090.16—2016\allowbreak[S].
+\newblock GB/T 20090.16—2016\quad 信息技术\quad 先进音视频编码\quad 第16部分：广播电视视频\allowbreak[S].
 \newblock 2016.
 
 \bibitem[工业和信息化部(2022)]{gbt7714.b.8:3}
 工业和信息化部.
-\newblock 信息技术\quad 中文编码字符集：GB 18030—2022\allowbreak[S/OL].
+\newblock GB 18030—2022\quad 信息技术\quad 中文编码字符集\allowbreak[S/OL].
 \newblock 2022\allowbreak[2025-12-02].
 \newblock \url{http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=A1931A578FE14957104988029B0833D3}.
 
 \bibitem[国家能源局(2020)]{gbt7714.b.8:4}
 国家能源局.
-\newblock 水电工程水温实时监测系统技术规范：NB/T 10386—2020\allowbreak[S].
+\newblock NB/T 10386—2020\quad 水电工程水温实时监测系统技术规范\allowbreak[S].
 \newblock 2020.
 
 \bibitem[{ISO}(2019)]{gbt7714.b.8:5}
 {ISO}.
-\newblock Audit data collection：ISO 21378:2019\allowbreak[S].
+\newblock ISO 21378:2019 Audit data collection\allowbreak[S].
 \newblock 2019.
 
 \bibitem[{International Electrotechnical Commission（IEC）}(2021)]{gbt7714.b.8:6}
 {International Electrotechnical Commission（IEC）}.
-\newblock Software interface for maintenance information collection and analysis（{SIMICA}）：exchanging test results and session information via the {eXtensible Markup Language}（{XML}）：IEC/IEEE 61636-1:2021\allowbreak[S].
+\newblock IEC/IEEE 61636-1:2021 Software interface for maintenance information collection and analysis（{SIMICA}）：exchanging test results and session information via the {eXtensible Markup Language}（{XML}）\allowbreak[S].
 \newblock New York：IEEE，2021.
 
 \bibitem[Anon(2020)]{gbt7714.b.8:7}
-{IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11：wireless {LAN Medium Access Control}（{MAC}）and {Physical Layer}（{PHY}）specifications amendment 3：wake-up radio operation：IEEE P802.11ba/D8.0-2020\allowbreak[S].
+IEEE P802.11ba/D8.0-2020 {IEEE} approved draft standard for information technology--telecommunications and information exchange between systems local and metropolitan area networks--specific requirements {Part} 11：wireless {LAN Medium Access Control}（{MAC}）and {Physical Layer}（{PHY}）specifications amendment 3：wake-up radio operation\allowbreak[S].
 \newblock New York：IEEE，2020.
 
 \bibitem[{American Institute of Aeronautics and Astronautics（AIAA）}(2022)]{gbt7714.b.8:8}
 {American Institute of Aeronautics and Astronautics（AIAA）}.
-\newblock Guide to lithium battery safety for space applications：AIAA G-136-2022\allowbreak[S].
+\newblock AIAA G-136-2022 Guide to lithium battery safety for space applications\allowbreak[S].
 \newblock 2022.
 
 \bibitem[{ISO}(2016)]{gbt7714.b.8:9}
 {ISO}.
-\newblock Explosive atmospheres --- {Part} 20-2：{Material} characteristics --- {Combustible} dusts test methods：ISO/IEC 80079-20-2:2016(en)\allowbreak[S].
+\newblock ISO/IEC 80079-20-2:2016(en) Explosive atmospheres --- {Part} 20-2：{Material} characteristics --- {Combustible} dusts test methods\allowbreak[S].
 \newblock 2016.
 
 \bibitem[{ISO}(2016)]{gbt7714.b.8:10}
 {ISO}.
-\newblock Atmosphères explosives --- Partie 20-2：Caractéristiques des produits --- Méthodes d'essai des poussières combustibles：ISO/IEC 80079-20-2:2016(fr)\allowbreak[S].
+\newblock ISO/IEC 80079-20-2:2016(fr) Atmosphères explosives --- Partie 20-2：Caractéristiques des produits --- Méthodes d'essai des poussières combustibles\allowbreak[S].
 \newblock 2016.
 
 \bibitem[邓一刚(2008)]{gbt7714.b.9:1}

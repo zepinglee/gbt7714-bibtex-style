@@ -2086,8 +2086,17 @@ FUNCTION {format.title}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }
@@ -2273,8 +2282,17 @@ FUNCTION {format.btitle}
         { format.tr.number
           duplicate$ empty$
             'pop$
-            { swap$ add.colon
-              swap$ *
+            {
+              type$ "standard" =
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+                {
+                  swap$ add.colon
+                  swap$ *
+                }
+              if$
             }
           if$
         }
