@@ -2401,14 +2401,7 @@ FUNCTION {remove.dots}
 }
 
 FUNCTION {format.journal.title}
-{ journal empty$
-    { journaltitle empty$
-        { "" }
-        { journaltitle }
-      if$
-    }
-    { journal }
-  if$
+{ journal journaltitle either.or
   journalsubtitle empty$
     'skip$
     { duplicate$ empty$
@@ -2443,12 +2436,7 @@ FUNCTION {format.short.journal}
         'skip$
       if$
     }
-    { shortjournal
-      control.journal.dots
-        'skip$
-        'remove.dots
-      if$
-    }
+    { shortjournal }
   if$
 }
 
@@ -2462,17 +2450,13 @@ FUNCTION {get.journal.title}
             { pop$ format.short.journal }
           if$
         }
-        { shortjournal empty$ control.journal.dots not and
-            'remove.dots
-            { duplicate$ shortjournal field.or.null = control.journal.dots not and
-                'remove.dots
-                'skip$
-              if$
-            }
-          if$
-        }
+        'skip$
       if$
     }
+  if$
+  control.journal.dots
+    'skip$
+    'remove.dots
   if$
 }
 
