@@ -949,6 +949,9 @@
 % 修改 \cs{bibliography} 以处理 bst 格式控制文件。
 \cs_set_eq:NN \__gbt_original_bibliography:n \bibliography
 
+\cs_if_exist:NF \tl_set:Ne
+  { \cs_generate_variant:Nn \tl_set:Nn { Ne } }
+
 \cs_set:Npn \bibliography #1
   {
     \prop_if_empty:NTF \l__gbt_bst_control_prop
@@ -965,6 +968,9 @@
 \tl_const:Nn \c__gbt_bst_control_entry_type_tl { GBT7714BSTCTL }
 \tl_const:Nn \c__gbt_bst_control_entry_key_tl { GBT7714:BSTcontrol }
 \iow_new:N \l__gbt_bst_control_iow
+
+\cs_if_exist:NF \iow_now:Ne
+  { \cs_generate_variant:Nn \iow_now:Nn { Ne } }
 
 \cs_new_protected:Npn \__gbt_write_bst_control_file:
   {
