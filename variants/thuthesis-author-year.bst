@@ -2522,31 +2522,11 @@ FUNCTION {set.entry.type.id}
                 }
               if$
             }
-            { entrysubtype "newspaper" =
-                { pop$ "N" 'entry.type.id := }
-                { entrysubtype "inproceedings" =
-                    { pop$ "C" 'entry.type.id := }
-                    { entrysubtype "report" =
-                        { pop$ "R" 'entry.type.id := }
-                        { entrysubtype "techreport" =
-                            { pop$ "R" 'entry.type.id := }
-                            { entrysubtype "standard" =
-                                { pop$ "S" 'entry.type.id := }
-                                { entrysubtype "patent" =
-                                    { pop$ "P" 'entry.type.id := }
-                                    { entrysubtype "dataset" =
-                                        { pop$ "DS" 'entry.type.id := }
-                                        { 'entry.type.id := }
-                                      if$
-                                    }
-                                  if$
-                                }
-                              if$
-                            }
-                          if$
-                        }
-                      if$
-                    }
+            { entrysubtype "archive" =
+                { pop$ "A" 'entry.type.id := }
+                { entrysubtype "newspaper" =
+                    { pop$ "N" 'entry.type.id := }
+                    { 'entry.type.id := }
                   if$
                 }
               if$
