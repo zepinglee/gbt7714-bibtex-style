@@ -79,8 +79,8 @@ Completed box being shipped out [1]
 ....\glue 40.0
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 4.04074
-....\hbox(7.81+2.49998)x345.0, glue set 194.03fil
+....\glue(\baselineskip) 3.85074
+....\hbox(8.0+1.99998)x345.0, glue set 177.36fil
 .....\TU/lmr/m/n/10 Foo
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:1@-1)>>>>}
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -92,8 +92,16 @@ Completed box being shipped out [1]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 (
+.....\glue 0.0 plus 0.46875
+.....\glue 6.34 minus 5.0
+.....\rule(0.0+0.0)x-6.34
+.....\TU/FandolSong-Regular(0)/m/n/10 （
+.....\kern 0.00008
+.....\kern -0.00008
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:1@-1)>>>>}
 .....\TU/lmr/m/n/10 2002
 .....\kern -0.0002
@@ -101,9 +109,18 @@ Completed box being shipped out [1]
 .....\special{pdf:eann}
 .....\kern -0.0002
 .....\kern 0.0002
-.....\TU/lmr/m/n/10 );
+.....\penalty 10000
+.....\TU/FandolSong-Regular(0)/m/n/10 ）
+.....\penalty 10000
+.....\glue -5.0 plus 5.0 minus 1.34
+.....\TU/FandolSong-Regular(0)/m/n/10 ；
+.....\rule(0.0+0.0)x-6.91
+.....\kern 0.00043
+.....\kern -0.00043
+.....\kern -0.9965
+.....\kern 0.9965
+.....\glue 6.91 minus 5.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:2@-1)>>>>}
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 程
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 根
@@ -112,8 +129,16 @@ Completed box being shipped out [1]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 (
+.....\glue 0.0 plus 0.46875
+.....\glue 6.34 minus 5.0
+.....\rule(0.0+0.0)x-6.34
+.....\TU/FandolSong-Regular(0)/m/n/10 （
+.....\kern 0.00008
+.....\kern -0.00008
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:2@-1)>>>>}
 .....\TU/lmr/m/n/10 1999
 .....\kern -0.0002
@@ -121,9 +146,14 @@ Completed box being shipped out [1]
 .....\special{pdf:eann}
 .....\kern -0.0002
 .....\kern 0.0002
-.....\TU/lmr/m/n/10 )
-.....\kern -0.0002
-.....\kern 0.0002
+.....\penalty 10000
+.....\TU/FandolSong-Regular(0)/m/n/10 ）
+.....\rule(0.0+0.0)x-6.34
+.....\kern 0.00038
+.....\kern -0.00038
+.....\kern -0.99623
+.....\kern 0.99623
+.....\glue 6.34 minus 5.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -136,7 +166,7 @@ Completed box being shipped out [1]
 ....\glue 15.08499 plus 4.31 minus 0.86198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 5.50642
+....\glue(\baselineskip) 6.00642
 ....\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/bx/n/14.4 Bibliography
@@ -456,8 +486,8 @@ Completed box being shipped out [2]
 ....\glue 40.0
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 4.04074
-....\hbox(7.81+2.49998)x345.0, glue set 194.01fil
+....\glue(\baselineskip) 3.85074
+....\hbox(8.0+1.99998)x345.0, glue set 177.34fil
 .....\TU/lmr/m/n/10 Bar
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:1@-2)>>>>}
 .....\glue 3.33 plus 1.665 minus 1.11
@@ -469,8 +499,16 @@ Completed box being shipped out [2]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 (
+.....\glue 0.0 plus 0.46875
+.....\glue 6.34 minus 5.0
+.....\rule(0.0+0.0)x-6.34
+.....\TU/FandolSong-Regular(0)/m/n/10 （
+.....\kern 0.00008
+.....\kern -0.00008
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:1@-2)>>>>}
 .....\TU/lmr/m/n/10 2002
 .....\kern -0.0002
@@ -478,9 +516,18 @@ Completed box being shipped out [2]
 .....\special{pdf:eann}
 .....\kern -0.0002
 .....\kern 0.0002
-.....\TU/lmr/m/n/10 );
+.....\penalty 10000
+.....\TU/FandolSong-Regular(0)/m/n/10 ）
+.....\penalty 10000
+.....\glue -5.0 plus 5.0 minus 1.34
+.....\TU/FandolSong-Regular(0)/m/n/10 ；
+.....\rule(0.0+0.0)x-6.91
+.....\kern 0.00043
+.....\kern -0.00043
+.....\kern -0.9965
+.....\kern 0.9965
+.....\glue 6.91 minus 5.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:3@-2)>>>>}
-.....\glue 3.33 plus 1.665 minus 1.11
 .....\TU/FandolSong-Regular(0)/m/n/10 杨
 .....\glue 0.0 plus 0.46875
 .....\TU/FandolSong-Regular(0)/m/n/10 洪
@@ -489,8 +536,16 @@ Completed box being shipped out [2]
 .....\kern -0.00017
 .....\kern 0.00017
 .....\special{pdf:eann}
-.....\glue 3.33 plus 1.665 minus 1.11
-.....\TU/lmr/m/n/10 (
+.....\glue 0.0 plus 0.46875
+.....\glue 6.34 minus 5.0
+.....\rule(0.0+0.0)x-6.34
+.....\TU/FandolSong-Regular(0)/m/n/10 （
+.....\kern 0.00008
+.....\kern -0.00008
+.....\kern -0.99622
+.....\kern 0.99622
+.....\penalty 10000
+.....\glue 0.0
 .....\special{pdf:bann<</Type/Annot/Subtype/Link/Border[0 0 1]/H/I/C[0 1 0]/A<</S/GoTo/D(cite.gbt7714.8.1:3@-2)>>>>}
 .....\TU/lmr/m/n/10 2013
 .....\kern -0.0002
@@ -498,9 +553,14 @@ Completed box being shipped out [2]
 .....\special{pdf:eann}
 .....\kern -0.0002
 .....\kern 0.0002
-.....\TU/lmr/m/n/10 )
-.....\kern -0.0002
-.....\kern 0.0002
+.....\penalty 10000
+.....\TU/FandolSong-Regular(0)/m/n/10 ）
+.....\rule(0.0+0.0)x-6.34
+.....\kern 0.00038
+.....\kern -0.00038
+.....\kern -0.99623
+.....\kern 0.99623
+.....\glue 6.34 minus 5.0
 .....\glue 3.33 plus 1.665 minus 1.11
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
@@ -513,7 +573,7 @@ Completed box being shipped out [2]
 ....\glue 15.08499 plus 4.31 minus 0.86198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 5.50642
+....\glue(\baselineskip) 6.00642
 ....\hbox(9.99359+2.89438)x345.0, glue set 254.13603fil
 .....\hbox(0.0+0.0)x0.0
 .....\TU/lmr/bx/n/14.4 Bibliography

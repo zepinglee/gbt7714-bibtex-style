@@ -76,8 +76,6 @@
 \START
 \showoutput
 
-\gbtsetup{citepunct = full}
-
 % 9.3.1.1 正文引用的文献采用著者-出版年制时，各篇文献的标注内容应由责任者姓氏与出版年构成，
 % 并置于“（）“内。
 引用\citep{zhang1984}测试\par

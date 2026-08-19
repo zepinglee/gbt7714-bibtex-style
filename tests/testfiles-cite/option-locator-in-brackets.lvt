@@ -27,8 +27,6 @@
 \START
 \showoutput
 
-\gbtsetup{citepunct = full}
-
 \citestyle{super}
 引用\citep[p. 42]{zhang1984}测试\par
 引用\citet[p. 42]{zhang1984}测试\par

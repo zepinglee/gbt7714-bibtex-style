@@ -56,6 +56,7 @@
 % 参考文献列表的标签左对齐
 \keys_define:nn { gbt7714 }
   {
+    % TODO: 实现 auto 功能。
     citepunct .choice: ,
     citepunct / full .code:n = { \gbt@cite@punct@fulltrue } ,
     citepunct / half .code:n = { \gbt@cite@punct@fullfalse } ,
@@ -305,8 +306,7 @@
 
 \keys_set:nn { gbt7714 }
   {
-    % TODO: v3.0.0 将默认值改为 auto。
-    citepunct = half ,
+    citepunct = full ,
     compress = true ,
     mincompress = 2 ,
     locator-in-brackets = false ,
