@@ -91,7 +91,7 @@ FUNCTION {load.config}
   #1 'control.uppercase.family :=
   #0 'control.initialize.with.hyphen :=
   #1 'control.check.pinyin :=
-  #1 'control.initialize.pinyin :=
+  #0 'control.initialize.pinyin :=
   "byentry" 'control.cite.lang :=  % byentry / chinese / english / macro
   #1 'control.year.before.title :=
   "period" 'control.name.year.delim :=  % comma / period
