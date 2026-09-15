@@ -3502,7 +3502,7 @@ FUNCTION {proceedings}
 
 FUNCTION {preprint}
 { #1 'require.url :=
-  "A" set.entry.type.id
+  "EB" set.entry.type.id
   output.bibitem
   format.authors output
   format.date.before.title output

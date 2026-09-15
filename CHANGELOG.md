@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 2015 和 2005 版的符号改为 `GB`，与 2025 版一致。
 - 2015 和 2005 版的刊名默认转为 sentence case。
+- 2015 和 2005 版预印本的文献类型标识改为“EB”。
 - `thuthesis-*.bst`：刊名改为优先使用缩写。
 - 著者-出版年制引用的括号改为默认使用全角符号（`citepunct = full`）。
 
