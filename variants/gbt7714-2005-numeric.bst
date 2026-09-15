@@ -2808,7 +2808,7 @@ FUNCTION {format.date}
 
 FUNCTION {format.full.date}
 { date empty$
-    { year }
+    { year field.or.null }
     { control.year.before.title
         { date }
         { date #1 #4 substring$

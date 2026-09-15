@@ -1,0 +1,26 @@
+% https://github.com/zepinglee/gbt7714-bibtex-style/issues/206
+
+\documentclass{article}
+
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-authoryear}
+
+\begin{filecontents}{\jobname.bib}
+@article{gbt7714.8.5.3:4,
+  author        = {张群 and 程志宝 and 石志飞},
+  title         = {惯性增强动力吸振器-浮置板轨道低频减振性能研究},
+  journal       = {铁道学报},
+  year          = {2024},
+  urldate       = {2025-12-02},
+  url           = {https://kns.cnki.net/kcms/detail/11.2104.u.20240507.1737.002.html},
+  langid        = {chinese}
+}
+\end{filecontents}
+
+
+\begin{document}
+
+\nocite{gbt7714.8.5.3:4}
+\bibliography{\jobname}
+
+\end{document}

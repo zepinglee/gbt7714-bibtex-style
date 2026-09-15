@@ -2818,7 +2818,7 @@ FUNCTION {format.date}
 
 FUNCTION {format.full.date}
 { date empty$
-    { year }
+    { year field.or.null }
     { control.year.before.title
         { date }
         { date #1 #4 substring$
@@ -3155,8 +3155,8 @@ FUNCTION {article.journal}
     }
     {
       volume empty$ number empty$ and date field.or.null text.length$ #9 > and
-        { format.full.date "date" output.check }
-        { format.date "year" output.check  }
+        { format.full.date output }
+        { format.date output }
       if$
       format.journal.volume output
       "" set.punct

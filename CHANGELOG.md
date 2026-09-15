@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 2005 版用汉语拼音书写的中国著者姓名不得缩写。
 - 修正 2005 版标准号的位置。
+- 修正错误的“empty year”警告（[#206](https://github.com/zepinglee/gbt7714-bibtex-style/issues/206)）。
 
 ### Removed
 
