@@ -1,10 +1,10 @@
 %%
-%% This is file `variants/thuthesis-author-year.bst',
+%% This is file `variants/gbt7714-1987-numeric.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714-bst.dtx  (with options: `2015,thu,authoryear')
+%% gbt7714-bst.dtx  (with options: `1987,numeric')
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
@@ -63,11 +63,6 @@ INTEGERS {
   control.end.dot
   control.capitalize.subtitle
   control.warn.empty.field
-  lang.zh.order
-  lang.ja.order
-  lang.en.order
-  lang.ru.order
-  lang.other.order
 }
 
 STRINGS {
@@ -79,7 +74,7 @@ STRINGS {
 
 FUNCTION {load.config}
 {
-  "half" 'control.bib.punct :=  % GB / half / bylanguage
+  "GB" 'control.bib.punct :=  % GB / half / bylanguage
   #1 'control.convert.punct :=
   #3 'control.max.bib.names :=
   #3 'control.min.bib.names :=
@@ -89,12 +84,12 @@ FUNCTION {load.config}
   #1 'control.cite.final.and :=
   #1 'control.space.before.et.al :=
   #0 'control.uppercase.family :=
-  #0 'control.initialize.with.hyphen :=
+  #1 'control.initialize.with.hyphen :=
   #1 'control.check.pinyin :=
   #1 'control.initialize.pinyin :=
   "byentry" 'control.cite.lang :=  % byentry / chinese / english / macro
-  #1 'control.year.before.title :=
-  "comma" 'control.name.year.delim :=  % comma / period
+  #0 'control.year.before.title :=
+  "period" 'control.name.year.delim :=  % comma / period
   #1 'control.sentence.case.title :=
   #1 'control.sentence.case.booktitle :=
   #0 'control.sentence.case.journal :=
@@ -105,8 +100,8 @@ FUNCTION {load.config}
   #1 'control.entry.type.id :=
   #0 'control.space.before.type.id :=
   #1 'control.entry.medium.id :=
-  #1 'control.slash :=
-  #0 'control.in :=
+  #0 'control.slash :=
+  #1 'control.in :=
   #0 'control.emph.booktitle :=
   #0 'control.emph.journal :=
   #1 'control.short.journal :=
@@ -116,20 +111,15 @@ FUNCTION {load.config}
   #0 'control.unknown.publisher :=
   #1 'control.space.before.pages :=
   #1 'control.page.ranges :=
-  "-" 'control.page.range.delim :=
+  "～" 'control.page.range.delim :=
   #1 'control.urldate :=
-  #1 'control.url :=
-  #1 'control.doi :=
+  #0 'control.url :=
+  #0 'control.doi :=
   #0 'control.cstr :=
   #0 'control.eprint :=
-  #0 'control.note :=
-  #1 'control.end.dot :=
+  #1 'control.note :=
+  #0 'control.end.dot :=
   #1 'control.warn.empty.field :=
-  #1 'lang.zh.order :=
-  #2 'lang.ja.order :=
-  #3 'lang.en.order :=
-  #4 'lang.ru.order :=
-  #5 'lang.other.order :=
 }
 
 ENTRY
@@ -1464,7 +1454,6 @@ FUNCTION {set.entry.numbered}
 { type$ "archive" =
   type$ "letter" = or
   type$ "legislation" = or
-  type$ "patent" = or
   type$ "regulation" = or
   type$ "report" = or
   type$ "standard" = or
@@ -1774,7 +1763,7 @@ FUNCTION {warn.empty.field}
 
 FUNCTION {format.anonymous}
 {
-  bbl.anonymous
+  ""
 }
 
 FUNCTION {format.authors}
@@ -1792,6 +1781,14 @@ FUNCTION {format.editors}
       format.anonymous
     }
     { editor format.names
+      type$ "periodical" = not
+        { is.lang.cjk
+            { "编" * }
+            { add.comma "ed." * }
+          if$
+        }
+        'skip$
+      if$
     }
   if$
 }
@@ -2051,40 +2048,6 @@ FUNCTION {entry.has.url.or.doi}
   or
 }
 
-FUNCTION {format.entry.type.id}
-{ control.entry.type.id
-    { entry.type.id
-      control.entry.medium.id
-        { entrymediumid empty$
-            { medium empty$
-                { entry.has.url.or.doi
-                  type$ "online" = or
-                  type$ "webpage" = or
-                    { "/OL" * }
-                    'skip$
-                  if$
-                }
-                { "The field 'medium' for entry medium ID is deprecated. Use 'entrymediumid' instead." warning$
-                  "/" * medium *
-                }
-              if$
-            }
-            { "/" * entrymediumid * }
-          if$
-        }
-        'skip$
-      if$
-      make.brackets
-      control.space.before.type.id
-        { " " }
-        { "\allowbreak" }
-      if$
-      swap$ *
-    }
-    { "" }
-  if$
-}
-
 FUNCTION {format.title}
 { title empty$
     { "" }
@@ -2114,8 +2077,11 @@ FUNCTION {format.title}
             {
               type$ "standard" =
                 {
-                  swap$ add.colon
-                  swap$ *
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
                 }
                 {
                   swap$ add.colon
@@ -2127,7 +2093,6 @@ FUNCTION {format.title}
         }
         'skip$
       if$
-      format.entry.type.id *
     }
   if$
 }
@@ -2310,8 +2275,11 @@ FUNCTION {format.btitle}
             {
               type$ "standard" =
                 {
-                  swap$ add.colon
-                  swap$ *
+                  is.lang.cjk
+                    { "\quad " }
+                    { " " }
+                  if$
+                  * swap$ *
                 }
                 {
                   swap$ add.colon
@@ -2334,7 +2302,15 @@ FUNCTION {format.btitle}
         }
         'skip$
       if$
-      format.entry.type.id *
+      entry.type.id "D" =
+        { add.colon
+          is.lang.cjk
+            {  "〔学位论文〕" * }
+            {  "〔dissertation〕" * }
+          if$
+        }
+        'skip$
+      if$
     }
   if$
 }
@@ -2785,10 +2761,11 @@ FUNCTION {format.eventtitle}
 
 FUNCTION {normalize.year.dash}
 {
-  "---" "-" find.replace
-  "--" "-" find.replace
-  "–" "-" find.replace
-  "—" "-" find.replace
+  "---" "～" find.replace
+  "--" "～" find.replace
+  "–" "～" find.replace
+  "—" "～" find.replace
+  "-" "～" find.replace
 }
 
 FUNCTION {format.date}
@@ -2823,10 +2800,6 @@ FUNCTION {format.date}
       extra.label *
     }
   if$
-  control.year.before.title
-    { pop$ "" }
-    'skip$
-  if$
 }
 
 FUNCTION {format.full.date}
@@ -2839,6 +2812,8 @@ FUNCTION {format.full.date}
           date #5 global.max$ substring$ *
         }
       if$
+      "-0" "-" find.replace
+      "-" "." find.replace
     }
   if$
 }
@@ -2872,18 +2847,6 @@ FUNCTION {format.lab.date}
       if$
     }
     { year normalize.year.dash extra.label * }
-  if$
-}
-
-FUNCTION {format.date.before.title}
-{ control.year.before.title
-    { "period" control.name.year.delim =
-        'new.sentence
-        'skip$
-      if$
-      format.lab.date
-    }
-    { "" }
   if$
 }
 
@@ -2941,7 +2904,7 @@ FUNCTION {format.pages}
 
 FUNCTION {set.pages.punct}
 {
-  bbl.pages.colon set.punct
+  new.sentence
 }
 
 FUNCTION {format.dimensions}
@@ -3155,6 +3118,79 @@ FUNCTION {link.close}
   if$
 }
 
+FUNCTION {format.pagetotal}
+{ pagetotal empty$
+    { "" }
+    { pagetotal is.number
+        { pagetotal " " *
+          is.lang.cjk
+            { "页" * }
+            { "p." * }
+          if$
+        }
+        { pagetotal }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.volumetotal}
+{ volumetotal empty$
+    { "" }
+    { volumetotal is.number
+        { volumetotal " " *
+          is.lang.cjk
+            { "卷" * }
+            { "v." * }
+          if$
+        }
+        { volumetotal }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.series.elements}
+{ series empty$
+    { "" }
+    { volume empty$ type$ "periodical" = or
+        { series
+          control.sentence.case.title
+            'change.sentence.case
+            'skip$
+          if$
+          format.punctuations
+          number empty$
+            'skip$
+            { add.semicolon
+              is.lang.cjk not number is.number and
+                { "No. " * }
+                'skip$
+              if$
+              number *
+            }
+          if$
+        }
+        { "" }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.isbn}
+{ isbn empty$
+    { "" }
+    { "ISBN " isbn * }
+  if$
+}
+
+FUNCTION {format.issn}
+{ issn empty$
+    { "" }
+    { "ISSN " issn * }
+  if$
+}
+
 FUNCTION {article.journal}
 { "J" set.entry.type.id
   volume empty$ number empty$ and entry.url empty$ not and
@@ -3165,7 +3201,6 @@ FUNCTION {article.journal}
   if$
   output.bibitem
   format.authors output
-  format.date.before.title output
   control.article.title
     { new.block
       format.title "title" output.check
@@ -3192,8 +3227,6 @@ FUNCTION {article.journal}
     }
   if$
   link.close
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3205,7 +3238,6 @@ FUNCTION {archive}
 { "A" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   % new.block
@@ -3230,7 +3262,6 @@ FUNCTION {book}
 { "M" set.entry.type.id
   output.bibitem
   format.authors.editors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   new.block
@@ -3242,10 +3273,19 @@ FUNCTION {book}
   format.date output
   set.pages.punct
   format.pages output
-  "" set.punct
-  format.urldate output
-  format.url output
-  format.doi output
+  new.block
+  % 文献数量
+  format.pagetotal output
+  format.volumetotal output
+  new.block
+  % 丛编项
+  format.series.elements output
+  new.block
+  % 附注项
+  format.note output
+  new.block
+  % 文献标准编号
+  format.isbn output
   new.block
   format.note output
   fin.entry
@@ -3257,7 +3297,6 @@ FUNCTION {dataset}
 { "DS" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   new.block
@@ -3286,7 +3325,6 @@ FUNCTION {inbook}
     'book
     { output.bibitem
       format.authors output
-      format.date.before.title output
       control.article.title
         { new.block
           format.title "title" output.check
@@ -3321,8 +3359,6 @@ FUNCTION {inbook}
       format.date output
       set.pages.punct
       format.pages output
-      "" set.punct
-      format.urldate output
       format.url output
       format.doi output
       new.block
@@ -3336,7 +3372,6 @@ FUNCTION {incollection}
 { "M" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   control.article.title
     { new.block
       format.title "title" output.check
@@ -3354,8 +3389,6 @@ FUNCTION {incollection}
   format.date output
   set.pages.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3367,7 +3400,6 @@ FUNCTION {inproceedings}
 { "C" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   control.article.title
     { new.block
       format.title "title" output.check
@@ -3387,8 +3419,6 @@ FUNCTION {inproceedings}
   format.date output
   set.pages.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3426,21 +3456,30 @@ FUNCTION {patent}
     { format.authors "holder and author" output.check }
     { holder format.names output.nonnull }
   if$
-  format.date.before.title output
   control.article.title
     { new.block
       format.title "title" output.check
     }
     'skip$
   if$
-  new.block
-  format.full.date "year" output.check
-  "" set.punct
-  format.urldate output
-  format.url output
-  format.doi output
+  % 其他责任者. 附注项. 专利国别，专利文献种类，专利号.
+  holder empty$
+    'skip$
+    { new.block
+      format.inventors output
+    }
+  if$
   new.block
   format.note output
+  new.block
+  control.patent.country
+    { address location either.or output }
+    'skip$
+  if$
+  type output
+  number output
+  new.block
+  format.full.date "year" output.check
   fin.entry
 }
 
@@ -3457,21 +3496,29 @@ FUNCTION {format.periodical.volume}
 FUNCTION {periodical}
 { "J" set.entry.type.id
   output.bibitem
-  format.editors output
-  format.date.before.title output
-  new.block
   format.title "title" output.check
+  new.block
+  format.editors output
+  new.block
+  format.edition output
   new.block
   format.periodical.volume output
   new.block
   format.address.publisher output
   format.date output
-  "" set.punct
-  format.urldate output
-  format.url output
-  format.doi output
   new.block
+  % 文献数量
+  format.pagetotal output
+  format.volumetotal output
+  new.block
+  % 丛编项
+  format.series.elements output
+  new.block
+  % 附注项
   format.note output
+  new.block
+  % 文献标准编号
+  format.issn output
   fin.entry
 }
 
@@ -3479,7 +3526,6 @@ FUNCTION {proceedings}
 { "C" set.entry.type.id
   output.bibitem
   format.editors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   new.block
@@ -3491,8 +3537,6 @@ FUNCTION {proceedings}
   format.date output
   set.pages.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3502,10 +3546,8 @@ FUNCTION {proceedings}
 
 FUNCTION {preprint}
 { #1 'require.url :=
-  "A" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   control.article.title
     { new.block
       format.title "title" output.check
@@ -3531,7 +3573,6 @@ FUNCTION {thesis}
 { "D" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   new.block
@@ -3539,8 +3580,6 @@ FUNCTION {thesis}
   format.date output
   set.pages.punct
   format.pages output
-  "" set.punct
-  format.urldate output
   format.url output
   format.doi output
   new.block
@@ -3556,7 +3595,6 @@ FUNCTION {techreport}
 { "R" set.entry.type.id
   output.bibitem
   format.authors output
-  format.date.before.title output
   new.block
   format.btitle "title" output.check
   % new.block
@@ -3592,7 +3630,6 @@ FUNCTION {webpage}
 { #1 'require.url :=
   output.bibitem
   format.authors output
-  format.date.before.title output
   new.block
   "EB" set.entry.type.id
   format.btitle "title" output.check
@@ -3671,7 +3708,6 @@ FUNCTION {map}
     { incollection }
     { output.bibitem
       format.authors output
-      format.date.before.title output
       new.block
       format.btitle "title" output.check
       new.block
@@ -3681,10 +3717,8 @@ FUNCTION {map}
       format.date output
       set.pages.punct
       format.pages output
-      "" set.punct
-      format.creation.modification.date output
-      "" set.punct
-      format.urldate output
+      new.block
+      format.dimensions output
       format.url output
       format.doi output
       new.block
@@ -3875,7 +3909,6 @@ FUNCTION {GBT7714BSTCTL}
     'skip$
     { CTL_sentence_case boolean.to.int 'control.sentence.case.title :=
       CTL_sentence_case boolean.to.int 'control.sentence.case.booktitle :=
-      CTL_sentence_case boolean.to.int 'control.sentence.case.journal :=
     }
   if$
   CTL_sentence_case_title empty$
@@ -4225,145 +4258,21 @@ FUNCTION {calc.label}
   'label :=
 }
 
-FUNCTION {sort.language.label}
-{ entry.lang lang.zh =
-    { lang.zh.order }
-    { entry.lang lang.ja =
-        { lang.ja.order }
-        { entry.lang lang.en =
-            { lang.en.order }
-            { entry.lang lang.ru =
-                { lang.ru.order }
-                { lang.other.order }
-              if$
-            }
-          if$
-        }
-      if$
-    }
-  if$
-  #64 +
-  int.to.chr$
-}
+INTEGERS { seq.num }
 
-FUNCTION {sort.format.names}
-{ 's :=
-  #1 'nameptr :=
-  ""
-  s num.names$ 'numnames :=
-  numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
-      nameptr #1 >
-        { "   "  *
-          namesleft #1 = t "others" = and
-            { "zzzzz" * }
-            { numnames #2 > nameptr #2 = and
-                { "zz" * year field.or.null * "   " * }
-                'skip$
-              if$
-              t sortify *
-            }
-          if$
-        }
-        { t sortify * }
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
-  while$
-}
+FUNCTION {init.seq}
+{ #0 'seq.num :=}
 
-FUNCTION {sort.format.title}
-{ 't :=
-  "A " #2
-    "An " #3
-      "The " #4 t chop.word
-    chop.word
-  chop.word
-  sortify
-  #1 global.max$ substring$
-}
-
-FUNCTION {anonymous.sort}
-{ entry.lang lang.zh =
-    { "yi4 ming2" }
-    { "anon" }
-  if$
-}
-
-FUNCTION {warn.empty.key}
-{ is.lang.cjk
-    { "key" warn.empty.field }
-    'skip$
-  if$
-}
-
-FUNCTION {author.sort}
-{ key empty$
-    { warn.empty.key
-      author empty$
-        { anonymous.sort }
-        { author sort.format.names }
-      if$
-    }
-    { key }
-  if$
-}
-
-FUNCTION {author.editor.sort}
-{ key empty$
-    { warn.empty.key
-      author empty$
-        { editor empty$
-            { anonymous.sort }
-            { editor sort.format.names }
-          if$
-        }
-        { author sort.format.names }
-      if$
-    }
-    { key }
-  if$
-}
-
-FUNCTION {author.organization.sort}
-{ key empty$
-    { warn.empty.key
-      author empty$
-        { organization empty$
-            { anonymous.sort }
-            { "The " #4 organization chop.word sortify }
-          if$
-        }
-        { author sort.format.names }
-      if$
-    }
-    { key }
-  if$
-}
-
-FUNCTION {editor.organization.sort}
-{ key empty$
-    { warn.empty.key
-      editor empty$
-        { organization empty$
-            { anonymous.sort }
-            { "The " #4 organization chop.word sortify }
-          if$
-        }
-        { editor sort.format.names }
-      if$
-    }
-    { key }
-  if$
+FUNCTION {int.to.fix}
+{ "000000000" swap$ int.to.str$ *
+  #-1 #10 substring$
 }
 
 FUNCTION {presort}
 { type$ "gbt7714bstctl" =
     {
-      "_"
-      "    "
+      "_    "
+      seq.num  int.to.fix
     }
     { set.entry.lang
       set.entry.numbered
@@ -4374,31 +4283,8 @@ FUNCTION {presort}
       label sortify
       "    "
       *
-      sort.language.label
-      "    "
-      *
-      type$ "book" =
-      type$ "inbook" = booktitle empty$ not and
-      or
-        'author.editor.sort
-        { type$ "collection" =
-          type$ "proceedings" =
-          or
-            'editor.organization.sort
-            'author.sort
-          if$
-        }
-      if$
-      *
-      "    "
-      *
-      year field.or.null sortify
-      *
-      "    "
-      *
-      cite$
-      *
-      #1 entry.max$ substring$
+      seq.num #1 + 'seq.num :=
+      seq.num  int.to.fix
     }
   if$
   'sort.label :=
@@ -4424,31 +4310,6 @@ FUNCTION {forward.pass}
 { type$ "gbt7714bstctl" =
     'skip$
     {
-      last.label label =
-        { "" 'extra.label :=
-          last.extra.label text.length$ 'charptr :=
-            { last.extra.label charptr #1 substring$ "z" =
-              charptr #0 > and
-            }
-            { "a" extra.label * 'extra.label :=
-              charptr #1 - 'charptr :=
-            }
-          while$
-          charptr #0 >
-            { last.extra.label charptr #1 substring$ chr.to.int$ #1 + int.to.chr$
-              extra.label * 'extra.label :=
-              last.extra.label #1 charptr #1 - substring$
-              extra.label * 'extra.label :=
-            }
-            { "a" extra.label * 'extra.label := }
-          if$
-          extra.label 'last.extra.label :=
-        }
-        { "a" 'last.extra.label :=
-          "" 'extra.label :=
-          label 'last.label :=
-        }
-      if$
       number.label #1 + 'number.label :=
     }
   if$
@@ -4458,17 +4319,6 @@ FUNCTION {reverse.pass}
 { type$ "gbt7714bstctl" =
     'skip$
     {
-      next.extra "b" =
-        { "a" 'extra.label := }
-        'skip$
-      if$
-      extra.label 'next.extra :=
-      extra.label
-      duplicate$ empty$
-        'skip$
-        { "{\natexlab{" swap$ * "}}" * }
-      if$
-      'extra.label :=
       label extra.label * 'label :=
     }
   if$
@@ -4560,6 +4410,8 @@ EXECUTE {init.state.consts}
 EXECUTE {load.config}
 
 ITERATE {control.pass}
+
+EXECUTE {init.seq}
 
 ITERATE {presort}
 

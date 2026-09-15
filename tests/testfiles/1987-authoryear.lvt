@@ -1,0 +1,13 @@
+\documentclass{article}
+
+\PassOptionsToPackage{checkpinyin=false, bibwarn=false}{gbt7714}
+\usepackage{gbt7714}
+\bibliographystyle{gbt7714-1987-authoryear}
+
+
+\begin{document}
+
+\nocite{*}
+\bibliography{gbt7714-1987, gbt7714-examples}
+
+\end{document}

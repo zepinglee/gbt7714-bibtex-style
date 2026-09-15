@@ -84,7 +84,7 @@ FUNCTION {load.config}
   #1 'control.cite.final.and :=
   #1 'control.space.before.et.al :=
   #1 'control.uppercase.family :=
-  #0 'control.initialize.with.hyphen :=
+  #1 'control.initialize.with.hyphen :=
   #1 'control.check.pinyin :=
   #0 'control.initialize.pinyin :=
   "byentry" 'control.cite.lang :=  % byentry / chinese / english / macro
@@ -142,12 +142,14 @@ ENTRY
     entrymediumid
     entrysubtype
     entrytypeid
-    eventtitle
     eprint
     eprinttype
+    eventtitle
     holder
     howpublished
     institution
+    isbn
+    issn
     journal
     journalsubtitle
     journaltitle
@@ -166,6 +168,7 @@ ENTRY
     number
     organization
     pages
+    pagetotal
     publisher
     scale
     school
@@ -175,10 +178,12 @@ ENTRY
     title
     titleaddon
     translator
+    type
     url
     urldate
     version
     volume
+    volumetotal
     year
     CTL_bib_punct
     CTL_convert_punct
@@ -514,6 +519,15 @@ FUNCTION {add.colon.by.language}
 { is.lang.cjk
     { "：" * }
     { ": " * }
+  if$
+}
+
+FUNCTION {add.semicolon}
+{ "bylanguage" control.bib.punct =
+  is.lang.cjk and
+  "GB" control.bib.punct = or
+    { "；" * }
+    { "; " * }
   if$
 }
 
@@ -1767,7 +1781,8 @@ FUNCTION {format.editors}
     { "editor" warn.empty.field
       format.anonymous
     }
-    { editor format.names }
+    { editor format.names
+    }
   if$
 }
 
@@ -1777,7 +1792,7 @@ FUNCTION {format.authors.editors}
         { "author and editor" warn.empty.field
           format.anonymous
         }
-        { editor format.names }
+        { format.editors }
       if$
     }
     { author format.names }
@@ -2904,6 +2919,11 @@ FUNCTION {format.pages}
   if$
 }
 
+FUNCTION {set.pages.punct}
+{
+  bbl.pages.colon set.punct
+}
+
 FUNCTION {format.dimensions}
 { dimensions empty$
     { "" }
@@ -3171,7 +3191,7 @@ FUNCTION {archive}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.creation.modification.date output
@@ -3197,7 +3217,7 @@ FUNCTION {book}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.urldate output
@@ -3274,7 +3294,7 @@ FUNCTION {inbook}
       new.block
       format.address.publisher output
       format.date output
-      bbl.pages.colon set.punct
+      set.pages.punct
       format.pages output
       "" set.punct
       format.urldate output
@@ -3306,7 +3326,7 @@ FUNCTION {incollection}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.urldate output
@@ -3338,7 +3358,7 @@ FUNCTION {inproceedings}
     }
   if$
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.urldate output
@@ -3350,6 +3370,27 @@ FUNCTION {inproceedings}
 }
 
 FUNCTION {conference} { inproceedings }
+
+FUNCTION {format.inventors}
+{ author empty$
+    { "" }
+    { entry.lang lang.zh =
+        { "发明者" add.colon }
+        { langid language either.or "l" change.case$ "german" =
+            { "Erfinder" add.colon }
+            { author num.names$ #1 >
+                { "Inventors" }
+                { "Inventor" }
+              if$
+              add.colon
+            }
+          if$
+        }
+      if$
+      author format.names *
+    }
+  if$
+}
 
 FUNCTION {patent}
 { "P" set.entry.type.id
@@ -3418,7 +3459,7 @@ FUNCTION {proceedings}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.urldate output
@@ -3464,7 +3505,7 @@ FUNCTION {thesis}
   new.block
   format.address.publisher output
   format.date output
-  bbl.pages.colon set.punct
+  set.pages.punct
   format.pages output
   "" set.punct
   format.urldate output
@@ -3495,7 +3536,7 @@ FUNCTION {techreport}
     'skip$
     { format.address.publisher output
       format.date output
-      bbl.pages.colon set.punct
+      set.pages.punct
       format.pages output
     }
   if$
@@ -3603,7 +3644,7 @@ FUNCTION {map}
       new.block
       format.address.publisher output
       format.date output
-      bbl.pages.colon set.punct
+      set.pages.punct
       format.pages output
       "" set.punct
       format.creation.modification.date output

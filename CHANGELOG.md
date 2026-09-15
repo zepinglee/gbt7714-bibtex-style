@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- 添加 1987 年版国标样式 `gbt7714-1987-numeric` 和 `gbt7714-1987-authoryear`。
+
 ### Changed
 
 - 2015 和 2005 版的符号改为 `GB`，与 2025 版一致。

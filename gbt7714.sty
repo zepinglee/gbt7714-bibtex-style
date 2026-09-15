@@ -387,6 +387,22 @@
 \cs_new_protected:cpn { bibstyle@gbt7714-2005-numeric } { \bibstyle@numeric }
 \cs_new_protected:cpn { bibstyle@gbt7714-2005-authoryear }
   { \bibstyle@authoryear }
+\cs_new_protected:cpn { bibstyle@gbt7714-1987-numeric }
+  {
+    \bool_if:NTF \l__gbt_cite_inline_bool
+      {
+        \bibpunct { 〔 } { 〕 } { , } { n } { , } { , }
+        \cs_gset:Npn \NAT@spacechar { \  }
+        \cs_gset:Npn \bibrangedash { ～ }
+      }
+      {
+        \bibpunct { 〔 } { 〕 } { , } { s } { , } { \textsuperscript { , } }
+        \cs_gset:Npn \NAT@spacechar { \  }
+        \cs_gset:Npn \bibrangedash { ～ }
+      }
+  }
+\cs_new_protected:cpn { bibstyle@gbt7714-1987-authoryear }
+  { \bibstyle@authoryear }
 % 兼容过时的样式名称
 \cs_new_protected:cpn { bibstyle@gbt7714-numerical } { \bibstyle@numeric }
 \cs_new_protected:cpn { bibstyle@gbt7714-author-year } { \bibstyle@authoryear }
