@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-09-15
+
 ### Added
 
 - 添加 1987 年版国标样式 `gbt7714-1987-numeric` 和 `gbt7714-1987-authoryear`。
+- 新增专利的申请号字段 `applicationnumber`，用于区分公开号或公告号。
 
 ### Changed
 
@@ -21,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- 修正期刊题名的大小写。
+- 修正姓名后缀（如“Jr”）前的逗号。
 - 2005 版用汉语拼音书写的中国著者姓名不得缩写。
 - 修正 2005 版标准号的位置。
 - 修正错误的“empty year”警告（[#206](https://github.com/zepinglee/gbt7714-bibtex-style/issues/206)）。
@@ -31,16 +36,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.1] - 2026-07-20
 
-### Added
-
-- 新增专利的申请号字段 `applicationnumber`，用于区分公开号或公告号。
-
 ### Fixed
 
 - 修正 `shortjournal` 缺失时的报错（[ustctug/ustcthesis#511](https://github.com/ustctug/ustcthesis/issues/511)）。
 - 修正题名大小写转换的 bug（[ustctug/ustcthesis#512](https://github.com/ustctug/ustcthesis/issues/512)）。
-- 修正期刊题名的大小写。
-- 修正姓名后缀（如“Jr”）前的逗号。
 
 ## [3.0.0] - 2026-07-01
 
@@ -417,7 +416,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.1...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.1...v3.1.0
 [3.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.3.1...v3.0.0
 [2.3.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.3.0...v2.3.1
