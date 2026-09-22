@@ -8,7 +8,7 @@
 %% -------------------------------------------------------------------
 %% GB/T 7714 BibTeX Style
 %% https://github.com/zepinglee/gbt7714-bibtex-style
-%% Version: 2026-07-20 v3.0.1
+%% Version: 2026-09-15 v3.1.0
 %% -------------------------------------------------------------------
 %% Copyright (C) 2016-2026 by Zeping Lee <zepinglee AT gmail DOT com>
 %% -------------------------------------------------------------------
@@ -1595,18 +1595,26 @@ FUNCTION {format.western.given.name}
   "." "" find.replace
 }
 
+FUNCTION {is.hyphenated.pinyin}
+{ duplicate$ "-" extract.before
+  duplicate$ #1 #1 substring$ 't :=
+  is.single.pinyin.word
+    { "-" extract.after
+      duplicate$ #1 #1 substring$ t "-" * swap$ * 't :=
+      is.single.pinyin.word
+    }
+    { pop$ #0 }
+  if$
+}
+
 FUNCTION {is.family.name.pinyin}
 { s nameptr "{ll}" format.name$
   duplicate$ empty$
     { pop$ #0 }
     { "l" change.case$
       duplicate$ "-" contains
-        { duplicate$ "-" extract.before is.single.pinyin.word
-            { "-" extract.after is.single.pinyin.word }
-            { pop$ #0 }
-          if$
-        }
-        { % 这个函数实在太慢了
+        { is.hyphenated.pinyin }
+        { % This function is toooo slow.
           % is.double.pinyin
           is.single.pinyin.word
         }
@@ -1620,19 +1628,23 @@ FUNCTION {is.given.name.pinyin}
   duplicate$ empty$
     { pop$ #0 }
     { "l" change.case$
-      "’" "'" find.replace
-      duplicate$ "'" contains
-        { duplicate$ "'" extract.before
-          duplicate$ #1 #1 substring$ 't :=
-          is.single.pinyin.word
-            { "'" extract.after
-              duplicate$ #1 #1 substring$ t " " * swap$ * 't :=
+      duplicate$ "-" contains
+        { is.hyphenated.pinyin }
+        { "’" "'" find.replace
+          duplicate$ "'" contains
+            { duplicate$ "'" extract.before
+              duplicate$ #1 #1 substring$ 't :=
               is.single.pinyin.word
+                { "'" extract.after
+                  duplicate$ #1 #1 substring$ t " " * swap$ * 't :=
+                  is.single.pinyin.word
+                }
+                { pop$ #0 }
+              if$
             }
-            { pop$ #0 }
+            'is.double.pinyin.word
           if$
         }
-        'is.double.pinyin.word
       if$
     }
   if$

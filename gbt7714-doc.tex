@@ -1141,6 +1141,8 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   \boolsyntax[true]{checkpinyin}
   控制是否检查姓名为汉语拼音，并进行特殊处理，
   如 2025 版国标要求汉语拼音人名宜用全称。
+  带连字符连接的名（如“Li Jiangning”）虽然不符合 GB/T 28039-2011
+  《中国人名汉语拼音字母拼写规则》，也按照汉语拼音处理。
   该功能较为耗时，如果处理大量文献时建议关掉，如本项目的测试。
 
   \begin{citeexample}[title={\kvopt{checkpinyin}{true}}]
