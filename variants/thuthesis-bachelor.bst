@@ -1535,7 +1535,7 @@ FUNCTION {is.double.pinyin}
   t a #1 + #1 substring$
   duplicate$ empty$
     'pop$
-    { " " swap$ * * }
+    { "~" swap$ * * }
   if$
   't :=
   a #0 >
@@ -1637,7 +1637,7 @@ FUNCTION {is.given.name.pinyin}
               duplicate$ #1 #1 substring$ 't :=
               is.single.pinyin.word
                 { "'" extract.after
-                  duplicate$ #1 #1 substring$ t " " * swap$ * 't :=
+                  duplicate$ #1 #1 substring$ t "~" * swap$ * 't :=
                   is.single.pinyin.word
                 }
                 { pop$ #0 }

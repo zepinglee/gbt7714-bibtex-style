@@ -2371,7 +2371,7 @@ FALOUT J，ELWOOD J，HOOD M，2009.
 \newblock System，37\allowbreak （3）：403-417.
 
 \bibitem[Fan et~al.(2013)Fan and Sommers]{gbt7714-2015.4.1.2:17}
-FAN X T，SOMMERS C~H，2013.
+FAN X~T，SOMMERS C~H，2013.
 \newblock Food irradiation research and technology\allowbreak[M/OL].
 \newblock 2nd ed.
 \newblock Ames，Iowa：Blackwell Publishing：25-26\allowbreak[2014-06-26].
@@ -2549,13 +2549,13 @@ KOSEKI A，MOMOSE H，KAWAHITO M，et~al.，2002.
 \newblock \url{http://FF&p=1&u=netahtml/PTO/search-bool.html&r=5&f=G&1=50&col=AND&d=PG01&sl=IBM.AS.&OS=AN/IBM/RS=AN/IBM}.
 
 \bibitem[Li(n.d.{\natexlab{a}})]{gbt7714-2015.8.1.1:10}
-LI J N，n.d.-{\natexlab{a}}.
+LI J~N，n.d.-{\natexlab{a}}.
 
 \bibitem[Li(n.d.{\natexlab{b}})]{gbt7714-2015.8.1.1:11}
-LI J N，n.d.-{\natexlab{b}}.
+LI J~N，n.d.-{\natexlab{b}}.
 
 \bibitem[Li(n.d.{\natexlab{c}})]{gbt7714.7.1.1:10}
-LI J N，n.d.-{\natexlab{c}}.
+LI J~N，n.d.-{\natexlab{c}}.
 
 \bibitem[Maurya et~al.(2023)Maurya，Szymanski，and Karlowski]{gbt7714.7.7:6}
 MAURYA A，SZYMANSKI M，KARLOWSKI W~M，2023.
@@ -2848,14 +2848,14 @@ WALLS S~C，BARICHIVICH W~J，BROWN M~E，2013.
 \newblock DOI:\doi{10.3390/biology2010399}.
 
 \bibitem[Wang(2022{\natexlab{a}})]{gbt7714.8.6.3:2}
-WANG S S，2022{\natexlab{a}}.
+WANG S~S，2022{\natexlab{a}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
 2022 6th {Asian Conference} on {Artificial Intelligence Technology}：2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
 \newblock DOI:\doi{10.1109/ACAIT56212.2022.10137867}.
 
 \bibitem[Wang(2022{\natexlab{b}})]{gbt7714.b.5:8}
-WANG S S，2022{\natexlab{b}}.
+WANG S~S，2022{\natexlab{b}}.
 \newblock Application of improved {SOM} neural network in intelligent auditing of hospital financial vouchers\allowbreak[C/OL]//\allowbreak
 2022 6th {Asian Conference} on {Artificial Intelligence Technology}：2\allowbreak[2025-12-02].
 \newblock \url{https://ieeexplore.ieee.org/document/10137867}.
@@ -2907,13 +2907,13 @@ XIONG P，WU X，2005.
 \newblock China price\allowbreak （8）：42-45.
 
 \bibitem[Yu et~al.(2024{\natexlab{a}})Yu，Pan，Wang，Wu，Mei，and Ma]{gbt7714.8.6.3:3}
-YU Y，PAN E T，WANG X Y，et~al.，2024{\natexlab{a}}.
+YU Y，PAN E~T，WANG X~Y，et~al.，2024{\natexlab{a}}.
 \newblock Unmixing before fusion：a generalized paradigm for multi-source-based hyperspectral image synthesis\allowbreak[C/OL]//\allowbreak
 {CVPR}：4\allowbreak[2025-12-02].
 \newblock \url{https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html}.
 
 \bibitem[Yu et~al.(2024{\natexlab{b}})Yu，Pan，Wang，Wu，Mei，and Ma]{gbt7714.b.5:9}
-YU Y，PAN E T，WANG X Y，et~al.，2024{\natexlab{b}}.
+YU Y，PAN E~T，WANG X~Y，et~al.，2024{\natexlab{b}}.
 \newblock Unmixing before fusion：a generalized paradigm for multi-source-based hyperspectral image synthesis\allowbreak[C/OL]//\allowbreak
 {CVPR}：4\allowbreak[2025-12-02].
 \newblock \url{https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Unmixing_Before_Fusion_A_Generalized_Paradigm_for_Multi-Source-based_Hyperspectral_Image_CVPR_2024_paper.html}.
@@ -2934,7 +2934,7 @@ YUFIN S~A，2000{\natexlab{c}}.
 \newblock Rotterdam：A. A. Balkema.
 
 \bibitem[Zhong et~al.(2022)Zhong，Yan，and Li]{gbt7714.b.13:8}
-ZHONG X Y，YAN Q W，LI G E，2022.
+ZHONG X~Y，YAN Q~W，LI G~E，2022.
 \newblock Long time series nighttime light dataset of {China}：2000--2020\allowbreak[DS/OL].
 \newblock Global Change Research Data Publishing \& Repository\allowbreak[2024-11-25].
 \newblock \url{https://geodoi.ac.cn/edoi.aspx?DOI=10.3974/geodb.2022.06.01.V1}.
