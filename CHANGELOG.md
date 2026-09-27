@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.1] - 2026-09-27
+
 ### Change
 
 - 带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
@@ -422,7 +424,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.1...HEAD
+[3.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.1...v3.1.0
 [3.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v2.3.1...v3.0.0
