@@ -21,6 +21,11 @@
   author        = {Li, Jiang-ning},
 }
 
+% 名必须首字母大写、其余消协
+@book{lecun,
+  author        = {Yan, LeCun},
+}
+
 % 下列示例取自 GB/T 28039—2011《中国人名汉语拼音字母拼写规则》
 @book{yang,
   author = {Yang, Weiming}

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
 - 拼音缩写的空格改为不可断行空格。
+- 检查拼音的大小写。
 
 ## [3.1.0] - 2026-09-15
 

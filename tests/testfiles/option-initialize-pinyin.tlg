@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -23,6 +23,9 @@ Li J-N.
 \bibitem[Li(n.d.)]{ITEM-4}
 Li J-N.
 
+\bibitem[Yan(n.d.)]{lecun}
+Yan L.
+
 \bibitem[Yang(n.d.)]{yang}
 Yang W~M.
 
@@ -36,7 +39,7 @@ Zhao P~A.
 Zheng-Li S~F.
 
 \bibitem[Lü(n.d.)]{lü}
-Lü H.
+Lü H~P.
 
 \bibitem[Lyu(n.d.)]{lyu}
 Lyu H~P.

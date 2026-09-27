@@ -1475,28 +1475,9 @@ FUNCTION {set.entry.numbered}
 
 INTEGERS { nameptr namesleft numnames name.lang }
 
-FUNCTION {is.lowercase.word}
-{ #1
-    { #0 > }
-    { duplicate$ #1 #1 substring$ chr.to.int$
-      duplicate$ #96 >
-      swap$      #123 <
-      and
-        { #2 global.max$ substring$
-          duplicate$ empty$
-            { #0 }
-            { #1 }
-          if$
-        }
-        { #0 }
-      if$
-    }
-  while$
-  empty$
-}
-
-FUNCTION {is.single.pinyin}
-{ " " swap$ * " " *
+FUNCTION {is.single.syllable.pinyin}
+{ "l" change.case$
+  " " swap$ * " " *
   duplicate$
   pinyin.table1 swap$ contains
     { pop$ #1 }
@@ -1509,22 +1490,16 @@ FUNCTION {is.single.pinyin}
   if$
 }
 
-FUNCTION {is.single.pinyin.word}
-{ duplicate$ is.lowercase.word
-    'is.single.pinyin
-    { pop$ #0 }
-  if$
-}
-
-FUNCTION {is.double.pinyin}
-{ duplicate$ string.length 'a :=
+FUNCTION {is.double.syllable.pinyin}
+{ "l" change.case$
+  duplicate$ string.length 'a :=
   #1
     { a #0 > and }
-    { duplicate$ #1 a substring$ is.single.pinyin
+    { duplicate$ #1 a substring$ is.single.syllable.pinyin
         { duplicate$ a #1 + global.max$ substring$
           duplicate$ empty$
             { pop$ #0 }
-            { is.single.pinyin
+            { is.single.syllable.pinyin
                 { #0 }
                 { a #1 - 'a :=
                   #1
@@ -1548,13 +1523,6 @@ FUNCTION {is.double.pinyin}
   if$
   't :=
   a #0 >
-}
-
-FUNCTION {is.double.pinyin.word}
-{ duplicate$ is.lowercase.word
-    'is.double.pinyin
-    { pop$ #0 }
-  if$
 }
 
 FUNCTION {extract.before}
@@ -1591,29 +1559,43 @@ FUNCTION {extract.after}
 
 FUNCTION {format.western.given.name}
 { s nameptr "{ f.}" format.name$
-  control.initialize.with.hyphen
-    'skip$
-    { duplicate$ "-" contains
-        { "-" " " find.replace
-          "u" change.case$
-        }
+  duplicate$ "-" contains
+    { control.initialize.with.hyphen
         'skip$
+        { "-" " " find.replace }
       if$
+      smart.upper.case
     }
+    'skip$
   if$
   s nameptr "{, jj}" format.name$ *
   "." "" find.replace
 }
 
+FUNCTION {is.capitalized}
+{ duplicate$ #1 #1 substring$ is.upper.ascii
+    { #2 global.max$ substring$ is.all.lower }
+    { pop$ #0 }
+  if$
+}
+
 FUNCTION {is.hyphenated.pinyin}
 { duplicate$ "-" extract.before
-  duplicate$ #1 #1 substring$ 't :=
-  is.single.pinyin.word
-    { "-" extract.after
-      duplicate$ #1 #1 substring$ t "-" * swap$ * 't :=
-      is.single.pinyin.word
+  duplicate$ is.capitalized
+    { is.single.syllable.pinyin
+        { duplicate$ #1 #1 substring$ 't :=
+          "-" extract.after
+          duplicate$ is.capitalized
+            { duplicate$ #1 #1 substring$ t "-" * swap$ * 't :=
+              is.single.syllable.pinyin
+            }
+            { pop$ #0 }
+          if$
+        }
+        { pop$ #0 }
+      if$
     }
-    { pop$ #0 }
+    { pop$ pop$ #0 }
   if$
 }
 
@@ -1621,12 +1603,14 @@ FUNCTION {is.family.name.pinyin}
 { s nameptr "{ll}" format.name$
   duplicate$ empty$
     { pop$ #0 }
-    { "l" change.case$
-      duplicate$ "-" contains
+    { duplicate$ "-" contains
         { is.hyphenated.pinyin }
         { % This function is toooo slow.
-          % is.double.pinyin
-          is.single.pinyin.word
+          % is.double.syllable.pinyin
+          duplicate$ is.capitalized
+            { is.single.syllable.pinyin }
+            { pop$ #0 }
+          if$
         }
       if$
     }
@@ -1637,22 +1621,33 @@ FUNCTION {is.given.name.pinyin}
 { s nameptr "{ff}" format.name$
   duplicate$ empty$
     { pop$ #0 }
-    { "l" change.case$
-      duplicate$ "-" contains
+    { duplicate$ "-" contains
         { is.hyphenated.pinyin }
         { "’" "'" find.replace
           duplicate$ "'" contains
             { duplicate$ "'" extract.before
-              duplicate$ #1 #1 substring$ 't :=
-              is.single.pinyin.word
-                { "'" extract.after
-                  duplicate$ #1 #1 substring$ t "~" * swap$ * 't :=
-                  is.single.pinyin.word
+              duplicate$ is.capitalized
+                { duplicate$ #1 #1 substring$ 't :=
+                  is.single.syllable.pinyin
+                    { "'" extract.after
+                      duplicate$ is.all.lower
+                        { duplicate$ #1 #1 substring$ t "~" * swap$ * 't :=
+                          is.single.syllable.pinyin
+                        }
+                        { pop$ #0 }
+                      if$
+                    }
+                    { pop$ #0 }
+                  if$
                 }
                 { pop$ #0 }
               if$
             }
-            'is.double.pinyin.word
+            { duplicate$ is.capitalized
+                { is.double.syllable.pinyin }
+                { pop$ #0 }
+              if$
+            }
           if$
         }
       if$
@@ -1680,7 +1675,7 @@ FUNCTION {format.latin.name}
   control.check.pinyin
     { is.name.pinyin
         { control.initialize.pinyin
-            { " " t "u" change.case$ * }
+            { " " t smart.upper.case * }
             { s nameptr "{ ff}" format.name$ }
           if$
         }
