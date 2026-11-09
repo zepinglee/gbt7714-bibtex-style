@@ -38,6 +38,7 @@ enumitem
 fancyvrb
 hypdoc
 hologo
+hyperref
 latexmk
 listings
 makeindex
