@@ -282,7 +282,10 @@
 \ExplSyntaxOff
 
 % Modified from natbib's thebibliography environment
-\newenvironment{biblist}{%
+% 与 gbt7714.sty 中的 thebibliography 保持同步；可选的标签宽度参数用于
+% 计算 \labelwidth，默认值 88 与之前硬编码的值一致，避免改变文档排版。
+% 示例中的段落较短，故仍注释掉 \sloppy。
+\newenvironment{biblist}[1][88]{%
   %  \bibsection
   \par
   \parindent\z@
@@ -291,13 +294,14 @@
   \gbt@bib@setup
   \hypersetup{hidelinks}%
   \bibfont
-  \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{88}\global\c@NAT@ctr\z@}%
+  \list{\@biblabel{\the\c@NAT@ctr}}{\@bibsetup{#1}\global\c@NAT@ctr\z@}%
   \ifNAT@openbib
     \renewcommand\newblock{\par}%
   \else
     \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
   \fi
   % \sloppy\clubpenalty4000\widowpenalty4000
+  \gbt@bib@list@setup
   \sfcode`\.\@m
   \let\NAT@bibitem@first@sw\@firstoftwo
      \let\citeN\cite \let\shortcite\cite
@@ -1124,7 +1128,7 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 
 
 \begin{variable}{initializewithhyphen}
-  \boolsyntax[true (2025), false (2015, 2005)]{initializewithhyphen}
+  \boolsyntax[true (2025, 2005, 1987), false (2015)]{initializewithhyphen}
   控制姓名缩写时是否保留连字符。
 
   \begin{citeexample}[title={\kvopt{initializewithhyphen}{true}}]
@@ -1156,7 +1160,7 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 
 
 \begin{variable}{initializepinyin}
-  \boolsyntax[false (2025), true (2015, 2005)]{initializepinyin}
+  \boolsyntax[false (2025, 2005), true (2015, 1987)]{initializepinyin}
   控制汉语拼音姓名是否缩写为首字母。
 
   \begin{citeexample}[title={\kvopt{initializepinyin}{false}}]
@@ -1740,6 +1744,15 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 \end{variable}
 
 
+% \subsubsection{析出文献的图书题名斜体}
+
+\begin{variable}{emphbooktitle}
+  \boolsyntax[false]{emphbooktitle}
+  控制析出文献的图书题名（\field{booktitle}）是否使用斜体。
+  该选项不影响中文文献。
+\end{variable}
+
+
 % \subsubsection{刊名缩写}
 
 \begin{variable}{shortjournal}
@@ -1791,7 +1804,30 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
   \end{bibexample}
 \end{variable}
 
-% \subsubsection{\opt{linktitle} 控制刊名是否有超链接}
+% \subsubsection{刊名是否有超链接}
+
+\begin{variable}{linkjournal}
+  \boolsyntax[false]{linkjournal}
+  控制期刊文章的刊名是否添加超链接。
+  链接地址优先取 \field{url} 字段，没有时使用 \field{doi} 字段。
+\end{variable}
+
+
+% \subsubsection{卷号是否使用粗体}
+
+\begin{variable}{boldvolume}
+  \boolsyntax[false]{boldvolume}
+  控制期刊文章的卷号是否使用粗体。
+\end{variable}
+
+
+% \subsubsection{\opt{linktitle} 控制题名是否有超链接}
+
+\begin{variable}{linktitle}
+  \boolsyntax[false]{linktitle}
+  控制题名是否添加超链接。
+  链接地址优先取 \field{url} 字段，没有时使用 \field{doi} 字段。
+\end{variable}
 
 
 % \subsubsection{无出版地、无出版者}
@@ -1833,6 +1869,13 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 
 % \subsubsection{\opt{spacebeforepages} 控制页码前是否有空格}
 
+\begin{variable}{spacebeforepages}
+  \boolsyntax[true]{spacebeforepages}
+  控制页码前（即冒号后）是否加空格。
+  设为 \opt{false} 时冒号后不加空格，仅在冒号后允许换行。
+  该选项仅影响非中文文献；中文文献使用全角冒号“：”，不受该选项影响。
+\end{variable}
+
 
 % \subsubsection{起止页码}
 
@@ -1852,6 +1895,15 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 
 
 % \subsubsection{\opt{urldate} 控制是否著录引用日期}
+
+\begin{variable}{urldate}
+  \boolsyntax[true]{urldate}
+  控制是否著录引用日期（\field{urldate} 字段）。
+  对于网站、网页、数据集、预印本等电子资源，引用日期是 2025 版国标要求著录的项目；
+  2005 和 2015 版仅当电子资源著录 URL 或 DOI 时才著录引用日期。
+  设为 \opt{false} 时不再输出引用日期。
+  该选项不影响 URL、DOI 等其他内容的著录。
+\end{variable}
 
 
 % \subsubsection{纸质文献著录 URL}
@@ -1983,6 +2035,17 @@ GB/T 7714—2025 《信息与文献\quad 参考文献著录规则》\cite{gbt771
 \begin{variable}{enddot}
   \boolsyntax[true]{enddot}
   控制每一条文献结尾是否用“.”号标识。
+\end{variable}
+
+
+% \subsubsection{字段缺失警告}
+
+\begin{variable}{bibwarn}
+  \boolsyntax[true]{bibwarn}
+  控制 \BibTeX{} 是否在文献条目缺少必需字段时输出警告，
+  如 \texttt{Warning--empty journal in ...}。
+  该选项只影响警告信息，不改变生成的参考文献表内容；
+  文献量较大时可以设为 \opt{false} 以减少日志输出。
 \end{variable}
 
 
