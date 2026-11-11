@@ -1559,15 +1559,28 @@ FUNCTION {extract.after}
 }
 
 FUNCTION {format.western.given.name}
-{ s nameptr "{ f.}" format.name$
-  duplicate$ "-" contains
-    { control.initialize.with.hyphen
-        'skip$
-        { "-" " " find.replace }
-      if$
-      smart.upper.case
-    }
+{ s nameptr "{ff}" format.name$
+  duplicate$ #1 #1 substring$
+  duplicate$ empty$
+    { pop$ " " }
     'skip$
+  if$
+  chr.to.int$ #128 <
+    { pop$
+      s nameptr "{ f.}" format.name$
+      duplicate$ "-" contains
+        { control.initialize.with.hyphen
+            'skip$
+            { "-" " " find.replace }
+          if$
+          smart.upper.case
+        }
+        'skip$
+      if$
+    }
+    % A non-ASCII initial cannot be abbreviated by format.name$ safely;
+    % keep the full given name instead of emitting a broken UTF-8 byte.
+    { " " swap$ * }
   if$
   s nameptr "{, jj}" format.name$ *
   "." "" find.replace

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 修正拼音姓名撇号分支导致的 BibTeX 栈错误。
 - `maxbibnames`/`maxcitenames` 设为 0 时输出全部姓名。
 - 韩文姓名不缩写。
+- 非 ASCII 字母开头的姓名不再被缩写为非法 UTF-8 字节。
 
 ## [3.1.1] - 2026-09-27
 
