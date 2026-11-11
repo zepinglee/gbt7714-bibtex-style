@@ -3007,11 +3007,16 @@ FUNCTION {format.newspaper.pages}
 FUNCTION {check.electronic}
 { entry.url empty$
     { url empty$
-        { howpublished field.or.null #1 #5 substring$ "\url{" =
-            { howpublished 'entry.url := }
-            { note field.or.null #1 #5 substring$ "\url{" =
-                { note "}" extract.before "}" * 'entry.url := }
-                'skip$
+        { archiveprefix eprinttype either.or "l" change.case$ "arxiv" =
+          eprint empty$ not and
+            { "\url{https://arxiv.org/abs/" eprint * "}" * 'entry.url := }
+            { howpublished field.or.null #1 #5 substring$ "\url{" =
+                { howpublished 'entry.url := }
+                { note field.or.null #1 #5 substring$ "\url{" =
+                    { note "}" extract.before "}" * 'entry.url := }
+                    'skip$
+                  if$
+                }
               if$
             }
           if$
@@ -3096,14 +3101,6 @@ FUNCTION {format.eprint}
         }
       if$
     }
-  if$
-  entry.url empty$
-    { duplicate$ "l" change.case$ "arxiv" = entry.eprint empty$ not and
-        { "\url{https://arxiv.org/abs/" entry.eprint * "}" * 'entry.url := }
-        'skip$
-      if$
-    }
-    'skip$
   if$
   control.eprint eprint empty$ not and
     { duplicate$ empty$

@@ -109,6 +109,20 @@
   langid        = {chinese}
 }
 
+% arXiv 预印本的 URL 由 eprint 拼接
+@preprint{gbt7714.8.15.2:3,
+  author        = {Jenkins, Stewart D. and Ruostekoski, Janne},
+  title         = {Controlled Manipulation of Light by Cooperative Response of Atoms in an Optical Lattice},
+  version       = {2},
+  archiveprefix = {arXiv},
+  eprint        = {1112.6136},
+  year          = {2012},
+  date          = {2012-03-18},
+  urldate       = {2020-06-24},
+  pubstate      = {prepublished},
+  langid        = {american}
+}
+
 % 预印本的各种格式
 % Exported from <https://chinaxiv.org/abs/202303.00020V1>
 @article{fang2023yuanyuzhou,

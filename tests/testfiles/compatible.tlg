@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -60,6 +60,13 @@ Einstein A.
 \newblock 国家基础学科公共科学数据中心\allowbreak （2023-09-10）\allowbreak[2025-07-15].
 \newblock \url{https://www.nbsdc.cn/general/dataLinks/CSTR:16666.11.nbsdc.tfpbwtqf}.
 
+\bibitem[Jenkins et~al.(2012)Jenkins and Ruostekoski]{gbt7714.8.15.2:3}
+Jenkins S~D，Ruostekoski J.
+\newblock Controlled manipulation of light by cooperative response of atoms in an optical lattice\allowbreak[PP/OL].
+\newblock V2.
+\newblock arXiv\allowbreak （2012-03-18）\allowbreak[2020-06-24].
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
 \bibitem[方向明\ 等(无日期)方向明和曹迎杰]{fang2023yuanyuzhou}
 方向明，曹迎杰.
 \newblock 元宇宙在图书馆的应用：理论研究与实践进展\allowbreak[J/OL].
@@ -95,7 +102,8 @@ Bai Shuai，Chen Keqin，Liu Xuejing，et~al.
 Cimini V，Sohoni M~M，Presutti F，et~al.
 \newblock Large-scale quantum reservoir computing using a gaussian boson sampler\allowbreak[PP/OL].
 \newblock arXiv\allowbreak （2025）.
-\newblock \url{https://doi.org/10.48550/ARXIV.2505.13695}.
+\newblock \url{https://arxiv.org/abs/2505.13695}.
+\newblock DOI:\doi{10.48550/ARXIV.2505.13695}.
 
 \end{thebibliography}
 
