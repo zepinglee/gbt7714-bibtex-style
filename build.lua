@@ -79,7 +79,7 @@ test_types = {
       local new_content = content
       local blg_path = source:gsub("%.%w+$", ".blg")
       if fileexists(blg_path) then
-        blg_message = get_blg_message(blg_path)
+        local blg_message = get_blg_message(blg_path)
         if blg_message ~= "" then
           new_content = new_content .. "\n" .. blg_message .. "\n"
         end
