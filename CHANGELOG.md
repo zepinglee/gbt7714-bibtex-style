@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- 修正 `maintitle` 缺少 `volume` 时的 BibTeX 栈错误和总书名丢失。
+
 ## [3.1.1] - 2026-09-27
 
 ### Change

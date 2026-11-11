@@ -2205,7 +2205,8 @@ FUNCTION {format.bvolume}
 FUNCTION {format.maintitle}
 { maintitle empty$
     { "" }
-    { mainsubtitle empty$
+    { maintitle
+      mainsubtitle empty$
         'skip$
         { add.colon.by.language mainsubtitle * }
       if$
