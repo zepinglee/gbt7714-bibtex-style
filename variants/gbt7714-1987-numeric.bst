@@ -417,8 +417,8 @@ FUNCTION {bbl.sine.nomine}
 
 FUNCTION {bbl.sine.loco.sine.nomine}
 { entry.lang lang.zh =
-    { "出版地不详: 出版者不详" }
-    { "S.l.: s.n." }
+    { "出版地不详：出版者不详" }
+    { "S.l.：s.n." }
   if$
 }
 
@@ -2771,7 +2771,7 @@ FUNCTION {format.address.publisher}
       entry.has.url.or.doi not control.unknown.publisher and
         { format.publisher empty$ not
             { bbl.sine.loco make.brackets add.colon format.publisher * }
-            { bbl.sine.loco.sine.nomine make.brackets }
+            { bbl.sine.loco.sine.nomine format.punctuations make.brackets }
           if$
         }
         { format.publisher empty$ not
