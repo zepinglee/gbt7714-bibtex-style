@@ -1631,7 +1631,7 @@ FUNCTION {is.given.name.pinyin}
                     { pop$ #0 }
                   if$
                 }
-                { pop$ #0 }
+                { pop$ pop$ #0 }
               if$
             }
             { duplicate$ is.capitalized
