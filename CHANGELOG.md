@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `maxbibnames`/`maxcitenames` 设为 0 时输出全部姓名。
 - 韩文姓名不缩写。
 - 非 ASCII 字母开头的姓名不再被缩写为非法 UTF-8 字节。
+- `uppercasefamily` 下 `\i`/`\j` 不再生成未定义的 `\I`/`\J`。
 
 ## [3.1.1] - 2026-09-27
 
