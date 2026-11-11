@@ -24,6 +24,7 @@ ctex
 everysel
 fandol
 fontspec
+hyperref
 xecjk
 xetex
 zhnumber
