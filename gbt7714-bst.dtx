@@ -2497,7 +2497,9 @@ FUNCTION {format.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$
-  duplicate$ lang.zh = swap$ lang.ja = or
+  duplicate$ lang.zh =
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { pop$
       s nameptr "{vv~}{ll}" format.name$
 %<*!(2015|2005|1987)>
@@ -2507,7 +2509,9 @@ FUNCTION {format.name}
           s nameptr "{ff}{, jj}" format.name$
 %</2015|2005|1987>
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         { pop$ }
       if$
@@ -2660,11 +2664,14 @@ FUNCTION {format.lab.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$ lang.zh =
-  swap$ lang.ja = or
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { s nameptr "{vv~}{ll}" format.name$
       s nameptr "{ff}{, jj}" format.name$
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         'pop$
       if$
