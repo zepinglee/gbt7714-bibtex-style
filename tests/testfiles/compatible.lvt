@@ -190,6 +190,48 @@
   keywords      = {Quantum Physics (quant-ph), FOS: Physical sciences, FOS: Physical sciences},
   publisher     = {arXiv},
 }
+
+% Space before the category: the space used to end up in the URL.
+@article{arxiv-space,
+  author  = {Doe, John},
+  title   = {arXiv identifier followed by a space},
+  journal = {arXiv:1112.6136 [cs.DL]},
+  year    = {2012},
+}
+
+% No space before the category: "[" used to end up in the URL.
+@article{arxiv-bracket,
+  author  = {Doe, John},
+  title   = {arXiv identifier followed by a bracket},
+  journal = {arXiv:1112.6136[cs.DL]},
+  year    = {2012},
+}
+
+% Semicolon and a note: "; some note" used to end up in the URL.
+@article{arxiv-semicolon,
+  author  = {Doe, John},
+  title   = {arXiv identifier followed by a semicolon},
+  journal = {arXiv:1112.6136; some note},
+  year    = {2012},
+}
+
+% Comma and a note: the comma used to end up in the URL.
+@article{arxiv-comma,
+  author  = {Doe, John},
+  title   = {arXiv identifier followed by a comma},
+  journal = {arXiv:1112.6136, see also the appendix},
+  year    = {2012},
+}
+
+% Space directly after the colon: used to yield an empty identifier, no URL
+% and the [PP] type instead of [PP/OL].
+@article{arxiv-colon-space,
+  author  = {Doe, John},
+  title   = {arXiv identifier with a space after the colon},
+  journal = {arXiv: 1112.6136},
+  year    = {2012},
+}
+
 \end{filecontents}
 
 

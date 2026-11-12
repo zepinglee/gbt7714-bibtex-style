@@ -2531,15 +2531,24 @@ FUNCTION {check.arxiv.preprint}
       while$
       charptr #0 >
         { x charptr #6 + global.max$ substring$ 'x :=
+          { x empty$ not
+            { x #1 #1 substring$ " " = }
+            { #0 }
+            if$
+          }
+            { x #2 global.max$ substring$ 'x := }
+          while$
           x string.length #1 + 'len :=
           #1 'charptr :=
             { charptr len <
               x charptr #1 substring$ " " = not and
               x charptr #1 substring$ "[" = not and
+              x charptr #1 substring$ ";" = not and
+              x charptr #1 substring$ "," = not and
             }
             { charptr #1 + 'charptr := }
           while$
-          x #1 charptr substring$
+          x #1 charptr #1 - substring$
           duplicate$ empty$
             'pop$
             { "\url{https://arxiv.org/abs/" swap$ * "}" * 'entry.url := }
