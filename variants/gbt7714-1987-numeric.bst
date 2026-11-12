@@ -3023,6 +3023,18 @@ FUNCTION {check.electronic}
   if$
 }
 
+FUNCTION {strip.doi.prefix}
+{ "https://doi.org/" "" find.replace
+  "http://doi.org/" "" find.replace
+  "https://dx.doi.org/" "" find.replace
+  "http://dx.doi.org/" "" find.replace
+}
+
+FUNCTION {strip.cstr.prefix}
+{ "https://cstr.cn/" "" find.replace
+  "http://cstr.cn/" "" find.replace
+}
+
 FUNCTION {format.url}
 { control.url require.url or
     { entry.url empty$
@@ -3030,10 +3042,10 @@ FUNCTION {format.url}
             { cstr empty$
                 { doi empty$
                     'skip$
-                    { "\url{https://doi.org/" doi * "}" * 'entry.url := }
+                    { "\url{https://doi.org/" doi strip.doi.prefix * "}" * 'entry.url := }
                   if$
                 }
-                { "\url{https://cstr.cn/" cstr * "}" * 'entry.url := }
+                { "\url{https://cstr.cn/" cstr strip.cstr.prefix * "}" * 'entry.url := }
               if$
             }
             'skip$
@@ -3060,7 +3072,7 @@ FUNCTION {format.doi}
             { control.url require.url or
               entry.url doi contains and
                 { "" }
-                { new.block "DOI:\doi{" doi * "}" * }
+                { new.block "DOI:\doi{" doi strip.doi.prefix * "}" * }
               if$
             }
           if$
@@ -3068,7 +3080,7 @@ FUNCTION {format.doi}
         { control.url require.url or
           entry.url cstr contains and
             { "" }
-            { new.block "CSTR:\cstr{" cstr * "}" * }
+            { new.block "CSTR:\cstr{" cstr strip.cstr.prefix * "}" * }
           if$
         }
       if$
