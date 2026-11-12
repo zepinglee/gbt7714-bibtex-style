@@ -2376,34 +2376,20 @@ FUNCTION {format.booktitle}
 { booktitle empty$
     { "" }
     { booktitle
+      booksubtitle empty$
+        'skip$
+        { ": " * booksubtitle * }
+      if$
+      booktitleaddon empty$
+        'skip$
+        { ": " * booktitleaddon * }
+      if$
       control.sentence.case.booktitle
         'change.sentence.case
         'skip$
       if$
-      booksubtitle empty$
-        'skip$
-        { add.colon
-          booksubtitle
-          control.sentence.case.booktitle
-            { "l" change.case$ }
-            'skip$
-          if$
-          *
-        }
-      if$
-      emphasize.book.title
-      booktitleaddon empty$
-        'skip$
-        { add.colon
-          booktitleaddon
-          control.sentence.case.booktitle
-            { "l" change.case$ }
-            'skip$
-          if$
-          *
-        }
-      if$
       format.punctuations
+      emphasize.book.title
     }
   if$
 }
