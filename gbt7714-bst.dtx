@@ -4769,8 +4769,8 @@ FUNCTION {inproceedings}
   if$
   new.slash
   booktitle empty$
-    { format.eventtitle "eventtitle" output.check }
-    { format.in.ed.booktitle "booktitle" output.check
+    { format.eventtitle "booktitle and eventtitle" output.check }
+    { format.in.ed.booktitle output
       new.block
       format.edition output
       new.block
