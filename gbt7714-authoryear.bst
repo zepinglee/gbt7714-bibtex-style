@@ -2260,7 +2260,7 @@ FUNCTION {format.maintitle}
 FUNCTION {format.maintitle.volume}
 { maintitle empty$
     { "" }
-    { maintitle
+    { format.maintitle
       volume empty$
         'skip$
         { add.colon.by.language
