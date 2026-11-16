@@ -272,10 +272,22 @@
     \ProcessKeysOptions { gbt7714 }
   }
 
+\IfPackageLoadedTF { natbib }
+  {
+    % natbib 已提前加载时 \PassOptionsToPackage 不会生效，直接设置其开关。
+    \bool_if:NTF \l__gbt_compress_bool
+      { \cs_set_nopar:Npn \NAT@cmprs { \@ne } }
+      { \cs_set_nopar:Npn \NAT@cmprs { \z@ } }
+    \bool_if:NTF \l__gbt_sort_bool
+      { \cs_set_nopar:Npn \NAT@sort { \@ne } }
+      { \cs_set_nopar:Npn \NAT@sort { \z@ } }
+  }
+  {
 \bool_if:NT \l__gbt_compress_bool
   { \PassOptionsToPackage { compress } { natbib } }
 \bool_if:NT \l__gbt_sort_bool
   { \PassOptionsToPackage { sort } { natbib } }
+  }
 
 \keys_define:nn { gbt7714 }
   {
