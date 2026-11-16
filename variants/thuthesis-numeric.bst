@@ -3811,7 +3811,7 @@ FUNCTION {boolean.to.int}
   if$
 }
 
-FUNCTION {GBT7714BSTCTL}
+FUNCTION {read.ctl}
 { CTL_bib_punct empty$
     'skip$
     { CTL_bib_punct 'control.bib.punct := }
@@ -4001,9 +4001,12 @@ FUNCTION {GBT7714BSTCTL}
   if$
 }
 
+FUNCTION {GBT7714BSTCTL}
+{ }
+
 FUNCTION {control.pass}
 { type$ "gbt7714bstctl" =
-    'GBT7714BSTCTL
+    'read.ctl
     'skip$
   if$
 }

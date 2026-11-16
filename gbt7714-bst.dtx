@@ -1308,7 +1308,7 @@ INTEGERS { a b }
 % Function |is.int.in.range| takes a codepoint and two integers and check if the
 % codepoint is between these two integers (inclusive).
 %    \begin{macrocode}
-% codepoint: int, a: int, b: int -> bool
+% a: int, b: int, codepoint: int -> bool
 % variable used: b
 FUNCTION {is.int.in.range}
 { 'b :=
@@ -1548,7 +1548,7 @@ FUNCTION {is.lower.ascii}
 
 %    \end{macrocode}
 %
-% Function |is.upper| takes a UTF-8 character and checks whether it is
+% Function |is.lower| takes a UTF-8 character and checks whether it is
 % lowercase in the range from |U+0000| to |U+017F|.
 %    \begin{macrocode}
 % char -> bool
@@ -5437,7 +5437,7 @@ FUNCTION {boolean.to.int}
   if$
 }
 
-FUNCTION {GBT7714BSTCTL}
+FUNCTION {read.ctl}
 { CTL_bib_punct empty$
     'skip$
     { CTL_bib_punct 'control.bib.punct := }
@@ -5629,9 +5629,14 @@ FUNCTION {GBT7714BSTCTL}
   if$
 }
 
+% The entry type of the control entry.  It only needs to produce no output;
+% the fields are read once by |control.pass|.
+FUNCTION {GBT7714BSTCTL}
+{ }
+
 FUNCTION {control.pass}
 { type$ "gbt7714bstctl" =
-    'GBT7714BSTCTL
+    'read.ctl
     'skip$
   if$
 }
