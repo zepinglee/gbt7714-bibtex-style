@@ -3294,8 +3294,6 @@ FUNCTION {book}
   new.block
   % 文献标准编号
   format.isbn output
-  new.block
-  format.note output
   fin.entry
 }
 
