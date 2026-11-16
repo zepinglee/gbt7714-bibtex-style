@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.2] - 2026-11-16
+
 ### Fixed
 
 - 修正 `maintitle` 缺少 `volume` 时的 BibTeX 栈错误和总书名丢失。
@@ -19,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.1.1] - 2026-09-27
 
-### Change
+### Changed
 
 - 带连字符拼音姓名（如“Li Jiang-Ning”）改为按照拼音规则处理（[#207](https://github.com/zepinglee/gbt7714-bibtex-style/issues/207)）。
 - 拼音缩写的空格改为不可断行空格。
@@ -30,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 添加 1987 年版国标样式 `gbt7714-1987-numeric` 和 `gbt7714-1987-authoryear`。
-- 新增专利的申请号字段 `applicationnumber`，用于区分公开号或公告号。
+- 新增专利的申请号字段 `applicationnumber`，用于区分申请号与公开号或公告号。
 
 ### Changed
 
@@ -76,7 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - 新增选项 `entrybreak` 控制是否允许参考文献表在一条文献中间分页。
-- 新增选项 `compress = true / false` 控制是否用短横线连接起讫序号（[200](https://github.com/zepinglee/gbt7714-bibtex-style/issues/200)）。
+- 新增选项 `compress = true / false` 控制是否用短横线连接起讫序号（[#200](https://github.com/zepinglee/gbt7714-bibtex-style/issues/200)）。
 
 ## [2.2.0] - 2026-05-03
 
@@ -109,7 +111,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `entrytypeid` 控制是否著录文献类型标识。
 - 新增选项 `spacebeforetypeid` 控制题名与文献类型标识之间是否有空格。
 - 新增选项 `entrymediumid` 控制是否著录文献载体标识。
-- 新增选项 `slash` 控制析出文献的出处是否使用"//"。
+- 新增选项 `slash` 控制析出文献的出处是否使用“//”。
 - 新增选项 `in` 控制专著的析出文献是否著录“In:”或“见：”。
 - 新增选项 `emphbooktitle` 控制析出文献的图书题名是否使用斜体。
 - 新增选项 `shortjournal` 控制刊名是否使用缩写。
@@ -119,7 +121,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 新增选项 `unknownpublisher` 控制无出版地或无出版者时是否著录“出版地不详”、“S.l.”、“出版者不详”、“s.n.”等内容。
 - 新增选项 `spacebeforepages` 控制页码前是否有空格。
 - 新增选项 `pageranges` 控制页码著录起止范围或首页。
-- 新增选项 `pagerangedelim` 起止页码的分隔符。
+- 新增选项 `pagerangedelim` 控制起止页码的分隔符。
 - 新增选项 `urldate` 控制是否著录引用日期。
 - 新增选项 `url` 控制纸质文献是否著录 URL。
 - 新增选项 `doi` 控制是否著录 DOI。
@@ -145,13 +147,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- DOI 的前缀“DOI: ”去掉空格。
+- 修正 DOI 前缀“DOI: ”中多余的空格。
 - 报纸的版次修正为使用 `pages` 字段，不再使用 `number` 字段。
 - 专利 `@patent` 优先使用专利申请者/所有者 `holder`，再使用发明者 `author`。
 - 修正英文文献的译者缺失“, trans.”的问题。
 - 按照语言习惯输出 `\citet*` 和 `\citep*` 完整姓名列表的格式。
 - 修正上标模式 `\citeauthor` 后多余的空白（[#120](https://github.com/zepinglee/gbt7714-bibtex-style/issues/120)）。
-
 
 ## [2.1.9] - 2026-01-15
 
@@ -196,17 +197,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.6] - 2024-03-08
 
-## Added
+### Added
 
-新增选项 `link.journal` 允许在期刊题名添加超链接（[#144](https://github.com/zepinglee/gbt7714-bibtex-style/issues/144)）。
+- 新增选项 `link.journal` 允许在期刊题名中添加超链接（[#144](https://github.com/zepinglee/gbt7714-bibtex-style/issues/144)）。
 
 ### Changed
 
-`@inbook` 改为按照是否有 `booktitle` 选择“专著”或“专著的析出文献”格式（[tuna/thuthesis#930](https://github.com/tuna/thuthesis/issues/930)）。
+- `@inbook` 改为按照是否有 `booktitle` 选择“专著”或“专著的析出文献”格式（[tuna/thuthesis#930](https://github.com/tuna/thuthesis/issues/930)）。
 
-## Fixed
+### Fixed
 
-修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113)）。
+- 修复 `not brace-balanced` 的警告（[#113](https://github.com/zepinglee/gbt7714-bibtex-style/issues/113)）。
 
 ## [2.1.5] - 2022-10-03
 
@@ -225,7 +226,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- 表示析出文献的“In:”改为编者姓名前。
+- 表示析出文献的“In:”改为置于编者姓名前。
 
 ### Removed
 
@@ -434,7 +435,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release.。
 
-[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.1...HEAD
+[Unreleased]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.2...HEAD
+[3.1.2]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.1...v3.1.0
 [3.0.1]: https://github.com/zepinglee/gbt7714-bibtex-style/compare/v3.0.0...v3.0.1

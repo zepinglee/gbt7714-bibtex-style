@@ -13,6 +13,7 @@ on:
 jobs:
 
   test:
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +32,7 @@ jobs:
         run: make doc
 
   test-historic:
+    if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     name: Test with TeX Live ${{ matrix.version }}
     strategy:
       fail-fast: false
@@ -47,7 +49,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up TeX Live
-        uses: zauguin/install-texlive@main
+        uses: zauguin/install-texlive@v4
         with:
           texlive_version: ${{ matrix.version }}
           package_file: .github/tl_packages

@@ -1,4 +1,4 @@
-# The format of this file is described in https://www.tug.org/texlive/pkgcontrib.html#deps.
+# <https://www.tug.org/texlive/pkgdepend.html>
 
 hard bibtex
 hard natbib
