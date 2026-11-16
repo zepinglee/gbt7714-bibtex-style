@@ -3202,7 +3202,12 @@ FUNCTION {link.close}
         'skip$
         { "" set.punct
           "}" output
-          before.all 'output.state :=
+          % A following URL is typeset right after the closing brace, while a
+          % DOI/CSTR identifier needs a new block with a sentence period.
+          url empty$
+            { after.block 'output.state := }
+            { before.all 'output.state := }
+          if$
         }
       if$
     }
