@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -105,6 +105,36 @@ Cimini V，Sohoni M~M，Presutti F，et~al.
 \newblock \url{https://arxiv.org/abs/2505.13695}.
 \newblock DOI:\doi{10.48550/ARXIV.2505.13695}.
 
+\bibitem[Doe(2012)]{arxiv-space}
+Doe J.
+\newblock arXiv identifier followed by a space\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Doe(2012)]{arxiv-bracket}
+Doe J.
+\newblock arXiv identifier followed by a bracket\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Doe(2012)]{arxiv-semicolon}
+Doe J.
+\newblock arXiv identifier followed by a semicolon\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Doe(2012)]{arxiv-comma}
+Doe J.
+\newblock arXiv identifier followed by a comma\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
+\bibitem[Doe(2012)]{arxiv-colon-space}
+Doe J.
+\newblock arXiv identifier with a space after the colon\allowbreak[PP/OL].
+\newblock arXiv\allowbreak （2012）.
+\newblock \url{https://arxiv.org/abs/1112.6136}.
+
 \end{thebibliography}
 
 % Warning--empty author in amd_epyc_2025
@@ -115,4 +145,9 @@ Cimini V，Sohoni M~M，Presutti F，et~al.
 % Warning--empty urldate in jenkins2012controlledmanipulationlightcooperative
 % Warning--empty urldate in bai2025qwen2
 % Warning--empty urldate in Cimini2025
-% (There were 8 warnings)
+% Warning--empty urldate in arxiv-space
+% Warning--empty urldate in arxiv-bracket
+% Warning--empty urldate in arxiv-semicolon
+% Warning--empty urldate in arxiv-comma
+% Warning--empty urldate in arxiv-colon-space
+% (There were 13 warnings)
