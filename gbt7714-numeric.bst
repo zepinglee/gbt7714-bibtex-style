@@ -1682,12 +1682,16 @@ FUNCTION {format.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$
-  duplicate$ lang.zh = swap$ lang.ja = or
+  duplicate$ lang.zh =
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { pop$
       s nameptr "{vv~}{ll}" format.name$
           s nameptr "{ff}{ jj}" format.name$
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         { pop$ }
       if$
@@ -1722,11 +1726,9 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { format.name 't :=
       nameptr #1 >
-        { control.max.bib.names #0 =
-            { #0 }
-            { numnames control.max.bib.names >
-              nameptr control.min.bib.names > and }
-          if$
+        { control.max.bib.names #0 >
+          numnames control.max.bib.names > and
+          nameptr control.min.bib.names > and
             { "others" 't :=
               #1 'namesleft :=
             }
@@ -1822,11 +1824,14 @@ FUNCTION {format.lab.name}
 { s nameptr "{vv~}{ll}{,~ff}{, jj}" format.name$
   get.str.lang
   duplicate$ lang.zh =
-  swap$ lang.ja = or
+  swap$ duplicate$ lang.ja =
+  swap$ lang.ko = or or
     { s nameptr "{vv~}{ll}" format.name$
       s nameptr "{ff}{, jj}" format.name$
       duplicate$ get.str.lang
-      duplicate$ lang.zh = swap$ lang.ja = or
+      duplicate$ lang.zh =
+      swap$ duplicate$ lang.ja =
+      swap$ lang.ko = or or
         { * }
         'pop$
       if$
@@ -4053,11 +4058,9 @@ FUNCTION {format.lab.names}
     { namesleft #0 > }
     { format.lab.name 't :=
       nameptr #1 >
-        { control.max.cite.names #0 =
-            { #0 }
-            { numnames control.max.cite.names >
-              nameptr control.min.cite.names > and }
-          if$
+        { control.max.cite.names #0 >
+          numnames control.max.cite.names > and
+          nameptr control.min.cite.names > and
             { "others" 't :=
               #1 'namesleft :=
             }
