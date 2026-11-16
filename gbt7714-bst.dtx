@@ -2547,7 +2547,8 @@ FUNCTION {format.names}
     { namesleft #0 > }
     { format.name 't :=
       nameptr #1 >
-        { numnames control.max.bib.names >
+        { control.max.bib.names #0 >
+          numnames control.max.bib.names > and
           nameptr control.min.bib.names > and
             { "others" 't :=
               #1 'namesleft :=
@@ -5812,7 +5813,8 @@ FUNCTION {format.lab.names}
     { namesleft #0 > }
     { format.lab.name 't :=
       nameptr #1 >
-        { numnames control.max.cite.names >
+        { control.max.cite.names #0 >
+          numnames control.max.cite.names > and
           nameptr control.min.cite.names > and
             { "others" 't :=
               #1 'namesleft :=
