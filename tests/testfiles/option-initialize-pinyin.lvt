@@ -40,6 +40,10 @@
   author = {Zhao, Ping'an}
 }
 
+@book{zhao2,
+  author = {Zhao, ping'an}
+}
+
 % 5.1.2 由双姓组合（并列姓氏）作为姓氏部分，双姓中间加连接号。
 @book{zheng-li,
   author = {Zheng-Li, Shufang}
