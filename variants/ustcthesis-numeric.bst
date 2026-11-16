@@ -1158,12 +1158,20 @@ FUNCTION {all.to.upper}
 
 FUNCTION {command.to.upper}
 { duplicate$ "" =
-    { "command.to.lower: Empty string is not a texchar!" warning$ }
+    { "command.to.upper: Empty string is not a texchar!" warning$ }
     { duplicate$ #1 #1 substring$ #92 int.to.chr$ =
         { duplicate$ is.special.char.command
-             'all.to.upper
-             'skip$
-           if$
+            { duplicate$ "\i" =
+                { pop$ "I" }
+                { duplicate$ "\j" =
+                    { pop$ "J" }
+                    'all.to.upper
+                  if$
+                }
+              if$
+            }
+            'skip$
+          if$
         }
         'to.upper
       if$
